@@ -9,11 +9,13 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.model.ThemeUnlock
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.SectionHeader
 import com.vexel.offlinearcade.core.ui.StatRow
 
@@ -30,11 +32,30 @@ fun SettingsScreen(
     onUnlockTheme: (String) -> Unit,
     onBack: () -> Unit,
 ) {
-    ArcadeScaffold(title = "Settings", onBack = onBack) {
+    ArcadeScaffold(
+        title = "Settings",
+        onBack = onBack,
+        screenTestTag = ArcadeTestTags.SettingsScreen,
+    ) {
         SectionHeader(title = "Audio and feel", subtitle = "Simple app-wide preferences saved locally with DataStore.")
-        ToggleCard(label = "Sound", checked = settings.soundEnabled, onCheckedChange = onToggleSound)
-        ToggleCard(label = "Music", checked = settings.musicEnabled, onCheckedChange = onToggleMusic)
-        ToggleCard(label = "Vibration", checked = settings.vibrationEnabled, onCheckedChange = onToggleVibration)
+        ToggleCard(
+            label = "Sound",
+            checked = settings.soundEnabled,
+            onCheckedChange = onToggleSound,
+            modifier = Modifier.testTag(ArcadeTestTags.SoundToggle),
+        )
+        ToggleCard(
+            label = "Music",
+            checked = settings.musicEnabled,
+            onCheckedChange = onToggleMusic,
+            modifier = Modifier.testTag(ArcadeTestTags.MusicToggle),
+        )
+        ToggleCard(
+            label = "Vibration",
+            checked = settings.vibrationEnabled,
+            onCheckedChange = onToggleVibration,
+            modifier = Modifier.testTag(ArcadeTestTags.VibrationToggle),
+        )
 
         SectionHeader(title = "Themes", subtitle = "Unlock cosmetic themes with coins. No internet required.")
         themes.forEach { theme ->
@@ -79,8 +100,9 @@ private fun ToggleCard(
     label: String,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    ArcadeCard {
+    ArcadeCard(modifier = modifier) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(label, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
             Switch(checked = checked, onCheckedChange = onCheckedChange)

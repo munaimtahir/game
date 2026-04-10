@@ -12,6 +12,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.vexel.offlinearcade.core.model.DailyChallenge
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.SectionHeader
 import com.vexel.offlinearcade.core.ui.StatRow
 
@@ -20,7 +21,11 @@ fun ChallengesScreen(
     challenges: List<DailyChallenge>,
     onBack: () -> Unit,
 ) {
-    ArcadeScaffold(title = "Daily Challenges", onBack = onBack) {
+    ArcadeScaffold(
+        title = "Daily Challenges",
+        onBack = onBack,
+        screenTestTag = ArcadeTestTags.ChallengesScreen,
+    ) {
         SectionHeader(
             title = "Offline seeded each day",
             subtitle = "One task per game plus one arcade-wide bundle. Rewards claim automatically on completion.",

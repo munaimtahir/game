@@ -36,6 +36,7 @@ import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.HudPill
 import kotlin.math.min
 import kotlin.random.Random
@@ -205,7 +206,12 @@ fun LaneDriftScreen(
         )
     }
 
-    ArcadeScaffold(title = "Lane Drift", onBack = onBack, scrollable = false) {
+    ArcadeScaffold(
+        title = "Lane Drift",
+        onBack = onBack,
+        scrollable = false,
+        screenTestTag = ArcadeTestTags.LaneDriftScreen,
+    ) {
         val surface = MaterialTheme.colorScheme.surface
         val primaryContainer = MaterialTheme.colorScheme.primaryContainer
         val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant

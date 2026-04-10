@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml:2:13-83
-INJECTED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml:2:13-83
+ADDED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml:2:13-83
+INJECTED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml:2:13-83
 	package
-		INJECTED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml
+		INJECTED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml
 	xmlns:android
-		ADDED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml:2:23-81
+		ADDED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml:2:23-81
 uses-sdk
-INJECTED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml reason: use-sdk injection requested
-INJECTED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml
-INJECTED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml
+INJECTED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml reason: use-sdk injection requested
+INJECTED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml
+INJECTED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml
 	android:targetSdkVersion
-		INJECTED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml
+		INJECTED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml
 	android:minSdkVersion
-		INJECTED from /home/munaim/srv/apps/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10922424799674828672.xml
+		INJECTED from /home/munaim/Documents/github/game/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5872822629869002188.xml

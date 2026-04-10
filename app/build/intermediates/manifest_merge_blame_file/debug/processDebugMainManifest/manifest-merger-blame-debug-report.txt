@@ -20,36 +20,36 @@
 15-->[androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/fc843553c506dc16a44050dc0ee8f84b/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:4:5-19:19
+17-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:4:5-19:19
 18        android:allowBackup="true"
-18-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:5:9-35
+18-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:5:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 19-->[androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/fc843553c506dc16a44050dc0ee8f84b/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 20        android:debuggable="true"
 21        android:extractNativeLibs="false"
 22        android:label="@string/app_name"
-22-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:6:9-41
+22-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:6:9-41
 23        android:supportsRtl="true"
-23-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:7:9-35
+23-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:7:9-35
 24        android:theme="@style/Theme.OfflineMiniArcade" >
-24-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:8:9-55
+24-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:8:9-55
 25        <activity
-25-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:9:9-18:20
+25-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:9:9-18:20
 26            android:name="com.vexel.offlinearcade.MainActivity"
-26-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:10:13-41
+26-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:10:13-41
 27            android:exported="true"
-27-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:11:13-36
+27-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:11:13-36
 28            android:theme="@style/Theme.OfflineMiniArcade" >
-28-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:12:13-59
+28-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:12:13-59
 29            <intent-filter>
-29-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:13:13-17:29
+29-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:13:13-17:29
 30                <action android:name="android.intent.action.MAIN" />
-30-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:14:17-69
-30-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:14:25-66
+30-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:14:17-69
+30-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:14:25-66
 31
 32                <category android:name="android.intent.category.LAUNCHER" />
-32-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:16:17-77
-32-->/home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:16:27-74
+32-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:16:17-77
+32-->/home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:16:27-74
 33            </intent-filter>
 34        </activity>
 35        <activity

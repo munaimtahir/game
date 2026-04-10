@@ -1,0 +1,26 @@
+INFO: Constructing runner from config.
+INFO: Configuring Android Instrumentation driver: android_instrumentation_runtime {
+  instrumentation_info {
+    app_package: "com.vexel.offlinearcade"
+    test_package: "com.vexel.offlinearcade.test"
+    test_runner_class: "androidx.test.runner.AndroidJUnitRunner"
+  }
+  instrumentation_args {
+    args_map {
+      key: "additionalTestOutputDir"
+      value: "/sdcard/Android/media/com.vexel.offlinearcade/additional_test_output"
+    }
+  }
+}
+am_instrument_timeout: 31536000
+
+INFO: No installables found in test fixture. Nothing to install.
+INFO: Installing [/home/munaim/Documents/github/game/app/build/outputs/apk/debug/app-debug.apk] on device 34081500040008N.
+INFO: Installing [/home/munaim/Documents/github/game/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk] on device 34081500040008N.
+INFO: Start logcat streaming.
+INFO: Running Android Instrumentation driver.
+INFO: Stop logcat streaming.
+INFO: Uninstalling com.vexel.offlinearcade for device 34081500040008N.
+INFO: Uninstalling com.vexel.offlinearcade.test for device 34081500040008N.
+INFO: Execute com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes: PASSED
+INFO: Execute com.vexel.offlinearcade.SettingsPersistenceSmokeTest.settingsScreenSurvivesActivityRecreate: PASSED

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.vexel.offlinearcade.NavigationSmokeTest" tests="2" failures="0" errors="0" skipped="0" time="19.175" timestamp="2026-04-10T21:17:18" hostname="localhost">
+  <properties>
+    <property name="device" value="V2109 - 13" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="homeNavigatesToAllCoreRoutes" classname="com.vexel.offlinearcade.NavigationSmokeTest" time="13.985" />
+  <testcase name="settingsScreenSurvivesActivityRecreate" classname="com.vexel.offlinearcade.SettingsPersistenceSmokeTest" time="3.584" />
+</testsuite>

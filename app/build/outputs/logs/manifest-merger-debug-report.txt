@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:2:1-21:12
-INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:2:1-21:12
-INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:2:1-21:12
-INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:2:1-21:12
-MERGED from [:core:data] /home/munaim/srv/apps/game/core/data/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:core:common] /home/munaim/srv/apps/game/core/common/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:feature:home] /home/munaim/srv/apps/game/feature/home/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:feature:challenges] /home/munaim/srv/apps/game/feature/challenges/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:feature:stats] /home/munaim/srv/apps/game/feature/stats/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:feature:settings] /home/munaim/srv/apps/game/feature/settings/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:game:pulseorbit] /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:game:lanedrift] /home/munaim/srv/apps/game/game/lanedrift/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:game:stackdrop] /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:core:ui] /home/munaim/srv/apps/game/core/ui/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
-MERGED from [:core:model] /home/munaim/srv/apps/game/core/model/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:2:1-21:12
+MERGED from [:core:data] /home/munaim/Documents/github/game/core/data/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:core:common] /home/munaim/Documents/github/game/core/common/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:feature:home] /home/munaim/Documents/github/game/feature/home/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:feature:challenges] /home/munaim/Documents/github/game/feature/challenges/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:feature:stats] /home/munaim/Documents/github/game/feature/stats/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:feature:settings] /home/munaim/Documents/github/game/feature/settings/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:game:pulseorbit] /home/munaim/Documents/github/game/game/pulseorbit/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:game:lanedrift] /home/munaim/Documents/github/game/game/lanedrift/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:game:stackdrop] /home/munaim/Documents/github/game/game/stackdrop/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:core:ui] /home/munaim/Documents/github/game/core/ui/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:core:model] /home/munaim/Documents/github/game/core/model/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.12.0] /home/munaim/.gradle/caches/transforms-4/d25e81a5eda1a35d699e8319d071971b/transformed/material-1.12.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/munaim/.gradle/caches/transforms-4/9e011f50043806fcef1e0b9f5cc50d2c/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/munaim/.gradle/caches/transforms-4/3d631a4e6ff21fb3d6a9100bd540e0cc/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -100,16 +100,16 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /home/munaim/.gradle/cach
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/munaim/.gradle/caches/transforms-4/2ffb8573ee8308f678caf47a8c74d0a5/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /home/munaim/.gradle/caches/transforms-4/f60ac103218de9a2f244a42bcb1132d0/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 	package
-		INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml
+		INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml
+		INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml
+		INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:4:5-19:19
-INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:4:5-19:19
+ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:4:5-19:19
+INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:4:5-19:19
 MERGED from [com.google.android.material:material:1.12.0] /home/munaim/.gradle/caches/transforms-4/d25e81a5eda1a35d699e8319d071971b/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] /home/munaim/.gradle/caches/transforms-4/d25e81a5eda1a35d699e8319d071971b/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/munaim/.gradle/caches/transforms-4/9e011f50043806fcef1e0b9f5cc50d2c/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
@@ -133,61 +133,61 @@ MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/munaim/.gra
 MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/7480bc1678c799fc704532b612533458/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.startup:startup-runtime:1.1.1] /home/munaim/.gradle/caches/transforms-4/7480bc1678c799fc704532b612533458/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
 	android:extractNativeLibs
-		INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml
+		INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/fc843553c506dc16a44050dc0ee8f84b/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:7:9-35
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:7:9-35
 	android:label
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:6:9-41
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:6:9-41
 	android:allowBackup
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:5:9-35
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:5:9-35
 	android:theme
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:8:9-55
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:8:9-55
 activity#com.vexel.offlinearcade.MainActivity
-ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:9:9-18:20
+ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:9:9-18:20
 	android:exported
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:11:13-36
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:11:13-36
 	android:theme
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:12:13-59
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:12:13-59
 	android:name
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:10:13-41
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:10:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:13:13-17:29
+ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:14:17-69
+ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:14:25-66
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:16:17-77
+ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml:16:27-74
+		ADDED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml:16:27-74
 uses-sdk
-INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml
-INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml
-MERGED from [:core:data] /home/munaim/srv/apps/game/core/data/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:core:data] /home/munaim/srv/apps/game/core/data/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:core:common] /home/munaim/srv/apps/game/core/common/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:core:common] /home/munaim/srv/apps/game/core/common/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:feature:home] /home/munaim/srv/apps/game/feature/home/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:feature:home] /home/munaim/srv/apps/game/feature/home/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:feature:challenges] /home/munaim/srv/apps/game/feature/challenges/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:feature:challenges] /home/munaim/srv/apps/game/feature/challenges/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:feature:stats] /home/munaim/srv/apps/game/feature/stats/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:feature:stats] /home/munaim/srv/apps/game/feature/stats/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:feature:settings] /home/munaim/srv/apps/game/feature/settings/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:feature:settings] /home/munaim/srv/apps/game/feature/settings/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:game:pulseorbit] /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:game:pulseorbit] /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:game:lanedrift] /home/munaim/srv/apps/game/game/lanedrift/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:game:lanedrift] /home/munaim/srv/apps/game/game/lanedrift/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:game:stackdrop] /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:game:stackdrop] /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:core:ui] /home/munaim/srv/apps/game/core/ui/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:core:ui] /home/munaim/srv/apps/game/core/ui/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:core:model] /home/munaim/srv/apps/game/core/model/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
-MERGED from [:core:model] /home/munaim/srv/apps/game/core/model/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml
+INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml
+MERGED from [:core:data] /home/munaim/Documents/github/game/core/data/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:core:data] /home/munaim/Documents/github/game/core/data/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:core:common] /home/munaim/Documents/github/game/core/common/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:core:common] /home/munaim/Documents/github/game/core/common/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:feature:home] /home/munaim/Documents/github/game/feature/home/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:feature:home] /home/munaim/Documents/github/game/feature/home/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:feature:challenges] /home/munaim/Documents/github/game/feature/challenges/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:feature:challenges] /home/munaim/Documents/github/game/feature/challenges/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:feature:stats] /home/munaim/Documents/github/game/feature/stats/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:feature:stats] /home/munaim/Documents/github/game/feature/stats/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:feature:settings] /home/munaim/Documents/github/game/feature/settings/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:feature:settings] /home/munaim/Documents/github/game/feature/settings/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:game:pulseorbit] /home/munaim/Documents/github/game/game/pulseorbit/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:game:pulseorbit] /home/munaim/Documents/github/game/game/pulseorbit/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:game:lanedrift] /home/munaim/Documents/github/game/game/lanedrift/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:game:lanedrift] /home/munaim/Documents/github/game/game/lanedrift/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:game:stackdrop] /home/munaim/Documents/github/game/game/stackdrop/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:game:stackdrop] /home/munaim/Documents/github/game/game/stackdrop/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:core:ui] /home/munaim/Documents/github/game/core/ui/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:core:ui] /home/munaim/Documents/github/game/core/ui/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:core:model] /home/munaim/Documents/github/game/core/model/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:core:model] /home/munaim/Documents/github/game/core/model/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.material:material:1.12.0] /home/munaim/.gradle/caches/transforms-4/d25e81a5eda1a35d699e8319d071971b/transformed/material-1.12.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.12.0] /home/munaim/.gradle/caches/transforms-4/d25e81a5eda1a35d699e8319d071971b/transformed/material-1.12.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/munaim/.gradle/caches/transforms-4/9e011f50043806fcef1e0b9f5cc50d2c/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
@@ -357,9 +357,9 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/m
 MERGED from [androidx.print:print:1.0.0] /home/munaim/.gradle/caches/transforms-4/f60ac103218de9a2f244a42bcb1132d0/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] /home/munaim/.gradle/caches/transforms-4/f60ac103218de9a2f244a42bcb1132d0/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml
+		INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/munaim/srv/apps/game/app/src/main/AndroidManifest.xml
+		INJECTED from /home/munaim/Documents/github/game/app/src/main/AndroidManifest.xml
 activity#androidx.compose.ui.tooling.PreviewActivity
 ADDED from [androidx.compose.ui:ui-tooling-android:1.6.8] /home/munaim/.gradle/caches/transforms-4/648b6c5d4d2dce910c89776dc7aced65/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
 	android:exported

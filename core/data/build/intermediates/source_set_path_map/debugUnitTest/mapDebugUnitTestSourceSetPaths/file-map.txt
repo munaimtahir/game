@@ -14,10 +14,10 @@ com.vexel.offlinearcade.core.data.test.data-sqlite-2.4.0-12 /home/munaim/.gradle
 com.vexel.offlinearcade.core.data.test.data-annotation-experimental-1.4.0-13 /home/munaim/.gradle/caches/transforms-4/eb2d8a6bd0949e913c26b94157586a14/transformed/annotation-experimental-1.4.0/res
 com.vexel.offlinearcade.core.data.test.data-core-ktx-1.13.1-14 /home/munaim/.gradle/caches/transforms-4/edafcfb1fd0a188caee3179de23d1a5c/transformed/core-ktx-1.13.1/res
 com.vexel.offlinearcade.core.data.test.data-core-1.13.1-15 /home/munaim/.gradle/caches/transforms-4/fc843553c506dc16a44050dc0ee8f84b/transformed/core-1.13.1/res
-com.vexel.offlinearcade.core.data.test.data-debug-16 /home/munaim/srv/apps/game/core/common/build/intermediates/packaged_res/debug/packageDebugResources
-com.vexel.offlinearcade.core.data.test.data-test-17 /home/munaim/srv/apps/game/core/data/build/generated/res/resValues/test/debug
-com.vexel.offlinearcade.core.data.test.data-mergeDebugUnitTestResources-18 /home/munaim/srv/apps/game/core/data/build/intermediates/incremental/debugUnitTest/mergeDebugUnitTestResources/merged.dir
-com.vexel.offlinearcade.core.data.test.data-mergeDebugUnitTestResources-19 /home/munaim/srv/apps/game/core/data/build/intermediates/incremental/debugUnitTest/mergeDebugUnitTestResources/stripped.dir
-com.vexel.offlinearcade.core.data.test.data-debugUnitTest-20 /home/munaim/srv/apps/game/core/data/build/intermediates/merged_res/debugUnitTest/mergeDebugUnitTestResources
-com.vexel.offlinearcade.core.data.test.data-debug-21 /home/munaim/srv/apps/game/core/data/build/intermediates/packaged_res/debug/packageDebugResources
-com.vexel.offlinearcade.core.data.test.data-debug-22 /home/munaim/srv/apps/game/core/model/build/intermediates/packaged_res/debug/packageDebugResources
+com.vexel.offlinearcade.core.data.test.data-debug-16 /home/munaim/Documents/github/game/core/common/build/intermediates/packaged_res/debug/packageDebugResources
+com.vexel.offlinearcade.core.data.test.data-test-17 /home/munaim/Documents/github/game/core/data/build/generated/res/resValues/test/debug
+com.vexel.offlinearcade.core.data.test.data-mergeDebugUnitTestResources-18 /home/munaim/Documents/github/game/core/data/build/intermediates/incremental/debugUnitTest/mergeDebugUnitTestResources/merged.dir
+com.vexel.offlinearcade.core.data.test.data-mergeDebugUnitTestResources-19 /home/munaim/Documents/github/game/core/data/build/intermediates/incremental/debugUnitTest/mergeDebugUnitTestResources/stripped.dir
+com.vexel.offlinearcade.core.data.test.data-debugUnitTest-20 /home/munaim/Documents/github/game/core/data/build/intermediates/merged_res/debugUnitTest/mergeDebugUnitTestResources
+com.vexel.offlinearcade.core.data.test.data-debug-21 /home/munaim/Documents/github/game/core/data/build/intermediates/packaged_res/debug/packageDebugResources
+com.vexel.offlinearcade.core.data.test.data-debug-22 /home/munaim/Documents/github/game/core/model/build/intermediates/packaged_res/debug/packageDebugResources

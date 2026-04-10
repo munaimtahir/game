@@ -38,6 +38,7 @@ import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.HudPill
 import kotlinx.coroutines.flow.collectLatest
 
@@ -103,7 +104,12 @@ fun StackDropScreen(
         )
     }
 
-    ArcadeScaffold(title = "Stack Drop", onBack = onBack, scrollable = false) {
+    ArcadeScaffold(
+        title = "Stack Drop",
+        onBack = onBack,
+        scrollable = false,
+        screenTestTag = ArcadeTestTags.StackDropScreen,
+    ) {
         val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant
         BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
             val compactHud = maxWidth < 360.dp

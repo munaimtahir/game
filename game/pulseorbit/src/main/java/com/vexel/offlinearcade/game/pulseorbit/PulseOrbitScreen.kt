@@ -39,6 +39,7 @@ import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.HudPill
 import kotlin.math.PI
 import kotlin.math.cos
@@ -136,7 +137,12 @@ fun PulseOrbitScreen(
         )
     }
 
-    ArcadeScaffold(title = "Pulse Orbit", onBack = onBack, scrollable = false) {
+    ArcadeScaffold(
+        title = "Pulse Orbit",
+        onBack = onBack,
+        scrollable = false,
+        screenTestTag = ArcadeTestTags.PulseOrbitScreen,
+    ) {
         val primaryContainer = MaterialTheme.colorScheme.primaryContainer
         val primary = MaterialTheme.colorScheme.primary
         val tertiary = MaterialTheme.colorScheme.tertiary

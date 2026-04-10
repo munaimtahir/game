@@ -1,0 +1,228 @@
+04-11 02:17:13.013 24514 24861 I TestRunner: started: settingsScreenSurvivesActivityRecreate(com.vexel.offlinearcade.SettingsPersistenceSmokeTest)
+04-11 02:17:13.017   553   553 D BufferQueueConsumer: [](id:22900000012,api:0,p:-1,c:553) connect: controlledByApp=false
+04-11 02:17:13.029 24514 24861 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.junit4.EspressoLink@e79e055]
+04-11 02:17:13.051 25076 25101 I GED     : ged_boost_gpu_freq, level 100, eOrigin 2, final_idx 29, oppidx_max 29, oppidx_min 0
+04-11 02:17:13.053 24514 24861 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+04-11 02:17:13.054   553   952 D BLASTBufferQueue: [VRI[Launcher]#18](f:0,a:1) acquireNextBufferLocked size=1080x2408 mFrameNumber=1 applyTransaction=true mTimestamp=47476518582444(auto) mPendingTransactions.size=0 graphicBufferId=2375116914761 transform=0
+04-11 02:17:13.060   553   553 I buuu    : onStart
+04-11 02:17:13.086   553   553 I bsrn    : (REDACTED) [%s] onStart()
+04-11 02:17:13.087   553   553 I bstt    : Reloading theme data
+04-11 02:17:13.118   553   553 I buuu    : onResume
+04-11 02:17:13.329 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@1ffa509 in: PRE_ON_CREATE
+04-11 02:17:13.330 24514 24514 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+04-11 02:17:13.354 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@1ffa509 in: CREATED
+04-11 02:17:13.354 24514 24514 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.vexel.offlinearcade.MainActivity@1ffa509
+04-11 02:17:13.359 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@1ffa509 in: STARTED
+04-11 02:17:13.360 24514 24514 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.vexel.offlinearcade.MainActivity@1ffa509
+04-11 02:17:13.363 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@1ffa509 in: RESUMED
+04-11 02:17:13.364 24514 24514 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.vexel.offlinearcade.MainActivity@1ffa509
+04-11 02:17:13.443   553   553 I buuu    : onPause
+04-11 02:17:13.448   553   553 I buuu    : onStop
+04-11 02:17:13.460 24514 24514 D ToneGenerator: ToneGenerator constructor: streamType=3, volume=0.042170
+04-11 02:17:13.463 24514 24514 D ToneGenerator: AudioTrack(0xb400007af32be010) created
+04-11 02:17:13.464 24514 24514 D AudioTrack: INSP: type=audio,case=1,set=0xb400007af32be010,stream_type=-1,sample_rate=48000,format=0x1,channel_mask=0x1,frame_count=960,flags=0x4,notification_frames=0,session_id=0,transfer_type=1,uid=-1,pid=-1
+04-11 02:17:13.464 24514 24514 D AudioTrack: INSP: type=audio,case=1,attributes=1,content_type=0,usage=1,source=0,flags=0x0
+04-11 02:17:13.470 24514 24514 D AudioSystem: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:13.471 24514 24514 D AudioSystem: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:13.472 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:13.472 24514 24514 D AudioTrack: set(): Building AudioTrack with attributes: usage=1 content=0 flags=0x0 tags=[]
+04-11 02:17:13.472 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:13.472 24514 24514 D AudioSystem: +setParameters(): PlaybackCaptureProtectSupport=com.vexel.offlinearcade
+04-11 02:17:13.472 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:13.473 24514 24514 D AudioTrack: get APPSharePck NULL
+04-11 02:17:13.473 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:13.473 24514 24514 D AudioTrack: set(): Building AudioTrack with attributes: usage = 1, content = 0, flags = 0x0, tags = []
+04-11 02:17:13.473 24514 24514 D AudioTrack: want to change usage for game mode
+04-11 02:17:13.473 24514 24514 D AudioTrack: set(): 0xb400007af32be010, Create AudioTrackThread, tid = 25156
+04-11 02:17:13.494 24514 24514 I AudioTrack: createTrack_l(-1): AUDIO_OUTPUT_FLAG_FAST successful; frameCount 960 -> 960
+04-11 02:17:13.494 24514 24514 D AudioTrack: createTrack_l(739): 0xb400007af32be010, mCblk = 0x7c7a4e2000, mLatency = 72, mAfLatency = 52, frameCount = 960, mSampleRate = 48000, mFlags = 0x4, mReqFrameCount = 960, mNotificationFramesAct = 256
+04-11 02:17:13.494 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:13.495 24514 24514 D AudioTrack: setVolume(739): 0xb400007af32be010, left = 0.042170, right = 0.042170
+04-11 02:17:13.495 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:13.581   553   553 D BLASTBufferQueue: [VRI[Launcher]#18](f:0,a:0) destructor()
+04-11 02:17:13.582   553   553 D BufferQueueConsumer: [VRI[Launcher]#18(BLAST Consumer)18](id:22900000012,api:0,p:-1,c:553) disconnect
+04-11 02:17:13.689 21889 22041 D DurationCollector: updateRecord. beginDate = 2026-04-11, isSameDay = true, infos = [{"appVerCode":4062668,"beginTime":1775851641336,"delayTickCount":0,"duration":135571},{"appVerCode":4062668,"beginTime":1775852137980,"delayTickCount":0,"duration":45280},{"appVerCode":4062668,"beginTime":1775852214281,"delayTickCount":0,"duration":587116},{"appVerCode":4062668,"beginTime":1775854797326,"delayTickCount":0,"duration":1036347}]
+04-11 02:17:13.854 24514 24514 D BufferQueueConsumer: [](id:5fc200000001,api:0,p:-1,c:24514) connect: controlledByApp=false
+04-11 02:17:13.866  4585  4585 I flutter : RecordingManagerPage: 开始刷新录音列表
+04-11 02:17:13.875  4585  4585 I flutter : Android录音目录: /storage/emulated/0/Android/data/com.lensmoo.app/files/media/no_storage_audio
+04-11 02:17:13.875  4585  4585 I flutter : === 录音目录调试信息 ===
+04-11 02:17:13.875  4585  4585 I flutter : 当前平台: android
+04-11 02:17:13.875  4585  4585 I flutter : 录音目录路径: /storage/emulated/0/Android/data/com.lensmoo.app/files/media/no_storage_audio
+04-11 02:17:13.875  4585  4585 I flutter : 目录是否存在: true
+04-11 02:17:13.875  4585  4585 I flutter : === 调试信息结束 ===
+04-11 02:17:13.883  4585  4585 I flutter : Android录音目录: /storage/emulated/0/Android/data/com.lensmoo.app/files/media/no_storage_audio
+04-11 02:17:13.883  4585  4585 I flutter : 录音文件目录: /storage/emulated/0/Android/data/com.lensmoo.app/files/media/no_storage_audio
+04-11 02:17:13.884  4585  4585 I flutter : 加载了 0 个录音文件
+04-11 02:17:13.915 25076 25076 D BLASTBufferQueue: [VRI[InstrumentationActivityInvoker$EmptyActivity]#0](f:0,a:0) destructor()
+04-11 02:17:13.915 25076 25076 D BufferQueueConsumer: [VRI[InstrumentationActivityInvoker$EmptyActivity]#0(BLAST Consumer)0](id:61f400000000,api:0,p:-1,c:25076) disconnect
+04-11 02:17:13.954 24514 24875 D BLASTBufferQueue: [VRI[MainActivity]#1](f:0,a:1) acquireNextBufferLocked size=1080x2408 mFrameNumber=1 applyTransaction=true mTimestamp=47477418949290(auto) mPendingTransactions.size=0 graphicBufferId=105286828294151 transform=0
+04-11 02:17:13.957 24514 24875 W Parcel  : Expecting binder but got null!
+04-11 02:17:13.959 24514 24514 I Choreographer: Skipped 32 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:13.975  1644  1681 I ActivityTaskManager: Displayed com.vexel.offlinearcade/.MainActivity: +895ms
+04-11 02:17:13.997 24514 24514 V ImeFocusController: onWindowFocus: DecorView@d48ea53[MainActivity] softInputMode=STATE_UNSPECIFIED|ADJUST_PAN|IS_FORWARD_NAVIGATION
+04-11 02:17:13.997 24514 24514 D ImeFocusController: onViewFocusChanged, view=DecorView@d48ea53[MainActivity], mServedView=null
+04-11 02:17:13.997 24514 24514 V ImeFocusController: checkFocus: view=null next=DecorView@d48ea53[MainActivity] immDelegate=delegate{e5d8133 displayId=0} force=false package=<none>
+04-11 02:17:14.116  4340  4340 W w       : onStartInput event aborted
+04-11 02:17:14.116  4340  4340 W w       : vb0.t: could not obtain extracted text
+04-11 02:17:14.116  4340  4340 W w       : 	at vb0.l0.G(Unknown Source:329)
+04-11 02:17:14.116  4340  4340 W w       : 	at a70.q0.h(Unknown Source:283)
+04-11 02:17:14.116  4340  4340 W w       : 	at a70.p6.h(Unknown Source:2)
+04-11 02:17:14.116  4340  4340 W w       : 	at com.touchtype.KeyboardService.onStartInput(Unknown Source:11)
+04-11 02:17:14.116  4340  4340 W w       : 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:2902)
+04-11 02:17:14.116  4340  4340 W w       : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.startInput(InputMethodService.java:809)
+04-11 02:17:14.116  4340  4340 W w       : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInputWithToken(InputMethodService.java:840)
+04-11 02:17:14.116  4340  4340 W w       : 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:213)
+04-11 02:17:14.116  4340  4340 W w       : 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+04-11 02:17:14.116  4340  4340 W w       : 	at android.os.Handler.dispatchMessage(Handler.java:106)
+04-11 02:17:14.116  4340  4340 W w       : 	at android.os.Looper.loopOnce(Looper.java:223)
+04-11 02:17:14.116  4340  4340 W w       : 	at android.os.Looper.loop(Looper.java:324)
+04-11 02:17:14.116  4340  4340 W w       : 	at android.app.ActivityThread.main(ActivityThread.java:8547)
+04-11 02:17:14.116  4340  4340 W w       : 	at java.lang.reflect.Method.invoke(Native Method)
+04-11 02:17:14.116  4340  4340 W w       : 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:582)
+04-11 02:17:14.116  4340  4340 W w       : 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1061)
+04-11 02:17:14.466  4406  6839 W native  : W0000 00:00:1775855834.466221    6839 lag_detector.cc:58] Pipeline lagging by 1.229027319s. Continue processing samples.
+04-11 02:17:14.584  4585  4585 I flutter : RecordingManagerPage: 开始刷新录音列表
+04-11 02:17:14.587  4585  4585 I flutter : Android录音目录: /storage/emulated/0/Android/data/com.lensmoo.app/files/media/no_storage_audio
+04-11 02:17:14.587  4585  4585 I flutter : === 录音目录调试信息 ===
+04-11 02:17:14.587  4585  4585 I flutter : 当前平台: android
+04-11 02:17:14.587  4585  4585 I flutter : 录音目录路径: /storage/emulated/0/Android/data/com.lensmoo.app/files/media/no_storage_audio
+04-11 02:17:14.587  4585  4585 I flutter : 目录是否存在: true
+04-11 02:17:14.587  4585  4585 I flutter : === 调试信息结束 ===
+04-11 02:17:14.590  4585  4585 I flutter : Android录音目录: /storage/emulated/0/Android/data/com.lensmoo.app/files/media/no_storage_audio
+04-11 02:17:14.590  4585  4585 I flutter : 录音文件目录: /storage/emulated/0/Android/data/com.lensmoo.app/files/media/no_storage_audio
+04-11 02:17:14.590  4585  4585 I flutter : 加载了 0 个录音文件
+04-11 02:17:14.962 24514 24514 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+04-11 02:17:14.962 24514 24514 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+04-11 02:17:15.029 25076 25101 I GED     : ged_boost_gpu_freq, level 100, eOrigin 2, final_idx 29, oppidx_max 29, oppidx_min 0
+04-11 02:17:15.030 25076 25101 I GED     : ged_boost_gpu_freq, level 100, eOrigin 2, final_idx 29, oppidx_max 29, oppidx_min 0
+04-11 02:17:15.061 25076 25087 I linearcade.test: Compiler allocated 5508KB to compile void android.view.ViewRootImpl.performTraversals()
+04-11 02:17:15.396 25380 26090 I PlayCommon: [148] Preparing logs for uploading
+04-11 02:17:15.448 22816 20569 E AuthPII : [RequestTokenManager] getToken() -> BAD_AUTHENTICATION. App: com.android.vending, Service: oauth2:https://www.googleapis.com/auth/googleplay
+04-11 02:17:15.448 22816 20569 E AuthPII : bgsf: Long live credential not available.
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agui.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):1347)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agup.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):26)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agun.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):738)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agum.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):152)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at aako.d(:com.google.android.gms@261233029@26.12.33 (190400-892550550):800)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agny.getAuthToken(:com.google.android.gms@261233029@26.12.33 (190400-892550550):411)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at clbu.onTransact(:com.google.android.gms@261233029@26.12.33 (190400-892550550):10)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at byzo.onTransact(:com.google.android.gms@261233029@26.12.33 (190400-892550550):161)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-11 02:17:15.448 22816 20569 E AuthPII : Message is Long live credential not available.
+04-11 02:17:15.448 22816 20569 E AuthPII : bgsf: Long live credential not available.
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agui.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):1347)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agup.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):26)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agun.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):738)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agum.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):152)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at aako.d(:com.google.android.gms@261233029@26.12.33 (190400-892550550):800)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at agny.getAuthToken(:com.google.android.gms@261233029@26.12.33 (190400-892550550):411)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at clbu.onTransact(:com.google.android.gms@261233029@26.12.33 (190400-892550550):10)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at byzo.onTransact(:com.google.android.gms@261233029@26.12.33 (190400-892550550):161)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-11 02:17:15.448 22816 20569 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-11 02:17:15.493 22816 20569 I Auth    : (REDACTED) [GetToken] GetToken failed for app=%s with userRecoverable status: %s
+04-11 02:17:15.494 22816 20569 W Auth    : [ChimeraGetToken] exception while trying to fetch auth tokens for app=com.google.android.gms, scope=oauth2:https://www.googleapis.com/auth/googleplay [CONTEXT service_id=153 ]
+04-11 02:17:15.494 22816 20569 W Auth    : aguh: GetToken failed with status code and recovery intent: BadAuthentication
+04-11 02:17:15.494 22816 20569 W Auth    : 	at agum.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):348)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at aako.d(:com.google.android.gms@261233029@26.12.33 (190400-892550550):800)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at agny.getAuthToken(:com.google.android.gms@261233029@26.12.33 (190400-892550550):411)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at android.os.Binder.transact(Binder.java:1230)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at clbu.onTransact(:com.google.android.gms@261233029@26.12.33 (190400-892550550):10)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at android.os.Binder.transact(Binder.java:1230)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at byzo.onTransact(:com.google.android.gms@261233029@26.12.33 (190400-892550550):161)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-11 02:17:15.494 22816 20569 W Auth    : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-11 02:17:15.494 22816 20569 W GLSActivity: [GmsAccountAuthenticatorImpl] error status while fetching token:BadAuthentication
+04-11 02:17:15.513 25380 26090 W PlayCommon: [148] Deferring log upload because couldn't retrieve auth token
+04-11 02:17:15.596 24514 24514 I Choreographer: Skipped 39 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:15.647 25380 25384 I android.vending: Background concurrent copying GC freed 20MB AllocSpace bytes, 12(240KB) LOS objects, 45% free, 28MB/52MB, paused 174us,110us total 260.373ms
+04-11 02:17:15.675 24514 24514 I ActivityThread: Schedule relaunch activity: com.vexel.offlinearcade.MainActivity
+04-11 02:17:15.677 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@1ffa509 in: PAUSED
+04-11 02:17:15.677 24514 24514 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.vexel.offlinearcade.MainActivity@1ffa509
+04-11 02:17:15.678 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@1ffa509 in: STOPPED
+04-11 02:17:15.678 24514 24514 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.vexel.offlinearcade.MainActivity@1ffa509
+04-11 02:17:15.751 24514 24514 D AudioTrack: ~AudioTrack(739): 0xb400007af32be010
+04-11 02:17:15.751 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.752 24514 24514 D AudioTrack: stop(portId:739, sessionId:4561): prior state:STATE_STOPPED
+04-11 02:17:15.752 24514 24514 D AudioTrackShared: this(0xb400007a932768d0), mCblk(0x7c7a4e2000), front(0), mIsOut 1, interrupt() FUTEX_WAKE
+04-11 02:17:15.752 24514 24514 D AudioTrack: requestExitAndWait start
+04-11 02:17:15.752 24514 24514 D AudioTrack: requestExitAndWait end
+04-11 02:17:15.752 24514 24514 D AudioTrack: stopAndJoinCallbacks(739) done
+04-11 02:17:15.755 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@1ffa509 in: DESTROYED
+04-11 02:17:15.756 24514 24514 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+04-11 02:17:15.765 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@f2cd205 in: PRE_ON_CREATE
+04-11 02:17:15.765 24514 24514 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was DESTROYED
+04-11 02:17:15.788 24514 24514 D ToneGenerator: ToneGenerator constructor: streamType=3, volume=0.042170
+04-11 02:17:15.789 24514 24514 D ToneGenerator: AudioTrack(0xb400007af32e8a70) created
+04-11 02:17:15.789 24514 24514 D AudioTrack: INSP: type=audio,case=1,set=0xb400007af32e8a70,stream_type=-1,sample_rate=48000,format=0x1,channel_mask=0x1,frame_count=960,flags=0x4,notification_frames=0,session_id=0,transfer_type=1,uid=-1,pid=-1
+04-11 02:17:15.789 24514 24514 D AudioTrack: INSP: type=audio,case=1,attributes=1,content_type=0,usage=1,source=0,flags=0x0
+04-11 02:17:15.790 24514 24514 D AudioSystem: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.791 24514 24514 D AudioSystem: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.791 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.791 24514 24514 D AudioTrack: set(): Building AudioTrack with attributes: usage=1 content=0 flags=0x0 tags=[]
+04-11 02:17:15.791 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.791 24514 24514 D AudioSystem: +setParameters(): PlaybackCaptureProtectSupport=com.vexel.offlinearcade
+04-11 02:17:15.792 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.792 24514 24514 D AudioTrack: get APPSharePck NULL
+04-11 02:17:15.792 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.792 24514 24514 D AudioTrack: set(): Building AudioTrack with attributes: usage = 1, content = 0, flags = 0x0, tags = []
+04-11 02:17:15.792 24514 24514 D AudioTrack: want to change usage for game mode
+04-11 02:17:15.793 24514 24514 D AudioTrack: set(): 0xb400007af32e8a70, Create AudioTrackThread, tid = 25174
+04-11 02:17:15.804 24514 24514 I AudioTrack: createTrack_l(0): AUDIO_OUTPUT_FLAG_FAST successful; frameCount 960 -> 960
+04-11 02:17:15.804 24514 24514 D AudioTrack: createTrack_l(740): 0xb400007af32e8a70, mCblk = 0x7c7a4e2000, mLatency = 72, mAfLatency = 52, frameCount = 960, mSampleRate = 48000, mFlags = 0x4, mReqFrameCount = 960, mNotificationFramesAct = 256
+04-11 02:17:15.805 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.805 24514 24514 D AudioTrack: setVolume(740): 0xb400007af32e8a70, left = 0.042170, right = 0.042170
+04-11 02:17:15.806 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:15.845 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@f2cd205 in: CREATED
+04-11 02:17:15.845 24514 24514 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.vexel.offlinearcade.MainActivity@f2cd205
+04-11 02:17:15.847 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@f2cd205 in: STARTED
+04-11 02:17:15.847 24514 24514 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.vexel.offlinearcade.MainActivity@f2cd205
+04-11 02:17:15.848 24514 24514 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+04-11 02:17:15.848 24514 24514 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+04-11 02:17:15.850 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@f2cd205 in: RESUMED
+04-11 02:17:15.850 24514 24514 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.vexel.offlinearcade.MainActivity@f2cd205
+04-11 02:17:15.852 24677 25162 D nativeloader: Load /data/app/~~J7gWg3uO8WHAUumASrcQXA==/com.azure.authenticator-a_g1Q2TjoE0P2YBEMz4dkg==/base.apk!/lib/arm64-v8a/libmscustomjni.so using class loader ns clns-5 (caller=/data/app/~~J7gWg3uO8WHAUumASrcQXA==/com.azure.authenticator-a_g1Q2TjoE0P2YBEMz4dkg==/base.apk!classes4.dex): ok
+04-11 02:17:16.240 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@f2cd205 in: PAUSED
+04-11 02:17:16.241 24514 24514 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.vexel.offlinearcade.MainActivity@f2cd205
+04-11 02:17:16.349 24514 24514 D BLASTBufferQueue: [VRI[MainActivity]#1](f:0,a:0) destructor()
+04-11 02:17:16.349 24514 24514 D BufferQueueConsumer: [VRI[MainActivity]#1(BLAST Consumer)1](id:5fc200000001,api:0,p:-1,c:24514) disconnect
+04-11 02:17:16.369 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@f2cd205 in: STOPPED
+04-11 02:17:16.369 24514 24514 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.vexel.offlinearcade.MainActivity@f2cd205
+04-11 02:17:16.393 25076 25076 D BufferQueueConsumer: [](id:61f400000001,api:0,p:-1,c:25076) connect: controlledByApp=false
+04-11 02:17:16.395 25076 25101 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-11 02:17:16.395 25076 25101 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+04-11 02:17:16.396 25076 25101 D skia    : GrGLMakeAssembledInterface verStr OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:16.396 25076 25101 D skia    : GrGLMakeAssembledGLESInterface verStr OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:16.399 25076 25101 D skia    : extensions init verString=OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:16.422 25076 25101 D BLASTBufferQueue: [VRI[InstrumentationActivityInvoker$EmptyActivity]#1](f:0,a:1) acquireNextBufferLocked size=1080x2408 mFrameNumber=1 applyTransaction=true mTimestamp=47479886408983(auto) mPendingTransactions.size=0 graphicBufferId=107700599914500 transform=0
+04-11 02:17:16.423 25076 25101 W Parcel  : Expecting binder but got null!
+04-11 02:17:16.438  1644  1681 I ActivityTaskManager: Displayed com.vexel.offlinearcade.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity: +230ms
+04-11 02:17:16.483 24514 24514 D AudioTrack: ~AudioTrack(740): 0xb400007af32e8a70
+04-11 02:17:16.484 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:16.484 24514 24514 D AudioTrack: stop(portId:740, sessionId:4569): prior state:STATE_STOPPED
+04-11 02:17:16.484 24514 24514 D AudioTrackShared: this(0xb400007a9328a850), mCblk(0x7c7a4e2000), front(0), mIsOut 1, interrupt() FUTEX_WAKE
+04-11 02:17:16.484 24514 24514 D AudioTrack: requestExitAndWait start
+04-11 02:17:16.485 24514 24514 D AudioTrack: requestExitAndWait end
+04-11 02:17:16.485 24514 24514 D AudioTrack: stopAndJoinCallbacks(740) done
+04-11 02:17:16.518 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@f2cd205 in: DESTROYED
+04-11 02:17:16.518 24514 24514 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+04-11 02:17:16.555   553   553 D BufferQueueConsumer: [](id:22900000013,api:0,p:-1,c:553) connect: controlledByApp=false
+04-11 02:17:16.585   553   952 D BLASTBufferQueue: [VRI[Launcher]#19](f:0,a:1) acquireNextBufferLocked size=1080x2408 mFrameNumber=1 applyTransaction=true mTimestamp=47480048722136(auto) mPendingTransactions.size=0 graphicBufferId=2375116914765 transform=0
+04-11 02:17:16.586 25076 25101 I GED     : ged_boost_gpu_freq, level 100, eOrigin 2, final_idx 29, oppidx_max 29, oppidx_min 0
+04-11 02:17:16.591   553   553 I buuu    : onStart
+04-11 02:17:16.599   553   553 I bsrn    : (REDACTED) [%s] onStart()
+04-11 02:17:16.599   553   553 I bstt    : Reloading theme data
+04-11 02:17:16.614   553   553 I buuu    : onResume
+04-11 02:17:16.620 24514 24861 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.junit4.EspressoLink@e79e055]
+04-11 02:17:16.636 24514 24861 I TestRunner: finished: settingsScreenSurvivesActivityRecreate(com.vexel.offlinearcade.SettingsPersistenceSmokeTest)

@@ -1,9 +1,12 @@
 package com.vexel.offlinearcade
 
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollToNode
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Rule
 import org.junit.Test
@@ -16,27 +19,31 @@ class NavigationSmokeTest {
 
     @Test
     fun homeNavigatesToAllCoreRoutes() {
-        rule.onNodeWithText("Play Pulse Orbit").performClick()
-        rule.onNodeWithText("Pulse Orbit").assertIsDisplayed()
-        rule.onNodeWithText("Back").performClick()
+        openRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitScreen)
+        openRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftScreen)
+        openRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
+        openRoute(ArcadeTestTags.ChallengesEntry, ArcadeTestTags.ChallengesScreen)
+        openRoute(ArcadeTestTags.StatsEntry, ArcadeTestTags.StatsScreen)
 
-        rule.onNodeWithText("Play Lane Drift").performClick()
-        rule.onNodeWithText("Lane Drift").assertIsDisplayed()
-        rule.onNodeWithText("Back").performClick()
+        rule.onNodeWithTag(ArcadeTestTags.HomeList)
+            .performScrollToNode(hasTestTag(ArcadeTestTags.SettingsEntry))
+        rule.onNodeWithTag(ArcadeTestTags.SettingsEntry).performClick()
+        rule.waitUntilExists(ArcadeTestTags.SettingsScreen)
+        rule.onNodeWithTag(ArcadeTestTags.SettingsScreen).assertIsDisplayed()
+    }
 
-        rule.onNodeWithText("Play Stack Drop").performClick()
-        rule.onNodeWithText("Stack Drop").assertIsDisplayed()
-        rule.onNodeWithText("Back").performClick()
+    private fun openRoute(entryTag: String, screenTag: String) {
+        rule.onNodeWithTag(ArcadeTestTags.HomeList).performScrollToNode(hasTestTag(entryTag))
+        rule.onNodeWithTag(entryTag).performClick()
+        rule.waitUntilExists(screenTag)
+        rule.onNodeWithTag(screenTag).assertIsDisplayed()
+        rule.onNodeWithTag(ArcadeTestTags.BackButton).performClick()
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+    }
 
-        rule.onNodeWithText("Daily Challenges").performClick()
-        rule.onNodeWithText("Offline seeded each day").assertIsDisplayed()
-        rule.onNodeWithText("Back").performClick()
-
-        rule.onNodeWithText("Stats").performClick()
-        rule.onNodeWithText("Shared totals").assertIsDisplayed()
-        rule.onNodeWithText("Back").performClick()
-
-        rule.onNodeWithText("Settings").performClick()
-        rule.onNodeWithText("Audio and feel").assertIsDisplayed()
+    private fun androidx.compose.ui.test.junit4.AndroidComposeTestRule<*, *>.waitUntilExists(tag: String) {
+        waitUntil(timeoutMillis = 5_000) {
+            runCatching { onNodeWithTag(tag).fetchSemanticsNode() }.isSuccess
+        }
     }
 }

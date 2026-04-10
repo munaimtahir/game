@@ -1,0 +1,876 @@
+04-11 02:16:58.956 24514 24861 I TestRunner: started: homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest)
+04-11 02:16:59.034 24514 24861 W FileTestStorage: Output properties is not supported.
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: enableTracing failed. You may need to upgrade your androidx.tracing:tracing version
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: java.lang.NoSuchMethodError: No static method forceEnableAppTracing()V in class Landroidx/tracing/Trace; or its super classes (declaration of 'androidx.tracing.Trace' appears in /data/app/~~9IhmvXoc9v6BwBRdqOsD8w==/com.vexel.offlinearcade-3dqouN0Z2Mpug26vdi4NJA==/base.apk!classes13.dex)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.platform.tracing.AndroidXTracer.enableTracing(AndroidXTracer.java:57)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.platform.tracing.Tracing.<init>(Tracing.java:53)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.platform.tracing.Tracing.<clinit>(Tracing.java:49)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.base.BaseLayerModule.providesTracing(BaseLayerModule.java:190)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.base.BaseLayerModule_ProvidesTracingFactory.providesTracing(BaseLayerModule_ProvidesTracingFactory.java:37)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.base.BaseLayerModule_ProvidesTracingFactory.get(BaseLayerModule_ProvidesTracingFactory.java:29)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.base.BaseLayerModule_ProvidesTracingFactory.get(BaseLayerModule_ProvidesTracingFactory.java:11)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.core.internal.deps.dagger.internal.DoubleCheck.get(DoubleCheck.java:47)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.base.IdlingResourceRegistry_Factory.get(IdlingResourceRegistry_Factory.java:34)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.base.IdlingResourceRegistry_Factory.get(IdlingResourceRegistry_Factory.java:12)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.core.internal.deps.dagger.internal.DoubleCheck.get(DoubleCheck.java:47)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.DaggerBaseLayerComponent$BaseLayerComponentImpl.idlingResourceRegistry(DaggerBaseLayerComponent.java:275)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.espresso.Espresso.<clinit>(Espresso.java:64)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.runEspressoOnIdle(EspressoLink.android.kt:92)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.compose.ui.test.junit4.EspressoLink.runUntilIdle(EspressoLink.android.kt:79)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:320)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:271)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+04-11 02:16:59.037 24514 24861 E AndroidXTracer: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:463)
+04-11 02:16:59.038 24514 24861 E AndroidXTracer: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2322)
+04-11 02:16:59.038 24514 24861 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+04-11 02:16:59.046 24514 24514 D EventInjectionStrategy: Creating injection strategy with input manager.
+04-11 02:16:59.047 24514 24514 I l.offlinearcade: hiddenapi: Accessing hidden method Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/InputManagerEventInjectionStrategy; (domain=app, TargetSdkVersion=34) using reflection: allowed
+04-11 02:16:59.047 24514 24514 I l.offlinearcade: hiddenapi: Accessing hidden method Landroid/hardware/input/InputManager;->injectInputEvent(Landroid/view/InputEvent;I)Z (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/InputManagerEventInjectionStrategy; (domain=app, TargetSdkVersion=34) using reflection: allowed
+04-11 02:16:59.047 24514 24514 I l.offlinearcade: hiddenapi: Accessing hidden field Landroid/hardware/input/InputManager;->INJECT_INPUT_EVENT_MODE_WAIT_FOR_FINISH:I (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/InputManagerEventInjectionStrategy; (domain=app, TargetSdkVersion=34) using reflection: allowed
+04-11 02:16:59.061 24514 24514 I l.offlinearcade: hiddenapi: Accessing hidden method Landroid/os/MessageQueue;->next()Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/Interrogator; (domain=app, TargetSdkVersion=34) using reflection: allowed
+04-11 02:16:59.061 24514 24514 I l.offlinearcade: hiddenapi: Accessing hidden field Landroid/os/MessageQueue;->mMessages:Landroid/os/Message; (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/Interrogator; (domain=app, TargetSdkVersion=34) using reflection: allowed
+04-11 02:16:59.061 24514 24514 I l.offlinearcade: hiddenapi: Accessing hidden method Landroid/os/Message;->recycleUnchecked()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/test/espresso/base/Interrogator; (domain=app, TargetSdkVersion=34) using reflection: allowed
+04-11 02:16:59.064 24514 24861 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.junit4.EspressoLink@dd35cfc]
+04-11 02:16:59.112 24514 24861 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+04-11 02:16:59.309   553   553 I buuu    : onPause
+04-11 02:16:59.320 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@325fd2c in: PRE_ON_CREATE
+04-11 02:16:59.320 24514 24514 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+04-11 02:16:59.411 24514 24514 E VivoConfigStore: key:vivo.software.multiwindow isCached is false and normal value is true
+04-11 02:16:59.413 24514 24514 E VivoConfigStore: key:vivo.software.freeform isCached is false and normal value is true
+04-11 02:16:59.484 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@325fd2c in: CREATED
+04-11 02:16:59.485 24514 24514 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.vexel.offlinearcade.MainActivity@325fd2c
+04-11 02:16:59.488 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@325fd2c in: STARTED
+04-11 02:16:59.489 24514 24514 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.vexel.offlinearcade.MainActivity@325fd2c
+04-11 02:16:59.493 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@325fd2c in: RESUMED
+04-11 02:16:59.493 24514 24514 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.vexel.offlinearcade.MainActivity@325fd2c
+04-11 02:16:59.515 24514 24514 E VivoConfigStore: key:vivo.software.nightmode isCached is false and normal value is true
+04-11 02:16:59.712   553   553 D BLASTBufferQueue: [VRI[Launcher]#17](f:0,a:0) destructor()
+04-11 02:16:59.712   553   553 D BufferQueueConsumer: [VRI[Launcher]#17(BLAST Consumer)17](id:22900000011,api:0,p:-1,c:553) disconnect
+04-11 02:16:59.716   553   553 I buoq    : (REDACTED) onApplyWindowInsets: systemWindowInsets=%s
+04-11 02:16:59.717   553   553 I buoq    : (REDACTED) onApplyWindowInsets: systemWindowInsets=%s
+04-11 02:17:00.087 24514 24514 D ToneGenerator: ToneGenerator constructor: streamType=3, volume=0.042170
+04-11 02:17:00.098 24514 24514 D ToneGenerator: AudioTrack(0xb400007af325ca30) created
+04-11 02:17:00.098 24514 24514 D AudioTrack: INSP: type=audio,case=1,set=0xb400007af325ca30,stream_type=-1,sample_rate=48000,format=0x1,channel_mask=0x1,frame_count=960,flags=0x4,notification_frames=0,session_id=0,transfer_type=1,uid=-1,pid=-1
+04-11 02:17:00.098 24514 24514 D AudioTrack: INSP: type=audio,case=1,attributes=1,content_type=0,usage=1,source=0,flags=0x0
+04-11 02:17:00.099 24514 24514 V VivoAudioPolicyProxyNative: VivoAudioPolicyProxy getInstanceInter: binding to vivoaudiopolicy service success!
+04-11 02:17:00.101 24514 24514 D AudioSystem: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:00.101 24514 24514 D AudioSystem: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:00.101 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:00.101 24514 24514 D AudioTrack: set(): Building AudioTrack with attributes: usage=1 content=0 flags=0x0 tags=[]
+04-11 02:17:00.102 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:00.102 24514 24514 D AudioSystem: +setParameters(): PlaybackCaptureProtectSupport=com.vexel.offlinearcade
+04-11 02:17:00.102 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:00.103 24514 24514 D AudioTrack: get APPSharePck NULL
+04-11 02:17:00.103 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:00.103 24514 24514 D AudioTrack: set(): Building AudioTrack with attributes: usage = 1, content = 0, flags = 0x0, tags = []
+04-11 02:17:00.103 24514 24514 D AudioTrack: want to change usage for game mode
+04-11 02:17:00.103 24514 24514 D AudioTrack: set(): 0xb400007af325ca30, Create AudioTrackThread, tid = 24897
+04-11 02:17:00.125 24514 24514 I AudioTrack: createTrack_l(0): AUDIO_OUTPUT_FLAG_FAST successful; frameCount 960 -> 960
+04-11 02:17:00.125 24514 24514 D AudioTrack: createTrack_l(738): 0xb400007af325ca30, mCblk = 0x7c7a4e2000, mLatency = 72, mAfLatency = 52, frameCount = 960, mSampleRate = 48000, mFlags = 0x4, mReqFrameCount = 960, mNotificationFramesAct = 256
+04-11 02:17:00.126 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:00.128 24514 24514 D AudioTrack: setVolume(738): 0xb400007af325ca30, left = 0.042170, right = 0.042170
+04-11 02:17:00.128 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:00.229 24514 24514 W l.offlinearcade: Method boolean androidx.compose.runtime.snapshots.SnapshotStateList.conditionalUpdate(boolean, kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+04-11 02:17:00.229 24514 24514 W l.offlinearcade: Common causes for lock verification issues are non-optimized dex code
+04-11 02:17:00.229 24514 24514 W l.offlinearcade: and incorrect proguard optimizations.
+04-11 02:17:00.229 24514 24514 W l.offlinearcade: Method boolean androidx.compose.runtime.snapshots.SnapshotStateList.conditionalUpdate$default(androidx.compose.runtime.snapshots.SnapshotStateList, boolean, kotlin.jvm.functions.Function1, int, java.lang.Object) failed lock verification and will run slower.
+04-11 02:17:00.230 24514 24514 W l.offlinearcade: Method java.lang.Object androidx.compose.runtime.snapshots.SnapshotStateList.mutate(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+04-11 02:17:00.230 24514 24514 W l.offlinearcade: Method void androidx.compose.runtime.snapshots.SnapshotStateList.update(boolean, kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+04-11 02:17:00.230 24514 24514 W l.offlinearcade: Method void androidx.compose.runtime.snapshots.SnapshotStateList.update$default(androidx.compose.runtime.snapshots.SnapshotStateList, boolean, kotlin.jvm.functions.Function1, int, java.lang.Object) failed lock verification and will run slower.
+04-11 02:17:00.625 24514 24520 I l.offlinearcade: Compiler allocated 5508KB to compile void android.view.ViewRootImpl.performTraversals()
+04-11 02:17:00.648 24514 24514 D CompatibilityChangeReporter: Compat change id reported: 171228096; UID 10416; state: ENABLED
+04-11 02:17:00.933 22816 22816 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.common.telemetry.service.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentApiService }
+04-11 02:17:01.008 24514 24514 D BufferQueueConsumer: [](id:5fc200000000,api:0,p:-1,c:24514) connect: controlledByApp=false
+04-11 02:17:01.012 24514 24514 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+04-11 02:17:01.032 24514 24875 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-11 02:17:01.032 24514 24875 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+04-11 02:17:01.037 24514 24875 D skia    : GrGLMakeAssembledInterface verStr OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:01.037 24514 24875 D skia    : GrGLMakeAssembledGLESInterface verStr OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:01.037 24514 24875 D skia    : extensions init verString=OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:01.067 24514 24927 E ion     : ioctl c0044901 failed with code -1: Invalid argument
+04-11 02:17:01.123 24514 24875 D hw-ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+04-11 02:17:01.248 22816 21681 I NearbyMediums: Found Fast Ble Advertisements :
+04-11 02:17:01.248 22816 21681 I NearbyMediums: BleAdvertisement { version=2, socketVersion=2, isFast=true, serviceIdHash=null, data=[ 0x23 0x38 0x49 0x53 0x5a 0x11 0x32 0xb2 0x0f 0xb8 0xd6 0x19 0x0d 0x53 0xda 0x12 0x70 0xe7 0x68 0x86 0xee 0x75 0xc9 ], deviceToken=[ 0x9d 0x3f ], rxAdvertisement=null } : 2 times.
+04-11 02:17:01.248 22816 21681 I NearbyMediums: Total 2 fast advertisements from 1 unique advertisers.
+04-11 02:17:01.248 22816 21681 I NearbyMediums: Current Tracked Scanning Clients are : {NearbyConnections.EnvironmentMonitor, NearbySharing, NearbyConnections.TxAdvertisement}
+04-11 02:17:01.269 24514 24875 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:1) acquireNextBufferLocked size=1080x2408 mFrameNumber=1 applyTransaction=true mTimestamp=47464734096289(auto) mPendingTransactions.size=0 graphicBufferId=105286828294147 transform=0
+04-11 02:17:01.273 24514 24875 W Parcel  : Expecting binder but got null!
+04-11 02:17:01.275 24514 24514 I Choreographer: Skipped 100 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:01.293  1644  1681 I ActivityTaskManager: Displayed com.vexel.offlinearcade/.MainActivity: +2s151ms
+04-11 02:17:01.353   553   553 I buuu    : onStop
+04-11 02:17:01.410 24514 24514 V ImeFocusController: onWindowFocus: DecorView@ab2b6c9[MainActivity] softInputMode=STATE_UNSPECIFIED|ADJUST_PAN|IS_FORWARD_NAVIGATION
+04-11 02:17:01.410 24514 24514 V ImeFocusController: Restarting due to isRestartOnNextWindowFocus as true
+04-11 02:17:01.410 24514 24514 D ImeFocusController: onViewFocusChanged, view=DecorView@ab2b6c9[MainActivity], mServedView=null
+04-11 02:17:01.411 24514 24514 V ImeFocusController: checkFocus: view=null next=DecorView@ab2b6c9[MainActivity] immDelegate=delegate{e5d8133 displayId=0} force=true package=<none>
+04-11 02:17:01.472 22816 23320 I FontLog : (REDACTED) Received query %s, URI %s
+04-11 02:17:01.474 22816 23320 I FontLog : (REDACTED) Query [%s] resolved to %s
+04-11 02:17:01.484 22816 23320 I FontLog : (REDACTED) Fetch %s end status %s
+04-11 02:17:01.494 24151 24939 D ProfileInstaller: Skipping profile installation for com.microsoft.office.outlook
+04-11 02:17:01.505 22816 23320 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+04-11 02:17:01.526 22816 23320 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+04-11 02:17:01.660  4340  4340 W w       : onStartInput event aborted
+04-11 02:17:01.660  4340  4340 W w       : vb0.t: could not obtain extracted text
+04-11 02:17:01.660  4340  4340 W w       : 	at vb0.l0.G(Unknown Source:329)
+04-11 02:17:01.660  4340  4340 W w       : 	at a70.q0.h(Unknown Source:283)
+04-11 02:17:01.660  4340  4340 W w       : 	at a70.p6.h(Unknown Source:2)
+04-11 02:17:01.660  4340  4340 W w       : 	at com.touchtype.KeyboardService.onStartInput(Unknown Source:11)
+04-11 02:17:01.660  4340  4340 W w       : 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:2902)
+04-11 02:17:01.660  4340  4340 W w       : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.startInput(InputMethodService.java:809)
+04-11 02:17:01.660  4340  4340 W w       : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInputWithToken(InputMethodService.java:840)
+04-11 02:17:01.660  4340  4340 W w       : 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:213)
+04-11 02:17:01.660  4340  4340 W w       : 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+04-11 02:17:01.660  4340  4340 W w       : 	at android.os.Handler.dispatchMessage(Handler.java:106)
+04-11 02:17:01.660  4340  4340 W w       : 	at android.os.Looper.loopOnce(Looper.java:223)
+04-11 02:17:01.660  4340  4340 W w       : 	at android.os.Looper.loop(Looper.java:324)
+04-11 02:17:01.660  4340  4340 W w       : 	at android.app.ActivityThread.main(ActivityThread.java:8547)
+04-11 02:17:01.660  4340  4340 W w       : 	at java.lang.reflect.Method.invoke(Native Method)
+04-11 02:17:01.660  4340  4340 W w       : 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:582)
+04-11 02:17:01.660  4340  4340 W w       : 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1061)
+04-11 02:17:01.726   553   572 W chbox:googleapp: Reducing the number of considered missed Gc histogram windows from 255 to 100
+04-11 02:17:01.761 24151 24157 W System  : A resource failed to call close.
+04-11 02:17:01.895 24514 24514 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+04-11 02:17:01.895 24514 24514 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+04-11 02:17:02.741 24514 24514 I Choreographer: Skipped 58 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:02.811 24514 24527 I OpenGLRenderer: Davey! duration=1023ms; Flags=0, FrameTimelineVsyncId=14260381, IntendedVsync=47465249191048, Vsync=47466205095660, InputEventId=0, HandleInputStart=47466207113905, AnimationStart=47466207117828, PerformTraversalsStart=47466207241905, DrawStart=47466207916597, FrameDeadline=47465285666937, FrameInterval=47466207014136, FrameStartTime=16475889, SyncQueued=47466222866443, SyncStart=47466222955982, IssueDrawCommandsStart=47466223425520, SwapBuffers=47466263713289, FrameCompleted=47466272806136, DequeueBufferDuration=65846, QueueBufferDuration=508923, GpuCompleted=47466272806136, SwapBuffersCompleted=47466268150443, DisplayPresentTime=0, CommandSubmissionCompleted=47466263713289,
+04-11 02:17:02.853 22816 24118 W PhBaseOp: Phenotype API error. Event: # ivrb@ae24932e, EventCode: COMMIT_CONFIG [CONTEXT service_id=51 ]
+04-11 02:17:02.853 22816 24118 W PhBaseOp: android.database.sqlite.SQLiteException: no such table: ChangeCounts (code 1 SQLITE_ERROR): , while compiling: SELECT EXISTS (
+04-11 02:17:02.853 22816 24118 W PhBaseOp:       SELECT NULL
+04-11 02:17:02.853 22816 24118 W PhBaseOp:       FROM ChangeCounts
+04-11 02:17:02.853 22816 24118 W PhBaseOp:       WHERE
+04-11 02:17:02.853 22816 24118 W PhBaseOp:         packageName = ?1
+04-11 02:17:02.853 22816 24118 W PhBaseOp:         AND count > ?2
+04-11 02:17:02.853 22816 24118 W PhBaseOp:     );
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at android.database.sqlite.SQLiteConnection.nativePrepareStatement(Native Method)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at android.database.sqlite.SQLiteConnection.acquirePreparedStatement(SQLiteConnection.java:1124)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at android.database.sqlite.SQLiteConnection.prepare(SQLiteConnection.java:687)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at android.database.sqlite.SQLiteSession.prepare(SQLiteSession.java:590)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at android.database.sqlite.SQLiteProgram.<init>(SQLiteProgram.java:62)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at android.database.sqlite.SQLiteStatement.<init>(SQLiteStatement.java:34)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at android.database.sqlite.SQLiteDatabase.compileStatement(SQLiteDatabase.java:1390)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at evtj.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):7)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at evtj.g(:com.google.android.gms@261233029@26.12.33 (190400-892550550):1)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at evwe.d(:com.google.android.gms@261233029@26.12.33 (190400-892550550):45)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at evwe.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):44)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at evwd.i(:com.google.android.gms@261233029@26.12.33 (190400-892550550):3)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at evvz.h(:com.google.android.gms@261233029@26.12.33 (190400-892550550):31)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at evvz.f(:com.google.android.gms@261233029@26.12.33 (190400-892550550):13)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at ctxz.fD(:com.google.android.gms@261233029@26.12.33 (190400-892550550):1)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at ctyl.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):118)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at gwiw.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):19)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at bhys.c(:com.google.android.gms@261233029@26.12.33 (190400-892550550):50)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at bhys.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):73)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at biej.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):8)
+04-11 02:17:02.853 22816 24118 W PhBaseOp: 	at java.lang.Thread.run(Thread.java:1564)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: Phenotype API error. Event: # ivrb@f8d03709, EventCode: COMMIT_CONFIG [CONTEXT service_id=51 ]
+04-11 02:17:02.931 22816 24120 W PhBaseOp: android.database.sqlite.SQLiteException: no such table: ChangeCounts (code 1 SQLITE_ERROR): , while compiling: SELECT EXISTS (
+04-11 02:17:02.931 22816 24120 W PhBaseOp:       SELECT NULL
+04-11 02:17:02.931 22816 24120 W PhBaseOp:       FROM ChangeCounts
+04-11 02:17:02.931 22816 24120 W PhBaseOp:       WHERE
+04-11 02:17:02.931 22816 24120 W PhBaseOp:         packageName = ?1
+04-11 02:17:02.931 22816 24120 W PhBaseOp:         AND count > ?2
+04-11 02:17:02.931 22816 24120 W PhBaseOp:     );
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at android.database.sqlite.SQLiteConnection.nativePrepareStatement(Native Method)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at android.database.sqlite.SQLiteConnection.acquirePreparedStatement(SQLiteConnection.java:1124)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at android.database.sqlite.SQLiteConnection.prepare(SQLiteConnection.java:687)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at android.database.sqlite.SQLiteSession.prepare(SQLiteSession.java:590)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at android.database.sqlite.SQLiteProgram.<init>(SQLiteProgram.java:62)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at android.database.sqlite.SQLiteStatement.<init>(SQLiteStatement.java:34)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at android.database.sqlite.SQLiteDatabase.compileStatement(SQLiteDatabase.java:1390)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at evtj.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):7)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at evtj.g(:com.google.android.gms@261233029@26.12.33 (190400-892550550):1)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at evwe.d(:com.google.android.gms@261233029@26.12.33 (190400-892550550):45)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at evwe.b(:com.google.android.gms@261233029@26.12.33 (190400-892550550):44)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at evwd.i(:com.google.android.gms@261233029@26.12.33 (190400-892550550):3)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at evvz.h(:com.google.android.gms@261233029@26.12.33 (190400-892550550):31)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at evvz.f(:com.google.android.gms@261233029@26.12.33 (190400-892550550):13)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at ctxz.fD(:com.google.android.gms@261233029@26.12.33 (190400-892550550):1)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at ctyl.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):118)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at gwiw.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):19)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at bhys.c(:com.google.android.gms@261233029@26.12.33 (190400-892550550):50)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at bhys.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):73)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at biej.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):8)
+04-11 02:17:02.931 22816 24120 W PhBaseOp: 	at java.lang.Thread.run(Thread.java:1564)
+04-11 02:17:03.784 24514 24514 I Choreographer: Skipped 55 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:03.811 24514 24951 D ProfileInstaller: Installing profile for com.vexel.offlinearcade
+04-11 02:17:03.968 24219 24468 I WidgetProvider: updateWidget all widgets
+04-11 02:17:03.981 24219 24219 I WidgetProvider: onReceive received:UPDATE_WIDGET
+04-11 02:17:04.140 24514 24523 I l.offlinearcade: Background concurrent copying GC freed 7512KB AllocSpace bytes, 1(88KB) LOS objects, 51% free, 5890KB/11MB, paused 144us,40us total 129.685ms
+04-11 02:17:04.260 24514 24514 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+04-11 02:17:04.260 24514 24514 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+04-11 02:17:04.427  4406  6839 W native  : W0000 00:00:1775855824.426846    6839 lag_detector.cc:58] Pipeline lagging by 1.229653088s. Continue processing samples.
+04-11 02:17:04.510 21185 21185 W ThreadPoolForeg: type=1400 audit(0.0:373598): avc: denied { write } for name="traced_producer" dev="tmpfs" ino=10179 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:traced_producer_socket:s0 tclass=sock_file permissive=0 app=com.google.android.gms
+04-11 02:17:04.903 24514 24514 I Choreographer: Skipped 43 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:04.937 24514 24527 I OpenGLRenderer: Davey! duration=742ms; Flags=0, FrameTimelineVsyncId=14261537, IntendedVsync=47467653713831, Vsync=47468361839422, InputEventId=0, HandleInputStart=47468369333520, AnimationStart=47468369338136, PerformTraversalsStart=47468369403982, DrawStart=47468370083367, FrameDeadline=47467673713831, FrameInterval=47468369162443, FrameStartTime=16471413, SyncQueued=47468382342213, SyncStart=47468382515982, IssueDrawCommandsStart=47468383377597, SwapBuffers=47468388447367, FrameCompleted=47468396880367, DequeueBufferDuration=70846, QueueBufferDuration=525231, GpuCompleted=47468396880367, SwapBuffersCompleted=47468391415982, DisplayPresentTime=47466054300366, CommandSubmissionCompleted=47468388447367,
+04-11 02:17:05.212 22816 24245 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.223 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Starting sync for 5eec3ec6
+04-11 02:17:05.228 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Sync duration for 5eec3ec6: 3
+04-11 02:17:05.230 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.236 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Starting sync for ce13e262
+04-11 02:17:05.238 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Sync duration for ce13e262: 2
+04-11 02:17:05.241 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.251 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.353 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.357 22816 22816 D BoundBrokerSvc: onRebind: Intent { act=com.google.android.gms.findmydevice.spot.locationreporting.LocationReportUploadGmsTaskService.ACTION_TASK_READY dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+04-11 02:17:05.358 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.377 21185 21185 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.semanticlocationhistory.service.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsApiService }
+04-11 02:17:05.378 21185 21185 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.semanticlocationhistory.service.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsApiService }
+04-11 02:17:05.391 22816 22816 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.findmydevice.spot.locationreporting.LocationReportUploadGmsTaskService.ACTION_TASK_READY dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+04-11 02:17:05.399 22816 21272 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.428 22816 24118 I GmsCoreXrpcWrapper: (REDACTED) Creating a custom channel provider with trafficStatsTag=%d trafficStatsUid=%d
+04-11 02:17:05.428 21185 21185 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsApiService }
+04-11 02:17:05.428 21185 21185 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsApiService }
+04-11 02:17:05.436 21185 21595 W ConsentManagerApiServic: Consent Manager API is not enabled. [CONTEXT service_id=460 ]
+04-11 02:17:05.441 22816 22816 D BoundBrokerSvc: onRebind: Intent { act=com.google.android.contextmanager.service.ContextManagerLogsUploadBoundService.ACTION_TASK_READY dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+04-11 02:17:05.445 22816 24417 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.452 22816 22816 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.contextmanager.service.ContextManagerLogsUploadBoundService.ACTION_TASK_READY dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+04-11 02:17:05.453 22816 24244 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.466 22816 21681 I LocationReportUplIntOp: Uploading owner sightings. [CONTEXT service_id=284 ratelimit_period="5 MINUTES" ]
+04-11 02:17:05.467 22816 21681 I GmsCoreXrpcWrapper: (REDACTED) Returning a channel provider with trafficStatsTag=%d trafficStatsUid=%d
+04-11 02:17:05.522 22816 24244 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.529 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Starting sync for c45dc983
+04-11 02:17:05.532 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Sync duration for c45dc983: 2
+04-11 02:17:05.539 22816 21272 E jmgh    : *~*~*~ Previous channel {0} was garbage collected without being shut down! ~*~*~*
+04-11 02:17:05.539 22816 21272 E jmgh    :     Make sure to call shutdown()/shutdownNow()
+04-11 02:17:05.539 22816 21272 E jmgh    : java.lang.RuntimeException: ManagedChannel allocation site
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at jmgg.<init>(:com.google.android.gms@261233029@26.12.33 (190400-892550550):21)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at jmgh.<init>(:com.google.android.gms@261233029@26.12.33 (190400-892550550):10)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at jmgf.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):296)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at jlny.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):5)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at cwsr.h(:com.google.android.gms@261233029@26.12.33 (190400-892550550):150)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at hiws.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):142)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at gwir.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):13)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at hfin.a(:com.google.android.gms@261233029@26.12.33 (190400-892550550):3)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at hfho.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):19)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at hfip.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):5)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at bhys.c(:com.google.android.gms@261233029@26.12.33 (190400-892550550):50)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at bhys.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):73)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at biej.run(:com.google.android.gms@261233029@26.12.33 (190400-892550550):8)
+04-11 02:17:05.539 22816 21272 E jmgh    : 	at java.lang.Thread.run(Thread.java:1564)
+04-11 02:17:05.539 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.601 22816 21272 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.613 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Starting sync for 3306dd37
+04-11 02:17:05.617 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Sync duration for 3306dd37: 2
+04-11 02:17:05.623 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.689 22816 21272 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.697 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Starting sync for 3e8499ce
+04-11 02:17:05.700 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Sync duration for 3e8499ce: 2
+04-11 02:17:05.707 22816 21272 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.779 22816 24418 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.785 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Starting sync for ec934608
+04-11 02:17:05.787 22816 24418 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.792 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Sync duration for ec934608: 7
+04-11 02:17:05.813 24514 24514 I Choreographer: Skipped 48 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:05.838 22816 24245 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.844 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Starting sync for 55a50f3c
+04-11 02:17:05.848 22816 24418 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.848 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Sync duration for 55a50f3c: 3
+04-11 02:17:05.856 22816 24418 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.916 22816 24418 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.924 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Starting sync for 3c67e224
+04-11 02:17:05.929 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Sync duration for 3c67e224: 4
+04-11 02:17:05.976 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:05.980 22816 24418 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:05.985 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Starting sync for 797125ac
+04-11 02:17:05.990 21185 21202 I PlayGamesServices[GamesSyncAdapter]: Sync duration for 797125ac: 3
+04-11 02:17:06.050 22816 24418 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:06.053 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Starting sync for 8f51ad08
+04-11 02:17:06.058 22816 24653 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:06.060 21185 21223 I PlayGamesServices[GamesSyncAdapter]: Sync duration for 8f51ad08: 5
+04-11 02:17:06.076 22816 22820 I .gms.persistent: Background young concurrent copying GC freed 23MB AllocSpace bytes, 20(696KB) LOS objects, 41% free, 32MB/55MB, paused 307us,86us total 110.144ms
+04-11 02:17:06.133 22816 24417 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:06.141 22816 24417 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+04-11 02:17:06.148 22816 24418 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+04-11 02:17:06.461 24514 24514 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+04-11 02:17:06.461 24514 24514 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+04-11 02:17:06.516 22816 23224 I cn_CronetUrlRequestContext: destroyNativeStreamLocked org.chromium.net.impl.CronetBidirectionalStream@1062305
+04-11 02:17:07.113 24514 24514 I Choreographer: Skipped 44 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:07.760 21185 21185 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms }
+04-11 02:17:07.891 24514 24514 I Choreographer: Skipped 41 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:08.207 24514 24514 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+04-11 02:17:08.207 24514 24514 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+04-11 02:17:08.855 24514 24514 I Choreographer: Skipped 41 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:08.924 24514 24936 I OpenGLRenderer: Davey! duration=747ms; Flags=0, FrameTimelineVsyncId=14263593, IntendedVsync=47471640277280, Vsync=47472315857814, InputEventId=0, HandleInputStart=47472320655674, AnimationStart=47472320659982, PerformTraversalsStart=47472320724290, DrawStart=47472321348059, FrameDeadline=47471660277280, FrameInterval=47472320550444, FrameStartTime=16471961, SyncQueued=47472336062444, SyncStart=47472336125598, IssueDrawCommandsStart=47472336809828, SwapBuffers=47472381434828, FrameCompleted=47472388233213, DequeueBufferDuration=61769, QueueBufferDuration=381924, GpuCompleted=47472388233213, SwapBuffersCompleted=47472383615982, DisplayPresentTime=47470155851982, CommandSubmissionCompleted=47472381434828,
+04-11 02:17:09.427  3641  3840 D DurationCollector: updateRecord. beginDate = 2026-04-11, isSameDay = true, infos = [{"appVerCode":5030868,"beginTime":1775852134502,"delayTickCount":0,"duration":3694918}]
+04-11 02:17:09.593 24514 24514 I Choreographer: Skipped 39 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:09.786 24514 24514 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+04-11 02:17:09.786 24514 24514 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+04-11 02:17:10.089 24151 24646 I StartupNotificationsHelper: Schedule notifications startup work...
+04-11 02:17:10.093 24151 24646 I StartupNotificationsHelper: Is FCM token valid: true
+04-11 02:17:10.095 24151 24646 W WM-WorkSpec: Backoff delay duration less than minimum value
+04-11 02:17:10.104 24151 24427 W WM-WorkSpec: Backoff delay duration less than minimum value
+04-11 02:17:10.105 24151 24646 W OlmDeviceEnrollmentManager: isDeviceUnderOutlookManagement: admin active? Survey says { false, false }
+04-11 02:17:10.108 24151 24646 I AvatarManager: AvatarManager - Constructor Begin
+04-11 02:17:10.109 24151 24646 I AvatarManager: AvatarManager - Constructor End
+04-11 02:17:10.128 25380 25380 I Finsky  : [2] SCH: job service start with id 9732.
+04-11 02:17:10.134 25380 24131 I Finsky  : [598] SCH: Satisfied jobs for 9732 are: 12-1
+04-11 02:17:10.137 25380 24976 I Finsky  : [608] SCH: Job 12-1 starting
+04-11 02:17:10.137 25380 25380 I Finsky  : [2] WM::SCH: Logging work start for 12-1
+04-11 02:17:10.138 25380 25380 I Finsky  : [2] [ContentSync] job started
+04-11 02:17:10.159 24151 24639 I outlook.platformSDK: minInit -> IsComplete[true]
+04-11 02:17:10.160 24151 24639 I outlook.platformSDK: minInit <- IsComplete[true]
+04-11 02:17:10.160 24151 24639 I outlook.platformSDK: Skipping loading [CalendarCategories] since requirements not fulfilled.
+04-11 02:17:10.161 24151 24639 I outlook.platformSDK: Skipping loading [EventComposePartner] since requirements not fulfilled.
+04-11 02:17:10.164 24151 24639 I outlook.platformSDK: requestLoadContributionsAsyncV2[FileOpenContribution] - Packages[1]
+04-11 02:17:10.164 24151 24639 I outlook.platformSDK: initialize[FileViewer] -> IsComplete[false]
+04-11 02:17:10.166 24151 24409 I outlook.platformSDK: createPartnerAsync called for [FileViewer]
+04-11 02:17:10.171 24151 24639 I outlook.platformSDK: minInit -> IsComplete[true]
+04-11 02:17:10.171 24151 24639 I outlook.platformSDK: minInit <- IsComplete[true]
+04-11 02:17:10.172 24151 24639 I outlook.platformSDK: Skipping loading [CalendarCategories] since requirements not fulfilled.
+04-11 02:17:10.173 24151 24639 I outlook.platformSDK: Skipping loading [EventComposePartner] since requirements not fulfilled.
+04-11 02:17:10.175 24151 24639 I outlook.platformSDK: requestLoadContributionsAsyncV2[FileOpenContribution] - Packages[1]
+04-11 02:17:10.176 24151 24639 I outlook.platformSDK: initialize[FileViewer] -> IsComplete[false]
+04-11 02:17:10.178 24151 24397 I outlook.platformSDK: minInit -> IsComplete[true]
+04-11 02:17:10.178 24151 24397 I outlook.platformSDK: minInit <- IsComplete[true]
+04-11 02:17:10.179 24151 24397 I outlook.platformSDK: Skipping loading [CalendarCategories] since requirements not fulfilled.
+04-11 02:17:10.180 24151 24397 I outlook.platformSDK: Skipping loading [EventComposePartner] since requirements not fulfilled.
+04-11 02:17:10.181 24151 24646 I outlook.Notifications: setupNotificationsChannelsIfNeeded - AlreadyDone[false]
+04-11 02:17:10.183 24151 24426 I PartnerAssetManager: Fetching 1 assets for partner FileViewer
+04-11 02:17:10.185 24151 24409 I PartnerAssetManager: Fetching 1 assets for partner FileViewer
+04-11 02:17:10.186 24151 24397 I outlook.platformSDK: requestLoadContributionsAsyncV2[ReactNativePackagesContribution] - Packages[2]
+04-11 02:17:10.187 24151 24397 I outlook.platformSDK: initialize[PlatformSdkRN] -> IsComplete[false]
+04-11 02:17:10.188 24151 24373 I outlook.platformSDK: createPartnerAsync called for [PlatformSdkRN]
+04-11 02:17:10.189 24151 24373 I PartnerAssetManager: No files to download for partner: PlatformSdkRN
+04-11 02:17:10.189 24151 24373 I outlook.platformSDK: Attempting to create partner[PlatformSdkRN]
+04-11 02:17:10.191 24151 24373 I outlook.platformSDK: initialize[PlatformSdkRN] <- IsComplete[true]
+04-11 02:17:10.191 24151 24373 I outlook.platformSDK: Package[PlatformSdkRN] Contribution[PlatformSdkRnPackagesContribution]
+04-11 02:17:10.192 24151 24373 I outlook.platformSDK: initialize[Search] -> IsComplete[false]
+04-11 02:17:10.193 24151 24372 I outlook.platformSDK: createPartnerAsync called for [Search]
+04-11 02:17:10.194 24151 24571 I PartnerAssetManager: CDN download success - partner [FileViewer] asset [assets/android/pdf-preview/font/v1/arial.ttf]
+04-11 02:17:10.194 24151 24372 I PartnerAssetManager: No files to download for partner: Search
+04-11 02:17:10.195 24151 24372 I outlook.platformSDK: Attempting to create partner[Search]
+04-11 02:17:10.198 24151 24383 I outlook.platformSDK: minInit -> IsComplete[true]
+04-11 02:17:10.198 24151 24383 I outlook.platformSDK: minInit <- IsComplete[true]
+04-11 02:17:10.199 24151 24383 I outlook.platformSDK: Skipping loading [CalendarCategories] since requirements not fulfilled.
+04-11 02:17:10.200 24151 24383 I outlook.platformSDK: Skipping loading [EventComposePartner] since requirements not fulfilled.
+04-11 02:17:10.203 24151 24372 I outlook.platformSDK: initialize[Search] <- IsComplete[true]
+04-11 02:17:10.203 24151 24383 I outlook.platformSDK: requestLoadContributionsAsyncV2[FirstActivityStartedContribution] - Packages[3]
+04-11 02:17:10.207 24151 24383 I outlook.platformSDK: initialize[Add-ins] -> IsComplete[false]
+04-11 02:17:10.208 24151 24426 I outlook.platformSDK: createPartnerAsync called for [Add-ins]
+04-11 02:17:10.209 24151 24372 I outlook.platformSDK: Package[Search] Contribution[SearchListTabPackageContribution]
+04-11 02:17:10.209 24151 24426 I PartnerAssetManager: No files to download for partner: Add-ins
+04-11 02:17:10.210 24151 24426 I outlook.platformSDK: Attempting to create partner[Add-ins]
+04-11 02:17:10.211 24151 24372 I outlook.platformSDK: requestLoadContributionsAsyncV2[ReactNativePackagesContribution] - Loaded[2]
+04-11 02:17:10.213 24151 24646 I SyncMigrationStatusTracker: Updating MigrationStatus from Undetermined to Unneeded
+04-11 02:17:10.218 24151 24151 I OutlookAppComponentFactory: instantiateService, androidx.work.impl.background.systemjob.SystemJobService
+04-11 02:17:10.225 24151 24571 I PartnerAssetManager: CDN onActorWithResultsSucceeded 1 assets for partner FileViewer
+04-11 02:17:10.226 24151 24571 I PartnerAssetManager: CDN download success - partner [FileViewer] asset [assets/android/pdf-preview/bin/v3/bins.zip]
+04-11 02:17:10.232 24151 24372 W SoLoader: Initializing SoLoader: 0
+04-11 02:17:10.234 24151 24372 W SoLoader: Recording new base apk path: /data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/base.apk
+04-11 02:17:10.234 24151 24372 W SoLoader: Previously recorded 0 base apk paths.
+04-11 02:17:10.254 24151 24372 I SoLoader: Preparing SO source: DirectorySoSource[root = /vendor/lib64 flags = 2]
+04-11 02:17:10.254 24151 24372 I SoLoader: Preparing SO source: DirectorySoSource[root = /system/lib64 flags = 2]
+04-11 02:17:10.255 24151 24372 I SoLoader: Preparing SO source: ApplicationSoSource[DirectorySoSource[root = /data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/lib/arm64 flags = 0]]
+04-11 02:17:10.257 24151 24372 I SoLoader: Preparing SO source: BackupSoSource[root = /data/data/com.microsoft.office.outlook/lib-main flags = 1 apks = [/data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/base.apk]]
+04-11 02:17:10.257 24151 24426 I outlook.platformSDK: initialize[Add-ins] <- IsComplete[true]
+04-11 02:17:10.257 24151 24372 I SoLoader: init finish: 4 SO sources prepared
+04-11 02:17:10.258 24151 24372 W SoLoader: SoLoader initialized: 0
+04-11 02:17:10.258 24151 24426 I outlook.platformSDK: Package[Add-ins] Contribution[AddinsFirstActivityStartedContribution]
+04-11 02:17:10.259 24151 24426 I outlook.platformSDK: initialize[Iris] -> IsComplete[false]
+04-11 02:17:10.260 24151 24426 I outlook.platformSDK: createPartnerAsync called for [Iris]
+04-11 02:17:10.261 24151 24426 I PartnerAssetManager: No files to download for partner: Iris
+04-11 02:17:10.261 24151 24426 I outlook.platformSDK: Attempting to create partner[Iris]
+04-11 02:17:10.262 24151 24426 I Iris    : Iris initialized.
+04-11 02:17:10.267 24151 24426 I outlook.platformSDK: initialize[Iris] <- IsComplete[true]
+04-11 02:17:10.268 24151 24426 I outlook.platformSDK: Package[Iris] Contribution[IrisFirstActivityStartedContribution]
+04-11 02:17:10.268 24151 24426 I outlook.platformSDK: initialize[Msai] -> IsComplete[false]
+04-11 02:17:10.269 24151 24397 I outlook.platformSDK: createPartnerAsync called for [Msai]
+04-11 02:17:10.270 24151 24397 I PartnerAssetManager: No files to download for partner: Msai
+04-11 02:17:10.270 24151 24397 I outlook.platformSDK: Attempting to create partner[Msai]
+04-11 02:17:10.303 24151 24646 V CleanupACBootHandler: AC db not found
+04-11 02:17:10.311 24151 24372 W SoLoader: SoLoader already initialized
+04-11 02:17:10.312 24151 24646 I FeatureSnapshot: checkpoint reached, setting last known good to current snapshot
+04-11 02:17:10.318 24151 24372 W SoLoader: SoLoader already initialized
+04-11 02:17:10.335 24151 24646 I FeatureSnapshot: dummy checkpoint as false
+04-11 02:17:10.344 24151 25000 I FcmTokenUpdateJob: Hx FCM token update job starting
+04-11 02:17:10.357 24151 24633 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=e254b39e-8239-4b82-bcd6-399729f15311, tags={ com.microsoft.office.outlook.job.worker.PreloadFontSettingsWorker, OM_PRIMARY_TAG|PreloadFontSettingsWorker, PreloadFontSettingsWorker } ]
+04-11 02:17:10.358 24151 24997 D nativeloader: Load /data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/lib/arm64/libhermes.so using class loader ns clns-5 (caller=/data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/base.apk!classes6.dex): ok
+04-11 02:17:10.360 25380 25429 I Finsky  : [81] com.microsoft.office.outlook: Account determined from installer data - [E3gdTsMoBulIPpFonYSOiwP8OlE-6uOnpRJIa25Fv70]
+04-11 02:17:10.364 25380 25429 I Finsky  : [81] Billing preferred account via installer for com.microsoft.office.outlook: [E3gdTsMoBulIPpFonYSOiwP8OlE-6uOnpRJIa25Fv70]
+04-11 02:17:10.404 24151 24997 D nativeloader: Load /data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/lib/arm64/libhermestooling.so using class loader ns clns-5 (caller=/data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/base.apk!classes6.dex): ok
+04-11 02:17:10.405 24151 24997 D jni_lib_merge: Entering merged library JNI_OnLoad.
+04-11 02:17:10.405 24151 24997 D jni_lib_merge: Preparing 4 pre-merged libs (including stub)
+04-11 02:17:10.405 24151 24997 D jni_lib_merge: Preparing to register libhermes_executor_so.  onload_func: 0x791c7db868
+04-11 02:17:10.405 24151 24997 D jni_lib_merge: Preparing to register libhermesinstancejni_so.  onload_func: 0x791c7e2294
+04-11 02:17:10.405 24151 24997 D jni_lib_merge: Preparing to register libjsijniprofiler_so.  onload_func: 0x791c7e2950
+04-11 02:17:10.405 24151 24997 D jni_lib_merge: About to register 3 actual methods.
+04-11 02:17:10.410 24151 24997 D nativeloader: Load /data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/lib/arm64/libfbjni.so using class loader ns clns-5 (caller=/data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/base.apk!classes6.dex): ok
+04-11 02:17:10.412 24151 24571 I PartnerAssetManager: CDN onActorWithResultsSucceeded 1 assets for partner FileViewer
+04-11 02:17:10.414 24151 24426 I outlook.platformSDK: Attempting to create partner[FileViewer]
+04-11 02:17:10.416 24151 24639 I outlook.platformSDK: initialize[FileViewer] <- IsComplete[true]
+04-11 02:17:10.417 24151 24617 I outlook.platformSDK: initialize[FileViewer] <- IsComplete[true]
+04-11 02:17:10.417 24151 24639 I outlook.platformSDK: Package[FileViewer] Contribution[PdfFileContribution]
+04-11 02:17:10.418 24151 24617 I outlook.platformSDK: Package[FileViewer] Contribution[PdfFileContribution]
+04-11 02:17:10.418 24151 24639 I outlook.platformSDK: requestLoadContributionsAsyncV2[FileOpenContribution] - Loaded[1]
+04-11 02:17:10.420 24151 24617 I outlook.platformSDK: requestLoadContributionsAsyncV2[FileOpenContribution] - Loaded[1]
+04-11 02:17:10.423 24151 24997 D nativeloader: Load /data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/lib/arm64/libreactnative.so using class loader ns clns-5 (caller=/data/app/~~nrOlyHm9bo1F9Z65aTF0oQ==/com.microsoft.office.outlook-L29Qdo9o5v12dPcI8bNWQA==/base.apk!classes6.dex): ok
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Entering merged library JNI_OnLoad.
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing 12 pre-merged libs (including stub)
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libfabricjni_so.  onload_func: 0x78f62d18f8
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libmapbufferjni_so.  onload_func: 0x78f6323c94
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libreact_devsupportjni_so.  onload_func: 0x78f6397f24
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libreact_featureflagsjni_so.  onload_func: 0x78f63a0448
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libreact_newarchdefaults_so.  onload_func: 0x78f63c3404
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libreactnativeblob_so.  onload_func: 0x78f644a458
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libreactnativejni_so.  onload_func: 0x78f64684a4
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register librninstance_so.  onload_func: 0x78f6482964
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libturbomodulejsijni_so.  onload_func: 0x78f64e2e68
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libuimanagerjni_so.  onload_func: 0x78f64ea380
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: Preparing to register libyoga_so.  onload_func: 0x78f64ef72c
+04-11 02:17:10.425 24151 24997 D jni_lib_merge: About to register 11 actual methods.
+04-11 02:17:10.448 24151 24639 I ACAccountManager: getDefaultAccount: Only one account available - Picking accountId=32768
+04-11 02:17:10.453 24151 25019 I HxFcmTokenUpdater: FCM token updated successfully in HxCore
+04-11 02:17:10.456 25380 25430 I Finsky  : [82] com.microsoft.office.outlook: Account determined from installer data - [E3gdTsMoBulIPpFonYSOiwP8OlE-6uOnpRJIa25Fv70]
+04-11 02:17:10.457 25380 25430 I Finsky  : [82] Billing preferred account via installer for com.microsoft.office.outlook: [E3gdTsMoBulIPpFonYSOiwP8OlE-6uOnpRJIa25Fv70]
+04-11 02:17:10.457 24151 24729 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=e22ef4eb-9cb4-42b0-b229-b6e6b878b793, tags={ com.microsoft.office.outlook.fcm.FcmTokenUpdateJob, FcmTokenUpdateJob } ]
+04-11 02:17:10.477 21185 21185 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsApiService }
+04-11 02:17:10.486 24514 24514 I Choreographer: Skipped 44 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:10.515 21185 21185 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.feedback.internal.IFeedbackService dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsBoundBrokerService }
+04-11 02:17:10.567 24151 24397 I outlook.platformSDK: initialize[Msai] <- IsComplete[true]
+04-11 02:17:10.571 24151 24397 I outlook.platformSDK: Package[Msai] Contribution[M365FirstActivityContribution]
+04-11 02:17:10.573 24151 24639 I IAPHelperImpl: queryPurchasesAsync succeeded, there are 0 purchases
+04-11 02:17:10.580 24151 24397 I outlook.platformSDK: requestLoadContributionsAsyncV2[FirstActivityStartedContribution] - Loaded[3]
+04-11 02:17:10.583 24151 24397 I Add-ins : App first activity post resumed. Initialize addins
+04-11 02:17:10.585 24151 24397 I outlook.Accounts: supportsAddIns: Account does not support Add-ins
+04-11 02:17:10.595 25380 25384 I android.vending: Background young concurrent copying GC freed 10MB AllocSpace bytes, 2(136KB) LOS objects, 21% free, 44MB/56MB, paused 2.774ms,603us total 201.369ms
+04-11 02:17:10.608 22816 22816 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.time.trustedtime.service.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+04-11 02:17:10.620 22816 22816 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.time.trustedtime.singleuserapi.service.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentSingleUserInternalApiService }
+04-11 02:17:10.625 24151 24397 I Msai    : Starting eligibility checks for [1] accounts
+04-11 02:17:10.652 24151 24372 I TokenStoreManager: Starting to acquire token for scope Partner for accountId: 32768
+04-11 02:17:10.655 24151 24372 I TokenStoreManager: Token not in cache or claims are present, accountId: 32768, resource: <pii:12fcd9df8ac5de95ba4d367a92640e3a57bdba552a102883beb5dc7041050f10e3968db7fa624420bc464696008f9d6f37cf6994b6ef32295dd1bd81b849a12a>, areClaimsPresent: false, correlationId: 4404c14c-3050-4832-a80e-d3098006d0a1
+04-11 02:17:10.657 24151 24372 I TokenStoreManager: Starting to fetch token from token acquirer for accountId: 32768 resource: <pii:12fcd9df8ac5de95ba4d367a92640e3a57bdba552a102883beb5dc7041050f10e3968db7fa624420bc464696008f9d6f37cf6994b6ef32295dd1bd81b849a12a>
+04-11 02:17:10.693 24151 25028 I Msai    : Capabilities Acct[32768]
+04-11 02:17:10.705 24151 24372 I outlook.oneauth: Mats sessionId for OneAuth: d382faae-8ff0-47da-8b99-f5647b220a3c
+04-11 02:17:10.710 24151 24372 I outlook.oneauth: OneAuth init
+04-11 02:17:10.733 24151 24372 I OneAuthLog: [OneAuth:0003:Info:48bf5:00000000] MATS DeviceProfileTelemetryId: f9b40f33ea687f4d
+04-11 02:17:10.733 24151 24372 I outlook.oneauth: [OneAuth] [OneAuth:0003:Info:48bf5:00000000] MATS DeviceProfileTelemetryId: f9b40f33ea687f4d
+04-11 02:17:10.734 24151 24372 I OneAuthLog: [OneAuth:0003:Info:4md94:00000000] MATS device telemetry disabled.
+04-11 02:17:10.734 24151 24372 I outlook.oneauth: [OneAuth] [OneAuth:0003:Info:4md94:00000000] MATS device telemetry disabled.
+04-11 02:17:10.747 24514 24523 I l.offlinearcade: Background concurrent copying GC freed 5896KB AllocSpace bytes, 1(24KB) LOS objects, 50% free, 6089KB/11MB, paused 479us,64us total 118.340ms
+04-11 02:17:10.748 24151 24372 I OneAuthLog: [OneAuth:0003:Info:4wg2j:00000000] TSL Info: { name:GetSharedDeviceId, resultType:Success, resultCode:None, duration:5ms }
+04-11 02:17:10.748 24151 24372 I outlook.oneauth: [OneAuth] [OneAuth:0003:Info:4wg2j:00000000] TSL Info: { name:GetSharedDeviceId, resultType:Success, resultCode:None, duration:5ms }
+04-11 02:17:10.749 24151 24372 W OneAuthLog: [OneAuth:0003:Warning:4rscl:00000000] MATS not initialized
+04-11 02:17:10.749 24151 24372 W outlook.oneauth: [OneAuth] [OneAuth:0003:Warning:4rscl:00000000] MATS not initialized
+04-11 02:17:10.771 24151 24998 I TokenStoreManager: Starting to acquire token for scope Partner for accountId: 32768
+04-11 02:17:10.772 24151 24998 I TokenStoreManager: Invoking tokenNotInCacheSignal callback, about to fetch token from AuthSDK/Network
+04-11 02:17:10.774 24151 24998 I TokenStoreManager: Token not in cache or claims are present, accountId: 32768, resource: <pii:a70bb8c1feedfd9041d686c80f160fb44ae6bdcfde9e7e18ed4c7b94a82b95c5bfd51a498712107b45e9d306d693757411ecfd1ca645e6b88a1a3f39c997489d>, areClaimsPresent: false, correlationId: c6ed1b4b-8383-4186-ba08-6b4b225c54de
+04-11 02:17:10.788 24151 24998 I TokenStoreManager: Starting to fetch token from token acquirer for accountId: 32768 resource: <pii:a70bb8c1feedfd9041d686c80f160fb44ae6bdcfde9e7e18ed4c7b94a82b95c5bfd51a498712107b45e9d306d693757411ecfd1ca645e6b88a1a3f39c997489d>
+04-11 02:17:10.789 24151 25037 I Msai    : Result - Eligibility[true]
+04-11 02:17:10.796 24151 24372 I OneAuthLog: [MSAL:0003]	INFO   	CreateSingletonComponents:143	Starting up MSAL
+04-11 02:17:10.796 24151 24372 I outlook.oneauth: [OneAuth] [MSAL:0003]	INFO   	CreateSingletonComponents:143	Starting up MSAL
+04-11 02:17:10.810 24151 25038 I ACAccountManager: getDefaultAccount: Only one account available - Picking accountId=32768
+04-11 02:17:10.817 24151 24372 I OneAuthLog: [MSAL:0003]	INFO   	AddConfigurationWithStorageManager:269	Created a new public client application with ID ''
+04-11 02:17:10.817 24151 24372 I outlook.oneauth: [OneAuth] [MSAL:0003]	INFO   	AddConfigurationWithStorageManager:269	Created a new public client application with ID ''
+04-11 02:17:10.825 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 229, correlation_id: UNSET - Android 33] Loaded 3 AccountRecords
+04-11 02:17:10.825 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 229, correlation_id: UNSET - Android 33] Loaded 3 AccountRecords
+04-11 02:17:10.827 24151 24372 I OneAuthLog: [OneAuth:0003:Info:8mqsd:439bc5d5] OneAuth Version 9.3.0 (com.microsoft.office.outlook)
+04-11 02:17:10.827 24151 24372 I outlook.oneauth: [OneAuth] [OneAuth:0003:Info:8mqsd:439bc5d5] OneAuth Version 9.3.0 (com.microsoft.office.outlook)
+04-11 02:17:10.828 24151 24372 I OneAuthLog: [OneAuth:0003:Info:9zj7z:439bc5d5] Language code 'en-PK' is not supported, fall back to 'en'
+04-11 02:17:10.828 24151 24372 I outlook.oneauth: [OneAuth] [OneAuth:0003:Info:9zj7z:439bc5d5] Language code 'en-PK' is not supported, fall back to 'en'
+04-11 02:17:10.831 24151 24372 D TokenSharingManager_v1.7.1: Library works in release mode
+04-11 02:17:10.833 24151 24617 W Settings: Setting airplane_mode_on has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+04-11 02:17:10.838 24151 24372 I outlook.oneauth: Silently trying to acquire token for oneAuthAccountId <pii:8931516318fa0b3a4b5848eb1bad1556817228f9b03787fbcbb8bb770e55eec4d105efe3e46564f950582ed271eda4d6f0d2f4fe877da2a44f1bcd92b5d554ed> for resource https://arc.msn.com/v4 with correlationId 4404c14c-3050-4832-a80e-d3098006d0a1.oldToken in parameters?: true
+04-11 02:17:10.838 24151 24998 I outlook.oneauth: Silently trying to acquire token for oneAuthAccountId <pii:8931516318fa0b3a4b5848eb1bad1556817228f9b03787fbcbb8bb770e55eec4d105efe3e46564f950582ed271eda4d6f0d2f4fe877da2a44f1bcd92b5d554ed> for resource bb893c22-978d-4cd4-a6f7-bb6cc0d6e6ce with correlationId c6ed1b4b-8383-4186-ba08-6b4b225c54de.oldToken in parameters?: true
+04-11 02:17:10.871 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.microsoft.office.react.livepersonacard.internal.LpcBackBarButtonManager
+04-11 02:17:10.891 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.uimanager.t
+04-11 02:17:10.893 24151 24617 E VivoConfigStore: key:vivo.software.nightmode isCached is false and normal value is true
+04-11 02:17:10.898 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.microsoft.office.react.livepersonacard.internal.LpcMoreOptionsMenuManager
+04-11 02:17:10.900 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.microsoft.office.react.livepersonacard.internal.LpcNavigateBackManager
+04-11 02:17:10.901 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.microsoft.office.react.livepersonacard.internal.LpcRadioButtonManager
+04-11 02:17:10.902 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.microsoft.office.react.livepersonacard.internal.LpcRadioButtonManager$LpcRadioButtonShadowNode
+04-11 02:17:10.904 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.microsoft.office.react.livepersonacard.internal.LpcResponsiveTitleManager
+04-11 02:17:10.905 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.microsoft.office.react.livepersonacard.internal.LpcScrollViewDelegateManager
+04-11 02:17:10.906 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 104, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:10.906 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 104, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:10.914 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.microsoft.office.react.livepersonacard.internal.LpcAvatarImageManager
+04-11 02:17:10.916 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.drawer.ReactDrawerLayoutManager
+04-11 02:17:10.918 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactHorizontalScrollViewManager
+04-11 02:17:10.922 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactHorizontalScrollContainerViewManager
+04-11 02:17:10.927 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.progressbar.ReactProgressBarViewManager
+04-11 02:17:10.928 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.progressbar.b
+04-11 02:17:10.931 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactScrollViewManager
+04-11 02:17:10.935 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.switchview.ReactSwitchManager
+04-11 02:17:10.937 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.switchview.ReactSwitchManager$b
+04-11 02:17:10.938 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.safeareaview.ReactSafeAreaViewManager
+04-11 02:17:10.939 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.safeareaview.c
+04-11 02:17:10.940 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.swiperefresh.SwipeRefreshLayoutManager
+04-11 02:17:10.942 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.frescosupport.FrescoBasedReactTextInlineImageViewManager
+04-11 02:17:10.943 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 104, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:10.944 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 104, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:10.945 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.frescosupport.a
+04-11 02:17:10.948 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.image.ReactImageManager
+04-11 02:17:10.950 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.modal.ReactModalHostManager
+04-11 02:17:10.953 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.mainline.primary.libs' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:10.953 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactRawTextManager
+04-11 02:17:10.953 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:10.953 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:10.953 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.e
+04-11 02:17:10.954 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:10.954 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:10.955 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.textinput.ReactTextInputManager
+04-11 02:17:10.957 24151 25049 W libc    : Access denied finding property "vendor.vivo.imageencoder.dump"
+04-11 02:17:10.957 24151 25049 D OpenGLRenderer: Bitmap::compress format:Png w:110 h:110 quality:100 app_apk:com.microsoft.office.outlook
+04-11 02:17:10.957 24151 25049 W libc    : Access denied finding property "vendor.vivo.imageencoder.dump"
+04-11 02:17:10.960 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.textinput.v
+04-11 02:17:10.960 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] prodMicrosoftAuthenticator is the active AccountManager broker.
+04-11 02:17:10.961 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] prodMicrosoftAuthenticator is the active AccountManager broker.
+04-11 02:17:10.968 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Broker Strategies added : ContentProviderStrategy, BoundServiceStrategy, AccountManagerStrategy.
+04-11 02:17:10.968 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Broker Strategies added : ContentProviderStrategy, BoundServiceStrategy, AccountManagerStrategy.
+04-11 02:17:10.968 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactTextViewManager
+04-11 02:17:10.971 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.f
+04-11 02:17:10.972 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.view.ReactViewManager
+04-11 02:17:10.973 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactVirtualTextViewManager
+04-11 02:17:10.974 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.k
+04-11 02:17:10.975 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.unimplementedview.ReactUnimplementedViewManager
+04-11 02:17:10.976 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] prodMicrosoftAuthenticator is the active AccountManager broker.
+04-11 02:17:10.976 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] prodMicrosoftAuthenticator is the active AccountManager broker.
+04-11 02:17:10.979 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Broker Strategies added : ContentProviderStrategy, BoundServiceStrategy, AccountManagerStrategy.
+04-11 02:17:10.979 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Broker Strategies added : ContentProviderStrategy, BoundServiceStrategy, AccountManagerStrategy.
+04-11 02:17:10.981 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:10.981 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:10.983 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.reactnativecommunity.webview.RNCWebViewManager
+04-11 02:17:10.983 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:10.983 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:10.985 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 104, correlation_id: UNSET - Android 33] prodMicrosoftAuthenticator is the active AccountManager broker.
+04-11 02:17:10.985 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 104, correlation_id: UNSET - Android 33] prodMicrosoftAuthenticator is the active AccountManager broker.
+04-11 02:17:10.987 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$DefsViewManager
+04-11 02:17:10.988 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Broker operation name: MSAL_GET_DEVICE_MODE brokerPackage: com.azure.authenticator
+04-11 02:17:10.988 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Broker operation name: MSAL_GET_DEVICE_MODE brokerPackage: com.azure.authenticator
+04-11 02:17:10.989 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /getDeviceMode
+04-11 02:17:10.989 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 92, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /getDeviceMode
+04-11 02:17:10.990 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.VirtualViewManager$c
+04-11 02:17:11.003 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 104, correlation_id: UNSET - Android 33] Broker Strategies added : ContentProviderStrategy, BoundServiceStrategy, AccountManagerStrategy.
+04-11 02:17:11.003 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:10 - thread_id: 104, correlation_id: UNSET - Android 33] Broker Strategies added : ContentProviderStrategy, BoundServiceStrategy, AccountManagerStrategy.
+04-11 02:17:11.004 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.004 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.005 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.005 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.006 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Broker operation name: MSAL_GET_DEVICE_MODE brokerPackage: com.azure.authenticator
+04-11 02:17:11.006 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Broker operation name: MSAL_GET_DEVICE_MODE brokerPackage: com.azure.authenticator
+04-11 02:17:11.012 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$FeMergeManager
+04-11 02:17:11.014 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$LinearGradientManager
+04-11 02:17:11.017 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$FeGaussianBlurManager
+04-11 02:17:11.021 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /getDeviceMode
+04-11 02:17:11.021 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /getDeviceMode
+04-11 02:17:11.021 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$FeColorMatrixManager
+04-11 02:17:11.023 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$ClipPathViewManager
+04-11 02:17:11.027 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$SymbolManager
+04-11 02:17:11.031 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$PatternManager
+04-11 02:17:11.040 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$FeBlendManager
+04-11 02:17:11.041 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.SvgViewManager
+04-11 02:17:11.044 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$UseViewManager
+04-11 02:17:11.047 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$CircleViewManager
+04-11 02:17:11.051 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$TSpanViewManager
+04-11 02:17:11.061 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$FilterManager
+04-11 02:17:11.064 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$MarkerManager
+04-11 02:17:11.069 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$ForeignObjectManager
+04-11 02:17:11.074 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.074 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.075 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$EllipseViewManager
+04-11 02:17:11.081 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$LineViewManager
+04-11 02:17:11.089 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.089 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.092 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$FeFloodManager
+04-11 02:17:11.094 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$GroupViewManager
+04-11 02:17:11.097 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$TextViewManager
+04-11 02:17:11.101 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$ImageViewManager
+04-11 02:17:11.103 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.104 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.104 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$FeCompositeManager
+04-11 02:17:11.105 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.105 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.105 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Broker operation name: MSAL_GET_PREFERRED_AUTH_METHOD brokerPackage: com.azure.authenticator
+04-11 02:17:11.105 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Broker operation name: MSAL_GET_PREFERRED_AUTH_METHOD brokerPackage: com.azure.authenticator
+04-11 02:17:11.106 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /getPreferredAuthMethod
+04-11 02:17:11.106 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /getPreferredAuthMethod
+04-11 02:17:11.111 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 229, correlation_id: UNSET - Android 33] Loaded 25 Credentials
+04-11 02:17:11.111 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 229, correlation_id: UNSET - Android 33] Loaded 25 Credentials
+04-11 02:17:11.112 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$RadialGradientManager
+04-11 02:17:11.119 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$MaskManager
+04-11 02:17:11.130 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$RectViewManager
+04-11 02:17:11.134 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$TextPathViewManager
+04-11 02:17:11.141 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$FeOffsetManager
+04-11 02:17:11.143 24151 25021 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.horcrux.svg.RenderableViewManager$PathViewManager
+04-11 02:17:11.250 22816 24120 I NearbyMediums: Found Fast Ble Advertisements :
+04-11 02:17:11.250 22816 24120 I NearbyMediums: BleAdvertisement { version=2, socketVersion=2, isFast=true, serviceIdHash=null, data=[ 0x23 0x38 0x49 0x53 0x5a 0x11 0x32 0xb2 0x0f 0xb8 0xd6 0x19 0x0d 0x53 0xda 0x12 0x70 0xe7 0x68 0x86 0xee 0x75 0xc9 ], deviceToken=[ 0x9d 0x3f ], rxAdvertisement=null } : 3 times.
+04-11 02:17:11.250 22816 24120 I NearbyMediums: Total 3 fast advertisements from 1 unique advertisers.
+04-11 02:17:11.250 22816 24120 I NearbyMediums: Current Tracked Scanning Clients are : {NearbyConnections.EnvironmentMonitor, NearbySharing, NearbyConnections.TxAdvertisement}
+04-11 02:17:11.253 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.253 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.264 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.264 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 92, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.293 24151 24372 I OneAuthLog: [OneAuth:0003:Info:9zkae:4404c14c] Start task AcquireCredentialSilently [0]
+04-11 02:17:11.294 24151 24372 I outlook.oneauth: [OneAuth] [OneAuth:0003:Info:9zkae:4404c14c] Start task AcquireCredentialSilently [0]
+04-11 02:17:11.299 24151 24372 I OneAuthLog: [OneAuth:0003:Info:4p5fv:4404c14c] isAdfs false
+04-11 02:17:11.300 24151 24372 I outlook.oneauth: [OneAuth] [OneAuth:0003:Info:4p5fv:4404c14c] isAdfs false
+04-11 02:17:11.311 24151 24372 I OneAuthLog: [MSAL:0003]	INFO   	SetAuthorityUri:78	Initializing authority from URI 'https://login.windows.net/common' without authority type, defaulting to MsSts
+04-11 02:17:11.311 24151 24372 I outlook.oneauth: [OneAuth] [MSAL:0003]	INFO   	SetAuthorityUri:78	Initializing authority from URI 'https://login.windows.net/common' without authority type, defaulting to MsSts
+04-11 02:17:11.312 24151 24372 I OneAuthLog: [OneAuth:0003:Info:4p5fv:4404c14c] isAdfs false
+04-11 02:17:11.312 24151 24372 I outlook.oneauth: [OneAuth] [OneAuth:0003:Info:4p5fv:4404c14c] isAdfs false
+04-11 02:17:11.313 24151 24372 I OneAuthLog: [MSAL:0003]	INFO   	SetCorrelationId:239	Set correlation ID: 4404c14c-3050-4832-a80e-d3098006d0a1
+04-11 02:17:11.313 24151 24372 I outlook.oneauth: [OneAuth] [MSAL:0003]	INFO   	SetCorrelationId:239	Set correlation ID: 4404c14c-3050-4832-a80e-d3098006d0a1
+04-11 02:17:11.314 24151 24372 I OneAuthLog: [MSAL:0003]	INFO   	EnqueueBackgroundRequest:1243	The original authority is 'https://login.windows.net/common'
+04-11 02:17:11.314 24151 24372 I outlook.oneauth: [OneAuth] [MSAL:0003]	INFO   	EnqueueBackgroundRequest:1243	The original authority is 'https://login.windows.net/common'
+04-11 02:17:11.315 24151 24372 I OneAuthLog: [MSAL:0003]	INFO   	ModifyAndValidateAuthParameters:237	Authority Realm: common
+04-11 02:17:11.315 24151 24372 I outlook.oneauth: [OneAuth] [MSAL:0003]	INFO   	ModifyAndValidateAuthParameters:237	Authority Realm: common
+04-11 02:17:11.332 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:11.332 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:11.335 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.335 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.339 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:11.339 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:11.346 24151 25058 I OneAuthLog: [MSAL:0006]	INFO   	SetCanonicalRealm:1224	Normalize realm to: '299791e5-f171-4b78-8579-e2dadd79bf88'
+04-11 02:17:11.346 24151 25058 I outlook.oneauth: [OneAuth] [MSAL:0006]	INFO   	SetCanonicalRealm:1224	Normalize realm to: '299791e5-f171-4b78-8579-e2dadd79bf88'
+04-11 02:17:11.347 24151 25058 I OneAuthLog: [MSAL:0006]	INFO   	TryUseStorage:143	Try to read account from universal storage.
+04-11 02:17:11.347 24151 25058 I outlook.oneauth: [OneAuth] [MSAL:0006]	INFO   	TryUseStorage:143	Try to read account from universal storage.
+04-11 02:17:11.349 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: 4404c14c-3050-4832-a80e-d3098006d0a1 - Android 33] Found [3] Accounts...
+04-11 02:17:11.349 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: 4404c14c-3050-4832-a80e-d3098006d0a1 - Android 33] Found [3] Accounts...
+04-11 02:17:11.352 24151 25058 I OneAuthLog: [MSAL:0006]	INFO   	StorageTokenResponse:84	StorageTokenResponse account constructor invoked. This is only expected in Runtime flows
+04-11 02:17:11.352 24151 25058 I outlook.oneauth: [OneAuth] [MSAL:0006]	INFO   	StorageTokenResponse:84	StorageTokenResponse account constructor invoked. This is only expected in Runtime flows
+04-11 02:17:11.361 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.361 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.362 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.362 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.364 24151 25058 I OneAuthLog: [MSAL:0006]	INFO   	IsAccessTokenValid:2683	The access token is expired
+04-11 02:17:11.364 24151 25058 I outlook.oneauth: [OneAuth] [MSAL:0006]	INFO   	IsAccessTokenValid:2683	The access token is expired
+04-11 02:17:11.370 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Removing Credential...
+04-11 02:17:11.370 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Removing Credential...
+04-11 02:17:11.372 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.372 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.373 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Broker operation name: MSAL_GET_PREFERRED_AUTH_METHOD brokerPackage: com.azure.authenticator
+04-11 02:17:11.373 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Broker operation name: MSAL_GET_PREFERRED_AUTH_METHOD brokerPackage: com.azure.authenticator
+04-11 02:17:11.374 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /getPreferredAuthMethod
+04-11 02:17:11.374 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /getPreferredAuthMethod
+04-11 02:17:11.396 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.appsearch' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:11.399 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.art' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:11.413 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.413 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.414 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Credential was removed? [true]
+04-11 02:17:11.414 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Credential was removed? [true]
+04-11 02:17:11.415 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Found [3] Accounts...
+04-11 02:17:11.415 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Found [3] Accounts...
+04-11 02:17:11.419 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Found [3] Accounts...
+04-11 02:17:11.419 24151 25058 W OneAuthLog: [MSAL:0006]	WARNING	GetPlatformPropertiesFromStorage:2082	No account found in cache.
+04-11 02:17:11.419 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Found [3] Accounts...
+04-11 02:17:11.419 24151 25058 W outlook.oneauth: [OneAuth] [MSAL:0006]	WARNING	GetPlatformPropertiesFromStorage:2082	No account found in cache.
+04-11 02:17:11.420 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] No account found for the passing in homeAccountId: 007aba98-6867-447b-af43-a98b4e969919.299791e5-f171-4b78-8579-e2dadd79bf88 environment: login.microsoftonline.com realm: 299791e5-f171-4b78-8579-e2dadd79bf88
+04-11 02:17:11.420 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] No account found for the passing in homeAccountId: 007aba98-6867-447b-af43-a98b4e969919.299791e5-f171-4b78-8579-e2dadd79bf88 environment: login.microsoftonline.com realm: 299791e5-f171-4b78-8579-e2dadd79bf88
+04-11 02:17:11.420 24677 24684 W henticator:auth: Suspending all threads took: 7.693ms
+04-11 02:17:11.425 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:11.425 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:11.426 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:11.426 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:11.431 24514 24514 I Choreographer: Skipped 48 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:11.475 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.475 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.476 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Cache entry is expired.
+04-11 02:17:11.476 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Cache entry is expired.
+04-11 02:17:11.477 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.477 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.478 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] No valid entry found in cache
+04-11 02:17:11.478 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] No valid entry found in cache
+04-11 02:17:11.479 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Calling broker for to establish negotiated protocol version for: MinRequestVersion=8.0, ClientMaxProtocolVersion=19.0, ActiveBroker=com.azure.authenticator
+04-11 02:17:11.479 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Calling broker for to establish negotiated protocol version for: MinRequestVersion=8.0, ClientMaxProtocolVersion=19.0, ActiveBroker=com.azure.authenticator
+04-11 02:17:11.485 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.485 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.486 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Broker operation name: MSAL_HELLO brokerPackage: com.azure.authenticator
+04-11 02:17:11.486 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Broker operation name: MSAL_HELLO brokerPackage: com.azure.authenticator
+04-11 02:17:11.489 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /hello
+04-11 02:17:11.489 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /hello
+04-11 02:17:11.522 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.522 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.525 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Able to establish the connect, the broker protocol version in common is [19.0]
+04-11 02:17:11.525 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Able to establish the connect, the broker protocol version in common is [19.0]
+04-11 02:17:11.526 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Constructing result bundle from AcquireTokenSilentOperationParameters.
+04-11 02:17:11.526 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Constructing result bundle from AcquireTokenSilentOperationParameters.
+04-11 02:17:11.546 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Broker Result, raw payload size:962 ,compressed bytes size: 541
+04-11 02:17:11.546 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Broker Result, raw payload size:962 ,compressed bytes size: 541
+04-11 02:17:11.547 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.547 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.548 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Broker operation name: MSAL_ACQUIRE_TOKEN_SILENT brokerPackage: com.azure.authenticator
+04-11 02:17:11.548 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Broker operation name: MSAL_ACQUIRE_TOKEN_SILENT brokerPackage: com.azure.authenticator
+04-11 02:17:11.549 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /acquireTokenSilent
+04-11 02:17:11.549 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 243, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /acquireTokenSilent
+04-11 02:17:11.604 24514 24514 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+04-11 02:17:11.604 24514 24514 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+04-11 02:17:11.658 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.659 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Received successful result from Broker Content Provider.
+04-11 02:17:11.676 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.676 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 104, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.685 24151 24996 I OneAuthLog: [OneAuth:0007:Info:9zkae:c6ed1b4b] Start task AcquireCredentialSilently [1]
+04-11 02:17:11.686 24151 24996 I outlook.oneauth: [OneAuth] [OneAuth:0007:Info:9zkae:c6ed1b4b] Start task AcquireCredentialSilently [1]
+04-11 02:17:11.687 24151 24996 I OneAuthLog: [OneAuth:0007:Info:4p5fv:c6ed1b4b] isAdfs false
+04-11 02:17:11.688 24151 24996 I outlook.oneauth: [OneAuth] [OneAuth:0007:Info:4p5fv:c6ed1b4b] isAdfs false
+04-11 02:17:11.688 24151 24996 I OneAuthLog: [MSAL:0007]	INFO   	SetAuthorityUri:78	Initializing authority from URI 'https://login.windows.net/common' without authority type, defaulting to MsSts
+04-11 02:17:11.688 24151 24996 I outlook.oneauth: [OneAuth] [MSAL:0007]	INFO   	SetAuthorityUri:78	Initializing authority from URI 'https://login.windows.net/common' without authority type, defaulting to MsSts
+04-11 02:17:11.690 24151 24996 I OneAuthLog: [OneAuth:0007:Info:4p5fv:c6ed1b4b] isAdfs false
+04-11 02:17:11.691 24151 24996 I outlook.oneauth: [OneAuth] [OneAuth:0007:Info:4p5fv:c6ed1b4b] isAdfs false
+04-11 02:17:11.692 24151 24996 I OneAuthLog: [MSAL:0007]	INFO   	SetCorrelationId:239	Set correlation ID: c6ed1b4b-8383-4186-ba08-6b4b225c54de
+04-11 02:17:11.692 24151 24996 I outlook.oneauth: [OneAuth] [MSAL:0007]	INFO   	SetCorrelationId:239	Set correlation ID: c6ed1b4b-8383-4186-ba08-6b4b225c54de
+04-11 02:17:11.693 24151 24996 I OneAuthLog: [MSAL:0007]	INFO   	EnqueueBackgroundRequest:1243	The original authority is 'https://login.windows.net/common'
+04-11 02:17:11.693 24151 24996 I outlook.oneauth: [OneAuth] [MSAL:0007]	INFO   	EnqueueBackgroundRequest:1243	The original authority is 'https://login.windows.net/common'
+04-11 02:17:11.694 24151 24996 I OneAuthLog: [MSAL:0007]	INFO   	ModifyAndValidateAuthParameters:237	Authority Realm: common
+04-11 02:17:11.694 24151 24996 I outlook.oneauth: [OneAuth] [MSAL:0007]	INFO   	ModifyAndValidateAuthParameters:237	Authority Realm: common
+04-11 02:17:11.704 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:11.704 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:11.707 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:11.707 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:11.708 24151 25066 I OneAuthLog: [MSAL:0008]	INFO   	SetCanonicalRealm:1224	Normalize realm to: '299791e5-f171-4b78-8579-e2dadd79bf88'
+04-11 02:17:11.709 24151 25066 I outlook.oneauth: [OneAuth] [MSAL:0008]	INFO   	SetCanonicalRealm:1224	Normalize realm to: '299791e5-f171-4b78-8579-e2dadd79bf88'
+04-11 02:17:11.710 24151 25066 I OneAuthLog: [MSAL:0008]	INFO   	TryUseStorage:143	Try to read account from universal storage.
+04-11 02:17:11.711 24151 25066 I outlook.oneauth: [OneAuth] [MSAL:0008]	INFO   	TryUseStorage:143	Try to read account from universal storage.
+04-11 02:17:11.713 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: c6ed1b4b-8383-4186-ba08-6b4b225c54de - Android 33] Found [3] Accounts...
+04-11 02:17:11.713 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: c6ed1b4b-8383-4186-ba08-6b4b225c54de - Android 33] Found [3] Accounts...
+04-11 02:17:11.721 24151 25066 I OneAuthLog: [MSAL:0008]	INFO   	StorageTokenResponse:84	StorageTokenResponse account constructor invoked. This is only expected in Runtime flows
+04-11 02:17:11.721 24151 25066 I outlook.oneauth: [OneAuth] [MSAL:0008]	INFO   	StorageTokenResponse:84	StorageTokenResponse account constructor invoked. This is only expected in Runtime flows
+04-11 02:17:11.733 24151 25066 I OneAuthLog: [MSAL:0008]	INFO   	IsAccessTokenValid:2683	The access token is expired
+04-11 02:17:11.733 24151 25066 I outlook.oneauth: [OneAuth] [MSAL:0008]	INFO   	IsAccessTokenValid:2683	The access token is expired
+04-11 02:17:11.738   553  1164 E equs    : (REDACTED) Trace %s timed out after %d ms. Complete trace: %s
+04-11 02:17:11.738   553  1164 E equs    : eqwc:
+04-11 02:17:11.738   553  1164 E equs    : 	at tk_trace.ExecSQL: VACUUM(Started After:1)
+04-11 02:17:11.738   553  1164 E equs    : 	at tk_trace.Synclet: com.google.android.apps.search.googleapp.saves.savedpagescache.cache.SavedPagesCacheBackingCacheModule_provideCacheConfig_ExpiredEntrySyncletModule 9(Started After:1)
+04-11 02:17:11.738   553  1164 E equs    : 	at tk_trace.NoAccountWorkerFactory startWork()(Started After:0)
+04-11 02:17:11.738   553  1164 E equs    : 	at tk_trace.com.google.apps.tiktok.sync.impl.workmanager.SyncPeriodicWorker startWork()(Started After:0)
+04-11 02:17:11.738   553  1164 E equs    : 	at tk_trace.com.google.apps.tiktok.sync.impl.workmanager.SyncPeriodicWorker startWork()(Started After:0)
+04-11 02:17:11.738   553  1164 E equs    : 	at tk_trace.WorkManager:TikTokListenableWorker startWork(Started After:0)
+04-11 02:17:11.739   553   950 E equs    : (REDACTED) Trace %s timed out after %d ms. Complete trace: %s
+04-11 02:17:11.739   553   950 E equs    : eqwc:
+04-11 02:17:11.739   553   950 E equs    : 	at tk_trace.handleBroadcast(Started After:0)
+04-11 02:17:11.739   553   950 E equs    : 	at tk_trace.Broadcast to com.google.android.libraries.search.gcm.googleapp.GoogleAppProcessGcmBroadcastReceiver_Receiver com.google.android.c2dm.intent.RECEIVE(Started After:0)
+04-11 02:17:11.739 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Removing Credential...
+04-11 02:17:11.739 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Removing Credential...
+04-11 02:17:11.740   553  1163 E equs    : (REDACTED) Trace %s timed out after %d ms. Complete trace: %s
+04-11 02:17:11.740   553  1163 E equs    : eqwc:
+04-11 02:17:11.740   553  1163 E equs    : 	at tk_trace.Write KansasDataProtoStoreKey(Started After:3)
+04-11 02:17:11.740   553  1163 E equs    : 	at tk_trace.Update KansasDataProtoStoreKey(Started After:3)
+04-11 02:17:11.740   553  1163 E equs    : 	at tk_trace.ActionUpload#tryRequestUpload(Started After:0)
+04-11 02:17:11.740   553  1163 E equs    : 	at tk_trace.ActionUpload#postAction(Started After:0)
+04-11 02:17:11.740   553  1163 E equs    : 	at tk_trace.NotificationClickHandler#recordActions(Started After:0)
+04-11 02:17:11.740   553  1163 E equs    : 	at tk_trace.ChimeNotificationEventHandler#onNotificationRemoved(Started After:0)
+04-11 02:17:11.740   553  1163 E equs    : 	at tk_trace.GnpBroadcastReceiver(Started After:0)
+04-11 02:17:11.771 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.771 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Removing cache key
+04-11 02:17:11.772 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Credential was removed? [true]
+04-11 02:17:11.772 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Credential was removed? [true]
+04-11 02:17:11.772 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Found [3] Accounts...
+04-11 02:17:11.773 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Found [3] Accounts...
+04-11 02:17:11.775 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Found [3] Accounts...
+04-11 02:17:11.775 24151 25066 W OneAuthLog: [MSAL:0008]	WARNING	GetPlatformPropertiesFromStorage:2082	No account found in cache.
+04-11 02:17:11.775 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Found [3] Accounts...
+04-11 02:17:11.775 24151 25066 W outlook.oneauth: [OneAuth] [MSAL:0008]	WARNING	GetPlatformPropertiesFromStorage:2082	No account found in cache.
+04-11 02:17:11.776 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] No account found for the passing in homeAccountId: 007aba98-6867-447b-af43-a98b4e969919.299791e5-f171-4b78-8579-e2dadd79bf88 environment: login.microsoftonline.com realm: 299791e5-f171-4b78-8579-e2dadd79bf88
+04-11 02:17:11.776 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] No account found for the passing in homeAccountId: 007aba98-6867-447b-af43-a98b4e969919.299791e5-f171-4b78-8579-e2dadd79bf88 environment: login.microsoftonline.com realm: 299791e5-f171-4b78-8579-e2dadd79bf88
+04-11 02:17:11.780 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:11.780 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: Data associated to the given key is null or empty - Android 33]
+04-11 02:17:11.784 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:11.784 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Returning cached broker: com.azure.authenticator::Gu8CuaYmSV5CHWd6dz3tGPXIE+YTalCVIXi5lEBXpvUgsMKoHbU9Rqou3WNRNU1tsz8pvEADTCCJ5f02fbw9qw==
+04-11 02:17:11.788 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.789 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Executing with IIpcStrategy: ContentProviderStrategy
+04-11 02:17:11.789 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Constructing result bundle from AcquireTokenSilentOperationParameters.
+04-11 02:17:11.790 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Constructing result bundle from AcquireTokenSilentOperationParameters.
+04-11 02:17:11.793 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Broker Result, raw payload size:976 ,compressed bytes size: 554
+04-11 02:17:11.793 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Broker Result, raw payload size:976 ,compressed bytes size: 554
+04-11 02:17:11.795 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.795 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Requested Active Broker Data
+04-11 02:17:11.796 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Broker operation name: MSAL_ACQUIRE_TOKEN_SILENT brokerPackage: com.azure.authenticator
+04-11 02:17:11.796 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Broker operation name: MSAL_ACQUIRE_TOKEN_SILENT brokerPackage: com.azure.authenticator
+04-11 02:17:11.797 24151 24620 I OneAuthLog: [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /acquireTokenSilent
+04-11 02:17:11.797 24151 24620 I outlook.oneauth: [OneAuth] [OneAuth:0004:Info::00000000] [Common] [2026-04-10 21:17:11 - thread_id: 246, correlation_id: UNSET - Android 33] Request to BrokerContentProvider for uri path /acquireTokenSilent
+04-11 02:17:11.979 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.mediaprovider' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.030 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.resolv' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.081 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.media' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.179 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.sdkext' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.208 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.adservices' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.211 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.tethering' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.219 24514 24514 I Choreographer: Skipped 38 frames!  The application may be doing too much work on its main thread.
+04-11 02:17:12.305 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.cellbroadcast' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.316 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@325fd2c in: PAUSED
+04-11 02:17:12.317 24514 24514 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.vexel.offlinearcade.MainActivity@325fd2c
+04-11 02:17:12.359 25076 25076 I linearcade.test: Late-enabling -Xcheck:jni
+04-11 02:17:12.394 25076 25076 I linearcade.test: Using CollectorTypeCC GC.
+04-11 02:17:12.415 25076 25076 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+04-11 02:17:12.423 24514 24514 D BLASTBufferQueue: [VRI[MainActivity]#0](f:0,a:0) destructor()
+04-11 02:17:12.423 24514 24514 D BufferQueueConsumer: [VRI[MainActivity]#0(BLAST Consumer)0](id:5fc200000000,api:0,p:-1,c:24514) disconnect
+04-11 02:17:12.430 25076 25076 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+04-11 02:17:12.433 25076 25076 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+04-11 02:17:12.435 25076 25076 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+04-11 02:17:12.439 25076 25076 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+04-11 02:17:12.443 25076 25076 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+04-11 02:17:12.485 25076 25076 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10417; state: ENABLED
+04-11 02:17:12.509 25076 25076 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.test.base.jar
+04-11 02:17:12.516 25076 25076 D nativeloader: Configuring clns-4 for other apk /system/framework/android.test.mock.jar. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~NozHPPDFSEcRV1uYlh6WGw==/com.vexel.offlinearcade.test-iK1d3WiS1LLQtr7nUBU80Q==/lib/arm64, permitted_path=/data:/mnt/expand:/data/user/0/com.vexel.offlinearcade.test
+04-11 02:17:12.516 25076 25076 D nativeloader: Extending system_exposed_libraries: libteeservice_client.trustonic.so:libapuwareapusys.mtk.so:libapuwareapusys_v2.mtk.so:libapuwarexrp.mtk.so:libapuwarexrp_v2.mtk.so:libapuwareutils.mtk.so:libapuwareutils_v2.mtk.so:libapuwarehmp.mtk.so:libmcv_runtime_usdk.mtk.so:libneuron_graph_delegate.mtk.so:libneuronusdk_adapter.mtk.so:libtflite_mtk.mtk.so:libarmnn_ndk.mtk.so:libcmdl_ndk.mtk.so:libnir_neon_driver_ndk.mtk.so:libmvpu_runtime.mtk.so:libmvpu_runtime_pub.mtk.so:libmvpu_engine_pub.mtk.so:libmvpu_pattern_pub.mtk.so:libmvpuop_mtk_cv.mtk.so:libmvpuop_mtk_nn.mtk.so
+04-11 02:17:12.518 25076 25076 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.test.base.jar
+04-11 02:17:12.522 25076 25076 D nativeloader: Configuring clns-5 for other apk /system/framework/android.test.runner.jar. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~NozHPPDFSEcRV1uYlh6WGw==/com.vexel.offlinearcade.test-iK1d3WiS1LLQtr7nUBU80Q==/lib/arm64, permitted_path=/data:/mnt/expand:/data/user/0/com.vexel.offlinearcade.test
+04-11 02:17:12.522 25076 25076 D nativeloader: Extending system_exposed_libraries: libteeservice_client.trustonic.so:libapuwareapusys.mtk.so:libapuwareapusys_v2.mtk.so:libapuwarexrp.mtk.so:libapuwarexrp_v2.mtk.so:libapuwareutils.mtk.so:libapuwareutils_v2.mtk.so:libapuwarehmp.mtk.so:libmcv_runtime_usdk.mtk.so:libneuron_graph_delegate.mtk.so:libneuronusdk_adapter.mtk.so:libtflite_mtk.mtk.so:libarmnn_ndk.mtk.so:libcmdl_ndk.mtk.so:libnir_neon_driver_ndk.mtk.so:libmvpu_runtime.mtk.so:libmvpu_runtime_pub.mtk.so:libmvpu_engine_pub.mtk.so:libmvpu_pattern_pub.mtk.so:libmvpuop_mtk_cv.mtk.so:libmvpuop_mtk_nn.mtk.so
+04-11 02:17:12.555 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.tzdata4' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.560 25076 25076 D nativeloader: Configuring clns-6 for other apk /data/app/~~NozHPPDFSEcRV1uYlh6WGw==/com.vexel.offlinearcade.test-iK1d3WiS1LLQtr7nUBU80Q==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~NozHPPDFSEcRV1uYlh6WGw==/com.vexel.offlinearcade.test-iK1d3WiS1LLQtr7nUBU80Q==/lib/arm64, permitted_path=/data:/mnt/expand:/data/user/0/com.vexel.offlinearcade.test
+04-11 02:17:12.572 25076 25076 D nativeloader: Load libframework-connectivity-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity.jar: ok
+04-11 02:17:12.581 25076 25076 V GraphicsEnvironment: ANGLE Developer option for 'com.vexel.offlinearcade.test' set to: 'default'
+04-11 02:17:12.583 25076 25076 V GraphicsEnvironment: ANGLE GameManagerService for com.vexel.offlinearcade.test: false
+04-11 02:17:12.584 25076 25076 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+04-11 02:17:12.587 25380 25380 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.permission' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+04-11 02:17:12.597 25076 25076 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+04-11 02:17:12.600 25076 25076 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+04-11 02:17:12.691 25076 25076 E VivoConfigStore: key:vivo.software.multiwindow isCached is false and normal value is true
+04-11 02:17:12.693 25076 25076 E VivoConfigStore: key:vivo.software.freeform isCached is false and normal value is true
+04-11 02:17:12.721 25076 25076 I MSYNC3-VariableRefreshRate: Variable refreshrate is disabled
+04-11 02:17:12.729 25076 25105 D nativeloader: Load libpowerhalwrap_jni.so using system ns (caller=/system/framework/mediatek-framework.jar): ok
+04-11 02:17:12.729 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@325fd2c in: STOPPED
+04-11 02:17:12.729 25076 25105 I PowerHalWrapper: PowerHalWrapper.getInstance
+04-11 02:17:12.732 25076 25076 E VivoConfigStore: key:vivo.software.nightmode isCached is false and normal value is true
+04-11 02:17:12.740 25076 25076 W libc    : Access denied finding property "ro.vendor.perf.scroll_opt.heavy_app"
+04-11 02:17:12.741 24514 24514 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.vexel.offlinearcade.MainActivity@325fd2c
+04-11 02:17:12.797 25076 25076 D BufferQueueConsumer: [](id:61f400000000,api:0,p:-1,c:25076) connect: controlledByApp=false
+04-11 02:17:12.800 25076 25076 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+04-11 02:17:12.815 25076 25101 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-11 02:17:12.815 25076 25101 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+04-11 02:17:12.817 25076 25101 D skia    : GrGLMakeAssembledInterface verStr OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:12.817 25076 25101 D skia    : GrGLMakeAssembledGLESInterface verStr OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:12.817 25076 25101 D skia    : extensions init verString=OpenGL ES 3.2 v1.r26p0-01eac0.455662e55e7c7fb95a4b1db7e7af49a8
+04-11 02:17:12.836 25076 25123 E ion     : ioctl c0044901 failed with code -1: Invalid argument
+04-11 02:17:12.837 25076 25101 D hw-ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+04-11 02:17:12.871 25076 25101 D BLASTBufferQueue: [VRI[InstrumentationActivityInvoker$EmptyActivity]#0](f:0,a:1) acquireNextBufferLocked size=1080x2408 mFrameNumber=1 applyTransaction=true mTimestamp=47476335393290(auto) mPendingTransactions.size=0 graphicBufferId=107700599914496 transform=0
+04-11 02:17:12.877 25076 25101 W Parcel  : Expecting binder but got null!
+04-11 02:17:12.878 24514 24514 D AudioTrack: ~AudioTrack(738): 0xb400007af325ca30
+04-11 02:17:12.878 24514 24514 D AudioTrack: getpackName client name com.vexel.offlinearcade(24514)
+04-11 02:17:12.879 24514 24514 D AudioTrack: stop(portId:738, sessionId:4553): prior state:STATE_STOPPED
+04-11 02:17:12.879 24514 24514 D AudioTrackShared: this(0xb400007a93276690), mCblk(0x7c7a4e2000), front(0), mIsOut 1, interrupt() FUTEX_WAKE
+04-11 02:17:12.879 24514 24514 D AudioTrack: requestExitAndWait start
+04-11 02:17:12.880 24514 24514 D AudioTrack: requestExitAndWait end
+04-11 02:17:12.880 24514 24514 D AudioTrack: stopAndJoinCallbacks(738) done
+04-11 02:17:12.890  1644  1681 I ActivityTaskManager: Displayed com.vexel.offlinearcade.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity: +599ms
+04-11 02:17:12.925 24514 24514 D LifecycleMonitor: Lifecycle status change: com.vexel.offlinearcade.MainActivity@325fd2c in: DESTROYED
+04-11 02:17:12.926 24514 24514 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+04-11 02:17:12.951 24514 24861 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.junit4.EspressoLink@dd35cfc]
+04-11 02:17:13.004 24514 24861 I TestRunner: finished: homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest)

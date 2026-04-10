@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
@@ -35,6 +36,7 @@ fun ArcadeScaffold(
     title: String,
     onBack: (() -> Unit)? = null,
     scrollable: Boolean = true,
+    screenTestTag: String? = null,
     actions: @Composable (() -> Unit) = {},
     content: @Composable () -> Unit,
 ) {
@@ -55,7 +57,12 @@ fun ArcadeScaffold(
                 title = { Text(title, fontWeight = FontWeight.SemiBold) },
                 navigationIcon = {
                     if (onBack != null) {
-                        TextButton(onClick = onBack) { Text("Back") }
+                        TextButton(
+                            onClick = onBack,
+                            modifier = Modifier.testTag(ArcadeTestTags.BackButton),
+                        ) {
+                            Text("Back")
+                        }
                     }
                 },
                 actions = { actions() },
@@ -68,7 +75,13 @@ fun ArcadeScaffold(
                 .background(MaterialTheme.colorScheme.background)
                 .padding(padding),
         ) {
-            Column(modifier = bodyModifier) {
+            Column(
+                modifier = if (screenTestTag != null) {
+                    bodyModifier.testTag(screenTestTag)
+                } else {
+                    bodyModifier
+                },
+            ) {
                 content()
             }
         }

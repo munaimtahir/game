@@ -7,6 +7,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.SectionHeader
 import com.vexel.offlinearcade.core.ui.StatRow
 
@@ -15,7 +16,11 @@ fun StatsScreen(
     stats: List<GameStats>,
     onBack: () -> Unit,
 ) {
-    ArcadeScaffold(title = "Stats", onBack = onBack) {
+    ArcadeScaffold(
+        title = "Stats",
+        onBack = onBack,
+        screenTestTag = ArcadeTestTags.StatsScreen,
+    ) {
         SectionHeader(title = "Shared totals", subtitle = "Everything is local and updated at the end of each run.")
         ArcadeCard {
             StatRow("Runs played", stats.sumOf { it.sessionsPlayed }.toString())
