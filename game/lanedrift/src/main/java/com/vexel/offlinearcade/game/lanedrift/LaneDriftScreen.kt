@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.ArcadeFeedback
@@ -94,6 +95,7 @@ fun LaneDriftScreen(
     var hasReportedRun by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     val random = remember { Random(System.currentTimeMillis()) }
+    val boardHeightPx = with(LocalDensity.current) { LaneDriftTuning.boardHeightDp.dp.toPx() }
 
     fun restart() {
         hasReportedRun = false
@@ -133,14 +135,18 @@ fun LaneDriftScreen(
                 var nextLastBlockerLane = state.lastBlockerLane
                 val nextItems = ArrayList<DriftItem>(state.items.size + 2)
                 state.items.forEach { item ->
-                    val nextY = item.y + nextSpeed * delta
+                    val nextY = item.y + (nextSpeed * delta) / boardHeightPx
                     if (nextY < 1.14f) {
                         nextItems += item.copy(y = nextY)
                     }
                 }
-                if (nextSpawnTimer >= spawnInterval) {
+                while (nextSpawnTimer >= spawnInterval) {
                     nextSpawnTimer -= spawnInterval
-                    val blockerLane = pickBlockerLane(random = random, previousLane = state.lastBlockerLane, elapsedSeconds = nextElapsed)
+                    val blockerLane = pickBlockerLane(
+                        random = random,
+                        previousLane = nextLastBlockerLane,
+                        elapsedSeconds = nextElapsed,
+                    )
                     nextItems += DriftItem(blockerLane, -0.14f, DriftItemType.BLOCKER)
                     if (shouldSpawnPickup(spawnCount = nextSpawnCount, elapsedSeconds = nextElapsed, random = random)) {
                         nextItems += DriftItem(pickupLaneFor(blockerLane, random), -0.44f, DriftItemType.PICKUP)

@@ -107,7 +107,7 @@ fun StackDropScreen(
     ArcadeScaffold(
         title = "Stack Drop",
         onBack = onBack,
-        scrollable = false,
+        scrollable = true,
         screenTestTag = ArcadeTestTags.StackDropScreen,
     ) {
         val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant
@@ -134,8 +134,8 @@ fun StackDropScreen(
                 .fillMaxWidth()
                 .padding(top = 16.dp),
         ) {
-            val compactLayout = maxWidth < 420.dp || maxHeight < 700.dp
-            val compactBoardHeight = (maxHeight * 0.5f).coerceIn(320.dp, 390.dp)
+            val compactLayout = maxWidth < 520.dp
+            val compactBoardHeight = if (maxWidth < 360.dp) 300.dp else 340.dp
             if (compactLayout) {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     StackDropBoardCard(
@@ -145,7 +145,6 @@ fun StackDropScreen(
                         compact = true,
                         modifier = Modifier.fillMaxWidth(),
                     )
-                    StackDropInfoCard(state = state, settings = settings)
                     StackDropControls(
                         state = state,
                         compact = true,
@@ -167,6 +166,7 @@ fun StackDropScreen(
                             state = engine.softDrop(state)
                         },
                     )
+                    StackDropInfoCard(state = state, settings = settings)
                     if (state.gameOver) {
                         StackDropSummary(state = state, onRetry = ::restart)
                     }
@@ -181,7 +181,6 @@ fun StackDropScreen(
                         modifier = Modifier.weight(0.58f),
                     )
                     Column(modifier = Modifier.weight(0.42f), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                        StackDropInfoCard(state = state, settings = settings)
                         StackDropControls(
                             state = state,
                             compact = false,
@@ -203,6 +202,7 @@ fun StackDropScreen(
                                 state = engine.softDrop(state)
                             },
                         )
+                        StackDropInfoCard(state = state, settings = settings)
                         if (state.gameOver) {
                             StackDropSummary(state = state, onRetry = ::restart)
                         }

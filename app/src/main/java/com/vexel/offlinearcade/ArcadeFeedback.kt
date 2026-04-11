@@ -90,16 +90,16 @@ private class ArcadeFeedbackController(
         if (!settingsState.vibrationEnabled) return
         val vibrator = vibrator ?: return
         if (!vibrator.hasVibrator()) return
-        val durationMs = when (event) {
-            ArcadeFeedbackEvent.TAP -> 8L
-            ArcadeFeedbackEvent.SUCCESS -> 14L
-            ArcadeFeedbackEvent.FAIL -> 36L
-            ArcadeFeedbackEvent.PICKUP -> 10L
-            ArcadeFeedbackEvent.LINE_CLEAR -> 22L
+        val (durationMs, amplitude) = when (event) {
+            ArcadeFeedbackEvent.TAP -> 18L to 110
+            ArcadeFeedbackEvent.SUCCESS -> 28L to 180
+            ArcadeFeedbackEvent.FAIL -> 64L to 255
+            ArcadeFeedbackEvent.PICKUP -> 22L to 160
+            ArcadeFeedbackEvent.LINE_CLEAR -> 36L to 220
         }
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE))
+                vibrator.vibrate(VibrationEffect.createOneShot(durationMs, amplitude))
             } else {
                 @Suppress("DEPRECATION")
                 vibrator.vibrate(durationMs)
