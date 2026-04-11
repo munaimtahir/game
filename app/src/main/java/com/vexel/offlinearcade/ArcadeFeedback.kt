@@ -4,6 +4,7 @@ import android.content.Context
 import android.media.AudioManager
 import android.media.ToneGenerator
 import android.os.Build
+import android.os.RemoteException
 import android.os.SystemClock
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -96,11 +97,17 @@ private class ArcadeFeedbackController(
             ArcadeFeedbackEvent.PICKUP -> 10L
             ArcadeFeedbackEvent.LINE_CLEAR -> 22L
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibrator.vibrate(VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE))
-        } else {
-            @Suppress("DEPRECATION")
-            vibrator.vibrate(durationMs)
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE))
+            } else {
+                @Suppress("DEPRECATION")
+                vibrator.vibrate(durationMs)
+            }
+        } catch (_: SecurityException) {
+            // Ignore missing manifest/device permission issues and keep gameplay responsive.
+        } catch (_: RemoteException) {
+            // Ignore binder failures from vendor vibrator services.
         }
     }
 }
