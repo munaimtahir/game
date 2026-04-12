@@ -14,12 +14,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
@@ -27,6 +29,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -37,9 +42,13 @@ import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeCard
+import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
+import com.vexel.offlinearcade.core.ui.ArcadeGestureThresholdsPx
 import com.vexel.offlinearcade.core.ui.HudPill
+import com.vexel.offlinearcade.core.ui.arcadeGestureInput
+import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
@@ -54,6 +63,8 @@ fun StackDropScreen(
     var state by remember { mutableStateOf(engine.newState().copy(playing = false)) }
     var lastTickMillis by remember { mutableLongStateOf(0L) }
     var hasReportedRun by remember { mutableStateOf(false) }
+    var showGestureHint by rememberSaveable { mutableStateOf(true) }
+    val gestureThresholds = rememberArcadeGestureThresholdsPx()
 
     fun restart() {
         state = engine.newState()
@@ -144,28 +155,38 @@ fun StackDropScreen(
                         boardHeight = compactBoardHeight,
                         compact = true,
                         modifier = Modifier.fillMaxWidth(),
+                        gestureThresholds = gestureThresholds,
+                        onAction = { action ->
+                            when (action) {
+                                ArcadeGestureAction.Tap -> {
+                                    if (!state.playing) restart() else {
+                                        feedback.play(ArcadeFeedbackEvent.TAP)
+                                        state = engine.rotate(state)
+                                    }
+                                }
+                                ArcadeGestureAction.SwipeLeft -> if (state.playing) {
+                                    feedback.play(ArcadeFeedbackEvent.TAP)
+                                    state = engine.move(state, -1)
+                                }
+                                ArcadeGestureAction.SwipeRight -> if (state.playing) {
+                                    feedback.play(ArcadeFeedbackEvent.TAP)
+                                    state = engine.move(state, 1)
+                                }
+                                ArcadeGestureAction.SwipeDown -> if (state.playing) {
+                                    feedback.play(ArcadeFeedbackEvent.TAP)
+                                    state = engine.softDrop(state)
+                                }
+                                ArcadeGestureAction.FlickDown -> if (state.playing) {
+                                    feedback.play(ArcadeFeedbackEvent.TAP)
+                                    state = engine.hardDrop(state)
+                                }
+                            }
+                        },
                     )
-                    StackDropControls(
-                        state = state,
-                        compact = true,
-                        onStartOrRetry = ::restart,
-                        onMoveLeft = {
-                            feedback.play(ArcadeFeedbackEvent.TAP)
-                            state = engine.move(state, -1)
-                        },
-                        onMoveRight = {
-                            feedback.play(ArcadeFeedbackEvent.TAP)
-                            state = engine.move(state, 1)
-                        },
-                        onRotate = {
-                            feedback.play(ArcadeFeedbackEvent.TAP)
-                            state = engine.rotate(state)
-                        },
-                        onSoftDrop = {
-                            feedback.play(ArcadeFeedbackEvent.TAP)
-                            state = engine.softDrop(state)
-                        },
-                    )
+                    StackDropStartCard(state = state, onStartOrRetry = ::restart)
+                    if (showGestureHint) {
+                        StackDropHintCard(onDismiss = { showGestureHint = false })
+                    }
                     StackDropInfoCard(state = state, settings = settings)
                     if (state.gameOver) {
                         StackDropSummary(state = state, onRetry = ::restart)
@@ -179,29 +200,39 @@ fun StackDropScreen(
                         boardHeight = 420.dp,
                         compact = false,
                         modifier = Modifier.weight(0.58f),
+                        gestureThresholds = gestureThresholds,
+                        onAction = { action ->
+                            when (action) {
+                                ArcadeGestureAction.Tap -> {
+                                    if (!state.playing) restart() else {
+                                        feedback.play(ArcadeFeedbackEvent.TAP)
+                                        state = engine.rotate(state)
+                                    }
+                                }
+                                ArcadeGestureAction.SwipeLeft -> if (state.playing) {
+                                    feedback.play(ArcadeFeedbackEvent.TAP)
+                                    state = engine.move(state, -1)
+                                }
+                                ArcadeGestureAction.SwipeRight -> if (state.playing) {
+                                    feedback.play(ArcadeFeedbackEvent.TAP)
+                                    state = engine.move(state, 1)
+                                }
+                                ArcadeGestureAction.SwipeDown -> if (state.playing) {
+                                    feedback.play(ArcadeFeedbackEvent.TAP)
+                                    state = engine.softDrop(state)
+                                }
+                                ArcadeGestureAction.FlickDown -> if (state.playing) {
+                                    feedback.play(ArcadeFeedbackEvent.TAP)
+                                    state = engine.hardDrop(state)
+                                }
+                            }
+                        },
                     )
                     Column(modifier = Modifier.weight(0.42f), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                        StackDropControls(
-                            state = state,
-                            compact = false,
-                            onStartOrRetry = ::restart,
-                            onMoveLeft = {
-                                feedback.play(ArcadeFeedbackEvent.TAP)
-                                state = engine.move(state, -1)
-                            },
-                            onMoveRight = {
-                                feedback.play(ArcadeFeedbackEvent.TAP)
-                                state = engine.move(state, 1)
-                            },
-                            onRotate = {
-                                feedback.play(ArcadeFeedbackEvent.TAP)
-                                state = engine.rotate(state)
-                            },
-                            onSoftDrop = {
-                                feedback.play(ArcadeFeedbackEvent.TAP)
-                                state = engine.softDrop(state)
-                            },
-                        )
+                        StackDropStartCard(state = state, onStartOrRetry = ::restart)
+                        if (showGestureHint) {
+                            StackDropHintCard(onDismiss = { showGestureHint = false })
+                        }
                         StackDropInfoCard(state = state, settings = settings)
                         if (state.gameOver) {
                             StackDropSummary(state = state, onRetry = ::restart)
@@ -219,6 +250,8 @@ private fun StackDropBoardCard(
     surfaceVariant: Color,
     boardHeight: Dp,
     compact: Boolean,
+    gestureThresholds: ArcadeGestureThresholdsPx,
+    onAction: (ArcadeGestureAction) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val activeCells = remember(state.activePiece) {
@@ -241,6 +274,16 @@ private fun StackDropBoardCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(boardHeight)
+                .testTag(ArcadeTestTags.StackDropBoard)
+                .semantics {
+                    stateDescription =
+                        "x=${state.activePiece.x};y=${state.activePiece.y};rotation=${state.activePiece.rotationIndex};playing=${state.playing}"
+                }
+                .arcadeGestureInput(
+                    thresholds = gestureThresholds,
+                    enabled = true,
+                    onAction = onAction,
+                )
                 .align(Alignment.Center),
         ) {
             val cellWidth = size.width / STACK_DROP_WIDTH
@@ -278,37 +321,35 @@ private fun StackDropInfoCard(
 }
 
 @Composable
-private fun StackDropControls(
+private fun StackDropStartCard(
     state: StackDropState,
-    compact: Boolean,
     onStartOrRetry: () -> Unit,
-    onMoveLeft: () -> Unit,
-    onMoveRight: () -> Unit,
-    onRotate: () -> Unit,
-    onSoftDrop: () -> Unit,
 ) {
-    val buttonHeight = if (compact) 60.dp else 56.dp
-    val spacing = if (compact) 12.dp else 10.dp
-    ArcadeCard {
-        if (!state.playing) {
-            Button(onClick = onStartOrRetry, modifier = Modifier.fillMaxWidth().height(buttonHeight)) {
+    if (!state.playing) {
+        ArcadeCard {
+            Button(
+                onClick = onStartOrRetry,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp)
+                    .testTag(ArcadeTestTags.StackDropStartButton),
+            ) {
                 Text(if (state.gameOver) "Retry" else "Start")
             }
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(spacing), modifier = Modifier.fillMaxWidth()) {
-            Button(onClick = onMoveLeft, modifier = Modifier.weight(1f).height(buttonHeight), enabled = state.playing) {
-                Text("Left")
-            }
-            Button(onClick = onMoveRight, modifier = Modifier.weight(1f).height(buttonHeight), enabled = state.playing) {
-                Text("Right")
-            }
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(spacing), modifier = Modifier.fillMaxWidth()) {
-            Button(onClick = onRotate, modifier = Modifier.weight(1f).height(buttonHeight), enabled = state.playing) {
-                Text("Rotate")
-            }
-            Button(onClick = onSoftDrop, modifier = Modifier.weight(1f).height(buttonHeight), enabled = state.playing) {
-                Text("Drop")
+    }
+}
+
+@Composable
+private fun StackDropHintCard(
+    onDismiss: () -> Unit,
+) {
+    ArcadeCard(modifier = Modifier.testTag(ArcadeTestTags.StackDropHint)) {
+        Text("Tap to rotate • Swipe left/right to move • Swipe down to drop", fontWeight = FontWeight.SemiBold)
+        Text("Use a fast downward flick for a hard drop.", color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+            TextButton(onClick = onDismiss) {
+                Text("Got it")
             }
         }
     }

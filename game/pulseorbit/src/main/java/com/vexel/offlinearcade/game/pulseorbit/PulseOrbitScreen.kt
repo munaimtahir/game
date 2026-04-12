@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
@@ -158,6 +159,7 @@ fun PulseOrbitScreen(
                 .fillMaxWidth()
                 .height(PulseOrbitTuning.boardHeightDp.dp)
                 .padding(top = 16.dp)
+                .testTag(ArcadeTestTags.PulseOrbitBoard)
                 .background(surface, RoundedCornerShape(28.dp))
                 .clickable {
                     if (!state.playing) {
@@ -232,9 +234,21 @@ fun PulseOrbitScreen(
             Text("Tap when the orbiting pulse lines up with the ring opening. Every fifth clean pass adds a score bump and sharper pacing.")
             if (state.gameOver) {
                 Text("Run summary: ${state.score} score, ${state.bestCombo} best combo.")
-                Button(onClick = ::restart, modifier = Modifier.fillMaxWidth().height(48.dp)) { Text("Retry instantly") }
+                Button(
+                    onClick = ::restart,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp)
+                        .testTag(ArcadeTestTags.PulseOrbitStartButton),
+                ) { Text("Retry instantly") }
             } else if (!state.playing) {
-                Button(onClick = ::restart, modifier = Modifier.fillMaxWidth().height(48.dp)) { Text("Start run") }
+                Button(
+                    onClick = ::restart,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp)
+                        .testTag(ArcadeTestTags.PulseOrbitStartButton),
+                ) { Text("Start run") }
             }
         }
     }

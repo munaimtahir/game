@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.vexel.offlinearcade.game.lanedrift.LaneDriftLogicTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-04-10T12:11:05" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.036">
+<testsuite name="com.vexel.offlinearcade.game.lanedrift.LaneDriftLogicTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-04-12T16:47:03" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.079">
   <properties/>
-  <testcase name="pickupLaneNeverMatchesBlockerLane" classname="com.vexel.offlinearcade.game.lanedrift.LaneDriftLogicTest" time="0.033"/>
+  <testcase name="pickupLaneNeverMatchesBlockerLane" classname="com.vexel.offlinearcade.game.lanedrift.LaneDriftLogicTest" time="0.067"/>
   <testcase name="speedAndSpawnIntervalClampAtBounds" classname="com.vexel.offlinearcade.game.lanedrift.LaneDriftLogicTest" time="0.001"/>
   <testcase name="pickupSpawnRulesRespectEarlyGuardrails" classname="com.vexel.offlinearcade.game.lanedrift.LaneDriftLogicTest" time="0.001"/>
   <testcase name="earlyPatternAvoidsImmediateSameBlockerLane" classname="com.vexel.offlinearcade.game.lanedrift.LaneDriftLogicTest" time="0.001"/>

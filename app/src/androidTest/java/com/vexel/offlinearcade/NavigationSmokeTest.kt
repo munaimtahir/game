@@ -33,17 +33,9 @@ class NavigationSmokeTest {
     }
 
     private fun openRoute(entryTag: String, screenTag: String) {
-        rule.onNodeWithTag(ArcadeTestTags.HomeList).performScrollToNode(hasTestTag(entryTag))
-        rule.onNodeWithTag(entryTag).performClick()
-        rule.waitUntilExists(screenTag)
+        rule.openHomeRoute(entryTag, screenTag)
         rule.onNodeWithTag(screenTag).assertIsDisplayed()
         rule.onNodeWithTag(ArcadeTestTags.BackButton).performClick()
         rule.waitUntilExists(ArcadeTestTags.HomeScreen)
-    }
-
-    private fun androidx.compose.ui.test.junit4.AndroidComposeTestRule<*, *>.waitUntilExists(tag: String) {
-        waitUntil(timeoutMillis = 5_000) {
-            runCatching { onNodeWithTag(tag).fetchSemanticsNode() }.isSuccess
-        }
     }
 }

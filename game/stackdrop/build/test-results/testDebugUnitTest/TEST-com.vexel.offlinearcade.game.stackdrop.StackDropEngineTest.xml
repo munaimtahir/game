@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-04-10T11:46:27" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.075">
+<testsuite name="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-04-12T16:47:15" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.055">
   <properties/>
-  <testcase name="softDropAdvancesPiece" classname="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" time="0.066"/>
-  <testcase name="spawnBlockedBoardForcesGameOverOnTick" classname="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" time="0.005"/>
-  <testcase name="retryCreatesFreshPlayableStateAfterGameOver" classname="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" time="0.001"/>
+  <testcase name="hardDropLocksPieceAndSpawnsNextOne" classname="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" time="0.052"/>
+  <testcase name="softDropAdvancesPiece" classname="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" time="0.0"/>
+  <testcase name="spawnBlockedBoardForcesGameOverOnTick" classname="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" time="0.0"/>
+  <testcase name="retryCreatesFreshPlayableStateAfterGameOver" classname="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" time="0.0"/>
   <testcase name="newGameStartsPlayable" classname="com.vexel.offlinearcade.game.stackdrop.StackDropEngineTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

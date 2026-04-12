@@ -19,6 +19,18 @@ object ArcadeTestTags {
     const val StatsScreen = "stats_screen"
     const val SettingsScreen = "settings_screen"
 
+    const val PulseOrbitBoard = "pulse_orbit_board"
+    const val PulseOrbitStartButton = "pulse_orbit_start_button"
+
+    const val LaneDriftBoard = "lane_drift_board"
+    const val LaneDriftStartButton = "lane_drift_start_button"
+    const val LaneDriftTrafficStatus = "lane_drift_traffic_status"
+    const val LaneDriftHint = "lane_drift_hint"
+
+    const val StackDropBoard = "stack_drop_board"
+    const val StackDropStartButton = "stack_drop_start_button"
+    const val StackDropHint = "stack_drop_hint"
+
     const val SoundToggle = "sound_toggle"
     const val MusicToggle = "music_toggle"
     const val VibrationToggle = "vibration_toggle"

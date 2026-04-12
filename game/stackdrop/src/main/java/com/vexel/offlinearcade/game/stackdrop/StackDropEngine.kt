@@ -104,6 +104,18 @@ class StackDropEngine(seed: Int = 7) {
 
     fun softDrop(state: StackDropState): StackDropState = tick(state, forceLock = false, extraScore = 1)
 
+    fun hardDrop(state: StackDropState): StackDropState {
+        if (!state.playing) return state
+        var dropped = state
+        while (true) {
+            val fallen = dropped.activePiece.copy(y = dropped.activePiece.y + 1)
+            if (collides(dropped.board, fallen)) {
+                return lockPiece(dropped)
+            }
+            dropped = dropped.copy(activePiece = fallen)
+        }
+    }
+
     fun tick(state: StackDropState, forceLock: Boolean = false, extraScore: Int = 0): StackDropState {
         if (!state.playing) return state
         val fallen = state.activePiece.copy(y = state.activePiece.y + 1)

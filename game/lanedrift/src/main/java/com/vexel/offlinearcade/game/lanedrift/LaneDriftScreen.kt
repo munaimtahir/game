@@ -4,6 +4,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,12 +14,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
@@ -27,6 +30,9 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.ArcadeFeedback
@@ -36,9 +42,12 @@ import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeCard
+import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.HudPill
+import com.vexel.offlinearcade.core.ui.arcadeGestureInput
+import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
 import kotlin.math.min
 import kotlin.random.Random
 
@@ -94,8 +103,10 @@ fun LaneDriftScreen(
     var state by remember { mutableStateOf(LaneDriftState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
+    var showGestureHint by rememberSaveable { mutableStateOf(true) }
     val random = remember { Random(System.currentTimeMillis()) }
     val boardHeightPx = with(LocalDensity.current) { LaneDriftTuning.boardHeightDp.dp.toPx() }
+    val gestureThresholds = rememberArcadeGestureThresholdsPx()
 
     fun restart() {
         hasReportedRun = false
@@ -235,9 +246,27 @@ fun LaneDriftScreen(
                 .fillMaxWidth()
                 .height(LaneDriftTuning.boardHeightDp.dp)
                 .padding(top = 16.dp)
+                .testTag(ArcadeTestTags.LaneDriftBoard)
+                .semantics {
+                    stateDescription = "lane=${state.lane};playing=${state.playing};items=${state.items.size}"
+                }
                 .background(surface, RoundedCornerShape(28.dp)),
         ) {
-            Canvas(modifier = Modifier.fillMaxSize()) {
+            Canvas(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .arcadeGestureInput(
+                        thresholds = gestureThresholds,
+                        enabled = true,
+                    ) { action ->
+                        when (action) {
+                            ArcadeGestureAction.SwipeLeft -> moveLane(-1)
+                            ArcadeGestureAction.SwipeRight -> moveLane(1)
+                            ArcadeGestureAction.Tap -> if (!state.playing) restart()
+                            else -> Unit
+                        }
+                    },
+            ) {
                 val laneWidth = size.width / 3f
                 repeat(3) { lane ->
                     drawRoundRect(
@@ -276,10 +305,31 @@ fun LaneDriftScreen(
         }
         ArcadeCard(modifier = Modifier.padding(top = 16.dp)) {
             Text("Move between three lanes, avoid blockers, and scoop up the brighter shard pickups.")
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Button(onClick = { moveLane(-1) }, modifier = Modifier.weight(1f).height(52.dp), enabled = state.playing) { Text("Left") }
-                Button(onClick = { if (!state.playing) restart() else moveLane(1) }, modifier = Modifier.weight(1f).height(52.dp)) {
-                    Text(if (state.playing) "Right" else "Start / Retry")
+            Text(
+                "Traffic: ${state.items.count { it.type == DriftItemType.BLOCKER }} blockers, ${state.items.count { it.type == DriftItemType.PICKUP }} pickups in play.",
+                modifier = Modifier.testTag(ArcadeTestTags.LaneDriftTrafficStatus),
+                color = onSurfaceVariant,
+            )
+            if (showGestureHint) {
+                ArcadeCard(modifier = Modifier.testTag(ArcadeTestTags.LaneDriftHint)) {
+                    Text("Swipe left or right to change lanes", fontWeight = FontWeight.SemiBold)
+                    Text("Each swipe moves one lane only.", color = onSurfaceVariant)
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                        TextButton(onClick = { showGestureHint = false }) {
+                            Text("Got it")
+                        }
+                    }
+                }
+            }
+            if (!state.playing) {
+                Button(
+                    onClick = ::restart,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp)
+                        .testTag(ArcadeTestTags.LaneDriftStartButton),
+                ) {
+                    Text(if (state.gameOver) "Start / Retry" else "Start run")
                 }
             }
             if (state.gameOver) {

@@ -21,6 +21,17 @@ class StackDropEngineTest {
     }
 
     @Test
+    fun hardDropLocksPieceAndSpawnsNextOne() {
+        val engine = StackDropEngine(seed = 1)
+        val start = engine.newState()
+        val dropped = engine.hardDrop(start)
+
+        assertTrue(dropped.playing || dropped.gameOver)
+        assertTrue(dropped.board.cells.any { it != 0 })
+        assertTrue(dropped.activePiece.y <= 1)
+    }
+
+    @Test
     fun spawnBlockedBoardForcesGameOverOnTick() {
         val engine = StackDropEngine(seed = 1)
         val blockedCells = IntArray(STACK_DROP_WIDTH * STACK_DROP_HEIGHT)
