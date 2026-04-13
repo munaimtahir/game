@@ -27,9 +27,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.ArcadeFeedback
@@ -64,6 +65,8 @@ private data class PulseOrbitState(
 
 internal object PulseOrbitTuning {
     const val boardHeightDp = 430
+    const val compactBoardHeightDp = 320
+    const val compactBoardCutoffScreenHeightDp = 840
     const val initialGapSize = 82f
     const val minimumGapSize = 38f
     const val gapShrinkPerPass = 1.15f
@@ -96,6 +99,13 @@ fun PulseOrbitScreen(
     var state by remember { mutableStateOf(PulseOrbitState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
+    val configuration = LocalConfiguration.current
+    val boardHeightDp =
+        if (configuration.screenHeightDp < PulseOrbitTuning.compactBoardCutoffScreenHeightDp) {
+            PulseOrbitTuning.compactBoardHeightDp
+        } else {
+            PulseOrbitTuning.boardHeightDp
+        }
 
     fun restart() {
         hasReportedRun = false
@@ -157,7 +167,7 @@ fun PulseOrbitScreen(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(PulseOrbitTuning.boardHeightDp.dp)
+                .height(boardHeightDp.dp)
                 .padding(top = 16.dp)
                 .testTag(ArcadeTestTags.PulseOrbitBoard)
                 .background(surface, RoundedCornerShape(28.dp))

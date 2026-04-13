@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.semantics
@@ -73,6 +74,8 @@ private data class LaneDriftState(
 
 internal object LaneDriftTuning {
     const val boardHeightDp = 430
+    const val compactBoardHeightDp = 340
+    const val compactBoardCutoffScreenHeightDp = 840
     const val initialSpeed = 186f
     const val maxSpeed = 372f
     const val speedRampPerSecond = 6.4f
@@ -105,7 +108,14 @@ fun LaneDriftScreen(
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     var showGestureHint by rememberSaveable { mutableStateOf(true) }
     val random = remember { Random(System.currentTimeMillis()) }
-    val boardHeightPx = with(LocalDensity.current) { LaneDriftTuning.boardHeightDp.dp.toPx() }
+    val configuration = LocalConfiguration.current
+    val boardHeightDp =
+        if (configuration.screenHeightDp < LaneDriftTuning.compactBoardCutoffScreenHeightDp) {
+            LaneDriftTuning.compactBoardHeightDp
+        } else {
+            LaneDriftTuning.boardHeightDp
+        }
+    val boardHeightPx = with(LocalDensity.current) { boardHeightDp.dp.toPx() }
     val gestureThresholds = rememberArcadeGestureThresholdsPx()
 
     fun restart() {
@@ -244,7 +254,7 @@ fun LaneDriftScreen(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(LaneDriftTuning.boardHeightDp.dp)
+                .height(boardHeightDp.dp)
                 .padding(top = 16.dp)
                 .testTag(ArcadeTestTags.LaneDriftBoard)
                 .semantics {
