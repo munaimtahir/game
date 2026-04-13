@@ -8,6 +8,7 @@ APP_ID="${APP_ID:-com.vexel.offlinearcade}"
 TEST_ID="${TEST_ID:-com.vexel.offlinearcade.test}"
 RUNNER="${RUNNER:-androidx.test.runner.AndroidJUnitRunner}"
 ARTIFACT_DIR="${ARTIFACT_DIR:-$ROOT_DIR/artifacts/device-test}"
+SKIP_BUILD="${SKIP_BUILD:-0}"
 TIMESTAMP="$(date -u +%Y%m%dT%H%M%SZ)"
 RUN_DIR="$ARTIFACT_DIR/$TIMESTAMP"
 mkdir -p "$RUN_DIR"
@@ -29,14 +30,13 @@ require_file() {
   [[ -f "$path" ]] || fail "Missing file: $path"
 }
 
-build_missing_apks() {
-  local need_build=0
-  [[ -f "$APP_APK" ]] || need_build=1
-  [[ -f "$TEST_APK" ]] || need_build=1
-  if [[ "$need_build" -eq 1 ]]; then
-    echo "APK outputs missing. Building debug and androidTest APKs..."
-    (cd "$ROOT_DIR" && ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest)
+build_apks() {
+  if [[ "$SKIP_BUILD" == "1" ]]; then
+    echo "SKIP_BUILD=1 set. Reusing existing APK outputs."
+    return
   fi
+  echo "Building fresh debug and androidTest APKs..."
+  (cd "$ROOT_DIR" && ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest)
 }
 
 select_device() {
@@ -68,7 +68,7 @@ run_instrumentation() {
 
 echo "Using project root: $ROOT_DIR"
 select_device
-build_missing_apks
+build_apks
 require_file "$APP_APK"
 require_file "$TEST_APK"
 
@@ -79,6 +79,10 @@ echo "Capturing device context..."
 
 echo "Clearing previous app state..."
 adb_shell pm clear "$APP_ID" > "$RUN_DIR/pm-clear.txt" || true
+
+echo "Uninstalling existing packages to avoid stale signer mismatches..."
+"$ADB_BIN" "${ADB_ARGS[@]}" uninstall "$TEST_ID" > "$RUN_DIR/uninstall-test.txt" 2>&1 || true
+"$ADB_BIN" "${ADB_ARGS[@]}" uninstall "$APP_ID" > "$RUN_DIR/uninstall-app.txt" 2>&1 || true
 
 echo "Installing app APK..."
 "$ADB_BIN" "${ADB_ARGS[@]}" install -r -t "$APP_APK" | tee "$RUN_DIR/install-app.txt"
