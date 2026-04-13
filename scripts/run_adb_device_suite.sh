@@ -56,6 +56,16 @@ adb_shell() {
   "$ADB_BIN" "${ADB_ARGS[@]}" shell "$@"
 }
 
+run_instrumentation() {
+  local output_file="$1"
+  shift
+  set +e
+  "$ADB_BIN" "${ADB_ARGS[@]}" shell "$@" 2>&1 | tee "$output_file"
+  local command_exit=${PIPESTATUS[0]}
+  set -e
+  return "$command_exit"
+}
+
 echo "Using project root: $ROOT_DIR"
 select_device
 build_missing_apks
@@ -76,14 +86,24 @@ echo "Installing app APK..."
 echo "Installing test APK..."
 "$ADB_BIN" "${ADB_ARGS[@]}" install -r -t "$TEST_APK" | tee "$RUN_DIR/install-test.txt"
 
+echo "Listing installed instrumentation targets..."
+adb_shell pm list instrumentation > "$RUN_DIR/instrumentation-list.txt" || true
+grep -q "$TEST_ID/$RUNNER" "$RUN_DIR/instrumentation-list.txt" || fail "Installed instrumentation target $TEST_ID/$RUNNER was not found on device"
+
 echo "Resetting logcat..."
 "$ADB_BIN" "${ADB_ARGS[@]}" logcat -c
 
 echo "Running instrumentation suite..."
-set +e
-"$ADB_BIN" "${ADB_ARGS[@]}" shell am instrument -w "$TEST_ID/$RUNNER" | tee "$RUN_DIR/instrumentation.txt"
-instrument_exit=${PIPESTATUS[0]}
-set -e
+instrument_exit=0
+run_instrumentation "$RUN_DIR/instrumentation.txt" am instrument -r -w "$TEST_ID/$RUNNER" || instrument_exit=$?
+if [[ ! -s "$RUN_DIR/instrumentation.txt" ]]; then
+  echo "Primary instrumentation call returned no output. Retrying via cmd activity instrument..." | tee -a "$RUN_DIR/instrumentation.txt"
+  instrument_exit=0
+  run_instrumentation "$RUN_DIR/instrumentation-retry.txt" cmd activity instrument -r -w "$TEST_ID/$RUNNER" || instrument_exit=$?
+  if [[ -s "$RUN_DIR/instrumentation-retry.txt" ]]; then
+    cat "$RUN_DIR/instrumentation-retry.txt" >> "$RUN_DIR/instrumentation.txt"
+  fi
+fi
 
 echo "Collecting logcat..."
 "$ADB_BIN" "${ADB_ARGS[@]}" logcat -d > "$RUN_DIR/logcat.txt" || true
@@ -92,6 +112,11 @@ if [[ "$instrument_exit" -ne 0 ]]; then
   fail "Instrumentation failed. See $RUN_DIR/instrumentation.txt and $RUN_DIR/logcat.txt"
 fi
 
+if [[ ! -s "$RUN_DIR/instrumentation.txt" ]]; then
+  fail "Instrumentation produced no output. See $RUN_DIR/instrumentation-list.txt and $RUN_DIR/logcat.txt"
+fi
+
+grep -Eq "INSTRUMENTATION_(STATUS|RESULT)|^OK \\(" "$RUN_DIR/instrumentation.txt" || fail "Instrumentation output did not contain any test runner markers. See $RUN_DIR/instrumentation.txt"
 grep -q "FAILURES!!!" "$RUN_DIR/instrumentation.txt" && fail "Test failures reported. See $RUN_DIR/instrumentation.txt"
 grep -q "INSTRUMENTATION_RESULT: shortMsg=Process crashed." "$RUN_DIR/instrumentation.txt" && fail "App process crashed during suite. See $RUN_DIR/logcat.txt"
 
