@@ -1,0 +1,30 @@
+--------- beginning of main
+04-14 01:07:40.498  9778 14915 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+04-14 01:07:41.056 14950 14950 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+04-14 01:07:41.059 14945 14945 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath failed , error(Permission denied)
+04-14 01:07:41.059 14945 14945 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+04-14 01:07:41.059 14945 14945 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath2 failed , error(Permission denied)
+04-14 01:07:41.059 14945 14945 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+04-14 01:07:41.059 14945 14945 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath3 failed , error(Permission denied)
+04-14 01:07:41.059 14945 14945 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+04-14 01:07:41.059 14945 14945 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath4 failed , error(Permission denied)
+04-14 01:07:41.059 14945 14945 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+04-14 01:07:41.060 14950 14950 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+04-14 01:07:41.075 14950 14950 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+04-14 01:07:41.078 14950 14950 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+04-14 01:07:41.080 14950 14950 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+04-14 01:07:41.606 21919 21996 E Finsky  : [80] [Counters] attempted to use a non-positive increment for: 4752
+04-14 01:07:41.636 21919 22002 E Finsky  : [84] [Counters] attempted to use a non-positive increment for: 4753
+04-14 01:07:41.639 21919 22002 E Finsky  : [84] [Counters] attempted to use a non-positive increment for: 4752
+04-14 01:07:41.640 21919 21998 E Finsky  : [81] [Counters] attempted to use a non-positive increment for: 4752
+04-14 01:07:41.644 21919 22002 E Finsky  : [84] [Counters] attempted to use a non-positive increment for: 4753
+04-14 01:07:41.645 21919 21996 E Finsky  : [80] [Counters] attempted to use a non-positive increment for: 4753
+04-14 01:07:41.646 21919 21996 E Finsky  : [80] [Counters] attempted to use a non-positive increment for: 4752
+04-14 01:07:41.673 21919 22002 E Finsky  : [84] [Counters] attempted to use a non-positive increment for: 4753
+04-14 01:07:41.724 14994 14994 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+04-14 01:07:41.735 14994 14994 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+04-14 01:07:41.743 14994 14994 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+04-14 01:07:41.744 14994 14994 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+04-14 01:07:41.746 14994 14994 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+04-14 01:07:41.750 21919 22002 I Finsky  : [84] AIM: AppInfoManager-Perf > getApps > data collection finished
+04-14 01:07:41.751 21919 22002 I Finsky  : [84] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 1
