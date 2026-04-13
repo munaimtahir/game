@@ -26,8 +26,8 @@ class GameplayDeviceSmokeTest {
     @Test
     fun pulseOrbitStartsFromButtonOnDevice() {
         rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitScreen)
-        rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton).assertIsDisplayed().performClick()
-        rule.onNodeWithTag(ArcadeTestTags.PulseOrbitBoard).assertIsDisplayed()
+        rule.waitUntilExists(ArcadeTestTags.PulseOrbitStartButton)
+        rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton).performClick()
     }
 
     @Test

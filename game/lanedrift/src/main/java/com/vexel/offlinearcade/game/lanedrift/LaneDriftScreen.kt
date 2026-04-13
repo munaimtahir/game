@@ -320,17 +320,6 @@ fun LaneDriftScreen(
                 modifier = Modifier.testTag(ArcadeTestTags.LaneDriftTrafficStatus),
                 color = onSurfaceVariant,
             )
-            if (showGestureHint) {
-                ArcadeCard(modifier = Modifier.testTag(ArcadeTestTags.LaneDriftHint)) {
-                    Text("Swipe left or right to change lanes", fontWeight = FontWeight.SemiBold)
-                    Text("Each swipe moves one lane only.", color = onSurfaceVariant)
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                        TextButton(onClick = { showGestureHint = false }) {
-                            Text("Got it")
-                        }
-                    }
-                }
-            }
             if (!state.playing) {
                 Button(
                     onClick = ::restart,
@@ -340,6 +329,17 @@ fun LaneDriftScreen(
                         .testTag(ArcadeTestTags.LaneDriftStartButton),
                 ) {
                     Text(if (state.gameOver) "Start / Retry" else "Start run")
+                }
+            }
+            if (showGestureHint) {
+                ArcadeCard(modifier = Modifier.testTag(ArcadeTestTags.LaneDriftHint)) {
+                    Text("Swipe left or right to change lanes", fontWeight = FontWeight.SemiBold)
+                    Text("Each swipe moves one lane only.", color = onSurfaceVariant)
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                        TextButton(onClick = { showGestureHint = false }) {
+                            Text("Got it")
+                        }
+                    }
                 }
             }
             if (state.gameOver) {
