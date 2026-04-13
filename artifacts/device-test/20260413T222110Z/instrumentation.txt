@@ -1,0 +1,21 @@
+onError: commandError=true message=Permission Denial: starting instrumentation ComponentInfo{com.vexel.offlinearcade.test/androidx.test.runner.AndroidJUnitRunner} from pid=19334, uid=2000 not allowed because package com.vexel.offlinearcade.test does not have a signature matching the target com.vexel.offlinearcade
+java.lang.SecurityException: Permission Denial: starting instrumentation ComponentInfo{com.vexel.offlinearcade.test/androidx.test.runner.AndroidJUnitRunner} from pid=19334, uid=2000 not allowed because package com.vexel.offlinearcade.test does not have a signature matching the target com.vexel.offlinearcade
+	at android.os.Parcel.createExceptionOrNull(Parcel.java:3025)
+	at android.os.Parcel.createException(Parcel.java:3009)
+	at android.os.Parcel.readException(Parcel.java:2992)
+	at android.os.Parcel.readException(Parcel.java:2934)
+	at android.app.IActivityManager$Stub$Proxy.startInstrumentation(IActivityManager.java:6412)
+	at com.android.commands.am.Instrument.run(Instrument.java:532)
+	at com.android.commands.am.Am.runInstrument(Am.java:208)
+	at com.android.commands.am.Am.onRun(Am.java:85)
+	at com.android.internal.os.BaseCommand.run(BaseCommand.java:62)
+	at com.android.commands.am.Am.main(Am.java:54)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:389)
+Caused by: android.os.RemoteException: Remote stack trace:
+	at com.android.server.am.ActivityManagerService.startInstrumentation(ActivityManagerService.java:16575)
+	at android.app.IActivityManager$Stub.onTransact$startInstrumentation$(IActivityManager.java:11321)
+	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2978)
+	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:3164)
+	at android.os.Binder.execTransactInternal(Binder.java:1346)
+
