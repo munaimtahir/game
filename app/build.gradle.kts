@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.google.material)
 
     debugImplementation(libs.androidx.compose.tooling)
+    debugImplementation(libs.androidx.tracing)
 
     testImplementation(libs.junit4)
     testImplementation(libs.kotlinx.coroutines.test)
@@ -80,5 +81,6 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
     androidTestImplementation(libs.androidx.compose.test.junit4)
+    androidTestImplementation(libs.androidx.tracing)
     debugImplementation(libs.androidx.compose.test.manifest)
 }

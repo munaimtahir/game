@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.vexel.offlinearcade.app-mergeDebugResources-70:/values-v23/values-v23.xml",
+            "outputFile": "com.vexel.offlinearcade.app-mergeDebugResources-71:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/d25e81a5eda1a35d699e8319d071971b/transformed/material-1.12.0/res/values-v23/values-v23.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/291ce5c50d69b06ef891ac1832434483/transformed/material-1.12.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,5,9,13,16,19,22,25,28,32",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/5f94950839da0778248b2d39fec85efb/transformed/appcompat-1.6.1/res/values-v23/values-v23.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/26dc43bf5d83896fe57861cfdfa83398/transformed/appcompat-1.6.1/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -34,7 +34,7 @@
                     }
                 },
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/e793936b92e9839c5c1d839f10871593/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/63901c57ec82eea5610d68431c317097/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

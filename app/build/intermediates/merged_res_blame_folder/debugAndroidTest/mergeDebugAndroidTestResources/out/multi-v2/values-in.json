@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.vexel.offlinearcade.test.app-mergeDebugAndroidTestResources-32:/values-in/values-in.xml",
+            "outputFile": "com.vexel.offlinearcade.test.app-mergeDebugAndroidTestResources-33:/values-in/values-in.xml",
             "map": [
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/fc843553c506dc16a44050dc0ee8f84b/transformed/core-1.13.1/res/values-in/values-in.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,150,252,349,446,552,670,785",
-                        "endColumns": "94,101,96,96,105,117,114,100",
-                        "endOffsets": "145,247,344,441,547,665,780,881"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,23",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,302,399,496,602,720,2011",
-                        "endColumns": "94,101,96,96,105,117,114,100",
-                        "endOffsets": "195,297,394,491,597,715,830,2107"
-                    }
-                },
-                {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/b535fdfc5bf2f9dcc2058b43127fcfd9/transformed/ui-release/res/values-in/values-in.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/8fa603bd08258392c42fb12b5e1f3b98/transformed/ui-release/res/values-in/values-in.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -35,6 +18,23 @@
                         "startOffsets": "835,925,1007,1105,1205,1291,1374,1465,1552,1637,1707,1774,1856,1939,2112,2190,2256",
                         "endColumns": "89,81,97,99,85,82,90,86,84,69,66,81,82,71,77,65,118",
                         "endOffsets": "920,1002,1100,1200,1286,1369,1460,1547,1632,1702,1769,1851,1934,2006,2185,2251,2370"
+                    }
+                },
+                {
+                    "source": "/home/munaim/.gradle/caches/transforms-4/f2b83846fcc27275f7270e462634e48f/transformed/core-1.13.1/res/values-in/values-in.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,150,252,349,446,552,670,785",
+                        "endColumns": "94,101,96,96,105,117,114,100",
+                        "endOffsets": "145,247,344,441,547,665,780,881"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,23",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,302,399,496,602,720,2011",
+                        "endColumns": "94,101,96,96,105,117,114,100",
+                        "endOffsets": "195,297,394,491,597,715,830,2107"
                     }
                 }
             ]

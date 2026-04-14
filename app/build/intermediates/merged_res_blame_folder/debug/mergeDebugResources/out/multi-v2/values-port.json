@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.vexel.offlinearcade.app-mergeDebugResources-70:/values-port/values-port.xml",
+            "outputFile": "com.vexel.offlinearcade.app-mergeDebugResources-71:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/5f94950839da0778248b2d39fec85efb/transformed/appcompat-1.6.1/res/values-port/values-port.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/26dc43bf5d83896fe57861cfdfa83398/transformed/appcompat-1.6.1/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

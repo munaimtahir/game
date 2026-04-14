@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.vexel.offlinearcade.app-mergeDebugResources-70:/values-hy/values-hy.xml",
+            "outputFile": "com.vexel.offlinearcade.app-mergeDebugResources-71:/values-hy/values-hy.xml",
             "map": [
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/d25e81a5eda1a35d699e8319d071971b/transformed/material-1.12.0/res/values-hy/values-hy.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/291ce5c50d69b06ef891ac1832434483/transformed/material-1.12.0/res/values-hy/values-hy.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/091f800140b8cfb401546a8f8fe2f67a/transformed/material3-release/res/values-hy/values-hy.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/beb4c7e63aefb19480261c7db0d21d83/transformed/material3-release/res/values-hy/values-hy.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,41 +40,7 @@
                     }
                 },
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/880c3e23a4939fef5b482ccb1de0bbea/transformed/foundation-release/res/values-hy/values-hy.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,140",
-                        "endColumns": "84,88",
-                        "endOffsets": "135,224"
-                    },
-                    "to": {
-                        "startLines": "190,191",
-                        "startColumns": "4,4",
-                        "startOffsets": "17639,17724",
-                        "endColumns": "84,88",
-                        "endOffsets": "17719,17808"
-                    }
-                },
-                {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/b535fdfc5bf2f9dcc2058b43127fcfd9/transformed/ui-release/res/values-hy/values-hy.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,204,286,380,480,563,645,731,826,908,980,1051,1136,1224,1298,1379,1448",
-                        "endColumns": "98,81,93,99,82,81,85,94,81,71,70,84,87,73,80,68,117",
-                        "endOffsets": "199,281,375,475,558,640,726,821,903,975,1046,1131,1219,1293,1374,1443,1561"
-                    },
-                    "to": {
-                        "startLines": "48,49,50,51,52,57,58,174,175,176,177,179,180,184,187,188,189",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4462,4561,4643,4737,4837,5227,5309,16298,16393,16475,16547,16703,16788,17116,17371,17452,17521",
-                        "endColumns": "98,81,93,99,82,81,85,94,81,71,70,84,87,73,80,68,117",
-                        "endOffsets": "4556,4638,4732,4832,4915,5304,5390,16388,16470,16542,16613,16783,16871,17185,17447,17516,17634"
-                    }
-                },
-                {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/5f94950839da0778248b2d39fec85efb/transformed/appcompat-1.6.1/res/values-hy/values-hy.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/26dc43bf5d83896fe57861cfdfa83398/transformed/appcompat-1.6.1/res/values-hy/values-hy.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -91,7 +57,41 @@
                     }
                 },
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/fc843553c506dc16a44050dc0ee8f84b/transformed/core-1.13.1/res/values-hy/values-hy.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/8fa603bd08258392c42fb12b5e1f3b98/transformed/ui-release/res/values-hy/values-hy.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,204,286,380,480,563,645,731,826,908,980,1051,1136,1224,1298,1379,1448",
+                        "endColumns": "98,81,93,99,82,81,85,94,81,71,70,84,87,73,80,68,117",
+                        "endOffsets": "199,281,375,475,558,640,726,821,903,975,1046,1131,1219,1293,1374,1443,1561"
+                    },
+                    "to": {
+                        "startLines": "48,49,50,51,52,57,58,174,175,176,177,179,180,184,187,188,189",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4462,4561,4643,4737,4837,5227,5309,16298,16393,16475,16547,16703,16788,17116,17371,17452,17521",
+                        "endColumns": "98,81,93,99,82,81,85,94,81,71,70,84,87,73,80,68,117",
+                        "endOffsets": "4556,4638,4732,4832,4915,5304,5390,16388,16470,16542,16613,16783,16871,17185,17447,17516,17634"
+                    }
+                },
+                {
+                    "source": "/home/munaim/.gradle/caches/transforms-4/2864347680b74b61e27eb4eeba9c82bd/transformed/foundation-release/res/values-hy/values-hy.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,140",
+                        "endColumns": "84,88",
+                        "endOffsets": "135,224"
+                    },
+                    "to": {
+                        "startLines": "190,191",
+                        "startColumns": "4,4",
+                        "startOffsets": "17639,17724",
+                        "endColumns": "84,88",
+                        "endOffsets": "17719,17808"
+                    }
+                },
+                {
+                    "source": "/home/munaim/.gradle/caches/transforms-4/f2b83846fcc27275f7270e462634e48f/transformed/core-1.13.1/res/values-hy/values-hy.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

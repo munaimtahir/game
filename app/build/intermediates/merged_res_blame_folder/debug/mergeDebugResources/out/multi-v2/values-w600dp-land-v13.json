@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.vexel.offlinearcade.app-mergeDebugResources-70:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.vexel.offlinearcade.app-mergeDebugResources-71:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/d25e81a5eda1a35d699e8319d071971b/transformed/material-1.12.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/291ce5c50d69b06ef891ac1832434483/transformed/material-1.12.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
