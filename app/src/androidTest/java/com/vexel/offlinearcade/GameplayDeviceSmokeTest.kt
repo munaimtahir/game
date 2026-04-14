@@ -37,7 +37,13 @@ class GameplayDeviceSmokeTest {
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).assertIsDisplayed().performClick()
         rule.waitUntil(timeoutMillis = 6_000) {
             val traffic = rule.onNodeWithTag(ArcadeTestTags.LaneDriftTrafficStatus).readText()
-            traffic.contains("1 blockers") || traffic.contains("2 blockers") || traffic.contains("3 blockers")
+            val blockerCount = """Traffic:\s+(\d+)\s+blockers""".toRegex()
+                .find(traffic)
+                ?.groupValues
+                ?.getOrNull(1)
+                ?.toIntOrNull()
+                ?: 0
+            blockerCount > 0
         }
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard).performTouchInput { swipeLeft() }
     }
