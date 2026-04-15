@@ -1,0 +1,350 @@
+--------- beginning of main
+04-15 18:04:36.631 32682 32682 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+04-15 18:04:36.660 27766 27854 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4752
+04-15 18:04:36.782 27766 27853 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4753
+04-15 18:04:36.789 27766 27853 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4752
+04-15 18:04:36.806 27766 27853 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4753
+04-15 18:04:36.809 32702 32702 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath failed , error(Permission denied)
+04-15 18:04:36.810 32702 32702 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+04-15 18:04:36.810 32702 32702 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath2 failed , error(Permission denied)
+04-15 18:04:36.810 32702 32702 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+04-15 18:04:36.810 32702 32702 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath3 failed , error(Permission denied)
+04-15 18:04:36.810 32702 32702 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+04-15 18:04:36.810 32702 32702 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath4 failed , error(Permission denied)
+04-15 18:04:36.810 32702 32702 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+04-15 18:04:36.885 29276 32650 E Dck     : Could not get ProviderInfo when resolving the content provider authority. [CONTEXT service_id=289 ]
+04-15 18:04:36.886 29276 32650 E Dck     : Samsung Content Provider failed app verification [CONTEXT service_id=289 ]
+04-15 18:04:37.575 32725 32725 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+04-15 18:04:37.577 32725 32725 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+04-15 18:04:37.578 32725 32725 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+04-15 18:04:37.601 32725 32725 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+04-15 18:04:37.607 32725 32725 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+04-15 18:04:37.917 32287 32549 E ActionQueryTaskListener: 0 onTaskStart BACKGROUND modules: [pytorch] actions: [LOAD=[pytorch],COMPLETE_SUCCESS=[pytorch]]
+04-15 18:04:38.376 32682 32763 E FbSoLoader: FbSoLoader unable to determine primary compression type .spo
+04-15 18:04:38.409 32197 32250 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(556)=>[I] http/task/regular/create/start
+04-15 18:04:38.411 32197 32250 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(591)=>[I] http/task/regular/create/execute
+04-15 18:04:38.411 32197 32250 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(614)=>[I] http/task/regular/create/success
+04-15 18:04:38.448 32197 32280 E com.whatsapp: hiddenapi: Accessing hidden method Lcom/android/org/conscrypt/OpenSSLSocketImpl;->setUseSessionTickets(Z)V (runtime_flags=CorePlatformApi, domain=core-platform, api=max-target-q,core-platform-api) from LX/Dvd; (domain=app, TargetSdkVersion=36) using reflection: denied
+04-15 18:04:38.449 32197 32280 E com.whatsapp: hiddenapi: Accessing hidden method Lcom/android/org/conscrypt/AbstractConscryptSocket;->setUseSessionTickets(Z)V (runtime_flags=0, domain=core-platform, api=max-target-q) from LX/Dvd; (domain=app, TargetSdkVersion=36) using reflection: denied
+04-15 18:04:38.568 27766 27861 E Finsky  : [94] [Counters] attempted to use a non-positive increment for: 4752
+04-15 18:04:38.570 27766 27856 E Finsky  : [93] [Counters] attempted to use a non-positive increment for: 4753
+04-15 18:04:38.570 27766 27856 E Finsky  : [93] [Counters] attempted to use a non-positive increment for: 4752
+04-15 18:04:38.584 27766 27856 E Finsky  : [93] [Counters] attempted to use a non-positive increment for: 4753
+04-15 18:04:38.586 32197 32238 E com.whatsapp: No implementation found for void com.facebook.quicklog.QuickPerformanceLoggerNativeProvider.nativeUpdateQPLInstance() (tried Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance and Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance__) - is the library loaded, e.g. System.loadLibrary?
+04-15 18:04:38.656 32287 32752 E ActionQueryTaskListener: 0 onLoadBatchStart BACKGROUND modules: [pytorch] actions: [LOAD=[pytorch],COMPLETE_SUCCESS=[pytorch]]
+04-15 18:04:38.869 32682   352 E E2EAppStartupImplementation: Auth token not injected, skipping
+04-15 18:04:38.911 32287 32752 E ActionQueryTaskListener: 0 onLoadBatchComplete exception: null BACKGROUND modules: [pytorch] actions: [LOAD=[pytorch],COMPLETE_SUCCESS=[pytorch]]
+04-15 18:04:38.929 32287 32752 E ActionQueryTaskListener: 0 onTaskComplete [true,false,] BACKGROUND modules: [pytorch] actions: [LOAD=[pytorch],COMPLETE_SUCCESS=[pytorch]]
+04-15 18:04:39.059 31177 32171 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+04-15 18:04:39.121 27766 27854 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4752
+04-15 18:04:39.122 27766 27856 E Finsky  : [93] [Counters] attempted to use a non-positive increment for: 4752
+04-15 18:04:39.132 27766 27854 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4753
+04-15 18:04:39.132 27766 27854 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4753
+04-15 18:04:39.229 32287 32549 E ActionQueryTaskListener: 1 onTaskStart BACKGROUND modules: [executorch] actions: [LOAD=[executorch],COMPLETE_SUCCESS=[executorch]]
+04-15 18:04:39.237 32287 32752 E ActionQueryTaskListener: 1 onLoadBatchStart BACKGROUND modules: [executorch] actions: [LOAD=[executorch],COMPLETE_SUCCESS=[executorch]]
+04-15 18:04:39.263 32287 32752 E ActionQueryTaskListener: 1 onLoadBatchComplete exception: null BACKGROUND modules: [executorch] actions: [LOAD=[executorch],COMPLETE_SUCCESS=[executorch]]
+04-15 18:04:39.449 32682 32682 E facebook.stella: No implementation found for void com.facebook.quicklog.QuickPerformanceLoggerNativeProvider.nativeUpdateQPLInstance() (tried Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance and Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance__) - is the library loaded, e.g. System.loadLibrary?
+04-15 18:04:39.534 32682 32682 E facebook.stella: No implementation found for void com.facebook.quicklog.QuickPerformanceLoggerNativeProvider.nativeUpdateQPLInstance() (tried Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance and Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance__) - is the library loaded, e.g. System.loadLibrary?
+04-15 18:04:39.687 32197   363 E com.whatsapp: No implementation found for void com.facebook.quicklog.QuickPerformanceLoggerNativeProvider.nativeUpdateQPLInstance() (tried Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance and Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance__) - is the library loaded, e.g. System.loadLibrary?
+04-15 18:04:39.803 32682   479 E facebook.stella: No implementation found for void com.facebook.quicklog.QuickPerformanceLoggerNativeProvider.nativeUpdateQPLInstance() (tried Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance and Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance__) - is the library loaded, e.g. System.loadLibrary?
+04-15 18:04:39.808 32682   479 E facebook.stella: No implementation found for void com.facebook.quicklog.QuickPerformanceLoggerNativeProvider.nativeUpdateQPLInstance() (tried Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance and Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance__) - is the library loaded, e.g. System.loadLibrary?
+04-15 18:04:40.093 32287   752 E ActionQueryTaskListener: 1 onTaskComplete [true,false,] BACKGROUND modules: [executorch] actions: [LOAD=[executorch],COMPLETE_SUCCESS=[executorch]]
+04-15 18:04:41.135 32682 32682 E SlowAppComponent: 0ms: StellaApplication instantiating…
+04-15 18:04:41.136 32682 32682 E SlowAppComponent: 3147ms: SystemJobService instantiating…
+04-15 18:04:41.136 32682 32682 E SlowAppComponent: 1446ms: FirebaseInitProvider instantiating…
+04-15 18:04:41.136 32682 32682 E SlowAppComponent: 1578ms: MlKitInitProvider instantiating…
+04-15 18:04:41.136 32682 32682 E SlowAppComponent: 1599ms: PendingCapturesContentProvider instantiating…
+04-15 18:04:41.136 32682 32682 E SlowAppComponent: 1599ms: FileProvider instantiating…
+04-15 18:04:41.136 32682 32682 E SlowAppComponent: 1599ms: DeviceConnectionStateContentProvider instantiating…
+04-15 18:04:41.136 32682 32682 E SlowAppComponent: 1599ms: WristMmsFileProvider instantiating…
+04-15 18:04:41.137 32682 32682 E SlowAppComponent: 1602ms: SecureFileProvider instantiating…
+04-15 18:04:41.137 32682 32682 E SlowAppComponent: 1661ms: InitializationProvider instantiating…
+04-15 18:04:41.137 32682 32682 E SlowAppComponent: 1680ms: CompanionMmsStashFileProvider instantiating…
+04-15 18:04:41.137 32682 32682 E SlowAppComponent: 1687ms: FamilyAppsUserValuesProvider instantiating…
+04-15 18:04:41.137 32682 32682 E SlowAppComponent: 1965ms: ACDCService instantiating…
+04-15 18:04:41.137 32682 32682 E SlowAppComponent: Main thread was blocked for 3288ms in the foreground starting with StellaApplication
+04-15 18:04:41.235 31177 32171 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+04-15 18:04:41.325 32682   478 E facebook.stella: hiddenapi: Accessing hidden method Landroid/os/PowerWhitelistManager;->isWhitelisted(Ljava/lang/String;Z)Z (runtime_flags=0, domain=platform, api=blocked) from /data/app/~~A4zEX2X17iAqQQSYhPzC1Q==/com.facebook.stella-oFjtFKkhUAiC_lghqHf6Tw==/base.apk (domain=app, TargetSdkVersion=36) using linking: denied
+04-15 18:04:41.442   955   955 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+04-15 18:04:41.452   955   955 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+04-15 18:04:41.461   955   955 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+04-15 18:04:41.486   955   955 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+04-15 18:04:41.487 32287   752 E Hera.LinkMultiplexer: [SWPool3_t1of1] loggingEventCallback_ is not set yet
+04-15 18:04:41.496   955   955 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: UpdateMostRecentBuild onFailure()
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: com.facebook.graphql.error.GraphQLErrorException$GraphQLResponseError: GraphQL error: Severity: CRITICAL Code: 1675002 Api Error Code: 0 isSilent: 0 isTransient: 0 requiresReauth: 0 Description: Unauthorized logged out query.
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0L5.A00(:104)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0L5.onError(:29)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at com.facebook.pando.NativeCallbacks.onError(:6)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at com.facebook.jni.NativeRunnable.run(Native Method)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.1hj.execute(:0)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at com.facebook.jni.NativeRunnable.run(Native Method)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.2nl.invokeSuspend(:92)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0Eo.resumeWith(:7)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0G3.run(:89)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0Fg.A01(:0)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0JF.run(:99)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: Caused by: java.lang.Throwable
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0L5.<init>(:2)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.2od.invoke(:832)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0KK.run(:8)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	at X.0K5.run(:6)
+04-15 18:04:41.619 32682   481 E UpdateMostRecentBuild: 	... 5 more
+04-15 18:04:42.183 32725 32725 E VivoConfigStore: key:vivo.software.multiwindow isCached is false and normal value is true
+04-15 18:04:42.186 32725 32725 E VivoConfigStore: key:vivo.software.freeform isCached is false and normal value is true
+04-15 18:04:42.366 32725 32725 E VivoConfigStore: key:vivo.software.nightmode isCached is false and normal value is true
+--------- beginning of system
+04-15 18:04:43.081   955  1141 E ActivityThread: Failed to find provider info for com.facebook.appmanager.nekodirect
+04-15 18:04:43.119 32725 32725 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+04-15 18:04:43.145 32725   987 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-15 18:04:43.191 32725  1196 E ion     : ioctl c0044901 failed with code -1: Invalid argument
+04-15 18:04:43.737 30728 30728 E fb4a.SlowAppComponent: 0ms: CrossSigningBroadcastReceiver instantiating…
+04-15 18:04:43.737 30728 30728 E fb4a.SlowAppComponent: Main thread was blocked for 260ms in the background starting with CrossSigningBroadcastReceiver
+04-15 18:04:43.740 32197 32266 E msys    : E[N mns]_OnDiskCacheGetData(1102)=>Start post callback cache refresh DNS resolution
+04-15 18:04:43.740 32197 32266 E msys    : E[ADNSUCTIMH WAJMNSDNSResolver]_MNSDNSResolutionSuccess(35)=>[LogLevel:I] DNS Resolution Successful with 4 IPs, Persistent Cache Hit: 1, secondary resolver used: 0
+04-15 18:04:43.740 32197 32266 E msys    : E[ADNSUCTIMH WAJMNSDNSResolver]_MNSDNSResolutionSuccess(55)=>[LogLevel:I] Resolved IP Address: 103.55.68.158
+04-15 18:04:43.741 32197 32266 E msys    : E[ADNSUCTIMH WAJMNSDNSResolver]_MNSDNSResolutionSuccess(55)=>[LogLevel:I] Resolved IP Address: 203.80.128.20
+04-15 18:04:43.741 32197 32266 E msys    : E[ADNSUCTIMH WAJMNSDNSResolver]_MNSDNSResolutionSuccess(55)=>[LogLevel:I] Resolved IP Address: 103.152.101.249
+04-15 18:04:43.741 32197 32266 E msys    : E[ADNSUCTIMH WAJMNSDNSResolver]_MNSDNSResolutionSuccess(55)=>[LogLevel:I] Resolved IP Address: 203.99.62.214
+04-15 18:04:43.761 32197 32266 E msys    : E[N mns]_OnResolverSuccess(313)=>Cache refresh succeeded with system DNS resolver. IP count: 4
+04-15 18:04:48.349   955  1252 E SystemConfig: SystemConfig is being accessed by a process other than system_server.
+04-15 18:04:49.191   955  1252 E SystemConfig: SystemConfig is being accessed by a process other than system_server.
+04-15 18:04:49.195   955  1252 E SystemConfig: SystemConfig is being accessed by a process other than system_server.
+04-15 18:04:49.963 32287 32477 E msys    : E[N mns:TigonMNS]_OnDiskCacheGetData(1102)=>Start post callback cache refresh DNS resolution
+04-15 18:04:49.968 32287 32477 E msys    : E[N mns:TigonMNS]_OnResolverSuccess(313)=>Cache refresh succeeded with system DNS resolver. IP count: 1
+04-15 18:04:51.441  1501  1501 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+04-15 18:04:51.445  1501  1501 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+04-15 18:04:51.448  1501  1501 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+04-15 18:04:51.451  1501  1501 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+04-15 18:04:51.455  1501  1501 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+04-15 18:04:51.740 23992 24003 E AuthPII : [RequestTokenManager] getToken() -> BAD_AUTHENTICATION. App: com.android.vending, Service: oauth2:https://www.googleapis.com/auth/googleplay
+04-15 18:04:51.740 23992 24003 E AuthPII : bhjm: Long live credential not available.
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agxc.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):1347)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agxj.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):26)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agxh.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):738)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agxg.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):153)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at aamx.d(:com.google.android.gms@261332029@26.13.32 (190400-895912391):107)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agqt.getAuthToken(:com.google.android.gms@261332029@26.13.32 (190400-895912391):411)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at clvg.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):10)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at bzst.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):161)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-15 18:04:51.740 23992 24003 E AuthPII : Message is Long live credential not available.
+04-15 18:04:51.740 23992 24003 E AuthPII : bhjm: Long live credential not available.
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agxc.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):1347)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agxj.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):26)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agxh.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):738)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agxg.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):153)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at aamx.d(:com.google.android.gms@261332029@26.13.32 (190400-895912391):107)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at agqt.getAuthToken(:com.google.android.gms@261332029@26.13.32 (190400-895912391):411)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at clvg.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):10)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at bzst.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):161)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-15 18:04:51.740 23992 24003 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-15 18:04:51.759  1501  1501 E VivoConfigStore: key:vivo.software.multiwindow isCached is false and normal value is true
+04-15 18:04:51.763  1501  1501 E VivoConfigStore: key:vivo.software.freeform isCached is false and normal value is true
+04-15 18:04:51.812 23992 24003 E AuthPII : [RequestTokenManager] getToken() -> BAD_AUTHENTICATION. App: com.android.vending, Service: oauth2:https://www.googleapis.com/auth/googleplay
+04-15 18:04:51.812 23992 24003 E AuthPII : bhjm: Long live credential not available.
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at agxc.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):1347)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at agxj.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):26)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at agxh.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):738)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at agxg.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):153)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at aamx.d(:com.google.android.gms@261332029@26.13.32 (190400-895912391):107)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at agqt.getAuthToken(:com.google.android.gms@261332029@26.13.32 (190400-895912391):411)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at clvg.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):10)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at bzst.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):161)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-15 18:04:51.812 23992 24003 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-15 18:04:51.813 23992 24003 E AuthPII : Message is Long live credential not available.
+04-15 18:04:51.813 23992 24003 E AuthPII : bhjm: Long live credential not available.
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at agxc.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):1347)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at agxj.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):26)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at agxh.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):738)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at agxg.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):153)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at aamx.d(:com.google.android.gms@261332029@26.13.32 (190400-895912391):107)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at agqt.getAuthToken(:com.google.android.gms@261332029@26.13.32 (190400-895912391):411)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at clvg.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):10)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at bzst.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):161)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-15 18:04:51.813 23992 24003 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-15 18:04:51.845  1501  1501 E VivoConfigStore: key:vivo.software.nightmode isCached is false and normal value is true
+04-15 18:04:51.886 23992 27011 E AuthPII : [RequestTokenManager] getToken() -> BAD_AUTHENTICATION. App: com.android.vending, Service: oauth2:https://www.googleapis.com/auth/googleplay
+04-15 18:04:51.886 23992 27011 E AuthPII : bhjm: Long live credential not available.
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agxc.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):1347)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agxj.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):26)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agxh.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):738)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agxg.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):153)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at aamx.d(:com.google.android.gms@261332029@26.13.32 (190400-895912391):107)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agqt.getAuthToken(:com.google.android.gms@261332029@26.13.32 (190400-895912391):411)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at clvg.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):10)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at bzst.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):161)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-15 18:04:51.886 23992 27011 E AuthPII : Message is Long live credential not available.
+04-15 18:04:51.886 23992 27011 E AuthPII : bhjm: Long live credential not available.
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agxc.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):1347)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agxj.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):26)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agxh.a(:com.google.android.gms@261332029@26.13.32 (190400-895912391):738)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agxg.b(:com.google.android.gms@261332029@26.13.32 (190400-895912391):153)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at aamx.d(:com.google.android.gms@261332029@26.13.32 (190400-895912391):107)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at agqt.getAuthToken(:com.google.android.gms@261332029@26.13.32 (190400-895912391):411)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at clvg.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):10)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.os.Binder.transact(Binder.java:1230)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at bzst.onTransact(:com.google.android.gms@261332029@26.13.32 (190400-895912391):161)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1351)
+04-15 18:04:51.886 23992 27011 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1310)
+04-15 18:04:51.923  1501  1501 E FBI     : Can't load library: dlopen failed: library "libmagtsync.so" not found
+04-15 18:04:51.940  1501  1524 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-15 18:04:51.966  1501  1622 E ion     : ioctl c0044901 failed with code -1: Invalid argument
+04-15 18:04:55.444  1501  1524 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-15 18:04:59.348 32725 32725 E VivoConfigStore: key:vivo.hardware.lra isCached is false and normal value is false
+04-15 18:05:02.374  1501  1524 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-15 18:05:07.758  1501  1524 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-15 18:05:16.860  1501  1524 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+04-15 18:05:18.853 25990 26055 E erjy    : (REDACTED) Trace %s timed out after %d ms. Complete trace: %s
+04-15 18:05:18.853 25990 26055 E erjy    : erli: 
+04-15 18:05:18.853 25990 26055 E erjy    : 	at tk_trace.ZwiebackCookieProviderImpl#extractZwieback(Started After:0)
+04-15 18:05:18.853 25990 26055 E erjy    : 	at tk_trace.ZwiebackCookieProviderImpl#getCookie(Started After:0)
+04-15 18:05:18.853 25990 26055 E erjy    : 	at tk_trace.SlidingPanel animator listener(Started After:0)
+04-15 18:05:18.853 25990 26055 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.853 25990 26055 E erjy    : 		at tk_trace.ACETONE_OVERLAY_TRANSITION_COMPLETE(unfinished)(Unknown Source:0)
+04-15 18:05:18.853 25990 26055 E erjy    : 		at tk_trace.SlidingPanel animator listener 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : (REDACTED) Trace %s timed out after %d ms. Complete trace: %s
+04-15 18:05:18.853 25990 26053 E erjy    : erli: 
+04-15 18:05:18.853 25990 26053 E erjy    : 	at tk_trace.GIL:ClearcutTransmitter(Started After:40)
+04-15 18:05:18.853 25990 26053 E erjy    : 	at tk_trace.GIL:NVLGraftHandler(Started After:40)
+04-15 18:05:18.853 25990 26053 E erjy    : 	at tk_trace.GIL:AutoProcessBatch(Started After:40)
+04-15 18:05:18.853 25990 26053 E erjy    : 	at tk_trace.onSuccess FuturesMixin(Started After:40)
+04-15 18:05:18.853 25990 26053 E erjy    : 	at tk_trace.AbstractLensActivity#maybeAddLensViewFragment(Started After:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	at tk_trace.AbstractLensActivity#maybeAddFragment(Started After:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	at tk_trace.Lifecycle.Started LensExportedActivity(Started After:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	at tk_trace.Intenting into LensExportedActivity(Started After:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_END(unfinished)(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_ACK(unfinished)(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_END(unfinished)(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_ACK(unfinished)(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_END(unfinished)(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_ACK(unfinished)(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.853 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26048 E erjy    : (REDACTED) Trace %s timed out after %d ms. Complete trace: %s
+04-15 18:05:18.854 25990 26048 E erjy    : erli: 
+04-15 18:05:18.854 25990 26048 E erjy    : 	at tk_trace.GIL:ClearcutTransmitter(Started After:1)
+04-15 18:05:18.854 25990 26048 E erjy    : 	at tk_trace.GIL:NVLGraftHandler(Started After:1)
+04-15 18:05:18.854 25990 26048 E erjy    : 	at tk_trace.GIL:AutoProcessBatch(Started After:1)
+04-15 18:05:18.854 25990 26048 E erjy    : 	at tk_trace.onStop LensExportedActivity(Started After:0)
+04-15 18:05:18.854 25990 26048 E erjy    : 	at tk_trace.finish(Started After:0)
+04-15 18:05:18.854 25990 26048 E erjy    : 	at tk_trace.Back pressed(Started After:0)
+04-15 18:05:18.854 25990 26048 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.854 25990 26048 E erjy    : 		at tk_trace.LENS_QUERY_END(unfinished)(Unknown Source:0)
+04-15 18:05:18.854 25990 26048 E erjy    : 		at tk_trace.onStop LensExportedActivity 117 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26048 E erjy    : 		at tk_trace.finish 33 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26048 E erjy    : 		at tk_trace.Back pressed 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_END(unfinished)(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_ACK(unfinished)(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_END(unfinished)(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LENS_PREFETCH_REQUEST_ACK(unfinished)(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.gRPC:google.internal.lens.api.v1.LensStreamServiceStreamLensResults 41122 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensQueryControllerstart 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.LensViewFragmentPeeronCreate 123 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddLensViewFragment 601 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.AbstractLensActivitymaybeAddFragment 645 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Lifecycle.Started LensExportedActivity 670 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Intenting into LensExportedActivity 0 ms(Unknown Source:0)
+04-15 18:05:18.854 25990 26053 E erjy    : 	Suppressed: erlh: 
+04-15 18:05:18.854 25990 26053 E erjy    : 		at tk_trace.Suppressed exceptions exceeds the limit 10, additional unfinished spans will not be reported(Unknown Source:0)
+04-15 18:05:20.974  1501  1524 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS

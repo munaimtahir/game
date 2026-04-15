@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumProgress
@@ -30,7 +31,11 @@ fun StatsScreen(
     val totalPlaySeconds = stats.sumOf { it.totalPlayMillis } / 1000
     val bestGame = stats.maxByOrNull { it.highScore }
 
-    ArcadeScaffold(title = "Stats", onBack = onBack) {
+    ArcadeScaffold(
+        title = "Stats",
+        onBack = onBack,
+        screenTestTag = ArcadeTestTags.StatsScreen,
+    ) {
         SectionHeader(
             title = "Player Snapshot",
             subtitle = "Prestige comes from consistency: local sessions, strong bests, and recent form across all three games.",

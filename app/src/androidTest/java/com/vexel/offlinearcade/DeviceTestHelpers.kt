@@ -16,6 +16,8 @@ internal fun AndroidComposeTestRule<*, *>.waitUntilExists(tag: String, timeoutMi
 }
 
 internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screenTag: String) {
+    waitUntilExists(ArcadeTestTags.HomeScreen)
+    waitUntilExists(ArcadeTestTags.HomeList)
     onNodeWithTag(ArcadeTestTags.HomeList).performScrollToNode(hasTestTag(entryTag))
     onNodeWithTag(entryTag).performClick()
     waitUntilExists(screenTag)

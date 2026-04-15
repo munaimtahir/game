@@ -1,0 +1,286 @@
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.GameplayDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=gameplayHintsCanBeDismissed
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'lane_drift_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:90)
+
+INSTRUMENTATION_STATUS: stream=
+Error in gameplayHintsCanBeDismissed(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'lane_drift_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:90)
+
+INSTRUMENTATION_STATUS: test=gameplayHintsCanBeDismissed
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'pulse_orbit_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:28)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pulseOrbitStartsFromButtonOnDevice(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'pulse_orbit_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:28)
+
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'stack_drop_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:53)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropGestureControlsWork(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'stack_drop_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:53)
+
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'lane_drift_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:35)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftStartsAndSpawnsTraffic(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'lane_drift_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:35)
+
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=homeNavigatesToAllCoreRoutes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'pulse_orbit_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRoute(NavigationSmokeTest.kt:36)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:22)
+
+INSTRUMENTATION_STATUS: stream=
+Error in homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest):
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'pulse_orbit_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRoute(NavigationSmokeTest.kt:36)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:22)
+
+INSTRUMENTATION_STATUS: test=homeNavigatesToAllCoreRoutes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=settingsScreenSurvivesActivityRecreate
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'settings_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.SettingsPersistenceSmokeTest.settingsScreenSurvivesActivityRecreate(SettingsPersistenceSmokeTest.kt:20)
+
+INSTRUMENTATION_STATUS: stream=
+Error in settingsScreenSurvivesActivityRecreate(com.vexel.offlinearcade.SettingsPersistenceSmokeTest):
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'settings_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.SettingsPersistenceSmokeTest.settingsScreenSurvivesActivityRecreate(SettingsPersistenceSmokeTest.kt:20)
+
+INSTRUMENTATION_STATUS: test=settingsScreenSurvivesActivityRecreate
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 9.949
+There were 6 failures:
+1) gameplayHintsCanBeDismissed(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'lane_drift_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:90)
+2) pulseOrbitStartsFromButtonOnDevice(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'pulse_orbit_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:28)
+3) stackDropGestureControlsWork(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'stack_drop_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:53)
+4) laneDriftStartsAndSpawnsTraffic(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'lane_drift_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:35)
+5) homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest)
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'pulse_orbit_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRoute(NavigationSmokeTest.kt:36)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:22)
+6) settingsScreenSurvivesActivityRecreate(com.vexel.offlinearcade.SettingsPersistenceSmokeTest)
+java.lang.AssertionError: Failed: performScrollToNode(TestTag = 'settings_entry')
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'home_list')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performScrollToNode(Actions.kt:225)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:19)
+	at com.vexel.offlinearcade.SettingsPersistenceSmokeTest.settingsScreenSurvivesActivityRecreate(SettingsPersistenceSmokeTest.kt:20)
+
+FAILURES!!!
+Tests run: 6,  Failures: 6
+
+
+INSTRUMENTATION_CODE: -1

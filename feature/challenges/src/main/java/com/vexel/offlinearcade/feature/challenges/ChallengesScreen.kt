@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.DailyChallenge
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumProgress
@@ -27,7 +28,11 @@ fun ChallengesScreen(
 ) {
     val completeCount = challenges.count { it.completed }
     val bundleChallenge = challenges.firstOrNull { it.gameId == null }
-    ArcadeScaffold(title = "Daily Challenges", onBack = onBack) {
+    ArcadeScaffold(
+        title = "Daily Challenges",
+        onBack = onBack,
+        screenTestTag = ArcadeTestTags.ChallengesScreen,
+    ) {
         SectionHeader(
             title = "Daily Circuit",
             subtitle = "Offline-seeded challenge cards with shared rewards and clean progression states.",

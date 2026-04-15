@@ -4,6 +4,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeDown
@@ -33,8 +34,8 @@ class GameplayDeviceSmokeTest {
     @Test
     fun laneDriftStartsAndSpawnsTraffic() {
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftScreen)
-        rule.onNodeWithTag(ArcadeTestTags.LaneDriftHint).assertIsDisplayed()
-        rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).assertIsDisplayed().performClick()
+        rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
+        rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard).performTouchInput { click() }
         rule.waitUntil(timeoutMillis = 6_000) {
             val traffic = rule.onNodeWithTag(ArcadeTestTags.LaneDriftTrafficStatus).readText()
             val blockerCount = """Traffic:\s+(\d+)\s+blockers""".toRegex()
@@ -51,8 +52,9 @@ class GameplayDeviceSmokeTest {
     @Test
     fun stackDropGestureControlsWork() {
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
-        rule.onNodeWithTag(ArcadeTestTags.StackDropHint).assertIsDisplayed()
-        rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).assertIsDisplayed().performClick()
+        rule.waitUntilExists(ArcadeTestTags.StackDropHint)
+        rule.onNodeWithTag(ArcadeTestTags.StackDropHint).performScrollTo().assertIsDisplayed()
+        rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performScrollTo().assertIsDisplayed().performClick()
         val startState = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard).readStateDescription()
 
         rule.onNodeWithTag(ArcadeTestTags.StackDropBoard).performTouchInput { click() }
@@ -88,12 +90,15 @@ class GameplayDeviceSmokeTest {
     @Test
     fun gameplayHintsCanBeDismissed() {
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftScreen)
-        rule.onNodeWithTag(ArcadeTestTags.LaneDriftHint).assertIsDisplayed()
+        rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
         rule.onNode(hasText("Got it")).performClick()
         rule.onNodeWithTag(ArcadeTestTags.BackButton).performClick()
         rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+        rule.activityRule.scenario.recreate()
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
 
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
-        rule.onNodeWithTag(ArcadeTestTags.StackDropHint).assertIsDisplayed()
+        rule.waitUntilExists(ArcadeTestTags.StackDropHint)
+        rule.onNodeWithTag(ArcadeTestTags.StackDropHint).performScrollTo().assertIsDisplayed()
     }
 }

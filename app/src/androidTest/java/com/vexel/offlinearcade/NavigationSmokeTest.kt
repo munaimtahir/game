@@ -25,6 +25,7 @@ class NavigationSmokeTest {
         openRoute(ArcadeTestTags.ChallengesEntry, ArcadeTestTags.ChallengesScreen)
         openRoute(ArcadeTestTags.StatsEntry, ArcadeTestTags.StatsScreen)
 
+        rule.waitUntilExists(ArcadeTestTags.HomeList)
         rule.onNodeWithTag(ArcadeTestTags.HomeList)
             .performScrollToNode(hasTestTag(ArcadeTestTags.SettingsEntry))
         rule.onNodeWithTag(ArcadeTestTags.SettingsEntry).performClick()

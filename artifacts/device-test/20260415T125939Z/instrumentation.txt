@@ -1,0 +1,164 @@
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.GameplayDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=gameplayHintsCanBeDismissed
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:91)
+
+INSTRUMENTATION_STATUS: stream=
+Error in gameplayHintsCanBeDismissed(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:91)
+
+INSTRUMENTATION_STATUS: test=gameplayHintsCanBeDismissed
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:54)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropGestureControlsWork(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:54)
+
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:36)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftStartsAndSpawnsTraffic(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:36)
+
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=homeNavigatesToAllCoreRoutes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 5000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.waitUntilExists(DeviceTestHelpers.kt:13)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.waitUntilExists$default(DeviceTestHelpers.kt:12)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRoute(NavigationSmokeTest.kt:37)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:25)
+
+INSTRUMENTATION_STATUS: stream=
+Error in homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 5000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.waitUntilExists(DeviceTestHelpers.kt:13)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.waitUntilExists$default(DeviceTestHelpers.kt:12)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRoute(NavigationSmokeTest.kt:37)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:25)
+
+INSTRUMENTATION_STATUS: test=homeNavigatesToAllCoreRoutes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=settingsScreenSurvivesActivityRecreate
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=6
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=settingsScreenSurvivesActivityRecreate
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 36.388
+There were 4 failures:
+1) gameplayHintsCanBeDismissed(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:91)
+2) stackDropGestureControlsWork(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:54)
+3) laneDriftStartsAndSpawnsTraffic(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:36)
+4) homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 5000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.waitUntilExists(DeviceTestHelpers.kt:13)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.waitUntilExists$default(DeviceTestHelpers.kt:12)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRoute(NavigationSmokeTest.kt:37)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:25)
+
+FAILURES!!!
+Tests run: 6,  Failures: 4
+
+
+INSTRUMENTATION_CODE: -1

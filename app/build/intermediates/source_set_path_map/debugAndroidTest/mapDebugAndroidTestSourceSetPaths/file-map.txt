@@ -30,7 +30,7 @@ com.vexel.offlinearcade.test.app-tracing-1.1.0-28 /home/munaim/.gradle/caches/tr
 com.vexel.offlinearcade.test.app-activity-ktx-1.9.0-29 /home/munaim/.gradle/caches/transforms-4/fae0c8ae82dcfde8ce53b8c5ca156270/transformed/activity-ktx-1.9.0/res
 com.vexel.offlinearcade.test.app-runtime-saveable-release-30 /home/munaim/.gradle/caches/transforms-4/fb8a576232a8b4d341056e85f663f0f1/transformed/runtime-saveable-release/res
 com.vexel.offlinearcade.test.app-savedstate-1.2.1-31 /home/munaim/.gradle/caches/transforms-4/fee3c3218ed8e4dc86e47c73d7d5ba71/transformed/savedstate-1.2.1/res
-com.vexel.offlinearcade.test.app-androidTest-32 /home/munaim/srv/apps/game/app/build/generated/res/resValues/androidTest/debug
-com.vexel.offlinearcade.test.app-mergeDebugAndroidTestResources-33 /home/munaim/srv/apps/game/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-com.vexel.offlinearcade.test.app-mergeDebugAndroidTestResources-34 /home/munaim/srv/apps/game/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-com.vexel.offlinearcade.test.app-debugAndroidTest-35 /home/munaim/srv/apps/game/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
+com.vexel.offlinearcade.test.app-androidTest-32 /home/munaim/Documents/github/game/app/build/generated/res/resValues/androidTest/debug
+com.vexel.offlinearcade.test.app-mergeDebugAndroidTestResources-33 /home/munaim/Documents/github/game/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.vexel.offlinearcade.test.app-mergeDebugAndroidTestResources-34 /home/munaim/Documents/github/game/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.vexel.offlinearcade.test.app-debugAndroidTest-35 /home/munaim/Documents/github/game/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
