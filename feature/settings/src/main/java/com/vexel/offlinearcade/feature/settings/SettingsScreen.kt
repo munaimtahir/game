@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -47,110 +48,102 @@ fun SettingsScreen(
     onUnlockTheme: (String) -> Unit,
     onBack: () -> Unit,
 ) {
+    val selectedTheme = themes.firstOrNull { it.id == selectedThemeId }
     ArcadeScaffold(
         title = "Settings",
         onBack = onBack,
         screenTestTag = ArcadeTestTags.SettingsScreen,
     ) {
         SectionHeader(
-            title = "Audio and Feel",
-            subtitle = "Keep the shell responsive, readable, and low-friction on real devices.",
+            title = "Control Cluster",
+            subtitle = "Dense control rows keep behavior tuning fast without turning this into an admin wall.",
         )
-        ToggleCard(
-            label = "Sound",
-            description = "Short feedback cues for taps, clears, and misses.",
-            checked = settings.soundEnabled,
-            onCheckedChange = onToggleSound,
-            modifier = Modifier.testTag(ArcadeTestTags.SoundToggle),
-        )
-        ToggleCard(
-            label = "Music",
-            description = "Reserved for future ambient layers without affecting offline play.",
-            checked = settings.musicEnabled,
-            onCheckedChange = onToggleMusic,
-            modifier = Modifier.testTag(ArcadeTestTags.MusicToggle),
-        )
-        ToggleCard(
-            label = "Vibration",
-            description = "Haptic confirmation for clean hits, pickups, and failure.",
-            checked = settings.vibrationEnabled,
-            onCheckedChange = onToggleVibration,
-            modifier = Modifier.testTag(ArcadeTestTags.VibrationToggle),
-        )
+        ArcadeCard {
+            Text("Audio", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            ToggleRow(
+                label = "Sound",
+                checked = settings.soundEnabled,
+                onCheckedChange = onToggleSound,
+                modifier = Modifier.testTag(ArcadeTestTags.SoundToggle),
+            )
+            ToggleRow(
+                label = "Music",
+                checked = settings.musicEnabled,
+                onCheckedChange = onToggleMusic,
+                modifier = Modifier.testTag(ArcadeTestTags.MusicToggle),
+            )
+            ToggleRow(
+                label = "Vibration",
+                checked = settings.vibrationEnabled,
+                onCheckedChange = onToggleVibration,
+                modifier = Modifier.testTag(ArcadeTestTags.VibrationToggle),
+            )
+            Text("Accessibility", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            ToggleRow(
+                label = "Battery saver / low effects",
+                checked = settings.reducedEffects,
+                onCheckedChange = onToggleReducedEffects,
+            )
+            ToggleRow(
+                label = "High contrast",
+                checked = settings.highContrastEnabled,
+                onCheckedChange = onToggleHighContrast,
+            )
+        }
 
         SectionHeader(
-            title = "Accessibility and Power",
-            subtitle = "Keep the premium shell restrained on weak hardware or lower-strain sessions.",
+            title = "Theme Showcase",
+            subtitle = "One featured preview block, then compact picks for quick swaps.",
         )
-        ToggleCard(
-            label = "Battery saver / low effects",
-            description = "Reduces glow, trims splash timing, and keeps surfaces flatter.",
-            checked = settings.reducedEffects,
-            onCheckedChange = onToggleReducedEffects,
-        )
-        ToggleCard(
-            label = "High contrast",
-            description = "Pushes text and outlines harder for cleaner readability.",
-            checked = settings.highContrastEnabled,
-            onCheckedChange = onToggleHighContrast,
-        )
-
-        SectionHeader(title = "Cosmetic Themes", subtitle = "Themes keep one shared midnight shell while shifting the accent mood.")
-        themes.forEach { theme ->
-            val actionLabel = when {
-                theme.id == selectedThemeId -> "Selected"
-                theme.unlocked -> "Use Theme"
-                theme.premiumOnly && !premiumUnlocked -> "Premium"
-                else -> "Unlock"
-            }
-            ArcadeCard(
-                accent = when (theme.id) {
-                    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFF8B74FF), Color(0xFFFFA55B)))
-                    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFF35D6D0), Color(0xFF5E88FF)))
-                    else -> Brush.linearGradient(listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary))
-                },
-            ) {
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text(theme.title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
-                        Text(theme.subtitle, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
-                    PremiumBadge(
-                        text = if (theme.coinCost == 0) "Included" else "${theme.coinCost} coins",
-                        color = if (theme.coinCost == 0) ArcadeTheme.colors.success else ArcadeTheme.colors.reward,
-                    )
+        ArcadeCard(accent = themeAccentBrush(selectedTheme?.id ?: "default")) {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(selectedTheme?.title ?: "Midnight Glow", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Black)
+                    Text("Selected Theme", color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(78.dp)
-                        .background(
-                            brush = when (theme.id) {
-                                "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFF141B2D), Color(0xFF8B74FF), Color(0xFFFFA55B)))
-                                "ice_grid" -> Brush.linearGradient(listOf(Color(0xFF0B1020), Color(0xFF35D6D0), Color(0xFF5E88FF)))
-                                else -> Brush.linearGradient(listOf(Color(0xFF0B1020), Color(0xFF7C5CFF), Color(0xFF35D6D0)))
-                            },
-                            shape = RoundedCornerShape(22.dp),
-                        ),
-                    contentAlignment = Alignment.CenterStart,
-                ) {
-                    Text(
-                        text = "Midnight Glow Arcade",
-                        modifier = Modifier.padding(horizontal = 18.dp),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onPrimary,
-                    )
-                }
-                PremiumButton(
-                    label = actionLabel,
-                    onClick = {
-                        if (theme.unlocked) onSelectTheme(theme.id) else onUnlockTheme(theme.id)
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                    style = if (actionLabel == "Use Theme") ArcadeButtonStyle.Primary else ArcadeButtonStyle.Secondary,
-                    enabled = actionLabel != "Selected" && actionLabel != "Premium",
+                PremiumBadge(
+                    text = if (selectedTheme?.coinCost == 0) "Included" else "${selectedTheme?.coinCost ?: 0} coins",
+                    color = if (selectedTheme?.coinCost == 0) ArcadeTheme.colors.success else ArcadeTheme.colors.reward,
                 )
+            }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(96.dp)
+                    .background(
+                        brush = themePreviewBrush(selectedTheme?.id ?: "default"),
+                        shape = RoundedCornerShape(22.dp),
+                    ),
+                contentAlignment = Alignment.CenterStart,
+            ) {
+                Text(
+                    text = "Midnight Glow Arcade",
+                    modifier = Modifier.padding(horizontal = 18.dp),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onPrimary,
+                )
+            }
+            Text(
+                selectedTheme?.subtitle ?: "Premium indigo and aqua shell with restrained neon depth.",
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        themes.chunked(2).forEach { rowThemes ->
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                rowThemes.forEach { theme ->
+                    ThemeChoiceCard(
+                        theme = theme,
+                        selectedThemeId = selectedThemeId,
+                        premiumUnlocked = premiumUnlocked,
+                        onSelectTheme = onSelectTheme,
+                        onUnlockTheme = onUnlockTheme,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                if (rowThemes.size == 1) {
+                    Spacer(modifier = Modifier.weight(1f))
+                }
             }
         }
 
@@ -166,29 +159,78 @@ fun SettingsScreen(
             )
             StatRow("Accounts required", "No")
             StatRow("Online dependency", "None")
-            StatRow("Selected theme", themes.firstOrNull { it.id == selectedThemeId }?.title ?: "Midnight Glow")
+            StatRow("Selected theme", selectedTheme?.title ?: "Midnight Glow")
         }
     }
 }
 
 @Composable
-private fun ToggleCard(
+private fun ToggleRow(
     label: String,
-    description: String,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    ArcadeCard(modifier = modifier) {
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(4.dp),
-            ) {
-                Text(label, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Text(description, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            }
-            Switch(checked = checked, onCheckedChange = onCheckedChange)
-        }
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(label, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Switch(checked = checked, onCheckedChange = onCheckedChange)
     }
+}
+
+@Composable
+private fun ThemeChoiceCard(
+    theme: ThemeUnlock,
+    selectedThemeId: String,
+    premiumUnlocked: Boolean,
+    onSelectTheme: (String) -> Unit,
+    onUnlockTheme: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val actionLabel = when {
+        theme.id == selectedThemeId -> "Selected"
+        theme.unlocked -> "Use Theme"
+        theme.premiumOnly && !premiumUnlocked -> "Premium"
+        else -> "Unlock"
+    }
+    ArcadeCard(modifier = modifier, accent = themeAccentBrush(theme.id)) {
+        PremiumBadge(
+            text = if (theme.coinCost == 0) "Included" else "${theme.coinCost} coins",
+            color = if (theme.coinCost == 0) ArcadeTheme.colors.success else ArcadeTheme.colors.reward,
+        )
+        Text(theme.title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(62.dp)
+                .background(
+                    brush = themePreviewBrush(theme.id),
+                    shape = RoundedCornerShape(18.dp),
+                ),
+        )
+        PremiumButton(
+            label = actionLabel,
+            onClick = {
+                if (theme.unlocked) onSelectTheme(theme.id) else onUnlockTheme(theme.id)
+            },
+            modifier = Modifier.fillMaxWidth(),
+            style = if (actionLabel == "Use Theme") ArcadeButtonStyle.Primary else ArcadeButtonStyle.Secondary,
+            enabled = actionLabel != "Selected" && actionLabel != "Premium",
+        )
+    }
+}
+
+private fun themeAccentBrush(themeId: String): Brush = when (themeId) {
+    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFF8B74FF), Color(0xFFFFA55B)))
+    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFF35D6D0), Color(0xFF5E88FF)))
+    else -> Brush.linearGradient(listOf(Color(0xFF7C5CFF), Color(0xFF35D6D0)))
+}
+
+private fun themePreviewBrush(themeId: String): Brush = when (themeId) {
+    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFF141B2D), Color(0xFF8B74FF), Color(0xFFFFA55B)))
+    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFF0B1020), Color(0xFF35D6D0), Color(0xFF5E88FF)))
+    else -> Brush.linearGradient(listOf(Color(0xFF0B1020), Color(0xFF7C5CFF), Color(0xFF35D6D0)))
 }

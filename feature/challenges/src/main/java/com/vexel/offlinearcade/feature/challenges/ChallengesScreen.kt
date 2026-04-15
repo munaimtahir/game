@@ -1,7 +1,9 @@
 package com.vexel.offlinearcade.feature.challenges
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -28,6 +30,7 @@ fun ChallengesScreen(
 ) {
     val completeCount = challenges.count { it.completed }
     val bundleChallenge = challenges.firstOrNull { it.gameId == null }
+    val gameChallenges = challenges.filter { it.gameId != null }
     ArcadeScaffold(
         title = "Daily Challenges",
         onBack = onBack,
@@ -55,34 +58,50 @@ fun ChallengesScreen(
                 StatRow("Reward", "${bundleChallenge.rewardCoins} coins", valueColor = ArcadeTheme.colors.reward)
             }
         }
-        challenges.filter { it.gameId != null }.forEach { challenge ->
-            val gameId = challenge.gameId ?: return@forEach
-            val accent = gameAccentFor(gameId.title)
-            val progressFraction = if (challenge.targetValue == 0) 0f else challenge.progress.toFloat() / challenge.targetValue.toFloat()
-            ArcadeCard(accent = accent.brush) {
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    ColumnBlock(
-                        title = gameId.title,
-                        subtitle = challenge.title,
-                    )
-                    PremiumBadge(
-                        text = if (challenge.completed) "Completed" else "Active",
-                        color = if (challenge.completed) ArcadeTheme.colors.success else accent.color,
-                    )
+        if (gameChallenges.isNotEmpty()) {
+            SectionHeader(
+                title = "Game Tracks",
+                subtitle = "Featured bundle first, then a tighter two-card sweep for each game lane.",
+                badge = "${gameChallenges.count { it.completed }}/${gameChallenges.size}",
+            )
+            gameChallenges.chunked(2).forEach { rowChallenges ->
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    rowChallenges.forEach { challenge ->
+                        GameChallengeCard(
+                            challenge = challenge,
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
+                    if (rowChallenges.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
                 }
-                Text(challenge.description, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                PremiumProgress(progress = progressFraction, label = "Challenge progress", accent = accent.color)
-                StatRow("Current", "${challenge.progress}/${challenge.targetValue}")
-                StatRow("Reward", "${challenge.rewardCoins} coins", valueColor = ArcadeTheme.colors.reward)
             }
         }
     }
 }
 
 @Composable
-private fun ColumnBlock(title: String, subtitle: String) {
-    androidx.compose.foundation.layout.Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Text(title, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Text(subtitle, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
+private fun GameChallengeCard(
+    challenge: DailyChallenge,
+    modifier: Modifier = Modifier,
+) {
+    val gameId = challenge.gameId ?: return
+    val accent = gameAccentFor(gameId.title)
+    val progressFraction = if (challenge.targetValue == 0) 0f else challenge.progress.toFloat() / challenge.targetValue.toFloat()
+    ArcadeCard(modifier = modifier, accent = accent.brush) {
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(gameId.title, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(challenge.title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
+            }
+            PremiumBadge(
+                text = if (challenge.completed) "Completed" else "Active",
+                color = if (challenge.completed) ArcadeTheme.colors.success else accent.color,
+            )
+        }
+        PremiumProgress(progress = progressFraction, label = "Progress", accent = accent.color)
+        StatRow("Current", "${challenge.progress}/${challenge.targetValue}")
+        StatRow("Reward", "${challenge.rewardCoins} coins", valueColor = ArcadeTheme.colors.reward)
     }
 }

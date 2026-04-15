@@ -31,7 +31,6 @@ import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumProgress
 import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
-import com.vexel.offlinearcade.core.ui.StatRow
 import com.vexel.offlinearcade.core.ui.gameAccentFor
 
 @Composable
@@ -51,11 +50,6 @@ fun HomeScreen(
     val totalSessions = stats.sumOf { it.sessionsPlayed }
     val totalScore = stats.sumOf { it.totalScore }
     val continueGame = stats.maxByOrNull { it.sessionsPlayed.takeIf { count -> count > 0 } ?: -1 }?.gameId ?: GameId.PULSE_ORBIT
-    val continueAction = when (continueGame) {
-        GameId.PULSE_ORBIT -> onPulseOrbit
-        GameId.LANE_DRIFT -> onLaneDrift
-        GameId.STACK_DROP -> onStackDrop
-    }
 
     ArcadeScaffold(
         title = "Offline Mini Arcade",
@@ -79,10 +73,9 @@ fun HomeScreen(
                                 text = if (profile.premiumUnlocked) "Premium unlocked" else "Offline-first",
                                 color = if (profile.premiumUnlocked) ArcadeTheme.colors.premium else ArcadeTheme.colors.success,
                             )
-                            PremiumButton(
-                                label = "Continue ${continueGame.title}",
-                                onClick = continueAction,
-                                style = ArcadeButtonStyle.Tonal,
+                            PremiumBadge(
+                                text = "Continue state: ${continueGame.title}",
+                                color = ArcadeTheme.colors.reward,
                             )
                         }
                     },

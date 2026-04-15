@@ -168,9 +168,19 @@ fun StackDropScreen(
                         gestureThresholds = gestureThresholds,
                         onAction = actionHandler(state, paused, engine, feedback) { state = it },
                     )
-                    StackDropStartCard(state = state, paused = paused, stats = stats, onStartOrRetry = ::restart)
-                    if (showGestureHint) StackDropHintCard(onDismiss = { showGestureHint = false })
-                    StackDropInfoCard(state = state, settings = settings)
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        HudPill("Level", state.level.toString(), modifier = Modifier.weight(1f))
+                        HudPill("Next", state.nextPiece.name, modifier = Modifier.weight(1f))
+                    }
+                    StackDropStartCard(
+                        state = state,
+                        paused = paused,
+                        stats = stats,
+                        settings = settings,
+                        showGestureHint = showGestureHint,
+                        onDismissHint = { showGestureHint = false },
+                        onStartOrRetry = ::restart,
+                    )
                     if (paused) StackDropPauseCard(state = state, onResume = { paused = false }, onRestart = ::restart, onQuit = onBack)
                     if (state.gameOver) StackDropSummary(state = state, stats = stats, onRetry = ::restart, onBack = onBack)
                 }
@@ -187,9 +197,19 @@ fun StackDropScreen(
                         onAction = actionHandler(state, paused, engine, feedback) { state = it },
                     )
                     Column(modifier = Modifier.weight(0.42f), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                        StackDropStartCard(state = state, paused = paused, stats = stats, onStartOrRetry = ::restart)
-                        if (showGestureHint) StackDropHintCard(onDismiss = { showGestureHint = false })
-                        StackDropInfoCard(state = state, settings = settings)
+                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                            HudPill("Level", state.level.toString(), modifier = Modifier.weight(1f))
+                            HudPill("Next", state.nextPiece.name, modifier = Modifier.weight(1f))
+                        }
+                        StackDropStartCard(
+                            state = state,
+                            paused = paused,
+                            stats = stats,
+                            settings = settings,
+                            showGestureHint = showGestureHint,
+                            onDismissHint = { showGestureHint = false },
+                            onStartOrRetry = ::restart,
+                        )
                         if (paused) StackDropPauseCard(state = state, onResume = { paused = false }, onRestart = ::restart, onQuit = onBack)
                         if (state.gameOver) StackDropSummary(state = state, stats = stats, onRetry = ::restart, onBack = onBack)
                     }
@@ -294,50 +314,40 @@ private fun StackDropBoardCard(
 }
 
 @Composable
-private fun StackDropInfoCard(
-    state: StackDropState,
-    settings: SettingsState,
-) {
-    ArcadeCard {
-        SectionHeader(title = "Run Detail", subtitle = "Structured board reads with low-clutter gesture control.")
-        StatRow("Level", state.level.toString())
-        StatRow("Next piece", state.nextPiece.name)
-        Text(
-            if (settings.reducedEffects) "Low-effects mode keeps the shell flatter for weaker devices." else "Full shell mode keeps depth and glow restrained but intact.",
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-    }
-}
-
-@Composable
 private fun StackDropStartCard(
     state: StackDropState,
     paused: Boolean,
     stats: GameStats?,
+    settings: SettingsState,
+    showGestureHint: Boolean,
+    onDismissHint: () -> Unit,
     onStartOrRetry: () -> Unit,
 ) {
     if (!state.playing && !paused && !state.gameOver) {
         ArcadeCard {
             SectionHeader(title = "Stack Drop", subtitle = "Cobalt and amber mastery with crisp board visibility.")
             StatRow("Best score", (stats?.highScore ?: 0).toString())
+            Text(
+                if (settings.reducedEffects) "Low-effects mode is active for flatter rendering." else "Full shell mode keeps premium depth while staying readable.",
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            if (showGestureHint) {
+                Column(
+                    modifier = Modifier.testTag(ArcadeTestTags.StackDropHint),
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                ) {
+                    Text("Tap to rotate • Swipe left/right to move • Swipe down to drop", fontWeight = FontWeight.SemiBold)
+                    Text("Use a fast downward flick for a hard drop.", color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                        TextButton(onClick = onDismissHint) { Text("Got it") }
+                    }
+                }
+            }
             PremiumButton(
                 label = "Start",
                 onClick = onStartOrRetry,
                 modifier = Modifier.fillMaxWidth().height(56.dp).testTag(ArcadeTestTags.StackDropStartButton),
             )
-        }
-    }
-}
-
-@Composable
-private fun StackDropHintCard(
-    onDismiss: () -> Unit,
-) {
-    ArcadeCard(modifier = Modifier.testTag(ArcadeTestTags.StackDropHint)) {
-        Text("Tap to rotate • Swipe left/right to move • Swipe down to drop", fontWeight = FontWeight.SemiBold)
-        Text("Use a fast downward flick for a hard drop.", color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-            TextButton(onClick = onDismiss) { Text("Got it") }
         }
     }
 }

@@ -276,6 +276,16 @@ fun LaneDriftScreen(
                 enabled = state.playing || state.paused,
             )
         }
+        Text(
+            state.message,
+            modifier = Modifier.fillMaxWidth(),
+            color = onSurfaceVariant,
+        )
+        Text(
+            "Traffic: ${state.items.count { it.type == DriftItemType.BLOCKER }} blockers, ${state.items.count { it.type == DriftItemType.PICKUP }} pickups in play.",
+            modifier = Modifier.testTag(ArcadeTestTags.LaneDriftTrafficStatus),
+            color = onSurfaceVariant,
+        )
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -332,15 +342,10 @@ fun LaneDriftScreen(
                     cornerRadius = CornerRadius(26f, 26f),
                 )
             }
-            Text(
-                state.message,
-                modifier = Modifier.align(Alignment.BottomCenter).padding(18.dp),
-                color = onSurfaceVariant,
-            )
-            if (state.playing && state.pickups > 0) {
+            if (state.playing && state.pickups >= 3) {
                 PremiumBadge(
                     text = if (state.pickups >= 6) "Clean streak" else "Flow run",
-                    modifier = Modifier.align(Alignment.TopCenter).padding(top = 16.dp),
+                    modifier = Modifier.align(Alignment.TopEnd).padding(top = 14.dp, end = 14.dp),
                     color = ArcadeTheme.colors.laneAccent,
                 )
             }
@@ -380,17 +385,12 @@ fun LaneDriftScreen(
                 }
             }
         }
-        ArcadeCard(modifier = Modifier.padding(top = 16.dp)) {
-            SectionHeader(title = "Lane Drift", subtitle = "Teal-forward dodge flow with bright, readable lanes.")
-            Text("Move between three lanes, avoid blockers, and scoop up the brighter shard pickups.")
-            Text(
-                "Traffic: ${state.items.count { it.type == DriftItemType.BLOCKER }} blockers, ${state.items.count { it.type == DriftItemType.PICKUP }} pickups in play.",
-                modifier = Modifier.testTag(ArcadeTestTags.LaneDriftTrafficStatus),
-                color = onSurfaceVariant,
-            )
-            StatRow("Best score", (stats?.highScore ?: 0).toString())
-            StatRow("Best combo", (stats?.bestCombo ?: 0).toString())
-            if (!state.playing && !state.paused && !state.gameOver) {
+        if (!state.playing && !state.paused && !state.gameOver) {
+            ArcadeCard(modifier = Modifier.padding(top = 16.dp)) {
+                SectionHeader(title = "Lane Drift", subtitle = "Teal-forward dodge flow with bright, readable lanes.")
+                Text("Move between three lanes, avoid blockers, and scoop up the brighter shard pickups.")
+                StatRow("Best score", (stats?.highScore ?: 0).toString())
+                StatRow("Best combo", (stats?.bestCombo ?: 0).toString())
                 PremiumButton(
                     label = "Start run",
                     onClick = ::restart,
@@ -399,14 +399,17 @@ fun LaneDriftScreen(
                         .height(52.dp)
                         .testTag(ArcadeTestTags.LaneDriftStartButton),
                 )
-            }
-            if (showGestureHint) {
-                ArcadeCard(modifier = Modifier.testTag(ArcadeTestTags.LaneDriftHint)) {
-                    Text("Swipe left or right to change lanes", fontWeight = FontWeight.SemiBold)
-                    Text("Each swipe moves one lane only.", color = onSurfaceVariant)
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                        TextButton(onClick = { showGestureHint = false }) {
-                            Text("Got it")
+                if (showGestureHint) {
+                    Column(
+                        modifier = Modifier.testTag(ArcadeTestTags.LaneDriftHint),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Text("Swipe left or right to change lanes", fontWeight = FontWeight.SemiBold)
+                        Text("Each swipe moves one lane only.", color = onSurfaceVariant)
+                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                            TextButton(onClick = { showGestureHint = false }) {
+                                Text("Got it")
+                            }
                         }
                     }
                 }
