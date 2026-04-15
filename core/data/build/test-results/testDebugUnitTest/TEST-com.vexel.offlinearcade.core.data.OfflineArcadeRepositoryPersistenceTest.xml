@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryPersistenceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-15T13:58:03" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="22.663">
+<testsuite name="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryPersistenceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-15T14:26:33" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="22.79">
   <properties/>
-  <testcase name="recordRunUpdatesStatsCoinsStreakAndChallenges" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryPersistenceTest" time="22.228"/>
-  <testcase name="settingsPersistAcrossSnapshotReads" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryPersistenceTest" time="0.263"/>
-  <testcase name="purchaseAndSelectThemePersist" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryPersistenceTest" time="0.172"/>
+  <testcase name="recordRunUpdatesStatsCoinsStreakAndChallenges" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryPersistenceTest" time="21.614"/>
+  <testcase name="settingsPersistAcrossSnapshotReads" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryPersistenceTest" time="0.512"/>
+  <testcase name="purchaseAndSelectThemePersist" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryPersistenceTest" time="0.662"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,16 +1,22 @@
 package com.vexel.offlinearcade.feature.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -50,6 +56,40 @@ fun HomeScreen(
     val totalSessions = stats.sumOf { it.sessionsPlayed }
     val totalScore = stats.sumOf { it.totalScore }
     val continueGame = stats.maxByOrNull { it.sessionsPlayed.takeIf { count -> count > 0 } ?: -1 }?.gameId ?: GameId.PULSE_ORBIT
+    val gameCards = listOf(
+        HomeGameEntry(
+            gameId = GameId.PULSE_ORBIT,
+            title = "Pulse Orbit",
+            body = "Rhythmic precision under pressure. Build combo and thread the opening cleanly.",
+            highScore = stats.firstOrNull { it.gameId == GameId.PULSE_ORBIT }?.highScore ?: 0,
+            sessions = stats.firstOrNull { it.gameId == GameId.PULSE_ORBIT }?.sessionsPlayed ?: 0,
+            challenge = todayChallenges.firstOrNull { it.gameId == GameId.PULSE_ORBIT },
+            onPlay = onPulseOrbit,
+            testTag = ArcadeTestTags.PulseOrbitEntry,
+        ),
+        HomeGameEntry(
+            gameId = GameId.LANE_DRIFT,
+            title = "Lane Drift",
+            body = "One-hand dodge flow with shard pickups, lane reads, and instant retry tension.",
+            highScore = stats.firstOrNull { it.gameId == GameId.LANE_DRIFT }?.highScore ?: 0,
+            sessions = stats.firstOrNull { it.gameId == GameId.LANE_DRIFT }?.sessionsPlayed ?: 0,
+            challenge = todayChallenges.firstOrNull { it.gameId == GameId.LANE_DRIFT },
+            onPlay = onLaneDrift,
+            testTag = ArcadeTestTags.LaneDriftEntry,
+        ),
+        HomeGameEntry(
+            gameId = GameId.STACK_DROP,
+            title = "Stack Drop",
+            body = "Falling-block clarity with tactical pace, line clears, and fast gesture control.",
+            highScore = stats.firstOrNull { it.gameId == GameId.STACK_DROP }?.highScore ?: 0,
+            sessions = stats.firstOrNull { it.gameId == GameId.STACK_DROP }?.sessionsPlayed ?: 0,
+            challenge = todayChallenges.firstOrNull { it.gameId == GameId.STACK_DROP },
+            onPlay = onStackDrop,
+            testTag = ArcadeTestTags.StackDropEntry,
+        ),
+    )
+    val featuredGame = gameCards.firstOrNull { it.gameId == continueGame } ?: gameCards.first()
+    val supportingGames = gameCards.filterNot { it.gameId == featuredGame.gameId }
 
     ArcadeScaffold(
         title = "Offline Mini Arcade",
@@ -82,63 +122,57 @@ fun HomeScreen(
                 )
             }
             item {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(spacing.sm),
-                ) {
-                    HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
-                    HudPill(label = "Streak", value = "${profile.currentStreakDays}d", modifier = Modifier.weight(1f))
-                    HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
-                }
-            }
-            item {
-                Row(horizontalArrangement = Arrangement.spacedBy(spacing.sm), modifier = Modifier.fillMaxWidth()) {
-                    PremiumStatTile("Sessions", totalSessions.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.success)
-                    PremiumStatTile("Total Score", totalScore.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
+                ArcadeCard {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(spacing.sm),
+                    ) {
+                        HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
+                        HudPill(label = "Streak", value = "${profile.currentStreakDays}d", modifier = Modifier.weight(1f))
+                        HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
+                    }
+                    Row(horizontalArrangement = Arrangement.spacedBy(spacing.sm), modifier = Modifier.fillMaxWidth()) {
+                        PremiumStatTile("Sessions", totalSessions.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.success)
+                        PremiumStatTile("Total Score", totalScore.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
+                    }
                 }
             }
             item {
                 SectionHeader(
-                    title = "Choose A Game",
-                    subtitle = "Card-first selection built for quick scanning and quick entry.",
+                    title = "Card View",
+                    subtitle = "Featured game card first, with supporting cards for quick switching.",
                     badge = "3 games",
                 )
             }
             item {
                 GameEntryCard(
-                    title = "Pulse Orbit",
-                    body = "Rhythmic precision under pressure. Build combo and thread the opening cleanly.",
-                    highScore = stats.firstOrNull { it.gameId == GameId.PULSE_ORBIT }?.highScore ?: 0,
-                    sessions = stats.firstOrNull { it.gameId == GameId.PULSE_ORBIT }?.sessionsPlayed ?: 0,
-                    challenge = todayChallenges.firstOrNull { it.gameId == GameId.PULSE_ORBIT },
-                    featured = continueGame == GameId.PULSE_ORBIT,
-                    onPlay = onPulseOrbit,
-                    testTag = ArcadeTestTags.PulseOrbitEntry,
+                    title = featuredGame.title,
+                    body = featuredGame.body,
+                    highScore = featuredGame.highScore,
+                    sessions = featuredGame.sessions,
+                    challenge = featuredGame.challenge,
+                    featured = true,
+                    onPlay = featuredGame.onPlay,
+                    testTag = featuredGame.testTag,
                 )
             }
             item {
-                GameEntryCard(
-                    title = "Lane Drift",
-                    body = "One-hand dodge flow with shard pickups, lane reads, and instant retry tension.",
-                    highScore = stats.firstOrNull { it.gameId == GameId.LANE_DRIFT }?.highScore ?: 0,
-                    sessions = stats.firstOrNull { it.gameId == GameId.LANE_DRIFT }?.sessionsPlayed ?: 0,
-                    challenge = todayChallenges.firstOrNull { it.gameId == GameId.LANE_DRIFT },
-                    featured = continueGame == GameId.LANE_DRIFT,
-                    onPlay = onLaneDrift,
-                    testTag = ArcadeTestTags.LaneDriftEntry,
-                )
-            }
-            item {
-                GameEntryCard(
-                    title = "Stack Drop",
-                    body = "Falling-block clarity with tactical pace, line clears, and fast gesture control.",
-                    highScore = stats.firstOrNull { it.gameId == GameId.STACK_DROP }?.highScore ?: 0,
-                    sessions = stats.firstOrNull { it.gameId == GameId.STACK_DROP }?.sessionsPlayed ?: 0,
-                    challenge = todayChallenges.firstOrNull { it.gameId == GameId.STACK_DROP },
-                    featured = continueGame == GameId.STACK_DROP,
-                    onPlay = onStackDrop,
-                    testTag = ArcadeTestTags.StackDropEntry,
-                )
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.sm)) {
+                    supportingGames.forEach { game ->
+                        GameEntryCard(
+                            modifier = Modifier.weight(1f),
+                            title = game.title,
+                            body = game.body,
+                            highScore = game.highScore,
+                            sessions = game.sessions,
+                            challenge = game.challenge,
+                            featured = false,
+                            compact = true,
+                            onPlay = game.onPlay,
+                            testTag = game.testTag,
+                        )
+                    }
+                }
             }
             item {
                 SectionHeader(title = "Arcade Meta", subtitle = "Daily tasks and settings stay secondary to play.")
@@ -177,37 +211,70 @@ fun HomeScreen(
 
 @Composable
 private fun GameEntryCard(
+    modifier: Modifier = Modifier,
     title: String,
     body: String,
     highScore: Int,
     sessions: Int,
     challenge: DailyChallenge?,
     featured: Boolean,
+    compact: Boolean = false,
     onPlay: () -> Unit,
     testTag: String,
 ) {
     val accent = gameAccentFor(title)
-    ArcadeCard(accent = accent.brush) {
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Top) {
-                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    PremiumBadge(text = if (featured) "$title • Continue" else title, color = accent.color)
-                    Text(title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black)
-                    Text(body, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                }
-                Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Best", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.labelMedium)
-                    Text(highScore.toString(), style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Black)
+    val accentTextColor = adaptiveTextColor(accent.color)
+    ArcadeCard(modifier = modifier, accent = accent.brush) {
+        Column(verticalArrangement = Arrangement.spacedBy(if (compact) 10.dp else 12.dp)) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(brush = accent.brush, shape = RoundedCornerShape(20.dp))
+                    .padding(horizontal = 14.dp, vertical = 12.dp),
+            ) {
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Top) {
+                    Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text(
+                            if (featured) "Continue run" else "Play now",
+                            color = accentTextColor.copy(alpha = 0.86f),
+                            style = MaterialTheme.typography.labelMedium,
+                        )
+                        Text(
+                            title,
+                            style = if (compact) MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineMedium,
+                            fontWeight = FontWeight.Black,
+                            color = accentTextColor,
+                        )
+                    }
+                    Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text("Best", color = accentTextColor.copy(alpha = 0.86f), style = MaterialTheme.typography.labelMedium)
+                        Text(
+                            highScore.toString(),
+                            style = if (compact) MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.Black,
+                            color = accentTextColor,
+                        )
+                    }
                 }
             }
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                PremiumStatTile(label = "Best Score", value = highScore.toString(), modifier = Modifier.weight(1f), accent = accent.color)
-                PremiumStatTile(label = "Sessions", value = sessions.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
+            if (!compact) {
+                Text(body, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            if (compact) {
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                    Text("Sessions", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.labelMedium)
+                    Text(sessions.toString(), fontWeight = FontWeight.Bold)
+                }
+            } else {
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    PremiumStatTile(label = "Best Score", value = highScore.toString(), modifier = Modifier.weight(1f), accent = accent.color)
+                    PremiumStatTile(label = "Sessions", value = sessions.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
+                }
             }
             if (challenge != null) {
                 PremiumProgress(
                     progress = if (challenge.targetValue == 0) 0f else challenge.progress.toFloat() / challenge.targetValue.toFloat(),
-                    label = "Daily challenge",
+                    label = if (compact) "Daily" else "Daily challenge",
                     accent = accent.color,
                 )
             }
@@ -216,9 +283,24 @@ private fun GameEntryCard(
                 onClick = onPlay,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(54.dp)
+                    .height(if (compact) 50.dp else 54.dp)
                     .testTag(testTag),
+                style = if (compact) ArcadeButtonStyle.Secondary else ArcadeButtonStyle.Primary,
             )
         }
     }
 }
+
+private data class HomeGameEntry(
+    val gameId: GameId,
+    val title: String,
+    val body: String,
+    val highScore: Int,
+    val sessions: Int,
+    val challenge: DailyChallenge?,
+    val onPlay: () -> Unit,
+    val testTag: String,
+)
+
+private fun adaptiveTextColor(background: Color): Color =
+    if (background.luminance() > 0.5f) Color(0xFF121316) else Color(0xFFF7F8FF)
