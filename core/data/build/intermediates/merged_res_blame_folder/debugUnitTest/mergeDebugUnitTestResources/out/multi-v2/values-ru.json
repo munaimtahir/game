@@ -4,7 +4,7 @@
             "outputFile": "com.vexel.offlinearcade.core.data.test.data-mergeDebugUnitTestResources-18:/values-ru/values-ru.xml",
             "map": [
                 {
-                    "source": "/home/munaim/.gradle/caches/transforms-4/fc843553c506dc16a44050dc0ee8f84b/transformed/core-1.13.1/res/values-ru/values-ru.xml",
+                    "source": "/home/munaim/.gradle/caches/transforms-4/f2b83846fcc27275f7270e462634e48f/transformed/core-1.13.1/res/values-ru/values-ru.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

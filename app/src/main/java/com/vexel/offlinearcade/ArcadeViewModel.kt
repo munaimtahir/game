@@ -30,6 +30,10 @@ class ArcadeViewModel(
 
     fun toggleVibration(enabled: Boolean) = updateSettings { it.copy(vibrationEnabled = enabled) }
 
+    fun toggleReducedEffects(enabled: Boolean) = updateSettings { it.copy(reducedEffects = enabled) }
+
+    fun toggleHighContrast(enabled: Boolean) = updateSettings { it.copy(highContrastEnabled = enabled) }
+
     fun unlockTheme(themeId: String) {
         viewModelScope.launch { repository.purchaseTheme(themeId) }
     }

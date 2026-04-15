@@ -37,6 +37,8 @@ data class SettingsState(
     val soundEnabled: Boolean = true,
     val musicEnabled: Boolean = true,
     val vibrationEnabled: Boolean = true,
+    val reducedEffects: Boolean = false,
+    val highContrastEnabled: Boolean = false,
 )
 
 enum class ChallengeMetric {
@@ -100,8 +102,8 @@ data class ThemeDefinition(
 object ArcadeThemeCatalog {
     val defaultTheme = ThemeDefinition(
         id = "default",
-        title = "Arcade Daybreak",
-        subtitle = "Clean mint and coral base theme.",
+        title = "Midnight Glow",
+        subtitle = "Premium indigo and aqua shell with restrained neon depth.",
         coinCost = 0,
         premiumOnly = false,
     )
@@ -111,14 +113,14 @@ object ArcadeThemeCatalog {
         ThemeDefinition(
             id = "sunset_shift",
             title = "Sunset Shift",
-            subtitle = "Warmer oranges for a dusk arcade feel.",
+            subtitle = "Adds a warmer reward glow without breaking the shared midnight shell.",
             coinCost = 120,
             premiumOnly = false,
         ),
         ThemeDefinition(
             id = "ice_grid",
             title = "Ice Grid",
-            subtitle = "Cool cyan surfaces with crisp contrast.",
+            subtitle = "Sharper cyan highlights for a colder, cleaner arcade edge.",
             coinCost = 160,
             premiumOnly = false,
         ),

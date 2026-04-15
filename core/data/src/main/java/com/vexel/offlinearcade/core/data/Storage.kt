@@ -100,6 +100,8 @@ object ArcadePreferenceKeys {
     val soundEnabled = booleanPreferencesKey("sound_enabled")
     val musicEnabled = booleanPreferencesKey("music_enabled")
     val vibrationEnabled = booleanPreferencesKey("vibration_enabled")
+    val reducedEffects = booleanPreferencesKey("reduced_effects")
+    val highContrastEnabled = booleanPreferencesKey("high_contrast_enabled")
 }
 
 fun DataStore<Preferences>.settingsFlow(): Flow<SettingsState> = data.map { preferences ->
@@ -107,6 +109,8 @@ fun DataStore<Preferences>.settingsFlow(): Flow<SettingsState> = data.map { pref
         soundEnabled = preferences[ArcadePreferenceKeys.soundEnabled] ?: true,
         musicEnabled = preferences[ArcadePreferenceKeys.musicEnabled] ?: true,
         vibrationEnabled = preferences[ArcadePreferenceKeys.vibrationEnabled] ?: true,
+        reducedEffects = preferences[ArcadePreferenceKeys.reducedEffects] ?: false,
+        highContrastEnabled = preferences[ArcadePreferenceKeys.highContrastEnabled] ?: false,
     )
 }
 
@@ -115,5 +119,7 @@ suspend fun DataStore<Preferences>.updateSettings(settings: SettingsState) {
         preferences[ArcadePreferenceKeys.soundEnabled] = settings.soundEnabled
         preferences[ArcadePreferenceKeys.musicEnabled] = settings.musicEnabled
         preferences[ArcadePreferenceKeys.vibrationEnabled] = settings.vibrationEnabled
+        preferences[ArcadePreferenceKeys.reducedEffects] = settings.reducedEffects
+        preferences[ArcadePreferenceKeys.highContrastEnabled] = settings.highContrastEnabled
     }
 }

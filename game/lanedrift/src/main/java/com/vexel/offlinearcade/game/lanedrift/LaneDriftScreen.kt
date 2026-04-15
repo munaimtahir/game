@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -43,10 +42,17 @@ import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeCard
+import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
+import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HudPill
+import com.vexel.offlinearcade.core.ui.PremiumBadge
+import com.vexel.offlinearcade.core.ui.PremiumButton
+import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
+import com.vexel.offlinearcade.core.ui.SectionHeader
+import com.vexel.offlinearcade.core.ui.StatRow
 import com.vexel.offlinearcade.core.ui.arcadeGestureInput
 import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
 import kotlin.math.min
@@ -58,6 +64,7 @@ private data class DriftItem(val lane: Int, val y: Float, val type: DriftItemTyp
 
 private data class LaneDriftState(
     val playing: Boolean = false,
+    val paused: Boolean = false,
     val lane: Int = 1,
     val items: List<DriftItem> = emptyList(),
     val score: Int = 0,
@@ -123,11 +130,21 @@ fun LaneDriftScreen(
         lastFrameNanos = 0L
         state = LaneDriftState(
             playing = true,
+            paused = false,
             speed = LaneDriftTuning.initialSpeed,
             runStartMillis = System.currentTimeMillis(),
             message = "Find the clean lane and keep drifting.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
+    }
+
+    fun togglePause() {
+        if (state.gameOver) return
+        state = state.copy(
+            paused = !state.paused,
+            playing = state.paused,
+            message = if (state.paused) "Find the clean lane and keep drifting." else "Paused",
+        )
     }
 
     fun moveLane(delta: Int) {
@@ -251,6 +268,14 @@ fun LaneDriftScreen(
             HudPill("Pickups", state.pickups.toString())
             HudPill("Best", (stats?.highScore ?: 0).toString())
         }
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+            PremiumButton(
+                label = if (state.paused) "Resume" else "Pause",
+                onClick = ::togglePause,
+                style = ArcadeButtonStyle.Secondary,
+                enabled = state.playing || state.paused,
+            )
+        }
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -312,24 +337,68 @@ fun LaneDriftScreen(
                 modifier = Modifier.align(Alignment.BottomCenter).padding(18.dp),
                 color = onSurfaceVariant,
             )
+            if (state.playing && state.pickups > 0) {
+                PremiumBadge(
+                    text = if (state.pickups >= 6) "Clean streak" else "Flow run",
+                    modifier = Modifier.align(Alignment.TopCenter).padding(top = 16.dp),
+                    color = ArcadeTheme.colors.laneAccent,
+                )
+            }
+            if (state.paused) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    PremiumOverlayCard(title = "Run paused", subtitle = "Resume, restart, or leave the lane cleanly.") {
+                        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                            StatRow("Score", state.score.toString())
+                            StatRow("Pickups", state.pickups.toString())
+                            PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                            PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                            PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        }
+                    }
+                }
+            }
+            if (state.gameOver) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    PremiumOverlayCard(
+                        title = if (state.score > (stats?.highScore ?: 0)) "New drift record" else "Run complete",
+                        subtitle = "Keep the lane read tight and go again.",
+                    ) {
+                        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                            StatRow("Score", state.score.toString(), valueColor = ArcadeTheme.colors.reward)
+                            StatRow("Pickups", state.pickups.toString(), valueColor = ArcadeTheme.colors.success)
+                            StatRow("Coins earned", (state.pickups * 3 + state.score / 20).toString(), valueColor = ArcadeTheme.colors.reward)
+                            PremiumButton(
+                                label = "Retry instantly",
+                                onClick = ::restart,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .testTag(ArcadeTestTags.LaneDriftStartButton),
+                            )
+                            PremiumButton(label = "Back to arcade", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        }
+                    }
+                }
+            }
         }
         ArcadeCard(modifier = Modifier.padding(top = 16.dp)) {
+            SectionHeader(title = "Lane Drift", subtitle = "Teal-forward dodge flow with bright, readable lanes.")
             Text("Move between three lanes, avoid blockers, and scoop up the brighter shard pickups.")
             Text(
                 "Traffic: ${state.items.count { it.type == DriftItemType.BLOCKER }} blockers, ${state.items.count { it.type == DriftItemType.PICKUP }} pickups in play.",
                 modifier = Modifier.testTag(ArcadeTestTags.LaneDriftTrafficStatus),
                 color = onSurfaceVariant,
             )
-            if (!state.playing) {
-                Button(
+            StatRow("Best score", (stats?.highScore ?: 0).toString())
+            StatRow("Best combo", (stats?.bestCombo ?: 0).toString())
+            if (!state.playing && !state.paused && !state.gameOver) {
+                PremiumButton(
+                    label = "Start run",
                     onClick = ::restart,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(52.dp)
                         .testTag(ArcadeTestTags.LaneDriftStartButton),
-                ) {
-                    Text(if (state.gameOver) "Start / Retry" else "Start run")
-                }
+                )
             }
             if (showGestureHint) {
                 ArcadeCard(modifier = Modifier.testTag(ArcadeTestTags.LaneDriftHint)) {
@@ -341,9 +410,6 @@ fun LaneDriftScreen(
                         }
                     }
                 }
-            }
-            if (state.gameOver) {
-                Text("Run summary: ${state.score} score and ${state.pickups} pickups.", fontWeight = FontWeight.SemiBold)
             }
         }
     }
