@@ -3,7 +3,9 @@ package com.vexel.offlinearcade.core.ui
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
@@ -81,29 +83,32 @@ fun Modifier.arcadeGestureInput(
     thresholds: ArcadeGestureThresholdsPx,
     enabled: Boolean = true,
     onAction: (ArcadeGestureAction) -> Unit,
-): Modifier = pointerInput(enabled, thresholds) {
-    if (!enabled) return@pointerInput
-    awaitEachGesture {
-        val down = awaitFirstDown(requireUnconsumed = false, pass = PointerEventPass.Initial)
-        var totalOffset = Offset.Zero
-        val startTime = down.uptimeMillis.toLong()
-        var pointerId = down.id
-        while (true) {
-            val event = awaitPointerEvent()
-            val change = event.changes.firstOrNull { it.id == pointerId } ?: event.changes.firstOrNull() ?: break
-            pointerId = change.id
-            totalOffset += change.position - change.previousPosition
-            if (!change.pressed) {
-                change.consume()
-                val action = classifyArcadeGesture(
-                    totalOffset = totalOffset,
-                    durationMillis = change.uptimeMillis.toLong() - startTime,
-                    thresholdsPx = thresholds,
-                )
-                if (action != null) {
-                    onAction(action)
+): Modifier = composed {
+    val latestOnAction = rememberUpdatedState(onAction)
+    pointerInput(enabled, thresholds) {
+        if (!enabled) return@pointerInput
+        awaitEachGesture {
+            val down = awaitFirstDown(requireUnconsumed = false, pass = PointerEventPass.Initial)
+            var totalOffset = Offset.Zero
+            val startTime = down.uptimeMillis.toLong()
+            var pointerId = down.id
+            while (true) {
+                val event = awaitPointerEvent()
+                val change = event.changes.firstOrNull { it.id == pointerId } ?: event.changes.firstOrNull() ?: break
+                pointerId = change.id
+                totalOffset += change.position - change.previousPosition
+                if (!change.pressed) {
+                    change.consume()
+                    val action = classifyArcadeGesture(
+                        totalOffset = totalOffset,
+                        durationMillis = change.uptimeMillis.toLong() - startTime,
+                        thresholdsPx = thresholds,
+                    )
+                    if (action != null) {
+                        latestOnAction.value(action)
+                    }
+                    break
                 }
-                break
             }
         }
     }

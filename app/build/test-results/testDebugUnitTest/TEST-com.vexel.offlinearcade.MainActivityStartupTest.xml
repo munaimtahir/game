@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.vexel.offlinearcade.MainActivityStartupTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-15T14:25:49" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="24.845">
+<testsuite name="com.vexel.offlinearcade.MainActivityStartupTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-17T13:52:16" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="16.601">
   <properties/>
-  <testcase name="appStartsWithoutDevice" classname="com.vexel.offlinearcade.MainActivityStartupTest" time="24.845"/>
+  <testcase name="appStartsWithoutDevice" classname="com.vexel.offlinearcade.MainActivityStartupTest" time="16.601"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

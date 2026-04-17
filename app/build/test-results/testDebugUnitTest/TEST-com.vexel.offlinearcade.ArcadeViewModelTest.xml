@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.vexel.offlinearcade.ArcadeViewModelTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-15T14:25:48" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.36">
+<testsuite name="com.vexel.offlinearcade.ArcadeViewModelTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-17T13:52:14" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="0.512">
   <properties/>
-  <testcase name="recordRunAndThemeActionsAreForwarded" classname="com.vexel.offlinearcade.ArcadeViewModelTest" time="0.341"/>
-  <testcase name="snapshotFlowUpdatesAreObserved" classname="com.vexel.offlinearcade.ArcadeViewModelTest" time="0.006"/>
-  <testcase name="togglesPersistThroughRepository" classname="com.vexel.offlinearcade.ArcadeViewModelTest" time="0.012"/>
+  <testcase name="recordRunAndThemeActionsAreForwarded" classname="com.vexel.offlinearcade.ArcadeViewModelTest" time="0.481"/>
+  <testcase name="snapshotFlowUpdatesAreObserved" classname="com.vexel.offlinearcade.ArcadeViewModelTest" time="0.011"/>
+  <testcase name="togglesPersistThroughRepository" classname="com.vexel.offlinearcade.ArcadeViewModelTest" time="0.017"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
