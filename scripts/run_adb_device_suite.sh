@@ -9,6 +9,9 @@ TEST_ID="${TEST_ID:-com.vexel.offlinearcade.test}"
 RUNNER="${RUNNER:-androidx.test.runner.AndroidJUnitRunner}"
 ARTIFACT_DIR="${ARTIFACT_DIR:-$ROOT_DIR/artifacts/device-test}"
 SKIP_BUILD="${SKIP_BUILD:-0}"
+SKIP_PRECHECKS="${SKIP_PRECHECKS:-0}"
+SKIP_RELEASE_CHECK="${SKIP_RELEASE_CHECK:-0}"
+PRECHECK_TASKS="${PRECHECK_TASKS:-testDebugUnitTest}"
 TIMESTAMP="$(date -u +%Y%m%dT%H%M%SZ)"
 RUN_DIR="$ARTIFACT_DIR/$TIMESTAMP"
 mkdir -p "$RUN_DIR"
@@ -30,13 +33,70 @@ require_file() {
   [[ -f "$path" ]] || fail "Missing file: $path"
 }
 
+validate_locked_spec() {
+  echo "Validating locked app spec shape..."
+
+  local -a expected_games=("lanedrift" "pulseorbit" "stackdrop")
+  local -a actual_games=()
+  local game_dir
+  while IFS= read -r game_dir; do
+    actual_games+=("$(basename "$game_dir")")
+  done < <(find "$ROOT_DIR/game" -mindepth 1 -maxdepth 1 -type d | sort)
+
+  if [[ "${#actual_games[@]}" -ne "${#expected_games[@]}" ]]; then
+    fail "Expected ${#expected_games[@]} MVP game modules, found ${#actual_games[@]}: ${actual_games[*]}"
+  fi
+
+  local expected
+  for expected in "${expected_games[@]}"; do
+    [[ -d "$ROOT_DIR/game/$expected" ]] || fail "Missing locked MVP game module: game/$expected"
+  done
+
+  [[ -d "$ROOT_DIR/feature/challenges" ]] || fail "Missing feature/challenges module"
+  [[ -d "$ROOT_DIR/feature/stats" ]] || fail "Missing feature/stats module"
+  [[ -d "$ROOT_DIR/feature/settings" ]] || fail "Missing feature/settings module"
+  [[ -f "$ROOT_DIR/app/src/androidTest/java/com/vexel/offlinearcade/NavigationSmokeTest.kt" ]] || fail "Missing NavigationSmokeTest"
+  [[ -f "$ROOT_DIR/app/src/androidTest/java/com/vexel/offlinearcade/GameplayDeviceSmokeTest.kt" ]] || fail "Missing GameplayDeviceSmokeTest"
+  [[ -f "$ROOT_DIR/app/src/androidTest/java/com/vexel/offlinearcade/SettingsPersistenceSmokeTest.kt" ]] || fail "Missing SettingsPersistenceSmokeTest"
+  [[ -f "$ROOT_DIR/core/data/src/test/java/com/vexel/offlinearcade/core/data/OfflineArcadeRepositoryPersistenceTest.kt" ]] || fail "Missing repository persistence precheck coverage"
+}
+
+run_prechecks() {
+  if [[ "$SKIP_PRECHECKS" == "1" ]]; then
+    echo "SKIP_PRECHECKS=1 set. Skipping local unit-test preflight."
+    return
+  fi
+
+  echo "Running local preflight tasks: $PRECHECK_TASKS"
+  (
+    cd "$ROOT_DIR" &&
+      ./gradlew $PRECHECK_TASKS
+  ) | tee "$RUN_DIR/prechecks.txt"
+}
+
 build_apks() {
   if [[ "$SKIP_BUILD" == "1" ]]; then
     echo "SKIP_BUILD=1 set. Reusing existing APK outputs."
     return
   fi
   echo "Building fresh debug and androidTest APKs..."
-  (cd "$ROOT_DIR" && ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest)
+  (
+    cd "$ROOT_DIR" &&
+      ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest
+  ) | tee "$RUN_DIR/build-debug.txt"
+}
+
+build_release() {
+  if [[ "$SKIP_RELEASE_CHECK" == "1" ]]; then
+    echo "SKIP_RELEASE_CHECK=1 set. Skipping release build verification."
+    return
+  fi
+
+  echo "Verifying release variant still assembles..."
+  (
+    cd "$ROOT_DIR" &&
+      ./gradlew :app:assembleRelease
+  ) | tee "$RUN_DIR/build-release.txt"
 }
 
 select_device() {
@@ -67,8 +127,11 @@ run_instrumentation() {
 }
 
 echo "Using project root: $ROOT_DIR"
+validate_locked_spec
+run_prechecks
 select_device
 build_apks
+build_release
 require_file "$APP_APK"
 require_file "$TEST_APK"
 

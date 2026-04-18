@@ -3,6 +3,29 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+import java.util.Properties
+
+val releaseKeyProperties = Properties().apply {
+    val propsFile = rootProject.file("key.properties")
+    if (propsFile.exists()) {
+        propsFile.inputStream().use(::load)
+    }
+}
+
+fun releaseProp(name: String): String? =
+    providers.environmentVariable(name).orNull
+        ?: releaseKeyProperties.getProperty(name)
+
+val releaseStoreFile = releaseProp("storeFile")
+val releaseStorePassword = releaseProp("storePassword")
+val releaseKeyAlias = releaseProp("keyAlias")
+val releaseKeyPassword = releaseProp("keyPassword")
+val hasReleaseSigning =
+    !releaseStoreFile.isNullOrBlank() &&
+        !releaseStorePassword.isNullOrBlank() &&
+        !releaseKeyAlias.isNullOrBlank() &&
+        !releaseKeyPassword.isNullOrBlank()
+
 android {
     namespace = "com.vexel.offlinearcade"
     compileSdk = 34
@@ -36,6 +59,23 @@ android {
     }
     testOptions {
         unitTests.isIncludeAndroidResources = true
+    }
+    signingConfigs {
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = rootProject.file(requireNotNull(releaseStoreFile))
+                storePassword = releaseStorePassword
+                keyAlias = releaseKeyAlias
+                keyPassword = releaseKeyPassword
+            }
+        }
+    }
+    buildTypes {
+        getByName("release") {
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+        }
     }
 }
 

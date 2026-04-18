@@ -4,6 +4,12 @@ This project includes an adb-driven physical-device suite that installs the debu
 
 ## What it covers
 
+- Locked MVP app shape preflight:
+  - exactly 3 game modules
+  - required shared feature modules
+  - required smoke and persistence test sources
+- Local unit-test preflight through `testDebugUnitTest`
+- Release variant assembly verification through `:app:assembleRelease`
 - App route navigation smoke checks
 - Settings screen survival across activity recreate
 - Pulse Orbit start flow
@@ -22,6 +28,12 @@ This project includes an adb-driven physical-device suite that installs the debu
 ./scripts/run_adb_device_suite.sh
 ```
 
+Skip local preflights or release verification when you intentionally want a narrower device-only run:
+
+```bash
+SKIP_PRECHECKS=1 SKIP_RELEASE_CHECK=1 ./scripts/run_adb_device_suite.sh
+```
+
 If multiple devices are connected, target one explicitly:
 
 ```bash
@@ -38,6 +50,9 @@ artifacts/device-test/<timestamp>/
 
 Files include:
 
+- `prechecks.txt`
+- `build-debug.txt`
+- `build-release.txt`
 - `instrumentation.txt`
 - `logcat.txt`
 - install logs
@@ -48,3 +63,4 @@ Files include:
 - The script clears app data before running so saved settings and old state do not pollute results.
 - The script installs both the main app APK and the `androidTest` APK before invoking `am instrument`.
 - If the APKs are missing, the script builds them automatically.
+- Release assembly is used as a packaging sanity check only. It does not sign an upload-ready Play Store bundle.
