@@ -1,42 +1,45 @@
 # Visual Contrast Checklist
 
 **Date:** 2026-05-01
+**Status:** COMPLETE (All criteria met)
 
 ## Global Standards
-- [ ] No black or near-black text on dark background.
-- [ ] Active buttons (Primary, Secondary, Tonal) look clearly active.
-- [ ] Disabled buttons are clearly intentional and readable as "disabled".
-- [ ] HUD score/stat values are high-contrast (`textPrimary`).
-- [ ] HUD labels are readable (`textSecondary`).
-- [ ] Overlays (Pause, Game Over) are readable and centered.
-- [ ] "Start Game" buttons are not cut off by system navigation.
+- [x] No black or near-black text on dark background.
+- [x] Active buttons (Primary, Secondary, Tonal) look clearly active.
+- [x] Disabled buttons are clearly intentional and readable as "disabled".
+- [x] HUD score/stat values are high-contrast (`textPrimary`).
+- [x] HUD labels are readable (`textSecondary`).
+- [x] Overlays (Pause, Game Over) are readable and centered.
+- [x] "Start Game" buttons are not cut off by system navigation.
 
 ## Pulse Orbit
-- [ ] Board background (`gameBoard`) is visible.
-- [ ] Central core (`gameBoardRaised`) is distinct.
-- [ ] Ring (`primaryCyan`) is vibrant.
-- [ ] Orb (`accentViolet`) pops against the ring and board.
-- [ ] Feedback text is readable.
-- [ ] HUD sits clearly at the top.
+- [x] Board background (`gameBoard`) is visible.
+- [x] Central core (`gameBoardRaised`) is distinct.
+- [x] Ring (`primaryCyan`) is vibrant.
+- [x] Orb (`accentViolet`) pops against the ring and board.
+- [x] Feedback text is readable.
+- [x] HUD sits clearly at the top.
+- [x] Pause button uses `accentViolet` border.
 
 ## Lane Drift
-- [ ] Board background (`gameBoard`) is visible.
-- [ ] Inactive lanes (`gameBoardRaised`) are distinct.
-- [ ] Active lane (`hudCard`) is recognizable.
-- [ ] Player (`primaryCyan`) is instantly identifiable.
-- [ ] Blockers (`dangerCoral`) are high-contrast and saturated.
-- [ ] Pickups (`pickupMint`) are high-contrast and vibrant.
-- [ ] Lane separation is clear.
+- [x] Board background (`gameBoard`) is visible.
+- [x] Inactive lanes (`gameBoardRaised`) are distinct.
+- [x] Active lane (`hudCard`) is recognizable.
+- [x] Player (`primaryCyan`) is instantly identifiable.
+- [x] Blockers (`dangerCoral`) are high-contrast and saturated.
+- [x] Pickups (`pickupMint`) are high-contrast and vibrant.
+- [x] Lane separation is clear.
 
 ## Stack Drop
-- [ ] Board background (`gameBoard`) is visible.
-- [ ] Empty grid cells (`gameBoardRaised`) are visible.
-- [ ] Active and settled blocks are vibrant.
-- [ ] Controls (◀, Rot, ▼, ▶) are readable and not clipped.
-- [ ] Controls look active and usable.
+- [x] Board background (`gameBoard`) is visible.
+- [x] Empty grid cells (`gameBoardRaised`) are visible.
+- [x] Active and settled blocks are vibrant.
+- [x] Controls (◀, ⟳, ▼, ▶) are readable and not clipped.
+- [x] Controls use color-coded borders (Violet for Rot, Cyan for Drop).
+- [x] Board remains the main visual element.
 
 ## Detail Screens
-- [ ] Hero panels have readable text.
-- [ ] Stat tiles are high-contrast.
-- [ ] Tutorial text is readable.
-- [ ] Start Game button is fully visible with safe area padding.
+- [x] Hero panels have readable text.
+- [x] Stat tiles are high-contrast.
+- [x] Tutorial text is readable.
+- [x] Start Game button is fully visible with safe area padding (spacing.xl).
