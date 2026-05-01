@@ -1,9 +1,38 @@
-/.gradle/
-/**/build/
-/local.properties
-/key.properties
-/*.jks
-/*.keystore
-/*.aab
-/*.apk
-/captures/
+# Gradle
+.gradle/
+build/
+**/build/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Android
+local.properties
+key.properties
+*.jks
+*.keystore
+*.apk
+*.aab
+captures/
+
+# Kotlin
+.kotlin/
+kotlin-daemon-*.log
+
+# IDE - Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs
+*.log
