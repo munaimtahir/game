@@ -6,13 +6,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.vexel.offlinearcade.core.model.ArcadeFeedback
 import com.vexel.offlinearcade.core.model.ArcadeSnapshot
+import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.feature.challenges.ChallengesScreen
 import com.vexel.offlinearcade.feature.home.HomeScreen
 import com.vexel.offlinearcade.feature.settings.SettingsScreen
 import com.vexel.offlinearcade.feature.stats.StatsScreen
+import com.vexel.offlinearcade.game.lanedrift.LaneDriftDetailScreen
 import com.vexel.offlinearcade.game.lanedrift.LaneDriftScreen
+import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitDetailScreen
 import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitScreen
+import com.vexel.offlinearcade.game.stackdrop.StackDropDetailScreen
 import com.vexel.offlinearcade.game.stackdrop.StackDropScreen
 
 @Composable
@@ -35,41 +39,69 @@ fun ArcadeNavHost(
                 profile = snapshot.profile,
                 stats = snapshot.stats,
                 todayChallenges = snapshot.challenges,
-                onPulseOrbit = { navController.navigate(Routes.PulseOrbit) },
-                onLaneDrift = { navController.navigate(Routes.LaneDrift) },
-                onStackDrop = { navController.navigate(Routes.StackDrop) },
+                onPulseOrbit = { navController.navigate(Routes.PulseOrbitDetail) },
+                onLaneDrift = { navController.navigate(Routes.LaneDriftDetail) },
+                onStackDrop = { navController.navigate(Routes.StackDropDetail) },
                 onChallenges = { navController.navigate(Routes.Challenges) },
                 onStats = { navController.navigate(Routes.Stats) },
                 onSettings = { navController.navigate(Routes.Settings) },
             )
         }
-        composable(Routes.PulseOrbit) {
+        
+        composable(Routes.PulseOrbitDetail) {
+            PulseOrbitDetailScreen(
+                stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                onPlay = { navController.navigate(Routes.PulseOrbitGame) },
+                onBack = { navController.popBackStack() },
+            )
+        }
+        
+        composable(Routes.PulseOrbitGame) {
             PulseOrbitScreen(
-                stats = snapshot.statsByGame[com.vexel.offlinearcade.core.model.GameId.PULSE_ORBIT],
+                stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
                 settings = snapshot.settings,
                 feedback = feedback,
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
-        composable(Routes.LaneDrift) {
+        
+        composable(Routes.LaneDriftDetail) {
+            LaneDriftDetailScreen(
+                stats = snapshot.statsByGame[GameId.LANE_DRIFT],
+                onPlay = { navController.navigate(Routes.LaneDriftGame) },
+                onBack = { navController.popBackStack() },
+            )
+        }
+        
+        composable(Routes.LaneDriftGame) {
             LaneDriftScreen(
-                stats = snapshot.statsByGame[com.vexel.offlinearcade.core.model.GameId.LANE_DRIFT],
+                stats = snapshot.statsByGame[GameId.LANE_DRIFT],
                 settings = snapshot.settings,
                 feedback = feedback,
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
-        composable(Routes.StackDrop) {
+        
+        composable(Routes.StackDropDetail) {
+            StackDropDetailScreen(
+                stats = snapshot.statsByGame[GameId.STACK_DROP],
+                onPlay = { navController.navigate(Routes.StackDropGame) },
+                onBack = { navController.popBackStack() },
+            )
+        }
+        
+        composable(Routes.StackDropGame) {
             StackDropScreen(
-                stats = snapshot.statsByGame[com.vexel.offlinearcade.core.model.GameId.STACK_DROP],
+                stats = snapshot.statsByGame[GameId.STACK_DROP],
                 settings = snapshot.settings,
                 feedback = feedback,
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
+        
         composable(Routes.Challenges) {
             ChallengesScreen(challenges = snapshot.challenges, onBack = { navController.popBackStack() })
         }

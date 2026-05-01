@@ -1,23 +1,25 @@
-# Release Gate Decision
+# Release Gate Decision: Full-Screen Game Navigation
 
 ## Final Status
 **CONDITIONAL GO**
 
-## Blocker Checklist
-- [x] Code compiles (Debug & Release) - **PASS**
-- [x] Logic tests pass - **PASS**
-- [x] Back button interception - **PASS (Verified via Code)**
-- [x] Lifecycle pause - **PASS (Verified via Code)**
-- [x] Inset/Safe area handling - **PASS (Verified via Code)**
-- [ ] **Manual Device Validation - PENDING**
-- [ ] **Automated ADB Suite (`connectedDebugAndroidTest`) - PENDING**
+## Decision Matrix
 
-## Exact Next Actions
-1. **Connect a Physical Android Device:** Enable Developer Options and USB Debugging.
-2. **Run ADB Verification Suite:** Execute the steps in `06_ADB_AUTOMATED_DEVICE_TEST_PLAN.md`.
-3. **Perform Manual Validation:** Follow the steps in `03_DEVICE_TEST_RESULTS.md`.
-4. **Update Executive Summary:** Once all device tests pass, change status to **GO**.
-5. **Upload to Play Store Console.**
+| Criteria | Status | Evidence |
+| :--- | :--- | :--- |
+| Full-Screen Visuals | PASS (Code) | `ArcadeScaffold` removed, `WindowInsets` added. |
+| Back Button Behavior | PASS (Code) | `BackHandler` implemented and logic verified. |
+| Lifecycle Pause | PASS (Code) | `LifecycleEventObserver` implemented. |
+| Build Integrity | PASS | `assembleRelease` successful. |
+| Unit Tests | PASS | `./gradlew test` successful. |
+| Lint | PASS | Fixed `NewApi` errors in `core:common`. |
+| Device Verification | PENDING | Physical device testing required for layout/gestures. |
 
-## Conclusion
-The full-screen game navigation refactor is architecturally sound and passes all automated checks. The project has moved from "Implementation" to "Final QA Readiness".
+## Next Actions (Immediate)
+1. **Connect Device:** Connect a physical Android device or start an emulator.
+2. **Run ADB Suite:** Execute `./gradlew connectedDebugAndroidTest` to run the 3 new and 4 existing smoke tests.
+3. **Manual Audit:** Follow the checklist in `03_DEVICE_TEST_RESULTS.md` and capture screenshots.
+4. **Sign-off:** Once the manual audit is complete, the status moves to **GO**.
+
+## Final Recommendation
+The implementation is architecturally sound and follows all requested patterns. The addition of dedicated full-screen routes significantly improves the premium feel of the arcade. No blockers remain in the source code or build pipeline.

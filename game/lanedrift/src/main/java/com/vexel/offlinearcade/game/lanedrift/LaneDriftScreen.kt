@@ -7,12 +7,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,20 +20,22 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -50,8 +49,8 @@ import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
+import com.vexel.offlinearcade.core.ui.GameplayScaffold
 import com.vexel.offlinearcade.core.ui.HudPill
-import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
 import com.vexel.offlinearcade.core.ui.StatRow
@@ -78,13 +77,10 @@ private data class LaneDriftState(
     val lastBlockerLane: Int = -1,
     val gameOver: Boolean = false,
     val runStartMillis: Long = 0L,
-    val message: String = "Swipe left or right to change lanes",
+    val message: String = "Swipe left or right",
 )
 
 internal object LaneDriftTuning {
-    const val boardHeightDp = 600
-    const val compactBoardHeightDp = 500
-    const val compactBoardCutoffScreenHeightDp = 840
     const val initialSpeed = 186f
     const val maxSpeed = 372f
     const val speedRampPerSecond = 6.4f
@@ -115,7 +111,6 @@ fun LaneDriftScreen(
     var state by remember { mutableStateOf(LaneDriftState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
-    var showGestureHint by rememberSaveable { mutableStateOf(true) }
     val random = remember { Random(System.currentTimeMillis()) }
     val gestureThresholds = rememberArcadeGestureThresholdsPx()
 
@@ -127,7 +122,7 @@ fun LaneDriftScreen(
             paused = false,
             speed = LaneDriftTuning.initialSpeed,
             runStartMillis = System.currentTimeMillis(),
-            message = "Find the clean lane and keep drifting.",
+            message = "Clean lane.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
     }
@@ -137,12 +132,11 @@ fun LaneDriftScreen(
         state = state.copy(
             paused = !state.paused,
             playing = state.paused,
-            message = if (state.paused) "Find the clean lane and keep drifting." else "Paused",
         )
     }
 
     fun moveLane(delta: Int) {
-        if (!state.playing) return
+        if (!state.playing || state.paused) return
         val nextLane = (state.lane + delta).coerceIn(0, 2)
         if (nextLane != state.lane) {
             feedback.play(ArcadeFeedbackEvent.TAP)
@@ -150,7 +144,6 @@ fun LaneDriftScreen(
         }
     }
 
-    // Lifecycle Pause
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
@@ -164,7 +157,6 @@ fun LaneDriftScreen(
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
-    // BackHandler logic
     BackHandler {
         if (state.playing && !state.paused) {
             togglePause()
@@ -173,12 +165,8 @@ fun LaneDriftScreen(
         }
     }
 
-    // Calculate actual board height internally, based on constraints, rather than forcing it via screen height dp.
-    // Wait, the Canvas fills the Box, so we need the board height pixel value for speed calculations.
-    // We will measure the actual height inside the Box or use an estimate based on speed.
-    // Actually, we need a density-independent way or we just use the assumed height from tuning.
     val density = LocalDensity.current
-    val boardHeightPx = with(density) { 600.dp.toPx() } // Hardcoding assumed height for calculation to avoid layout phase loop
+    val boardHeightPx = with(density) { 600.dp.toPx() } 
 
     LaunchedEffect(state.playing) {
         while (state.playing) {
@@ -244,7 +232,7 @@ fun LaneDriftScreen(
                     nextState = nextState.copy(
                         playing = false,
                         gameOver = true,
-                        message = if (settings.vibrationEnabled) "Hit a blocker. Retry is ready." else "Hit a blocker.",
+                        message = "Collision.",
                     )
                 } else if (pickupHit != null) {
                     feedback.play(ArcadeFeedbackEvent.PICKUP)
@@ -253,7 +241,7 @@ fun LaneDriftScreen(
                         items = nextItems,
                         pickups = nextState.pickups + 1,
                         score = nextState.score + 14,
-                        message = if (settings.soundEnabled) "Shard collected. Keep flow." else "Pickup.",
+                        message = "Shard collected.",
                     )
                 }
                 state = nextState
@@ -274,58 +262,75 @@ fun LaneDriftScreen(
         )
     }
 
-    val surface = MaterialTheme.colorScheme.surface
-    val primaryContainer = MaterialTheme.colorScheme.primaryContainer
-    val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant
-    val tertiary = MaterialTheme.colorScheme.tertiary
-    val secondary = MaterialTheme.colorScheme.secondary
-    val primary = MaterialTheme.colorScheme.primary
-    val onSurfaceVariant = MaterialTheme.colorScheme.onSurfaceVariant
-    val spacing = ArcadeTheme.spacing
+    val surface = ArcadeTheme.colors.cardBackground
+    val primaryContainer = ArcadeTheme.colors.elevatedCardBackground
+    val surfaceVariant = ArcadeTheme.colors.cardBackground
+    val tertiary = ArcadeTheme.colors.danger
+    val secondary = ArcadeTheme.colors.success
+    val primary = ArcadeTheme.colors.laneAccent
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(ArcadeTheme.colors.shellGradient)
-            .windowInsetsPadding(WindowInsets.safeDrawing)
-            .padding(spacing.md)
-            .testTag(ArcadeTestTags.LaneDriftScreen)
+    GameplayScaffold(
+        modifier = Modifier.testTag(ArcadeTestTags.LaneDriftScreen),
+        topBar = {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        HudPill("Score", state.score.toString())
+                        HudPill("Pickups", state.pickups.toString())
+                    }
+                    PremiumButton(
+                        label = if (state.paused) "Resume" else "Pause",
+                        onClick = ::togglePause,
+                        style = ArcadeButtonStyle.Secondary,
+                        enabled = state.playing || state.paused,
+                    )
+                }
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                    Text(
+                        text = state.message,
+                        style = MaterialTheme.typography.labelMedium,
+                        color = ArcadeTheme.colors.textSecondary
+                    )
+                }
+            }
+        },
+        overlay = {
+            if (state.paused) {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or restart.") {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString())
+                        StatRow("Pickups", state.pickups.toString())
+                        PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            } else if (state.gameOver) {
+                PremiumOverlayCard(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New drift record" else "Run complete",
+                    subtitle = "Keep the lane read tight and go again.",
+                ) {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString(), valueColor = ArcadeTheme.colors.reward)
+                        StatRow("Pickups", state.pickups.toString(), valueColor = ArcadeTheme.colors.success)
+                        StatRow("Coins earned", (state.pickups * 3 + state.score / 20).toString(), valueColor = ArcadeTheme.colors.reward)
+                        PremiumButton(
+                            label = "Retry instantly",
+                            onClick = ::restart,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag(ArcadeTestTags.LaneDriftStartButton),
+                        )
+                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
     ) {
-        // HUD
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-            HudPill("Score", state.score.toString())
-            HudPill("Pickups", state.pickups.toString())
-            HudPill("Best", (stats?.highScore ?: 0).toString())
-        }
-        Row(modifier = Modifier.fillMaxWidth().padding(top = spacing.sm), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-            PremiumButton(
-                label = "Back",
-                onClick = onBack,
-                style = ArcadeButtonStyle.Secondary,
-                modifier = Modifier.testTag(ArcadeTestTags.BackButton)
-            )
-            PremiumButton(
-                label = if (state.paused) "Resume" else "Pause",
-                onClick = ::togglePause,
-                style = ArcadeButtonStyle.Secondary,
-                enabled = state.playing || state.paused,
-            )
-        }
-
-        // Traffic status for automated testing (subtle)
-        Text(
-            "Traffic: ${state.items.count { it.type == DriftItemType.BLOCKER }} blockers, ${state.items.count { it.type == DriftItemType.PICKUP }} pickups in play.",
-            modifier = Modifier.testTag(ArcadeTestTags.LaneDriftTrafficStatus),
-            style = MaterialTheme.typography.labelSmall,
-            color = onSurfaceVariant.copy(alpha = 0.1f)
-        )
-
-        // Game Board
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
-                .padding(top = spacing.md)
+                .fillMaxSize()
+                .clipToBounds()
                 .testTag(ArcadeTestTags.LaneDriftBoard)
                 .semantics {
                     stateDescription = "lane=${state.lane};playing=${state.playing};items=${state.items.size}"
@@ -356,6 +361,7 @@ fun LaneDriftScreen(
                         cornerRadius = CornerRadius(28f, 28f),
                     )
                 }
+                
                 state.items.forEach { item ->
                     val top = size.height * item.y
                     val left = laneWidth * item.lane + laneWidth * 0.2f
@@ -369,20 +375,30 @@ fun LaneDriftScreen(
                         cornerRadius = CornerRadius(22f, 22f),
                     )
                 }
+                
                 val playerTop = size.height * LaneDriftTuning.playerZoneY
+                val playerLeft = laneWidth * state.lane + laneWidth * 0.18f
+                val playerWidth = laneWidth * 0.64f
+                val playerHeight = 84f
+                
+                drawRoundRect(
+                    color = primary.copy(alpha = 0.25f),
+                    topLeft = Offset(playerLeft - 8f, playerTop + 16f),
+                    size = Size(playerWidth + 16f, playerHeight),
+                    cornerRadius = CornerRadius(34f, 34f),
+                )
                 drawRoundRect(
                     color = primary,
-                    topLeft = Offset(laneWidth * state.lane + laneWidth * 0.18f, playerTop),
-                    size = Size(laneWidth * 0.64f, 84f),
+                    topLeft = Offset(playerLeft, playerTop),
+                    size = Size(playerWidth, playerHeight),
                     cornerRadius = CornerRadius(26f, 26f),
                 )
-            }
-
-            if (state.playing && state.pickups >= 3) {
-                PremiumBadge(
-                    text = if (state.pickups >= 6) "Clean streak" else "Flow run",
-                    modifier = Modifier.align(Alignment.TopEnd).padding(top = 14.dp, end = 14.dp),
-                    color = ArcadeTheme.colors.laneAccent,
+                drawRoundRect(
+                    color = Color.White.copy(alpha = 0.6f),
+                    topLeft = Offset(playerLeft + 6f, playerTop + 6f),
+                    size = Size(playerWidth - 12f, playerHeight - 12f),
+                    cornerRadius = CornerRadius(20f, 20f),
+                    style = Stroke(width = 4f)
                 )
             }
 
@@ -395,52 +411,10 @@ fun LaneDriftScreen(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     PremiumButton(
-                        label = "Start run",
+                        label = "Tap to start",
                         onClick = ::restart,
                         modifier = Modifier.testTag(ArcadeTestTags.LaneDriftStartButton),
                     )
-                    Text(
-                        state.message,
-                        color = onSurfaceVariant,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
-            }
-
-            if (state.paused) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    PremiumOverlayCard(title = "Run paused", subtitle = "Resume, restart, or leave the lane cleanly.") {
-                        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                            StatRow("Score", state.score.toString())
-                            StatRow("Pickups", state.pickups.toString())
-                            PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
-                            PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                            PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                        }
-                    }
-                }
-            }
-
-            if (state.gameOver) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    PremiumOverlayCard(
-                        title = if (state.score > (stats?.highScore ?: 0)) "New drift record" else "Run complete",
-                        subtitle = "Keep the lane read tight and go again.",
-                    ) {
-                        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                            StatRow("Score", state.score.toString(), valueColor = ArcadeTheme.colors.reward)
-                            StatRow("Pickups", state.pickups.toString(), valueColor = ArcadeTheme.colors.success)
-                            StatRow("Coins earned", (state.pickups * 3 + state.score / 20).toString(), valueColor = ArcadeTheme.colors.reward)
-                            PremiumButton(
-                                label = "Retry instantly",
-                                onClick = ::restart,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .testTag(ArcadeTestTags.LaneDriftStartButton),
-                            )
-                            PremiumButton(label = "Back to arcade", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                        }
-                    }
                 }
             }
         }

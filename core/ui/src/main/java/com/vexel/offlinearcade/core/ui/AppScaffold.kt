@@ -7,13 +7,17 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -79,12 +83,10 @@ fun ArcadeScaffold(
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent,
-                    titleContentColor = MaterialTheme.colorScheme.onBackground,
+                    titleContentColor = ArcadeTheme.colors.textPrimary,
                 ),
                 title = {
-                    Column {
-                        Text(title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
-                    }
+                    Text(title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
                 },
                 navigationIcon = {
                     if (onBack != null) {
@@ -92,7 +94,7 @@ fun ArcadeScaffold(
                             onClick = onBack,
                             modifier = Modifier.testTag(ArcadeTestTags.BackButton),
                         ) {
-                            Text("Back")
+                            Text("Back", color = ArcadeTheme.colors.textPrimary)
                         }
                     }
                 },
@@ -109,7 +111,7 @@ fun ArcadeScaffold(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(ArcadeTheme.colors.glow.copy(alpha = 0.35f)),
+                    .background(ArcadeTheme.colors.glow),
             )
             Column(
                 modifier = if (screenTestTag != null) {
@@ -126,6 +128,52 @@ fun ArcadeScaffold(
 }
 
 @Composable
+fun GameplayScaffold(
+    modifier: Modifier = Modifier,
+    topBar: @Composable () -> Unit,
+    controls: (@Composable () -> Unit)? = null,
+    overlay: (@Composable () -> Unit)? = null,
+    content: @Composable () -> Unit,
+) {
+    val spacing = ArcadeTheme.spacing
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(ArcadeTheme.colors.shellGradient)
+            .windowInsetsPadding(WindowInsets.safeDrawing)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(spacing.md),
+            verticalArrangement = Arrangement.spacedBy(spacing.md)
+        ) {
+            topBar()
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+            ) {
+                content()
+            }
+            if (controls != null) {
+                controls()
+            }
+        }
+        if (overlay != null) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(alpha = 0.7f)),
+                contentAlignment = Alignment.Center
+            ) {
+                overlay()
+            }
+        }
+    }
+}
+
+@Composable
 fun ArcadeCard(
     modifier: Modifier = Modifier,
     contentPadding: androidx.compose.ui.unit.Dp = ArcadeTheme.spacing.md,
@@ -136,8 +184,11 @@ fun ArcadeCard(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(28.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.92f)),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = ArcadeTheme.colors.elevatedCardBackground,
+            contentColor = ArcadeTheme.colors.textPrimary
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
     ) {
         Box(
             modifier = Modifier
@@ -147,8 +198,8 @@ fun ArcadeCard(
                     if (accent != null) {
                         Modifier.border(width = 1.dp, brush = accent, shape = RoundedCornerShape(28.dp))
                     } else {
-                        Modifier.border(width = 1.dp, color = ArcadeTheme.colors.outlineMuted.copy(alpha = 0.8f), shape = RoundedCornerShape(28.dp))
-                    },
+                        Modifier.border(width = 1.dp, color = ArcadeTheme.colors.outlineMuted, shape = RoundedCornerShape(28.dp))
+                    }
                 )
                 .padding(contentPadding),
         ) {
@@ -167,20 +218,23 @@ fun PremiumButton(
     style: ArcadeButtonStyle = ArcadeButtonStyle.Primary,
     enabled: Boolean = true,
 ) {
+    val containerColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.primary else Color.Transparent
+    val contentColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.onPrimary else ArcadeTheme.colors.textPrimary
+
     when (style) {
         ArcadeButtonStyle.Primary -> Button(
             onClick = onClick,
             enabled = enabled,
-            modifier = modifier.shadow(10.dp, RoundedCornerShape(18.dp)),
+            modifier = modifier.shadow(8.dp, RoundedCornerShape(18.dp)),
             shape = RoundedCornerShape(18.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary,
-                disabledContainerColor = MaterialTheme.colorScheme.surface,
-                disabledContentColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                containerColor = containerColor,
+                contentColor = contentColor,
+                disabledContainerColor = ArcadeTheme.colors.cardBackground,
+                disabledContentColor = ArcadeTheme.colors.textMuted,
             ),
         ) {
-            Text(label, style = MaterialTheme.typography.labelLarge)
+            Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)
         }
 
         ArcadeButtonStyle.Secondary -> OutlinedButton(
@@ -188,9 +242,13 @@ fun PremiumButton(
             enabled = enabled,
             modifier = modifier,
             shape = RoundedCornerShape(18.dp),
-            border = BorderStroke(1.dp, Brush.linearGradient(listOf(MaterialTheme.colorScheme.outline, MaterialTheme.colorScheme.secondary))),
+            border = BorderStroke(1.dp, Brush.linearGradient(listOf(ArcadeTheme.colors.outlineMuted, MaterialTheme.colorScheme.secondary))),
+            colors = ButtonDefaults.outlinedButtonColors(
+                contentColor = ArcadeTheme.colors.textPrimary,
+                disabledContentColor = ArcadeTheme.colors.textMuted
+            )
         ) {
-            Text(label, style = MaterialTheme.typography.labelLarge)
+            Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)
         }
 
         ArcadeButtonStyle.Tonal -> Button(
@@ -200,10 +258,10 @@ fun PremiumButton(
             shape = RoundedCornerShape(18.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                contentColor = ArcadeTheme.colors.textPrimary,
             ),
         ) {
-            Text(label, style = MaterialTheme.typography.labelLarge)
+            Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)
         }
     }
 }
@@ -213,17 +271,17 @@ fun HudPill(label: String, value: String, modifier: Modifier = Modifier) {
     Surface(
         modifier = modifier,
         shape = RoundedCornerShape(20.dp),
-        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f),
+        color = ArcadeTheme.colors.elevatedCardBackground,
         tonalElevation = 0.dp,
-        shadowElevation = 0.dp,
+        shadowElevation = 4.dp,
     ) {
         Column(
             modifier = Modifier
-                .border(1.dp, ArcadeTheme.colors.outlineMuted.copy(alpha = 0.75f), RoundedCornerShape(20.dp))
+                .border(1.dp, ArcadeTheme.colors.outlineMuted, RoundedCornerShape(20.dp))
                 .padding(horizontal = 14.dp, vertical = 10.dp),
         ) {
-            Text(label.uppercase(), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Text(value, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Black)
+            Text(label.uppercase(), style = MaterialTheme.typography.labelMedium, color = ArcadeTheme.colors.textSecondary)
+            Text(value, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Black, color = ArcadeTheme.colors.textPrimary)
         }
     }
 }
@@ -237,14 +295,14 @@ fun PremiumBadge(
     Row(
         modifier = modifier
             .clip(RoundedCornerShape(999.dp))
-            .background(color.copy(alpha = 0.14f))
-            .border(1.dp, color.copy(alpha = 0.4f), RoundedCornerShape(999.dp))
-            .padding(horizontal = 12.dp, vertical = 7.dp),
+            .background(color.copy(alpha = 0.15f))
+            .border(1.dp, color.copy(alpha = 0.5f), RoundedCornerShape(999.dp))
+            .padding(horizontal = 12.dp, vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Box(modifier = Modifier.size(8.dp).clip(CircleShape).background(color))
-        Text(text, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurface)
+        Text(text, style = MaterialTheme.typography.labelMedium, color = ArcadeTheme.colors.textPrimary)
     }
 }
 
@@ -256,25 +314,25 @@ fun SectionHeader(
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            Text(title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black)
+            Text(title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black, color = ArcadeTheme.colors.textPrimary)
             if (badge != null) {
                 PremiumBadge(text = badge, color = ArcadeTheme.colors.premium)
             }
         }
         if (subtitle != null) {
-            Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = ArcadeTheme.colors.textSecondary)
         }
     }
 }
 
 @Composable
-fun StatRow(label: String, value: String, valueColor: Color = MaterialTheme.colorScheme.onSurface) {
+fun StatRow(label: String, value: String, valueColor: Color = ArcadeTheme.colors.textPrimary) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(label, color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
+        Text(label, color = ArcadeTheme.colors.textSecondary, style = MaterialTheme.typography.bodyMedium)
         Text(value, color = valueColor, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
     }
 }
@@ -288,8 +346,8 @@ fun PremiumStatTile(
 ) {
     ArcadeCard(modifier = modifier, contentPadding = ArcadeTheme.spacing.md) {
         Box(modifier = Modifier.size(9.dp).clip(CircleShape).background(accent))
-        Text(label.uppercase(), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Text(value, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black)
+        Text(label.uppercase(), style = MaterialTheme.typography.labelMedium, color = ArcadeTheme.colors.textSecondary)
+        Text(value, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black, color = ArcadeTheme.colors.textPrimary)
     }
 }
 
@@ -302,14 +360,14 @@ fun PremiumProgress(
 ) {
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(label, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Text("${(progress.coerceIn(0f, 1f) * 100).toInt()}%", style = MaterialTheme.typography.labelLarge)
+            Text(label, style = MaterialTheme.typography.bodyMedium, color = ArcadeTheme.colors.textSecondary)
+            Text("${(progress.coerceIn(0f, 1f) * 100).toInt()}%", style = MaterialTheme.typography.labelLarge, color = ArcadeTheme.colors.textPrimary)
         }
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(999.dp))
-                .background(MaterialTheme.colorScheme.surface)
+                .background(ArcadeTheme.colors.cardBackground)
                 .padding(3.dp),
         ) {
             Box(
@@ -331,25 +389,43 @@ fun HeroPanel(
     overline: String? = null,
     trailing: @Composable (() -> Unit)? = null,
 ) {
-    Box(
+    BoxWithConstraints(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(32.dp))
             .background(ArcadeTheme.colors.heroGradient)
             .padding(24.dp),
     ) {
-        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                if (overline != null) {
-                    Text(overline.uppercase(), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f))
+        val isCompact = maxWidth < 380.dp
+        if (isCompact && trailing != null) {
+            Column(verticalArrangement = Arrangement.spacedBy(16.dp), modifier = Modifier.fillMaxWidth()) {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    if (overline != null) {
+                        Text(overline.uppercase(), style = MaterialTheme.typography.labelMedium, color = Color.White.copy(alpha = 0.85f))
+                    }
+                    Text(title, style = MaterialTheme.typography.displayMedium, color = Color.White, fontWeight = FontWeight.Black)
+                    Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = Color.White.copy(alpha = 0.9f))
                 }
-                Text(title, style = MaterialTheme.typography.displayMedium, color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.Black)
-                Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.88f))
+                trailing()
             }
-            trailing?.invoke()
+        } else {
+            Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    if (overline != null) {
+                        Text(overline.uppercase(), style = MaterialTheme.typography.labelMedium, color = Color.White.copy(alpha = 0.85f))
+                    }
+                    Text(title, style = MaterialTheme.typography.displayMedium, color = Color.White, fontWeight = FontWeight.Black)
+                    Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = Color.White.copy(alpha = 0.9f))
+                }
+                if (trailing != null) {
+                    Box(modifier = Modifier.padding(start = 16.dp)) {
+                        trailing()
+                    }
+                }
+            }
         }
     }
 }
@@ -377,12 +453,12 @@ fun PremiumOverlayCard(
     content: @Composable () -> Unit,
 ) {
     ArcadeCard(
-        modifier = modifier.widthIn(max = 420.dp),
+        modifier = modifier.widthIn(max = 400.dp),
         accent = Brush.linearGradient(listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary)),
         contentPadding = ArcadeTheme.spacing.lg,
     ) {
-        Text(title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-        Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+        Text(title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), color = ArcadeTheme.colors.textPrimary)
+        Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = ArcadeTheme.colors.textSecondary, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
         content()
     }
 }
@@ -397,23 +473,27 @@ fun SplashShell(title: String, subtitle: String, modifier: Modifier = Modifier) 
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(18.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
+            modifier = Modifier.padding(32.dp)
         ) {
             Box(
                 modifier = Modifier
-                    .size(108.dp)
-                    .clip(RoundedCornerShape(30.dp))
+                    .size(112.dp)
+                    .shadow(16.dp, RoundedCornerShape(32.dp))
+                    .clip(RoundedCornerShape(32.dp))
                     .background(ArcadeTheme.colors.heroGradient),
                 contentAlignment = Alignment.Center,
             ) {
-                Text("OMA", style = MaterialTheme.typography.headlineLarge, color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.Black)
+                Text("OMA", style = MaterialTheme.typography.headlineLarge, color = Color.White, fontWeight = FontWeight.Black)
             }
-            Text(title, style = MaterialTheme.typography.displayMedium, fontWeight = FontWeight.Black)
-            Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(title, style = MaterialTheme.typography.displayMedium, fontWeight = FontWeight.Black, color = ArcadeTheme.colors.textPrimary, textAlign = TextAlign.Center)
+                Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = ArcadeTheme.colors.textSecondary, textAlign = TextAlign.Center)
+            }
             CircularProgressIndicator(
                 progress = { 0.72f },
-                color = MaterialTheme.colorScheme.secondary,
-                trackColor = MaterialTheme.colorScheme.surfaceVariant,
+                color = ArcadeTheme.colors.premium,
+                trackColor = ArcadeTheme.colors.cardBackground,
                 strokeWidth = 4.dp,
             )
         }
@@ -425,7 +505,7 @@ fun gameAccentFor(label: String): ArcadeGameAccent {
     val colors = ArcadeTheme.colors
     return when (label) {
         "Pulse Orbit" -> ArcadeGameAccent(label = "Pulse Orbit", brush = Brush.linearGradient(listOf(colors.pulseAccent, MaterialTheme.colorScheme.secondary)), color = colors.pulseAccent)
-        "Lane Drift" -> ArcadeGameAccent(label = "Lane Drift", brush = Brush.linearGradient(listOf(colors.laneAccent, Color(0xFFFFA55B))), color = colors.laneAccent)
+        "Lane Drift" -> ArcadeGameAccent(label = "Lane Drift", brush = Brush.linearGradient(listOf(colors.laneAccent, colors.pulseAccent)), color = colors.laneAccent)
         else -> ArcadeGameAccent(label = "Stack Drop", brush = Brush.linearGradient(listOf(colors.stackAccent, colors.reward)), color = colors.stackAccent)
     }
 }

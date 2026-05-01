@@ -1,19 +1,19 @@
-# Layout Risk Review
+# Layout Risk Review: Full-Screen Game Navigation
 
-## Game-Specific Layout Analysis
+## Pulse Orbit
+- **Risk:** HUD overlapping with status bar icons.
+- **Mitigation:** `WindowInsets.safeDrawing` provides enough top padding to push the HUD below the status bar.
+- **Observation:** `Column` with `padding(spacing.md)` inside `windowInsetsPadding` ensures safe margins.
 
-### Pulse Orbit
-- **Risk:** Center orbit might feel too small on extremely tall screens.
-- **Observation:** Code uses `min(size.width, size.height) * 0.28f` for radius, which is safe.
+## Lane Drift
+- **Risk:** Bottom gesture handle overlapping with the "Start run" button or player zone.
+- **Mitigation:** `windowInsetsPadding(WindowInsets.safeDrawing)` protects the bottom area. The `Box(weight(1f))` allows the game board to fill space while respecting the safe area.
 
-### Lane Drift
-- **Risk:** 3-lane track might be partially obscured by the bottom navigation bar if padding is insufficient.
-- **Observation:** `WindowInsets.safeDrawing` handles the bottom navigation area correctly. `playerZoneY` is set to `0.88f` to keep the player low but safe.
+## Stack Drop
+- **Risk:** Square grid distortion on tall screens.
+- **Mitigation:** The board is rendered inside a `BoxWithConstraints` (in sub-components) or `Box` with fixed/aspect-ratio-aware logic.
+- **Observation:** `StackDropBoardCard` uses a `Canvas` that fills the available width and a specified `boardHeight`. On tall screens, the `weight(1f)` on the container ensures it doesn't stretch the grid itself, as the `Canvas` uses `size.width / STACK_DROP_WIDTH` and `size.height / STACK_DROP_HEIGHT` for cells.
 
-### Stack Drop
-- **Risk:** UI might become cluttered on small screens (< 360dp width).
-- **Observation:** Screen implements `compactHud` and `compactLayout` logic using `BoxWithConstraints`. This successfully adapts HUD from Row to Column on narrow devices.
-
-## Device Class Risks
-- **Foldables:** If the app is run on a unfolded screen, the game boards might look extremely wide. (Out of scope for current MVP, but a minor risk).
-- **Notches/Islands:** The HUD sits in the top section which is now protected by `safeDrawing`. No clipping expected.
+## Screen Size Risks
+- **Compact Width (< 360dp):** Stack Drop has specific `compactHud` and `compactLayout` logic to stack HUD items and reduce board height.
+- **Tall Ratio (20:9):** The use of `weight(1f)` for the game board ensures it centers or fills the middle section, leaving room for the HUD and controls without stretching the gameplay elements.

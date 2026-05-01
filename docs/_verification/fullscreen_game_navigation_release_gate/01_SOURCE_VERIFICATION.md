@@ -1,34 +1,42 @@
-# Source Verification: Full-Screen Navigation
+# Source Verification: Full-Screen Game Navigation
 
 ## Files Inspected
-- `app/src/main/java/com/vexel/offlinearcade/ArcadeNavHost.kt`
-- `feature/home/src/main/java/com/vexel/offlinearcade/feature/home/HomeScreen.kt`
 - `game/pulseorbit/src/main/java/com/vexel/offlinearcade/game/pulseorbit/PulseOrbitScreen.kt`
 - `game/lanedrift/src/main/java/com/vexel/offlinearcade/game/lanedrift/LaneDriftScreen.kt`
 - `game/stackdrop/src/main/java/com/vexel/offlinearcade/game/stackdrop/StackDropScreen.kt`
+- `feature/home/src/main/java/com/vexel/offlinearcade/feature/home/HomeScreen.kt`
+- `core/common/src/main/java/com/vexel/offlinearcade/core/common/AppSupport.kt`
 
 ## Verification Checklist
 
-### 1. Dedicated Full-Screen Layouts
-- [x] `PulseOrbitScreen`: `ArcadeScaffold` removed, uses `Column` with `fillMaxSize`.
-- [x] `LaneDriftScreen`: `ArcadeScaffold` removed, uses `Column` with `fillMaxSize`.
-- [x] `StackDropScreen`: `ArcadeScaffold` removed, uses `Column` with `fillMaxSize`.
+### Pulse Orbit
+- [x] `ArcadeScaffold` removed.
+- [x] Uses `Column` + `Modifier.fillMaxSize()`.
+- [x] `WindowInsets.safeDrawing` applied via `windowInsetsPadding`.
+- [x] `BackHandler` implemented: pauses if playing, returns to home if paused/ready/gameover.
+- [x] `LifecycleEventObserver` implemented: pauses game on `ON_PAUSE`.
+- [x] `onRunComplete` preserved and called correctly on game over.
 
-### 2. Safe Area / Inset Handling
-- [x] All game screens implement `.windowInsetsPadding(WindowInsets.safeDrawing)` on the root `Column`.
-- [x] Layouts use `weight(1f)` for the game board to ensure they occupy available space between HUD and system bars.
+### Lane Drift
+- [x] `ArcadeScaffold` removed.
+- [x] Uses `Column` + `Modifier.fillMaxSize()`.
+- [x] `WindowInsets.safeDrawing` applied via `windowInsetsPadding`.
+- [x] `BackHandler` implemented: pauses if playing, returns to home if paused/ready/gameover.
+- [x] `LifecycleEventObserver` implemented: pauses game on `ON_PAUSE`.
+- [x] `onRunComplete` preserved and called correctly on game over.
 
-### 3. Back Button Behavior (`BackHandler`)
-- [x] `PulseOrbitScreen`: `BackHandler` pauses during active play, returns `onBack()` otherwise.
-- [x] `LaneDriftScreen`: `BackHandler` pauses during active play, returns `onBack()` otherwise.
-- [x] `StackDropScreen`: `BackHandler` pauses during active play, returns `onBack()` otherwise.
-- [x] Manual "Back" buttons added to screens with `ArcadeTestTags.BackButton` for test compatibility.
+### Stack Drop
+- [x] `ArcadeScaffold` removed.
+- [x] Uses `Column` + `Modifier.fillMaxSize()`.
+- [x] `WindowInsets.safeDrawing` applied via `windowInsetsPadding`.
+- [x] `BackHandler` implemented: pauses if playing, returns to home if paused/ready/gameover.
+- [x] `LifecycleEventObserver` implemented: pauses game on `ON_PAUSE`.
+- [x] `onRunComplete` preserved and called correctly on game over.
 
-### 4. Lifecycle Pause
-- [x] All game screens implement `LifecycleEventObserver`.
-- [x] Confirmed that `ON_PAUSE` event triggers `paused = true` state in all three games.
+### Home Screen
+- [x] Retains `ArcadeScaffold` (correct for launcher/dashboard).
+- [x] Does not render active gameplay state.
+- [x] Correctly triggers navigation to game routes.
 
-### 5. Progression & State Preservation
-- [x] `onRunComplete(RunResult)` call is preserved in all three screens inside the `gameOver` block.
-- [x] `hasReportedRun` flag used to prevent duplicate reporting.
-- [x] High-score and stats reporting wired correctly through `ArcadeNavHost`.
+### Infrastructure
+- [x] Fixed `NewApi` error in `SystemArcadeClock` by using `System.currentTimeMillis()` instead of `LocalDate`.

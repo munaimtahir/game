@@ -2,9 +2,16 @@ package com.vexel.offlinearcade
 
 object Routes {
     const val Home = "home"
-    const val PulseOrbit = "pulse_orbit"
-    const val LaneDrift = "lane_drift"
-    const val StackDrop = "stack_drop"
+    
+    const val PulseOrbitDetail = "pulse_orbit_detail"
+    const val PulseOrbitGame = "pulse_orbit_game"
+    
+    const val LaneDriftDetail = "lane_drift_detail"
+    const val LaneDriftGame = "lane_drift_game"
+    
+    const val StackDropDetail = "stack_drop_detail"
+    const val StackDropGame = "stack_drop_game"
+    
     const val Challenges = "challenges"
     const val Stats = "stats"
     const val Settings = "settings"

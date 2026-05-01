@@ -17,16 +17,15 @@ The primary automated gate is the existing instrumentation test suite located in
 
 ### Coverage Goals
 - **NavigationSmokeTest:** Confirms that the `ArcadeNavHost` correctly transitions from the launcher (Home) to all 3 full-screen game routes and back.
+- **BackNavigationTest:** (NEW) Specifically verifies the complex back-button logic (Pauses during play, returns Home from Pause/Ready).
+- **LifecyclePauseTest:** (NEW) Confirms that the game state automatically moves to `paused=true` when the app is backgrounded.
 - **GameplayDeviceSmokeTest:** 
   - Verifies "Start" buttons are clickable and visible in the new full-screen layouts.
   - Confirms Lane Drift still spawns traffic (verifying logic preservation).
-  - Confirms Stack Drop gesture inputs (swipe/tap) still update the game board state in the new view hierarchy.
-- **SettingsPersistenceSmokeTest:** Ensures system-wide settings still apply to games rendered in the new full-screen routes.
+  - Confirms Stack Drop gesture inputs (swipe/tap) still update the game board state.
+- **SettingsPersistenceSmokeTest:** Ensures system-wide settings still apply to games.
 
 ## 3. ADB Artifact Capture (Post-Test)
-After the automated suite completes, capture the following evidence from the device:
-
-### Screen Layout Check
 Capture screenshots of each game in its new full-screen state to verify WindowInsets/safeDrawing logic.
 
 ```bash
@@ -49,16 +48,6 @@ adb shell screencap -p /sdcard/stack_drop_fs.png
 adb pull /sdcard/stack_drop_fs.png .
 ```
 
-## 4. Lifecycle & Back Button (Semi-Automated)
-Run the following sequence to verify `BackHandler` and `LifecycleEventObserver`:
-
-1. **Start Lane Drift:** `adb shell am start -n com.vexel.offlinearcade/.MainActivity --es "route" "lane_drift"`
-2. **Simulate Back Button:** `adb shell input keyevent 4`
-   - *Expected:* Logcat should show game state changing to `paused=true`. The app should NOT exit.
-3. **Simulate Home Button:** `adb shell input keyevent 3`
-4. **Return to App:** `adb shell am start -n com.vexel.offlinearcade/.MainActivity`
-   - *Expected:* App resumes in a PAUSED state.
-
-## 5. Execution Protocol
+## 4. Execution Protocol
 This plan will be executed in a dedicated terminal session once `adb devices` returns a valid target. 
 All failures in `connectedDebugAndroidTest` must be treated as **RELEASE BLOCKERS**.

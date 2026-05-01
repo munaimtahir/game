@@ -8,12 +8,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -47,6 +44,7 @@ import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
+import com.vexel.offlinearcade.core.ui.GameplayScaffold
 import com.vexel.offlinearcade.core.ui.HudPill
 import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumButton
@@ -70,7 +68,7 @@ private data class PulseOrbitState(
     val bestCombo: Int = 0,
     val runStartMillis: Long = 0L,
     val gameOver: Boolean = false,
-    val feedback: String = "Tap when the orb lines up with the gap.",
+    val feedback: String = "Tap to start",
 )
 
 internal object PulseOrbitTuning {
@@ -109,7 +107,7 @@ fun PulseOrbitScreen(
             playing = true,
             paused = false,
             runStartMillis = System.currentTimeMillis(),
-            feedback = "Thread the gap and keep rhythm.",
+            feedback = "Thread the gap.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
     }
@@ -119,11 +117,9 @@ fun PulseOrbitScreen(
         state = state.copy(
             paused = !state.paused,
             playing = state.paused,
-            feedback = if (state.paused) "Thread the gap and keep rhythm." else "Paused",
         )
     }
 
-    // Lifecycle Pause
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
@@ -137,7 +133,6 @@ fun PulseOrbitScreen(
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
-    // BackHandler logic
     BackHandler {
         if (state.playing && !state.paused) {
             togglePause()
@@ -178,44 +173,59 @@ fun PulseOrbitScreen(
     val primary = MaterialTheme.colorScheme.primary
     val tertiary = MaterialTheme.colorScheme.tertiary
     val surface = MaterialTheme.colorScheme.surface
-    val onSurfaceVariant = MaterialTheme.colorScheme.onSurfaceVariant
-    val spacing = ArcadeTheme.spacing
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(ArcadeTheme.colors.shellGradient)
-            .windowInsetsPadding(WindowInsets.safeDrawing)
-            .padding(spacing.md)
-            .testTag(ArcadeTestTags.PulseOrbitScreen)
+    
+    GameplayScaffold(
+        modifier = Modifier.testTag(ArcadeTestTags.PulseOrbitScreen),
+        topBar = {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    HudPill("Score", state.score.toString())
+                    HudPill("Combo", state.combo.toString())
+                }
+                PremiumButton(
+                    label = if (state.paused) "Resume" else "Pause",
+                    onClick = ::togglePause,
+                    style = ArcadeButtonStyle.Secondary,
+                    enabled = state.playing || state.paused,
+                )
+            }
+        },
+        overlay = {
+            if (state.paused) {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or reset the loop.") {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString())
+                        StatRow("Combo", state.combo.toString())
+                        PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            } else if (state.gameOver) {
+                PremiumOverlayCard(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New best rhythm" else "Run complete",
+                    subtitle = "One more clean sequence is only a tap away.",
+                ) {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString(), valueColor = ArcadeTheme.colors.reward)
+                        StatRow("Best combo", state.bestCombo.toString(), valueColor = ArcadeTheme.colors.success)
+                        StatRow("Coins earned", (state.score + state.bestCombo).toString(), valueColor = ArcadeTheme.colors.reward)
+                        PremiumButton(
+                            label = "Retry instantly",
+                            onClick = ::restart,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag(ArcadeTestTags.PulseOrbitStartButton),
+                        )
+                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
     ) {
-        // HUD
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-            HudPill("Score", state.score.toString())
-            HudPill("Combo", state.combo.toString())
-            HudPill("Best", (stats?.highScore ?: 0).toString())
-        }
-        Row(modifier = Modifier.fillMaxWidth().padding(top = spacing.sm), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-            PremiumButton(
-                label = "Back",
-                onClick = onBack,
-                style = ArcadeButtonStyle.Secondary,
-                modifier = Modifier.testTag(ArcadeTestTags.BackButton)
-            )
-            PremiumButton(
-                label = if (state.paused) "Resume" else "Pause",
-                onClick = ::togglePause,
-                style = ArcadeButtonStyle.Secondary,
-                enabled = state.playing || state.paused,
-            )
-        }
-
-        // Game Board
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
-                .padding(top = spacing.md)
+                .fillMaxSize()
                 .testTag(ArcadeTestTags.PulseOrbitBoard)
                 .background(surface, RoundedCornerShape(28.dp))
                 .clickable {
@@ -238,7 +248,7 @@ fun PulseOrbitScreen(
                             gapCenterAngle = (state.gapCenterAngle + PulseOrbitTuning.gapStepFor(nextPass)).normalizeAngle(),
                             gapSize = PulseOrbitTuning.gapSizeFor(nextPass),
                             rotationSpeedDegPerSec = PulseOrbitTuning.rotationSpeedFor(nextPass),
-                            feedback = if (comboBonus > 0) "Perfect chain. Tempo up." else "Clean pass. Keep the cadence.",
+                            feedback = if (comboBonus > 0) "Perfect chain. Tempo up." else "Clean pass.",
                         )
                     } else {
                         feedback.play(ArcadeFeedbackEvent.FAIL)
@@ -246,7 +256,7 @@ fun PulseOrbitScreen(
                             playing = false,
                             combo = 0,
                             gameOver = true,
-                            feedback = if (settings.vibrationEnabled) "Missed the gap. Fast retry ready." else "Missed the gap.",
+                            feedback = "Missed the gap.",
                         )
                     }
                 },
@@ -277,7 +287,7 @@ fun PulseOrbitScreen(
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
-                    .padding(20.dp),
+                    .padding(32.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
@@ -287,49 +297,11 @@ fun PulseOrbitScreen(
                         color = ArcadeTheme.colors.pulseAccent,
                     )
                 }
-                Text(state.feedback, color = onSurfaceVariant)
                 Text(
-                    if (state.playing) "Tap anywhere on the board" else "Tap board to start",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
+                    state.feedback,
+                    color = ArcadeTheme.colors.textSecondary,
+                    style = MaterialTheme.typography.bodyMedium
                 )
-            }
-
-            if (state.paused) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or reset the loop.") {
-                        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                            StatRow("Score", state.score.toString())
-                            StatRow("Combo", state.combo.toString())
-                            PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
-                            PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                            PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                        }
-                    }
-                }
-            }
-
-            if (state.gameOver) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    PremiumOverlayCard(
-                        title = if (state.score > (stats?.highScore ?: 0)) "New best rhythm" else "Run complete",
-                        subtitle = "One more clean sequence is only a tap away.",
-                    ) {
-                        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                            StatRow("Score", state.score.toString(), valueColor = ArcadeTheme.colors.reward)
-                            StatRow("Best combo", state.bestCombo.toString(), valueColor = ArcadeTheme.colors.success)
-                            StatRow("Coins earned", (state.score + state.bestCombo).toString(), valueColor = ArcadeTheme.colors.reward)
-                            PremiumButton(
-                                label = "Retry instantly",
-                                onClick = ::restart,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .testTag(ArcadeTestTags.PulseOrbitStartButton),
-                            )
-                            PremiumButton(label = "Back to arcade", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                        }
-                    }
-                }
             }
         }
     }

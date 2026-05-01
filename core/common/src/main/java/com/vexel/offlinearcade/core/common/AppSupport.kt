@@ -2,8 +2,6 @@ package com.vexel.offlinearcade.core.common
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import java.time.LocalDate
-import java.time.ZoneOffset
 
 data class ArcadeDispatchers(
     val io: CoroutineDispatcher = Dispatchers.IO,
@@ -15,5 +13,5 @@ fun interface ArcadeClock {
 }
 
 object SystemArcadeClock : ArcadeClock {
-    override fun currentEpochDay(): Long = LocalDate.now(ZoneOffset.UTC).toEpochDay()
+    override fun currentEpochDay(): Long = System.currentTimeMillis() / (24 * 60 * 60 * 1000L)
 }

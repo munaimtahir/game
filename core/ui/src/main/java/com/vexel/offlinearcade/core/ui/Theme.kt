@@ -13,20 +13,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-private val MidnightBackground = Color(0xFF0B1020)
-private val MidnightSurface = Color(0xFF141B2D)
-private val MidnightCard = Color(0xFF1C2540)
-private val MidnightOutline = Color(0xFF314062)
-private val MidnightText = Color(0xFFF4F7FF)
-private val MidnightSubtext = Color(0xFFA8B3CF)
-private val Indigo = Color(0xFF7C5CFF)
-private val Aqua = Color(0xFF35D6D0)
-private val Gold = Color(0xFFF7C75B)
-private val Green = Color(0xFF46D37B)
-private val Coral = Color(0xFFFF6B6B)
-private val Magenta = Color(0xFFD96BFF)
-private val Orange = Color(0xFFFFA55B)
-private val Cobalt = Color(0xFF5E88FF)
+// Premium Midnight Arcade Palette
+private val PremiumBackground = Color(0xFF07090E) // Very deep navy / near black
+private val PremiumSurface = Color(0xFF131A2A) // Main surface
+private val PremiumCard = Color(0xFF1F293F) // Elevated card
+private val PremiumAction = Color(0xFF00E5FF) // Electric cyan
+private val PremiumAccent = Color(0xFFB140FF) // Soft magenta / violet
+private val PremiumReward = Color(0xFFFFB800) // Warm amber / gold
+private val PremiumDanger = Color(0xFFFF3D71) // Coral / red
+private val PremiumSuccess = Color(0xFF00E676) // Mint / green-cyan
+private val PremiumCobalt = Color(0xFF2979FF) // Cobalt for Stack Drop
+
+// Explicit text colors
+private val TextPrimary = Color(0xFFF8FAFC) // Near-white
+private val TextSecondary = Color(0xFFCBD5E1) // Cool light gray
+private val TextMuted = Color(0xFF94A3B8) // Slate gray
+private val OutlineColor = Color(0xFF334155) // Slate gray for borders
+private val DisabledSurface = Color(0xFF1E293B)
+private val DisabledText = Color(0xFF64748B)
 
 @Immutable
 data class ArcadeExtendedColors(
@@ -42,22 +46,34 @@ data class ArcadeExtendedColors(
     val premium: Color,
     val outlineMuted: Color,
     val glow: Color,
+    val textPrimary: Color,
+    val textSecondary: Color,
+    val textMuted: Color,
+    val background: Color,
+    val cardBackground: Color,
+    val elevatedCardBackground: Color,
 )
 
 val LocalArcadeExtendedColors = staticCompositionLocalOf {
     ArcadeExtendedColors(
-        shellGradient = Brush.verticalGradient(listOf(MidnightBackground, MidnightSurface)),
-        panelGradient = Brush.linearGradient(listOf(MidnightSurface, MidnightCard)),
-        heroGradient = Brush.linearGradient(listOf(Indigo, Aqua)),
-        pulseAccent = Indigo,
-        laneAccent = Aqua,
-        stackAccent = Cobalt,
-        reward = Gold,
-        success = Green,
-        danger = Coral,
-        premium = Magenta,
-        outlineMuted = MidnightOutline,
-        glow = Aqua.copy(alpha = 0.18f),
+        shellGradient = Brush.verticalGradient(listOf(PremiumBackground, PremiumSurface)),
+        panelGradient = Brush.linearGradient(listOf(PremiumSurface, PremiumCard)),
+        heroGradient = Brush.linearGradient(listOf(PremiumAccent, PremiumAction)),
+        pulseAccent = PremiumAccent,
+        laneAccent = PremiumAction,
+        stackAccent = PremiumCobalt,
+        reward = PremiumReward,
+        success = PremiumSuccess,
+        danger = PremiumDanger,
+        premium = PremiumAccent,
+        outlineMuted = OutlineColor,
+        glow = PremiumAction.copy(alpha = 0.15f),
+        textPrimary = TextPrimary,
+        textSecondary = TextSecondary,
+        textMuted = TextMuted,
+        background = PremiumBackground,
+        cardBackground = PremiumSurface,
+        elevatedCardBackground = PremiumCard,
     )
 }
 
@@ -73,115 +89,94 @@ data class ArcadeSpacing(
 
 val LocalArcadeSpacing = staticCompositionLocalOf { ArcadeSpacing() }
 
-private val MidnightTypography = Typography(
-    displayLarge = TextStyle(fontSize = 38.sp, lineHeight = 42.sp, fontWeight = FontWeight.Black, letterSpacing = (-0.6).sp),
-    displayMedium = TextStyle(fontSize = 32.sp, lineHeight = 36.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = (-0.4).sp),
-    headlineLarge = TextStyle(fontSize = 28.sp, lineHeight = 32.sp, fontWeight = FontWeight.Bold),
-    headlineMedium = TextStyle(fontSize = 24.sp, lineHeight = 28.sp, fontWeight = FontWeight.Bold),
-    titleLarge = TextStyle(fontSize = 20.sp, lineHeight = 24.sp, fontWeight = FontWeight.Bold),
-    titleMedium = TextStyle(fontSize = 17.sp, lineHeight = 22.sp, fontWeight = FontWeight.SemiBold),
+private val PremiumTypography = Typography(
+    displayLarge = TextStyle(fontSize = 36.sp, lineHeight = 40.sp, fontWeight = FontWeight.Black, letterSpacing = (-0.5).sp),
+    displayMedium = TextStyle(fontSize = 30.sp, lineHeight = 34.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = (-0.3).sp),
+    headlineLarge = TextStyle(fontSize = 26.sp, lineHeight = 30.sp, fontWeight = FontWeight.Bold),
+    headlineMedium = TextStyle(fontSize = 22.sp, lineHeight = 26.sp, fontWeight = FontWeight.Bold),
+    titleLarge = TextStyle(fontSize = 18.sp, lineHeight = 24.sp, fontWeight = FontWeight.Bold),
+    titleMedium = TextStyle(fontSize = 16.sp, lineHeight = 22.sp, fontWeight = FontWeight.SemiBold),
     bodyLarge = TextStyle(fontSize = 16.sp, lineHeight = 22.sp),
     bodyMedium = TextStyle(fontSize = 14.sp, lineHeight = 20.sp),
     labelLarge = TextStyle(fontSize = 14.sp, lineHeight = 18.sp, fontWeight = FontWeight.Bold),
     labelMedium = TextStyle(fontSize = 12.sp, lineHeight = 16.sp, fontWeight = FontWeight.SemiBold, letterSpacing = 0.3.sp),
 )
 
-private fun midnightColorScheme(
-    themeId: String,
-    highContrast: Boolean,
-): androidx.compose.material3.ColorScheme {
-    val primary = when (themeId) {
-        "ice_grid" -> Aqua
-        "sunset_shift" -> Color(0xFF8B74FF)
-        else -> Indigo
-    }
-    val secondary = when (themeId) {
-        "sunset_shift" -> Orange
-        "ice_grid" -> Color(0xFF58D7FF)
-        else -> Aqua
-    }
-    val tertiary = when (themeId) {
-        "ice_grid" -> Cobalt
-        "sunset_shift" -> Gold
-        else -> Magenta
-    }
+private fun premiumColorScheme(highContrast: Boolean): androidx.compose.material3.ColorScheme {
     return darkColorScheme(
-        primary = if (highContrast) MidnightText else primary,
-        onPrimary = MidnightText,
-        primaryContainer = if (highContrast) Color(0xFF17203A) else MidnightCard,
-        onPrimaryContainer = MidnightText,
-        secondary = secondary,
-        onSecondary = MidnightBackground,
-        secondaryContainer = if (highContrast) Color(0xFF173241) else Color(0xFF16283C),
-        onSecondaryContainer = MidnightText,
-        tertiary = tertiary,
-        onTertiary = MidnightBackground,
-        tertiaryContainer = if (highContrast) Color(0xFF2A243A) else Color(0xFF251E3F),
-        onTertiaryContainer = MidnightText,
-        background = MidnightBackground,
-        onBackground = MidnightText,
-        surface = MidnightSurface,
-        onSurface = MidnightText,
-        surfaceVariant = MidnightCard,
-        onSurfaceVariant = if (highContrast) Color(0xFFD6DDF1) else MidnightSubtext,
-        error = Coral,
-        onError = MidnightText,
-        errorContainer = Color(0xFF3D1E28),
-        onErrorContainer = MidnightText,
-        outline = if (highContrast) Color(0xFF8FA2D1) else MidnightOutline,
-        outlineVariant = if (highContrast) Color(0xFF66769E) else Color(0xFF273251),
-        scrim = Color.Black.copy(alpha = 0.7f),
+        primary = PremiumAction,
+        onPrimary = PremiumBackground,
+        primaryContainer = PremiumCard,
+        onPrimaryContainer = TextPrimary,
+        secondary = PremiumAccent,
+        onSecondary = PremiumBackground,
+        secondaryContainer = PremiumSurface,
+        onSecondaryContainer = TextPrimary,
+        tertiary = PremiumCobalt,
+        onTertiary = PremiumBackground,
+        tertiaryContainer = PremiumSurface,
+        onTertiaryContainer = TextPrimary,
+        background = PremiumBackground,
+        onBackground = TextPrimary,
+        surface = PremiumSurface,
+        onSurface = TextPrimary,
+        surfaceVariant = PremiumCard,
+        onSurfaceVariant = if (highContrast) TextPrimary else TextSecondary,
+        error = PremiumDanger,
+        onError = TextPrimary,
+        errorContainer = Color(0xFF3B151F),
+        onErrorContainer = TextPrimary,
+        outline = if (highContrast) TextSecondary else OutlineColor,
+        outlineVariant = OutlineColor,
+        scrim = Color.Black.copy(alpha = 0.8f),
     )
 }
 
-private fun midnightExtendedColors(themeId: String, reducedEffects: Boolean): ArcadeExtendedColors {
-    val pulse = when (themeId) {
-        "ice_grid" -> Color(0xFF78DFFF)
-        else -> Indigo
-    }
-    val lane = when (themeId) {
-        "sunset_shift" -> Orange
-        else -> Aqua
-    }
-    val stack = if (themeId == "sunset_shift") Gold else Cobalt
+private fun premiumExtendedColors(reducedEffects: Boolean): ArcadeExtendedColors {
     return ArcadeExtendedColors(
         shellGradient = Brush.verticalGradient(
-            colors = if (reducedEffects) listOf(MidnightBackground, MidnightBackground) else listOf(Color(0xFF09101F), MidnightBackground, MidnightSurface),
+            colors = if (reducedEffects) listOf(PremiumBackground, PremiumBackground) else listOf(Color(0xFF05060A), PremiumBackground, PremiumSurface),
         ),
         panelGradient = Brush.linearGradient(
-            colors = if (reducedEffects) listOf(MidnightSurface, MidnightSurface) else listOf(MidnightSurface, MidnightCard),
+            colors = if (reducedEffects) listOf(PremiumSurface, PremiumSurface) else listOf(PremiumSurface, PremiumCard),
         ),
         heroGradient = Brush.linearGradient(
-            colors = if (reducedEffects) listOf(pulse, lane) else listOf(pulse, lane, Magenta.copy(alpha = 0.72f)),
+            colors = if (reducedEffects) listOf(PremiumAccent, PremiumAction) else listOf(PremiumAccent, PremiumAction, PremiumAccent.copy(alpha = 0.8f)),
         ),
-        pulseAccent = pulse,
-        laneAccent = lane,
-        stackAccent = stack,
-        reward = Gold,
-        success = Green,
-        danger = Coral,
-        premium = Magenta,
-        outlineMuted = MidnightOutline,
-        glow = if (reducedEffects) Color.Transparent else Aqua.copy(alpha = 0.16f),
+        pulseAccent = PremiumAccent,
+        laneAccent = PremiumAction,
+        stackAccent = PremiumCobalt,
+        reward = PremiumReward,
+        success = PremiumSuccess,
+        danger = PremiumDanger,
+        premium = PremiumAccent,
+        outlineMuted = OutlineColor,
+        glow = if (reducedEffects) Color.Transparent else PremiumAction.copy(alpha = 0.15f),
+        textPrimary = TextPrimary,
+        textSecondary = TextSecondary,
+        textMuted = TextMuted,
+        background = PremiumBackground,
+        cardBackground = PremiumSurface,
+        elevatedCardBackground = PremiumCard,
     )
 }
 
 @Composable
 fun OfflineMiniArcadeTheme(
-    themeId: String,
+    themeId: String, // Kept for interface compatibility
     highContrast: Boolean = false,
     reducedEffects: Boolean = false,
     content: @Composable () -> Unit,
 ) {
-    val colorScheme = midnightColorScheme(themeId = themeId, highContrast = highContrast)
-    val extendedColors = midnightExtendedColors(themeId = themeId, reducedEffects = reducedEffects)
+    val colorScheme = premiumColorScheme(highContrast = highContrast)
+    val extendedColors = premiumExtendedColors(reducedEffects = reducedEffects)
     androidx.compose.runtime.CompositionLocalProvider(
         LocalArcadeExtendedColors provides extendedColors,
         LocalArcadeSpacing provides ArcadeSpacing(),
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
-            typography = MidnightTypography,
+            typography = PremiumTypography,
             content = content,
         )
     }

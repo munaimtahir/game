@@ -3,6 +3,7 @@ package com.vexel.offlinearcade.feature.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.DailyChallenge
 import com.vexel.offlinearcade.core.model.GameId
@@ -56,6 +58,7 @@ fun HomeScreen(
     val totalSessions = stats.sumOf { it.sessionsPlayed }
     val totalScore = stats.sumOf { it.totalScore }
     val continueGame = stats.maxByOrNull { it.sessionsPlayed.takeIf { count -> count > 0 } ?: -1 }?.gameId ?: GameId.PULSE_ORBIT
+    
     val gameCards = listOf(
         HomeGameEntry(
             gameId = GameId.PULSE_ORBIT,
@@ -122,25 +125,38 @@ fun HomeScreen(
                 )
             }
             item {
-                ArcadeCard {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(spacing.sm),
-                    ) {
-                        HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
-                        HudPill(label = "Streak", value = "${profile.currentStreakDays}d", modifier = Modifier.weight(1f))
-                        HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
-                    }
-                    Row(horizontalArrangement = Arrangement.spacedBy(spacing.sm), modifier = Modifier.fillMaxWidth()) {
-                        PremiumStatTile("Sessions", totalSessions.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.success)
-                        PremiumStatTile("Total Score", totalScore.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
+                BoxWithConstraints {
+                    val isCompact = maxWidth < 380.dp
+                    ArcadeCard {
+                        if (isCompact) {
+                            Column(verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
+                                Row(horizontalArrangement = Arrangement.spacedBy(spacing.sm), modifier = Modifier.fillMaxWidth()) {
+                                    HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
+                                    HudPill(label = "Streak", value = "${profile.currentStreakDays}d", modifier = Modifier.weight(1f))
+                                }
+                                HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.fillMaxWidth())
+                            }
+                        } else {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(spacing.sm),
+                            ) {
+                                HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
+                                HudPill(label = "Streak", value = "${profile.currentStreakDays}d", modifier = Modifier.weight(1f))
+                                HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
+                            }
+                        }
+                        Row(horizontalArrangement = Arrangement.spacedBy(spacing.sm), modifier = Modifier.fillMaxWidth()) {
+                            PremiumStatTile("Sessions", totalSessions.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.success)
+                            PremiumStatTile("Total Score", totalScore.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
+                        }
                     }
                 }
             }
             item {
                 SectionHeader(
-                    title = "Card View",
-                    subtitle = "Featured game card first, with supporting cards for quick switching.",
+                    title = "Arcade Library",
+                    subtitle = "Your recent focus up top.",
                     badge = "3 games",
                 )
             }
@@ -157,20 +173,41 @@ fun HomeScreen(
                 )
             }
             item {
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.sm)) {
-                    supportingGames.forEach { game ->
-                        GameEntryCard(
-                            modifier = Modifier.weight(1f),
-                            title = game.title,
-                            body = game.body,
-                            highScore = game.highScore,
-                            sessions = game.sessions,
-                            challenge = game.challenge,
-                            featured = false,
-                            compact = true,
-                            onPlay = game.onPlay,
-                            testTag = game.testTag,
-                        )
+                BoxWithConstraints {
+                    if (maxWidth < 500.dp) {
+                        Column(verticalArrangement = Arrangement.spacedBy(spacing.md), modifier = Modifier.fillMaxWidth()) {
+                            supportingGames.forEach { game ->
+                                GameEntryCard(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    title = game.title,
+                                    body = game.body,
+                                    highScore = game.highScore,
+                                    sessions = game.sessions,
+                                    challenge = game.challenge,
+                                    featured = false,
+                                    compact = true,
+                                    onPlay = game.onPlay,
+                                    testTag = game.testTag,
+                                )
+                            }
+                        }
+                    } else {
+                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.md)) {
+                            supportingGames.forEach { game ->
+                                GameEntryCard(
+                                    modifier = Modifier.weight(1f),
+                                    title = game.title,
+                                    body = game.body,
+                                    highScore = game.highScore,
+                                    sessions = game.sessions,
+                                    challenge = game.challenge,
+                                    featured = false,
+                                    compact = true,
+                                    onPlay = game.onPlay,
+                                    testTag = game.testTag,
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -244,6 +281,8 @@ private fun GameEntryCard(
                             style = if (compact) MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineMedium,
                             fontWeight = FontWeight.Black,
                             color = accentTextColor,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                     }
                     Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -253,17 +292,18 @@ private fun GameEntryCard(
                             style = if (compact) MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineLarge,
                             fontWeight = FontWeight.Black,
                             color = accentTextColor,
+                            maxLines = 1
                         )
                     }
                 }
             }
             if (!compact) {
-                Text(body, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(body, color = ArcadeTheme.colors.textSecondary)
             }
             if (compact) {
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    Text("Sessions", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.labelMedium)
-                    Text(sessions.toString(), fontWeight = FontWeight.Bold)
+                    Text("Sessions", color = ArcadeTheme.colors.textSecondary, style = MaterialTheme.typography.labelMedium)
+                    Text(sessions.toString(), color = ArcadeTheme.colors.textPrimary, fontWeight = FontWeight.Bold)
                 }
             } else {
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -279,11 +319,11 @@ private fun GameEntryCard(
                 )
             }
             PremiumButton(
-                label = if (featured) "Continue $title" else "Play $title",
+                label = if (featured) "Play" else "Play",
                 onClick = onPlay,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(if (compact) 50.dp else 54.dp)
+                    .height(52.dp)
                     .testTag(testTag),
                 style = if (compact) ArcadeButtonStyle.Secondary else ArcadeButtonStyle.Primary,
             )
@@ -303,4 +343,4 @@ private data class HomeGameEntry(
 )
 
 private fun adaptiveTextColor(background: Color): Color =
-    if (background.luminance() > 0.5f) Color(0xFF121316) else Color(0xFFF7F8FF)
+    if (background.luminance() > 0.5f) Color(0xFF0F172A) else Color(0xFFF8FAFC)
