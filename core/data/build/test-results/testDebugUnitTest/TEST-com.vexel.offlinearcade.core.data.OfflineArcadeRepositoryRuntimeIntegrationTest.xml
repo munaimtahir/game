@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryRuntimeIntegrationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-17T13:52:45" hostname="vps.us-central1-c.c.crack-saga-487819-k0.internal" time="1.0">
-  <properties/>
-  <testcase name="challengeGenerationAndProgressLoadFromStorage" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryRuntimeIntegrationTest" time="0.257"/>
-  <testcase name="streakAndCoinsFollowRunDays" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryRuntimeIntegrationTest" time="0.295"/>
-  <testcase name="roomAndDataStorePersistAcrossRepositoryRecreation" classname="com.vexel.offlinearcade.core.data.OfflineArcadeRepositoryRuntimeIntegrationTest" time="0.447"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

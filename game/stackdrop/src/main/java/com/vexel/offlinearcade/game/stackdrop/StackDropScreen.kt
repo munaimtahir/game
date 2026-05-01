@@ -1,5 +1,6 @@
 package com.vexel.offlinearcade.game.stackdrop
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -7,14 +8,19 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
@@ -28,12 +34,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import com.vexel.offlinearcade.core.model.ArcadeFeedback
 import com.vexel.offlinearcade.core.model.ArcadeFeedbackEvent
 import com.vexel.offlinearcade.core.model.GameId
@@ -44,7 +53,6 @@ import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeGestureThresholdsPx
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HudPill
@@ -79,6 +87,29 @@ fun StackDropScreen(
         hasReportedRun = false
         paused = false
         feedback.play(ArcadeFeedbackEvent.TAP)
+    }
+
+    // Lifecycle Pause
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_PAUSE) {
+                if (state.playing && !paused && !state.gameOver) {
+                    paused = true
+                }
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+
+    // BackHandler logic
+    BackHandler {
+        if (state.playing && !paused) {
+            paused = true
+        } else {
+            onBack()
+        }
     }
 
     LaunchedEffect(state.playing, state.dropIntervalMillis, paused) {
@@ -123,8 +154,17 @@ fun StackDropScreen(
         )
     }
 
-    ArcadeScaffold(title = "Stack Drop", onBack = onBack, scrollable = true, screenTestTag = ArcadeTestTags.StackDropScreen) {
-        val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant
+    val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant
+    val spacing = ArcadeTheme.spacing
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(ArcadeTheme.colors.shellGradient)
+            .windowInsetsPadding(WindowInsets.safeDrawing)
+            .padding(spacing.md)
+            .testTag(ArcadeTestTags.StackDropScreen)
+    ) {
         BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
             val compactHud = maxWidth < 360.dp
             if (compactHud) {
@@ -144,7 +184,13 @@ fun StackDropScreen(
             }
         }
 
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+        Row(modifier = Modifier.fillMaxWidth().padding(top = spacing.sm), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+            PremiumButton(
+                label = "Back",
+                onClick = onBack,
+                style = ArcadeButtonStyle.Secondary,
+                modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+            )
             PremiumButton(
                 label = if (paused) "Resume" else "Pause",
                 onClick = { if (!state.gameOver && (state.playing || paused)) paused = !paused },
@@ -153,7 +199,7 @@ fun StackDropScreen(
             )
         }
 
-        BoxWithConstraints(modifier = Modifier.fillMaxWidth().padding(top = 12.dp)) {
+        BoxWithConstraints(modifier = Modifier.fillMaxWidth().weight(1f).padding(top = 12.dp)) {
             val compactLayout = maxWidth < 520.dp
             val compactBoardHeight = if (maxWidth < 360.dp) 300.dp else 340.dp
             if (compactLayout) {
@@ -185,7 +231,7 @@ fun StackDropScreen(
                     if (state.gameOver) StackDropSummary(state = state, stats = stats, onRetry = ::restart, onBack = onBack)
                 }
             } else {
-                Row(horizontalArrangement = Arrangement.spacedBy(14.dp), modifier = Modifier.fillMaxWidth()) {
+                Row(horizontalArrangement = Arrangement.spacedBy(14.dp), modifier = Modifier.fillMaxSize()) {
                     StackDropBoardCard(
                         state = state,
                         paused = paused,

@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml:2:13-83
-INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml:2:13-83
+ADDED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml:2:13-83
+INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml:2:13-83
 	package
-		INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml
+		INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml
 	xmlns:android
-		ADDED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml:2:23-81
+		ADDED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml:2:23-81
 uses-sdk
-INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml reason: use-sdk injection requested
-INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml
-INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml
+INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml reason: use-sdk injection requested
+INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml
+INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml
 	android:targetSdkVersion
-		INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml
+		INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml
 	android:minSdkVersion
-		INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest5244389275688006742.xml
+		INJECTED from /home/munaim/srv/apps/game/game/pulseorbit/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest17264144596715985095.xml

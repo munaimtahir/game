@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml:2:13-83
-INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml:2:13-83
+ADDED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml:2:13-83
+INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml:2:13-83
 	package
-		INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml
+		INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml
 	xmlns:android
-		ADDED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml:2:23-81
+		ADDED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml:2:23-81
 uses-sdk
-INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml reason: use-sdk injection requested
-INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml
-INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml
+INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml reason: use-sdk injection requested
+INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml
+INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml
 	android:targetSdkVersion
-		INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml
+		INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml
 	android:minSdkVersion
-		INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4261222314810804189.xml
+		INJECTED from /home/munaim/srv/apps/game/game/stackdrop/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest3416336198938975187.xml

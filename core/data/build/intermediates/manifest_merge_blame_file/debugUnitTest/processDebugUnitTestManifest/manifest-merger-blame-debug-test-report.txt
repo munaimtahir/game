@@ -3,20 +3,20 @@
 3    package="com.vexel.offlinearcade.core.data.test" >
 4
 5    <uses-sdk
-5-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:5:5-74
+5-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:5:5-74
 6        android:minSdkVersion="24"
-6-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:5:15-41
+6-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:5:15-41
 7        android:targetSdkVersion="24" />
-7-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:5:42-71
+7-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:5:42-71
 8
 9    <instrumentation
-9-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:11:5-13:88
+9-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:11:5-13:88
 10        android:name="android.test.InstrumentationTestRunner"
-10-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:11:22-75
+10-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:11:22-75
 11        android:label="Tests for com.vexel.offlinearcade.core.data.test"
-11-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:13:22-86
+11-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:13:22-86
 12        android:targetPackage="com.vexel.offlinearcade.core.data.test" />
-12-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:12:22-84
+12-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:12:22-84
 13
 14    <uses-permission android:name="android.permission.REORDER_TASKS" />
 14-->[androidx.test:core:1.6.1] /home/munaim/.gradle/caches/transforms-4/9ff6f38af8041e240e343b61b223e900/transformed/core-1.6.1/AndroidManifest.xml:24:5-72
@@ -34,14 +34,14 @@
 20-->[androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/f2b83846fcc27275f7270e462634e48f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
 21
 22    <application
-22-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:7:5-9:19
+22-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:7:5-9:19
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 23-->[androidx.core:core:1.13.1] /home/munaim/.gradle/caches/transforms-4/f2b83846fcc27275f7270e462634e48f/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 24        android:debuggable="true" >
-24-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:7:18-43
+24-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:7:18-43
 25        <uses-library android:name="android.test.runner" />
-25-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:8:9-60
-25-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest1318322128718118098.xml:8:23-57
+25-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:8:9-60
+25-->/home/munaim/srv/apps/game/core/data/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest8557414022160493899.xml:8:23-57
 26
 27        <service
 27-->[androidx.room:room-runtime:2.6.1] /home/munaim/.gradle/caches/transforms-4/554f1fd7f3e2a6d5e8acc8e8843d12de/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
