@@ -184,6 +184,7 @@ fun PulseOrbitScreen(
                     onClick = ::togglePause,
                     style = ArcadeButtonStyle.Secondary,
                     enabled = state.playing || state.paused,
+                    borderOverride = colors.accentViolet,
                 )
             }
         },
@@ -297,7 +298,7 @@ fun PulseOrbitScreen(
                 if (state.playing && state.combo > 0) {
                     PremiumBadge(
                         text = if (state.combo % PulseOrbitTuning.comboBonusEvery == 0) "Perfect timing" else "Clean timing",
-                        color = colors.pulseAccent,
+                        color = colors.accentViolet,
                     )
                 }
                 Text(

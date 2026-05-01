@@ -195,8 +195,8 @@ fun StackDropScreen(
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     PremiumButton(label = "◀", onClick = { handleAction(ArcadeGestureAction.SwipeLeft) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(end=4.dp))
-                    PremiumButton(label = "Rot", onClick = { handleAction(ArcadeGestureAction.Tap) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(horizontal=4.dp))
-                    PremiumButton(label = "▼", onClick = { handleAction(ArcadeGestureAction.SwipeDown) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(horizontal=4.dp))
+                    PremiumButton(label = "⟳", onClick = { handleAction(ArcadeGestureAction.Tap) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(horizontal=4.dp), borderOverride = colors.accentViolet)
+                    PremiumButton(label = "▼", onClick = { handleAction(ArcadeGestureAction.SwipeDown) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(horizontal=4.dp), borderOverride = colors.primaryCyan)
                     PremiumButton(label = "▶", onClick = { handleAction(ArcadeGestureAction.SwipeRight) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(start=4.dp))
                 }
             }

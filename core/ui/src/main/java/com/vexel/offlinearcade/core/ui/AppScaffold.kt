@@ -217,6 +217,7 @@ fun PremiumButton(
     modifier: Modifier = Modifier,
     style: ArcadeButtonStyle = ArcadeButtonStyle.Primary,
     enabled: Boolean = true,
+    borderOverride: Color? = null,
 ) {
     val containerColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.primary else Color.Transparent
     val contentColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.onPrimary else ArcadeTheme.colors.textPrimary
@@ -242,7 +243,7 @@ fun PremiumButton(
             enabled = enabled,
             modifier = modifier,
             shape = RoundedCornerShape(18.dp),
-            border = BorderStroke(1.dp, ArcadeTheme.colors.controlBorder),
+            border = BorderStroke(1.dp, borderOverride ?: ArcadeTheme.colors.controlBorder),
             colors = ButtonDefaults.outlinedButtonColors(
                 containerColor = ArcadeTheme.colors.controlSurface,
                 contentColor = ArcadeTheme.colors.textPrimary,
