@@ -1,9 +1,8 @@
 # Gradle
-.gradle/
+
 build/
 **/build/
-gradle-app.setting
-!gradle-wrapper.jar
+
 
 # Android
 local.properties
