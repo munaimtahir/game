@@ -52,6 +52,19 @@ data class ArcadeExtendedColors(
     val background: Color,
     val cardBackground: Color,
     val elevatedCardBackground: Color,
+    // Gameplay tokens
+    val gameBackground: Color,
+    val gameBoard: Color,
+    val gameBoardRaised: Color,
+    val hudCard: Color,
+    val hudBorder: Color,
+    val controlSurface: Color,
+    val controlBorder: Color,
+    val primaryCyan: Color,
+    val primaryOnCyan: Color,
+    val accentViolet: Color,
+    val dangerCoral: Color,
+    val pickupMint: Color,
 )
 
 val LocalArcadeExtendedColors = staticCompositionLocalOf {
@@ -74,6 +87,18 @@ val LocalArcadeExtendedColors = staticCompositionLocalOf {
         background = PremiumBackground,
         cardBackground = PremiumSurface,
         elevatedCardBackground = PremiumCard,
+        gameBackground = Color(0xFF07111E),
+        gameBoard = Color(0xFF0D1726),
+        gameBoardRaised = Color(0xFF122039),
+        hudCard = Color(0xFF132033),
+        hudBorder = Color(0xFF2E4668),
+        controlSurface = Color(0xFF101B2D),
+        controlBorder = Color(0xFF3A4F73),
+        primaryCyan = Color(0xFF38E8FF),
+        primaryOnCyan = Color(0xFF06121D),
+        accentViolet = Color(0xFF8B5CF6),
+        dangerCoral = Color(0xFFFF4D6D),
+        pickupMint = Color(0xFF22F59C),
     )
 }
 
@@ -158,6 +183,18 @@ private fun premiumExtendedColors(reducedEffects: Boolean): ArcadeExtendedColors
         background = PremiumBackground,
         cardBackground = PremiumSurface,
         elevatedCardBackground = PremiumCard,
+        gameBackground = Color(0xFF07111E),
+        gameBoard = Color(0xFF0D1726),
+        gameBoardRaised = Color(0xFF122039),
+        hudCard = Color(0xFF132033),
+        hudBorder = Color(0xFF2E4668),
+        controlSurface = Color(0xFF101B2D),
+        controlBorder = Color(0xFF3A4F73),
+        primaryCyan = Color(0xFF38E8FF),
+        primaryOnCyan = Color(0xFF06121D),
+        accentViolet = Color(0xFF8B5CF6),
+        dangerCoral = Color(0xFFFF4D6D),
+        pickupMint = Color(0xFF22F59C),
     )
 }
 

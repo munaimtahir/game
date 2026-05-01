@@ -140,7 +140,7 @@ fun StackDropScreen(
         )
     }
 
-    val surfaceVariant = ArcadeTheme.colors.cardBackground
+    val colors = ArcadeTheme.colors
     val spacing = ArcadeTheme.spacing
 
     val handleAction: (ArcadeGestureAction) -> Unit = { action ->
@@ -195,7 +195,7 @@ fun StackDropScreen(
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     PremiumButton(label = "◀", onClick = { handleAction(ArcadeGestureAction.SwipeLeft) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(end=4.dp))
-                    PremiumButton(label = "Rotate", onClick = { handleAction(ArcadeGestureAction.Tap) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1.5f).padding(horizontal=4.dp))
+                    PremiumButton(label = "Rot", onClick = { handleAction(ArcadeGestureAction.Tap) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(horizontal=4.dp))
                     PremiumButton(label = "▼", onClick = { handleAction(ArcadeGestureAction.SwipeDown) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(horizontal=4.dp))
                     PremiumButton(label = "▶", onClick = { handleAction(ArcadeGestureAction.SwipeRight) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(start=4.dp))
                 }
@@ -218,9 +218,9 @@ fun StackDropScreen(
                     subtitle = "One more clean clear is only a tap away.",
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Score", state.score.toString(), valueColor = ArcadeTheme.colors.reward)
-                        StatRow("Lines", state.linesCleared.toString(), valueColor = ArcadeTheme.colors.success)
-                        StatRow("Coins earned", (state.linesCleared * 4 + state.score / 40).toString(), valueColor = ArcadeTheme.colors.reward)
+                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
+                        StatRow("Lines", state.linesCleared.toString(), valueColor = colors.success)
+                        StatRow("Coins earned", (state.linesCleared * 4 + state.score / 40).toString(), valueColor = colors.reward)
                         PremiumButton(
                             label = "Retry instantly",
                             onClick = ::restart,
@@ -250,7 +250,7 @@ fun StackDropScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .clipToBounds()
-                .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(28.dp))
+                .background(colors.gameBoard, RoundedCornerShape(28.dp))
                 .padding(12.dp)
         ) {
             Canvas(
@@ -272,7 +272,7 @@ fun StackDropScreen(
                         val color = when {
                             activeColor != 0 -> Color(activeColor)
                             baseColor != 0 -> Color(baseColor)
-                            else -> surfaceVariant
+                            else -> colors.gameBoardRaised
                         }
                         drawRect(color = color, topLeft = Offset(x * cellWidth + 2f, y * cellHeight + 2f), size = Size(cellWidth - 4f, cellHeight - 4f))
                     }

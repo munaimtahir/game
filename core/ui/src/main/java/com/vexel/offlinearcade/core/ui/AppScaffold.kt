@@ -139,7 +139,7 @@ fun GameplayScaffold(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(ArcadeTheme.colors.shellGradient)
+            .background(ArcadeTheme.colors.gameBackground)
             .windowInsetsPadding(WindowInsets.safeDrawing)
     ) {
         Column(
@@ -164,7 +164,7 @@ fun GameplayScaffold(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.Black.copy(alpha = 0.7f)),
+                    .background(Color.Black.copy(alpha = 0.75f)),
                 contentAlignment = Alignment.Center
             ) {
                 overlay()
@@ -242,8 +242,9 @@ fun PremiumButton(
             enabled = enabled,
             modifier = modifier,
             shape = RoundedCornerShape(18.dp),
-            border = BorderStroke(1.dp, Brush.linearGradient(listOf(ArcadeTheme.colors.outlineMuted, MaterialTheme.colorScheme.secondary))),
+            border = BorderStroke(1.dp, ArcadeTheme.colors.controlBorder),
             colors = ButtonDefaults.outlinedButtonColors(
+                containerColor = ArcadeTheme.colors.controlSurface,
                 contentColor = ArcadeTheme.colors.textPrimary,
                 disabledContentColor = ArcadeTheme.colors.textMuted
             )
@@ -271,13 +272,13 @@ fun HudPill(label: String, value: String, modifier: Modifier = Modifier) {
     Surface(
         modifier = modifier,
         shape = RoundedCornerShape(20.dp),
-        color = ArcadeTheme.colors.elevatedCardBackground,
+        color = ArcadeTheme.colors.hudCard,
         tonalElevation = 0.dp,
         shadowElevation = 4.dp,
     ) {
         Column(
             modifier = Modifier
-                .border(1.dp, ArcadeTheme.colors.outlineMuted, RoundedCornerShape(20.dp))
+                .border(1.dp, ArcadeTheme.colors.hudBorder, RoundedCornerShape(20.dp))
                 .padding(horizontal = 14.dp, vertical = 10.dp),
         ) {
             Text(label.uppercase(), style = MaterialTheme.typography.labelMedium, color = ArcadeTheme.colors.textSecondary)

@@ -58,5 +58,7 @@ fun LaneDriftDetailScreen(
             onClick = onPlay,
             modifier = Modifier.fillMaxWidth().height(56.dp)
         )
+
+        androidx.compose.foundation.layout.Spacer(modifier = Modifier.height(spacing.xl))
     }
 }

@@ -169,10 +169,7 @@ fun PulseOrbitScreen(
         )
     }
 
-    val primaryContainer = MaterialTheme.colorScheme.primaryContainer
-    val primary = MaterialTheme.colorScheme.primary
-    val tertiary = MaterialTheme.colorScheme.tertiary
-    val surface = MaterialTheme.colorScheme.surface
+    val colors = ArcadeTheme.colors
     
     GameplayScaffold(
         modifier = Modifier.testTag(ArcadeTestTags.PulseOrbitScreen),
@@ -207,9 +204,9 @@ fun PulseOrbitScreen(
                     subtitle = "One more clean sequence is only a tap away.",
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Score", state.score.toString(), valueColor = ArcadeTheme.colors.reward)
-                        StatRow("Best combo", state.bestCombo.toString(), valueColor = ArcadeTheme.colors.success)
-                        StatRow("Coins earned", (state.score + state.bestCombo).toString(), valueColor = ArcadeTheme.colors.reward)
+                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
+                        StatRow("Best combo", state.bestCombo.toString(), valueColor = colors.success)
+                        StatRow("Coins earned", (state.score + state.bestCombo).toString(), valueColor = colors.reward)
                         PremiumButton(
                             label = "Retry instantly",
                             onClick = ::restart,
@@ -227,7 +224,7 @@ fun PulseOrbitScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .testTag(ArcadeTestTags.PulseOrbitBoard)
-                .background(surface, RoundedCornerShape(28.dp))
+                .background(colors.gameBoard, RoundedCornerShape(28.dp))
                 .clickable {
                     if (state.paused || state.gameOver) return@clickable
                     if (!state.playing) {
@@ -266,9 +263,13 @@ fun PulseOrbitScreen(
                 val center = Offset(size.width / 2f, size.height / 2f)
                 val ringStroke = radius * 0.22f
                 val topLeft = Offset(center.x - radius, center.y - radius)
-                drawCircle(color = primaryContainer, radius = radius * 0.42f, center = center)
+                
+                // Central core
+                drawCircle(color = colors.gameBoardRaised, radius = radius * 0.42f, center = center)
+                
+                // Ring
                 drawArc(
-                    color = primary,
+                    color = colors.primaryCyan,
                     startAngle = state.gapCenterAngle + state.gapSize / 2f,
                     sweepAngle = 360f - state.gapSize,
                     useCenter = false,
@@ -276,12 +277,14 @@ fun PulseOrbitScreen(
                     size = Size(radius * 2f, radius * 2f),
                     style = Stroke(width = ringStroke, cap = StrokeCap.Round),
                 )
+                
+                // Orb
                 val orbAngleRadians = state.orbitAngle * (PI / 180f).toFloat()
                 val orbCenter = Offset(
                     x = center.x + cos(orbAngleRadians).toFloat() * radius,
                     y = center.y + sin(orbAngleRadians).toFloat() * radius,
                 )
-                drawCircle(color = tertiary, radius = ringStroke * 0.48f, center = orbCenter)
+                drawCircle(color = colors.accentViolet, radius = ringStroke * 0.48f, center = orbCenter)
             }
 
             Column(
@@ -294,12 +297,12 @@ fun PulseOrbitScreen(
                 if (state.playing && state.combo > 0) {
                     PremiumBadge(
                         text = if (state.combo % PulseOrbitTuning.comboBonusEvery == 0) "Perfect timing" else "Clean timing",
-                        color = ArcadeTheme.colors.pulseAccent,
+                        color = colors.pulseAccent,
                     )
                 }
                 Text(
                     state.feedback,
-                    color = ArcadeTheme.colors.textSecondary,
+                    color = colors.textSecondary,
                     style = MaterialTheme.typography.bodyMedium
                 )
             }

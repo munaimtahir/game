@@ -262,12 +262,7 @@ fun LaneDriftScreen(
         )
     }
 
-    val surface = ArcadeTheme.colors.cardBackground
-    val primaryContainer = ArcadeTheme.colors.elevatedCardBackground
-    val surfaceVariant = ArcadeTheme.colors.cardBackground
-    val tertiary = ArcadeTheme.colors.danger
-    val secondary = ArcadeTheme.colors.success
-    val primary = ArcadeTheme.colors.laneAccent
+    val colors = ArcadeTheme.colors
 
     GameplayScaffold(
         modifier = Modifier.testTag(ArcadeTestTags.LaneDriftScreen),
@@ -289,7 +284,7 @@ fun LaneDriftScreen(
                     Text(
                         text = state.message,
                         style = MaterialTheme.typography.labelMedium,
-                        color = ArcadeTheme.colors.textSecondary
+                        color = colors.textSecondary
                     )
                 }
             }
@@ -311,9 +306,9 @@ fun LaneDriftScreen(
                     subtitle = "Keep the lane read tight and go again.",
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Score", state.score.toString(), valueColor = ArcadeTheme.colors.reward)
-                        StatRow("Pickups", state.pickups.toString(), valueColor = ArcadeTheme.colors.success)
-                        StatRow("Coins earned", (state.pickups * 3 + state.score / 20).toString(), valueColor = ArcadeTheme.colors.reward)
+                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
+                        StatRow("Pickups", state.pickups.toString(), valueColor = colors.success)
+                        StatRow("Coins earned", (state.pickups * 3 + state.score / 20).toString(), valueColor = colors.reward)
                         PremiumButton(
                             label = "Retry instantly",
                             onClick = ::restart,
@@ -335,7 +330,7 @@ fun LaneDriftScreen(
                 .semantics {
                     stateDescription = "lane=${state.lane};playing=${state.playing};items=${state.items.size}"
                 }
-                .background(surface, RoundedCornerShape(28.dp)),
+                .background(colors.gameBoard, RoundedCornerShape(28.dp)),
         ) {
             Canvas(
                 modifier = Modifier
@@ -355,7 +350,7 @@ fun LaneDriftScreen(
                 val laneWidth = size.width / 3f
                 repeat(3) { lane ->
                     drawRoundRect(
-                        color = if (lane == state.lane) primaryContainer else surfaceVariant,
+                        color = if (lane == state.lane) colors.hudCard else colors.gameBoardRaised,
                         topLeft = Offset(laneWidth * lane + 8f, 0f),
                         size = Size(laneWidth - 16f, size.height),
                         cornerRadius = CornerRadius(28f, 28f),
@@ -366,7 +361,7 @@ fun LaneDriftScreen(
                     val top = size.height * item.y
                     val left = laneWidth * item.lane + laneWidth * 0.2f
                     drawRoundRect(
-                        color = if (item.type == DriftItemType.BLOCKER) tertiary else secondary,
+                        color = if (item.type == DriftItemType.BLOCKER) colors.dangerCoral else colors.pickupMint,
                         topLeft = Offset(left, top),
                         size = Size(
                             laneWidth * if (item.type == DriftItemType.BLOCKER) 0.56f else 0.42f,
@@ -382,19 +377,19 @@ fun LaneDriftScreen(
                 val playerHeight = 84f
                 
                 drawRoundRect(
-                    color = primary.copy(alpha = 0.25f),
+                    color = colors.primaryCyan.copy(alpha = 0.35f),
                     topLeft = Offset(playerLeft - 8f, playerTop + 16f),
                     size = Size(playerWidth + 16f, playerHeight),
                     cornerRadius = CornerRadius(34f, 34f),
                 )
                 drawRoundRect(
-                    color = primary,
+                    color = colors.primaryCyan,
                     topLeft = Offset(playerLeft, playerTop),
                     size = Size(playerWidth, playerHeight),
                     cornerRadius = CornerRadius(26f, 26f),
                 )
                 drawRoundRect(
-                    color = Color.White.copy(alpha = 0.6f),
+                    color = Color.White.copy(alpha = 0.8f),
                     topLeft = Offset(playerLeft + 6f, playerTop + 6f),
                     size = Size(playerWidth - 12f, playerHeight - 12f),
                     cornerRadius = CornerRadius(20f, 20f),
