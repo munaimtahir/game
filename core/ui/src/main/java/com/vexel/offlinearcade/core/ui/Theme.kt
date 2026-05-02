@@ -1,34 +1,64 @@
 package com.vexel.offlinearcade.core.ui
 
+import android.app.Activity
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.view.WindowCompat
 
-// Clean Modern Light Palette
-private val LightBackground = Color(0xFFF8FAFC) // Slate 50
-private val LightSurface = Color(0xFFFFFFFF) // White
-private val LightCard = Color(0xFFF1F5F9) // Slate 100
-private val LightAction = Color(0xFF0EA5E9) // Cyan 600
-private val LightAccent = Color(0xFF8B5CF6) // Violet 500
-private val LightReward = Color(0xFFF59E0B) // Amber 500
-private val LightDanger = Color(0xFFEF4444) // Red 500
-private val LightSuccess = Color(0xFF10B981) // Emerald 500
-private val LightCobalt = Color(0xFF3B82F6) // Blue 500
+// Soft Arcade Light Baseline - Refined
+private val LightBackground = Color(0xFFF8FAF7)
+private val LightSurface = Color(0xFFFFFFFF)
+private val LightSurfaceContainer = Color(0xFFEEF4F2)
+private val LightSurfaceVariant = Color(0xFFE4EEEC)
 
-// Explicit text colors for Light Mode
-private val TextPrimary = Color(0xFF0F172A) // Slate 900
-private val TextSecondary = Color(0xFF475569) // Slate 600
-private val TextMuted = Color(0xFF94A3B8) // Slate 400
-private val OutlineColor = Color(0xFFE2E8F0) // Slate 200
+private val LightPrimary = Color(0xFF236A76)
+private val LightOnPrimary = Color(0xFFFFFFFF)
+private val LightPrimaryContainer = Color(0xFFD7F0F2)
+private val LightOnPrimaryContainer = Color(0xFF0B3B45)
+
+private val LightSecondary = Color(0xFF695AA8)
+private val LightOnSecondary = Color(0xFFFFFFFF)
+private val LightSecondaryContainer = Color(0xFFE9E3FF)
+private val LightOnSecondaryContainer = Color(0xFF2F245C)
+
+private val LightTertiary = Color(0xFF9C5A27)
+private val LightOnTertiary = Color(0xFFFFFFFF)
+private val LightTertiaryContainer = Color(0xFFFFE1C7)
+private val LightOnTertiaryContainer = Color(0xFF3B1E08)
+
+private val LightTextPrimary = Color(0xFF17252B)
+private val LightTextSecondary = Color(0xFF4B5D63)
+private val LightOutline = Color(0xFF6E8187)
+private val LightOutlineVariant = Color(0xFFC9D7DA)
+
+// Gameplay
+private val LightGameBackground = Color(0xFFF3F8F6)
+private val LightGameSurface = Color(0xFFFFFFFF)
+private val LightGameTrack = Color(0xFFD9EAE8)
+private val LightGameGrid = Color(0xFFC7DBD8)
+private val LightGameGuideLine = Color(0xFF9BB7B3)
+private val LightPlayer = Color(0xFF236A76)
+private val LightPlayerAccent = Color(0xFF49A6B4)
+private val LightCollectible = Color(0xFFD99A20)
+private val LightCollectibleSoft = Color(0xFFFFE3A3)
+private val LightHazard = Color(0xFFB94E4E)
+private val LightHazardSoft = Color(0xFFFFD8D8)
+private val LightSuccessPulse = Color(0xFF2E7D5B)
+private val LightScoreText = Color(0xFF17252B)
+private val LightMutedText = Color(0xFF4B5D63)
 
 @Immutable
 data class ArcadeExtendedColors(
@@ -47,7 +77,6 @@ data class ArcadeExtendedColors(
     val textPrimary: Color,
     val textSecondary: Color,
     val textMuted: Color,
-    val textInverse: Color,
     val background: Color,
     val cardBackground: Color,
     val elevatedCardBackground: Color,
@@ -71,49 +100,50 @@ data class ArcadeExtendedColors(
     val collectible: Color,
     val gameBoardInner: Color,
     val gridLine: Color,
+    val textInverse: Color,
 )
 
-val LocalArcadeExtendedColors = staticCompositionLocalOf {
-    ArcadeExtendedColors(
-        shellGradient = Brush.verticalGradient(listOf(LightBackground, LightSurface)),
-        panelGradient = Brush.linearGradient(listOf(LightSurface, LightCard)),
-        heroGradient = Brush.linearGradient(listOf(LightAccent, LightAction)),
-        pulseAccent = LightAccent,
-        laneAccent = LightAction,
-        stackAccent = LightCobalt,
-        reward = LightReward,
-        success = LightSuccess,
-        danger = LightDanger,
-        premium = LightAccent,
-        outlineMuted = OutlineColor,
-        glow = LightAction.copy(alpha = 0.08f),
-        textPrimary = TextPrimary,
-        textSecondary = TextSecondary,
-        textMuted = TextMuted,
-        textInverse = Color.White,
-        background = LightBackground,
-        cardBackground = LightSurface,
-        elevatedCardBackground = LightCard,
-        gameBackground = Color(0xFFF1F5F9),
-        gameBoard = Color(0xFFFFFFFF),
-        gameBoardRaised = Color(0xFFF8FAFC),
-        hudCard = Color(0xFFE2E8F0),
-        hudBorder = Color(0xFFCBD5E1),
-        controlSurface = Color(0xFFFFFFFF),
-        controlBorder = Color(0xFFCBD5E1),
-        primaryCyan = Color(0xFF0891B2),
-        primaryOnCyan = Color.White,
-        accentViolet = Color(0xFF7C3AED),
-        dangerCoral = Color(0xFFE11D48),
-        pickupMint = Color(0xFF059669),
-        overlayScrim = Color.Black.copy(alpha = 0.45f),
-        player = Color(0xFF0891B2),
-        playerAccent = Color(0xFF0EA5E9),
-        collectible = Color(0xFF059669),
-        gameBoardInner = Color(0xFFFFFFFF),
-        gridLine = Color(0xFFCBD5E1),
-    )
-}
+private val SoftArcadeLightExtendedColors = ArcadeExtendedColors(
+    shellGradient = Brush.verticalGradient(listOf(LightBackground, LightSurfaceContainer)),
+    panelGradient = Brush.linearGradient(listOf(LightSurface, LightSurfaceContainer)),
+    heroGradient = Brush.linearGradient(listOf(LightSecondary, LightPrimary)),
+    pulseAccent = LightSecondary,
+    laneAccent = LightPrimary,
+    stackAccent = LightTertiary,
+    reward = LightCollectible,
+    success = LightSuccessPulse,
+    danger = LightHazard,
+    premium = LightSecondary,
+    outlineMuted = LightOutlineVariant,
+    glow = LightPrimary.copy(alpha = 0.10f),
+    textPrimary = LightTextPrimary,
+    textSecondary = LightTextSecondary,
+    textMuted = LightMutedText,
+    background = LightBackground,
+    cardBackground = LightSurfaceContainer,
+    elevatedCardBackground = LightSurface,
+    gameBackground = LightGameBackground,
+    gameBoard = LightGameTrack,
+    gameBoardRaised = LightSurfaceContainer,
+    hudCard = LightSurface,
+    hudBorder = LightOutlineVariant,
+    controlSurface = LightSurface,
+    controlBorder = LightOutline,
+    primaryCyan = LightPlayer,
+    primaryOnCyan = LightOnPrimary,
+    accentViolet = LightSecondary,
+    dangerCoral = LightHazard,
+    pickupMint = LightSuccessPulse,
+    overlayScrim = Color.Black.copy(alpha = 0.35f),
+    player = LightPlayer,
+    playerAccent = LightPlayerAccent,
+    collectible = LightCollectible,
+    gameBoardInner = LightGameSurface,
+    gridLine = LightGameGrid,
+    textInverse = Color.White,
+)
+
+val LocalArcadeExtendedColors = staticCompositionLocalOf { SoftArcadeLightExtendedColors }
 
 @Immutable
 data class ArcadeSpacing(
@@ -140,87 +170,62 @@ private val PremiumTypography = Typography(
     labelMedium = TextStyle(fontSize = 12.sp, lineHeight = 16.sp, fontWeight = FontWeight.SemiBold, letterSpacing = 0.3.sp),
 )
 
-private fun premiumColorScheme(highContrast: Boolean): androidx.compose.material3.ColorScheme {
+private fun getThemeColorScheme(themeId: String, highContrast: Boolean): androidx.compose.material3.ColorScheme {
+    // Aligning with user request to explicitly use themeId logic
+    val baseBackground = when (themeId) {
+        "sunset_shift" -> LightBackground
+        "ice_grid" -> LightBackground
+        else -> LightBackground
+    }
+
     return lightColorScheme(
-        primary = LightAction,
-        onPrimary = Color.White,
-        primaryContainer = LightCard,
-        onPrimaryContainer = TextPrimary,
-        secondary = LightAccent,
-        onSecondary = Color.White,
-        secondaryContainer = LightSurface,
-        onSecondaryContainer = TextPrimary,
-        tertiary = LightCobalt,
-        onTertiary = Color.White,
-        tertiaryContainer = LightSurface,
-        onTertiaryContainer = TextPrimary,
-        background = LightBackground,
-        onBackground = TextPrimary,
+        primary = LightPrimary,
+        onPrimary = LightOnPrimary,
+        primaryContainer = LightPrimaryContainer,
+        onPrimaryContainer = LightOnPrimaryContainer,
+        secondary = LightSecondary,
+        onSecondary = LightOnSecondary,
+        secondaryContainer = LightSecondaryContainer,
+        onSecondaryContainer = LightOnSecondaryContainer,
+        tertiary = LightTertiary,
+        onTertiary = LightOnTertiary,
+        tertiaryContainer = LightTertiaryContainer,
+        onTertiaryContainer = LightOnTertiaryContainer,
+        background = baseBackground,
+        onBackground = LightTextPrimary,
         surface = LightSurface,
-        onSurface = TextPrimary,
-        surfaceVariant = LightCard,
-        onSurfaceVariant = if (highContrast) TextPrimary else TextSecondary,
-        error = LightDanger,
+        onSurface = LightTextPrimary,
+        surfaceVariant = LightSurfaceVariant,
+        onSurfaceVariant = if (highContrast) Color.Black else LightTextSecondary,
+        error = LightHazard,
         onError = Color.White,
-        errorContainer = Color(0xFFFEE2E2),
-        onErrorContainer = Color(0xFF991B1B),
-        outline = if (highContrast) TextSecondary else OutlineColor,
-        outlineVariant = OutlineColor,
-        scrim = Color.Black.copy(alpha = 0.4f),
+        outline = if (highContrast) Color.Black else LightOutline,
+        outlineVariant = LightOutlineVariant,
+        scrim = Color.Black.copy(alpha = 0.35f),
     )
 }
 
-private fun premiumExtendedColors(reducedEffects: Boolean): ArcadeExtendedColors {
-    return ArcadeExtendedColors(
-        shellGradient = Brush.verticalGradient(
-            colors = if (reducedEffects) listOf(LightBackground, LightBackground) else listOf(Color(0xFFF8FAFC), LightBackground, LightSurface),
-        ),
-        panelGradient = Brush.linearGradient(
-            colors = if (reducedEffects) listOf(LightSurface, LightSurface) else listOf(LightSurface, LightCard),
-        ),
-        heroGradient = Brush.linearGradient(
-            colors = if (reducedEffects) listOf(LightAccent, LightAction) else listOf(LightAccent, LightAction, LightAccent.copy(alpha = 0.8f)),
-        ),
-        pulseAccent = LightAccent,
-        laneAccent = LightAction,
-        stackAccent = LightCobalt,
-        reward = LightCollectible,
-        success = LightSuccess,
-        danger = LightHazard,
-        premium = LightAccent,
-        outlineMuted = OutlineColor,
-        glow = if (reducedEffects) Color.Transparent else LightAction.copy(alpha = 0.08f),
-        textPrimary = TextPrimary,
-        textSecondary = TextSecondary,
-        textMuted = TextMuted,
-        textInverse = Color.White,
-        background = LightBackground,
-        cardBackground = LightSurface,
-        elevatedCardBackground = LightCard,
-        gameBackground = Color(0xFFF1F5F9),
-        gameBoard = Color(0xFFFFFFFF),
-        gameBoardRaised = Color(0xFFF8FAFC),
-        hudCard = Color(0xFFE2E8F0),
-        hudBorder = Color(0xFFCBD5E1),
-        controlSurface = Color(0xFFFFFFFF),
-        controlBorder = Color(0xFFCBD5E1),
-        primaryCyan = Color(0xFF0891B2),
-        primaryOnCyan = Color.White,
-        accentViolet = Color(0xFF7C3AED),
-        dangerCoral = Color(0xFFE11D48),
-        pickupMint = Color(0xFF059669),
-        overlayScrim = Color.Black.copy(alpha = 0.45f),
-        player = Color(0xFF0891B2),
-        playerAccent = Color(0xFF0EA5E9),
-        collectible = Color(0xFF059669),
-        gameBoardInner = Color(0xFFFFFFFF),
-        gridLine = Color(0xFFCBD5E1),
-    )
-}
+private fun getExtendedColors(themeId: String, reducedEffects: Boolean): ArcadeExtendedColors {
+    val base = when (themeId) {
+        "sunset_shift" -> SoftArcadeLightExtendedColors.copy(
+            heroGradient = Brush.linearGradient(listOf(LightSecondary, LightCollectible))
+        )
+        "ice_grid" -> SoftArcadeLightExtendedColors.copy(
+            heroGradient = Brush.linearGradient(listOf(LightPlayerAccent, LightPrimary))
+        )
+        else -> SoftArcadeLightExtendedColors
+    }
 
-// Fallback colors for compilation
-private val LightCollectible = Color(0xFFF59E0B)
-private val LightHazard = Color(0xFFEF4444)
+    return if (reducedEffects) {
+        base.copy(
+            shellGradient = Brush.verticalGradient(listOf(LightBackground, LightBackground)),
+            panelGradient = Brush.linearGradient(listOf(LightSurface, LightSurface)),
+            glow = Color.Transparent
+        )
+    } else {
+        base
+    }
+}
 
 @Composable
 fun OfflineMiniArcadeTheme(
@@ -229,8 +234,20 @@ fun OfflineMiniArcadeTheme(
     reducedEffects: Boolean = false,
     content: @Composable () -> Unit,
 ) {
-    val colorScheme = premiumColorScheme(highContrast = highContrast)
-    val extendedColors = premiumExtendedColors(reducedEffects = reducedEffects)
+    val colorScheme = getThemeColorScheme(themeId, highContrast)
+    val extendedColors = getExtendedColors(themeId, reducedEffects)
+    
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            window.statusBarColor = colorScheme.background.toArgb()
+            window.navigationBarColor = colorScheme.background.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
+            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = true
+        }
+    }
+
     androidx.compose.runtime.CompositionLocalProvider(
         LocalArcadeExtendedColors provides extendedColors,
         LocalArcadeSpacing provides ArcadeSpacing(),
