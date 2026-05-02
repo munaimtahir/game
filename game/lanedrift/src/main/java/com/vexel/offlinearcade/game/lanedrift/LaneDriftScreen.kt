@@ -264,6 +264,45 @@ fun LaneDriftScreen(
 
     val colors = ArcadeTheme.colors
 
+    val overlayContent: (@Composable () -> Unit)? = when {
+        state.paused -> {
+            {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or restart.") {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString())
+                        StatRow("Pickups", state.pickups.toString())
+                        PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
+        state.gameOver -> {
+            {
+                PremiumOverlayCard(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New drift record" else "Run complete",
+                    subtitle = "Keep the lane read tight and go again.",
+                ) {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
+                        StatRow("Pickups", state.pickups.toString(), valueColor = colors.success)
+                        StatRow("Coins earned", (state.pickups * 3 + state.score / 20).toString(), valueColor = colors.reward)
+                        PremiumButton(
+                            label = "Retry instantly",
+                            onClick = ::restart,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag(ArcadeTestTags.LaneDriftStartButton),
+                        )
+                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
+        else -> null
+    }
+
     GameplayScaffold(
         modifier = Modifier.testTag(ArcadeTestTags.LaneDriftScreen),
         topBar = {
@@ -289,38 +328,7 @@ fun LaneDriftScreen(
                 }
             }
         },
-        overlay = {
-            if (state.paused) {
-                PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or restart.") {
-                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Score", state.score.toString())
-                        StatRow("Pickups", state.pickups.toString())
-                        PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
-                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                    }
-                }
-            } else if (state.gameOver) {
-                PremiumOverlayCard(
-                    title = if (state.score > (stats?.highScore ?: 0)) "New drift record" else "Run complete",
-                    subtitle = "Keep the lane read tight and go again.",
-                ) {
-                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
-                        StatRow("Pickups", state.pickups.toString(), valueColor = colors.success)
-                        StatRow("Coins earned", (state.pickups * 3 + state.score / 20).toString(), valueColor = colors.reward)
-                        PremiumButton(
-                            label = "Retry instantly",
-                            onClick = ::restart,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .testTag(ArcadeTestTags.LaneDriftStartButton),
-                        )
-                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                    }
-                }
-            }
-        }
+        overlay = overlayContent,
     ) {
         Box(
             modifier = Modifier
@@ -389,7 +397,7 @@ fun LaneDriftScreen(
                     cornerRadius = CornerRadius(26f, 26f),
                 )
                 drawRoundRect(
-                    color = Color.White.copy(alpha = 0.8f),
+                    color = colors.textInverse.copy(alpha = 0.84f),
                     topLeft = Offset(playerLeft + 6f, playerTop + 6f),
                     size = Size(playerWidth - 12f, playerHeight - 12f),
                     cornerRadius = CornerRadius(20f, 20f),

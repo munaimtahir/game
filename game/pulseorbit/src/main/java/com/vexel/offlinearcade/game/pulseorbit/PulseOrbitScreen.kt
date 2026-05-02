@@ -170,26 +170,10 @@ fun PulseOrbitScreen(
     }
 
     val colors = ArcadeTheme.colors
-    
-    GameplayScaffold(
-        modifier = Modifier.testTag(ArcadeTestTags.PulseOrbitScreen),
-        topBar = {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    HudPill("Score", state.score.toString())
-                    HudPill("Combo", state.combo.toString())
-                }
-                PremiumButton(
-                    label = if (state.paused) "Resume" else "Pause",
-                    onClick = ::togglePause,
-                    style = ArcadeButtonStyle.Secondary,
-                    enabled = state.playing || state.paused,
-                    borderOverride = colors.accentViolet,
-                )
-            }
-        },
-        overlay = {
-            if (state.paused) {
+
+    val overlayContent: (@Composable () -> Unit)? = when {
+        state.paused -> {
+            {
                 PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or reset the loop.") {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                         StatRow("Score", state.score.toString())
@@ -199,7 +183,10 @@ fun PulseOrbitScreen(
                         PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
                 }
-            } else if (state.gameOver) {
+            }
+        }
+        state.gameOver -> {
+            {
                 PremiumOverlayCard(
                     title = if (state.score > (stats?.highScore ?: 0)) "New best rhythm" else "Run complete",
                     subtitle = "One more clean sequence is only a tap away.",
@@ -220,6 +207,27 @@ fun PulseOrbitScreen(
                 }
             }
         }
+        else -> null
+    }
+    
+    GameplayScaffold(
+        modifier = Modifier.testTag(ArcadeTestTags.PulseOrbitScreen),
+        topBar = {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    HudPill("Score", state.score.toString())
+                    HudPill("Combo", state.combo.toString())
+                }
+                PremiumButton(
+                    label = if (state.paused) "Resume" else "Pause",
+                    onClick = ::togglePause,
+                    style = ArcadeButtonStyle.Secondary,
+                    enabled = state.playing || state.paused,
+                    borderOverride = colors.accentViolet,
+                )
+            }
+        },
+        overlay = overlayContent,
     ) {
         Box(
             modifier = Modifier

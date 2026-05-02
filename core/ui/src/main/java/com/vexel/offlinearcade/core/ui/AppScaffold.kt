@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -37,6 +39,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -62,19 +65,29 @@ fun ArcadeScaffold(
     title: String,
     onBack: (() -> Unit)? = null,
     scrollable: Boolean = true,
+    resetScrollOnEnter: Boolean = false,
     screenTestTag: String? = null,
     actions: @Composable (() -> Unit) = {},
     content: @Composable () -> Unit,
 ) {
     val spacing = ArcadeTheme.spacing
+    val scrollState = rememberScrollState()
+    if (scrollable && resetScrollOnEnter) {
+        LaunchedEffect(title) {
+            scrollState.scrollTo(0)
+        }
+    }
+    val safeBodyInsets = WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom)
     val bodyModifier = if (scrollable) {
         Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())
+            .verticalScroll(scrollState)
+            .windowInsetsPadding(safeBodyInsets)
             .padding(horizontal = spacing.lg, vertical = spacing.md)
     } else {
         Modifier
             .fillMaxSize()
+            .windowInsetsPadding(safeBodyInsets)
             .padding(horizontal = spacing.lg, vertical = spacing.md)
     }
     Scaffold(
@@ -102,17 +115,13 @@ fun ArcadeScaffold(
             )
         },
     ) { padding ->
+        val colors = ArcadeTheme.colors
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(ArcadeTheme.colors.shellGradient)
+                .background(colors.background)
                 .padding(padding),
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(ArcadeTheme.colors.glow),
-            )
             Column(
                 modifier = if (screenTestTag != null) {
                     bodyModifier.testTag(screenTestTag)
@@ -136,10 +145,11 @@ fun GameplayScaffold(
     content: @Composable () -> Unit,
 ) {
     val spacing = ArcadeTheme.spacing
+    val colors = ArcadeTheme.colors
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(ArcadeTheme.colors.gameBackground)
+            .background(colors.gameBackground)
             .windowInsetsPadding(WindowInsets.safeDrawing)
     ) {
         Column(
@@ -164,7 +174,7 @@ fun GameplayScaffold(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.Black.copy(alpha = 0.75f)),
+                    .background(colors.overlayScrim.copy(alpha = 0.56f)),
                 contentAlignment = Alignment.Center
             ) {
                 overlay()
@@ -219,8 +229,9 @@ fun PremiumButton(
     enabled: Boolean = true,
     borderOverride: Color? = null,
 ) {
+    val colors = ArcadeTheme.colors
     val containerColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.primary else Color.Transparent
-    val contentColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.onPrimary else ArcadeTheme.colors.textPrimary
+    val contentColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.onPrimary else colors.textPrimary
 
     when (style) {
         ArcadeButtonStyle.Primary -> Button(
@@ -231,8 +242,8 @@ fun PremiumButton(
             colors = ButtonDefaults.buttonColors(
                 containerColor = containerColor,
                 contentColor = contentColor,
-                disabledContainerColor = ArcadeTheme.colors.cardBackground,
-                disabledContentColor = ArcadeTheme.colors.textMuted,
+                disabledContainerColor = colors.cardBackground,
+                disabledContentColor = colors.textMuted,
             ),
         ) {
             Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)
@@ -243,11 +254,11 @@ fun PremiumButton(
             enabled = enabled,
             modifier = modifier,
             shape = RoundedCornerShape(18.dp),
-            border = BorderStroke(1.dp, borderOverride ?: ArcadeTheme.colors.controlBorder),
+            border = BorderStroke(1.dp, borderOverride ?: colors.controlBorder),
             colors = ButtonDefaults.outlinedButtonColors(
-                containerColor = ArcadeTheme.colors.controlSurface,
-                contentColor = ArcadeTheme.colors.textPrimary,
-                disabledContentColor = ArcadeTheme.colors.textMuted
+                containerColor = colors.controlSurface,
+                contentColor = colors.textPrimary,
+                disabledContentColor = colors.textMuted,
             )
         ) {
             Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)
@@ -260,7 +271,7 @@ fun PremiumButton(
             shape = RoundedCornerShape(18.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                contentColor = ArcadeTheme.colors.textPrimary,
+                contentColor = colors.textPrimary,
             ),
         ) {
             Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)

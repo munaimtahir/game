@@ -102,8 +102,8 @@ data class ThemeDefinition(
 object ArcadeThemeCatalog {
     val defaultTheme = ThemeDefinition(
         id = "default",
-        title = "Midnight Glow",
-        subtitle = "Premium indigo and aqua shell with restrained neon depth.",
+        title = "Calm Focus Arcade",
+        subtitle = "Soft light neutrals with vivid gameplay accents for low cognitive load.",
         coinCost = 0,
         premiumOnly = false,
     )
@@ -113,14 +113,14 @@ object ArcadeThemeCatalog {
         ThemeDefinition(
             id = "sunset_shift",
             title = "Sunset Shift",
-            subtitle = "Adds a warmer reward glow without breaking the shared midnight shell.",
+            subtitle = "Warmer reward highlights on the same calm light foundation.",
             coinCost = 120,
             premiumOnly = false,
         ),
         ThemeDefinition(
             id = "ice_grid",
             title = "Ice Grid",
-            subtitle = "Sharper cyan highlights for a colder, cleaner arcade edge.",
+            subtitle = "Crisper cyan-blue highlights for a colder, cleaner light arcade feel.",
             coinCost = 160,
             premiumOnly = false,
         ),

@@ -35,3 +35,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Local ADB screenshot artifacts
+artifacts/adb_screenshots/

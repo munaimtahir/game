@@ -98,7 +98,7 @@ fun SettingsScreen(
         ArcadeCard(accent = themeAccentBrush(selectedTheme?.id ?: "default")) {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(selectedTheme?.title ?: "Midnight Glow", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Black)
+                    Text(selectedTheme?.title ?: "Calm Focus Arcade", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Black)
                     Text("Selected Theme", color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
                 PremiumBadge(
@@ -110,22 +110,22 @@ fun SettingsScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(96.dp)
-                    .background(
-                        brush = themePreviewBrush(selectedTheme?.id ?: "default"),
-                        shape = RoundedCornerShape(22.dp),
+                .background(
+                    brush = themePreviewBrush(selectedTheme?.id ?: "default"),
+                    shape = RoundedCornerShape(22.dp),
                     ),
                 contentAlignment = Alignment.CenterStart,
             ) {
                 Text(
-                    text = "Midnight Glow Arcade",
+                    text = "Calm Focus Arcade",
                     modifier = Modifier.padding(horizontal = 18.dp),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onPrimary,
+                    color = ArcadeTheme.colors.textInverse,
                 )
             }
             Text(
-                selectedTheme?.subtitle ?: "Premium indigo and aqua shell with restrained neon depth.",
+                selectedTheme?.subtitle ?: "Soft light neutrals with vivid gameplay accents for low cognitive load.",
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
@@ -159,7 +159,7 @@ fun SettingsScreen(
             )
             StatRow("Accounts required", "No")
             StatRow("Online dependency", "None")
-            StatRow("Selected theme", selectedTheme?.title ?: "Midnight Glow")
+            StatRow("Selected theme", selectedTheme?.title ?: "Calm Focus Arcade")
         }
     }
 }
@@ -224,13 +224,13 @@ private fun ThemeChoiceCard(
 }
 
 private fun themeAccentBrush(themeId: String): Brush = when (themeId) {
-    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFF8B74FF), Color(0xFFFFA55B)))
-    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFF35D6D0), Color(0xFF5E88FF)))
-    else -> Brush.linearGradient(listOf(Color(0xFF7C5CFF), Color(0xFF35D6D0)))
+    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFF6C63FF), Color(0xFFF2B94B)))
+    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFF1CCFE2), Color(0xFF4A7DFF)))
+    else -> Brush.linearGradient(listOf(Color(0xFF6C63FF), Color(0xFF1CCFE2)))
 }
 
 private fun themePreviewBrush(themeId: String): Brush = when (themeId) {
-    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFF141B2D), Color(0xFF8B74FF), Color(0xFFFFA55B)))
-    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFF0B1020), Color(0xFF35D6D0), Color(0xFF5E88FF)))
-    else -> Brush.linearGradient(listOf(Color(0xFF0B1020), Color(0xFF7C5CFF), Color(0xFF35D6D0)))
+    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFFF7FAFD), Color(0xFF6C63FF), Color(0xFFF2B94B)))
+    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFFF7FAFD), Color(0xFF1CCFE2), Color(0xFF4A7DFF)))
+    else -> Brush.linearGradient(listOf(Color(0xFFF7FAFD), Color(0xFF6C63FF), Color(0xFF1CCFE2)))
 }

@@ -107,7 +107,7 @@ fun HomeScreen(
         ) {
             item {
                 HeroPanel(
-                    overline = "Midnight Glow Arcade",
+                    overline = "Calm Focus Arcade",
                     title = "Three games. One premium shell.",
                     subtitle = "Fast offline runs, shared progression, and instant retries without clutter.",
                     trailing = {

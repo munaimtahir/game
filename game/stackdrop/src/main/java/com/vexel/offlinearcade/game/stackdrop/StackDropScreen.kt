@@ -143,6 +143,45 @@ fun StackDropScreen(
     val colors = ArcadeTheme.colors
     val spacing = ArcadeTheme.spacing
 
+    val overlayContent: (@Composable () -> Unit)? = when {
+        paused -> {
+            {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Resume, restart, or leave the board.") {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString())
+                        StatRow("Lines", state.linesCleared.toString())
+                        PremiumButton(label = "Resume", onClick = { paused = false }, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
+        state.gameOver -> {
+            {
+                PremiumOverlayCard(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New best board" else "Run complete",
+                    subtitle = "One more clean clear is only a tap away.",
+                ) {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
+                        StatRow("Lines", state.linesCleared.toString(), valueColor = colors.success)
+                        StatRow("Coins earned", (state.linesCleared * 4 + state.score / 40).toString(), valueColor = colors.reward)
+                        PremiumButton(
+                            label = "Retry instantly",
+                            onClick = ::restart,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag(ArcadeTestTags.StackDropStartButton),
+                        )
+                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
+        else -> null
+    }
+
     val handleAction: (ArcadeGestureAction) -> Unit = { action ->
         when (action) {
             ArcadeGestureAction.Tap -> {
@@ -201,38 +240,7 @@ fun StackDropScreen(
                 }
             }
         },
-        overlay = {
-            if (paused) {
-                PremiumOverlayCard(title = "Run paused", subtitle = "Resume, restart, or leave the board.") {
-                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Score", state.score.toString())
-                        StatRow("Lines", state.linesCleared.toString())
-                        PremiumButton(label = "Resume", onClick = { paused = false }, modifier = Modifier.fillMaxWidth())
-                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                    }
-                }
-            } else if (state.gameOver) {
-                PremiumOverlayCard(
-                    title = if (state.score > (stats?.highScore ?: 0)) "New best board" else "Run complete",
-                    subtitle = "One more clean clear is only a tap away.",
-                ) {
-                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
-                        StatRow("Lines", state.linesCleared.toString(), valueColor = colors.success)
-                        StatRow("Coins earned", (state.linesCleared * 4 + state.score / 40).toString(), valueColor = colors.reward)
-                        PremiumButton(
-                            label = "Retry instantly",
-                            onClick = ::restart,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .testTag(ArcadeTestTags.StackDropStartButton),
-                        )
-                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
-                    }
-                }
-            }
-        }
+        overlay = overlayContent,
     ) {
         val activeCells = remember(state.activePiece) {
             IntArray(STACK_DROP_WIDTH * STACK_DROP_HEIGHT).also { grid ->
@@ -269,12 +277,19 @@ fun StackDropScreen(
                     for (x in 0 until STACK_DROP_WIDTH) {
                         val baseColor = state.board.get(x, y)
                         val activeColor = activeCells[y * STACK_DROP_WIDTH + x]
-                        val color = when {
+                        val fillColor = when {
                             activeColor != 0 -> Color(activeColor)
                             baseColor != 0 -> Color(baseColor)
-                            else -> colors.gameBoardRaised
+                            else -> colors.gameBoardInner
                         }
-                        drawRect(color = color, topLeft = Offset(x * cellWidth + 2f, y * cellHeight + 2f), size = Size(cellWidth - 4f, cellHeight - 4f))
+                        val topLeft = Offset(x * cellWidth + 2f, y * cellHeight + 2f)
+                        val size = Size(cellWidth - 4f, cellHeight - 4f)
+                        drawRect(color = colors.gridLine, topLeft = topLeft, size = size)
+                        drawRect(
+                            color = fillColor,
+                            topLeft = topLeft + Offset(1.5f, 1.5f),
+                            size = Size(size.width - 3f, size.height - 3f),
+                        )
                     }
                 }
             }

@@ -29,6 +29,7 @@ fun StackDropDetailScreen(
     ArcadeScaffold(
         title = "Game Info",
         onBack = onBack,
+        resetScrollOnEnter = true,
     ) {
         HeroPanel(
             overline = "Strategy & Tactics",

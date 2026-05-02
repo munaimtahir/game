@@ -31,6 +31,7 @@ fun PulseOrbitDetailScreen(
     ArcadeScaffold(
         title = "Game Info",
         onBack = onBack,
+        resetScrollOnEnter = true,
     ) {
         HeroPanel(
             overline = "Rhythm & Timing",

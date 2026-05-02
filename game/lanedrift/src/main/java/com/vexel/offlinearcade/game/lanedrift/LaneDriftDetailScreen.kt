@@ -29,6 +29,7 @@ fun LaneDriftDetailScreen(
     ArcadeScaffold(
         title = "Game Info",
         onBack = onBack,
+        resetScrollOnEnter = true,
     ) {
         HeroPanel(
             overline = "Speed & Reflexes",
