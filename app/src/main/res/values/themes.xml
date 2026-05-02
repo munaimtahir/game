@@ -1,8 +1,7 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <style name="Theme.OfflineMiniArcade" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:statusBarColor">@color/app_background</item>
         <item name="android:navigationBarColor">@color/app_background</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o">true</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

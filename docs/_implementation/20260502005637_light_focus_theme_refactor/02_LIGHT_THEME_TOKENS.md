@@ -2,7 +2,7 @@
 
 Timestamp (UTC): `20260502005637`
 
-This sprint replaces the prior midnight/dark palette with a soft light, gameplay-first system.
+This sprint replaces the prior low-luminance palette with a soft light, gameplay-first system.
 
 ## Base surfaces
 
@@ -66,17 +66,16 @@ This sprint replaces the prior midnight/dark palette with a soft light, gameplay
   - Material 3 `lightColorScheme` is now the base.
   - `ArcadeExtendedColors` contains the app/gameplay semantic tokens.
 
-## Old dark tokens replaced
+## Old tokens replaced
 
 Replaced the prior midnight palette:
 
 - `PremiumBackground` `#07090E` → `AppBackground` `#F4F8FB`
 - `PremiumSurface` `#131A2A` → `SurfacePrimary/Secondary`
 - `PremiumCard` `#1F293F` → `CardSurface/ElevatedCard`
-- Gameplay dark boards (`#07111E`, `#0D1726`, `#122039`, etc.) → light gameplay surfaces above
+- Gameplay boards (`#07111E`, `#0D1726`, `#122039`, etc.) → light gameplay surfaces above
 
 ## Intentionally retained concepts
 
 - Decorative gradients remain (light-based) for dashboard/detail hero presentation.
-- Overlay scrim remains dark-navy based, but is only applied during pause/game-over states.
-
+- Overlay scrim remains navy-based, but is only applied during pause/game-over states.

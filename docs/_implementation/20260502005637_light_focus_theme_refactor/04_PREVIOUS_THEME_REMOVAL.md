@@ -1,4 +1,4 @@
-# 04 — Dark Token Removal
+# 04 — Previous Theme Removal Sweep
 
 Timestamp (UTC): `20260502005637`
 
@@ -15,12 +15,11 @@ Timestamp (UTC): `20260502005637`
 
 ## Leftovers removed
 
-- `GameplayScaffold` no longer hardcodes a black scrim and no longer dims normal gameplay (overlay scrim is token-driven and only shown when an overlay is actually active).
-- Settings theme preview gradients were updated from near-black “midnight” stops to light-based preview gradients.
+- `GameplayScaffold` no longer applies any dimming layer during normal play (scrim is token-driven and only shown when an overlay is active).
+- Settings theme preview gradients were updated from low-luminance “midnight” previews to light-based previews.
 - Theme naming strings (“Midnight Glow”) were replaced with “Calm Focus Arcade”.
 
-## Intentional dark usage retained
+## Intentional low-luminance usage retained
 
-- None for normal screens/gameplay.
 - Overlay dimming uses `OverlayScrim` (`#102033`) with moderate alpha only during pause/game-over states.
 

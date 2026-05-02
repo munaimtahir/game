@@ -9,18 +9,18 @@ data class Cell(val x: Int, val y: Int)
 
 enum class PieceType(val color: Int, val rotations: List<List<Cell>>) {
     I(
-        color = 0xFF4FD7FF.toInt(),
+        color = 0xFF0891B2.toInt(),
         rotations = listOf(
             listOf(Cell(-1, 0), Cell(0, 0), Cell(1, 0), Cell(2, 0)),
             listOf(Cell(1, -1), Cell(1, 0), Cell(1, 1), Cell(1, 2)),
         ),
     ),
     O(
-        color = 0xFFFFD54F.toInt(),
+        color = 0xFFD97706.toInt(),
         rotations = listOf(listOf(Cell(0, 0), Cell(1, 0), Cell(0, 1), Cell(1, 1))),
     ),
     T(
-        color = 0xFFB388FF.toInt(),
+        color = 0xFF7C3AED.toInt(),
         rotations = listOf(
             listOf(Cell(-1, 0), Cell(0, 0), Cell(1, 0), Cell(0, 1)),
             listOf(Cell(0, -1), Cell(0, 0), Cell(1, 0), Cell(0, 1)),
@@ -29,7 +29,7 @@ enum class PieceType(val color: Int, val rotations: List<List<Cell>>) {
         ),
     ),
     L(
-        color = 0xFFFF8A65.toInt(),
+        color = 0xFFEA580C.toInt(),
         rotations = listOf(
             listOf(Cell(-1, 0), Cell(0, 0), Cell(1, 0), Cell(1, 1)),
             listOf(Cell(0, -1), Cell(0, 0), Cell(0, 1), Cell(1, -1)),
@@ -38,7 +38,7 @@ enum class PieceType(val color: Int, val rotations: List<List<Cell>>) {
         ),
     ),
     S(
-        color = 0xFF81C784.toInt(),
+        color = 0xFF16A34A.toInt(),
         rotations = listOf(
             listOf(Cell(0, 0), Cell(1, 0), Cell(-1, 1), Cell(0, 1)),
             listOf(Cell(0, -1), Cell(0, 0), Cell(1, 0), Cell(1, 1)),

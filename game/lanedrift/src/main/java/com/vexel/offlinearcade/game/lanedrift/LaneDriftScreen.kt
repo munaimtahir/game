@@ -369,7 +369,7 @@ fun LaneDriftScreen(
                     val top = size.height * item.y
                     val left = laneWidth * item.lane + laneWidth * 0.2f
                     drawRoundRect(
-                        color = if (item.type == DriftItemType.BLOCKER) colors.dangerCoral else colors.pickupMint,
+                        color = if (item.type == DriftItemType.BLOCKER) colors.dangerCoral else colors.collectible,
                         topLeft = Offset(left, top),
                         size = Size(
                             laneWidth * if (item.type == DriftItemType.BLOCKER) 0.56f else 0.42f,

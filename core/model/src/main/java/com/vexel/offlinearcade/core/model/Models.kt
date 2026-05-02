@@ -102,8 +102,8 @@ data class ThemeDefinition(
 object ArcadeThemeCatalog {
     val defaultTheme = ThemeDefinition(
         id = "default",
-        title = "Calm Focus Arcade",
-        subtitle = "Soft light neutrals with vivid gameplay accents for low cognitive load.",
+        title = "Soft Arcade Light",
+        subtitle = "Relaxed light arcade palette.",
         coinCost = 0,
         premiumOnly = false,
     )

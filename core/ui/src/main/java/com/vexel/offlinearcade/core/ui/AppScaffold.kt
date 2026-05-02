@@ -174,7 +174,7 @@ fun GameplayScaffold(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(colors.overlayScrim.copy(alpha = 0.56f)),
+                    .background(colors.overlayScrim),
                 contentAlignment = Alignment.Center
             ) {
                 overlay()
@@ -410,14 +410,15 @@ fun HeroPanel(
             .padding(24.dp),
     ) {
         val isCompact = maxWidth < 380.dp
+        val textColor = Color.White // Hero background is still vibrant/dark enough for white
         if (isCompact && trailing != null) {
             Column(verticalArrangement = Arrangement.spacedBy(16.dp), modifier = Modifier.fillMaxWidth()) {
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     if (overline != null) {
-                        Text(overline.uppercase(), style = MaterialTheme.typography.labelMedium, color = Color.White.copy(alpha = 0.85f))
+                        Text(overline.uppercase(), style = MaterialTheme.typography.labelMedium, color = textColor.copy(alpha = 0.85f))
                     }
-                    Text(title, style = MaterialTheme.typography.displayMedium, color = Color.White, fontWeight = FontWeight.Black)
-                    Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = Color.White.copy(alpha = 0.9f))
+                    Text(title, style = MaterialTheme.typography.displayMedium, color = textColor, fontWeight = FontWeight.Black)
+                    Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = textColor.copy(alpha = 0.9f))
                 }
                 trailing()
             }
@@ -428,10 +429,10 @@ fun HeroPanel(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     if (overline != null) {
-                        Text(overline.uppercase(), style = MaterialTheme.typography.labelMedium, color = Color.White.copy(alpha = 0.85f))
+                        Text(overline.uppercase(), style = MaterialTheme.typography.labelMedium, color = textColor.copy(alpha = 0.85f))
                     }
-                    Text(title, style = MaterialTheme.typography.displayMedium, color = Color.White, fontWeight = FontWeight.Black)
-                    Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = Color.White.copy(alpha = 0.9f))
+                    Text(title, style = MaterialTheme.typography.displayMedium, color = textColor, fontWeight = FontWeight.Black)
+                    Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = textColor.copy(alpha = 0.9f))
                 }
                 if (trailing != null) {
                     Box(modifier = Modifier.padding(start = 16.dp)) {
@@ -504,7 +505,7 @@ fun SplashShell(title: String, subtitle: String, modifier: Modifier = Modifier) 
                 Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = ArcadeTheme.colors.textSecondary, textAlign = TextAlign.Center)
             }
             CircularProgressIndicator(
-                progress = { 0.72f },
+                modifier = Modifier.size(48.dp),
                 color = ArcadeTheme.colors.premium,
                 trackColor = ArcadeTheme.colors.cardBackground,
                 strokeWidth = 4.dp,

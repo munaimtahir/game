@@ -22,12 +22,11 @@ Timestamp (UTC): `20260502005637`
   - Normal gameplay no longer receives a scrim; callers now pass `overlay = null` unless pause/game-over is active.
 
 - `PremiumButton`
-  - Primary uses `MaterialTheme.colorScheme.primary` (cyan fill) and `onPrimary` (dark text).
-  - Secondary uses `ArcadeTheme.colors.controlSurface` + `controlBorder` with dark text for light surfaces.
+  - Primary uses `MaterialTheme.colorScheme.primary` (cyan fill) and `onPrimary` (deep text).
+  - Secondary uses `ArcadeTheme.colors.controlSurface` + `controlBorder` with deep text for light surfaces.
   - Disabled state uses muted light surfaces (`cardBackground` + `textMuted`) to avoid “inactive looks active”.
 
 ## Hardcoded colors removed / avoided
 
 - Removed hardcoded normal-gameplay scrim behavior by ensuring overlays are only rendered when state requires it.
 - Overlay scrim is no longer a hardcoded black; it is token-driven (`overlayScrim`).
-

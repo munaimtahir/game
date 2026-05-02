@@ -98,7 +98,7 @@ fun SettingsScreen(
         ArcadeCard(accent = themeAccentBrush(selectedTheme?.id ?: "default")) {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(selectedTheme?.title ?: "Calm Focus Arcade", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Black)
+                    Text(selectedTheme?.title ?: "", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Black)
                     Text("Selected Theme", color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
                 PremiumBadge(
@@ -117,7 +117,7 @@ fun SettingsScreen(
                 contentAlignment = Alignment.CenterStart,
             ) {
                 Text(
-                    text = "Calm Focus Arcade",
+                    text = selectedTheme?.title ?: "",
                     modifier = Modifier.padding(horizontal = 18.dp),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
@@ -125,7 +125,7 @@ fun SettingsScreen(
                 )
             }
             Text(
-                selectedTheme?.subtitle ?: "Soft light neutrals with vivid gameplay accents for low cognitive load.",
+                selectedTheme?.subtitle ?: "",
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
@@ -159,7 +159,7 @@ fun SettingsScreen(
             )
             StatRow("Accounts required", "No")
             StatRow("Online dependency", "None")
-            StatRow("Selected theme", selectedTheme?.title ?: "Calm Focus Arcade")
+            StatRow("Selected theme", selectedTheme?.title ?: "")
         }
     }
 }
@@ -223,14 +223,22 @@ private fun ThemeChoiceCard(
     }
 }
 
-private fun themeAccentBrush(themeId: String): Brush = when (themeId) {
-    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFF6C63FF), Color(0xFFF2B94B)))
-    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFF1CCFE2), Color(0xFF4A7DFF)))
-    else -> Brush.linearGradient(listOf(Color(0xFF6C63FF), Color(0xFF1CCFE2)))
+@Composable
+private fun themeAccentBrush(themeId: String): Brush {
+    val colors = ArcadeTheme.colors
+    return when (themeId) {
+        "sunset_shift" -> Brush.linearGradient(listOf(colors.premium, colors.reward))
+        "ice_grid" -> Brush.linearGradient(listOf(colors.playerAccent, colors.laneAccent))
+        else -> Brush.linearGradient(listOf(colors.premium, colors.player))
+    }
 }
 
-private fun themePreviewBrush(themeId: String): Brush = when (themeId) {
-    "sunset_shift" -> Brush.linearGradient(listOf(Color(0xFFF7FAFD), Color(0xFF6C63FF), Color(0xFFF2B94B)))
-    "ice_grid" -> Brush.linearGradient(listOf(Color(0xFFF7FAFD), Color(0xFF1CCFE2), Color(0xFF4A7DFF)))
-    else -> Brush.linearGradient(listOf(Color(0xFFF7FAFD), Color(0xFF6C63FF), Color(0xFF1CCFE2)))
+@Composable
+private fun themePreviewBrush(themeId: String): Brush {
+    val colors = ArcadeTheme.colors
+    return when (themeId) {
+        "sunset_shift" -> Brush.linearGradient(listOf(colors.elevatedCardBackground, colors.premium, colors.reward))
+        "ice_grid" -> Brush.linearGradient(listOf(colors.elevatedCardBackground, colors.playerAccent, colors.laneAccent))
+        else -> Brush.linearGradient(listOf(colors.elevatedCardBackground, colors.premium, colors.player))
+    }
 }
