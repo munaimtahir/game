@@ -95,7 +95,17 @@ jobs:
           emulator-boot-timeout: 900
           emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot
           script: |
-            set -euo pipefail
+            set -eu
+
+            echo "## ADB readiness check"
+            adb devices
+            adb wait-for-device
+            BOOT_COMPLETED=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '[:space:]')
+            if [ "$BOOT_COMPLETED" != "1" ]; then
+              echo "ERROR: Emulator boot_completed=$BOOT_COMPLETED (expected 1)"
+              exit 1
+            fi
+            echo "Emulator fully booted (sys.boot_completed=1)"
 
             mkdir -p artifacts/adb_full_test
             REPORT="artifacts/adb_full_test/REPORT.md"
