@@ -6,11 +6,22 @@ MAIN_ACTIVITY="${MAIN_ACTIVITY:-.MainActivity}"
 SCREENSHOT_WAIT_SECONDS="${SCREENSHOT_WAIT_SECONDS:-2}"
 SKIP_BUILD="${SKIP_BUILD:-0}"
 SKIP_INSTALL="${SKIP_INSTALL:-0}"
+FOREGROUND_TIMEOUT="${FOREGROUND_TIMEOUT:-30}"
+COLD_START_WAIT="${COLD_START_WAIT:-12}"
 
 TIMESTAMP="$(date +"%Y%m%d_%H%M%S")"
 OUT_DIR="artifacts/adb_screenshots/${TIMESTAMP}"
 
 mkdir -p "$OUT_DIR"
+
+# Tracking variables for the final report
+APP_INSTALLED=0
+APP_LAUNCHED=0
+FOREGROUND_CONFIRMED=0
+ROUTES_LAUNCHED=0
+ROUTES_REQUESTED=0
+SCREENSHOTS_CAPTURED=0
+PASS=1
 
 log() {
   echo "[$(date +"%H:%M:%S")] $*"
@@ -20,8 +31,68 @@ report() {
   echo "$*" >> "$OUT_DIR/REPORT.md"
 }
 
+fail() {
+  log "FAIL: $*"
+  PASS=0
+}
+
 adb_device_count() {
   adb devices | awk 'NR>1 && $2=="device" {count++} END {print count+0}'
+}
+
+wake_and_unlock() {
+  log "Waking emulator and dismissing keyguard"
+  adb shell input keyevent KEYCODE_WAKEUP || true
+  sleep 1
+  adb shell wm dismiss-keyguard 2>/dev/null || true
+  sleep 1
+}
+
+# Poll dumpsys until the target package is in the foreground, or time out.
+# Sets FOREGROUND_CONFIRMED=1 on success. Returns 0 on success, 1 on timeout.
+wait_for_app_foreground() {
+  local package="$1"
+  local timeout="${2:-$FOREGROUND_TIMEOUT}"
+  local elapsed=0
+
+  log "Waiting for $package to be foregrounded (timeout: ${timeout}s)"
+
+  while [[ "$elapsed" -lt "$timeout" ]]; do
+    local focused
+    focused="$(adb shell dumpsys window windows 2>/dev/null \
+      | grep -E 'mCurrentFocus|mFocusedApp' \
+      | tr -d '\r' \
+      | head -n 5 || true)"
+
+    if echo "$focused" | grep -q "$package"; then
+      log "App $package confirmed in foreground after ${elapsed}s"
+      FOREGROUND_CONFIRMED=1
+      return 0
+    fi
+
+    # Backup: check resumed activity via dumpsys activity
+    local activity_top
+    activity_top="$(adb shell dumpsys activity activities 2>/dev/null \
+      | grep -E 'mResumedActivity|topResumedActivity|ResumedActivity' \
+      | tr -d '\r' \
+      | head -n 3 || true)"
+
+    if echo "$activity_top" | grep -q "$package"; then
+      log "App $package confirmed in foreground via activity (${elapsed}s)"
+      FOREGROUND_CONFIRMED=1
+      return 0
+    fi
+
+    sleep 1
+    elapsed=$((elapsed + 1))
+  done
+
+  local actual_focus
+  actual_focus="$(adb shell dumpsys window windows 2>/dev/null \
+    | grep -E 'mCurrentFocus' | tr -d '\r' | head -n 1 || true)"
+
+  log "ERROR: $package NOT foregrounded after ${timeout}s. Current focus: $actual_focus"
+  return 1
 }
 
 take_screenshot() {
@@ -29,34 +100,62 @@ take_screenshot() {
   local label="$2"
 
   log "Capturing: $label"
+
+  if ! wait_for_app_foreground "$PACKAGE_NAME"; then
+    fail "Screenshot '$label': app not in foreground — skipping capture"
+    report "- **SKIPPED** (app not in foreground): $label"
+    return 0
+  fi
+
   sleep "$SCREENSHOT_WAIT_SECONDS"
   adb exec-out screencap -p > "$OUT_DIR/$filename"
   report "- [$label](./$filename)"
+  SCREENSHOTS_CAPTURED=$((SCREENSHOTS_CAPTURED + 1))
 }
 
 start_app_normal() {
   log "Launching app normally"
+  wake_and_unlock
   adb shell am force-stop "$PACKAGE_NAME" || true
-  adb shell monkey -p "$PACKAGE_NAME" -c android.intent.category.LAUNCHER 1 >/dev/null
+  sleep 1
+  adb shell am start -W \
+    -n "${PACKAGE_NAME}/${MAIN_ACTIVITY}" \
+    -c android.intent.category.LAUNCHER \
+    -a android.intent.action.MAIN || true
+  APP_LAUNCHED=1
 }
 
 start_route() {
   local route="$1"
   local state="${2:-}"
 
+  ROUTES_REQUESTED=$((ROUTES_REQUESTED + 1))
   log "Launching route: $route ${state:+state=$state}"
+  wake_and_unlock
   adb shell am force-stop "$PACKAGE_NAME" || true
+  sleep 2
 
+  local start_result
   if [[ -n "$state" ]]; then
-    adb shell am start \
+    start_result="$(adb shell am start -W \
       -n "${PACKAGE_NAME}/${MAIN_ACTIVITY}" \
       --es screenshot_route "$route" \
-      --es screenshot_state "$state" >/dev/null
+      --es screenshot_state "$state" 2>&1 || true)"
   else
-    adb shell am start \
+    start_result="$(adb shell am start -W \
       -n "${PACKAGE_NAME}/${MAIN_ACTIVITY}" \
-      --es screenshot_route "$route" >/dev/null
+      --es screenshot_route "$route" 2>&1 || true)"
   fi
+
+  log "am start result: $start_result"
+
+  # Report if am start raised a warning — extras may be unsupported or ignored
+  if echo "$start_result" | grep -qiE "\bWarning\b|\bError\b|\bException\b"; then
+    log "WARNING: am start reported an issue for route '$route': $start_result"
+    report "- **WARNING**: am start issue for route '$route': $start_result"
+  fi
+
+  ROUTES_LAUNCHED=$((ROUTES_LAUNCHED + 1))
 }
 
 tap_percent() {
@@ -215,16 +314,24 @@ report ""
 if [[ "$SKIP_INSTALL" != "1" ]]; then
   log "Installing APK"
   adb install -r "$APK_PATH"
+  APP_INSTALLED=1
 else
   log "Skipping install because SKIP_INSTALL=1"
+  APP_INSTALLED=1
 fi
 
-# 01 launch
+# Wake/unlock before first launch
+wake_and_unlock
+
+# 01 cold start — give the app time to initialise before the first screenshot
 start_app_normal
+log "Waiting ${COLD_START_WAIT}s for cold start to settle..."
+sleep "$COLD_START_WAIT"
 take_screenshot "01_splash_or_launch.png" "Splash or launch screen"
 
-# Route-based screenshots. These require debug screenshot_route support.
-# If the app ignores extras, the script will still capture the visible app state.
+# Route-based screenshots. These require debug screenshot_route extras support.
+# If the app ignores extras, it will still be captured from whatever screen it
+# lands on — the foreground confirmation ensures the app (not the launcher) is visible.
 start_route "home"
 take_screenshot "02_home.png" "Home"
 
@@ -265,11 +372,36 @@ report ""
 report "## Logcat"
 report "- [logcat.txt](./logcat.txt)"
 report ""
+
+# Final pass/fail summary
 report "## Final Status"
-report "PASS if all screenshots above show the expected screen. Review manually in index.html."
+report ""
+report "| Check | Result |"
+report "|-------|--------|"
+report "| App installed | $([ "$APP_INSTALLED" -eq 1 ] && echo "✅ YES" || echo "❌ NO") |"
+report "| App launched | $([ "$APP_LAUNCHED" -eq 1 ] && echo "✅ YES" || echo "❌ NO") |"
+report "| Foreground package matched ($PACKAGE_NAME) | $([ "$FOREGROUND_CONFIRMED" -eq 1 ] && echo "✅ YES" || echo "❌ NO") |"
+report "| Routes launched | ${ROUTES_LAUNCHED} / ${ROUTES_REQUESTED} |"
+report "| Screenshots captured after foreground confirmation | ${SCREENSHOTS_CAPTURED} |"
+report ""
+
+if [[ "$APP_INSTALLED" -eq 1 && "$APP_LAUNCHED" -eq 1 && \
+      "$FOREGROUND_CONFIRMED" -eq 1 && "$PASS" -eq 1 ]]; then
+  report "**RESULT: PASS** — App installed, launched, and foregrounded as \`$PACKAGE_NAME\`. All routes attempted. ${SCREENSHOTS_CAPTURED} screenshot(s) captured after foreground confirmation."
+  log "RESULT: PASS"
+else
+  report "**RESULT: FAIL** — One or more checks failed. See table above."
+  log "RESULT: FAIL — installed=$APP_INSTALLED launched=$APP_LAUNCHED foregrounded=$FOREGROUND_CONFIRMED routes=${ROUTES_LAUNCHED}/${ROUTES_REQUESTED} screenshots=$SCREENSHOTS_CAPTURED pass_flag=$PASS"
+fi
 
 create_index_html
 
 log "Screenshot smoke test complete"
 log "Artifacts saved to: $OUT_DIR"
-	
+
+# Fail the GitHub Action if the app was never confirmed in the foreground
+if [[ "$APP_INSTALLED" -ne 1 || "$APP_LAUNCHED" -ne 1 || \
+      "$FOREGROUND_CONFIRMED" -ne 1 || "$PASS" -ne 1 ]]; then
+  exit 1
+fi
+
