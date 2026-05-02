@@ -12,15 +12,6 @@ on:
           - "false"
           - "true"
 
-  push:
-    branches:
-      - main
-      - release/**
-
-  pull_request:
-    branches:
-      - main
-
 jobs:
   emulator-screenshot-smoke:
     name: Build, install, smoke test, and capture screenshots
