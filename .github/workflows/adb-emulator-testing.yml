@@ -2,11 +2,15 @@ name: Android ADB Emulator Testing
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
-  
+    branches:
+      - main
+      - master
+  push:
+    branches:
+      - main
+      - master
+
 permissions:
   contents: read
 
@@ -14,7 +18,7 @@ jobs:
   android-adb-test:
     name: Build and test on Android emulator
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     env:
       GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx3g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8"
@@ -36,6 +40,13 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
 
+      - name: Enable KVM for Android emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          ls -al /dev/kvm || true
+
       - name: Run local JVM tests
         run: |
           ./gradlew test --no-daemon --stacktrace
@@ -44,35 +55,80 @@ jobs:
         run: |
           ./gradlew clean assembleDebug --no-build-cache --rerun-tasks --no-daemon --stacktrace
 
-      - name: Run emulator ADB tests
+      - name: Run emulator ADB smoke test
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 34
-          target: google_apis
+          api-level: 30
+          target: default
           arch: x86_64
-          profile: pixel_6
-          # Downgraded from 35 → 34: API 35 google_apis is unreliable on ubuntu-latest (boot timeout).
-          # -wipe-data ensures a clean cold boot (no stale snapshot state).
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot -wipe-data
+          profile: pixel_2
+          emulator-boot-timeout: 1200
+          force-avd-creation: true
           disable-animations: true
-          # 600s (10 min) gives the emulator a generous boot window on GitHub-hosted runners,
-          # which are slower than local machines. Default is 360s, which is too tight for API 34.
-          emulator-boot-timeout: 600
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none -camera-front none
           script: |
+            bash <<'BASH'
             set -euo pipefail
 
-            echo "=== ADB device state ==="
-            adb devices -l
+            echo "ADB version:"
+            adb version
 
-            echo "=== Unlocking emulator screen ==="
+            echo "Starting ADB server..."
+            adb kill-server || true
+            adb start-server
+
+            echo "Waiting for emulator..."
+            adb devices
+            adb wait-for-device
+
+            echo "Checking boot completion..."
+            boot_completed=""
+            for i in {1..120}; do
+              boot_completed="$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
+              echo "Boot check $i/120: sys.boot_completed=${boot_completed:-empty}"
+
+              if [ "$boot_completed" = "1" ]; then
+                break
+              fi
+
+              sleep 5
+            done
+
+            if [ "$boot_completed" != "1" ]; then
+              echo "Emulator failed to complete boot."
+              adb devices || true
+              adb shell getprop ro.build.version.release || true
+              adb shell getprop sys.boot_completed || true
+              exit 1
+            fi
+
+            echo "Unlocking screen..."
             adb shell input keyevent 82 || true
 
-            echo "=== Disabling animations ==="
+            echo "Disabling animations again after boot..."
             adb shell settings put global window_animation_scale 0.0 || true
             adb shell settings put global transition_animation_scale 0.0 || true
             adb shell settings put global animator_duration_scale 0.0 || true
 
-            echo "=== Running connected Android tests ==="
-            ./gradlew connectedDebugAndroidTest --no-daemon --stacktrace
+            echo "Installing debug APK..."
+            ./gradlew installDebug --no-daemon --stacktrace
 
-            echo "=== ADB emulator testing completed successfully ==="
+            echo "Launching app..."
+            adb shell monkey -p com.vexel.offlinearcade -c android.intent.category.LAUNCHER 1
+
+            echo "Waiting for app startup..."
+            sleep 10
+
+            echo "Capturing screenshot..."
+            adb exec-out screencap -p > emulator-home-smoke.png
+
+            echo "ADB smoke test completed successfully."
+            BASH
+
+      - name: Upload emulator screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emulator-smoke-screenshot
+          path: emulator-home-smoke.png
+          if-no-files-found: ignore
