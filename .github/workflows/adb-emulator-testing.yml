@@ -1,7 +1,8 @@
+name: Android ADB Emulator Testing
+
 on:
   workflow_dispatch:
   
-
 permissions:
   contents: read
 
