@@ -1,7 +1,11 @@
 name: Android ADB Emulator Testing
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   
 permissions:
   contents: read
