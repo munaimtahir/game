@@ -43,57 +43,32 @@ jobs:
       - name: Run emulator ADB tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 35
+          api-level: 34
           target: google_apis
           arch: x86_64
           profile: pixel_6
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot
+          # Downgraded from 35 → 34: API 35 google_apis is unreliable on ubuntu-latest (boot timeout).
+          # -wipe-data ensures a clean cold boot (no stale snapshot state).
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot -wipe-data
           disable-animations: true
+          # 600s (10 min) gives the emulator a generous boot window on GitHub-hosted runners,
+          # which are slower than local machines. Default is 360s, which is too tight for API 34.
+          emulator-boot-timeout: 600
           script: |
-            bash <<'BASH'
             set -euo pipefail
 
-            echo "Starting ADB server..."
-            adb kill-server || true
-            adb start-server
+            echo "=== ADB device state ==="
+            adb devices -l
 
-            echo "Waiting for emulator device..."
-            adb devices
-            adb wait-for-device
-
-            echo "Waiting for Android boot completion..."
-            boot_completed=""
-            for i in {1..60}; do
-              boot_completed="$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
-              echo "Boot check $i/60: sys.boot_completed=${boot_completed:-empty}"
-
-              if [ "$boot_completed" = "1" ]; then
-                break
-              fi
-
-              sleep 5
-            done
-
-            if [ "$boot_completed" != "1" ]; then
-              echo "Emulator did not complete boot in expected time."
-              adb devices || true
-              adb shell getprop || true
-              exit 1
-            fi
-
-            echo "Unlocking emulator screen..."
+            echo "=== Unlocking emulator screen ==="
             adb shell input keyevent 82 || true
 
-            echo "Disabling animations..."
+            echo "=== Disabling animations ==="
             adb shell settings put global window_animation_scale 0.0 || true
             adb shell settings put global transition_animation_scale 0.0 || true
             adb shell settings put global animator_duration_scale 0.0 || true
 
-            echo "Final ADB device list:"
-            adb devices
-
-            echo "Running connected Android tests..."
+            echo "=== Running connected Android tests ==="
             ./gradlew connectedDebugAndroidTest --no-daemon --stacktrace
 
-            echo "ADB emulator testing completed successfully."
-            BASH
+            echo "=== ADB emulator testing completed successfully ==="
