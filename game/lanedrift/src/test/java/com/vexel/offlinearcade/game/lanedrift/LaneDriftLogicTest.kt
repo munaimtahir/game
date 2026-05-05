@@ -45,4 +45,177 @@ class LaneDriftLogicTest {
             assertTrue(!shouldSpawnPickup(spawnCount = it * 2 + 1, elapsedSeconds = 8f, random = Random(it)))
         }
     }
+
+    @Test
+    fun collision_noCrash_whenSmallVisibleGap() {
+        val boardWidthPx = 360f
+        val boardHeightPx = 600f
+        val sizes = LaneDriftSizesPx(playerHeightPx = 84f, blockerHeightPx = 84f, pickupHeightPx = 50f)
+        val config = LaneDriftCollisionConfig(
+            playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+            playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+            blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+            blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+            pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+            pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+            blockerMinOverlapPx = 8f,
+            pickupMinOverlapPx = 6f,
+        )
+
+        val laneWidth = boardWidthPx / 3f
+        val playerHit = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+            .insetFraction(config.playerInsetXFraction, config.playerInsetYFraction)
+
+        val gapPx = 1.0f
+        val blockerBottom = playerHit.top - gapPx
+        val blockerTop = blockerBottom - sizes.blockerHeightPx
+        val blockerY = blockerTop / boardHeightPx
+
+        val items = listOf(DriftItem(lane = 1, y = blockerY, type = DriftItemType.BLOCKER, skin = 0))
+        val result = resolveLaneDriftCollision(playerLane = 1, items = items, boardWidthPx = boardWidthPx, boardHeightPx = boardHeightPx, config = config, sizes = sizes)
+        assertEquals(LaneDriftCollisionType.NONE, result.type)
+    }
+
+    @Test
+    fun collision_noCrash_whenEdgesBarelyTouch() {
+        val boardWidthPx = 360f
+        val boardHeightPx = 600f
+        val sizes = LaneDriftSizesPx(playerHeightPx = 84f, blockerHeightPx = 84f, pickupHeightPx = 50f)
+        val config = LaneDriftCollisionConfig(
+            playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+            playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+            blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+            blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+            pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+            pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+            blockerMinOverlapPx = 8f,
+            pickupMinOverlapPx = 6f,
+        )
+
+        val laneWidth = boardWidthPx / 3f
+        val playerHit = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+            .insetFraction(config.playerInsetXFraction, config.playerInsetYFraction)
+
+        val blockerBottom = playerHit.top
+        val blockerTop = blockerBottom - sizes.blockerHeightPx
+        val blockerY = blockerTop / boardHeightPx
+
+        val items = listOf(DriftItem(lane = 1, y = blockerY, type = DriftItemType.BLOCKER, skin = 0))
+        val result = resolveLaneDriftCollision(playerLane = 1, items = items, boardWidthPx = boardWidthPx, boardHeightPx = boardHeightPx, config = config, sizes = sizes)
+        assertEquals(LaneDriftCollisionType.NONE, result.type)
+    }
+
+    @Test
+    fun collision_crash_whenClearOverlap() {
+        val boardWidthPx = 360f
+        val boardHeightPx = 600f
+        val sizes = LaneDriftSizesPx(playerHeightPx = 84f, blockerHeightPx = 84f, pickupHeightPx = 50f)
+        val config = LaneDriftCollisionConfig(
+            playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+            playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+            blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+            blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+            pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+            pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+            blockerMinOverlapPx = 8f,
+            pickupMinOverlapPx = 6f,
+        )
+
+        val laneWidth = boardWidthPx / 3f
+        val playerHit = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+            .insetFraction(config.playerInsetXFraction, config.playerInsetYFraction)
+
+        val desiredOverlapY = 18f
+        val blockerTop = playerHit.bottom - desiredOverlapY
+        val blockerY = blockerTop / boardHeightPx
+
+        val items = listOf(DriftItem(lane = 1, y = blockerY, type = DriftItemType.BLOCKER, skin = 0))
+        val result = resolveLaneDriftCollision(playerLane = 1, items = items, boardWidthPx = boardWidthPx, boardHeightPx = boardHeightPx, config = config, sizes = sizes)
+        assertEquals(LaneDriftCollisionType.BLOCKER, result.type)
+    }
+
+    @Test
+    fun collision_requiresSameLane() {
+        val boardWidthPx = 360f
+        val boardHeightPx = 600f
+        val sizes = LaneDriftSizesPx(playerHeightPx = 84f, blockerHeightPx = 84f, pickupHeightPx = 50f)
+        val config = LaneDriftCollisionConfig(
+            playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+            playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+            blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+            blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+            pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+            pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+            blockerMinOverlapPx = 8f,
+            pickupMinOverlapPx = 6f,
+        )
+
+        val laneWidth = boardWidthPx / 3f
+        val playerHit = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+            .insetFraction(config.playerInsetXFraction, config.playerInsetYFraction)
+        val blockerTop = playerHit.bottom - 24f
+        val blockerY = blockerTop / boardHeightPx
+
+        val items = listOf(DriftItem(lane = 2, y = blockerY, type = DriftItemType.BLOCKER, skin = 0))
+        val result = resolveLaneDriftCollision(playerLane = 1, items = items, boardWidthPx = boardWidthPx, boardHeightPx = boardHeightPx, config = config, sizes = sizes)
+        assertEquals(LaneDriftCollisionType.NONE, result.type)
+    }
+
+    @Test
+    fun collision_pickupSeparateFromBlockerCollision() {
+        val boardWidthPx = 360f
+        val boardHeightPx = 600f
+        val sizes = LaneDriftSizesPx(playerHeightPx = 84f, blockerHeightPx = 84f, pickupHeightPx = 50f)
+        val config = LaneDriftCollisionConfig(
+            playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+            playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+            blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+            blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+            pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+            pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+            blockerMinOverlapPx = 8f,
+            pickupMinOverlapPx = 6f,
+        )
+
+        val laneWidth = boardWidthPx / 3f
+        val playerHit = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+            .insetFraction(config.playerInsetXFraction, config.playerInsetYFraction)
+
+        val blockerTop = playerHit.bottom - 24f
+        val pickupTop = playerHit.bottom - 18f
+        val items = listOf(
+            DriftItem(lane = 1, y = blockerTop / boardHeightPx, type = DriftItemType.BLOCKER, skin = 0),
+            DriftItem(lane = 1, y = pickupTop / boardHeightPx, type = DriftItemType.PICKUP, skin = 0),
+        )
+        val result = resolveLaneDriftCollision(playerLane = 1, items = items, boardWidthPx = boardWidthPx, boardHeightPx = boardHeightPx, config = config, sizes = sizes)
+        assertEquals(LaneDriftCollisionType.BLOCKER, result.type)
+    }
+
+    @Test
+    fun collision_stableAcrossDensities_whenDpConvertedToPx() {
+        fun run(density: Float): LaneDriftCollisionType {
+            val boardWidthPx = 360f * density
+            val boardHeightPx = 600f * density
+            val sizes = LaneDriftSizesPx(playerHeightPx = 84f * density, blockerHeightPx = 84f * density, pickupHeightPx = 50f * density)
+            val config = LaneDriftCollisionConfig(
+                playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+                playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+                blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+                blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+                pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+                pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+                blockerMinOverlapPx = 8f * density,
+                pickupMinOverlapPx = 6f * density,
+            )
+            val laneWidth = boardWidthPx / 3f
+            val playerHit = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+                .insetFraction(config.playerInsetXFraction, config.playerInsetYFraction)
+            val blockerTop = playerHit.bottom - 18f * density
+            val items = listOf(DriftItem(lane = 1, y = blockerTop / boardHeightPx, type = DriftItemType.BLOCKER, skin = 0))
+            return resolveLaneDriftCollision(1, items, boardWidthPx, boardHeightPx, config, sizes).type
+        }
+
+        assertEquals(LaneDriftCollisionType.BLOCKER, run(density = 1f))
+        assertEquals(LaneDriftCollisionType.BLOCKER, run(density = 3f))
+    }
 }

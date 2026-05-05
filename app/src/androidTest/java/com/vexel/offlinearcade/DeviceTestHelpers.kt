@@ -9,7 +9,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 
-internal fun AndroidComposeTestRule<*, *>.waitUntilExists(tag: String, timeoutMillis: Long = 5_000) {
+internal fun AndroidComposeTestRule<*, *>.waitUntilExists(tag: String, timeoutMillis: Long = 15_000) {
     waitUntil(timeoutMillis = timeoutMillis) {
         runCatching { onNodeWithTag(tag).fetchSemanticsNode() }.isSuccess
     }

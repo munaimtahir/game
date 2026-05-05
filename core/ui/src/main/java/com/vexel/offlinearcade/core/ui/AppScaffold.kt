@@ -423,15 +423,20 @@ fun HeroPanel(
     overline: String? = null,
     trailing: @Composable (() -> Unit)? = null,
 ) {
+    val reducedEffects = ArcadeTheme.reducedEffects
     val infiniteTransition = androidx.compose.animation.core.rememberInfiniteTransition()
-    val animatedOffset by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1000f,
-        animationSpec = androidx.compose.animation.core.infiniteRepeatable(
-            animation = androidx.compose.animation.core.tween(8000, easing = androidx.compose.animation.core.LinearEasing),
-            repeatMode = androidx.compose.animation.core.RepeatMode.Reverse
+    val animatedOffset by if (reducedEffects) {
+        androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(0f) }
+    } else {
+        infiniteTransition.animateFloat(
+            initialValue = 0f,
+            targetValue = 1000f,
+            animationSpec = androidx.compose.animation.core.infiniteRepeatable(
+                animation = androidx.compose.animation.core.tween(8000, easing = androidx.compose.animation.core.LinearEasing),
+                repeatMode = androidx.compose.animation.core.RepeatMode.Reverse
+            )
         )
-    )
+    }
     
     val baseGradient = ArcadeTheme.colors.heroGradient
     
@@ -443,21 +448,23 @@ fun HeroPanel(
             .padding(24.dp),
     ) {
         // Subtle animated glow overlay
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .graphicsLayer {
-                    translationX = animatedOffset * 0.1f
-                    alpha = 0.4f
-                }
-                .background(
-                    Brush.radialGradient(
-                        colors = listOf(Color.White.copy(alpha = 0.2f), Color.Transparent),
-                        center = androidx.compose.ui.geometry.Offset(animatedOffset, 0f),
-                        radius = 800f
+        if (!reducedEffects) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .graphicsLayer {
+                        translationX = animatedOffset * 0.1f
+                        alpha = 0.4f
+                    }
+                    .background(
+                        Brush.radialGradient(
+                            colors = listOf(Color.White.copy(alpha = 0.2f), Color.Transparent),
+                            center = androidx.compose.ui.geometry.Offset(animatedOffset, 0f),
+                            radius = 800f
+                        )
                     )
-                )
-        )
+            )
+        }
         val isCompact = maxWidth < 380.dp
         val textColor = Color.White // Hero background is still vibrant/dark enough for white
         if (isCompact && trailing != null) {

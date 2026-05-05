@@ -144,6 +144,7 @@ private val SoftArcadeLightExtendedColors = ArcadeExtendedColors(
 )
 
 val LocalArcadeExtendedColors = staticCompositionLocalOf { SoftArcadeLightExtendedColors }
+val LocalArcadeReducedEffects = staticCompositionLocalOf { false }
 
 @Immutable
 data class ArcadeSpacing(
@@ -251,6 +252,7 @@ fun OfflineMiniArcadeTheme(
     androidx.compose.runtime.CompositionLocalProvider(
         LocalArcadeExtendedColors provides extendedColors,
         LocalArcadeSpacing provides ArcadeSpacing(),
+        LocalArcadeReducedEffects provides reducedEffects,
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
@@ -266,4 +268,7 @@ object ArcadeTheme {
 
     val spacing: ArcadeSpacing
         @Composable get() = LocalArcadeSpacing.current
+
+    val reducedEffects: Boolean
+        @Composable get() = LocalArcadeReducedEffects.current
 }
