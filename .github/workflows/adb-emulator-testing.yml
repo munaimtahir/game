@@ -55,6 +55,79 @@ jobs:
         run: |
           ./gradlew clean assembleDebug --no-build-cache --rerun-tasks --no-daemon --stacktrace
 
+      - name: Prepare ADB smoke test script
+        run: |
+          cat > /tmp/adb-smoke.sh <<'BASH'
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          echo "ADB version:"
+          adb version
+
+          echo "Starting ADB server..."
+          adb kill-server || true
+          adb start-server
+
+          echo "Waiting for emulator..."
+          adb devices
+          adb wait-for-device
+
+          echo "Checking boot completion..."
+          boot_completed=""
+          for i in $(seq 1 120); do
+            # tolerate transient offline states
+            adb get-state 1>/dev/null 2>&1 || true
+
+            state="$(adb get-state 2>/dev/null || true)"
+            if [ "$state" = "offline" ]; then
+              echo "ADB state is offline; restarting adb..."
+              adb kill-server || true
+              adb start-server || true
+              adb wait-for-device || true
+            fi
+
+            boot_completed="$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
+            echo "Boot check $i/120: sys.boot_completed=${boot_completed:-empty}"
+
+            if [ "$boot_completed" = "1" ]; then
+              break
+            fi
+
+            sleep 5
+          done
+
+          if [ "$boot_completed" != "1" ]; then
+            echo "Emulator failed to complete boot."
+            adb devices || true
+            adb shell getprop ro.build.version.release || true
+            adb shell getprop sys.boot_completed || true
+            exit 1
+          fi
+
+          echo "Unlocking screen..."
+          adb shell input keyevent 82 || true
+
+          echo "Disabling animations again after boot..."
+          adb shell settings put global window_animation_scale 0.0 || true
+          adb shell settings put global transition_animation_scale 0.0 || true
+          adb shell settings put global animator_duration_scale 0.0 || true
+
+          echo "Installing debug APK..."
+          ./gradlew installDebug --no-daemon --stacktrace
+
+          echo "Launching app..."
+          adb shell monkey -p com.vexel.offlinearcade -c android.intent.category.LAUNCHER 1
+
+          echo "Waiting for app startup..."
+          sleep 10
+
+          echo "Capturing screenshot..."
+          adb exec-out screencap -p > emulator-home-smoke.png
+
+          echo "ADB smoke test completed successfully."
+          BASH
+          chmod +x /tmp/adb-smoke.sh
+
       - name: Run emulator ADB smoke test
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -65,79 +138,8 @@ jobs:
           emulator-boot-timeout: 1200
           force-avd-creation: true
           disable-animations: true
-          emulator-options: >-
-            -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
-            -camera-back none -camera-front none
-            -cores 4
-          script: |
-            bash -lc '
-              set -euo pipefail
-
-              echo "ADB version:"
-              adb version
-
-              echo "Starting ADB server..."
-              adb kill-server || true
-              adb start-server
-
-              echo "Waiting for emulator..."
-              adb devices
-              adb wait-for-device
-
-              echo "Checking boot completion..."
-              boot_completed=""
-              for i in $(seq 1 120); do
-                # tolerate transient offline states
-                adb get-state 1>/dev/null 2>&1 || true
-
-                state="$(adb get-state 2>/dev/null || true)"
-                if [ "$state" = "offline" ]; then
-                  echo "ADB state is offline; restarting adb..."
-                  adb kill-server || true
-                  adb start-server || true
-                  adb wait-for-device || true
-                fi
-
-                boot_completed="$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d "\r" || true)"
-                echo "Boot check $i/120: sys.boot_completed=${boot_completed:-empty}"
-
-                if [ "$boot_completed" = "1" ]; then
-                  break
-                fi
-
-                sleep 5
-              done
-
-              if [ "$boot_completed" != "1" ]; then
-                echo "Emulator failed to complete boot."
-                adb devices || true
-                adb shell getprop ro.build.version.release || true
-                adb shell getprop sys.boot_completed || true
-                exit 1
-              fi
-
-              echo "Unlocking screen..."
-              adb shell input keyevent 82 || true
-
-              echo "Disabling animations again after boot..."
-              adb shell settings put global window_animation_scale 0.0 || true
-              adb shell settings put global transition_animation_scale 0.0 || true
-              adb shell settings put global animator_duration_scale 0.0 || true
-
-              echo "Installing debug APK..."
-              ./gradlew installDebug --no-daemon --stacktrace
-
-              echo "Launching app..."
-              adb shell monkey -p com.vexel.offlinearcade -c android.intent.category.LAUNCHER 1
-
-              echo "Waiting for app startup..."
-              sleep 10
-
-              echo "Capturing screenshot..."
-              adb exec-out screencap -p > emulator-home-smoke.png
-
-              echo "ADB smoke test completed successfully."
-            '
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none -camera-front none
+          script: bash /tmp/adb-smoke.sh
 
       - name: Upload emulator screenshot
         if: always()
