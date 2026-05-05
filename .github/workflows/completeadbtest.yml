@@ -156,6 +156,7 @@ jobs:
             -camera-back none
           disable-animations: true
           script: |
+            bash <<'BASH'
             set -euo pipefail
 
             echo "===== ADB DEVICE CHECK ====="
@@ -338,6 +339,7 @@ jobs:
               echo "## Verdict"
               echo "PASS if this workflow completed without failure."
             } | tee "$REPORT_DIR/FULL_EMULATOR_ADB_TEST_SUMMARY.md"
+            BASH
 
       - name: Upload emulator and ADB artifacts
         if: always()
