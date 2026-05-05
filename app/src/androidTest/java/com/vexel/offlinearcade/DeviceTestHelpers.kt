@@ -11,15 +11,15 @@ import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 
 internal fun AndroidComposeTestRule<*, *>.waitUntilExists(tag: String, timeoutMillis: Long = 30_000) {
     waitUntil(timeoutMillis = timeoutMillis) {
-        runCatching { onNodeWithTag(tag).fetchSemanticsNode() }.isSuccess
+        runCatching { onNodeWithTag(tag, useUnmergedTree = true).fetchSemanticsNode() }.isSuccess
     }
 }
 
 internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screenTag: String) {
     waitUntilExists(ArcadeTestTags.HomeScreen)
     waitUntilExists(ArcadeTestTags.HomeList)
-    onNodeWithTag(ArcadeTestTags.HomeList).performScrollToNode(hasTestTag(entryTag))
-    onNodeWithTag(entryTag).performClick()
+    onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true).performScrollToNode(hasTestTag(entryTag))
+    onNodeWithTag(entryTag, useUnmergedTree = true).performClick()
     waitUntilExists(screenTag)
 }
 
