@@ -162,6 +162,11 @@ jobs:
             adb devices
             adb wait-for-device
 
+            echo "===== WAIT FOR BOOT ====="
+            # Wait for boot completion (up to 5 minutes)
+            timeout 300 adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 2; done'
+            echo "Boot completed."
+
             echo "===== DEVICE INFO ====="
             adb shell getprop ro.product.model | tee "$LOG_DIR/device-model.txt"
             adb shell getprop ro.build.version.release | tee "$LOG_DIR/android-version.txt"
@@ -183,7 +188,13 @@ jobs:
             echo "APK_PATH=$APK_PATH" | tee "$REPORT_DIR/apk-path.txt"
 
             echo "===== EXTRACT PACKAGE NAME ====="
-            AAPT="$(find "$ANDROID_HOME/build-tools" -name aapt | sort | tail -n 1)"
+            # Detect AAPT location more reliably
+            AAPT="$(find "$ANDROID_HOME" -name aapt | head -n 1)"
+            if [ -z "$AAPT" ]; then
+              AAPT="aapt" # Fallback to path
+            fi
+            echo "Using AAPT: $AAPT"
+            
             PACKAGE_NAME="$($AAPT dump badging "$APK_PATH" | sed -n "s/package: name='\([^']*\)'.*/\1/p")"
             MAIN_ACTIVITY="$($AAPT dump badging "$APK_PATH" | sed -n "s/launchable-activity: name='\([^']*\)'.*/\1/p")"
 
