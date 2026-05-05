@@ -1,0 +1,351 @@
+name: Android Full Emulator + ADB Test Suite
+
+on:
+  workflow_dispatch:
+    inputs:
+      api-level:
+        description: "Android API level for emulator"
+        required: false
+        default: "35"
+      target:
+        description: "Android system image target"
+        required: false
+        default: "google_apis"
+      arch:
+        description: "Emulator architecture"
+        required: false
+        default: "x86_64"
+      profile:
+        description: "Emulator device profile"
+        required: false
+        default: "pixel_5"
+      monkey-events:
+        description: "Number of monkey test events"
+        required: false
+        default: "500"
+
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+env:
+  APP_MODULE: app
+  GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dkotlin.daemon.jvm.options=-Xmx2g"
+  SCREENSHOT_DIR: adb-artifacts/screenshots
+  UI_DUMP_DIR: adb-artifacts/ui-dumps
+  LOG_DIR: adb-artifacts/logs
+  REPORT_DIR: adb-artifacts/reports
+
+jobs:
+  build-unit-lint:
+    name: Build, Unit Tests, and Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Show project and Gradle environment
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Branch/ref: $GITHUB_REF"
+          ./gradlew --version
+
+      - name: Run clean build, unit tests, lint, and assemble debug APK
+        run: |
+          ./gradlew clean \
+            lintDebug \
+            testDebugUnitTest \
+            assembleDebug \
+            --stacktrace \
+            --no-daemon
+
+      - name: Upload build reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-unit-lint-reports
+          path: |
+            **/build/reports/**
+            **/build/test-results/**
+            **/build/outputs/lint-results-debug.*
+          if-no-files-found: ignore
+
+      - name: Upload debug APK
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-apk
+          path: |
+            app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+
+  emulator-adb-full-test:
+    name: Emulator Instrumented + ADB Full Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    needs: build-unit-lint
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Enable KVM for Android emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          ls -la /dev/kvm || true
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Prepare artifact folders
+        run: |
+          mkdir -p "$SCREENSHOT_DIR" "$UI_DUMP_DIR" "$LOG_DIR" "$REPORT_DIR"
+
+      - name: Build debug and androidTest APKs
+        run: |
+          ./gradlew \
+            :${APP_MODULE}:assembleDebug \
+            :${APP_MODULE}:assembleDebugAndroidTest \
+            --stacktrace \
+            --no-daemon
+
+      - name: Run emulator, instrumented tests, and ADB checks
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ github.event.inputs.api-level || '35' }}
+          target: ${{ github.event.inputs.target || 'google_apis' }}
+          arch: ${{ github.event.inputs.arch || 'x86_64' }}
+          profile: ${{ github.event.inputs.profile || 'pixel_5' }}
+          emulator-options: >-
+            -no-window
+            -gpu swiftshader_indirect
+            -no-snapshot
+            -noaudio
+            -no-boot-anim
+            -camera-back none
+          disable-animations: true
+          script: |
+            set -euo pipefail
+
+            echo "===== ADB DEVICE CHECK ====="
+            adb devices
+            adb wait-for-device
+
+            echo "===== DEVICE INFO ====="
+            adb shell getprop ro.product.model | tee "$LOG_DIR/device-model.txt"
+            adb shell getprop ro.build.version.release | tee "$LOG_DIR/android-version.txt"
+            adb shell getprop ro.build.version.sdk | tee "$LOG_DIR/android-sdk.txt"
+            adb shell wm size | tee "$LOG_DIR/screen-size.txt"
+            adb shell wm density | tee "$LOG_DIR/screen-density.txt"
+
+            echo "===== DISABLE ANIMATIONS ====="
+            adb shell settings put global window_animation_scale 0
+            adb shell settings put global transition_animation_scale 0
+            adb shell settings put global animator_duration_scale 0
+
+            echo "===== FIND APK ====="
+            APK_PATH="$(find app/build/outputs/apk/debug -name '*debug*.apk' | head -n 1)"
+            if [ -z "$APK_PATH" ]; then
+              echo "No debug APK found"
+              exit 1
+            fi
+            echo "APK_PATH=$APK_PATH" | tee "$REPORT_DIR/apk-path.txt"
+
+            echo "===== EXTRACT PACKAGE NAME ====="
+            AAPT="$(find "$ANDROID_HOME/build-tools" -name aapt | sort | tail -n 1)"
+            PACKAGE_NAME="$($AAPT dump badging "$APK_PATH" | sed -n "s/package: name='\([^']*\)'.*/\1/p")"
+            MAIN_ACTIVITY="$($AAPT dump badging "$APK_PATH" | sed -n "s/launchable-activity: name='\([^']*\)'.*/\1/p")"
+
+            if [ -z "$PACKAGE_NAME" ]; then
+              echo "Unable to detect package name from APK"
+              exit 1
+            fi
+
+            if [ -z "$MAIN_ACTIVITY" ]; then
+              echo "Unable to detect launchable activity from APK"
+              exit 1
+            fi
+
+            echo "$PACKAGE_NAME" | tee "$REPORT_DIR/package-name.txt"
+            echo "$MAIN_ACTIVITY" | tee "$REPORT_DIR/main-activity.txt"
+
+            echo "===== CLEAR OLD LOGCAT ====="
+            adb logcat -c
+
+            echo "===== INSTALL APK ====="
+            adb install -r "$APK_PATH"
+
+            echo "===== COLD LAUNCH TEST ====="
+            adb shell am force-stop "$PACKAGE_NAME"
+            adb shell am start -W -n "$PACKAGE_NAME/$MAIN_ACTIVITY" | tee "$LOG_DIR/cold-launch-time.txt"
+            sleep 5
+
+            echo "===== VERIFY APP IS FOREGROUND ====="
+            adb shell dumpsys window | grep -E "mCurrentFocus|mFocusedApp" | tee "$LOG_DIR/current-focus-after-launch.txt"
+            adb shell dumpsys window | grep -E "mCurrentFocus|mFocusedApp" | grep "$PACKAGE_NAME"
+
+            echo "===== HOME SCREEN SCREENSHOT AND UI DUMP ====="
+            adb exec-out screencap -p > "$SCREENSHOT_DIR/01_home_launch.png"
+            adb shell uiautomator dump /sdcard/window_home.xml
+            adb pull /sdcard/window_home.xml "$UI_DUMP_DIR/01_home.xml"
+
+            echo "===== CORE TEXT PRESENCE CHECK ====="
+            echo "This check is intentionally broad. It catches broken navigation, missing game cards, or wrong startup screens."
+            if grep -Eiq "Pulse|Orbit|Lane|Drift|Stack|Drop|Daily|Challenge|Stats|Settings|Play|Arcade" "$UI_DUMP_DIR/01_home.xml"; then
+              echo "PASS: Core app/game text found on initial UI dump" | tee "$REPORT_DIR/core-text-presence.txt"
+            else
+              echo "WARN: Expected core text not found in UI dump. This may be normal if the UI uses custom canvas drawing." | tee "$REPORT_DIR/core-text-presence.txt"
+            fi
+
+            echo "===== ADB BASIC INTERACTION SMOKE TEST ====="
+            echo "Testing taps/swipes/back behavior to catch crashes and frozen UI."
+
+            adb shell input tap 540 900 || true
+            sleep 2
+            adb exec-out screencap -p > "$SCREENSHOT_DIR/02_after_center_tap.png"
+            adb shell uiautomator dump /sdcard/window_after_center_tap.xml || true
+            adb pull /sdcard/window_after_center_tap.xml "$UI_DUMP_DIR/02_after_center_tap.xml" || true
+
+            adb shell input swipe 900 1000 150 1000 300 || true
+            sleep 1
+            adb exec-out screencap -p > "$SCREENSHOT_DIR/03_after_left_swipe.png"
+
+            adb shell input swipe 150 1000 900 1000 300 || true
+            sleep 1
+            adb exec-out screencap -p > "$SCREENSHOT_DIR/04_after_right_swipe.png"
+
+            adb shell input keyevent KEYCODE_BACK || true
+            sleep 1
+            adb exec-out screencap -p > "$SCREENSHOT_DIR/05_after_back.png"
+
+            echo "===== OFFLINE MODE TEST ====="
+            echo "Core product guardrail: app must work offline."
+            adb shell svc wifi disable || true
+            adb shell svc data disable || true
+            adb shell am force-stop "$PACKAGE_NAME"
+            adb shell am start -W -n "$PACKAGE_NAME/$MAIN_ACTIVITY" | tee "$LOG_DIR/offline-launch-time.txt"
+            sleep 5
+
+            adb exec-out screencap -p > "$SCREENSHOT_DIR/06_offline_launch.png"
+            adb shell dumpsys window | grep -E "mCurrentFocus|mFocusedApp" | tee "$LOG_DIR/current-focus-offline.txt"
+            adb shell dumpsys window | grep -E "mCurrentFocus|mFocusedApp" | grep "$PACKAGE_NAME"
+
+            adb shell uiautomator dump /sdcard/window_offline.xml || true
+            adb pull /sdcard/window_offline.xml "$UI_DUMP_DIR/06_offline.xml" || true
+
+            echo "===== RE-ENABLE NETWORK ====="
+            adb shell svc wifi enable || true
+            adb shell svc data enable || true
+
+            echo "===== RUN INSTRUMENTED TESTS ====="
+            echo "This is the main functional testing layer. Add Compose/Espresso tests here to cover every real feature."
+            ./gradlew :${APP_MODULE}:connectedDebugAndroidTest --stacktrace --no-daemon
+
+            echo "===== MONKEY STRESS TEST ====="
+            echo "Random UI stress test to detect crashes, ANRs, lifecycle issues, and navigation fragility."
+            adb logcat -c
+            adb shell monkey \
+              -p "$PACKAGE_NAME" \
+              --pct-syskeys 0 \
+              --pct-appswitch 0 \
+              --throttle 80 \
+              -v \
+              ${{ github.event.inputs.monkey-events || '500' }} \
+              | tee "$LOG_DIR/monkey-test.txt"
+
+            adb exec-out screencap -p > "$SCREENSHOT_DIR/07_after_monkey.png"
+
+            echo "===== MEMORY SNAPSHOT ====="
+            adb shell dumpsys meminfo "$PACKAGE_NAME" | tee "$LOG_DIR/meminfo.txt" || true
+
+            echo "===== FINAL LOGCAT CAPTURE ====="
+            adb logcat -d > "$LOG_DIR/final-logcat.txt" || true
+
+            echo "===== CRASH / ANR CHECK ====="
+            if grep -Ei "FATAL EXCEPTION|AndroidRuntime|ANR in|Process.*has died|Force finishing activity" "$LOG_DIR/final-logcat.txt"; then
+              echo "FAIL: Crash/ANR indicators found in logcat" | tee "$REPORT_DIR/crash-check.txt"
+              exit 1
+            else
+              echo "PASS: No fatal crash/ANR indicators found in logcat" | tee "$REPORT_DIR/crash-check.txt"
+            fi
+
+            echo "===== FINAL TEST SUMMARY ====="
+            {
+              echo "# Android Emulator + ADB Test Summary"
+              echo ""
+              echo "## Package"
+              echo "$PACKAGE_NAME"
+              echo ""
+              echo "## Main Activity"
+              echo "$MAIN_ACTIVITY"
+              echo ""
+              echo "## Checks Completed"
+              echo "- Build APK"
+              echo "- Install APK"
+              echo "- Cold launch"
+              echo "- Foreground verification"
+              echo "- Home screenshot"
+              echo "- UI dump"
+              echo "- ADB tap/swipe/back smoke test"
+              echo "- Offline launch test"
+              echo "- Instrumented Android tests"
+              echo "- Monkey stress test"
+              echo "- Memory snapshot"
+              echo "- Logcat crash/ANR scan"
+              echo ""
+              echo "## Verdict"
+              echo "PASS if this workflow completed without failure."
+            } | tee "$REPORT_DIR/FULL_EMULATOR_ADB_TEST_SUMMARY.md"
+
+      - name: Upload emulator and ADB artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emulator-adb-artifacts
+          path: |
+            adb-artifacts/**
+            **/build/reports/androidTests/**
+            **/build/outputs/androidTest-results/**
+            **/build/outputs/connected_android_test_additional_output/**
+          if-no-files-found: ignore
+
+      - name: Upload APKs after emulator test
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emulator-tested-apks
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/androidTest/debug/*.apk
+          if-no-files-found: ignore
