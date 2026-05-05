@@ -123,14 +123,11 @@ fun ArcadeScaffold(
             modifier = Modifier
                 .fillMaxSize()
                 .background(colors.background)
-                .padding(padding),
+                .padding(padding)
+                .then(if (screenTestTag != null) Modifier.testTag(screenTestTag) else Modifier),
         ) {
             Column(
-                modifier = if (screenTestTag != null) {
-                    bodyModifier.testTag(screenTestTag)
-                } else {
-                    bodyModifier
-                },
+                modifier = bodyModifier,
                 verticalArrangement = Arrangement.spacedBy(spacing.md),
             ) {
                 content()
