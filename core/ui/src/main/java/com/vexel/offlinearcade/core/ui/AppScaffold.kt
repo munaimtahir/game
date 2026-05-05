@@ -40,12 +40,15 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -198,7 +201,7 @@ fun ArcadeCard(
             containerColor = ArcadeTheme.colors.elevatedCardBackground,
             contentColor = ArcadeTheme.colors.textPrimary
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
     ) {
         Box(
             modifier = Modifier
@@ -371,10 +374,28 @@ fun PremiumProgress(
     modifier: Modifier = Modifier,
     accent: Color = ArcadeTheme.colors.reward,
 ) {
-    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    val animatedProgress by androidx.compose.animation.core.animateFloatAsState(
+        targetValue = progress.coerceIn(0f, 1f),
+        animationSpec = androidx.compose.animation.core.tween(durationMillis = 800, easing = androidx.compose.animation.core.FastOutSlowInEasing),
+        label = "progress"
+    )
+    val isComplete = progress >= 1f
+    val animatedScale by androidx.compose.animation.core.animateFloatAsState(
+        targetValue = if (isComplete) 1.05f else 1f,
+        animationSpec = androidx.compose.animation.core.spring(dampingRatio = androidx.compose.animation.core.Spring.DampingRatioMediumBouncy),
+        label = "progress_scale"
+    )
+
+    Column(
+        modifier = modifier.graphicsLayer {
+            scaleX = animatedScale
+            scaleY = animatedScale
+        },
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(label, style = MaterialTheme.typography.bodyMedium, color = ArcadeTheme.colors.textSecondary)
-            Text("${(progress.coerceIn(0f, 1f) * 100).toInt()}%", style = MaterialTheme.typography.labelLarge, color = ArcadeTheme.colors.textPrimary)
+            Text("${(animatedProgress * 100).toInt()}%", style = MaterialTheme.typography.labelLarge, color = if (isComplete) ArcadeTheme.colors.success else ArcadeTheme.colors.textPrimary)
         }
         Box(
             modifier = Modifier
@@ -385,9 +406,9 @@ fun PremiumProgress(
         ) {
             Box(
                 modifier = Modifier
-                    .fillMaxWidth(progress.coerceIn(0f, 1f))
+                    .fillMaxWidth(animatedProgress)
                     .clip(RoundedCornerShape(999.dp))
-                    .background(accent)
+                    .background(if (isComplete) ArcadeTheme.colors.success else accent)
                     .padding(vertical = 4.dp),
             )
         }
@@ -402,13 +423,41 @@ fun HeroPanel(
     overline: String? = null,
     trailing: @Composable (() -> Unit)? = null,
 ) {
+    val infiniteTransition = androidx.compose.animation.core.rememberInfiniteTransition()
+    val animatedOffset by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1000f,
+        animationSpec = androidx.compose.animation.core.infiniteRepeatable(
+            animation = androidx.compose.animation.core.tween(8000, easing = androidx.compose.animation.core.LinearEasing),
+            repeatMode = androidx.compose.animation.core.RepeatMode.Reverse
+        )
+    )
+    
+    val baseGradient = ArcadeTheme.colors.heroGradient
+    
     BoxWithConstraints(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(32.dp))
-            .background(ArcadeTheme.colors.heroGradient)
+            .background(baseGradient)
             .padding(24.dp),
     ) {
+        // Subtle animated glow overlay
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .graphicsLayer {
+                    translationX = animatedOffset * 0.1f
+                    alpha = 0.4f
+                }
+                .background(
+                    Brush.radialGradient(
+                        colors = listOf(Color.White.copy(alpha = 0.2f), Color.Transparent),
+                        center = androidx.compose.ui.geometry.Offset(animatedOffset, 0f),
+                        radius = 800f
+                    )
+                )
+        )
         val isCompact = maxWidth < 380.dp
         val textColor = Color.White // Hero background is still vibrant/dark enough for white
         if (isCompact && trailing != null) {

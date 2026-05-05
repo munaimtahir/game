@@ -171,6 +171,29 @@ fun PulseOrbitScreen(
 
     val colors = ArcadeTheme.colors
 
+    // Animation state
+    val successPulse = remember { androidx.compose.animation.core.Animatable(0f) }
+    val failPulse = remember { androidx.compose.animation.core.Animatable(0f) }
+    val ringBurst = remember { androidx.compose.animation.core.Animatable(0f) }
+
+    LaunchedEffect(state.passes) {
+        if (state.passes > 0) {
+            successPulse.snapTo(1f)
+            successPulse.animateTo(0f, animationSpec = androidx.compose.animation.core.tween(400))
+            if (state.combo > 0 && state.combo % PulseOrbitTuning.comboBonusEvery == 0) {
+                ringBurst.snapTo(1f)
+                ringBurst.animateTo(0f, animationSpec = androidx.compose.animation.core.tween(600, easing = androidx.compose.animation.core.LinearOutSlowInEasing))
+            }
+        }
+    }
+
+    LaunchedEffect(state.gameOver) {
+        if (state.gameOver) {
+            failPulse.snapTo(1f)
+            failPulse.animateTo(0f, animationSpec = androidx.compose.animation.core.tween(500))
+        }
+    }
+
     val overlayContent: (@Composable () -> Unit)? = when {
         state.paused -> {
             {
@@ -273,18 +296,37 @@ fun PulseOrbitScreen(
                 val ringStroke = radius * 0.22f
                 val topLeft = Offset(center.x - radius, center.y - radius)
                 
+                // Fail Flash Background
+                if (failPulse.value > 0f) {
+                    drawRect(color = colors.dangerCoral.copy(alpha = failPulse.value * 0.3f))
+                }
+
+                // Ring Burst
+                if (ringBurst.value > 0f) {
+                    drawCircle(
+                        color = colors.accentViolet.copy(alpha = ringBurst.value * 0.5f),
+                        radius = radius + ringStroke + (1f - ringBurst.value) * radius * 1.5f,
+                        center = center,
+                        style = Stroke(width = ringStroke * ringBurst.value)
+                    )
+                }
+
                 // Central core
-                drawCircle(color = colors.gameBoardRaised, radius = radius * 0.42f, center = center)
+                drawCircle(
+                    color = androidx.compose.ui.graphics.lerp(colors.gameBoardRaised, colors.pickupMint, successPulse.value * 0.5f),
+                    radius = radius * 0.42f + successPulse.value * 12f,
+                    center = center
+                )
                 
                 // Ring
                 drawArc(
-                    color = colors.primaryCyan,
+                    color = androidx.compose.ui.graphics.lerp(colors.primaryCyan, colors.pickupMint, successPulse.value),
                     startAngle = state.gapCenterAngle + state.gapSize / 2f,
                     sweepAngle = 360f - state.gapSize,
                     useCenter = false,
                     topLeft = topLeft,
                     size = Size(radius * 2f, radius * 2f),
-                    style = Stroke(width = ringStroke, cap = StrokeCap.Round),
+                    style = Stroke(width = ringStroke + successPulse.value * 6f, cap = StrokeCap.Round),
                 )
                 
                 // Orb
@@ -293,7 +335,11 @@ fun PulseOrbitScreen(
                     x = center.x + cos(orbAngleRadians).toFloat() * radius,
                     y = center.y + sin(orbAngleRadians).toFloat() * radius,
                 )
-                drawCircle(color = colors.accentViolet, radius = ringStroke * 0.48f, center = orbCenter)
+                drawCircle(
+                    color = androidx.compose.ui.graphics.lerp(colors.accentViolet, colors.dangerCoral, failPulse.value),
+                    radius = ringStroke * 0.48f + successPulse.value * 6f,
+                    center = orbCenter
+                )
             }
 
             Column(

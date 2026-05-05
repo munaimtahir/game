@@ -74,7 +74,7 @@ class OfflineArcadeRepositoryPersistenceTest {
         repository.recordRun(
             RunResult(
                 gameId = GameId.PULSE_ORBIT,
-                score = 18,
+                score = 5,
                 durationMillis = 12_000,
                 bestCombo = 6,
                 coinsEarned = 9,
@@ -83,7 +83,7 @@ class OfflineArcadeRepositoryPersistenceTest {
 
         val snapshot = repository.snapshot.first()
         val pulseStats = snapshot.statsByGame.getValue(GameId.PULSE_ORBIT)
-        assertEquals(18, pulseStats.highScore)
+        assertEquals(5, pulseStats.highScore)
         assertEquals(1, pulseStats.sessionsPlayed)
         assertEquals(9, snapshot.profile.coins)
         assertEquals(1, snapshot.profile.currentStreakDays)

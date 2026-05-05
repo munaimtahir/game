@@ -113,6 +113,14 @@ fun LaneDriftScreen(
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     val random = remember { Random(System.currentTimeMillis()) }
     val gestureThresholds = rememberArcadeGestureThresholdsPx()
+    val pickupFlash = remember { androidx.compose.animation.core.Animatable(0f) }
+
+    LaunchedEffect(state.pickups) {
+        if (state.pickups > 0) {
+            pickupFlash.snapTo(1f)
+            pickupFlash.animateTo(0f, animationSpec = androidx.compose.animation.core.tween(300))
+        }
+    }
 
     fun restart() {
         hasReportedRun = false
@@ -356,6 +364,26 @@ fun LaneDriftScreen(
                     },
             ) {
                 val laneWidth = size.width / 3f
+                
+                // Speed Lines
+                val baseSpeedOffset = (state.elapsedSeconds * 400f) % size.height
+                val speedLineColor = colors.gameBoardRaised.copy(alpha = 0.5f)
+                for (i in 0..4) {
+                    val yOffset = (baseSpeedOffset + i * (size.height / 4f)) % size.height
+                    drawLine(
+                        color = speedLineColor,
+                        start = Offset(laneWidth, yOffset),
+                        end = Offset(laneWidth, yOffset + 60f),
+                        strokeWidth = 4f
+                    )
+                    drawLine(
+                        color = speedLineColor,
+                        start = Offset(laneWidth * 2, (yOffset + size.height / 2) % size.height),
+                        end = Offset(laneWidth * 2, ((yOffset + size.height / 2) % size.height) + 60f),
+                        strokeWidth = 4f
+                    )
+                }
+
                 repeat(3) { lane ->
                     drawRoundRect(
                         color = if (lane == state.lane) colors.hudCard else colors.gameBoardRaised,
@@ -403,6 +431,15 @@ fun LaneDriftScreen(
                     cornerRadius = CornerRadius(20f, 20f),
                     style = Stroke(width = 4f)
                 )
+                
+                // Pickup Sparkle
+                if (pickupFlash.value > 0f) {
+                    drawCircle(
+                        color = colors.pickupMint.copy(alpha = pickupFlash.value * 0.8f),
+                        radius = 40f + (1f - pickupFlash.value) * 60f,
+                        center = Offset(playerLeft + playerWidth / 2f, playerTop - 20f)
+                    )
+                }
             }
 
             if (!state.playing && !state.paused && !state.gameOver) {

@@ -68,6 +68,7 @@ fun StackDropScreen(
     var hasReportedRun by remember { mutableStateOf(false) }
     var paused by remember { mutableStateOf(false) }
     val gestureThresholds = rememberArcadeGestureThresholdsPx()
+    val lineClearFlash = remember { androidx.compose.animation.core.Animatable(0f) }
 
     fun restart() {
         state = engine.newState()
@@ -109,6 +110,13 @@ fun StackDropScreen(
                 state = engine.tick(state)
                 lastTickMillis = now
             }
+        }
+    }
+
+    LaunchedEffect(state.recentLineClearCount) {
+        if (state.recentLineClearCount > 0) {
+            lineClearFlash.snapTo(1f)
+            lineClearFlash.animateTo(0f, animationSpec = androidx.compose.animation.core.tween(400, easing = androidx.compose.animation.core.LinearOutSlowInEasing))
         }
     }
 
@@ -273,6 +281,20 @@ fun StackDropScreen(
             ) {
                 val cellWidth = size.width / STACK_DROP_WIDTH
                 val cellHeight = size.height / STACK_DROP_HEIGHT
+                
+                // Danger Glow
+                val inDanger = (0 until STACK_DROP_WIDTH).any { x -> (0..3).any { y -> state.board.get(x, y) != 0 } }
+                if (inDanger && state.playing) {
+                    val dangerAlpha = 0.15f + 0.15f * kotlin.math.sin(System.currentTimeMillis() / 200.0).toFloat()
+                    drawRect(
+                        brush = androidx.compose.ui.graphics.Brush.verticalGradient(
+                            colors = listOf(colors.dangerCoral.copy(alpha = dangerAlpha), Color.Transparent),
+                            startY = 0f,
+                            endY = size.height * 0.3f
+                        )
+                    )
+                }
+                
                 for (y in 0 until STACK_DROP_HEIGHT) {
                     for (x in 0 until STACK_DROP_WIDTH) {
                         val baseColor = state.board.get(x, y)
@@ -283,14 +305,23 @@ fun StackDropScreen(
                             else -> colors.gameBoardInner
                         }
                         val topLeft = Offset(x * cellWidth + 2f, y * cellHeight + 2f)
-                        val size = Size(cellWidth - 4f, cellHeight - 4f)
-                        drawRect(color = colors.gridLine, topLeft = topLeft, size = size)
+                        val sizeRect = Size(cellWidth - 4f, cellHeight - 4f)
+                        drawRect(color = colors.gridLine, topLeft = topLeft, size = sizeRect)
                         drawRect(
                             color = fillColor,
                             topLeft = topLeft + Offset(1.5f, 1.5f),
-                            size = Size(size.width - 3f, size.height - 3f),
+                            size = Size(sizeRect.width - 3f, sizeRect.height - 3f),
                         )
                     }
+                }
+                
+                // Line Clear Flash
+                if (lineClearFlash.value > 0f) {
+                    drawRect(
+                        color = Color.White.copy(alpha = lineClearFlash.value * 0.6f),
+                        topLeft = Offset(0f, 0f),
+                        size = Size(size.width, size.height)
+                    )
                 }
             }
             if (!state.playing && !paused && !state.gameOver) {
