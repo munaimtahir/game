@@ -68,31 +68,14 @@ jobs:
             bash <<'BASH'
             set -euo pipefail
 
-            echo "Starting ADB server..."
-            adb kill-server || true
-            adb start-server
-
-            echo "Waiting for emulator device..."
-            adb devices
+            echo "Waiting for emulator to be ready..."
             adb wait-for-device
-
+            
             echo "Waiting for Android boot completion..."
-            boot_completed=""
-            for i in {1..60}; do
-              boot_completed="$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
-              echo "Boot check $i/60: sys.boot_completed=${boot_completed:-empty}"
-
-              if [ "$boot_completed" = "1" ]; then
-                break
-              fi
-
-              sleep 5
-            done
-
-            if [ "$boot_completed" != "1" ]; then
-              echo "Emulator did not complete boot in expected time."
-              exit 1
-            fi
+            # More robust boot wait
+            timeout 300 adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 2; done'
+            
+            echo "Boot completed."
 
             echo "Unlocking emulator screen..."
             adb shell input keyevent 82 || true
@@ -109,7 +92,7 @@ jobs:
             if [[ "$MODE" == "smoke" || "$MODE" == "full" || "$MODE" == "daily_challenge" ]]; then
               echo "Running connected Android tests..."
               if [[ "$MODE" == "daily_challenge" ]]; then
-                ./gradlew connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.vexel.offlinearcade.GameplayDeviceSmokeTest --no-daemon || true
+                ./gradlew connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.vexel.offlinearcade.GameplayDeviceSmokeTest --no-daemon
               else
                 ./gradlew connectedDebugAndroidTest --no-daemon
               fi
