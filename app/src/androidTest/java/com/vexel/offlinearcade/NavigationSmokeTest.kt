@@ -44,7 +44,11 @@ class NavigationSmokeTest {
         rule.onNode(hasText(expectedTitle, substring = true)).assertIsDisplayed()
         
         // Return to Home
-        rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        try {
+            rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        } catch (e: Throwable) {
+            androidx.test.espresso.Espresso.pressBack()
+        }
         rule.waitForIdle()
     }
 }

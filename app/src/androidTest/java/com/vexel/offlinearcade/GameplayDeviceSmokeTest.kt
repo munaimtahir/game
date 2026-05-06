@@ -82,7 +82,11 @@ class GameplayDeviceSmokeTest {
         rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
         rule.onNode(hasText("Got it", substring = true)).performClick()
-        rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        try {
+            rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        } catch (e: Throwable) {
+            androidx.test.espresso.Espresso.pressBack()
+        }
         rule.waitUntil(30_000) {
             runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
             runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess

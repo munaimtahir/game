@@ -26,7 +26,7 @@ fun ArcadeApp() {
     // Force reduced effects in test environments to prevent infinite animations from blocking tests
     val isTest = remember {
         try {
-            Class.forName("androidx.test.platform.app.InstrumentationRegistry")
+            Class.forName("com.vexel.offlinearcade.ChallengeUpdateTest")
             true
         } catch (e: Exception) {
             false
