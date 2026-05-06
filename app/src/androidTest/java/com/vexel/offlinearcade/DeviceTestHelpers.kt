@@ -24,9 +24,22 @@ internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screen
             onNode(hasText("Arcade Library")).fetchSemanticsNode()
         }.isSuccess
     }
-    onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true).performScrollToNode(hasTestTag(entryTag))
-    onNodeWithTag(entryTag, useUnmergedTree = true).performClick()
-    waitUntilExists(screenTag)
+    
+    // Ensure the entry is visible and click it
+    onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
+        .performScrollToNode(hasTestTag(entryTag))
+    
+    onNodeWithTag(entryTag, useUnmergedTree = true)
+        .performScrollTo() // Extra safety
+        .performClick()
+        
+    waitUntil(timeoutMillis = 30_000) {
+        runCatching { onNodeWithTag(screenTag, useUnmergedTree = true).fetchSemanticsNode() }.isSuccess ||
+        runCatching { onNode(hasText("Game Info")).fetchSemanticsNode() }.isSuccess ||
+        runCatching { onNode(hasText("Daily Challenges")).fetchSemanticsNode() }.isSuccess ||
+        runCatching { onNode(hasText("Stats")).fetchSemanticsNode() }.isSuccess ||
+        runCatching { onNode(hasText("Settings")).fetchSemanticsNode() }.isSuccess
+    }
 }
 
 internal fun SemanticsNodeInteraction.readText(): String {

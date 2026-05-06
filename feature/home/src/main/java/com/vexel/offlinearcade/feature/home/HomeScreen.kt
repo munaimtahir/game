@@ -172,44 +172,20 @@ fun HomeScreen(
                     testTag = featuredGame.testTag,
                 )
             }
-            item {
-                BoxWithConstraints {
-                    if (maxWidth < 500.dp) {
-                        Column(verticalArrangement = Arrangement.spacedBy(spacing.md), modifier = Modifier.fillMaxWidth()) {
-                            supportingGames.forEach { game ->
-                                GameEntryCard(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    title = game.title,
-                                    body = game.body,
-                                    highScore = game.highScore,
-                                    sessions = game.sessions,
-                                    challenge = game.challenge,
-                                    featured = false,
-                                    compact = true,
-                                    onPlay = game.onPlay,
-                                    testTag = game.testTag,
-                                )
-                            }
-                        }
-                    } else {
-                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.md)) {
-                            supportingGames.forEach { game ->
-                                GameEntryCard(
-                                    modifier = Modifier.weight(1f),
-                                    title = game.title,
-                                    body = game.body,
-                                    highScore = game.highScore,
-                                    sessions = game.sessions,
-                                    challenge = game.challenge,
-                                    featured = false,
-                                    compact = true,
-                                    onPlay = game.onPlay,
-                                    testTag = game.testTag,
-                                )
-                            }
-                        }
-                    }
-                }
+            items(supportingGames.size) { index ->
+                val game = supportingGames[index]
+                GameEntryCard(
+                    modifier = Modifier.fillMaxWidth(),
+                    title = game.title,
+                    body = game.body,
+                    highScore = game.highScore,
+                    sessions = game.sessions,
+                    challenge = game.challenge,
+                    featured = false,
+                    compact = true,
+                    onPlay = game.onPlay,
+                    testTag = game.testTag,
+                )
             }
             item {
                 SectionHeader(title = "Arcade Meta", subtitle = "Daily tasks and settings stay secondary to play.")
