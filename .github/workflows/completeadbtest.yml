@@ -266,8 +266,10 @@ jobs:
           adb shell svc wifi enable || true
           adb shell svc data enable || true
 
-          echo "===== RUN INSTRUMENTED TESTS ====="
-          echo "This is the main functional testing layer. Add Compose/Espresso tests here to cover every real feature."
+          echo "===== FORCE STOP FOR INSTRUMENTED TESTS ====="
+          adb shell am force-stop "$PACKAGE_NAME"
+
+          echo "===== RUN INSTRUMENTED TESTS ====="          echo "This is the main functional testing layer. Add Compose/Espresso tests here to cover every real feature."
           ./gradlew :${APP_MODULE}:connectedDebugAndroidTest --stacktrace --no-daemon --info
 
           echo "===== MONKEY STRESS TEST ====="
