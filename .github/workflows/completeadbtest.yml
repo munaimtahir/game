@@ -6,7 +6,7 @@ on:
       api-level:
         description: "Android API level for emulator"
         required: false
-        default: "35"
+        default: "34"
       target:
         description: "Android system image target"
         required: false
@@ -338,7 +338,7 @@ jobs:
       - name: Run emulator, instrumented tests, and ADB checks
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: ${{ github.event.inputs.api-level || '35' }}
+          api-level: ${{ github.event.inputs.api-level || '34' }}
           target: ${{ github.event.inputs.target || 'google_apis' }}
           arch: ${{ github.event.inputs.arch || 'x86_64' }}
           profile: ${{ github.event.inputs.profile || 'pixel_5' }}
