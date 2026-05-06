@@ -285,7 +285,7 @@ fun StackDropScreen(
                 
                 // Danger Glow
                 val inDanger = (0 until STACK_DROP_WIDTH).any { x -> (0..3).any { y -> state.board.get(x, y) != 0 } }
-                if (inDanger && state.playing && !reducedEffects) {
+                if (inDanger && state.playing && false) {
                     val dangerAlpha = 0.15f + 0.15f * kotlin.math.sin(System.currentTimeMillis() / 200.0).toFloat()
                     drawRect(
                         brush = androidx.compose.ui.graphics.Brush.verticalGradient(

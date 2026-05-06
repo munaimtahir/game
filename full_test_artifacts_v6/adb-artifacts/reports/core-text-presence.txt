@@ -1,0 +1,1 @@
+WARN: Expected core text not found in UI dump. This may be normal if the UI uses custom canvas drawing.
