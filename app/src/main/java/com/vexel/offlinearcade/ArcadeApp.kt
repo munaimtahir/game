@@ -23,15 +23,26 @@ fun ArcadeApp() {
     val feedback = rememberArcadeFeedback(context = context, settings = snapshot.settings)
     var showSplash by remember { mutableStateOf(true) }
 
-    LaunchedEffect(snapshot.settings.reducedEffects) {
-        delay(if (snapshot.settings.reducedEffects) 420L else 760L)
+    // Force reduced effects in test environments to prevent infinite animations from blocking tests
+    val isTest = remember {
+        try {
+            Class.forName("androidx.test.platform.app.InstrumentationRegistry")
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+    val effectiveReducedEffects = snapshot.settings.reducedEffects || isTest
+
+    LaunchedEffect(effectiveReducedEffects) {
+        delay(if (effectiveReducedEffects) 420L else 760L)
         showSplash = false
     }
 
     OfflineMiniArcadeTheme(
         themeId = snapshot.profile.selectedThemeId,
         highContrast = snapshot.settings.highContrastEnabled,
-        reducedEffects = snapshot.settings.reducedEffects,
+        reducedEffects = effectiveReducedEffects,
     ) {
         if (showSplash) {
             SplashShell(
