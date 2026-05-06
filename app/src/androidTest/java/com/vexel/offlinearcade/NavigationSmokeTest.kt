@@ -31,7 +31,7 @@ class NavigationSmokeTest {
 
     private fun openRouteByText(entryText: String, expectedTitle: String) {
         rule.waitUntil(30_000) {
-            runCatching { rule.onNode(hasText("Arcade", substring = true)).fetchSemanticsNode() }.isSuccess
+            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
         }
         
         rule.onNode(hasText(entryText, substring = true)).performScrollTo().performClick()
@@ -44,7 +44,7 @@ class NavigationSmokeTest {
         rule.onNode(hasText(expectedTitle, substring = true)).assertIsDisplayed()
         
         // Return to Home
-        androidx.test.espresso.Espresso.pressBack()
+        rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
     }
 }
