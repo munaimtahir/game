@@ -1,7 +1,6 @@
 package com.vexel.offlinearcade
 
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodes
@@ -11,9 +10,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.click
-import androidx.compose.ui.test.swipeDown
 import androidx.compose.ui.test.swipeLeft
-import androidx.compose.ui.test.swipeRight
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import org.junit.Assert.assertNotEquals

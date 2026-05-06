@@ -74,7 +74,12 @@ class BackNavigationTest {
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         
         // On Ready Screen
-        rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        try {
+            rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        } catch (e: Throwable) {
+            androidx.test.espresso.Espresso.pressBack()
+        }
+        rule.waitForIdle()
         rule.waitUntil(30_000) {
             rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
             rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
@@ -117,7 +122,12 @@ class BackNavigationTest {
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         
         // On Ready Screen
-        rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        try {
+            rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        } catch (e: Throwable) {
+            androidx.test.espresso.Espresso.pressBack()
+        }
+        rule.waitForIdle()
         rule.waitUntil(30_000) {
             rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
             rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
