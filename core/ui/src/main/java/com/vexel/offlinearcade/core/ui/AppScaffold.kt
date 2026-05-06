@@ -557,14 +557,6 @@ fun SplashShell(title: String, subtitle: String, modifier: Modifier = Modifier) 
                 Text(title, style = MaterialTheme.typography.displayMedium, fontWeight = FontWeight.Black, color = ArcadeTheme.colors.textPrimary, textAlign = TextAlign.Center)
                 Text(subtitle, style = MaterialTheme.typography.bodyLarge, color = ArcadeTheme.colors.textSecondary, textAlign = TextAlign.Center)
             }
-            if (!ArcadeTheme.reducedEffects) {
-                CircularProgressIndicator(
-                    modifier = Modifier.size(48.dp),
-                    color = ArcadeTheme.colors.premium,
-                    trackColor = ArcadeTheme.colors.cardBackground,
-                    strokeWidth = 4.dp,
-                )
-            }
         }
     }
 }
