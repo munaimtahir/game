@@ -30,6 +30,7 @@ fun LaneDriftDetailScreen(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
+        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.LaneDriftScreen,
     ) {
         HeroPanel(
             overline = "Speed & Reflexes",

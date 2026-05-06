@@ -124,7 +124,7 @@ fun ArcadeScaffold(
                 .fillMaxSize()
                 .background(colors.background)
                 .padding(padding)
-                .then(if (screenTestTag != null) Modifier.testTag(screenTestTag) else Modifier),
+                .testTag(screenTestTag ?: ""),
         ) {
             Column(
                 modifier = bodyModifier,

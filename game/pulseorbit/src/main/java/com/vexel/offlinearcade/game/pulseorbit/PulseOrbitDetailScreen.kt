@@ -32,6 +32,7 @@ fun PulseOrbitDetailScreen(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
+        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitScreen,
     ) {
         HeroPanel(
             overline = "Rhythm & Timing",

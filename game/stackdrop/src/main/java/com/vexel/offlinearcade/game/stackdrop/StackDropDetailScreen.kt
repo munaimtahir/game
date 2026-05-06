@@ -30,6 +30,7 @@ fun StackDropDetailScreen(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
+        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.StackDropScreen,
     ) {
         HeroPanel(
             overline = "Strategy & Tactics",
