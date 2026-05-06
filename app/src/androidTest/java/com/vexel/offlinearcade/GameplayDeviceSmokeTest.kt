@@ -28,6 +28,7 @@ class GameplayDeviceSmokeTest {
     fun pulseOrbitStartsFromButtonOnDevice() {
         rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton).performClick()
+        rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.PulseOrbitBoard)
     }
 
@@ -35,6 +36,7 @@ class GameplayDeviceSmokeTest {
     fun laneDriftStartsAndSpawnsTraffic() {
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).performClick()
+        rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard).performTouchInput { click() }
         rule.waitUntil(timeoutMillis = 6_000) {
@@ -54,6 +56,7 @@ class GameplayDeviceSmokeTest {
     fun stackDropGestureControlsWork() {
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performClick()
+        rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.StackDropHint)
         rule.onNodeWithTag(ArcadeTestTags.StackDropHint).performScrollTo().assertIsDisplayed()
         // rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performScrollTo().assertIsDisplayed().performClick()
@@ -93,6 +96,7 @@ class GameplayDeviceSmokeTest {
     fun gameplayHintsCanBeDismissed() {
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).performClick()
+        rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
         rule.onNode(hasText("Got it")).performClick()
         rule.onNodeWithTag(ArcadeTestTags.BackButton).performClick()
@@ -108,6 +112,7 @@ class GameplayDeviceSmokeTest {
 
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performClick()
+        rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.StackDropHint)
         rule.onNodeWithTag(ArcadeTestTags.StackDropHint).performScrollTo().assertIsDisplayed()
     }

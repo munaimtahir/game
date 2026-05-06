@@ -37,6 +37,7 @@ class BackNavigationTest {
         
         // Start Game
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton).performClick()
+        rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.PulseOrbitBoard)
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitBoard).performTouchInput { click() }
         
@@ -69,6 +70,7 @@ class BackNavigationTest {
         
         // Start Game
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).performClick()
+        rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.LaneDriftBoard)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard).performTouchInput { click() }
         
@@ -99,6 +101,7 @@ class BackNavigationTest {
         
         // Start Game
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performClick()
+        rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.StackDropBoard)
         rule.onNodeWithTag(ArcadeTestTags.StackDropBoard).performClick()
         rule.onNode(androidx.compose.ui.test.hasText("Run paused")).assertIsDisplayed()

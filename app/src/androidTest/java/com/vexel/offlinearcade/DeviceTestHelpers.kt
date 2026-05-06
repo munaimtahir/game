@@ -31,8 +31,10 @@ internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screen
         .performScrollToNode(hasTestTag(entryTag))
     
     onNodeWithTag(entryTag, useUnmergedTree = true)
-        .performScrollTo() // Extra safety
+        .performScrollTo()
         .performClick()
+    
+    waitForIdle()
         
     waitUntil(timeoutMillis = 30_000) {
         runCatching { onNodeWithTag(screenTag, useUnmergedTree = true).fetchSemanticsNode() }.isSuccess ||
