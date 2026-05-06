@@ -4,6 +4,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
@@ -31,14 +32,14 @@ class NavigationSmokeTest {
 
     private fun openRouteByText(entryText: String, expectedTitle: String) {
         rule.waitUntil(30_000) {
-            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
         
         rule.onNode(hasText(entryText, substring = true)).performScrollTo().performClick()
         rule.waitForIdle()
         
         rule.waitUntil(30_000) {
-            runCatching { rule.onNode(hasText(expectedTitle, substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodes(hasText(expectedTitle, substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
         
         rule.onNode(hasText(expectedTitle, substring = true)).assertIsDisplayed()

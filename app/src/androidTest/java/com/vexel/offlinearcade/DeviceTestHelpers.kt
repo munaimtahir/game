@@ -5,7 +5,6 @@ import androidx.compose.ui.test.SemanticsNodeInteraction
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
-import androidx.compose.ui.test.onAllNodes
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
@@ -22,7 +21,7 @@ internal fun AndroidComposeTestRule<*, *>.waitUntilExists(tag: String, timeoutMi
 internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screenTag: String) {
     waitUntil(timeoutMillis = 30_000) {
         onAllNodesWithTag(ArcadeTestTags.HomeScreen, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty() ||
-        onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
+        this.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
     }
 
     // Ensure the entry is visible and click it
@@ -37,10 +36,10 @@ internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screen
 
     waitUntil(timeoutMillis = 30_000) {
         onAllNodesWithTag(screenTag, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty() ||
-        onAllNodes(hasText("Game Info")).fetchSemanticsNodes().isNotEmpty() ||
-        onAllNodes(hasText("Daily Challenges")).fetchSemanticsNodes().isNotEmpty() ||
-        onAllNodes(hasText("Stats")).fetchSemanticsNodes().isNotEmpty() ||
-        onAllNodes(hasText("Settings")).fetchSemanticsNodes().isNotEmpty()
+        this.onAllNodes(hasText("Game Info")).fetchSemanticsNodes().isNotEmpty() ||
+        this.onAllNodes(hasText("Daily Challenges")).fetchSemanticsNodes().isNotEmpty() ||
+        this.onAllNodes(hasText("Stats")).fetchSemanticsNodes().isNotEmpty() ||
+        this.onAllNodes(hasText("Settings")).fetchSemanticsNodes().isNotEmpty()
     }
 }
 
