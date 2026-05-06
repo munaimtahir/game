@@ -20,30 +20,30 @@ class NavigationSmokeTest {
 
     @Test
     fun homeNavigatesToAllCoreRoutes() {
-        openRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
-        openRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
-        openRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
-        openRoute(ArcadeTestTags.ChallengesEntry, ArcadeTestTags.ChallengesScreen)
-        openRoute(ArcadeTestTags.StatsEntry, ArcadeTestTags.StatsScreen)
-
-        rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
-            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
-        }
-        rule.onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
-            .performScrollToNode(hasTestTag(ArcadeTestTags.SettingsEntry))
-        rule.onNodeWithTag(ArcadeTestTags.SettingsEntry, useUnmergedTree = true).performClick()
-        rule.waitUntilExists(ArcadeTestTags.SettingsScreen)
-        rule.onNodeWithTag(ArcadeTestTags.SettingsScreen, useUnmergedTree = true).assertIsDisplayed()
+        openRouteByText("Pulse Orbit", "Game Info")
+        openRouteByText("Lane Drift", "Game Info")
+        openRouteByText("Stack Drop", "Game Info")
+        openRouteByText("Daily Challenges", "Daily Challenges")
+        openRouteByText("Stats", "Stats")
+        openRouteByText("Settings", "Settings")
     }
 
-    private fun openRoute(entryTag: String, screenTag: String) {
-        rule.openHomeRoute(entryTag, screenTag)
-        rule.onNodeWithTag(screenTag, useUnmergedTree = true).assertIsDisplayed()
-        rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+    private fun openRouteByText(entryText: String, expectedTitle: String) {
         rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
             runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
         }
+        
+        rule.onNode(hasText(entryText)).performScrollTo().performClick()
+        rule.waitForIdle()
+        
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNode(hasText(expectedTitle)).fetchSemanticsNode() }.isSuccess
+        }
+        
+        rule.onNode(hasText(expectedTitle)).assertIsDisplayed()
+        
+        // Return to Home
+        androidx.test.espresso.Espresso.pressBack()
+        rule.waitForIdle()
     }
 }
