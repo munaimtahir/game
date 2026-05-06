@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -238,7 +240,7 @@ fun PulseOrbitScreen(
         topBar = {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    androidx.compose.material3.IconButton(
+                        androidx.compose.material3.IconButton(
                         onClick = {
                             if (state.playing && !state.paused) {
                                 togglePause()
@@ -249,7 +251,7 @@ fun PulseOrbitScreen(
                         modifier = Modifier.testTag(ArcadeTestTags.BackButton)
                     ) {
                         androidx.compose.material3.Icon(
-                            androidx.compose.material.icons.Icons.Default.ArrowBack,
+                            Icons.Default.ArrowBack,
                             contentDescription = "Back",
                             tint = colors.textPrimary
                         )
