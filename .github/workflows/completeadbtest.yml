@@ -268,7 +268,7 @@ jobs:
 
           echo "===== RUN INSTRUMENTED TESTS ====="
           echo "This is the main functional testing layer. Add Compose/Espresso tests here to cover every real feature."
-          ./gradlew :${APP_MODULE}:connectedDebugAndroidTest --stacktrace --no-daemon
+          ./gradlew :${APP_MODULE}:connectedDebugAndroidTest --stacktrace --no-daemon --info
 
           echo "===== MONKEY STRESS TEST ====="
           echo "Random UI stress test to detect crashes, ANRs, lifecycle issues, and navigation fragility."
