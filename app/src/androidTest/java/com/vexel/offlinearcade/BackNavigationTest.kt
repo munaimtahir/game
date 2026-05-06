@@ -21,6 +21,7 @@ class BackNavigationTest {
 
     @Test
     fun pulseOrbitBackNavigationFlow() {
+        rule.onNode(hasText("Library", substring = true)).assertExists()
         // Home -> Pulse Orbit
         rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
         
@@ -69,6 +70,7 @@ class BackNavigationTest {
 
     @Test
     fun laneDriftBackNavigationFlow() {
+        rule.onNode(hasText("Library", substring = true)).assertExists()
         // Home -> Lane Drift
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         
@@ -117,6 +119,7 @@ class BackNavigationTest {
 
     @Test
     fun stackDropBackNavigationFlow() {
+        rule.onNode(hasText("Library", substring = true)).assertExists()
         // Home -> Stack Drop
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         
