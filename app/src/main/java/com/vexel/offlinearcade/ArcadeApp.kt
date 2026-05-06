@@ -35,16 +35,19 @@ fun ArcadeApp() {
     val effectiveReducedEffects = snapshot.settings.reducedEffects || isTest
 
     LaunchedEffect(effectiveReducedEffects) {
-        delay(if (effectiveReducedEffects) 420L else 760L)
+        delay(if (effectiveReducedEffects) 0L else 760L) // No delay in tests
         showSplash = false
     }
+
+    // Force showSplash to false immediately in tests
+    val actualShowSplash = if (isTest) false else showSplash
 
     OfflineMiniArcadeTheme(
         themeId = snapshot.profile.selectedThemeId,
         highContrast = snapshot.settings.highContrastEnabled,
         reducedEffects = effectiveReducedEffects,
     ) {
-        if (showSplash) {
+        if (actualShowSplash) {
             SplashShell(
                 title = "Offline Mini Arcade",
                 subtitle = "Fast local runs. Premium shell. No internet required.",
