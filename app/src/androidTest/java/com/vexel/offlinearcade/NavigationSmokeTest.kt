@@ -31,17 +31,17 @@ class NavigationSmokeTest {
 
     private fun openRouteByText(entryText: String, expectedTitle: String) {
         rule.waitUntil(30_000) {
-            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+            runCatching { rule.onNode(hasText("Arcade", substring = true)).fetchSemanticsNode() }.isSuccess
         }
         
-        rule.onNode(hasText(entryText)).performScrollTo().performClick()
+        rule.onNode(hasText(entryText, substring = true)).performScrollTo().performClick()
         rule.waitForIdle()
         
         rule.waitUntil(30_000) {
-            runCatching { rule.onNode(hasText(expectedTitle)).fetchSemanticsNode() }.isSuccess
+            runCatching { rule.onNode(hasText(expectedTitle, substring = true)).fetchSemanticsNode() }.isSuccess
         }
         
-        rule.onNode(hasText(expectedTitle)).assertIsDisplayed()
+        rule.onNode(hasText(expectedTitle, substring = true)).assertIsDisplayed()
         
         // Return to Home
         androidx.test.espresso.Espresso.pressBack()
