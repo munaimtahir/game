@@ -31,8 +31,8 @@ class BackNavigationTest {
         }
         rule.waitForIdle()
         rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
-            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
+            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
 
         // Home -> Pulse Orbit
@@ -61,8 +61,8 @@ class BackNavigationTest {
         }
         rule.waitForIdle()
         rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
-            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
+            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
     }
 
@@ -74,8 +74,8 @@ class BackNavigationTest {
         // On Ready Screen
         rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
         rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
-            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
+            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
 
         // Home -> Lane Drift
@@ -104,8 +104,8 @@ class BackNavigationTest {
         }
         rule.waitForIdle()
         rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
-            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
+            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
     }
 
@@ -117,8 +117,8 @@ class BackNavigationTest {
         // On Ready Screen
         rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
         rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
-            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
+            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
 
         // Home -> Stack Drop
@@ -147,8 +147,8 @@ class BackNavigationTest {
         }
         rule.waitForIdle()
         rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
-            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
+            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
     }
 }

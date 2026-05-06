@@ -13,35 +13,32 @@ import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 
 internal fun AndroidComposeTestRule<*, *>.waitUntilExists(tag: String, timeoutMillis: Long = 30_000) {
     waitUntil(timeoutMillis = timeoutMillis) {
-        runCatching { onNodeWithTag(tag, useUnmergedTree = true).fetchSemanticsNode() }.isSuccess
+        onAllNodesWithTag(tag, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty()
     }
 }
 
 internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screenTag: String) {
     waitUntil(timeoutMillis = 30_000) {
-        runCatching { 
-            onNodeWithTag(ArcadeTestTags.HomeScreen, useUnmergedTree = true).fetchSemanticsNode() 
-        }.isSuccess || runCatching {
-            onNode(hasText("Arcade Library")).fetchSemanticsNode()
-        }.isSuccess
+        onAllNodesWithTag(ArcadeTestTags.HomeScreen, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty() ||
+        onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
     }
-    
+
     // Ensure the entry is visible and click it
     onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
         .performScrollToNode(hasTestTag(entryTag))
-    
+
     onNodeWithTag(entryTag, useUnmergedTree = true)
-        .performScrollTo()
+        .performScrollTo() // Extra safety
         .performClick()
-    
+
     waitForIdle()
-        
+
     waitUntil(timeoutMillis = 30_000) {
-        runCatching { onNodeWithTag(screenTag, useUnmergedTree = true).fetchSemanticsNode() }.isSuccess ||
-        runCatching { onNode(hasText("Game Info")).fetchSemanticsNode() }.isSuccess ||
-        runCatching { onNode(hasText("Daily Challenges")).fetchSemanticsNode() }.isSuccess ||
-        runCatching { onNode(hasText("Stats")).fetchSemanticsNode() }.isSuccess ||
-        runCatching { onNode(hasText("Settings")).fetchSemanticsNode() }.isSuccess
+        onAllNodesWithTag(screenTag, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty() ||
+        onAllNodes(hasText("Game Info")).fetchSemanticsNodes().isNotEmpty() ||
+        onAllNodes(hasText("Daily Challenges")).fetchSemanticsNodes().isNotEmpty() ||
+        onAllNodes(hasText("Stats")).fetchSemanticsNodes().isNotEmpty() ||
+        onAllNodes(hasText("Settings")).fetchSemanticsNodes().isNotEmpty()
     }
 }
 

@@ -88,8 +88,8 @@ class GameplayDeviceSmokeTest {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitUntil(30_000) {
-            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
-            runCatching { rule.onNode(hasText("Library", substring = true)).fetchSemanticsNode() }.isSuccess
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
+            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
     }
 }
