@@ -229,17 +229,17 @@ jobs:
           echo "===== ADB BASIC INTERACTION SMOKE TEST ====="
           echo "Testing taps/swipes/back behavior to catch crashes and frozen UI."
 
-          adb shell input tap 540 1800 || true
+          adb shell input tap 540 2150 || true
           sleep 2
           adb exec-out screencap -p > "$SCREENSHOT_DIR/02_after_center_tap.png"
           adb shell uiautomator dump /sdcard/window_after_center_tap.xml || true
           adb pull /sdcard/window_after_center_tap.xml "$UI_DUMP_DIR/02_after_center_tap.xml" || true
 
-          adb shell input swipe 900 1000 150 1000 300 || true
+          adb shell input swipe 900 1500 150 1500 300 || true
           sleep 1
           adb exec-out screencap -p > "$SCREENSHOT_DIR/03_after_left_swipe.png"
 
-          adb shell input swipe 150 1000 900 1000 300 || true
+          adb shell input swipe 150 1500 900 1500 300 || true
           sleep 1
           adb exec-out screencap -p > "$SCREENSHOT_DIR/04_after_right_swipe.png"
 
@@ -252,6 +252,8 @@ jobs:
           adb shell svc wifi disable || true
           adb shell svc data disable || true
           adb shell am force-stop "$PACKAGE_NAME"
+          # Wait a bit for system to settle offline
+          sleep 2
           adb shell am start -W -n "$PACKAGE_NAME/$MAIN_ACTIVITY" | tee "$LOG_DIR/offline-launch-time.txt"
           sleep 5
 
@@ -272,7 +274,7 @@ jobs:
           echo "===== RUN INSTRUMENTED TESTS ====="
           echo "This is the main functional testing layer. Add Compose/Espresso tests here to cover every real feature."
           ./gradlew :${APP_MODULE}:connectedDebugAndroidTest \
-            -Dorg.gradle.project.android.testInstrumentationRunnerArguments.IS_TEST_RUN=true \
+            -Pandroid.testInstrumentationRunnerArguments.IS_CI=true \
             --stacktrace --no-daemon --info
 
           echo "===== MONKEY STRESS TEST ====="
