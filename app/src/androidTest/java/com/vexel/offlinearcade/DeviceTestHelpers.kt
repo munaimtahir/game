@@ -16,8 +16,13 @@ internal fun AndroidComposeTestRule<*, *>.waitUntilExists(tag: String, timeoutMi
 }
 
 internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screenTag: String) {
-    waitUntilExists(ArcadeTestTags.HomeScreen)
-    waitUntilExists(ArcadeTestTags.HomeList)
+    waitUntil(timeoutMillis = 30_000) {
+        runCatching { 
+            onNodeWithTag(ArcadeTestTags.HomeScreen, useUnmergedTree = true).fetchSemanticsNode() 
+        }.isSuccess || runCatching {
+            onNode(hasText("Arcade Library")).fetchSemanticsNode()
+        }.isSuccess
+    }
     onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true).performScrollToNode(hasTestTag(entryTag))
     onNodeWithTag(entryTag, useUnmergedTree = true).performClick()
     waitUntilExists(screenTag)

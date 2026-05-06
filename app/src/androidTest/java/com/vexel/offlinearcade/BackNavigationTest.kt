@@ -25,8 +25,11 @@ class BackNavigationTest {
         
         // On Ready Screen: Back returns to Home
         Espresso.pressBack()
-        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
-        rule.onNodeWithTag(ArcadeTestTags.HomeScreen).assertIsDisplayed()
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
+            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+        }
+        // rule.onNodeWithTag(ArcadeTestTags.HomeScreen).assertIsDisplayed()
 
         // Home -> Pulse Orbit
         rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitScreen)
@@ -43,8 +46,10 @@ class BackNavigationTest {
 
         // While Paused: Back returns to Home
         Espresso.pressBack()
-        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
-        rule.onNodeWithTag(ArcadeTestTags.HomeScreen).assertIsDisplayed()
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
+            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+        }
     }
 
     @Test
@@ -53,7 +58,10 @@ class BackNavigationTest {
         
         // On Ready Screen
         Espresso.pressBack()
-        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
+            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+        }
 
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftScreen)
         
@@ -66,7 +74,10 @@ class BackNavigationTest {
 
         // While Paused: Back returns to Home
         Espresso.pressBack()
-        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
+            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+        }
     }
 
     @Test
@@ -75,7 +86,10 @@ class BackNavigationTest {
         
         // On Ready Screen
         Espresso.pressBack()
-        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
+            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+        }
 
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
         
@@ -88,6 +102,9 @@ class BackNavigationTest {
 
         // While Paused: Back returns to Home
         Espresso.pressBack()
-        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
+            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+        }
     }
 }

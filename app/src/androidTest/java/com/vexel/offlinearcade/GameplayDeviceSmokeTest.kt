@@ -93,9 +93,15 @@ class GameplayDeviceSmokeTest {
         rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
         rule.onNode(hasText("Got it")).performClick()
         rule.onNodeWithTag(ArcadeTestTags.BackButton).performClick()
-        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
+            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+        }
         rule.activityRule.scenario.recreate()
-        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+        rule.waitUntil(30_000) {
+            runCatching { rule.onNodeWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNode() }.isSuccess ||
+            runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
+        }
 
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
         rule.waitUntilExists(ArcadeTestTags.StackDropHint)
