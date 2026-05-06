@@ -237,7 +237,23 @@ fun PulseOrbitScreen(
         modifier = Modifier.testTag(ArcadeTestTags.PulseOrbitScreen),
         topBar = {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    androidx.compose.material3.IconButton(
+                        onClick = {
+                            if (state.playing && !state.paused) {
+                                togglePause()
+                            } else {
+                                onBack()
+                            }
+                        },
+                        modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                    ) {
+                        androidx.compose.material3.Icon(
+                            androidx.compose.material.icons.Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            tint = colors.textPrimary
+                        )
+                    }
                     HudPill("Score", state.score.toString())
                     HudPill("Combo", state.combo.toString())
                 }

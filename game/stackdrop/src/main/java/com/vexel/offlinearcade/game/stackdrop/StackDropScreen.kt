@@ -224,7 +224,23 @@ fun StackDropScreen(
         modifier = Modifier.testTag(ArcadeTestTags.StackDropScreen),
         topBar = {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    androidx.compose.material3.IconButton(
+                        onClick = {
+                            if (state.playing && !paused) {
+                                paused = true
+                            } else {
+                                onBack()
+                            }
+                        },
+                        modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                    ) {
+                        androidx.compose.material3.Icon(
+                            androidx.compose.material.icons.Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            tint = colors.textPrimary
+                        )
+                    }
                     HudPill("Score", state.score.toString())
                     HudPill("Lines", state.linesCleared.toString())
                 }
