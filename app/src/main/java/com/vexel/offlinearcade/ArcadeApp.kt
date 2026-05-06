@@ -47,25 +47,18 @@ fun ArcadeApp() {
         highContrast = snapshot.settings.highContrastEnabled,
         reducedEffects = effectiveReducedEffects,
     ) {
-        if (actualShowSplash) {
-            SplashShell(
-                title = "Offline Mini Arcade",
-                subtitle = "Fast local runs. Premium shell. No internet required.",
-            )
-        } else {
-            ArcadeNavHost(
-                navController = navController,
-                snapshot = snapshot,
-                feedback = feedback,
-                onToggleSound = viewModel::toggleSound,
-                onToggleMusic = viewModel::toggleMusic,
-                onToggleVibration = viewModel::toggleVibration,
-                onToggleReducedEffects = viewModel::toggleReducedEffects,
-                onToggleHighContrast = viewModel::toggleHighContrast,
-                onUnlockTheme = viewModel::unlockTheme,
-                onSelectTheme = viewModel::selectTheme,
-                onRecordRun = viewModel::recordRun,
-            )
-        }
+        ArcadeNavHost(
+            navController = navController,
+            snapshot = snapshot,
+            feedback = feedback,
+            onToggleSound = viewModel::toggleSound,
+            onToggleMusic = viewModel::toggleMusic,
+            onToggleVibration = viewModel::toggleVibration,
+            onToggleReducedEffects = viewModel::toggleReducedEffects,
+            onToggleHighContrast = viewModel::toggleHighContrast,
+            onUnlockTheme = viewModel::unlockTheme,
+            onSelectTheme = viewModel::selectTheme,
+            onRecordRun = viewModel::recordRun,
+        )
     }
 }
