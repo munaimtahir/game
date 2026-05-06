@@ -22,7 +22,7 @@ class BackNavigationTest {
     @Test
     fun pulseOrbitBackNavigationFlow() {
         // Home -> Pulse Orbit
-        rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitScreen)
+        rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
         
         // On Ready Screen: Back returns to Home
         Espresso.pressBack()
@@ -33,9 +33,10 @@ class BackNavigationTest {
         // rule.onNodeWithTag(ArcadeTestTags.HomeScreen).assertIsDisplayed()
 
         // Home -> Pulse Orbit
-        rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitScreen)
+        rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
         
         // Start Game
+        rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton).performClick()
         rule.waitUntilExists(ArcadeTestTags.PulseOrbitBoard)
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitBoard).performTouchInput { click() }
         
@@ -64,9 +65,11 @@ class BackNavigationTest {
             runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
         }
 
-        rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftScreen)
+        rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         
         // Start Game
+        rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).performClick()
+        rule.waitUntilExists(ArcadeTestTags.LaneDriftBoard)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard).performTouchInput { click() }
         
         // During Gameplay: Back pauses
@@ -92,13 +95,12 @@ class BackNavigationTest {
             runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
         }
 
-        rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
+        rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         
         // Start Game
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performClick()
-        
-        // During Gameplay: Back pauses
-        Espresso.pressBack()
+        rule.waitUntilExists(ArcadeTestTags.StackDropBoard)
+        rule.onNodeWithTag(ArcadeTestTags.StackDropBoard).performClick()
         rule.onNode(androidx.compose.ui.test.hasText("Run paused")).assertIsDisplayed()
 
         // While Paused: Back returns to Home

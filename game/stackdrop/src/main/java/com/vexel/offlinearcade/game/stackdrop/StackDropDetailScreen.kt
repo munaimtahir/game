@@ -30,7 +30,7 @@ fun StackDropDetailScreen(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
-        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.StackDropScreen,
+        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.StackDropDetail,
     ) {
         HeroPanel(
             overline = "Strategy & Tactics",
@@ -58,7 +58,7 @@ fun StackDropDetailScreen(
         PremiumButton(
             label = "Start Game",
             onClick = onPlay,
-            modifier = Modifier.fillMaxWidth().height(56.dp)
+            modifier = Modifier.fillMaxWidth().height(56.dp).testTag(com.vexel.offlinearcade.core.ui.ArcadeTestTags.StackDropStartButton)
         )
 
         androidx.compose.foundation.layout.Spacer(modifier = Modifier.height(spacing.xl))

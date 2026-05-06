@@ -15,6 +15,10 @@ object ArcadeTestTags {
     const val PulseOrbitScreen = "pulse_orbit_screen"
     const val LaneDriftScreen = "lane_drift_screen"
     const val StackDropScreen = "stack_drop_screen"
+    
+    const val PulseOrbitDetail = "pulse_orbit_detail"
+    const val LaneDriftDetail = "lane_drift_detail"
+    const val StackDropDetail = "stack_drop_detail"
     const val ChallengesScreen = "challenges_screen"
     const val StatsScreen = "stats_screen"
     const val SettingsScreen = "settings_screen"

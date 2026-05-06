@@ -26,14 +26,15 @@ class GameplayDeviceSmokeTest {
 
     @Test
     fun pulseOrbitStartsFromButtonOnDevice() {
-        rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitScreen)
-        rule.waitUntilExists(ArcadeTestTags.PulseOrbitStartButton)
+        rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton).performClick()
+        rule.waitUntilExists(ArcadeTestTags.PulseOrbitBoard)
     }
 
     @Test
     fun laneDriftStartsAndSpawnsTraffic() {
-        rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftScreen)
+        rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
+        rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).performClick()
         rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard).performTouchInput { click() }
         rule.waitUntil(timeoutMillis = 6_000) {
@@ -51,10 +52,11 @@ class GameplayDeviceSmokeTest {
 
     @Test
     fun stackDropGestureControlsWork() {
-        rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
+        rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
+        rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performClick()
         rule.waitUntilExists(ArcadeTestTags.StackDropHint)
         rule.onNodeWithTag(ArcadeTestTags.StackDropHint).performScrollTo().assertIsDisplayed()
-        rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performScrollTo().assertIsDisplayed().performClick()
+        // rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performScrollTo().assertIsDisplayed().performClick()
         val startState = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard).readStateDescription()
 
         rule.onNodeWithTag(ArcadeTestTags.StackDropBoard).performTouchInput { click() }
@@ -89,7 +91,8 @@ class GameplayDeviceSmokeTest {
 
     @Test
     fun gameplayHintsCanBeDismissed() {
-        rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftScreen)
+        rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
+        rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).performClick()
         rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
         rule.onNode(hasText("Got it")).performClick()
         rule.onNodeWithTag(ArcadeTestTags.BackButton).performClick()
@@ -103,7 +106,8 @@ class GameplayDeviceSmokeTest {
             runCatching { rule.onNode(hasText("Arcade Library")).fetchSemanticsNode() }.isSuccess
         }
 
-        rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
+        rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
+        rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performClick()
         rule.waitUntilExists(ArcadeTestTags.StackDropHint)
         rule.onNodeWithTag(ArcadeTestTags.StackDropHint).performScrollTo().assertIsDisplayed()
     }

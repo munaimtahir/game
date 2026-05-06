@@ -30,7 +30,7 @@ fun LaneDriftDetailScreen(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
-        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.LaneDriftScreen,
+        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.LaneDriftDetail,
     ) {
         HeroPanel(
             overline = "Speed & Reflexes",
@@ -58,7 +58,7 @@ fun LaneDriftDetailScreen(
         PremiumButton(
             label = "Start Game",
             onClick = onPlay,
-            modifier = Modifier.fillMaxWidth().height(56.dp)
+            modifier = Modifier.fillMaxWidth().height(56.dp).testTag(com.vexel.offlinearcade.core.ui.ArcadeTestTags.LaneDriftStartButton)
         )
 
         androidx.compose.foundation.layout.Spacer(modifier = Modifier.height(spacing.xl))

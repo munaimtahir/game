@@ -32,7 +32,7 @@ fun PulseOrbitDetailScreen(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
-        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitScreen,
+        screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitDetail,
     ) {
         HeroPanel(
             overline = "Rhythm & Timing",
@@ -59,7 +59,7 @@ fun PulseOrbitDetailScreen(
         PremiumButton(
             label = "Start Game",
             onClick = onPlay,
-            modifier = Modifier.fillMaxWidth().height(56.dp)
+            modifier = Modifier.fillMaxWidth().height(56.dp).testTag(com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitStartButton)
         )
         
         androidx.compose.foundation.layout.Spacer(modifier = Modifier.height(spacing.xl))

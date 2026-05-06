@@ -20,7 +20,9 @@ class LifecyclePauseTest {
 
     @Test
     fun pulseOrbitPausesOnBackground() {
-        rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitScreen)
+        rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
+        rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton).performClick()
+        rule.waitUntilExists(ArcadeTestTags.PulseOrbitBoard)
         
         // Start Game
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitBoard).performTouchInput { click() }
@@ -37,7 +39,9 @@ class LifecyclePauseTest {
 
     @Test
     fun laneDriftPausesOnBackground() {
-        rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftScreen)
+        rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
+        rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton).performClick()
+        rule.waitUntilExists(ArcadeTestTags.LaneDriftBoard)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard).performTouchInput { click() }
         
         rule.activityRule.scenario.moveToState(Lifecycle.State.STARTED)
@@ -48,8 +52,9 @@ class LifecyclePauseTest {
 
     @Test
     fun stackDropPausesOnBackground() {
-        rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropScreen)
+        rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton).performClick()
+        rule.waitUntilExists(ArcadeTestTags.StackDropBoard)
         
         rule.activityRule.scenario.moveToState(Lifecycle.State.STARTED)
         rule.activityRule.scenario.moveToState(Lifecycle.State.RESUMED)
