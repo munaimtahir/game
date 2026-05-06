@@ -22,6 +22,7 @@ class NavigationSmokeTest {
 
     @Test
     fun homeNavigatesToAllCoreRoutes() {
+        Thread.sleep(2000)
         openRouteByText("Pulse Orbit", "Game Info")
         openRouteByText("Lane Drift", "Game Info")
         openRouteByText("Stack Drop", "Game Info")
