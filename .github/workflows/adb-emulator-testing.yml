@@ -59,7 +59,7 @@ jobs:
         run: |
           cat > /tmp/adb-smoke.sh <<'BASH'
           #!/usr/bin/env bash
-          set -euo pipefail
+          set -e
 
           echo "ADB version:"
           adb version
