@@ -4,6 +4,7 @@ plugins {
 }
 
 import java.util.Properties
+import org.gradle.api.GradleException
 
 val releaseKeyProperties = Properties().apply {
     val propsFile = rootProject.file("key.properties")
@@ -28,12 +29,12 @@ val hasReleaseSigning =
 
 android {
     namespace = "com.vexel.offlinearcade"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.vexel.offlinearcade"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "0.1.0"
 
@@ -72,11 +73,34 @@ android {
     }
     buildTypes {
         getByName("release") {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
             if (hasReleaseSigning) {
                 signingConfig = signingConfigs.getByName("release")
             }
         }
     }
+}
+
+val requestedTasks = gradle.startParameter.taskNames
+val releaseTaskRequested = requestedTasks.any { task ->
+    val normalized = task.lowercase()
+    normalized.contains("assemblerelease") ||
+        normalized.contains("bundlerelease") ||
+        normalized.contains("packagerelease") ||
+        normalized.contains("publish")
+}
+
+if (releaseTaskRequested && !hasReleaseSigning) {
+    throw GradleException(
+        "Release signing is required for release/bundle tasks. " +
+            "Set storeFile/storePassword/keyAlias/keyPassword via key.properties " +
+            "or environment variables."
+    )
 }
 
 dependencies {
