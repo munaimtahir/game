@@ -6,7 +6,7 @@ on:
       api-level:
         description: "Android API level for emulator"
         required: false
-        default: "34"
+        default: "30"
       target:
         description: "Android system image target"
         required: false
@@ -18,7 +18,7 @@ on:
       profile:
         description: "Emulator device profile"
         required: false
-        default: "pixel_5"
+        default: "pixel_2"
       monkey-events:
         description: "Number of monkey test events"
         required: false
