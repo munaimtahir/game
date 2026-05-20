@@ -145,7 +145,7 @@ class BackNavigationTest {
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.StackDropBoard)
-        rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).performClick()
+        rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).performTouchInput { click() }
         
         // During Gameplay: Back pauses
         try {

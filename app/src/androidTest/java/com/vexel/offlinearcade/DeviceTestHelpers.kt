@@ -29,7 +29,6 @@ internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screen
         .performScrollToNode(hasTestTag(entryTag))
 
     onNodeWithTag(entryTag, useUnmergedTree = true)
-        .performScrollTo() // Extra safety
         .performClick()
 
     waitForIdle()

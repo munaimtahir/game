@@ -36,7 +36,10 @@ class NavigationSmokeTest {
             rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
         
-        rule.onNode(hasText(entryText, substring = true)).performScrollTo().performClick()
+        rule.onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
+            .performScrollToNode(hasText(entryText, substring = true))
+
+        rule.onNode(hasText(entryText, substring = true)).performClick()
         rule.waitForIdle()
         
         rule.waitUntil(30_000) {

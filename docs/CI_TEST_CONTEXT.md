@@ -85,7 +85,9 @@ Failures include:
     - `Action performScrollTo() failed`: Item not present or not rendered in scrollable container.
 - **Debug Hints:**  
     - Add `.assertExists()` before `.assertIsDisplayed()` for more informative errors.
-    - Dismiss "Got it" hints or dialogs automatically in test flows.
+    - Hints and dialogs ("Got it") have been removed from the main flow. Remove tests for them if encountered.
+    - If `performScrollTo()` on a lazy list is flaky, use `onNodeWithTag(listTag).performScrollToNode(...)` instead of chaining `performScrollTo()`.
+    - If checking logic relies on missing or unrendered elements (like `LaneDriftTrafficStatus`), wait on semantics properties (e.g., `readStateDescription()`) of a visible parent board.
     - Synchronize ArcadeTestTags and test code.
     - Add screenshots or logs on test failure.
 
