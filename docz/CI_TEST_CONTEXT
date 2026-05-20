@@ -1,0 +1,59 @@
+# Android Emulator CI Test Suite Context
+
+## Repository Information
+- **Repo:** munaimtahir/game
+- **Repo ID:** 1203260759
+- **Primary Language(s):** 
+  - Kotlin (69.9%)
+  - Java (24.8%)
+  - Shell (5.3%)
+
+## CI Environment
+- **Workflow file:** `.github/workflows/completeadbtest.yml`
+- **Runner:** Ubuntu, Java 17 (`temurin`), KVM-enabled
+- **Emulator profile:** Pixel 5 (`x86_64`, API 34 by default)
+- **Animations:** Disabled in CI via ADB commands
+- **Test APK and app APK built and installed automatically**
+- **Artifact output:** 
+  - Screenshots: `adb-artifacts/screenshots/`
+  - UI Dumps: `adb-artifacts/ui-dumps/`
+  - Logs: `adb-artifacts/logs/`
+  - Reports: `adb-artifacts/reports/`
+  - Build & test outputs: `**/build/reports/**`, `**/build/outputs/**`
+
+## Test Cmds
+- **Full instrumented test suite:**  
+  `./gradlew :app:connectedDebugAndroidTest`
+- **Main test sources:**  
+  - `app/src/androidTest/java/com/vexel/offlinearcade/`
+    - `BackNavigationTest.kt`
+    - `GameplayDeviceSmokeTest.kt`
+    - `NavigationSmokeTest.kt`
+    - `DeviceTestHelpers.kt`
+
+## UI Automation & Tag Conventions
+- **Tags & texts queried in tests:**  
+  - `ArcadeTestTags.*` (e.g. `PulseOrbitEntry`, `StackDropEntry`, `LaneDriftEntry`, `PulseOrbitBoard`, etc.)
+- **Navigation tests** expect to click on elements containing card/game names like "Pulse Orbit", "Lane Drift", "Stack Drop", etc.
+- **UI test helper**: core helper in DeviceTestHelpers.kt:
+  - `waitUntilExists(tag)`
+  - `openHomeRoute(entryTag, screenTag)`
+- **Important:** All UI elements used in tests MUST be rendered and tagged or contain the text values as expected.
+
+## Known Sources of Flakiness / Debug Hints
+- Timeouts in tests are 30 seconds, but emulators may still be slow; consider raising if needed.
+- Intro/hint dialogs or permission popups can block elements; dismiss automatically in test setup.
+- Ensure ArcadeTestTags and actual composable tags are in sync.
+- Use extra `.assertExists()` or debug screenshot logic on failure.
+
+## Test Coverage
+- Core flows: Navigation from home, launching/canceling games, dismissing hints, back navigation, pause/resume, general UI responsiveness.
+- ADB monkey and smoke tests cover tap/swipe/back and offline behavior.
+
+## Adding or Updating Scenarios
+- Instrumented tests in the sources above.
+- ADB test script edited in `.github/workflows/completeadbtest.yml`—see inline comments for extension.
+
+---
+
+_Last updated 2026-05-20_
