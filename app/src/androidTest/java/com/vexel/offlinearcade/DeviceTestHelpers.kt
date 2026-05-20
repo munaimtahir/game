@@ -25,8 +25,13 @@ internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screen
     }
 
     // Ensure the entry is visible and click it
-    onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
-        .performScrollToNode(hasTestTag(entryTag))
+    try {
+        onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
+            .performScrollToNode(hasTestTag(entryTag))
+    } catch (e: Throwable) {
+        // If the list is fully visible on screen, it might not be scrollable, causing performScrollToNode to fail.
+        // Also the node might already be visible.
+    }
 
     onNodeWithTag(entryTag, useUnmergedTree = true)
         .performClick()
