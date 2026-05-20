@@ -39,11 +39,15 @@ class NavigationSmokeTest {
         try {
             rule.onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
                 .performScrollToNode(hasText(entryText, substring = true))
-        } catch (e: Throwable) {
-            // Ignore if not scrollable or already visible
+        } catch (e: AssertionError) {
         }
 
-        rule.onNode(hasText(entryText, substring = true)).performClick()
+        try {
+            rule.onNode(hasText(entryText, substring = true), useUnmergedTree = true).performScrollTo()
+        } catch (e: AssertionError) {
+        }
+
+        rule.onNode(hasText(entryText, substring = true), useUnmergedTree = true).performClick()
         rule.waitForIdle()
         
         rule.waitUntil(30_000) {

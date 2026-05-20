@@ -28,13 +28,15 @@ internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screen
     try {
         onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
             .performScrollToNode(hasTestTag(entryTag))
-    } catch (e: Throwable) {
-        // If the list is fully visible on screen, it might not be scrollable, causing performScrollToNode to fail.
-        // Also the node might already be visible.
+    } catch (e: AssertionError) {
+        try {
+            this.onAllNodesWithTag(entryTag, useUnmergedTree = true)[0].performScrollTo()
+        } catch (e2: AssertionError) {
+            // Ignore if not scrollable or already visible
+        }
     }
 
-    onNodeWithTag(entryTag, useUnmergedTree = true)
-        .performClick()
+    this.onAllNodesWithTag(entryTag, useUnmergedTree = true)[0].performClick()
 
     waitForIdle()
 
@@ -55,5 +57,5 @@ internal fun SemanticsNodeInteraction.readText(): String {
 
 internal fun SemanticsNodeInteraction.readStateDescription(): String {
     val node = fetchSemanticsNode()
-    return runCatching { node.config[SemanticsProperties.StateDescription] }.getOrDefault("")
+    return runCatching { node.config[SemanticsProperties.StateDescription] }.getOrNull() ?: ""
 }
