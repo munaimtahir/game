@@ -36,7 +36,18 @@ class NavigationSmokeTest {
             rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
         
-        rule.onNode(hasText(entryText, substring = true)).performScrollTo().performClick()
+        try {
+            rule.onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
+                .performScrollToNode(hasText(entryText, substring = true))
+        } catch (e: AssertionError) {
+        }
+
+        try {
+            rule.onNode(hasText(entryText, substring = true), useUnmergedTree = true).performScrollTo()
+        } catch (e: AssertionError) {
+        }
+
+        rule.onNode(hasText(entryText, substring = true), useUnmergedTree = true).performClick()
         rule.waitForIdle()
         
         rule.waitUntil(30_000) {
@@ -48,7 +59,7 @@ class NavigationSmokeTest {
         // Return to Home
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()

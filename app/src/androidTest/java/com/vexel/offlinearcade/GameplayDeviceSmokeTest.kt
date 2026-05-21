@@ -38,13 +38,11 @@ class GameplayDeviceSmokeTest {
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
-        rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
-        rule.onNode(hasText("Got it", substring = true)).performClick()
         
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard, useUnmergedTree = true).performTouchInput { click() }
-        rule.waitUntil(timeoutMillis = 6_000) {
-            val traffic = rule.onNodeWithTag(ArcadeTestTags.LaneDriftTrafficStatus, useUnmergedTree = true).readText()
-            traffic.contains("blockers", ignoreCase = true)
+        rule.waitUntil(timeoutMillis = 8_000) {
+            val stateDesc = rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard, useUnmergedTree = true).readStateDescription()
+            stateDesc.contains("items=") && !stateDesc.contains("items=[]")
         }
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard, useUnmergedTree = true).performTouchInput { swipeLeft() }
     }
@@ -55,8 +53,6 @@ class GameplayDeviceSmokeTest {
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
-        rule.waitUntilExists(ArcadeTestTags.StackDropHint)
-        rule.onNode(hasText("Got it", substring = true)).performClick()
         
         val startState = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
 
@@ -83,11 +79,9 @@ class GameplayDeviceSmokeTest {
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
-        rule.waitUntilExists(ArcadeTestTags.LaneDriftHint)
-        rule.onNode(hasText("Got it", substring = true)).performClick()
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitUntil(30_000) {

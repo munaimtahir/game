@@ -25,12 +25,18 @@ internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screen
     }
 
     // Ensure the entry is visible and click it
-    onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
-        .performScrollToNode(hasTestTag(entryTag))
+    try {
+        onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
+            .performScrollToNode(hasTestTag(entryTag))
+    } catch (e: AssertionError) {
+        try {
+            this.onAllNodesWithTag(entryTag, useUnmergedTree = true)[0].performScrollTo()
+        } catch (e2: AssertionError) {
+            // Ignore if not scrollable or already visible
+        }
+    }
 
-    onNodeWithTag(entryTag, useUnmergedTree = true)
-        .performScrollTo() // Extra safety
-        .performClick()
+    this.onAllNodesWithTag(entryTag, useUnmergedTree = true)[0].performClick()
 
     waitForIdle()
 
@@ -51,5 +57,5 @@ internal fun SemanticsNodeInteraction.readText(): String {
 
 internal fun SemanticsNodeInteraction.readStateDescription(): String {
     val node = fetchSemanticsNode()
-    return runCatching { node.config[SemanticsProperties.StateDescription] }.getOrDefault("")
+    return runCatching { node.config[SemanticsProperties.StateDescription] }.getOrNull() ?: ""
 }
