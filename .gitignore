@@ -38,3 +38,6 @@ Thumbs.db
 
 # Local ADB screenshot artifacts
 artifacts/adb_screenshots/
+
+.gemini/
+gha-creds-*.json
