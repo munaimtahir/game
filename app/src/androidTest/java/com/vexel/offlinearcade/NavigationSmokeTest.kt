@@ -59,7 +59,7 @@ class NavigationSmokeTest {
         // Return to Home
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()

@@ -81,7 +81,7 @@ class GameplayDeviceSmokeTest {
         rule.waitForIdle()
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitUntil(30_000) {

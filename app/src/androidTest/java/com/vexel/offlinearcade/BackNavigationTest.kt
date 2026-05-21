@@ -29,7 +29,7 @@ class BackNavigationTest {
         // On Ready Screen: Back returns to Home
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
@@ -50,7 +50,7 @@ class BackNavigationTest {
         // During Gameplay: Back pauses
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
@@ -59,7 +59,7 @@ class BackNavigationTest {
         // While Paused: Back returns to Home
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
@@ -79,7 +79,7 @@ class BackNavigationTest {
         // On Ready Screen
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
@@ -100,7 +100,7 @@ class BackNavigationTest {
         // During Gameplay: Back pauses
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
@@ -109,7 +109,7 @@ class BackNavigationTest {
         // While Paused: Back returns to Home
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
@@ -129,7 +129,7 @@ class BackNavigationTest {
         // On Ready Screen
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
@@ -150,7 +150,7 @@ class BackNavigationTest {
         // During Gameplay: Back pauses
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
@@ -159,7 +159,7 @@ class BackNavigationTest {
         // While Paused: Back returns to Home
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
-        } catch (e: Throwable) {
+        } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
