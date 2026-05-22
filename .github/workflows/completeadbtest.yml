@@ -26,7 +26,7 @@ on:
       instrumented-classes:
         description: "Comma-separated instrumentation test classes to run in CI"
         required: false
-        default: "com.vexel.offlinearcade.ChallengeUpdateTest,com.vexel.offlinearcade.SettingsPersistenceSmokeTest,com.vexel.offlinearcade.LifecyclePauseTest"
+        default: ""
 
   push:
     branches:
@@ -220,7 +220,10 @@ jobs:
           adb shell am force-stop "$PACKAGE_NAME"
 
           echo "===== RUN INSTRUMENTED TESTS ====="
-          INSTRUMENTED_CLASSES="${{ github.event.inputs.instrumented-classes || env.CI_ANDROID_TEST_CLASSES }}"
+          INSTRUMENTED_CLASSES="${{ github.event.inputs.instrumented-classes || '' }}"
+          if [ -z "$INSTRUMENTED_CLASSES" ]; then
+            INSTRUMENTED_CLASSES="$CI_ANDROID_TEST_CLASSES"
+          fi
           echo "Running CI instrumentation classes: $INSTRUMENTED_CLASSES"
           ./gradlew :${APP_MODULE}:connectedDebugAndroidTest \
             -Pandroid.testInstrumentationRunnerArguments.IS_CI=true \
