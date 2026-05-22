@@ -163,7 +163,7 @@ jobs:
 
           echo "===== CORE TEXT PRESENCE CHECK ====="
           echo "This check is intentionally broad. It catches broken navigation, missing game cards, or wrong startup screens."
-          if grep -Eiq "Pulse|Orbit|Lane|Drift|Stack|Drop|Daily|Challenge|Stats|Settings|Play|Arcade" "$UI_DUMP_DIR/01_home.xml"; then
+          if grep -Eiq "Pulse|Orbit|Lane|Drift|Stack|Drop|Brick|Volley|Snake|Shield|Dash|Gravity|Flip|Daily|Challenge|Stats|Settings|Play|Arcade" "$UI_DUMP_DIR/01_home.xml"; then
             echo "PASS: Core app/game text found on initial UI dump" | tee "$REPORT_DIR/core-text-presence.txt"
           else
             echo "WARN: Expected core text not found in UI dump. This may be normal if the UI uses custom canvas drawing." | tee "$REPORT_DIR/core-text-presence.txt"
