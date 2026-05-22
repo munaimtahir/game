@@ -23,6 +23,10 @@ on:
         description: "Number of monkey test events"
         required: false
         default: "500"
+      instrumented-classes:
+        description: "Comma-separated instrumentation test classes to run in CI"
+        required: false
+        default: "com.vexel.offlinearcade.ChallengeUpdateTest,com.vexel.offlinearcade.SettingsPersistenceSmokeTest,com.vexel.offlinearcade.LifecyclePauseTest"
 
   push:
     branches:
@@ -216,10 +220,11 @@ jobs:
           adb shell am force-stop "$PACKAGE_NAME"
 
           echo "===== RUN INSTRUMENTED TESTS ====="
-          echo "Running stable CI instrumentation classes: $CI_ANDROID_TEST_CLASSES"
+          INSTRUMENTED_CLASSES="${{ github.event.inputs.instrumented-classes || env.CI_ANDROID_TEST_CLASSES }}"
+          echo "Running CI instrumentation classes: $INSTRUMENTED_CLASSES"
           ./gradlew :${APP_MODULE}:connectedDebugAndroidTest \
             -Pandroid.testInstrumentationRunnerArguments.IS_CI=true \
-            -Pandroid.testInstrumentationRunnerArguments.class="$CI_ANDROID_TEST_CLASSES" \
+            -Pandroid.testInstrumentationRunnerArguments.class="$INSTRUMENTED_CLASSES" \
             --stacktrace --no-daemon --info
 
           echo "===== MONKEY STRESS TEST ====="
