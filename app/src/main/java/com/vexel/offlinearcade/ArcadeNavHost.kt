@@ -18,6 +18,14 @@ import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitDetailScreen
 import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitScreen
 import com.vexel.offlinearcade.game.stackdrop.StackDropDetailScreen
 import com.vexel.offlinearcade.game.stackdrop.StackDropScreen
+import com.vexel.offlinearcade.game.brickvolley.BrickVolleyScreen
+import com.vexel.offlinearcade.game.brickvolley.BrickVolleyDetailScreen
+import com.vexel.offlinearcade.game.loopsnake.LoopSnakeDetailScreen
+import com.vexel.offlinearcade.game.loopsnake.LoopSnakeScreen
+import com.vexel.offlinearcade.game.shielddash.ShieldDashDetailScreen
+import com.vexel.offlinearcade.game.shielddash.ShieldDashScreen
+import com.vexel.offlinearcade.game.gravityflip.GravityFlipDetailScreen
+import com.vexel.offlinearcade.game.gravityflip.GravityFlipScreen
 
 @Composable
 fun ArcadeNavHost(
@@ -42,6 +50,10 @@ fun ArcadeNavHost(
                 onPulseOrbit = { navController.navigate(Routes.PulseOrbitDetail) },
                 onLaneDrift = { navController.navigate(Routes.LaneDriftDetail) },
                 onStackDrop = { navController.navigate(Routes.StackDropDetail) },
+                onBrickVolley = { navController.navigate(Routes.BrickVolleyDetail) },
+                onLoopSnake = { navController.navigate(Routes.LoopSnakeDetail) },
+                onShieldDash = { navController.navigate(Routes.ShieldDashDetail) },
+                onGravityFlip = { navController.navigate(Routes.GravityFlipDetail) },
                 onChallenges = { navController.navigate(Routes.Challenges) },
                 onStats = { navController.navigate(Routes.Stats) },
                 onSettings = { navController.navigate(Routes.Settings) },
@@ -98,6 +110,62 @@ fun ArcadeNavHost(
                 settings = snapshot.settings,
                 feedback = feedback,
                 onRunComplete = onRecordRun,
+                onBack = { navController.popBackStack() },
+            )
+        }
+        
+        composable(Routes.BrickVolleyDetail) {
+            BrickVolleyDetailScreen(
+                stats = snapshot.statsByGame[GameId.BRICK_VOLLEY],
+                onPlay = { navController.navigate(Routes.BrickVolleyGame) },
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(Routes.BrickVolleyGame) {
+            BrickVolleyScreen(
+                onBack = { navController.popBackStack() },
+            )
+        }
+        
+        composable(Routes.LoopSnakeDetail) {
+            LoopSnakeDetailScreen(
+                stats = snapshot.statsByGame[GameId.LOOP_SNAKE],
+                onPlay = { navController.navigate(Routes.LoopSnakeGame) },
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(Routes.LoopSnakeGame) {
+            LoopSnakeScreen(
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(Routes.ShieldDashDetail) {
+            ShieldDashDetailScreen(
+                stats = snapshot.statsByGame[GameId.SHIELD_DASH],
+                onPlay = { navController.navigate(Routes.ShieldDashGame) },
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(Routes.ShieldDashGame) {
+            ShieldDashScreen(
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(Routes.GravityFlipDetail) {
+            GravityFlipDetailScreen(
+                stats = snapshot.statsByGame[GameId.GRAVITY_FLIP],
+                onPlay = { navController.navigate(Routes.GravityFlipGame) },
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(Routes.GravityFlipGame) {
+            GravityFlipScreen(
                 onBack = { navController.popBackStack() },
             )
         }

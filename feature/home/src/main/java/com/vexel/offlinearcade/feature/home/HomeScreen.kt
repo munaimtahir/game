@@ -49,6 +49,10 @@ fun HomeScreen(
     onPulseOrbit: () -> Unit,
     onLaneDrift: () -> Unit,
     onStackDrop: () -> Unit,
+    onBrickVolley: () -> Unit,
+    onLoopSnake: () -> Unit,
+    onShieldDash: () -> Unit,
+    onGravityFlip: () -> Unit,
     onChallenges: () -> Unit,
     onStats: () -> Unit,
     onSettings: () -> Unit,
@@ -90,6 +94,46 @@ fun HomeScreen(
             onPlay = onStackDrop,
             testTag = ArcadeTestTags.StackDropEntry,
         ),
+        HomeGameEntry(
+            gameId = GameId.BRICK_VOLLEY,
+            title = "Brick Volley",
+            body = "Aim, release a volley of balls, and clear descending bricks before they reach the bottom.",
+            highScore = stats.firstOrNull { it.gameId == GameId.BRICK_VOLLEY }?.highScore ?: 0,
+            sessions = stats.firstOrNull { it.gameId == GameId.BRICK_VOLLEY }?.sessionsPlayed ?: 0,
+            challenge = todayChallenges.firstOrNull { it.gameId == GameId.BRICK_VOLLEY },
+            onPlay = onBrickVolley,
+            testTag = "BrickVolleyEntry",
+        ),
+        HomeGameEntry(
+            gameId = GameId.LOOP_SNAKE,
+            title = "Loop Snake",
+            body = "A modern Snake-style game. Collect orbs, grow, and avoid collisions.",
+            highScore = stats.firstOrNull { it.gameId == GameId.LOOP_SNAKE }?.highScore ?: 0,
+            sessions = stats.firstOrNull { it.gameId == GameId.LOOP_SNAKE }?.sessionsPlayed ?: 0,
+            challenge = todayChallenges.firstOrNull { it.gameId == GameId.LOOP_SNAKE },
+            onPlay = onLoopSnake,
+            testTag = "LoopSnakeEntry",
+        ),
+        HomeGameEntry(
+            gameId = GameId.SHIELD_DASH,
+            title = "Shield Dash",
+            body = "A defensive reflex game. Rotate a shield to block incoming hazards.",
+            highScore = stats.firstOrNull { it.gameId == GameId.SHIELD_DASH }?.highScore ?: 0,
+            sessions = stats.firstOrNull { it.gameId == GameId.SHIELD_DASH }?.sessionsPlayed ?: 0,
+            challenge = todayChallenges.firstOrNull { it.gameId == GameId.SHIELD_DASH },
+            onPlay = onShieldDash,
+            testTag = "ShieldDashEntry",
+        ),
+        HomeGameEntry(
+            gameId = GameId.GRAVITY_FLIP,
+            title = "Gravity Flip",
+            body = "Side-scrolling survival. Flip gravity to avoid hazards and collect stars.",
+            highScore = stats.firstOrNull { it.gameId == GameId.GRAVITY_FLIP }?.highScore ?: 0,
+            sessions = stats.firstOrNull { it.gameId == GameId.GRAVITY_FLIP }?.sessionsPlayed ?: 0,
+            challenge = todayChallenges.firstOrNull { it.gameId == GameId.GRAVITY_FLIP },
+            onPlay = onGravityFlip,
+            testTag = "GravityFlipEntry",
+        ),
     )
     val featuredGame = gameCards.firstOrNull { it.gameId == continueGame } ?: gameCards.first()
     val supportingGames = gameCards.filterNot { it.gameId == featuredGame.gameId }
@@ -108,7 +152,7 @@ fun HomeScreen(
             item {
                 HeroPanel(
                     overline = "Calm Focus Arcade",
-                    title = "Three games. One premium shell.",
+                    title = "Six games. One premium shell.",
                     subtitle = "Fast offline runs, shared progression, and instant retries without clutter.",
                     trailing = {
                         Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
@@ -157,7 +201,7 @@ fun HomeScreen(
                 SectionHeader(
                     title = "Arcade Library",
                     subtitle = "Your recent focus up top.",
-                    badge = "3 games",
+                    badge = "6 games",
                 )
             }
             item {
@@ -320,3 +364,4 @@ private data class HomeGameEntry(
 
 private fun adaptiveTextColor(background: Color): Color =
     if (background.luminance() > 0.5f) Color(0xFF0F172A) else Color(0xFFF8FAFC)
+

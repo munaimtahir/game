@@ -115,6 +115,10 @@ dependencies {
     implementation(project(":game:pulseorbit"))
     implementation(project(":game:lanedrift"))
     implementation(project(":game:stackdrop"))
+    implementation(project(":game:brickvolley"))
+    implementation(project(":game:loopsnake"))
+    implementation(project(":game:shielddash"))
+    implementation(project(":game:gravityflip"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.core.ktx)

@@ -26,5 +26,9 @@ include(
     ":feature:settings",
     ":game:pulseorbit",
     ":game:lanedrift",
-    ":game:stackdrop"
+    ":game:stackdrop",
+    ":game:brickvolley",
+    ":game:loopsnake",
+    ":game:shielddash",
+    ":game:gravityflip"
 )

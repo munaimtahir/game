@@ -4,6 +4,10 @@ enum class GameId(val title: String) {
     PULSE_ORBIT("Pulse Orbit"),
     LANE_DRIFT("Lane Drift"),
     STACK_DROP("Stack Drop"),
+    BRICK_VOLLEY("Brick Volley"),
+    LOOP_SNAKE("Loop Snake"),
+    SHIELD_DASH("Shield Dash"),
+    GRAVITY_FLIP("Gravity Flip"),
 }
 
 data class PlayerProfile(
