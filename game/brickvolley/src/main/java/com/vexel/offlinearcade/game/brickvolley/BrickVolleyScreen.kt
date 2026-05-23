@@ -1,5 +1,6 @@
 package com.vexel.offlinearcade.game.brickvolley
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -12,150 +13,221 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.drawText
-import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.sp
+import com.vexel.offlinearcade.core.model.ArcadeFeedback
+import com.vexel.offlinearcade.core.model.ArcadeFeedbackEvent
+import com.vexel.offlinearcade.core.model.GameId
+import com.vexel.offlinearcade.core.model.GameStats
+import com.vexel.offlinearcade.core.model.RunResult
+import com.vexel.offlinearcade.core.model.SettingsState
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import kotlinx.coroutines.delay
-import kotlin.math.atan2
-import kotlin.math.cos
-import kotlin.math.sin
+import com.vexel.offlinearcade.game.brickvolley.engine.BrickVolleyEngine
 
 @Composable
 fun BrickVolleyScreen(
+    stats: GameStats?,
+    settings: SettingsState,
+    feedback: ArcadeFeedback,
+    onRunComplete: (RunResult) -> Unit,
     onBack: () -> Unit
 ) {
-    var gameState by remember {
-        mutableStateOf(
-            GameState(
-                bricks = listOf(
-                    Brick(1, 0, 0, 1, Color.Red),
-                    Brick(2, 0, 1, 1, Color.Red),
-                    Brick(3, 0, 2, 1, Color.Red),
-                    Brick(4, 1, 0, 1, Color.Green),
-                    Brick(5, 1, 1, 1, Color.Green),
-                    Brick(6, 1, 2, 1, Color.Green),
-                ),
-                balls = emptyList(),
-                score = 0,
-                turn = 1,
-                status = GameStatus.Ready,
-                aimingLine = null
-            )
-        )
-    }
+    fun initialGameState(): GameState = GameState(
+        bricks = listOf(
+            Brick(1, 0, 0, 1, Color.Red),
+            Brick(2, 0, 1, 1, Color.Red),
+            Brick(3, 0, 2, 1, Color.Red),
+            Brick(4, 1, 0, 1, Color.Green),
+            Brick(5, 1, 1, 1, Color.Green),
+            Brick(6, 1, 2, 1, Color.Green),
+        ),
+        balls = emptyList(),
+        score = 0,
+        turn = 1,
+        status = GameStatus.Ready,
+        aimingLine = null
+    )
+
+    var gameState by remember { mutableStateOf(initialGameState()) }
+    var runStartMillis by remember { mutableLongStateOf(System.currentTimeMillis()) }
+    var hasReportedRun by remember { mutableStateOf(false) }
 
     var canvasSize by remember { mutableStateOf(androidx.compose.ui.geometry.Size.Zero) }
-    val textMeasurer = rememberTextMeasurer()
+    val reducedEffects = settings.reducedEffects
+    fun launcher(): Offset = Offset(canvasSize.width / 2f, (canvasSize.height - 48f).coerceAtLeast(48f))
+
+    fun restart() {
+        gameState = initialGameState()
+        runStartMillis = System.currentTimeMillis()
+        hasReportedRun = false
+    }
+
+    BackHandler { onBack() }
 
     LaunchedEffect(gameState.status) {
         if (gameState.status == GameStatus.Animating) {
             val balls = mutableListOf<Ball>()
-            val angle = atan2(
-                gameState.aimingLine!!.start.y - gameState.aimingLine!!.end.y,
-                gameState.aimingLine!!.start.x - gameState.aimingLine!!.end.x
-            )
-            balls.add(
-                Ball(
-                    id = 1,
-                    position = gameState.aimingLine!!.start,
-                    velocity = Offset(cos(angle) * 10f, sin(angle) * 10f)
+            val aiming = gameState.aimingLine
+            if (aiming != null && BrickVolleyEngine.shouldLaunch(aiming.start, aiming.end)) {
+                val angle = BrickVolleyEngine.dragToAngle(aiming.start, aiming.end)
+                // scale speed by screen width so behavior is stable across devices
+                val speedScale = (canvasSize.width / 1080f).coerceAtLeast(0.5f)
+                val velocity = BrickVolleyEngine.angleToVelocity(angle, BrickVolleyEngine.BASE_SPEED * speedScale)
+                balls.add(
+                    Ball(
+                        id = 1,
+                        position = aiming.start,
+                        velocity = velocity
+                    )
                 )
-            )
+                feedback.play(ArcadeFeedbackEvent.TAP)
+            } else {
+                gameState = gameState.copy(status = GameStatus.Ready, aimingLine = null)
+                return@LaunchedEffect
+            }
             gameState = gameState.copy(balls = balls)
 
+            var frameCount = 0
             while (gameState.status == GameStatus.Animating) {
+                frameCount++
+                // fixed timestep frame
+                val ballRadius = 10f * (canvasSize.width / 1080f).coerceAtLeast(0.5f)
+                val brickW = canvasSize.width / 6f
+                val brickH = 50f * (canvasSize.width / 1080f)
+
                 val newBricks = gameState.bricks.toMutableList()
-                val newBalls = gameState.balls.map { ball ->
+                val newBalls = mutableListOf<Ball>()
+
+                for (ball in gameState.balls) {
                     var newPosition = ball.position + ball.velocity
                     var newVelocity = ball.velocity
 
-                    // Wall collision
-                    if (newPosition.x < 0 || newPosition.x > canvasSize.width) {
+                    // Wall collision (account for radius)
+                    if (newPosition.x - ballRadius < 0f || newPosition.x + ballRadius > canvasSize.width) {
                         newVelocity = newVelocity.copy(x = -newVelocity.x)
                         newPosition = ball.position + newVelocity
                     }
-                    if (newPosition.y < 0) {
+                    if (newPosition.y - ballRadius < 0f) {
                         newVelocity = newVelocity.copy(y = -newVelocity.y)
                         newPosition = ball.position + newVelocity
                     }
 
-                    // Brick collision
-                    var collision = false
-                    for (brick in newBricks) {
-                        val brickRect = androidx.compose.ui.geometry.Rect(
-                            left = brick.col * 100f,
-                            top = brick.row * 50f,
-                            right = (brick.col + 1) * 100f,
-                            bottom = (brick.row + 1) * 50f
-                        )
-                        if (brickRect.contains(newPosition)) {
-                            collision = true
-                            brick.hp--
-                            if (brick.hp <= 0) {
-                                newBricks.remove(brick)
+                    // Brick collision (circle-rect)
+                    for (i in newBricks.indices) {
+                        val brick = newBricks[i]
+                        val left = brick.col * brickW
+                        val top = brick.row * brickH
+                        val right = left + brickW
+                        val bottom = top + brickH
+                        if (BrickVolleyEngine.circleRectCollision(newPosition, ballRadius, left, top, right, bottom)) {
+                            val newHp = brick.hp - 1
+                            if (newHp <= 0) {
+                                newBricks.removeAt(i)
+                            } else {
+                                newBricks[i] = brick.copy(hp = newHp)
                             }
-                            newVelocity = newVelocity.copy(y = -newVelocity.y) // Simple bounce
+                            newVelocity = newVelocity.copy(y = -newVelocity.y)
                             gameState = gameState.copy(score = gameState.score + 1)
-                            break // only one collision per frame
+                            feedback.play(ArcadeFeedbackEvent.SUCCESS)
+                            break
                         }
                     }
 
-                    // Return to bottom
-                    if (newPosition.y > canvasSize.height) {
-                        null
+                    // Return to bottom (ball catcher zone)
+                    if (newPosition.y - ballRadius > canvasSize.height) {
+                        // ball returned; do not add
                     } else {
-                        ball.copy(position = newPosition, velocity = if (collision) newVelocity else ball.velocity)
+                        newBalls.add(ball.copy(position = newPosition, velocity = newVelocity))
                     }
-                }.filterNotNull()
+                }
 
-                gameState = gameState.copy(balls = newBalls, bricks = newBricks)
+                val timedOut = frameCount > 2400
+                gameState = gameState.copy(
+                    balls = if (timedOut) emptyList() else newBalls,
+                    bricks = newBricks,
+                )
 
-                if (newBalls.isEmpty()) {
-                    val newBricksWithAdvancedRows = newBricks.map { it.copy(row = it.row + 1) }.toMutableList()
-                    val newRow = (0..5).mapNotNull { col ->
-                        if (Math.random() > 0.5) {
+                if (gameState.balls.isEmpty()) {
+                    val advanced = newBricks.map { it.copy(row = it.row + 1) }.toMutableList()
+                    val newRow = (0 until 6).mapNotNull { col ->
+                        // deterministic-ish spawn: alternate presence by turn+col parity to avoid extreme randomness
+                        if (((gameState.turn + col) % 2) == 0) {
                             Brick(
                                 id = (gameState.turn + 1) * 100 + col,
                                 row = 0,
                                 col = col,
-                                hp = gameState.turn,
+                                hp = (gameState.turn).coerceAtLeast(1),
                                 color = Color.Yellow
                             )
-                        } else {
-                            null
-                        }
+                        } else null
                     }
-                    newBricksWithAdvancedRows.addAll(newRow)
+                    advanced.addAll(newRow)
 
-                    if (newBricksWithAdvancedRows.any { it.row > 10 }) {
+                    val dangerRowLimit = (canvasSize.height / brickH).toInt() - 2
+                    if (advanced.any { it.row >= dangerRowLimit }) {
                         gameState = gameState.copy(status = GameStatus.GameOver)
                     } else {
                         gameState = gameState.copy(
                             status = GameStatus.Ready,
-                            bricks = newBricksWithAdvancedRows,
-                            turn = gameState.turn + 1
+                            bricks = advanced,
+                            turn = gameState.turn + 1,
+                            aimingLine = null,
                         )
                     }
                 }
+
                 delay(16)
             }
         }
     }
 
-    Box {
+    LaunchedEffect(gameState.status) {
+        if (gameState.status == GameStatus.GameOver && !hasReportedRun) {
+            hasReportedRun = true
+            feedback.play(ArcadeFeedbackEvent.FAIL)
+            onRunComplete(
+                RunResult(
+                    gameId = GameId.BRICK_VOLLEY,
+                    score = gameState.score,
+                    durationMillis = (System.currentTimeMillis() - runStartMillis).coerceAtLeast(0L),
+                    bestCombo = 0,
+                    coinsEarned = gameState.score / 2 + gameState.turn,
+                ),
+            )
+        }
+    }
+
+    val accessibilityState = "BrickVolleyRoot;score=${gameState.score};turn=${gameState.turn};status=${gameState.status}"
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .testTag(ArcadeTestTags.BrickVolleyScreen)
+            .semantics {
+                contentDescription = accessibilityState
+                stateDescription = accessibilityState
+            }
+    ) {
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
+                .testTag(ArcadeTestTags.BrickVolleyBoard)
                 .pointerInput(Unit) {
                     detectDragGestures(
                         onDragStart = { start ->
-                            if (gameState.status == GameStatus.Ready) {
+                            val isNearLauncher = start.y > canvasSize.height * 0.55f
+                            if (gameState.status == GameStatus.Ready && isNearLauncher) {
                                 gameState = gameState.copy(
                                     status = GameStatus.Aiming,
-                                    aimingLine = AimingLine(start, start)
+                                    aimingLine = AimingLine(launcher(), launcher())
                                 )
                             }
                         },
@@ -170,66 +242,87 @@ fun BrickVolleyScreen(
                         },
                         onDragEnd = {
                             if (gameState.status == GameStatus.Aiming) {
-                                gameState = gameState.copy(status = GameStatus.Animating)
+                                val aiming = gameState.aimingLine
+                                val canLaunch = aiming != null && BrickVolleyEngine.shouldLaunch(aiming.start, aiming.end)
+                                gameState = gameState.copy(
+                                    status = if (canLaunch) GameStatus.Animating else GameStatus.Ready,
+                                    aimingLine = if (canLaunch) aiming else null,
+                                )
                             }
                         }
                     )
                 }
         ) {
             canvasSize = size
+            val brickW = size.width / 6f
+            val brickH = 50f * (size.width / 1080f)
+            val ballRadius = 10f * (size.width / 1080f).coerceAtLeast(0.5f)
             drawRect(Color.Black)
-            drawText(
-                textMeasurer = textMeasurer,
-                text = "Score: ${gameState.score}",
-                topLeft = Offset(100f, 100f),
-                style = TextStyle(color = Color.White, fontSize = 24.sp)
-            )
             gameState.bricks.forEach { brick ->
                 drawRect(
                     color = brick.color,
-                    topLeft = Offset(brick.col * 100f, brick.row * 50f),
-                    size = androidx.compose.ui.geometry.Size(100f, 50f)
+                    topLeft = Offset(brick.col * brickW, brick.row * brickH),
+                    size = Size(brickW, brickH)
                 )
             }
             gameState.balls.forEach { ball ->
                 drawCircle(
                     color = Color.White,
-                    radius = 10f,
+                    radius = ballRadius,
                     center = ball.position
                 )
             }
+            val launcherCenter = launcher()
+            drawCircle(color = Color.White, radius = ballRadius * 1.2f, center = launcherCenter)
+            drawLine(
+                color = Color.DarkGray,
+                start = Offset(0f, launcherCenter.y + ballRadius * 2f),
+                end = Offset(size.width, launcherCenter.y + ballRadius * 2f),
+                strokeWidth = if (reducedEffects) 2f else 4f,
+            )
             gameState.aimingLine?.let { line ->
                 if (gameState.status == GameStatus.Aiming) {
                     drawLine(
                         color = Color.White,
                         start = line.start,
                         end = line.end,
-                        strokeWidth = 5f
+                        strokeWidth = if (reducedEffects) 3f else 5f
                     )
                 }
             }
+        }
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .testTag(ArcadeTestTags.BrickVolleyAimArea)
+                .semantics { contentDescription = ArcadeTestTags.BrickVolleyAimArea }
+        )
+
+        Text(
+            "Score: ${gameState.score}",
+            color = Color.White,
+            modifier = Modifier.align(Alignment.TopStart).testTag(ArcadeTestTags.BrickVolleyScore),
+            style = TextStyle(fontSize = 24.sp),
+        )
+        Text(
+            "Round: ${gameState.turn}",
+            color = Color.White,
+            modifier = Modifier.align(Alignment.TopEnd).testTag(ArcadeTestTags.BrickVolleyRound),
+            style = TextStyle(fontSize = 20.sp),
+        )
+        if (gameState.status == GameStatus.Ready) {
+            Text(
+                "Drag down from launcher to aim up",
+                color = Color.White,
+                modifier = Modifier.align(Alignment.BottomCenter),
+                style = TextStyle(fontSize = 16.sp),
+            )
         }
 
         if (gameState.status == GameStatus.GameOver) {
             GameOverScreen(
                 score = gameState.score,
-                onRestart = {
-                    gameState = GameState(
-                        bricks = listOf(
-                            Brick(1, 0, 0, 1, Color.Red),
-                            Brick(2, 0, 1, 1, Color.Red),
-                            Brick(3, 0, 2, 1, Color.Red),
-                            Brick(4, 1, 0, 1, Color.Green),
-                            Brick(5, 1, 1, 1, Color.Green),
-                            Brick(6, 1, 2, 1, Color.Green),
-                        ),
-                        balls = emptyList(),
-                        score = 0,
-                        turn = 1,
-                        status = GameStatus.Ready,
-                        aimingLine = null
-                    )
-                }
+                onRestart = { restart() }
             )
         }
     }
@@ -246,7 +339,7 @@ fun GameOverScreen(score: Int, onRestart: () -> Unit) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text("Game Over", color = Color.White, fontSize = 48.sp)
             Text("Score: $score", color = Color.White, fontSize = 32.sp)
-            Button(onClick = onRestart) {
+            Button(onClick = onRestart, modifier = Modifier.testTag(ArcadeTestTags.BrickVolleyRestart)) {
                 Text("Restart")
             }
         }

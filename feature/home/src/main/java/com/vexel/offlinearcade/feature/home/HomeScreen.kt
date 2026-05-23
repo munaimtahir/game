@@ -102,7 +102,7 @@ fun HomeScreen(
             sessions = stats.firstOrNull { it.gameId == GameId.BRICK_VOLLEY }?.sessionsPlayed ?: 0,
             challenge = todayChallenges.firstOrNull { it.gameId == GameId.BRICK_VOLLEY },
             onPlay = onBrickVolley,
-            testTag = "BrickVolleyEntry",
+            testTag = ArcadeTestTags.BrickVolleyEntry,
         ),
         HomeGameEntry(
             gameId = GameId.LOOP_SNAKE,
@@ -364,4 +364,3 @@ private data class HomeGameEntry(
 
 private fun adaptiveTextColor(background: Color): Color =
     if (background.luminance() > 0.5f) Color(0xFF0F172A) else Color(0xFFF8FAFC)
-

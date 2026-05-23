@@ -1,78 +1,79 @@
-# Copilot Session: Offline Mini Arcade
+# Copilot Session: Brick Volley Finalization
 
-This document tracks the implementation of new games into the Offline Mini Arcade Android project.
+## 1. Current repo understanding
+- Multi-module Android app (`app`, `core/*`, `feature/*`, `game/*`) using Kotlin + Jetpack Compose.
+- Existing playable games: Pulse Orbit, Lane Drift, Stack Drop, Brick Volley (+ other in-progress game modules).
+- Shared progression/high-score and run tracking handled through `RunResult` + `ArcadeViewModel.recordRun`.
 
-## 1. Current Repo Understanding
+## 2. Existing game architecture summary
+- Home route opens per-game detail, then game route (`ArcadeNavHost`).
+- Mature games use `ArcadeTestTags` for device automation and semantics state.
+- Games report completion via `onRunComplete(RunResult)` into shared stats/progression.
 
-The project is a multi-module Android application built with Kotlin and Jetpack Compose. The architecture is well-defined:
+## 3. Current Brick Volley implementation status
+- Reworked from fragile prototype to a stable loop with:
+  - drag threshold, clamped angle, launcher-anchored aiming
+  - deterministic row spawning pattern and danger-line game-over
+  - fixed bounce/collision checks and turn progression
+  - run completion reporting (`GameId.BRICK_VOLLEY`) integrated in nav flow
+- Added test tags/constants and dedicated Android/device test coverage.
 
--   **`core:*` modules:** Provide shared functionality like data, model, UI components, and common utilities.
--   **`feature:*` modules:** Encapsulate specific app features like the home screen (`feature:home`), challenges, and stats.
--   **`game:*` modules:** Each game is a self-contained module (e.g., `game:pulseorbit`). This is the pattern to follow for new games.
--   **`app` module:** The main application module that integrates all `core`, `feature`, and `game` modules.
+## 4. Serious flaws discovered
+- Tiny drags/taps launching unintended shots.
+- Aim direction ambiguity and shallow-angle traps.
+- Hardcoded render sizes mismatching collision math.
+- Prototype route lacked run-complete integration to shared stats.
+- Missing stable tags/automation path for Brick Volley device validation.
 
-The technology stack includes Kotlin, Jetpack Compose, Coroutines, ViewModel, and likely Room or DataStore for persistence.
+## 5. Files expected/actually changed
+- `game/brickvolley/src/main/java/.../BrickVolleyScreen.kt`
+- `game/brickvolley/src/main/java/.../BrickVolleyDetailScreen.kt`
+- `game/brickvolley/src/main/java/.../engine/BrickVolleyEngine.kt`
+- `game/brickvolley/src/test/.../BrickVolleyEngineTest.kt`
+- `game/brickvolley/build.gradle.kts`
+- `core/ui/src/main/java/.../ArcadeTestTags.kt`
+- `feature/home/src/main/java/.../HomeScreen.kt`
+- `app/src/main/java/.../ArcadeNavHost.kt`
+- `app/src/androidTest/java/.../BrickVolleyDeviceSmokeTest.kt`
+- `e2e/brick-volley/run-brick-volley-device-smoke.sh`
+- `e2e/brick-volley/run-brick-volley-playability.sh`
+- `docs/_implementation/brick_volley_finalization/*`
 
-## 2. Existing Game Architecture Summary
+## 6. Implementation checklist
+- [x] Discovery + baseline audit
+- [x] Gameplay defect audit
+- [x] Brick Volley gameplay loop repair
+- [x] Integration into shared run result flow
+- [x] Unit tests expanded for Brick Volley engine logic
+- [x] Compose/device test added for Brick Volley route/interaction
+- [x] ADB smoke script created and passing
+- [x] ADB playability script created and passing
+- [x] Full build/unit/lint regression passing
 
-Based on the module structure, each game is a standalone Gradle module within the `game/` directory. The main `app` module includes these game modules as dependencies. Navigation to games is likely handled in the `feature:home` module. Each game module is responsible for its own game logic, UI (using Compose), and state management. They are expected to hook into shared systems for scoring, stats, and settings, which are likely provided by the `core` modules.
+## 7. Device/ADB testing checklist
+- [x] Device detection and explicit serial use (`08357252AE006901`)
+- [x] Build/install debug APK
+- [x] Wake/unlock + animation scaling adjustments
+- [x] Launch app, open Brick Volley, launch run, execute gestures
+- [x] Capture screenshots, logcat, UI dump
+- [x] Verify Pulse Orbit, Lane Drift, Stack Drop open in playability run
 
-## 3. Implementation Checklist
+## 8. Test commands
+- `./gradlew assembleDebug testDebugUnitTest lintDebug --no-daemon --max-workers=1 --console=plain`
+- `./gradlew :app:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest --no-daemon --max-workers=1 --console=plain`
+- `ANDROID_SERIAL=08357252AE006901 bash e2e/brick-volley/run-brick-volley-device-smoke.sh`
+- `ANDROID_SERIAL=08357252AE006901 bash e2e/brick-volley/run-brick-volley-playability.sh`
 
--   **Brick Volley:**
-    -   [X] Create Gradle module.
-    -   [X] Implement core loop.
-    -   [X] Implement UI (Detail, Game, Result).
-    -   [X] Integrate with navigation.
-    -   **Verdict: CONDITIONAL GO**. Playable basic version.
--   **Loop Snake:**
-    -   [X] Create Gradle module.
-    -   [X] Implement core loop.
-    -   [X] Implement UI (Detail, Game, Result).
-    -   [X] Integrate with navigation.
-    -   **Verdict: CONDITIONAL GO**. Playable basic version.
--   **Shield Dash:**
-    -   [X] Create Gradle module.
-    -   [X] Implement core loop.
-    -   [X] Implement UI (Detail, Game, Result).
-    -   [X] Integrate with navigation.
-    -   **Verdict: CONDITIONAL GO**. Playable basic version.
--   **Gravity Flip:**
-    -   [X] Create Gradle module.
-    -   [X] Implement core loop.
-    -   [X] Implement UI (Detail, Game, Result).
-    -   [X] Integrate with navigation.
-    -   **Verdict: CONDITIONAL GO**. Playable basic version.
+## 9. Risk list
+- Compose UI dumps can vary by device state/scroll position (handled with scroll-aware lookups in scripts).
+- Global legacy instrumentation suite still contains unrelated flaky tests (Brick Volley-specific suite now isolated and passing).
 
-## 4. Progress Log
-
--   **Initial Setup:** Completed.
--   **Brick Volley Implementation:** Completed basic playable version.
--   **Loop Snake Implementation:** Completed basic playable version.
--   **Shield Dash Implementation:** Completed basic playable version.
--   **Gravity Flip Implementation:** Completed basic playable version.
-
-## 5. Final Report
-
-1.  **Summary of implementation:** Successfully scaffolded and implemented four new mini-games (Brick Volley, Loop Snake, Shield Dash, Gravity Flip) as separate Gradle modules. Integrated them into the app's navigation, registry, and theme system.
-2.  **Files changed:**
-    -   `settings.gradle.kts`
-    -   `app/build.gradle.kts`
-    -   `feature/home/src/main/java/com/vexel/offlinearcade/feature/home/HomeScreen.kt`
-    -   `core/model/src/main/java/com/vexel/offlinearcade/core/model/Models.kt`
-    -   `app/src/main/java/com/vexel/offlinearcade/ArcadeNavHost.kt`
-    -   `app/src/main/java/com/vexel/offlinearcade/ArcadeRoutes.kt`
-    -   `core/ui/src/main/java/com/vexel/offlinearcade/core/ui/Theme.kt`
-    -   (Plus all new files in the game modules)
-3.  **Gameplay behavior implemented:** Basic core loops for all four games, including movement, collision detection, scoring, and Game Over states.
-4.  **Integration points completed:**
-    -   Game registry (GameId enum)
-    -   Navigation (Routes and NavHost)
-    -   Home screen (Game cards)
-    -   Theming (Accent colors)
-5.  **Tests run with pass/fail results:** Clean build (`./gradlew clean assembleDebug`) successful.
-6.  **Known limitations:**
-    -   Games use internal state (`mutableStateOf`) instead of shared ViewModel/Persistence for stats.
-    -   Physics and collision detection are basic prototypes.
-    -   Daily challenges and soft currency hooks are prepared but not fully wired.
-7.  **Final verdict:** **CONDITIONAL GO** for all games. They are playable prototypes ready for further polish and full system integration.
+## 10. Progress log
+- [DONE] Baseline build/device audit created.
+- [DONE] Brick Volley defect audit documented.
+- [DONE] Engine + screen logic repaired and made deterministic enough for testing.
+- [DONE] Shared run-result integration wired for Brick Volley game route.
+- [DONE] Unit tests expanded to cover initial state, launch gating, angle clamp, movement, collision, scoring, turn advance, game over, restart/high-score helper.
+- [DONE] Brick Volley Android instrumentation test class added and passing on device.
+- [DONE] Brick Volley smoke and playability ADB scripts created and passing with artifacts.
+- [DONE] Final regression (`assembleDebug`, `testDebugUnitTest`, `lintDebug`) passing.
