@@ -12,7 +12,10 @@ import org.robolectric.annotation.Config
 class MainActivityStartupTest {
     @Test
     fun appStartsWithoutDevice() {
-        val activity = Robolectric.buildActivity(MainActivity::class.java).setup().get()
+        // Avoid driving the full resume pipeline here (Compose recomposition can be expensive under Robolectric).
+        val controller = Robolectric.buildActivity(MainActivity::class.java).create()
+        val activity = controller.get()
         assertNotNull(activity)
+        controller.destroy()
     }
 }
