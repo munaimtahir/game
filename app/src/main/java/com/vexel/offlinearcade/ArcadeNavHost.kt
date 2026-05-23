@@ -142,6 +142,10 @@ fun ArcadeNavHost(
 
         composable(Routes.LoopSnakeGame) {
             LoopSnakeScreen(
+                stats = snapshot.statsByGame[GameId.LOOP_SNAKE],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }

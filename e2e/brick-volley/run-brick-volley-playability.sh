@@ -237,8 +237,8 @@ sleep 2
 capture_screen "02_detail"
 
 start_coords="NOT_FOUND"
-for _ in 1 2 3 4 5; do
-  start_coords="$(tap_text 'Start Game')"
+for _ in 1 2 3 4 5 6 7 8 9 10; do
+  start_coords="$(tap_text 'brick_volley_start_button')"
   if [[ "$start_coords" != "NOT_FOUND" ]]; then
     break
   fi
@@ -251,9 +251,9 @@ if [[ "$start_coords" == "NOT_FOUND" ]]; then
 fi
 "${ADB[@]}" shell input tap ${start_coords}
 sleep 2
-for _ in 1 2 3 4 5 6 7 8 9 10; do
-  root_state="$(ui_query 'Brick Volley Root' state)"
-  aim_present="$(ui_query 'Brick Volley Aim Area' center)"
+for _ in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
+  root_state="$(ui_query 'BrickVolleyRoot' state)"
+  aim_present="$(ui_query 'brick_volley_aim_area' center)"
   if [[ "$root_state" != "NOT_FOUND" && "$aim_present" != "NOT_FOUND" ]]; then
     break
   fi
@@ -268,7 +268,7 @@ fi
 capture_screen "03_ready_gameplay_canvas"
 
 before_state="$root_state"
-read -r AX AY <<<"$(ui_query 'Brick Volley Aim Area' bounds)"
+read -r AX AY <<<"$(ui_query 'brick_volley_aim_area' bounds)"
 size="$("${ADB[@]}" shell wm size | tr -d '\r' | awk -F': ' '/Physical size/{print $2}')"
 W="${size%x*}"
 H="${size#*x}"
@@ -281,7 +281,7 @@ log "Performing launch gesture"
 
 after_state="$before_state"
 for _ in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do
-  after_state="$(ui_query 'Brick Volley Root' state)"
+  after_state="$(ui_query 'BrickVolleyRoot' state)"
   if [[ "$after_state" != "$before_state" ]]; then
     break
   fi
@@ -300,7 +300,7 @@ fi
 
 capture_screen "04_after_launch_active_gameplay"
 
-round_text="$(ui_query 'Brick Volley Round' text)"
+round_text="$(ui_query 'Round:' text)"
 if [[ "$round_text" == "NOT_FOUND" ]]; then
   log "FAIL: round text missing in gameplay"
   dump_ui
@@ -325,7 +325,7 @@ for turn in 1 2 3; do
   current_round=""
   round_text=""
   for _ in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; do
-    round_text="$(ui_query 'Brick Volley Round' text)"
+    round_text="$(ui_query 'Round:' text)"
     current_round="$(python3 - "$round_text" <<'PY'
 import re,sys
 m=re.search(r'(\d+)', sys.argv[1])
@@ -335,14 +335,14 @@ PY
     if [[ "$current_round" == "$next_round" ]]; then
       break
     fi
-    if [[ "$(ui_query 'Brick Volley Restart' center)" != "NOT_FOUND" ]]; then
+    if [[ "$(ui_query 'brick_volley_restart' center)" != "NOT_FOUND" ]]; then
       break
     fi
     sleep 1
   done
   if [[ "$current_round" != "$next_round" ]]; then
-    if [[ "$(ui_query 'Brick Volley Restart' center)" != "NOT_FOUND" ]]; then
-      c="$(tap_text 'Restart')"
+    if [[ "$(ui_query 'brick_volley_restart' center)" != "NOT_FOUND" ]]; then
+      c="$(tap_text 'brick_volley_restart')"
       if [[ "$c" == "NOT_FOUND" ]]; then
         log "FAIL: restart button visible but could not be tapped"
         dump_ui

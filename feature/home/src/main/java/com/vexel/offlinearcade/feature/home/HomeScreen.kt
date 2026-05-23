@@ -112,7 +112,7 @@ fun HomeScreen(
             sessions = stats.firstOrNull { it.gameId == GameId.LOOP_SNAKE }?.sessionsPlayed ?: 0,
             challenge = todayChallenges.firstOrNull { it.gameId == GameId.LOOP_SNAKE },
             onPlay = onLoopSnake,
-            testTag = "LoopSnakeEntry",
+            testTag = ArcadeTestTags.LoopSnakeEntry,
         ),
         HomeGameEntry(
             gameId = GameId.SHIELD_DASH,

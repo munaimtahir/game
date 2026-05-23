@@ -567,6 +567,11 @@ fun gameAccentFor(label: String): ArcadeGameAccent {
     return when (label) {
         "Pulse Orbit" -> ArcadeGameAccent(label = "Pulse Orbit", brush = Brush.linearGradient(listOf(colors.pulseAccent, MaterialTheme.colorScheme.secondary)), color = colors.pulseAccent)
         "Lane Drift" -> ArcadeGameAccent(label = "Lane Drift", brush = Brush.linearGradient(listOf(colors.laneAccent, colors.pulseAccent)), color = colors.laneAccent)
-        else -> ArcadeGameAccent(label = "Stack Drop", brush = Brush.linearGradient(listOf(colors.stackAccent, colors.reward)), color = colors.stackAccent)
+        "Stack Drop" -> ArcadeGameAccent(label = "Stack Drop", brush = Brush.linearGradient(listOf(colors.stackAccent, colors.reward)), color = colors.stackAccent)
+        "Brick Volley" -> ArcadeGameAccent(label = "Brick Volley", brush = Brush.linearGradient(listOf(colors.brickVolleyAccent, colors.pulseAccent)), color = colors.brickVolleyAccent)
+        "Loop Snake" -> ArcadeGameAccent(label = "Loop Snake", brush = Brush.linearGradient(listOf(colors.loopSnakeAccent, colors.reward)), color = colors.loopSnakeAccent)
+        "Shield Dash" -> ArcadeGameAccent(label = "Shield Dash", brush = Brush.linearGradient(listOf(colors.shieldDashAccent, colors.pulseAccent)), color = colors.shieldDashAccent)
+        "Gravity Flip" -> ArcadeGameAccent(label = "Gravity Flip", brush = Brush.linearGradient(listOf(colors.gravityFlipAccent, colors.reward)), color = colors.gravityFlipAccent)
+        else -> ArcadeGameAccent(label = label, brush = Brush.linearGradient(listOf(colors.stackAccent, colors.reward)), color = colors.stackAccent)
     }
 }

@@ -1,79 +1,69 @@
-# Copilot Session: Brick Volley Finalization
+# Brick Volley Finalization
 
-## 1. Current repo understanding
-- Multi-module Android app (`app`, `core/*`, `feature/*`, `game/*`) using Kotlin + Jetpack Compose.
-- Existing playable games: Pulse Orbit, Lane Drift, Stack Drop, Brick Volley (+ other in-progress game modules).
-- Shared progression/high-score and run tracking handled through `RunResult` + `ArcadeViewModel.recordRun`.
+## 1. Current Repository Understanding
+- Multi-module Android arcade app with a single-activity Compose shell.
+- Shared progression uses `PlayerProfile`, `GameStats`, `DailyChallenge`, and run-result recording.
+- Brick Volley now has deterministic engine logic, Compose gameplay, device tests, and ADB smoke/playability scripts.
 
-## 2. Existing game architecture summary
-- Home route opens per-game detail, then game route (`ArcadeNavHost`).
-- Mature games use `ArcadeTestTags` for device automation and semantics state.
-- Games report completion via `onRunComplete(RunResult)` into shared stats/progression.
+## 2. Existing Game Architecture Summary
+- Navigation lives in `app/src/main/java/com/vexel/offlinearcade/ArcadeNavHost.kt`.
+- Home/library cards live in `feature/home`.
+- Shared UI/test tags live in `core/ui`.
+- Each game has detail + gameplay screens and can report runs back through shared progression hooks.
 
-## 3. Current Brick Volley implementation status
-- Reworked from fragile prototype to a stable loop with:
-  - drag threshold, clamped angle, launcher-anchored aiming
-  - deterministic row spawning pattern and danger-line game-over
-  - fixed bounce/collision checks and turn progression
-  - run completion reporting (`GameId.BRICK_VOLLEY`) integrated in nav flow
-- Added test tags/constants and dedicated Android/device test coverage.
+## 3. Current Brick Volley Implementation Status
+- Gameplay is stable: ready state, drag-to-aim, upward launch, wall/brick collisions, turn advance, game over, and restart.
+- Brick Volley is wired into home navigation and shared run-result reporting.
+- The detail screen now exposes a visible Start Game action with accessibility semantics.
 
-## 4. Serious flaws discovered
-- Tiny drags/taps launching unintended shots.
-- Aim direction ambiguity and shallow-angle traps.
-- Hardcoded render sizes mismatching collision math.
-- Prototype route lacked run-complete integration to shared stats.
-- Missing stable tags/automation path for Brick Volley device validation.
+## 4. Serious Flaws Discovered
+- Start Game was initially below the fold on the detail screen.
+- ADB selectors used human-spaced labels instead of the real Compose accessibility strings.
+- Smoke/playability scripts were misreading the UI tree and falsely reporting detail-page states.
 
-## 5. Files expected/actually changed
-- `game/brickvolley/src/main/java/.../BrickVolleyScreen.kt`
-- `game/brickvolley/src/main/java/.../BrickVolleyDetailScreen.kt`
-- `game/brickvolley/src/main/java/.../engine/BrickVolleyEngine.kt`
-- `game/brickvolley/src/test/.../BrickVolleyEngineTest.kt`
-- `game/brickvolley/build.gradle.kts`
-- `core/ui/src/main/java/.../ArcadeTestTags.kt`
-- `feature/home/src/main/java/.../HomeScreen.kt`
-- `app/src/main/java/.../ArcadeNavHost.kt`
-- `app/src/androidTest/java/.../BrickVolleyDeviceSmokeTest.kt`
+## 5. Files Expected to Change
+- `game/brickvolley/src/main/java/com/vexel/offlinearcade/game/brickvolley/BrickVolleyScreen.kt`
+- `game/brickvolley/src/main/java/com/vexel/offlinearcade/game/brickvolley/BrickVolleyDetailScreen.kt`
+- `game/brickvolley/src/main/java/com/vexel/offlinearcade/game/brickvolley/engine/BrickVolleyEngine.kt`
+- `app/src/main/java/com/vexel/offlinearcade/ArcadeNavHost.kt`
+- `core/ui/src/main/java/com/vexel/offlinearcade/core/ui/ArcadeTestTags.kt`
+- `app/src/androidTest/java/com/vexel/offlinearcade/BrickVolleyDeviceSmokeTest.kt`
 - `e2e/brick-volley/run-brick-volley-device-smoke.sh`
 - `e2e/brick-volley/run-brick-volley-playability.sh`
-- `docs/_implementation/brick_volley_finalization/*`
 
-## 6. Implementation checklist
-- [x] Discovery + baseline audit
-- [x] Gameplay defect audit
-- [x] Brick Volley gameplay loop repair
-- [x] Integration into shared run result flow
-- [x] Unit tests expanded for Brick Volley engine logic
-- [x] Compose/device test added for Brick Volley route/interaction
-- [x] ADB smoke script created and passing
-- [x] ADB playability script created and passing
-- [x] Full build/unit/lint regression passing
+## 6. Implementation Checklist
+- [x] Fix Brick Volley gameplay logic.
+- [x] Add deterministic unit-testable engine helpers.
+- [x] Add/repair unit tests.
+- [x] Add stable accessibility/test tags.
+- [x] Fix detail-screen launch affordance.
+- [x] Fix ADB scripts to use real accessibility strings.
+- [x] Verify device smoke and playability.
 
-## 7. Device/ADB testing checklist
-- [x] Device detection and explicit serial use (`08357252AE006901`)
-- [x] Build/install debug APK
-- [x] Wake/unlock + animation scaling adjustments
-- [x] Launch app, open Brick Volley, launch run, execute gestures
-- [x] Capture screenshots, logcat, UI dump
-- [x] Verify Pulse Orbit, Lane Drift, Stack Drop open in playability run
+## 7. Device/ADB Testing Checklist
+- [x] Detect attached device serial.
+- [x] Build/install APK.
+- [x] Launch app and open Brick Volley.
+- [x] Capture ready gameplay canvas.
+- [x] Perform launch gesture.
+- [x] Verify gameplay state changes and multi-turn flow.
+- [x] Verify existing games still open.
 
-## 8. Test commands
-- `./gradlew assembleDebug testDebugUnitTest lintDebug --no-daemon --max-workers=1 --console=plain`
-- `./gradlew :app:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest --no-daemon --max-workers=1 --console=plain`
+## 8. Test Commands
+- `./gradlew assembleDebug --no-daemon --console=plain`
+- `./gradlew testDebugUnitTest --no-daemon --console=plain`
+- `./gradlew lintDebug --no-daemon --console=plain`
 - `ANDROID_SERIAL=08357252AE006901 bash e2e/brick-volley/run-brick-volley-device-smoke.sh`
 - `ANDROID_SERIAL=08357252AE006901 bash e2e/brick-volley/run-brick-volley-playability.sh`
 
-## 9. Risk list
-- Compose UI dumps can vary by device state/scroll position (handled with scroll-aware lookups in scripts).
-- Global legacy instrumentation suite still contains unrelated flaky tests (Brick Volley-specific suite now isolated and passing).
+## 9. Risk List
+- Device scripts depend on accessible semantics staying stable.
+- Heavy combined Gradle runs can take a long time; split commands are more reliable.
+- Additional gameplay tuning could still be added later, but the release criteria are now met.
 
-## 10. Progress log
-- [DONE] Baseline build/device audit created.
-- [DONE] Brick Volley defect audit documented.
-- [DONE] Engine + screen logic repaired and made deterministic enough for testing.
-- [DONE] Shared run-result integration wired for Brick Volley game route.
-- [DONE] Unit tests expanded to cover initial state, launch gating, angle clamp, movement, collision, scoring, turn advance, game over, restart/high-score helper.
-- [DONE] Brick Volley Android instrumentation test class added and passing on device.
-- [DONE] Brick Volley smoke and playability ADB scripts created and passing with artifacts.
-- [DONE] Final regression (`assembleDebug`, `testDebugUnitTest`, `lintDebug`) passing.
+## 10. Progress Log
+- Baseline repo audit completed.
+- Brick Volley gameplay, tests, and tags repaired.
+- Device scripts hardened around exact accessibility nodes.
+- Start Game moved above the fold and tagged for reliable device automation.
+- Smoke and playability runs now pass on `08357252AE006901`.

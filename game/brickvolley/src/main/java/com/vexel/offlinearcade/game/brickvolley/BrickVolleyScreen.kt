@@ -339,7 +339,12 @@ fun GameOverScreen(score: Int, onRestart: () -> Unit) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text("Game Over", color = Color.White, fontSize = 48.sp)
             Text("Score: $score", color = Color.White, fontSize = 32.sp)
-            Button(onClick = onRestart, modifier = Modifier.testTag(ArcadeTestTags.BrickVolleyRestart)) {
+            Button(
+                onClick = onRestart,
+                modifier = Modifier
+                    .testTag(ArcadeTestTags.BrickVolleyRestart)
+                    .semantics { contentDescription = ArcadeTestTags.BrickVolleyRestart },
+            ) {
                 Text("Restart")
             }
         }

@@ -212,8 +212,8 @@ sleep 2
 capture_screen "02_brick_volley_detail"
 
 coords="NOT_FOUND"
-for _ in 1 2 3 4 5; do
-  coords="$(tap_text 'Start Game')"
+for _ in 1 2 3 4 5 6 7 8 9 10; do
+  coords="$(tap_text 'brick_volley_start_button')"
   if [[ "$coords" != "NOT_FOUND" ]]; then
     break
   fi
@@ -227,9 +227,9 @@ if [[ "$coords" == "NOT_FOUND" ]]; then
 fi
 "${ADB[@]}" shell input tap ${coords}
 sleep 2
-for _ in 1 2 3 4 5 6 7 8 9 10; do
-  root_state="$(ui_query 'Brick Volley Root' state)"
-  aim_present="$(ui_query 'Brick Volley Aim Area' center)"
+for _ in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
+  root_state="$(ui_query 'BrickVolleyRoot' state)"
+  aim_present="$(ui_query 'brick_volley_aim_area' center)"
   if [[ "$root_state" != "NOT_FOUND" && "$aim_present" != "NOT_FOUND" ]]; then
     break
   fi
@@ -248,7 +248,7 @@ fi
 
 capture_screen "03_ready_gameplay_canvas"
 
-read -r AX AY <<<"$(ui_query 'Brick Volley Aim Area' bounds)"
+read -r AX AY <<<"$(ui_query 'brick_volley_aim_area' bounds)"
 if [[ -z "${AX:-}" || -z "${AY:-}" ]]; then
   log "FAIL: could not resolve aim area center"
   dump_ui
@@ -268,7 +268,7 @@ log "Performing launch gesture from aim area"
 
 after_state="$before_state"
 for _ in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do
-  after_state="$(ui_query 'Brick Volley Root' state)"
+  after_state="$(ui_query 'BrickVolleyRoot' state)"
   if [[ "$after_state" != "$before_state" ]]; then
     break
   fi
@@ -287,7 +287,7 @@ fi
 
 capture_screen "04_after_launch_active_gameplay"
 
-round_before="$(ui_query 'Brick Volley Round' text)"
+round_before="$(ui_query 'Round:' text)"
 if [[ "$round_before" == "NOT_FOUND" ]]; then
   log "FAIL: round text missing in gameplay"
   dump_ui
@@ -312,7 +312,7 @@ for turn in 1 2 3; do
   next_round=$((ROUND_NUM + 1))
   round_text=""
   for _ in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; do
-    round_text="$(ui_query 'Brick Volley Round' text)"
+    round_text="$(ui_query 'Round:' text)"
     current_round="$(python3 - "$round_text" <<'PY'
 import re,sys
 m=re.search(r'(\d+)', sys.argv[1])

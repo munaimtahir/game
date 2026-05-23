@@ -49,4 +49,17 @@ object ArcadeTestTags {
     const val SoundToggle = "sound_toggle"
     const val MusicToggle = "music_toggle"
     const val VibrationToggle = "vibration_toggle"
+
+    // Loop Snake Test Tags
+    const val LoopSnakeEntry = "LoopSnakeEntry"
+    const val LoopSnakeDetailRoot = "LoopSnakeDetailRoot"
+    const val LoopSnakeStartButton = "LoopSnakeStartButton"
+    const val LoopSnakeRoot = "LoopSnakeRoot"
+    const val LoopSnakePlayArea = "LoopSnakePlayArea"
+    const val LoopSnakeScore = "LoopSnakeScore"
+    const val LoopSnakeLength = "LoopSnakeLength"
+    const val LoopSnakeReady = "LoopSnakeReady"
+    const val LoopSnakeGameOver = "LoopSnakeGameOver"
+    const val LoopSnakeRestart = "LoopSnakeRestart"
+    const val LoopSnakePause = "LoopSnakePause"
 }

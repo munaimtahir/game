@@ -21,6 +21,7 @@ data class GameState(
 enum class GameStatus {
     Ready,
     Playing,
+    Paused,
     GameOver
 }
 
