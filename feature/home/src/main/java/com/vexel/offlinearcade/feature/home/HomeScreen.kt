@@ -121,7 +121,7 @@ fun HomeScreen(
             description = "Defensive block.",
             highScore = stats.find { it.gameId == GameId.SHIELD_DASH }?.highScore ?: 0,
             onPlay = onShieldDash,
-            testTag = "ShieldDashEntry",
+            testTag = ArcadeTestTags.ShieldDashEntry,
         ),
     )
 
@@ -174,7 +174,7 @@ fun HomeScreen(
 
             item(span = { GridItemSpan(2) }) {
                 SectionHeader(
-                    title = "Continue Play",
+                    title = "Arcade Library",
                     badge = continueGame.title,
                 )
             }
@@ -199,13 +199,13 @@ fun HomeScreen(
             item(span = { GridItemSpan(2) }) {
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.md)) {
                     PremiumButton(
-                        label = "Challenges",
+                        label = "Daily Challenges",
                         onClick = onChallenges,
                         modifier = Modifier.weight(1f).height(56.dp),
                         style = ArcadeButtonStyle.Primary
                     )
                     PremiumButton(
-                        label = "Global Stats",
+                        label = "Stats",
                         onClick = onStats,
                         modifier = Modifier.weight(1f).height(56.dp),
                         style = ArcadeButtonStyle.Secondary

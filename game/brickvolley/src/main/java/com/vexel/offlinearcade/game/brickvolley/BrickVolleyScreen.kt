@@ -212,8 +212,9 @@ fun BrickVolleyScreen(
                     androidx.compose.material3.IconButton(onClick = onBack) {
                         androidx.compose.material3.Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
                     }
-                    HudPill("Score", state.score.toString())
+                    HudPill("Score", state.score.toString(), modifier = Modifier.testTag(ArcadeTestTags.BrickVolleyScore))
                     HudPill("Balls", state.ballCount.toString())
+                    HudPill("Round", state.turn.toString(), modifier = Modifier.testTag(ArcadeTestTags.BrickVolleyRound))
                 }
             }
         },
@@ -222,6 +223,7 @@ fun BrickVolleyScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .testTag(ArcadeTestTags.BrickVolleyRoot)
                 .background(colors.gameBoard, RoundedCornerShape(24.dp))
                 .pointerInput(Unit) {
                     detectDragGestures(
@@ -244,7 +246,7 @@ fun BrickVolleyScreen(
                     )
                 }
         ) {
-            Canvas(modifier = Modifier.fillMaxSize().padding(8.dp)) {
+            Canvas(modifier = Modifier.fillMaxSize().padding(8.dp).testTag(ArcadeTestTags.BrickVolleyAimArea)) {
                 canvasSize = size
                 val cellW = size.width / BrickVolleyTuning.columns
                 val cellH = size.height / BrickVolleyTuning.rows

@@ -187,13 +187,15 @@ fun LoopSnakeScreen(
                     androidx.compose.material3.IconButton(onClick = onBack) {
                         androidx.compose.material3.Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
                     }
-                    HudPill("Score", state.score.toString())
+                    HudPill("Score", state.score.toString(), modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeScore))
+                    HudPill("Length", state.snake.size.toString(), modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeLength))
                 }
                 PremiumButton(
                     label = if (paused) "Resume" else "Pause",
                     onClick = ::togglePause,
                     style = ArcadeButtonStyle.Secondary,
-                    enabled = state.status == GameStatus.Playing
+                    enabled = state.status == GameStatus.Playing,
+                    modifier = Modifier.testTag(ArcadeTestTags.LoopSnakePause)
                 )
             }
         },
@@ -202,6 +204,7 @@ fun LoopSnakeScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .testTag(ArcadeTestTags.LoopSnakeRoot)
                 .background(colors.gameBoard, RoundedCornerShape(24.dp))
                 .pointerInput(Unit) {
                     detectDragGestures { change, dragAmount ->
@@ -220,7 +223,7 @@ fun LoopSnakeScreen(
                     }
                 }
         ) {
-            Canvas(modifier = Modifier.fillMaxSize().padding(12.dp)) {
+            Canvas(modifier = Modifier.fillMaxSize().padding(12.dp).testTag(ArcadeTestTags.LoopSnakePlayArea)) {
                 val cellSizeX = size.width / LoopSnakeTuning.gridCellsX
                 val cellSizeY = size.height / LoopSnakeTuning.gridCellsY
                 
@@ -264,8 +267,8 @@ fun LoopSnakeScreen(
             }
 
             if (state.status == GameStatus.Ready) {
-                Box(Modifier.fillMaxSize().clickable { restart() }, contentAlignment = Alignment.Center) {
-                    PremiumButton(label = "Tap to Start", onClick = ::restart)
+                Box(Modifier.fillMaxSize().clickable { restart() }.testTag(ArcadeTestTags.LoopSnakeReady), contentAlignment = Alignment.Center) {
+                    PremiumButton(label = "Tap to Start", onClick = ::restart, modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeStartButton))
                 }
             }
         }
