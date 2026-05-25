@@ -124,6 +124,10 @@ fun ArcadeNavHost(
 
         composable(Routes.BrickVolleyGame) {
             BrickVolleyScreen(
+                stats = snapshot.statsByGame[GameId.BRICK_VOLLEY],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -138,6 +142,10 @@ fun ArcadeNavHost(
 
         composable(Routes.LoopSnakeGame) {
             LoopSnakeScreen(
+                stats = snapshot.statsByGame[GameId.LOOP_SNAKE],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -152,6 +160,10 @@ fun ArcadeNavHost(
 
         composable(Routes.ShieldDashGame) {
             ShieldDashScreen(
+                stats = snapshot.statsByGame[GameId.SHIELD_DASH],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -166,6 +178,10 @@ fun ArcadeNavHost(
 
         composable(Routes.GravityFlipGame) {
             GravityFlipScreen(
+                stats = snapshot.statsByGame[GameId.GRAVITY_FLIP],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }

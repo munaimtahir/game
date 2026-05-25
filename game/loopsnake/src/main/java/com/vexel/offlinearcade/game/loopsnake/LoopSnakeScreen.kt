@@ -1,170 +1,272 @@
 package com.vexel.offlinearcade.game.loopsnake
 
+import androidx.activity.compose.BackHandler
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.vexel.offlinearcade.core.model.ArcadeFeedback
+import com.vexel.offlinearcade.core.model.ArcadeFeedbackEvent
+import com.vexel.offlinearcade.core.model.GameId
+import com.vexel.offlinearcade.core.model.GameStats
+import com.vexel.offlinearcade.core.model.RunResult
+import com.vexel.offlinearcade.core.model.SettingsState
+import com.vexel.offlinearcade.core.ui.*
 import kotlinx.coroutines.delay
 import kotlin.math.abs
 
 @Composable
 fun LoopSnakeScreen(
-    onBack: () -> Unit
+    stats: GameStats?,
+    settings: SettingsState,
+    feedback: ArcadeFeedback,
+    onRunComplete: (RunResult) -> Unit,
+    onBack: () -> Unit,
 ) {
-    var gameState by remember {
-        mutableStateOf(
-            GameState(
-                snake = listOf(SnakeBodyPart(Offset(5f, 5f))),
-                food = Food(Offset(10f, 10f)),
-                score = 0,
-                status = GameStatus.Playing,
-                direction = Direction.Right
+    var state by remember { mutableStateOf(LoopSnakeState()) }
+    var hasReportedRun by remember { mutableStateOf(false) }
+    var paused by remember { mutableStateOf(false) }
+    val colors = ArcadeTheme.colors
+    val successPulse = remember { Animatable(0f) }
+
+    fun restart() {
+        state = LoopSnakeState(
+            status = GameStatus.Playing,
+            runStartMillis = System.currentTimeMillis(),
+            lastTickMillis = System.currentTimeMillis()
+        )
+        hasReportedRun = false
+        paused = false
+        feedback.play(ArcadeFeedbackEvent.TAP)
+    }
+
+    fun togglePause() {
+        if (state.status == GameStatus.GameOver) return
+        paused = !paused
+    }
+
+    BackHandler {
+        if (state.status == GameStatus.Playing && !paused) {
+            togglePause()
+        } else {
+            onBack()
+        }
+    }
+
+    LaunchedEffect(state.status, paused) {
+        while (state.status == GameStatus.Playing && !paused) {
+            delay(state.speedDelay)
+            val newSnake = state.snake.toMutableList()
+            val head = newSnake.first()
+            val newHeadPos = when (state.direction) {
+                Direction.Up -> head.position.copy(y = head.position.y - 1)
+                Direction.Down -> head.position.copy(y = head.position.y + 1)
+                Direction.Left -> head.position.copy(x = head.position.x - 1)
+                Direction.Right -> head.position.copy(x = head.position.x + 1)
+            }
+
+            // Wall collision
+            if (newHeadPos.x < 0 || newHeadPos.x >= LoopSnakeTuning.gridCellsX || 
+                newHeadPos.y < 0 || newHeadPos.y >= LoopSnakeTuning.gridCellsY) {
+                state = state.copy(status = GameStatus.GameOver)
+                feedback.play(ArcadeFeedbackEvent.FAIL)
+                continue
+            }
+
+            // Body collision
+            if (newSnake.any { it.position == newHeadPos }) {
+                state = state.copy(status = GameStatus.GameOver)
+                feedback.play(ArcadeFeedbackEvent.FAIL)
+                continue
+            }
+
+            val nextHead = SnakeBodyPart(newHeadPos)
+            newSnake.add(0, nextHead)
+            
+            var nextScore = state.score
+            var nextFood = state.food
+            var nextDelay = state.speedDelay
+
+            if (newHeadPos == state.food.position) {
+                nextScore++
+                feedback.play(ArcadeFeedbackEvent.SUCCESS)
+                successPulse.snapTo(1f)
+                successPulse.animateTo(0f, animationSpec = tween(300))
+                
+                // Spawn new food not on snake
+                var validFood = false
+                var foodPos = Offset.Zero
+                while (!validFood) {
+                    foodPos = Offset(
+                        (0 until LoopSnakeTuning.gridCellsX).random().toFloat(),
+                        (0 until LoopSnakeTuning.gridCellsY).random().toFloat()
+                    )
+                    validFood = newSnake.none { it.position == foodPos }
+                }
+                nextFood = Food(foodPos)
+                nextDelay = (LoopSnakeTuning.initialDelay - nextScore * LoopSnakeTuning.delayReductionPerScore)
+                    .coerceAtLeast(LoopSnakeTuning.minimumDelay)
+            } else {
+                newSnake.removeAt(newSnake.size - 1)
+            }
+
+            state = state.copy(
+                snake = newSnake,
+                score = nextScore,
+                food = nextFood,
+                speedDelay = nextDelay
+            )
+        }
+    }
+
+    if (state.status == GameStatus.GameOver && !hasReportedRun) {
+        hasReportedRun = true
+        onRunComplete(
+            RunResult(
+                gameId = GameId.LOOP_SNAKE,
+                score = state.score,
+                durationMillis = System.currentTimeMillis() - state.runStartMillis,
+                coinsEarned = state.score * 5,
             )
         )
     }
 
-    var canvasSize by remember { mutableStateOf(androidx.compose.ui.geometry.Size.Zero) }
-
-    LaunchedEffect(Unit) {
-        while (true) {
-            if (gameState.status == GameStatus.Playing) {
-                delay(200)
-                val newSnake = gameState.snake.toMutableList()
-                val head = newSnake.first()
-                val newHead = when (gameState.direction) {
-                    Direction.Up -> head.copy(position = head.position.copy(y = head.position.y - 1))
-                    Direction.Down -> head.copy(position = head.position.copy(y = head.position.y + 1))
-                    Direction.Left -> head.copy(position = head.position.copy(x = head.position.x - 1))
-                    Direction.Right -> head.copy(position = head.position.copy(x = head.position.x + 1))
+    val overlayContent: (@Composable () -> Unit)? = when {
+        paused -> {
+            {
+                PremiumOverlayCard(title = "Paused", subtitle = "Snake is resting.") {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString())
+                        PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
                 }
-
-                // Wall collision
-                if (newHead.position.x < 0 || newHead.position.x * 20f > canvasSize.width || newHead.position.y < 0 || newHead.position.y * 20f > canvasSize.height) {
-                    gameState = gameState.copy(status = GameStatus.GameOver)
-                    continue
-                }
-
-                // Body collision
-                if (newSnake.any { it.position == newHead.position }) {
-                    gameState = gameState.copy(status = GameStatus.GameOver)
-                    continue
-                }
-
-                newSnake.add(0, newHead)
-                if (newHead.position != gameState.food.position) {
-                    newSnake.removeAt(newSnake.size - 1)
-                } else {
-                    gameState = gameState.copy(
-                        score = gameState.score + 1,
-                        food = Food(
-                            Offset(
-                                (0..(canvasSize.width / 20).toInt()).random().toFloat(),
-                                (0..(canvasSize.height / 20).toInt()).random().toFloat()
-                            )
-                        )
-                    )
-                }
-
-                gameState = gameState.copy(snake = newSnake)
             }
         }
+        state.status == GameStatus.GameOver -> {
+            {
+                PremiumOverlayCard(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New Record!" else "Game Over",
+                    subtitle = "The loop ends here."
+                ) {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
+                        PremiumButton(label = "Try Again", onClick = ::restart, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Menu", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
+        else -> null
     }
 
-    Box {
-        Canvas(
+    GameplayScaffold(
+        topBar = {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    androidx.compose.material3.IconButton(onClick = onBack) {
+                        androidx.compose.material3.Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
+                    }
+                    HudPill("Score", state.score.toString())
+                }
+                PremiumButton(
+                    label = if (paused) "Resume" else "Pause",
+                    onClick = ::togglePause,
+                    style = ArcadeButtonStyle.Secondary,
+                    enabled = state.status == GameStatus.Playing
+                )
+            }
+        },
+        overlay = overlayContent
+    ) {
+        Box(
             modifier = Modifier
                 .fillMaxSize()
+                .background(colors.gameBoard, RoundedCornerShape(24.dp))
                 .pointerInput(Unit) {
                     detectDragGestures { change, dragAmount ->
                         change.consume()
+                        if (state.status != GameStatus.Playing || paused) return@detectDragGestures
                         val (x, y) = dragAmount
-                        if (abs(x) > abs(y)) {
-                            if (x > 0 && gameState.direction != Direction.Left) {
-                                gameState = gameState.copy(direction = Direction.Right)
-                            } else if (x < 0 && gameState.direction != Direction.Right) {
-                                gameState = gameState.copy(direction = Direction.Left)
-                            }
+                        state = if (abs(x) > abs(y)) {
+                            if (x > 0 && state.direction != Direction.Left) state.copy(direction = Direction.Right)
+                            else if (x < 0 && state.direction != Direction.Right) state.copy(direction = Direction.Left)
+                            else state
                         } else {
-                            if (y > 0 && gameState.direction != Direction.Up) {
-                                gameState = gameState.copy(direction = Direction.Down)
-                            } else if (y < 0 && gameState.direction != Direction.Down) {
-                                gameState = gameState.copy(direction = Direction.Up)
-                            }
+                            if (y > 0 && state.direction != Direction.Up) state.copy(direction = Direction.Down)
+                            else if (y < 0 && state.direction != Direction.Down) state.copy(direction = Direction.Up)
+                            else state
                         }
                     }
                 }
         ) {
-            canvasSize = size
-            // Draw background
-            drawRect(Color.Black)
+            Canvas(modifier = Modifier.fillMaxSize().padding(12.dp)) {
+                val cellSizeX = size.width / LoopSnakeTuning.gridCellsX
+                val cellSizeY = size.height / LoopSnakeTuning.gridCellsY
+                
+                // Grid lines (subtle)
+                for (i in 0..LoopSnakeTuning.gridCellsX) {
+                    drawLine(colors.gridLine.copy(alpha = 0.1f), Offset(i * cellSizeX, 0f), Offset(i * cellSizeX, size.height))
+                }
+                for (i in 0..LoopSnakeTuning.gridCellsY) {
+                    drawLine(colors.gridLine.copy(alpha = 0.1f), Offset(0f, i * cellSizeY), Offset(size.width, i * cellSizeY))
+                }
 
-            // Draw snake
-            gameState.snake.forEach {
-                drawRect(
-                    color = Color.Green,
-                    topLeft = it.position * 20f,
-                    size = androidx.compose.ui.geometry.Size(20f, 20f)
+                // Food
+                drawCircle(
+                    color = colors.pickupMint,
+                    radius = (cellSizeX * 0.4f) + successPulse.value * 10f,
+                    center = Offset(
+                        state.food.position.x * cellSizeX + cellSizeX / 2,
+                        state.food.position.y * cellSizeY + cellSizeY / 2
+                    )
                 )
-            }
+                drawCircle(
+                    color = colors.pickupMint.copy(alpha = 0.3f),
+                    radius = cellSizeX * 0.7f,
+                    center = Offset(
+                        state.food.position.x * cellSizeX + cellSizeX / 2,
+                        state.food.position.y * cellSizeY + cellSizeY / 2
+                    ),
+                    style = Stroke(width = 2.dp.toPx())
+                )
 
-            // Draw food
-            drawRect(
-                color = Color.Red,
-                topLeft = gameState.food.position * 20f,
-                size = androidx.compose.ui.geometry.Size(20f, 20f)
-            )
-        }
-
-        Text(
-            text = "Score: ${gameState.score}",
-            color = Color.White,
-            fontSize = 24.sp,
-            modifier = Modifier.padding(16.dp)
-        )
-
-        if (gameState.status == GameStatus.GameOver) {
-            GameOverScreen(
-                score = gameState.score,
-                onRestart = {
-                    gameState = GameState(
-                        snake = listOf(SnakeBodyPart(Offset(5f, 5f))),
-                        food = Food(Offset(10f, 10f)),
-                        score = 0,
-                        status = GameStatus.Playing,
-                        direction = Direction.Right
+                // Snake
+                state.snake.forEachIndexed { index, part ->
+                    val color = if (index == 0) colors.primaryCyan else colors.primaryCyan.copy(alpha = 0.7f)
+                    drawRoundRect(
+                        color = color,
+                        topLeft = Offset(part.position.x * cellSizeX + 2f, part.position.y * cellSizeY + 2f),
+                        size = Size(cellSizeX - 4f, cellSizeY - 4f),
+                        cornerRadius = CornerRadius(8.dp.toPx())
                     )
                 }
-            )
-        }
-    }
-}
+            }
 
-@Composable
-fun GameOverScreen(score: Int, onRestart: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.8f)),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Game Over", color = Color.White, fontSize = 48.sp)
-            Text("Score: $score", color = Color.White, fontSize = 32.sp)
-            Button(onClick = onRestart) {
-                Text("Restart")
+            if (state.status == GameStatus.Ready) {
+                Box(Modifier.fillMaxSize().clickable { restart() }, contentAlignment = Alignment.Center) {
+                    PremiumButton(label = "Tap to Start", onClick = ::restart)
+                }
             }
         }
     }

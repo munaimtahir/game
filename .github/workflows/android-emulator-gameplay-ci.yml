@@ -111,27 +111,7 @@ jobs:
           profile: pixel_6
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          script: |
-            adb devices
-            adb shell settings put global window_animation_scale 0 || true
-            adb shell settings put global transition_animation_scale 0 || true
-            adb shell settings put global animator_duration_scale 0 || true
-
-            if [ "${TEST_LEVEL}" != "screenshots_only" ]; then
-              ./gradlew connectedAndroidTest --stacktrace | tee artifacts/logs/connectedAndroidTest.txt || true
-            fi
-
-            if [ -x scripts/ci/run_adb_smoke.sh ]; then
-              scripts/ci/run_adb_smoke.sh "${GAME_TARGET}" "${TEST_LEVEL}" | tee artifacts/gameplay-smoke/adb-smoke.txt
-            fi
-
-            if [ -x scripts/ci/capture_game_screenshots.sh ]; then
-              scripts/ci/capture_game_screenshots.sh "${GAME_TARGET}" | tee artifacts/logs/screenshot-capture.txt
-            fi
-
-            adb logcat -d > artifacts/logcat/logcat-final.txt || true
-            adb shell uiautomator dump /sdcard/window_dump.xml || true
-            adb pull /sdcard/window_dump.xml artifacts/ui-dumps/window_dump.xml || true
+          script: scripts/ci/run_emulator_tasks.sh
 
       - name: Collect Gradle reports
         if: always()
