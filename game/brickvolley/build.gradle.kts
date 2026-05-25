@@ -37,4 +37,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
 
     testImplementation(libs.junit4)
+    // Kotlin test support for kotlin.test annotations used in unit tests
+    testImplementation("org.jetbrains.kotlin:kotlin-test:1.9.10")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:1.9.10")
 }

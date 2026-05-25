@@ -105,7 +105,7 @@ fun HomeScreen(
             description = "Ball volley fun.",
             highScore = stats.find { it.gameId == GameId.BRICK_VOLLEY }?.highScore ?: 0,
             onPlay = onBrickVolley,
-            testTag = "BrickVolleyEntry",
+            testTag = ArcadeTestTags.BrickVolleyEntry,
         ),
         HomeGameEntry(
             gameId = GameId.LOOP_SNAKE,
@@ -113,7 +113,7 @@ fun HomeScreen(
             description = "Modern snake.",
             highScore = stats.find { it.gameId == GameId.LOOP_SNAKE }?.highScore ?: 0,
             onPlay = onLoopSnake,
-            testTag = "LoopSnakeEntry",
+            testTag = ArcadeTestTags.LoopSnakeEntry,
         ),
         HomeGameEntry(
             gameId = GameId.SHIELD_DASH,
@@ -315,4 +315,3 @@ private data class HomeGameEntry(
 
 private fun adaptiveTextColor(background: Color): Color =
     if (background.luminance() > 0.5f) Color(0xFF0F172A) else Color(0xFFF8FAFC)
-

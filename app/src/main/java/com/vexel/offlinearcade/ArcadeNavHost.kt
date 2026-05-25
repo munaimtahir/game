@@ -124,6 +124,10 @@ fun ArcadeNavHost(
 
         composable(Routes.BrickVolleyGame) {
             BrickVolleyScreen(
+                stats = snapshot.statsByGame[GameId.BRICK_VOLLEY],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -138,6 +142,10 @@ fun ArcadeNavHost(
 
         composable(Routes.LoopSnakeGame) {
             LoopSnakeScreen(
+                stats = snapshot.statsByGame[GameId.LOOP_SNAKE],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }

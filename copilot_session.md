@@ -1,78 +1,69 @@
-# Copilot Session: Offline Mini Arcade
+# Brick Volley Finalization
 
-This document tracks the implementation of new games into the Offline Mini Arcade Android project.
-
-## 1. Current Repo Understanding
-
-The project is a multi-module Android application built with Kotlin and Jetpack Compose. The architecture is well-defined:
-
--   **`core:*` modules:** Provide shared functionality like data, model, UI components, and common utilities.
--   **`feature:*` modules:** Encapsulate specific app features like the home screen (`feature:home`), challenges, and stats.
--   **`game:*` modules:** Each game is a self-contained module (e.g., `game:pulseorbit`). This is the pattern to follow for new games.
--   **`app` module:** The main application module that integrates all `core`, `feature`, and `game` modules.
-
-The technology stack includes Kotlin, Jetpack Compose, Coroutines, ViewModel, and likely Room or DataStore for persistence.
+## 1. Current Repository Understanding
+- Multi-module Android arcade app with a single-activity Compose shell.
+- Shared progression uses `PlayerProfile`, `GameStats`, `DailyChallenge`, and run-result recording.
+- Brick Volley now has deterministic engine logic, Compose gameplay, device tests, and ADB smoke/playability scripts.
 
 ## 2. Existing Game Architecture Summary
+- Navigation lives in `app/src/main/java/com/vexel/offlinearcade/ArcadeNavHost.kt`.
+- Home/library cards live in `feature/home`.
+- Shared UI/test tags live in `core/ui`.
+- Each game has detail + gameplay screens and can report runs back through shared progression hooks.
 
-Based on the module structure, each game is a standalone Gradle module within the `game/` directory. The main `app` module includes these game modules as dependencies. Navigation to games is likely handled in the `feature:home` module. Each game module is responsible for its own game logic, UI (using Compose), and state management. They are expected to hook into shared systems for scoring, stats, and settings, which are likely provided by the `core` modules.
+## 3. Current Brick Volley Implementation Status
+- Gameplay is stable: ready state, drag-to-aim, upward launch, wall/brick collisions, turn advance, game over, and restart.
+- Brick Volley is wired into home navigation and shared run-result reporting.
+- The detail screen now exposes a visible Start Game action with accessibility semantics.
 
-## 3. Implementation Checklist
+## 4. Serious Flaws Discovered
+- Start Game was initially below the fold on the detail screen.
+- ADB selectors used human-spaced labels instead of the real Compose accessibility strings.
+- Smoke/playability scripts were misreading the UI tree and falsely reporting detail-page states.
 
--   **Brick Volley:**
-    -   [X] Create Gradle module.
-    -   [X] Implement core loop.
-    -   [X] Implement UI (Detail, Game, Result).
-    -   [X] Integrate with navigation.
-    -   **Verdict: CONDITIONAL GO**. Playable basic version.
--   **Loop Snake:**
-    -   [X] Create Gradle module.
-    -   [X] Implement core loop.
-    -   [X] Implement UI (Detail, Game, Result).
-    -   [X] Integrate with navigation.
-    -   **Verdict: CONDITIONAL GO**. Playable basic version.
--   **Shield Dash:**
-    -   [X] Create Gradle module.
-    -   [X] Implement core loop.
-    -   [X] Implement UI (Detail, Game, Result).
-    -   [X] Integrate with navigation.
-    -   **Verdict: CONDITIONAL GO**. Playable basic version.
--   **Gravity Flip:**
-    -   [X] Create Gradle module.
-    -   [X] Implement core loop.
-    -   [X] Implement UI (Detail, Game, Result).
-    -   [X] Integrate with navigation.
-    -   **Verdict: CONDITIONAL GO**. Playable basic version.
+## 5. Files Expected to Change
+- `game/brickvolley/src/main/java/com/vexel/offlinearcade/game/brickvolley/BrickVolleyScreen.kt`
+- `game/brickvolley/src/main/java/com/vexel/offlinearcade/game/brickvolley/BrickVolleyDetailScreen.kt`
+- `game/brickvolley/src/main/java/com/vexel/offlinearcade/game/brickvolley/engine/BrickVolleyEngine.kt`
+- `app/src/main/java/com/vexel/offlinearcade/ArcadeNavHost.kt`
+- `core/ui/src/main/java/com/vexel/offlinearcade/core/ui/ArcadeTestTags.kt`
+- `app/src/androidTest/java/com/vexel/offlinearcade/BrickVolleyDeviceSmokeTest.kt`
+- `e2e/brick-volley/run-brick-volley-device-smoke.sh`
+- `e2e/brick-volley/run-brick-volley-playability.sh`
 
-## 4. Progress Log
+## 6. Implementation Checklist
+- [x] Fix Brick Volley gameplay logic.
+- [x] Add deterministic unit-testable engine helpers.
+- [x] Add/repair unit tests.
+- [x] Add stable accessibility/test tags.
+- [x] Fix detail-screen launch affordance.
+- [x] Fix ADB scripts to use real accessibility strings.
+- [x] Verify device smoke and playability.
 
--   **Initial Setup:** Completed.
--   **Brick Volley Implementation:** Completed basic playable version.
--   **Loop Snake Implementation:** Completed basic playable version.
--   **Shield Dash Implementation:** Completed basic playable version.
--   **Gravity Flip Implementation:** Completed basic playable version.
+## 7. Device/ADB Testing Checklist
+- [x] Detect attached device serial.
+- [x] Build/install APK.
+- [x] Launch app and open Brick Volley.
+- [x] Capture ready gameplay canvas.
+- [x] Perform launch gesture.
+- [x] Verify gameplay state changes and multi-turn flow.
+- [x] Verify existing games still open.
 
-## 5. Final Report
+## 8. Test Commands
+- `./gradlew assembleDebug --no-daemon --console=plain`
+- `./gradlew testDebugUnitTest --no-daemon --console=plain`
+- `./gradlew lintDebug --no-daemon --console=plain`
+- `ANDROID_SERIAL=08357252AE006901 bash e2e/brick-volley/run-brick-volley-device-smoke.sh`
+- `ANDROID_SERIAL=08357252AE006901 bash e2e/brick-volley/run-brick-volley-playability.sh`
 
-1.  **Summary of implementation:** Successfully scaffolded and implemented four new mini-games (Brick Volley, Loop Snake, Shield Dash, Gravity Flip) as separate Gradle modules. Integrated them into the app's navigation, registry, and theme system.
-2.  **Files changed:**
-    -   `settings.gradle.kts`
-    -   `app/build.gradle.kts`
-    -   `feature/home/src/main/java/com/vexel/offlinearcade/feature/home/HomeScreen.kt`
-    -   `core/model/src/main/java/com/vexel/offlinearcade/core/model/Models.kt`
-    -   `app/src/main/java/com/vexel/offlinearcade/ArcadeNavHost.kt`
-    -   `app/src/main/java/com/vexel/offlinearcade/ArcadeRoutes.kt`
-    -   `core/ui/src/main/java/com/vexel/offlinearcade/core/ui/Theme.kt`
-    -   (Plus all new files in the game modules)
-3.  **Gameplay behavior implemented:** Basic core loops for all four games, including movement, collision detection, scoring, and Game Over states.
-4.  **Integration points completed:**
-    -   Game registry (GameId enum)
-    -   Navigation (Routes and NavHost)
-    -   Home screen (Game cards)
-    -   Theming (Accent colors)
-5.  **Tests run with pass/fail results:** Clean build (`./gradlew clean assembleDebug`) successful.
-6.  **Known limitations:**
-    -   Games use internal state (`mutableStateOf`) instead of shared ViewModel/Persistence for stats.
-    -   Physics and collision detection are basic prototypes.
-    -   Daily challenges and soft currency hooks are prepared but not fully wired.
-7.  **Final verdict:** **CONDITIONAL GO** for all games. They are playable prototypes ready for further polish and full system integration.
+## 9. Risk List
+- Device scripts depend on accessible semantics staying stable.
+- Heavy combined Gradle runs can take a long time; split commands are more reliable.
+- Additional gameplay tuning could still be added later, but the release criteria are now met.
+
+## 10. Progress Log
+- Baseline repo audit completed.
+- Brick Volley gameplay, tests, and tags repaired.
+- Device scripts hardened around exact accessibility nodes.
+- Start Game moved above the fold and tagged for reliable device automation.
+- Smoke and playability runs now pass on `08357252AE006901`.
