@@ -131,10 +131,6 @@ class LaneDriftLogicTest {
 
         val items = listOf(DriftItem(lane = 1, y = blockerY, type = DriftItemType.BLOCKER, skin = 0))
         val result = resolveLaneDriftCollision(playerLane = 1, items = items, boardWidthPx = boardWidthPx, boardHeightPx = boardHeightPx, config = config, sizes = sizes)
-        println("DEBUG playerHit: $playerHit")
-        println("DEBUG itemVisual: ${itemVisualRectPx(laneWidth, boardHeightPx, items[0], sizes)}")
-        println("DEBUG itemHit: ${itemVisualRectPx(laneWidth, boardHeightPx, items[0], sizes).insetFraction(config.blockerInsetXFraction, config.blockerInsetYFraction)}")
-        println("DEBUG overlap: ${overlap(playerHit, itemVisualRectPx(laneWidth, boardHeightPx, items[0], sizes).insetFraction(config.blockerInsetXFraction, config.blockerInsetYFraction))}")
         assertEquals(LaneDriftCollisionType.BLOCKER, result.type)
     }
 
