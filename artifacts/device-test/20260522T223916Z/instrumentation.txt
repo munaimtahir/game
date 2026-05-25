@@ -1,0 +1,405 @@
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.BackNavigationTest:
+INSTRUMENTATION_STATUS: test=stackDropBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.BackNavigationTest.stackDropBackNavigationFlow(BackNavigationTest.kt:166)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.BackNavigationTest.stackDropBackNavigationFlow(BackNavigationTest.kt:166)
+
+INSTRUMENTATION_STATUS: test=stackDropBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pulseOrbitBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.junit4.android.ComposeNotIdleException: Idling resource timed out: possibly due to compose being busy.
+IdlingResourceRegistry has the following idling resources registered:
+- [busy] ComposeIdlingResource is busy due to pending recompositions.
+         - Note: Timeout on pending recomposition means that there are most likely infinite re-compositions happening in the tested code.
+         - Debug: hadRecomposerChanges = true, hadSnapshotChanges = false, hadAwaitersOnMainClock = false 
+All registered idling resources: Compose-Espresso link
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.rethrowWithMoreInfo(EspressoLink.android.kt:136)
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.runEspressoOnIdle(EspressoLink.android.kt:110)
+	at androidx.compose.ui.test.junit4.EspressoLink.runUntilIdle(EspressoLink.android.kt:79)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.waitForIdle(ComposeUiTest.android.kt:340)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$waitForIdle(ComposeUiTest.android.kt:230)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidTestOwner.getRoots(ComposeUiTest.android.kt:533)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:86)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performTouchInput(Actions.kt:368)
+	at androidx.compose.ui.test.Actions_androidKt.performClickImpl(Actions.android.kt:20)
+	at androidx.compose.ui.test.ActionsKt.performClick(Actions.kt:51)
+	at com.vexel.offlinearcade.BackNavigationTest.pulseOrbitBackNavigationFlow(BackNavigationTest.kt:52)
+	... 53 trimmed
+Caused by: androidx.test.espresso.IdlingResourceTimeoutException: Wait for [Compose-Espresso link] to become idle timed out
+	at androidx.test.espresso.IdlingPolicy.handleTimeout(IdlingPolicy.java:63)
+	at androidx.test.espresso.base.UiControllerImpl$5.resourcesHaveTimedOut(UiControllerImpl.java:420)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleTimeout(IdlingResourceRegistry.java:533)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleMessage(IdlingResourceRegistry.java:466)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at androidx.test.espresso.base.Interrogator.loopAndInterrogate(Interrogator.java:156)
+	at androidx.test.espresso.base.UiControllerImpl.loopUntil(UiControllerImpl.java:510)
+	at androidx.test.espresso.base.UiControllerImpl.loopMainThreadUntilIdle(UiControllerImpl.java:433)
+	at androidx.test.espresso.Espresso.lambda$onIdle$2(Espresso.java:340)
+	at androidx.test.espresso.Espresso$$ExternalSyntheticLambda1.call(D8$$SyntheticClass:0)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at android.os.Handler.handleCallback(Handler.java:942)
+	at android.os.Handler.dispatchMessage(Handler.java:99)
+	at android.os.Looper.loopOnce(Looper.java:204)
+	at android.os.Looper.loop(Looper.java:291)
+	at android.app.ActivityThread.main(ActivityThread.java:8134)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:601)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1019)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pulseOrbitBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest):
+androidx.compose.ui.test.junit4.android.ComposeNotIdleException: Idling resource timed out: possibly due to compose being busy.
+IdlingResourceRegistry has the following idling resources registered:
+- [busy] ComposeIdlingResource is busy due to pending recompositions.
+         - Note: Timeout on pending recomposition means that there are most likely infinite re-compositions happening in the tested code.
+         - Debug: hadRecomposerChanges = true, hadSnapshotChanges = false, hadAwaitersOnMainClock = false 
+All registered idling resources: Compose-Espresso link
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.rethrowWithMoreInfo(EspressoLink.android.kt:136)
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.runEspressoOnIdle(EspressoLink.android.kt:110)
+	at androidx.compose.ui.test.junit4.EspressoLink.runUntilIdle(EspressoLink.android.kt:79)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.waitForIdle(ComposeUiTest.android.kt:340)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$waitForIdle(ComposeUiTest.android.kt:230)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidTestOwner.getRoots(ComposeUiTest.android.kt:533)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:86)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performTouchInput(Actions.kt:368)
+	at androidx.compose.ui.test.Actions_androidKt.performClickImpl(Actions.android.kt:20)
+	at androidx.compose.ui.test.ActionsKt.performClick(Actions.kt:51)
+	at com.vexel.offlinearcade.BackNavigationTest.pulseOrbitBackNavigationFlow(BackNavigationTest.kt:52)
+	... 53 trimmed
+Caused by: androidx.test.espresso.IdlingResourceTimeoutException: Wait for [Compose-Espresso link] to become idle timed out
+	at androidx.test.espresso.IdlingPolicy.handleTimeout(IdlingPolicy.java:63)
+	at androidx.test.espresso.base.UiControllerImpl$5.resourcesHaveTimedOut(UiControllerImpl.java:420)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleTimeout(IdlingResourceRegistry.java:533)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleMessage(IdlingResourceRegistry.java:466)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at androidx.test.espresso.base.Interrogator.loopAndInterrogate(Interrogator.java:156)
+	at androidx.test.espresso.base.UiControllerImpl.loopUntil(UiControllerImpl.java:510)
+	at androidx.test.espresso.base.UiControllerImpl.loopMainThreadUntilIdle(UiControllerImpl.java:433)
+	at androidx.test.espresso.Espresso.lambda$onIdle$2(Espresso.java:340)
+	at androidx.test.espresso.Espresso$$ExternalSyntheticLambda1.call(D8$$SyntheticClass:0)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at android.os.Handler.handleCallback(Handler.java:942)
+	at android.os.Handler.dispatchMessage(Handler.java:99)
+	at android.os.Looper.loopOnce(Looper.java:204)
+	at android.os.Looper.loop(Looper.java:291)
+	at android.app.ActivityThread.main(ActivityThread.java:8134)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:601)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1019)
+
+INSTRUMENTATION_STATUS: test=pulseOrbitBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.BackNavigationTest.laneDriftBackNavigationFlow(BackNavigationTest.kt:107)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest):
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.BackNavigationTest.laneDriftBackNavigationFlow(BackNavigationTest.kt:107)
+
+INSTRUMENTATION_STATUS: test=laneDriftBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.ChallengeUpdateTest:
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.GameplayDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=gameplayHintsCanBeDismissed
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:87)
+
+INSTRUMENTATION_STATUS: stream=
+Error in gameplayHintsCanBeDismissed(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:87)
+
+INSTRUMENTATION_STATUS: test=gameplayHintsCanBeDismissed
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.LifecyclePauseTest:
+INSTRUMENTATION_STATUS: test=laneDriftPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=laneDriftPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.LifecyclePauseTest.stackDropPausesOnBackground(LifecyclePauseTest.kt:70)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropPausesOnBackground(com.vexel.offlinearcade.LifecyclePauseTest):
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.LifecyclePauseTest.stackDropPausesOnBackground(LifecyclePauseTest.kt:70)
+
+INSTRUMENTATION_STATUS: test=stackDropPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pulseOrbitPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pulseOrbitPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=homeNavigatesToAllCoreRoutes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRouteByText(NavigationSmokeTest.kt:53)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:26)
+
+INSTRUMENTATION_STATUS: stream=
+Error in homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRouteByText(NavigationSmokeTest.kt:53)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:26)
+
+INSTRUMENTATION_STATUS: test=homeNavigatesToAllCoreRoutes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=settingsScreenSurvivesActivityRecreate
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=13
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=settingsScreenSurvivesActivityRecreate
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 184.986
+There were 6 failures:
+1) stackDropBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.BackNavigationTest.stackDropBackNavigationFlow(BackNavigationTest.kt:166)
+2) pulseOrbitBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest)
+androidx.compose.ui.test.junit4.android.ComposeNotIdleException: Idling resource timed out: possibly due to compose being busy.
+IdlingResourceRegistry has the following idling resources registered:
+- [busy] ComposeIdlingResource is busy due to pending recompositions.
+         - Note: Timeout on pending recomposition means that there are most likely infinite re-compositions happening in the tested code.
+         - Debug: hadRecomposerChanges = true, hadSnapshotChanges = false, hadAwaitersOnMainClock = false 
+All registered idling resources: Compose-Espresso link
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.rethrowWithMoreInfo(EspressoLink.android.kt:136)
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.runEspressoOnIdle(EspressoLink.android.kt:110)
+	at androidx.compose.ui.test.junit4.EspressoLink.runUntilIdle(EspressoLink.android.kt:79)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.waitForIdle(ComposeUiTest.android.kt:340)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$waitForIdle(ComposeUiTest.android.kt:230)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidTestOwner.getRoots(ComposeUiTest.android.kt:533)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:86)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performTouchInput(Actions.kt:368)
+	at androidx.compose.ui.test.Actions_androidKt.performClickImpl(Actions.android.kt:20)
+	at androidx.compose.ui.test.ActionsKt.performClick(Actions.kt:51)
+	at com.vexel.offlinearcade.BackNavigationTest.pulseOrbitBackNavigationFlow(BackNavigationTest.kt:52)
+	... 53 trimmed
+Caused by: androidx.test.espresso.IdlingResourceTimeoutException: Wait for [Compose-Espresso link] to become idle timed out
+	at androidx.test.espresso.IdlingPolicy.handleTimeout(IdlingPolicy.java:63)
+	at androidx.test.espresso.base.UiControllerImpl$5.resourcesHaveTimedOut(UiControllerImpl.java:420)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleTimeout(IdlingResourceRegistry.java:533)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleMessage(IdlingResourceRegistry.java:466)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at androidx.test.espresso.base.Interrogator.loopAndInterrogate(Interrogator.java:156)
+	at androidx.test.espresso.base.UiControllerImpl.loopUntil(UiControllerImpl.java:510)
+	at androidx.test.espresso.base.UiControllerImpl.loopMainThreadUntilIdle(UiControllerImpl.java:433)
+	at androidx.test.espresso.Espresso.lambda$onIdle$2(Espresso.java:340)
+	at androidx.test.espresso.Espresso$$ExternalSyntheticLambda1.call(D8$$SyntheticClass:0)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at android.os.Handler.handleCallback(Handler.java:942)
+	at android.os.Handler.dispatchMessage(Handler.java:99)
+	at android.os.Looper.loopOnce(Looper.java:204)
+	at android.os.Looper.loop(Looper.java:291)
+	at android.app.ActivityThread.main(ActivityThread.java:8134)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:601)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1019)
+3) laneDriftBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest)
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.BackNavigationTest.laneDriftBackNavigationFlow(BackNavigationTest.kt:107)
+4) gameplayHintsCanBeDismissed(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:87)
+5) stackDropPausesOnBackground(com.vexel.offlinearcade.LifecyclePauseTest)
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.offlinearcade.LifecyclePauseTest.stackDropPausesOnBackground(LifecyclePauseTest.kt:70)
+6) homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRouteByText(NavigationSmokeTest.kt:53)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:26)
+
+FAILURES!!!
+Tests run: 13,  Failures: 6
+
+
+INSTRUMENTATION_CODE: -1

@@ -86,6 +86,17 @@ android {
     }
 }
 
+tasks.withType<org.gradle.api.tasks.testing.Test>().configureEach {
+    // Robolectric + Compose can be memory-hungry; keep unit tests stable in CI/dev machines.
+    maxHeapSize = "2g"
+
+    // Work around occasional missing-dir failures when the test process aborts early.
+    doFirst {
+        file("$buildDir/test-results/$name").mkdirs()
+        file("$buildDir/test-results/$name/binary").mkdirs()
+    }
+}
+
 val requestedTasks = gradle.startParameter.taskNames
 val releaseTaskRequested = requestedTasks.any { task ->
     val normalized = task.lowercase()

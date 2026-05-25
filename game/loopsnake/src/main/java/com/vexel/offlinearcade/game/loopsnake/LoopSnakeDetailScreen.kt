@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
 import com.vexel.offlinearcade.core.ui.PremiumButton
@@ -31,7 +32,7 @@ fun LoopSnakeDetailScreen(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
-        screenTestTag = "LoopSnakeDetailScreen",
+        screenTestTag = ArcadeTestTags.LoopSnakeDetailRoot,
     ) {
         HeroPanel(
             overline = "Classic Arcade",
@@ -59,7 +60,7 @@ fun LoopSnakeDetailScreen(
         PremiumButton(
             label = "Start Game",
             onClick = onPlay,
-            modifier = Modifier.fillMaxWidth().height(56.dp).testTag("LoopSnakeStartButton")
+            modifier = Modifier.fillMaxWidth().height(56.dp).testTag(ArcadeTestTags.LoopSnakeStartButton)
         )
         
         androidx.compose.foundation.layout.Spacer(modifier = Modifier.height(spacing.xl))

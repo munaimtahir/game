@@ -32,6 +32,7 @@ internal object LoopSnakeTuning {
 enum class GameStatus {
     Ready,
     Playing,
+    Paused,
     GameOver
 }
 

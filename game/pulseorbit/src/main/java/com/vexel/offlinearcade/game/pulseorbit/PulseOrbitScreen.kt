@@ -180,7 +180,7 @@ fun PulseOrbitScreen(
     val ringBurst = remember { androidx.compose.animation.core.Animatable(0f) }
     val readyPulse = remember { androidx.compose.animation.core.Animatable(0.6f) }
 
-    LaunchedEffect(state.playing) {
+    LaunchedEffect(state.playing, state.gameOver) {
         if (!state.playing && !state.gameOver) {
             readyPulse.animateTo(
                 targetValue = 1f,
