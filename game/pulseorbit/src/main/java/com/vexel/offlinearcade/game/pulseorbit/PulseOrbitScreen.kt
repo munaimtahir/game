@@ -74,16 +74,17 @@ private data class PulseOrbitState(
 )
 
 internal object PulseOrbitTuning {
-    const val initialGapSize = 82f
-    const val minimumGapSize = 38f
-    const val gapShrinkPerPass = 1.15f
-    const val initialRotationSpeed = 96f
-    const val speedIncreasePerPass = 4.3f
-    const val maxRotationSpeed = 222f
-    const val gapStepBase = 74f
-    const val gapStepPerPass = 3.6f
-    const val maxGapStep = 136f
+    const val initialGapSize = 88f
+    const val minimumGapSize = 40f
+    const val gapShrinkPerPass = 1.2f
+    const val initialRotationSpeed = 85f
+    const val speedIncreasePerPass = 4.2f
+    const val maxRotationSpeed = 230f
+    const val gapStepBase = 72f
+    const val gapStepPerPass = 3.5f
+    const val maxGapStep = 140f
     const val comboBonusEvery = 5
+    const val collisionToleranceDegrees = 4.5f
 
     fun gapSizeFor(passes: Int): Float = maxOf(minimumGapSize, initialGapSize - passes * gapShrinkPerPass)
     fun rotationSpeedFor(passes: Int): Float = min(maxRotationSpeed, initialRotationSpeed + passes * speedIncreasePerPass)
@@ -177,6 +178,21 @@ fun PulseOrbitScreen(
     val successPulse = remember { androidx.compose.animation.core.Animatable(0f) }
     val failPulse = remember { androidx.compose.animation.core.Animatable(0f) }
     val ringBurst = remember { androidx.compose.animation.core.Animatable(0f) }
+    val readyPulse = remember { androidx.compose.animation.core.Animatable(0.6f) }
+
+    LaunchedEffect(state.playing, state.gameOver) {
+        if (!state.playing && !state.gameOver) {
+            readyPulse.animateTo(
+                targetValue = 1f,
+                animationSpec = androidx.compose.animation.core.infiniteRepeatable(
+                    animation = androidx.compose.animation.core.tween(1000, easing = androidx.compose.animation.core.LinearOutSlowInEasing),
+                    repeatMode = androidx.compose.animation.core.RepeatMode.Reverse
+                )
+            )
+        } else {
+            readyPulse.snapTo(1f)
+        }
+    }
 
     LaunchedEffect(state.passes) {
         if (state.passes > 0) {
@@ -282,7 +298,8 @@ fun PulseOrbitScreen(
                         return@clickable
                     }
                     val distance = angularDistance(state.orbitAngle, state.gapCenterAngle)
-                    if (distance <= state.gapSize / 2f) {
+                    val fairThreshold = (state.gapSize / 2f) + PulseOrbitTuning.collisionToleranceDegrees
+                    if (distance <= fairThreshold) {
                         val nextPass = state.passes + 1
                         val nextCombo = state.combo + 1
                         val comboBonus = if (nextCombo % PulseOrbitTuning.comboBonusEvery == 0) 1 else 0
@@ -375,7 +392,7 @@ fun PulseOrbitScreen(
                 }
                 Text(
                     state.feedback,
-                    color = colors.textSecondary,
+                    color = colors.textSecondary.copy(alpha = if (!state.playing && !state.gameOver) readyPulse.value else 1f),
                     style = MaterialTheme.typography.bodyMedium
                 )
             }

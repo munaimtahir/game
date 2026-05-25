@@ -7,24 +7,34 @@ data class Brick(
     val id: Int,
     val row: Int,
     val col: Int,
-    var hp: Int,
-    val color: Color
+    val hp: Int,
+    val maxHp: Int,
 )
 
 data class Ball(
-    val id: Int,
-    var position: Offset,
-    var velocity: Offset
+    val position: Offset,
+    val velocity: Offset,
+    val active: Boolean = true,
 )
 
-data class GameState(
-    val bricks: List<Brick>,
-    val balls: List<Ball>,
-    val score: Int,
-    val turn: Int,
-    val status: GameStatus,
-    val aimingLine: AimingLine?
+data class BrickVolleyState(
+    val bricks: List<Brick> = emptyList(),
+    val balls: List<Ball> = emptyList(),
+    val score: Int = 0,
+    val turn: Int = 1,
+    val status: GameStatus = GameStatus.Ready,
+    val aimingLine: AimingLine? = null,
+    val runStartMillis: Long = 0L,
+    val ballCount: Int = 1,
 )
+
+internal object BrickVolleyTuning {
+    const val columns = 6
+    const val rows = 12
+    const val ballSpeed = 22f
+    const val initialBalls = 1
+    const val bricksPerTurnProb = 0.6f
+}
 
 enum class GameStatus {
     Ready,

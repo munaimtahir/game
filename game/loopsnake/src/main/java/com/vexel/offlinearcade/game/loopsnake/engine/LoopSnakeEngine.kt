@@ -3,7 +3,7 @@ package com.vexel.offlinearcade.game.loopsnake.engine
 import androidx.compose.ui.geometry.Offset
 import com.vexel.offlinearcade.game.loopsnake.Direction
 import com.vexel.offlinearcade.game.loopsnake.Food
-import com.vexel.offlinearcade.game.loopsnake.GameState
+import com.vexel.offlinearcade.game.loopsnake.LoopSnakeState
 import com.vexel.offlinearcade.game.loopsnake.GameStatus
 import com.vexel.offlinearcade.game.loopsnake.SnakeBodyPart
 
@@ -19,19 +19,19 @@ class LoopSnakeEngine(
     }
         private set
 
-    var onStateChanged: ((GameState) -> Unit)? = null
+    var onStateChanged: ((LoopSnakeState) -> Unit)? = null
 
     private var nextDirection: Direction? = null
     private var bufferedDirection: Direction? = null
 
-    private fun createInitialState(): GameState {
+    private fun createInitialState(): LoopSnakeState {
         val initialSnake = listOf(
             SnakeBodyPart(Offset(7f, 10f)),
             SnakeBodyPart(Offset(6f, 10f)),
             SnakeBodyPart(Offset(5f, 10f))
         )
         val initialFood = spawnFood(initialSnake)
-        return GameState(
+        return LoopSnakeState(
             snake = initialSnake,
             food = initialFood,
             score = 0,

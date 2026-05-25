@@ -228,10 +228,13 @@ fun PremiumButton(
     style: ArcadeButtonStyle = ArcadeButtonStyle.Primary,
     enabled: Boolean = true,
     borderOverride: Color? = null,
+    labelOverride: String? = null,
 ) {
     val colors = ArcadeTheme.colors
     val containerColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.primary else Color.Transparent
     val contentColor = if (style == ArcadeButtonStyle.Primary) MaterialTheme.colorScheme.onPrimary else colors.textPrimary
+
+    val text = labelOverride ?: label
 
     when (style) {
         ArcadeButtonStyle.Primary -> Button(
@@ -246,7 +249,7 @@ fun PremiumButton(
                 disabledContentColor = colors.textMuted,
             ),
         ) {
-            Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)
+            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1)
         }
 
         ArcadeButtonStyle.Secondary -> OutlinedButton(
@@ -261,7 +264,7 @@ fun PremiumButton(
                 disabledContentColor = colors.textMuted,
             )
         ) {
-            Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)
+            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1)
         }
 
         ArcadeButtonStyle.Tonal -> Button(
@@ -274,7 +277,7 @@ fun PremiumButton(
                 contentColor = colors.textPrimary,
             ),
         ) {
-            Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1)
+            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1)
         }
     }
 }
@@ -520,7 +523,7 @@ fun PremiumOverlayCard(
     content: @Composable () -> Unit,
 ) {
     ArcadeCard(
-        modifier = modifier.widthIn(max = 400.dp),
+        modifier = modifier.widthIn(max = 400.dp).testTag("premium_overlay"),
         accent = Brush.linearGradient(listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary)),
         contentPadding = ArcadeTheme.spacing.lg,
     ) {

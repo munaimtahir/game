@@ -1,105 +1,138 @@
 package com.vexel.offlinearcade.game.gravityflip
 
+import androidx.activity.compose.BackHandler
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.drawText
-import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.vexel.offlinearcade.core.model.ArcadeFeedback
+import com.vexel.offlinearcade.core.model.ArcadeFeedbackEvent
+import com.vexel.offlinearcade.core.model.GameId
+import com.vexel.offlinearcade.core.model.GameStats
+import com.vexel.offlinearcade.core.model.RunResult
+import com.vexel.offlinearcade.core.model.SettingsState
+import com.vexel.offlinearcade.core.ui.*
 import kotlinx.coroutines.delay
-import kotlin.math.max
 
 @Composable
 fun GravityFlipScreen(
-    onBack: () -> Unit
+    stats: GameStats?,
+    settings: SettingsState,
+    feedback: ArcadeFeedback,
+    onRunComplete: (RunResult) -> Unit,
+    onBack: () -> Unit,
 ) {
-    var state by remember {
-        mutableStateOf(
-            GravityFlipState(
-                playerPosition = Offset(100f, 300f),
-                playerVelocityY = 0f,
-                gravity = 0.5f,
-                obstacles = emptyList(),
-                stars = emptyList(),
-                score = 0,
-                status = GameStatus.Playing
-            )
+    var state by remember { mutableStateOf(GravityFlipState()) }
+    var canvasSize by remember { mutableStateOf(Size.Zero) }
+    var hasReportedRun by remember { mutableStateOf(false) }
+    var paused by remember { mutableStateOf(false) }
+    val colors = ArcadeTheme.colors
+    val starPulse = remember { Animatable(0f) }
+
+    fun restart() {
+        state = GravityFlipState(
+            status = GameStatus.Playing,
+            runStartMillis = System.currentTimeMillis()
         )
+        hasReportedRun = false
+        paused = false
+        feedback.play(ArcadeFeedbackEvent.TAP)
     }
 
-    var canvasSize by remember { mutableStateOf(androidx.compose.ui.geometry.Size.Zero) }
-    val textMeasurer = rememberTextMeasurer()
+    fun togglePause() {
+        if (state.status == GameStatus.GameOver) return
+        paused = !paused
+    }
 
-    LaunchedEffect(state.status) {
+    BackHandler {
+        if (state.status == GameStatus.Playing && !paused) {
+            togglePause()
+        } else {
+            onBack()
+        }
+    }
+
+    LaunchedEffect(state.status, paused) {
         if (state.status == GameStatus.Playing) {
             var lastSpawnTime = 0L
-            while (state.status == GameStatus.Playing) {
+            while (state.status == GameStatus.Playing && !paused) {
                 delay(16)
                 val currentTime = System.currentTimeMillis()
                 
                 // Spawn obstacles and stars
-                val newObstacles = state.obstacles.toMutableList()
-                val newStars = state.stars.toMutableList()
+                val currentObstacles = state.obstacles.toMutableList()
+                val currentStars = state.stars.toMutableList()
+                val spawnInterval = (GravityFlipTuning.initialSpawnInterval - (state.score * 5L))
+                    .coerceAtLeast(GravityFlipTuning.minimumSpawnInterval)
                 
-                if (currentTime - lastSpawnTime > 1500) {
+                if (currentTime - lastSpawnTime > spawnInterval) {
                     val side = (0..1).random()
-                    val obstacleY = if (side == 0) 50f else canvasSize.height - 100f
-                    newObstacles.add(Obstacle(currentTime.toInt(), Offset(canvasSize.width + 50f, obstacleY), androidx.compose.ui.geometry.Size(50f, 50f)))
+                    val obsSize = Size(60f, 60f)
+                    val obstacleY = if (side == 0) 60f else canvasSize.height - 120f
+                    currentObstacles.add(Obstacle(currentTime.toInt(), Offset(canvasSize.width + 60f, obstacleY), obsSize))
                     
-                    val starY = (100..(canvasSize.height - 100).toInt()).random().toFloat()
-                    newStars.add(Star(currentTime.toInt() + 1, Offset(canvasSize.width + 50f, starY)))
+                    val starY = (150..(canvasSize.height - 150).toInt()).random().toFloat()
+                    currentStars.add(Star(currentTime.toInt() + 1, Offset(canvasSize.width + 100f, starY)))
                     
                     lastSpawnTime = currentTime
                 }
 
-                // Move items and check collisions
+                // Physics & Movement
+                var newVelocityY = state.playerVelocityY + (if (state.gravity > 0) GravityFlipTuning.gravityForce else -GravityFlipTuning.gravityForce)
+                var newPlayerY = state.playerPosition.y + newVelocityY
+                
+                if (newPlayerY < 60f) {
+                    newPlayerY = 60f
+                    newVelocityY = 0f
+                } else if (newPlayerY > canvasSize.height - 60f) {
+                    newPlayerY = canvasSize.height - 60f
+                    newVelocityY = 0f
+                }
+                
+                val playerRect = Rect(Offset(state.playerPosition.x - 25f, newPlayerY - 25f), Size(50f, 50f))
                 val finalObstacles = mutableListOf<Obstacle>()
                 val finalStars = mutableListOf<Star>()
                 var gameOver = false
                 var scoreGain = 0
+                val currentSpeed = state.speed
 
-                // Physics
-                var newVelocityY = state.playerVelocityY + state.gravity
-                var newPlayerY = state.playerPosition.y + newVelocityY
-                
-                if (newPlayerY < 50f) {
-                    newPlayerY = 50f
-                    newVelocityY = 0f
-                } else if (newPlayerY > canvasSize.height - 50f) {
-                    newPlayerY = canvasSize.height - 50f
-                    newVelocityY = 0f
-                }
-                
-                val playerRect = Rect(Offset(100f, newPlayerY - 20f), androidx.compose.ui.geometry.Size(40f, 40f))
-
-                for (obs in newObstacles) {
-                    val newPos = obs.position.copy(x = obs.position.x - 5f)
+                for (obs in currentObstacles) {
+                    val newPos = obs.position.copy(x = obs.position.x - currentSpeed)
                     if (Rect(newPos, obs.size).overlaps(playerRect)) {
                         gameOver = true
+                        feedback.play(ArcadeFeedbackEvent.FAIL)
                         break
                     }
                     if (newPos.x > -100f) finalObstacles.add(obs.copy(position = newPos))
                 }
 
-                for (star in newStars) {
-                    val newPos = star.position.copy(x = star.position.x - 5f)
-                    if (Rect(Offset(newPos.x - 15f, newPos.y - 15f), androidx.compose.ui.geometry.Size(30f, 30f)).overlaps(playerRect)) {
+                for (star in currentStars) {
+                    val newPos = star.position.copy(x = star.position.x - currentSpeed)
+                    if (Rect(Offset(newPos.x - 20f, newPos.y - 20f), Size(40f, 40f)).overlaps(playerRect)) {
                         scoreGain += 10
+                        feedback.play(ArcadeFeedbackEvent.SUCCESS)
+                        starPulse.snapTo(1f)
+                        starPulse.animateTo(0f, tween(200))
                         continue
                     }
                     if (newPos.x > -100f) finalStars.add(star.copy(position = newPos))
@@ -113,89 +146,125 @@ fun GravityFlipScreen(
                         playerVelocityY = newVelocityY,
                         obstacles = finalObstacles,
                         stars = finalStars,
-                        score = state.score + scoreGain
+                        score = state.score + scoreGain,
+                        speed = (state.speed + GravityFlipTuning.speedRamp * 0.016f).coerceAtMost(GravityFlipTuning.maxSpeed)
                     )
                 }
             }
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
-        Canvas(
+    if (state.status == GameStatus.GameOver && !hasReportedRun) {
+        hasReportedRun = true
+        onRunComplete(
+            RunResult(
+                gameId = GameId.GRAVITY_FLIP,
+                score = state.score,
+                durationMillis = System.currentTimeMillis() - state.runStartMillis,
+                coinsEarned = state.score / 2,
+            )
+        )
+    }
+
+    val overlayContent: (@Composable () -> Unit)? = when {
+        paused -> {
+            {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Gravity is suspended.") {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString())
+                        PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
+        state.status == GameStatus.GameOver -> {
+            {
+                PremiumOverlayCard(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New Galaxy Best!" else "Ship Down",
+                    subtitle = "Collision detected."
+                ) {
+                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
+                        PremiumButton(label = "Retry", onClick = ::restart, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Menu", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                    }
+                }
+            }
+        }
+        else -> null
+    }
+
+    GameplayScaffold(
+        topBar = {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    androidx.compose.material3.IconButton(onClick = onBack) {
+                        androidx.compose.material3.Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
+                    }
+                    HudPill("Score", state.score.toString())
+                }
+                PremiumButton(
+                    label = if (paused) "Resume" else "Pause",
+                    onClick = ::togglePause,
+                    style = ArcadeButtonStyle.Secondary,
+                    enabled = state.status == GameStatus.Playing
+                )
+            }
+        },
+        overlay = overlayContent
+    ) {
+        Box(
             modifier = Modifier
                 .fillMaxSize()
+                .background(colors.gameBoard, RoundedCornerShape(24.dp))
                 .pointerInput(Unit) {
                     detectTapGestures {
-                        state = state.copy(gravity = -state.gravity)
+                        if (state.status == GameStatus.Playing && !paused) {
+                            state = state.copy(gravity = -state.gravity)
+                            feedback.play(ArcadeFeedbackEvent.TAP)
+                        }
                     }
                 }
         ) {
-            canvasSize = size
-            
-            // Background
-            drawRect(Color(0xFF1A1A1A))
+            Canvas(modifier = Modifier.fillMaxSize()) {
+                canvasSize = size
+                
+                // Floor & Ceiling
+                drawRect(colors.gridLine.copy(alpha = 0.2f), topLeft = Offset(0f, 0f), size = Size(size.width, 60f))
+                drawRect(colors.gridLine.copy(alpha = 0.2f), topLeft = Offset(0f, size.height - 60f), size = Size(size.width, 60f))
 
-            // Score
-            drawText(
-                textMeasurer = textMeasurer,
-                text = "Score: ${state.score}",
-                topLeft = Offset(20.dp.toPx(), 40.dp.toPx()),
-                style = TextStyle(color = Color.White, fontSize = 24.sp)
-            )
+                // Player
+                drawRoundRect(
+                    color = colors.primaryCyan,
+                    topLeft = Offset(state.playerPosition.x - 25f, state.playerPosition.y - 25f),
+                    size = Size(50f, 50f),
+                    cornerRadius = CornerRadius(12f)
+                )
 
-            // Floor & Ceiling
-            drawRect(Color.DarkGray, topLeft = Offset(0f, 0f), size = androidx.compose.ui.geometry.Size(size.width, 50f))
-            drawRect(Color.DarkGray, topLeft = Offset(0f, size.height - 50f), size = androidx.compose.ui.geometry.Size(size.width, 50f))
-
-            // Player
-            drawRect(Color.Cyan, topLeft = Offset(state.playerPosition.x - 20f, state.playerPosition.y - 20f), size = androidx.compose.ui.geometry.Size(40f, 40f))
-
-            // Obstacles
-            state.obstacles.forEach { obs ->
-                drawRect(Color.Red, topLeft = obs.position, size = obs.size)
-            }
-
-            // Stars
-            state.stars.forEach { star ->
-                drawCircle(Color.Yellow, radius = 15f, center = star.position)
-            }
-        }
-
-        if (state.status == GameStatus.GameOver) {
-            GameOverScreen(
-                score = state.score,
-                onRestart = {
-                    state = GravityFlipState(
-                        playerPosition = Offset(100f, 300f),
-                        playerVelocityY = 0f,
-                        gravity = 0.5f,
-                        obstacles = emptyList(),
-                        stars = emptyList(),
-                        score = 0,
-                        status = GameStatus.Playing
+                // Obstacles
+                state.obstacles.forEach { obs ->
+                    drawRoundRect(
+                        color = colors.dangerCoral,
+                        topLeft = obs.position,
+                        size = obs.size,
+                        cornerRadius = CornerRadius(8f)
                     )
                 }
-            )
-        }
-    }
-}
 
-@Composable
-fun GameOverScreen(score: Int, onRestart: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.8f)),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Game Over", color = Color.White, fontSize = 48.sp)
-            Text("Score: $score", color = Color.White, fontSize = 32.sp)
-            Button(
-                onClick = onRestart,
-                modifier = Modifier.padding(top = 24.dp)
-            ) {
-                Text("Restart")
+                // Stars
+                state.stars.forEach { star ->
+                    val radius = 18f + starPulse.value * 10f
+                    drawCircle(colors.reward, radius = radius, center = star.position)
+                    drawCircle(colors.reward.copy(alpha = 0.3f), radius = radius + 8f, center = star.position, style = Stroke(2f))
+                }
+            }
+
+            if (state.status == GameStatus.Ready) {
+                Box(Modifier.fillMaxSize().clickable { restart() }, contentAlignment = Alignment.Center) {
+                    PremiumButton(label = "Tap to Launch", onClick = ::restart)
+                }
             }
         }
     }

@@ -1,70 +1,38 @@
 package com.vexel.offlinearcade.game.loopsnake
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableLongStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
 import com.vexel.offlinearcade.core.model.ArcadeFeedback
 import com.vexel.offlinearcade.core.model.ArcadeFeedbackEvent
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
-import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
-import com.vexel.offlinearcade.core.ui.ArcadeTestTags
-import com.vexel.offlinearcade.core.ui.ArcadeTheme
-import com.vexel.offlinearcade.core.ui.GameplayScaffold
-import com.vexel.offlinearcade.core.ui.HudPill
-import com.vexel.offlinearcade.core.ui.PremiumButton
-import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
-import com.vexel.offlinearcade.core.ui.StatRow
-import com.vexel.offlinearcade.game.loopsnake.engine.LoopSnakeEngine
+import com.vexel.offlinearcade.core.ui.*
 import kotlinx.coroutines.delay
 import kotlin.math.abs
-import kotlin.math.min
 
 @Composable
 fun LoopSnakeScreen(
@@ -72,189 +40,139 @@ fun LoopSnakeScreen(
     settings: SettingsState,
     feedback: ArcadeFeedback,
     onRunComplete: (RunResult) -> Unit,
-    onBack: () -> Unit
+    onBack: () -> Unit,
 ) {
-    val engine = remember { LoopSnakeEngine(cols = 15, rows = 20) }
-    var gameState by remember { mutableStateOf(engine.state) }
+    var state by remember { mutableStateOf(LoopSnakeState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
-    var runStartMillis by remember { mutableLongStateOf(0L) }
-
-    DisposableEffect(engine) {
-        engine.onStateChanged = { newState ->
-            gameState = newState
-        }
-        onDispose {
-            engine.onStateChanged = null
-        }
-    }
-
-    // Audio / Haptic feedback on score increase
-    LaunchedEffect(gameState.score) {
-        if (gameState.score > 0) {
-            feedback.play(ArcadeFeedbackEvent.PICKUP)
-        }
-    }
-
-    // Audio feedback on GameOver
-    LaunchedEffect(gameState.status) {
-        if (gameState.status == GameStatus.GameOver) {
-            feedback.play(ArcadeFeedbackEvent.FAIL)
-        }
-    }
-
-    // Game tick coroutine loop
-    LaunchedEffect(gameState.status) {
-        if (gameState.status == GameStatus.Playing) {
-            while (true) {
-                // Progressive speed: start at 240ms, speed up by 10ms per 20 score points, min 110ms
-                val currentDelay = (240 - (gameState.score / 20) * 10).coerceAtLeast(110).toLong()
-                delay(currentDelay)
-                engine.tick()
-            }
-        }
-    }
-
-    fun start() {
-        runStartMillis = System.currentTimeMillis()
-        hasReportedRun = false
-        engine.startGame()
-        feedback.play(ArcadeFeedbackEvent.TAP)
-    }
+    var paused by remember { mutableStateOf(false) }
+    val colors = ArcadeTheme.colors
+    val successPulse = remember { Animatable(0f) }
 
     fun restart() {
-        runStartMillis = System.currentTimeMillis()
+        state = LoopSnakeState(
+            status = GameStatus.Playing,
+            runStartMillis = System.currentTimeMillis(),
+            lastTickMillis = System.currentTimeMillis()
+        )
         hasReportedRun = false
-        engine.reset()
-        engine.startGame()
+        paused = false
         feedback.play(ArcadeFeedbackEvent.TAP)
     }
 
     fun togglePause() {
-        if (gameState.status == GameStatus.GameOver) return
-        engine.togglePause()
-        feedback.play(ArcadeFeedbackEvent.TAP)
-    }
-
-    val lifecycleOwner = LocalLifecycleOwner.current
-    DisposableEffect(lifecycleOwner) {
-        val observer = LifecycleEventObserver { _, event ->
-            if (event == Lifecycle.Event.ON_PAUSE) {
-                if (gameState.status == GameStatus.Playing) {
-                    engine.togglePause()
-                }
-            }
-        }
-        lifecycleOwner.lifecycle.addObserver(observer)
-        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+        if (state.status == GameStatus.GameOver) return
+        paused = !paused
     }
 
     BackHandler {
-        if (gameState.status == GameStatus.Playing) {
-            engine.togglePause()
+        if (state.status == GameStatus.Playing && !paused) {
+            togglePause()
         } else {
             onBack()
         }
     }
 
-    // Record progression when game ends
-    if (gameState.status == GameStatus.GameOver && !hasReportedRun) {
+    LaunchedEffect(state.status, paused) {
+        while (state.status == GameStatus.Playing && !paused) {
+            delay(state.speedDelay)
+            val newSnake = state.snake.toMutableList()
+            val head = newSnake.first()
+            val newHeadPos = when (state.direction) {
+                Direction.Up -> head.position.copy(y = head.position.y - 1)
+                Direction.Down -> head.position.copy(y = head.position.y + 1)
+                Direction.Left -> head.position.copy(x = head.position.x - 1)
+                Direction.Right -> head.position.copy(x = head.position.x + 1)
+            }
+
+            // Wall collision
+            if (newHeadPos.x < 0 || newHeadPos.x >= LoopSnakeTuning.gridCellsX || 
+                newHeadPos.y < 0 || newHeadPos.y >= LoopSnakeTuning.gridCellsY) {
+                state = state.copy(status = GameStatus.GameOver)
+                feedback.play(ArcadeFeedbackEvent.FAIL)
+                continue
+            }
+
+            // Body collision
+            if (newSnake.any { it.position == newHeadPos }) {
+                state = state.copy(status = GameStatus.GameOver)
+                feedback.play(ArcadeFeedbackEvent.FAIL)
+                continue
+            }
+
+            val nextHead = SnakeBodyPart(newHeadPos)
+            newSnake.add(0, nextHead)
+            
+            var nextScore = state.score
+            var nextFood = state.food
+            var nextDelay = state.speedDelay
+
+            if (newHeadPos == state.food.position) {
+                nextScore++
+                feedback.play(ArcadeFeedbackEvent.SUCCESS)
+                successPulse.snapTo(1f)
+                successPulse.animateTo(0f, animationSpec = tween(300))
+                
+                // Spawn new food not on snake
+                var validFood = false
+                var foodPos = Offset.Zero
+                while (!validFood) {
+                    foodPos = Offset(
+                        (0 until LoopSnakeTuning.gridCellsX).random().toFloat(),
+                        (0 until LoopSnakeTuning.gridCellsY).random().toFloat()
+                    )
+                    validFood = newSnake.none { it.position == foodPos }
+                }
+                nextFood = Food(foodPos)
+                nextDelay = (LoopSnakeTuning.initialDelay - nextScore * LoopSnakeTuning.delayReductionPerScore)
+                    .coerceAtLeast(LoopSnakeTuning.minimumDelay)
+            } else {
+                newSnake.removeAt(newSnake.size - 1)
+            }
+
+            state = state.copy(
+                snake = newSnake,
+                score = nextScore,
+                food = nextFood,
+                speedDelay = nextDelay
+            )
+        }
+    }
+
+    if (state.status == GameStatus.GameOver && !hasReportedRun) {
         hasReportedRun = true
-        val lengthGrown = (gameState.snake.size - 3).coerceAtLeast(0)
         onRunComplete(
             RunResult(
                 gameId = GameId.LOOP_SNAKE,
-                score = gameState.score,
-                durationMillis = System.currentTimeMillis() - runStartMillis,
-                pickupsCollected = lengthGrown,
-                coinsEarned = lengthGrown * 2 + gameState.score / 10
+                score = state.score,
+                durationMillis = System.currentTimeMillis() - state.runStartMillis,
+                coinsEarned = state.score * 5,
             )
         )
     }
 
-    val colors = ArcadeTheme.colors
-
-    val overlayContent: (@Composable () -> Unit)? = when (gameState.status) {
-        GameStatus.Ready -> {
+    val overlayContent: (@Composable () -> Unit)? = when {
+        paused -> {
             {
-                PremiumOverlayCard(
-                    title = "Loop Snake",
-                    subtitle = "Swipe to steer, collect glowing orbs, and avoid hitting the boundaries or your own tail.",
-                    modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeReady)
-                ) {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Snake is resting.") {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        PremiumButton(
-                            label = "Start Run",
-                            onClick = ::start,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .testTag(ArcadeTestTags.LoopSnakeStartButton)
-                        )
-                        PremiumButton(
-                            label = "Quit",
-                            onClick = onBack,
-                            modifier = Modifier.fillMaxWidth(),
-                            style = ArcadeButtonStyle.Secondary
-                        )
+                        StatRow("Score", state.score.toString())
+                        PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
                 }
             }
         }
-        GameStatus.Paused -> {
+        state.status == GameStatus.GameOver -> {
             {
                 PremiumOverlayCard(
-                    title = "Run Paused",
-                    subtitle = "Resume to continue, or restart the session.",
-                    modifier = Modifier.testTag(ArcadeTestTags.LoopSnakePause)
+                    title = if (state.score > (stats?.highScore ?: 0)) "New Record!" else "Game Over",
+                    subtitle = "The loop ends here."
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Current Score", gameState.score.toString())
-                        PremiumButton(
-                            label = "Resume",
-                            onClick = ::togglePause,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                        PremiumButton(
-                            label = "Restart",
-                            onClick = ::restart,
-                            modifier = Modifier.fillMaxWidth(),
-                            style = ArcadeButtonStyle.Secondary
-                        )
-                        PremiumButton(
-                            label = "Quit",
-                            onClick = onBack,
-                            modifier = Modifier.fillMaxWidth(),
-                            style = ArcadeButtonStyle.Secondary
-                        )
-                    }
-                }
-            }
-        }
-        GameStatus.GameOver -> {
-            {
-                val lengthGrown = (gameState.snake.size - 3).coerceAtLeast(0)
-                val isHighScore = gameState.score > (stats?.highScore ?: 0)
-                PremiumOverlayCard(
-                    title = if (isHighScore) "New Record!" else "Game Over",
-                    subtitle = "Keep the loops tight and retry.",
-                    modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeGameOver)
-                ) {
-                    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StatRow("Final Score", gameState.score.toString(), valueColor = colors.reward)
-                        StatRow("Snake Length", gameState.snake.size.toString(), valueColor = colors.success)
-                        StatRow("Coins Earned", (lengthGrown * 2 + gameState.score / 10).toString(), valueColor = colors.reward)
-                        PremiumButton(
-                            label = "Try Again",
-                            onClick = ::restart,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .testTag(ArcadeTestTags.LoopSnakeRestart)
-                        )
-                        PremiumButton(
-                            label = "Back to Details",
-                            onClick = onBack,
-                            modifier = Modifier.fillMaxWidth(),
-                            style = ArcadeButtonStyle.Secondary
-                        )
+                        StatRow("Score", state.score.toString(), valueColor = colors.reward)
+                        PremiumButton(label = "Try Again", onClick = ::restart, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "Menu", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
                 }
             }
@@ -263,205 +181,96 @@ fun LoopSnakeScreen(
     }
 
     GameplayScaffold(
-        modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeRoot),
         topBar = {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    IconButton(
-                        onClick = {
-                            if (gameState.status == GameStatus.Playing) {
-                                togglePause()
-                            } else {
-                                onBack()
-                            }
-                        },
-                        modifier = Modifier.testTag(ArcadeTestTags.BackButton)
-                    ) {
-                        Icon(
-                            Icons.Default.ArrowBack,
-                            contentDescription = "Back",
-                            tint = colors.textPrimary
-                        )
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    androidx.compose.material3.IconButton(onClick = onBack) {
+                        androidx.compose.material3.Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
                     }
-                    HudPill("Score", gameState.score.toString(), modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeScore))
-                    HudPill("Length", gameState.snake.size.toString(), modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeLength))
+                    HudPill("Score", state.score.toString(), modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeScore))
+                    HudPill("Length", state.snake.size.toString(), modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeLength))
                 }
                 PremiumButton(
-                    label = if (gameState.status == GameStatus.Paused) "Resume" else "Pause",
+                    label = if (paused) "Resume" else "Pause",
                     onClick = ::togglePause,
                     style = ArcadeButtonStyle.Secondary,
-                    enabled = gameState.status == GameStatus.Playing || gameState.status == GameStatus.Paused,
+                    enabled = state.status == GameStatus.Playing,
                     modifier = Modifier.testTag(ArcadeTestTags.LoopSnakePause)
                 )
             }
         },
         overlay = overlayContent
     ) {
-        var accumulatedDrag by remember { mutableStateOf(Offset.Zero) }
-        val swipeMinDistancePx = with(LocalDensity.current) { 36.dp.toPx() }
-
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .clipToBounds()
-                .testTag(ArcadeTestTags.LoopSnakePlayArea)
-                .semantics {
-                    stateDescription = "score=${gameState.score};status=${gameState.status};length=${gameState.snake.size}"
-                }
-                .background(colors.gameBoard, RoundedCornerShape(28.dp))
-                .pointerInput(gameState.status) {
-                    detectDragGestures(
-                        onDragStart = { accumulatedDrag = Offset.Zero },
-                        onDrag = { change, dragAmount ->
-                            change.consume()
-                            if (gameState.status == GameStatus.Playing) {
-                                accumulatedDrag += dragAmount
-
-                                val absX = abs(accumulatedDrag.x)
-                                val absY = abs(accumulatedDrag.y)
-
-                                if (absX >= swipeMinDistancePx || absY >= swipeMinDistancePx) {
-                                    if (absX > absY) {
-                                        if (accumulatedDrag.x > 0) {
-                                            engine.setDirection(Direction.Right)
-                                        } else {
-                                            engine.setDirection(Direction.Left)
-                                        }
-                                    } else {
-                                        if (accumulatedDrag.y > 0) {
-                                            engine.setDirection(Direction.Down)
-                                        } else {
-                                            engine.setDirection(Direction.Up)
-                                        }
-                                    }
-                                    accumulatedDrag = Offset.Zero
-                                }
-                            }
+                .testTag(ArcadeTestTags.LoopSnakeRoot)
+                .background(colors.gameBoard, RoundedCornerShape(24.dp))
+                .pointerInput(Unit) {
+                    detectDragGestures { change, dragAmount ->
+                        change.consume()
+                        if (state.status != GameStatus.Playing || paused) return@detectDragGestures
+                        val (x, y) = dragAmount
+                        state = if (abs(x) > abs(y)) {
+                            if (x > 0 && state.direction != Direction.Left) state.copy(direction = Direction.Right)
+                            else if (x < 0 && state.direction != Direction.Right) state.copy(direction = Direction.Left)
+                            else state
+                        } else {
+                            if (y > 0 && state.direction != Direction.Up) state.copy(direction = Direction.Down)
+                            else if (y < 0 && state.direction != Direction.Down) state.copy(direction = Direction.Up)
+                            else state
                         }
-                    )
+                    }
                 }
         ) {
-            val infiniteTransition = rememberInfiniteTransition(label = "pulse")
-            val pulseScale by infiniteTransition.animateFloat(
-                initialValue = 0.82f,
-                targetValue = 1.18f,
-                animationSpec = infiniteRepeatable(
-                    animation = tween(600, easing = LinearEasing),
-                    repeatMode = RepeatMode.Reverse
-                ),
-                label = "pulse"
-            )
-
-            Canvas(modifier = Modifier.fillMaxSize()) {
-                val cols = engine.cols
-                val rows = engine.rows
-                val cellWidth = size.width / cols
-                val cellHeight = size.height / rows
-                val cellSize = min(cellWidth, cellHeight)
-                val offsetX = (size.width - cellSize * cols) / 2f
-                val offsetY = (size.height - cellSize * rows) / 2f
-
-                // Draw subtle grid lines for premium retro-arcade styling
-                val gridColor = colors.gameBoardRaised.copy(alpha = 0.15f)
-                for (c in 0..cols) {
-                    val x = offsetX + c * cellSize
-                    drawLine(
-                        color = gridColor,
-                        start = Offset(x, offsetY),
-                        end = Offset(x, offsetY + rows * cellSize),
-                        strokeWidth = 1f
-                    )
+            Canvas(modifier = Modifier.fillMaxSize().padding(12.dp).testTag(ArcadeTestTags.LoopSnakePlayArea)) {
+                val cellSizeX = size.width / LoopSnakeTuning.gridCellsX
+                val cellSizeY = size.height / LoopSnakeTuning.gridCellsY
+                
+                // Grid lines (subtle)
+                for (i in 0..LoopSnakeTuning.gridCellsX) {
+                    drawLine(colors.gridLine.copy(alpha = 0.1f), Offset(i * cellSizeX, 0f), Offset(i * cellSizeX, size.height))
                 }
-                for (r in 0..rows) {
-                    val y = offsetY + r * cellSize
-                    drawLine(
-                        color = gridColor,
-                        start = Offset(offsetX, y),
-                        end = Offset(offsetX + cols * cellSize, y),
-                        strokeWidth = 1f
-                    )
+                for (i in 0..LoopSnakeTuning.gridCellsY) {
+                    drawLine(colors.gridLine.copy(alpha = 0.1f), Offset(0f, i * cellSizeY), Offset(size.width, i * cellSizeY))
                 }
 
-                // Draw Food (Pulsing glowing orb)
-                val foodCenter = Offset(
-                    offsetX + gameState.food.position.x * cellSize + cellSize / 2f,
-                    offsetY + gameState.food.position.y * cellSize + cellSize / 2f
+                // Food
+                drawCircle(
+                    color = colors.pickupMint,
+                    radius = (cellSizeX * 0.4f) + successPulse.value * 10f,
+                    center = Offset(
+                        state.food.position.x * cellSizeX + cellSizeX / 2,
+                        state.food.position.y * cellSizeY + cellSizeY / 2
+                    )
                 )
                 drawCircle(
-                    color = colors.reward.copy(alpha = 0.35f),
-                    radius = cellSize * 0.46f * pulseScale,
-                    center = foodCenter
+                    color = colors.pickupMint.copy(alpha = 0.3f),
+                    radius = cellSizeX * 0.7f,
+                    center = Offset(
+                        state.food.position.x * cellSizeX + cellSizeX / 2,
+                        state.food.position.y * cellSizeY + cellSizeY / 2
+                    ),
+                    style = Stroke(width = 2.dp.toPx())
                 )
-                drawCircle(
-                    color = colors.reward,
-                    radius = cellSize * 0.28f,
-                    center = foodCenter
-                )
 
-                // Draw Snake segments using lerped gradient colors (accent to reward)
-                gameState.snake.forEachIndexed { index, part ->
-                    val t = if (gameState.snake.size > 1) index.toFloat() / (gameState.snake.size - 1) else 0f
-                    val lerpColor = lerpColor(colors.loopSnakeAccent, colors.reward, t)
-                    val partCenter = Offset(
-                        offsetX + part.position.x * cellSize + cellSize / 2f,
-                        offsetY + part.position.y * cellSize + cellSize / 2f
+                // Snake
+                state.snake.forEachIndexed { index, part ->
+                    val color = if (index == 0) colors.primaryCyan else colors.primaryCyan.copy(alpha = 0.7f)
+                    drawRoundRect(
+                        color = color,
+                        topLeft = Offset(part.position.x * cellSizeX + 2f, part.position.y * cellSizeY + 2f),
+                        size = Size(cellSizeX - 4f, cellSizeY - 4f),
+                        cornerRadius = CornerRadius(8.dp.toPx())
                     )
+                }
+            }
 
-                    drawCircle(
-                        color = lerpColor,
-                        radius = cellSize * 0.44f,
-                        center = partCenter
-                    )
-
-                    // Draw eyes on the head segment (index 0)
-                    if (index == 0) {
-                        val eyeColor = Color.White
-                        val pupilColor = Color.Black
-                        val eyeRadius = cellSize * 0.08f
-                        val pupilRadius = cellSize * 0.04f
-
-                        val (eye1, eye2) = when (gameState.direction) {
-                            Direction.Right -> {
-                                val ex = partCenter.x + cellSize * 0.16f
-                                Pair(Offset(ex, partCenter.y - cellSize * 0.16f), Offset(ex, partCenter.y + cellSize * 0.16f))
-                            }
-                            Direction.Left -> {
-                                val ex = partCenter.x - cellSize * 0.16f
-                                Pair(Offset(ex, partCenter.y - cellSize * 0.16f), Offset(ex, partCenter.y + cellSize * 0.16f))
-                            }
-                            Direction.Up -> {
-                                val ey = partCenter.y - cellSize * 0.16f
-                                Pair(Offset(partCenter.x - cellSize * 0.16f, ey), Offset(partCenter.x + cellSize * 0.16f, ey))
-                            }
-                            Direction.Down -> {
-                                val ey = partCenter.y + cellSize * 0.16f
-                                Pair(Offset(partCenter.x - cellSize * 0.16f, ey), Offset(partCenter.x + cellSize * 0.16f, ey))
-                            }
-                        }
-
-                        drawCircle(color = eyeColor, radius = eyeRadius, center = eye1)
-                        drawCircle(color = eyeColor, radius = eyeRadius, center = eye2)
-                        drawCircle(color = pupilColor, radius = pupilRadius, center = eye1)
-                        drawCircle(color = pupilColor, radius = pupilRadius, center = eye2)
-                    }
+            if (state.status == GameStatus.Ready) {
+                Box(Modifier.fillMaxSize().clickable { restart() }.testTag(ArcadeTestTags.LoopSnakeReady), contentAlignment = Alignment.Center) {
+                    PremiumButton(label = "Tap to Start", onClick = ::restart, modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeStartButton))
                 }
             }
         }
     }
-}
-
-private fun lerpColor(c1: Color, c2: Color, t: Float): Color {
-    return Color(
-        red = c1.red + (c2.red - c1.red) * t,
-        green = c1.green + (c2.green - c1.green) * t,
-        blue = c1.blue + (c2.blue - c1.blue) * t,
-        alpha = c1.alpha + (c2.alpha - c1.alpha) * t
-    )
 }

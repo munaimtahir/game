@@ -9,6 +9,8 @@ object ArcadeTestTags {
     const val LaneDriftEntry = "lane_drift_entry"
     const val StackDropEntry = "stack_drop_entry"
     const val BrickVolleyEntry = "brick_volley_entry"
+    const val ShieldDashEntry = "ShieldDashEntry"
+    const val GravityFlipEntry = "GravityFlipEntry"
     const val ChallengesEntry = "challenges_entry"
     const val StatsEntry = "stats_entry"
     const val SettingsEntry = "settings_entry"

@@ -160,6 +160,10 @@ fun ArcadeNavHost(
 
         composable(Routes.ShieldDashGame) {
             ShieldDashScreen(
+                stats = snapshot.statsByGame[GameId.SHIELD_DASH],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -174,6 +178,10 @@ fun ArcadeNavHost(
 
         composable(Routes.GravityFlipGame) {
             GravityFlipScreen(
+                stats = snapshot.statsByGame[GameId.GRAVITY_FLIP],
+                settings = snapshot.settings,
+                feedback = feedback,
+                onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
         }
