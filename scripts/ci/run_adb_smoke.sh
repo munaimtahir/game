@@ -19,6 +19,9 @@ if [ -z "$APK_PATH" ]; then
 fi
 adb install -r "$APK_PATH"
 
+echo "Clearing logcat..."
+adb logcat -c
+
 echo "Launching app..."
 adb shell am start -W -n "$PACKAGE/$ACTIVITY"
 sleep 5
