@@ -1,2 +1,0 @@
-  mCurrentFocus=Window{9e86d77 u0 com.vexel.offlinearcade/com.vexel.offlinearcade.MainActivity}
-  mFocusedApp=ActivityRecord{1b30ef u0 com.vexel.offlinearcade/.MainActivity t8}

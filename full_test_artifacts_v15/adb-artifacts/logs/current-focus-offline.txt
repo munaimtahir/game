@@ -1,2 +1,0 @@
-  mCurrentFocus=Window{bca3e1b u0 Application Not Responding: com.google.android.apps.messaging}
-  mFocusedApp=ActivityRecord{d2825d6 u0 com.vexel.offlinearcade/.MainActivity t9}

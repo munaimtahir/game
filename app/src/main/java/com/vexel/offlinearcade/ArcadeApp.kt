@@ -58,6 +58,8 @@ fun ArcadeApp() {
             onToggleHighContrast = viewModel::toggleHighContrast,
             onUnlockTheme = viewModel::unlockTheme,
             onSelectTheme = viewModel::selectTheme,
+            onUnlockSkin = viewModel::unlockSkin,
+            onSelectSkin = viewModel::selectSkin,
             onRecordRun = viewModel::recordRun,
         )
     }

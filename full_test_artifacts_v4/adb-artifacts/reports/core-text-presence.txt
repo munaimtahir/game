@@ -1,1 +1,0 @@
-PASS: Core app/game text found on initial UI dump

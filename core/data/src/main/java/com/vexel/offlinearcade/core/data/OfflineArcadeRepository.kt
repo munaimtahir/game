@@ -31,9 +31,10 @@ class OfflineArcadeRepository(
             dao.observeProfile(),
             dao.observeStats(),
             dao.observeThemeUnlocks(),
+            dao.observeSkinUnlocks(),
             preferences.settingsFlow(),
             challengesForDay(clock.currentEpochDay()),
-        ) { profileEntity, statsEntities, themeUnlocks, settings, challenges ->
+        ) { profileEntity, statsEntities, themeUnlocks, skinUnlocks, settings, challenges ->
             val profile = profileEntity?.toModel() ?: PlayerProfile()
             ArcadeSnapshot(
                 profile = profile,
@@ -42,6 +43,7 @@ class OfflineArcadeRepository(
                     statsEntities.firstOrNull { it.gameId == gameId.name }?.toModel() ?: GameStats(gameId = gameId)
                 },
                 themes = mergeThemes(themeUnlocks, profile.premiumUnlocked),
+                skins = mergeSkins(skinUnlocks, profile.premiumUnlocked),
                 challenges = challenges,
             )
         }.flowOn(dispatchers.io)
@@ -108,6 +110,38 @@ class OfflineArcadeRepository(
             val unlockedThemes = mergeThemes(dao.observeThemeUnlocks().first(), profile.premiumUnlocked)
             if (unlockedThemes.any { it.id == themeId && it.unlocked }) {
                 dao.upsertProfile(profile.copy(selectedThemeId = themeId).toEntity())
+            }
+        }
+    }
+
+    override suspend fun purchaseSkin(skinId: String): Boolean = withContext(dispatchers.io) {
+        val profile = dao.observeProfile().first()?.toModel() ?: PlayerProfile()
+        val skin = com.vexel.offlinearcade.core.model.ArcadeSkinCatalog.skins.firstOrNull { it.id == skinId }
+            ?: return@withContext false
+        val alreadyUnlocked = skin.coinCost == 0 || profile.premiumUnlocked ||
+            dao.observeSkinUnlocks().first().any { it.skinId == skinId && it.unlocked }
+        if (alreadyUnlocked) {
+            return@withContext true
+        }
+        if (profile.coins < skin.coinCost) {
+            return@withContext false
+        }
+        dao.upsertProfile(profile.copy(coins = profile.coins - skin.coinCost).toEntity())
+        dao.upsertSkinUnlock(SkinUnlockEntity(skinId = skinId, unlocked = true))
+        true
+    }
+
+    override suspend fun selectSkin(skinId: String, gameId: GameId) {
+        withContext(dispatchers.io) {
+            val profile = dao.observeProfile().first()?.toModel() ?: PlayerProfile()
+            val unlockedSkins = mergeSkins(dao.observeSkinUnlocks().first(), profile.premiumUnlocked)
+            if (unlockedSkins.any { it.id == skinId && it.unlocked && it.gameId == gameId }) {
+                val updatedProfile = when (gameId) {
+                    GameId.PULSE_ORBIT -> profile.copy(selectedPulseOrbitSkin = skinId)
+                    GameId.GRAVITY_FLIP -> profile.copy(selectedGravityFlipSkin = skinId)
+                    else -> profile // Extend here as more games get skins
+                }
+                dao.upsertProfile(updatedProfile.toEntity())
             }
         }
     }

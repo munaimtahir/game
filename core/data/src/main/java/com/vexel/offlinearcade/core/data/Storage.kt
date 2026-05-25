@@ -22,6 +22,8 @@ data class PlayerProfileEntity(
     val coins: Int = 0,
     val premiumUnlocked: Boolean = false,
     val selectedThemeId: String = "default",
+    val selectedPulseOrbitSkin: String = "po_default",
+    val selectedGravityFlipSkin: String = "gf_default",
     val currentStreakDays: Int = 0,
     val lastPlayedEpochDay: Long? = null,
 )
@@ -40,6 +42,12 @@ data class GameStatsEntity(
 @Entity(tableName = "theme_unlocks")
 data class ThemeUnlockEntity(
     @PrimaryKey val themeId: String,
+    val unlocked: Boolean = false,
+)
+
+@Entity(tableName = "skin_unlocks")
+data class SkinUnlockEntity(
+    @PrimaryKey val skinId: String,
     val unlocked: Boolean = false,
 )
 
@@ -75,6 +83,12 @@ interface ArcadeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertThemeUnlock(themeUnlock: ThemeUnlockEntity)
 
+    @Query("SELECT * FROM skin_unlocks")
+    fun observeSkinUnlocks(): Flow<List<SkinUnlockEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertSkinUnlock(skinUnlock: SkinUnlockEntity)
+
     @Query("SELECT * FROM challenge_progress WHERE epochDay = :epochDay")
     fun observeChallengeProgress(epochDay: Long): Flow<List<ChallengeProgressEntity>>
 
@@ -87,6 +101,7 @@ interface ArcadeDao {
         PlayerProfileEntity::class,
         GameStatsEntity::class,
         ThemeUnlockEntity::class,
+        SkinUnlockEntity::class,
         ChallengeProgressEntity::class,
     ],
     version = 1,

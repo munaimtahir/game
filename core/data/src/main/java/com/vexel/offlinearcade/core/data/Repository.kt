@@ -13,5 +13,7 @@ interface ArcadeRepository {
     suspend fun recordRun(result: RunResult)
     suspend fun purchaseTheme(themeId: String): Boolean
     suspend fun selectTheme(themeId: String)
+    suspend fun purchaseSkin(skinId: String): Boolean
+    suspend fun selectSkin(skinId: String, gameId: com.vexel.offlinearcade.core.model.GameId)
     suspend fun setPremiumUnlocked(unlocked: Boolean)
 }

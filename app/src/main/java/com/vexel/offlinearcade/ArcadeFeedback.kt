@@ -77,11 +77,11 @@ private class ArcadeFeedbackController(
     private fun playTone(event: ArcadeFeedbackEvent) {
         if (!settingsState.soundEnabled) return
         val (tone, durationMs) = when (event) {
-            ArcadeFeedbackEvent.TAP -> ToneGenerator.TONE_PROP_BEEP to 20
-            ArcadeFeedbackEvent.SUCCESS -> ToneGenerator.TONE_PROP_ACK to 55
-            ArcadeFeedbackEvent.FAIL -> ToneGenerator.TONE_PROP_NACK to 90
-            ArcadeFeedbackEvent.PICKUP -> ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD to 35
-            ArcadeFeedbackEvent.LINE_CLEAR -> ToneGenerator.TONE_PROP_BEEP2 to 70
+            ArcadeFeedbackEvent.TAP -> ToneGenerator.TONE_PROP_BEEP to 15
+            ArcadeFeedbackEvent.SUCCESS -> ToneGenerator.TONE_PROP_ACK to 35
+            ArcadeFeedbackEvent.FAIL -> ToneGenerator.TONE_PROP_NACK to 60
+            ArcadeFeedbackEvent.PICKUP -> ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD to 25
+            ArcadeFeedbackEvent.LINE_CLEAR -> ToneGenerator.TONE_PROP_BEEP2 to 50
         }
         toneGenerator.startTone(tone, durationMs)
     }
@@ -90,18 +90,35 @@ private class ArcadeFeedbackController(
         if (!settingsState.vibrationEnabled) return
         val vibrator = vibrator ?: return
         if (!vibrator.hasVibrator()) return
-        val (durationMs, amplitude) = when (event) {
-            ArcadeFeedbackEvent.TAP -> 18L to 110
-            ArcadeFeedbackEvent.SUCCESS -> 28L to 180
-            ArcadeFeedbackEvent.FAIL -> 64L to 255
-            ArcadeFeedbackEvent.PICKUP -> 22L to 160
-            ArcadeFeedbackEvent.LINE_CLEAR -> 36L to 220
-        }
+        
         try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                val effectId = when (event) {
+                    ArcadeFeedbackEvent.TAP -> VibrationEffect.EFFECT_TICK
+                    ArcadeFeedbackEvent.SUCCESS -> VibrationEffect.EFFECT_CLICK
+                    ArcadeFeedbackEvent.FAIL -> VibrationEffect.EFFECT_HEAVY_CLICK
+                    ArcadeFeedbackEvent.PICKUP -> VibrationEffect.EFFECT_TICK
+                    ArcadeFeedbackEvent.LINE_CLEAR -> VibrationEffect.EFFECT_DOUBLE_CLICK
+                }
+                vibrator.vibrate(VibrationEffect.createPredefined(effectId))
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val (durationMs, amplitude) = when (event) {
+                    ArcadeFeedbackEvent.TAP -> 15L to 80
+                    ArcadeFeedbackEvent.SUCCESS -> 25L to 180
+                    ArcadeFeedbackEvent.FAIL -> 50L to 255
+                    ArcadeFeedbackEvent.PICKUP -> 20L to 140
+                    ArcadeFeedbackEvent.LINE_CLEAR -> 35L to 200
+                }
                 vibrator.vibrate(VibrationEffect.createOneShot(durationMs, amplitude))
             } else {
                 @Suppress("DEPRECATION")
+                val durationMs = when (event) {
+                    ArcadeFeedbackEvent.TAP -> 15L
+                    ArcadeFeedbackEvent.SUCCESS -> 25L
+                    ArcadeFeedbackEvent.FAIL -> 50L
+                    ArcadeFeedbackEvent.PICKUP -> 20L
+                    ArcadeFeedbackEvent.LINE_CLEAR -> 35L
+                }
                 vibrator.vibrate(durationMs)
             }
         } catch (_: SecurityException) {
