@@ -153,7 +153,7 @@ fun LoopSnakeScreen(
     val overlayContent: (@Composable () -> Unit)? = when {
         paused -> {
             {
-                PremiumOverlayCard(title = "Paused", subtitle = "Snake is resting.") {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Snake is resting.") {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                         StatRow("Score", state.score.toString())
                         PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())

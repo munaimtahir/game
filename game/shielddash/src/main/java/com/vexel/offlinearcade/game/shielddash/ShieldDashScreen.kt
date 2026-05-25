@@ -169,7 +169,7 @@ fun ShieldDashScreen(
     val overlayContent: (@Composable () -> Unit)? = when {
         paused -> {
             {
-                PremiumOverlayCard(title = "Paused", subtitle = "Core is safe.") {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Core is safe.") {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                         StatRow("Score", state.score.toString())
                         PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())

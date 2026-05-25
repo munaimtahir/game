@@ -169,7 +169,7 @@ fun GravityFlipScreen(
     val overlayContent: (@Composable () -> Unit)? = when {
         paused -> {
             {
-                PremiumOverlayCard(title = "Paused", subtitle = "Gravity is suspended.") {
+                PremiumOverlayCard(title = "Run paused", subtitle = "Gravity is suspended.") {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                         StatRow("Score", state.score.toString())
                         PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())

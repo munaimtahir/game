@@ -523,7 +523,7 @@ fun PremiumOverlayCard(
     content: @Composable () -> Unit,
 ) {
     ArcadeCard(
-        modifier = modifier.widthIn(max = 400.dp),
+        modifier = modifier.widthIn(max = 400.dp).testTag("premium_overlay"),
         accent = Brush.linearGradient(listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary)),
         contentPadding = ArcadeTheme.spacing.lg,
     ) {
