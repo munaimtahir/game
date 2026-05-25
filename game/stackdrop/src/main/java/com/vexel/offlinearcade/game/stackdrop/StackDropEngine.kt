@@ -3,7 +3,7 @@ package com.vexel.offlinearcade.game.stackdrop
 import kotlin.random.Random
 
 const val STACK_DROP_WIDTH = 10
-const val STACK_DROP_HEIGHT = 18
+const val STACK_DROP_HEIGHT = 22
 
 data class Cell(val x: Int, val y: Int)
 
@@ -98,8 +98,27 @@ class StackDropEngine(seed: Int = 7) {
 
     fun rotate(state: StackDropState): StackDropState {
         if (!state.playing) return state
-        val rotated = state.activePiece.copy(rotationIndex = (state.activePiece.rotationIndex + 1) % state.activePiece.type.rotations.size)
-        return if (collides(state.board, rotated)) state else state.copy(activePiece = rotated)
+        val rotatedIndex = (state.activePiece.rotationIndex + 1) % state.activePiece.type.rotations.size
+        val rotatedPiece = state.activePiece.copy(rotationIndex = rotatedIndex)
+        
+        // Try original position, then basic kicks
+        val kicks = listOf(
+            0 to 0,   // Center
+            -1 to 0,  // Left
+            1 to 0,   // Right
+            0 to -1,  // Up (floor kick)
+            -2 to 0,  // Double Left
+            2 to 0    // Double Right
+        )
+        
+        for ((dx, dy) in kicks) {
+            val kickedPiece = rotatedPiece.copy(x = rotatedPiece.x + dx, y = rotatedPiece.y + dy)
+            if (!collides(state.board, kickedPiece)) {
+                return state.copy(activePiece = kickedPiece)
+            }
+        }
+        
+        return state
     }
 
     fun softDrop(state: StackDropState): StackDropState = tick(state, forceLock = false, extraScore = 1)
@@ -176,7 +195,7 @@ class StackDropEngine(seed: Int = 7) {
             else -> 0
         }
         val totalLines = state.linesCleared + clearedRows
-        val level = 1 + totalLines / 6
+        val level = 1 + totalLines / 8
         val nextPiece = ActivePiece(type = state.nextPiece)
         val nextState = state.copy(
             board = nextBoard,
@@ -185,7 +204,7 @@ class StackDropEngine(seed: Int = 7) {
             score = state.score + lineBonus,
             linesCleared = totalLines,
             level = level,
-            dropIntervalMillis = (700L - (level - 1) * 45L).coerceAtLeast(180L),
+            dropIntervalMillis = (700L - (level - 1) * 35L).coerceAtLeast(160L),
             recentLineClearCount = clearedRows,
         )
         return if (collides(nextBoard, nextPiece)) {

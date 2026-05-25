@@ -65,7 +65,7 @@ fun LoopSnakeScreen(
 
                 newSnake.add(0, newHead)
                 if (newHead.position != gameState.food.position) {
-                    newSnake.removeLast()
+                    newSnake.removeAt(newSnake.size - 1)
                 } else {
                     gameState = gameState.copy(
                         score = gameState.score + 1,

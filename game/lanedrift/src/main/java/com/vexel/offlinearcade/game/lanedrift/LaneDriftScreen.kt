@@ -94,12 +94,12 @@ private data class LaneDriftState(
 
 internal object LaneDriftTuning {
     // Difficulty tuning (made more beginner-friendly).
-    const val initialSpeed = 142f
-    const val maxSpeed = 352f
-    const val speedRampPerSecond = 4.9f
-    const val initialSpawnInterval = 1.22f
-    const val minimumSpawnInterval = 0.66f
-    const val spawnIntervalRampPerSecond = 0.0085f
+    const val initialSpeed = 110f
+    const val maxSpeed = 330f
+    const val speedRampPerSecond = 3.5f
+    const val initialSpawnInterval = 1.6f
+    const val minimumSpawnInterval = 0.75f
+    const val spawnIntervalRampPerSecond = 0.006f
     const val playerZoneY = 0.88f
     // Visual sizes are expressed in dp and converted to px at runtime for consistent behavior across densities.
     val playerHeightDp = 84.dp
@@ -107,12 +107,12 @@ internal object LaneDriftTuning {
     val pickupHeightDp = 50.dp
 
     // Forgiving hitboxes (smaller than visuals).
-    const val playerHitboxInsetXFraction = 0.18f
-    const val playerHitboxInsetYFraction = 0.12f
-    const val blockerHitboxInsetXFraction = 0.16f
-    const val blockerHitboxInsetYFraction = 0.10f
-    const val pickupHitboxInsetXFraction = 0.10f
-    const val pickupHitboxInsetYFraction = 0.10f
+    const val playerHitboxInsetXFraction = 0.22f
+    const val playerHitboxInsetYFraction = 0.18f
+    const val blockerHitboxInsetXFraction = 0.20f
+    const val blockerHitboxInsetYFraction = 0.18f
+    const val pickupHitboxInsetXFraction = 0.15f
+    const val pickupHitboxInsetYFraction = 0.15f
 
     val blockerMinOverlapDp = 8.dp
     val pickupMinOverlapDp = 6.dp

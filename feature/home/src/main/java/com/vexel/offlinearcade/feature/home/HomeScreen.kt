@@ -1,34 +1,49 @@
 package com.vexel.offlinearcade.feature.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.vexel.offlinearcade.core.model.DailyChallenge
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.PlayerProfile
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
-import com.vexel.offlinearcade.core.ui.ArcadeCard
-import com.vexel.offlinearcade.core.ui.ArcadeInlineActions
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
@@ -36,8 +51,6 @@ import com.vexel.offlinearcade.core.ui.HeroPanel
 import com.vexel.offlinearcade.core.ui.HudPill
 import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumButton
-import com.vexel.offlinearcade.core.ui.PremiumProgress
-import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
 import com.vexel.offlinearcade.core.ui.gameAccentFor
 
@@ -59,206 +72,143 @@ fun HomeScreen(
 ) {
     val spacing = ArcadeTheme.spacing
     val completedChallenges = todayChallenges.count { it.completed }
-    val totalSessions = stats.sumOf { it.sessionsPlayed }
-    val totalScore = stats.sumOf { it.totalScore }
     val continueGame = stats.maxByOrNull { it.sessionsPlayed.takeIf { count -> count > 0 } ?: -1 }?.gameId ?: GameId.PULSE_ORBIT
     
     val gameCards = listOf(
         HomeGameEntry(
             gameId = GameId.PULSE_ORBIT,
             title = "Pulse Orbit",
-            body = "Rhythmic precision under pressure. Build combo and thread the opening cleanly.",
-            highScore = stats.firstOrNull { it.gameId == GameId.PULSE_ORBIT }?.highScore ?: 0,
-            sessions = stats.firstOrNull { it.gameId == GameId.PULSE_ORBIT }?.sessionsPlayed ?: 0,
-            challenge = todayChallenges.firstOrNull { it.gameId == GameId.PULSE_ORBIT },
+            description = "Reflex rhythm.",
+            highScore = stats.find { it.gameId == GameId.PULSE_ORBIT }?.highScore ?: 0,
             onPlay = onPulseOrbit,
             testTag = ArcadeTestTags.PulseOrbitEntry,
         ),
         HomeGameEntry(
             gameId = GameId.LANE_DRIFT,
             title = "Lane Drift",
-            body = "One-hand dodge flow with shard pickups, lane reads, and instant retry tension.",
-            highScore = stats.firstOrNull { it.gameId == GameId.LANE_DRIFT }?.highScore ?: 0,
-            sessions = stats.firstOrNull { it.gameId == GameId.LANE_DRIFT }?.sessionsPlayed ?: 0,
-            challenge = todayChallenges.firstOrNull { it.gameId == GameId.LANE_DRIFT },
+            description = "Dodge & flow.",
+            highScore = stats.find { it.gameId == GameId.LANE_DRIFT }?.highScore ?: 0,
             onPlay = onLaneDrift,
             testTag = ArcadeTestTags.LaneDriftEntry,
         ),
         HomeGameEntry(
             gameId = GameId.STACK_DROP,
             title = "Stack Drop",
-            body = "Falling-block clarity with tactical pace, line clears, and fast gesture control.",
-            highScore = stats.firstOrNull { it.gameId == GameId.STACK_DROP }?.highScore ?: 0,
-            sessions = stats.firstOrNull { it.gameId == GameId.STACK_DROP }?.sessionsPlayed ?: 0,
-            challenge = todayChallenges.firstOrNull { it.gameId == GameId.STACK_DROP },
+            description = "Fast line clear.",
+            highScore = stats.find { it.gameId == GameId.STACK_DROP }?.highScore ?: 0,
             onPlay = onStackDrop,
             testTag = ArcadeTestTags.StackDropEntry,
         ),
         HomeGameEntry(
             gameId = GameId.BRICK_VOLLEY,
             title = "Brick Volley",
-            body = "Aim, release a volley of balls, and clear descending bricks before they reach the bottom.",
-            highScore = stats.firstOrNull { it.gameId == GameId.BRICK_VOLLEY }?.highScore ?: 0,
-            sessions = stats.firstOrNull { it.gameId == GameId.BRICK_VOLLEY }?.sessionsPlayed ?: 0,
-            challenge = todayChallenges.firstOrNull { it.gameId == GameId.BRICK_VOLLEY },
+            description = "Ball volley fun.",
+            highScore = stats.find { it.gameId == GameId.BRICK_VOLLEY }?.highScore ?: 0,
             onPlay = onBrickVolley,
             testTag = "BrickVolleyEntry",
         ),
         HomeGameEntry(
             gameId = GameId.LOOP_SNAKE,
             title = "Loop Snake",
-            body = "A modern Snake-style game. Collect orbs, grow, and avoid collisions.",
-            highScore = stats.firstOrNull { it.gameId == GameId.LOOP_SNAKE }?.highScore ?: 0,
-            sessions = stats.firstOrNull { it.gameId == GameId.LOOP_SNAKE }?.sessionsPlayed ?: 0,
-            challenge = todayChallenges.firstOrNull { it.gameId == GameId.LOOP_SNAKE },
+            description = "Modern snake.",
+            highScore = stats.find { it.gameId == GameId.LOOP_SNAKE }?.highScore ?: 0,
             onPlay = onLoopSnake,
             testTag = "LoopSnakeEntry",
         ),
         HomeGameEntry(
             gameId = GameId.SHIELD_DASH,
             title = "Shield Dash",
-            body = "A defensive reflex game. Rotate a shield to block incoming hazards.",
-            highScore = stats.firstOrNull { it.gameId == GameId.SHIELD_DASH }?.highScore ?: 0,
-            sessions = stats.firstOrNull { it.gameId == GameId.SHIELD_DASH }?.sessionsPlayed ?: 0,
-            challenge = todayChallenges.firstOrNull { it.gameId == GameId.SHIELD_DASH },
+            description = "Defensive block.",
+            highScore = stats.find { it.gameId == GameId.SHIELD_DASH }?.highScore ?: 0,
             onPlay = onShieldDash,
             testTag = "ShieldDashEntry",
         ),
-        HomeGameEntry(
-            gameId = GameId.GRAVITY_FLIP,
-            title = "Gravity Flip",
-            body = "Side-scrolling survival. Flip gravity to avoid hazards and collect stars.",
-            highScore = stats.firstOrNull { it.gameId == GameId.GRAVITY_FLIP }?.highScore ?: 0,
-            sessions = stats.firstOrNull { it.gameId == GameId.GRAVITY_FLIP }?.sessionsPlayed ?: 0,
-            challenge = todayChallenges.firstOrNull { it.gameId == GameId.GRAVITY_FLIP },
-            onPlay = onGravityFlip,
-            testTag = "GravityFlipEntry",
-        ),
     )
-    val featuredGame = gameCards.firstOrNull { it.gameId == continueGame } ?: gameCards.first()
-    val supportingGames = gameCards.filterNot { it.gameId == featuredGame.gameId }
 
     ArcadeScaffold(
-        title = "Offline Mini Arcade",
+        title = "Arcade Home",
         scrollable = false,
         screenTestTag = ArcadeTestTags.HomeScreen,
     ) {
-        LazyColumn(
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .testTag(ArcadeTestTags.HomeList),
+            contentPadding = PaddingValues(bottom = 24.dp),
+            horizontalArrangement = Arrangement.spacedBy(spacing.md),
             verticalArrangement = Arrangement.spacedBy(spacing.md),
         ) {
-            item {
+            item(span = { GridItemSpan(2) }) {
                 HeroPanel(
-                    overline = "Calm Focus Arcade",
-                    title = "Six games. One premium shell.",
-                    subtitle = "Fast offline runs, shared progression, and instant retries without clutter.",
+                    overline = "Daily Session",
+                    title = "Keep the streak.",
+                    subtitle = "Instant offline play. No ads in-game.",
                     trailing = {
                         Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
                             PremiumBadge(
-                                text = if (profile.premiumUnlocked) "Premium unlocked" else "Offline-first",
-                                color = if (profile.premiumUnlocked) ArcadeTheme.colors.premium else ArcadeTheme.colors.success,
-                            )
-                            PremiumBadge(
-                                text = "Continue state: ${continueGame.title}",
-                                color = ArcadeTheme.colors.reward,
+                                text = "${profile.currentStreakDays} Day Streak",
+                                color = ArcadeTheme.colors.premium,
                             )
                         }
                     },
                 )
             }
-            item {
-                BoxWithConstraints {
-                    val isCompact = maxWidth < 380.dp
-                    ArcadeCard {
-                        if (isCompact) {
-                            Column(verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
-                                Row(horizontalArrangement = Arrangement.spacedBy(spacing.sm), modifier = Modifier.fillMaxWidth()) {
-                                    HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
-                                    HudPill(label = "Streak", value = "${profile.currentStreakDays}d", modifier = Modifier.weight(1f))
-                                }
-                                HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.fillMaxWidth())
-                            }
-                        } else {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(spacing.sm),
-                            ) {
-                                HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
-                                HudPill(label = "Streak", value = "${profile.currentStreakDays}d", modifier = Modifier.weight(1f))
-                                HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
-                            }
-                        }
-                        Row(horizontalArrangement = Arrangement.spacedBy(spacing.sm), modifier = Modifier.fillMaxWidth()) {
-                            PremiumStatTile("Sessions", totalSessions.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.success)
-                            PremiumStatTile("Total Score", totalScore.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
-                        }
-                    }
+
+            item(span = { GridItemSpan(2) }) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(spacing.sm),
+                ) {
+                    HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
+                    HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
+                    PremiumButton(
+                        label = "Settings",
+                        onClick = onSettings,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.size(52.dp),
+                        labelOverride = "⚙"
+                    )
                 }
             }
-            item {
+
+            item(span = { GridItemSpan(2) }) {
                 SectionHeader(
-                    title = "Arcade Library",
-                    subtitle = "Your recent focus up top.",
-                    badge = "6 games",
+                    title = "Continue Play",
+                    badge = continueGame.title,
                 )
             }
-            item {
-                GameEntryCard(
-                    title = featuredGame.title,
-                    body = featuredGame.body,
-                    highScore = featuredGame.highScore,
-                    sessions = featuredGame.sessions,
-                    challenge = featuredGame.challenge,
-                    featured = true,
-                    onPlay = featuredGame.onPlay,
-                    testTag = featuredGame.testTag,
-                )
-            }
-            items(supportingGames.size) { index ->
-                val game = supportingGames[index]
-                GameEntryCard(
-                    modifier = Modifier.fillMaxWidth(),
+
+            items(gameCards.size) { index ->
+                val game = gameCards[index]
+                GameCard(
                     title = game.title,
-                    body = game.body,
+                    description = game.description,
                     highScore = game.highScore,
-                    sessions = game.sessions,
-                    challenge = game.challenge,
-                    featured = false,
-                    compact = true,
                     onPlay = game.onPlay,
-                    testTag = game.testTag,
+                    isFeatured = game.gameId == continueGame,
+                    testTag = game.testTag
                 )
             }
-            item {
-                SectionHeader(title = "Arcade Meta", subtitle = "Daily tasks and settings stay secondary to play.")
+            
+            item(span = { GridItemSpan(2) }) {
+                Spacer(modifier = Modifier.height(spacing.sm))
+                SectionHeader(title = "Arcade Meta", subtitle = "Shared progression & daily tasks.")
             }
-            item {
-                ArcadeCard {
-                    ArcadeInlineActions {
-                        PremiumButton(
-                            label = "Daily Challenges",
-                            onClick = onChallenges,
-                            modifier = Modifier.testTag(ArcadeTestTags.ChallengesEntry),
-                        )
-                        PremiumButton(
-                            label = "Stats",
-                            onClick = onStats,
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.testTag(ArcadeTestTags.StatsEntry),
-                        )
-                        PremiumButton(
-                            label = "Settings",
-                            onClick = onSettings,
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.testTag(ArcadeTestTags.SettingsEntry),
-                        )
-                    }
-                    PremiumProgress(
-                        progress = if (todayChallenges.isEmpty()) 0f else completedChallenges.toFloat() / todayChallenges.size.toFloat(),
-                        label = "Daily completion",
-                        accent = ArcadeTheme.colors.reward,
+
+            item(span = { GridItemSpan(2) }) {
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.md)) {
+                    PremiumButton(
+                        label = "Challenges",
+                        onClick = onChallenges,
+                        modifier = Modifier.weight(1f).height(56.dp),
+                        style = ArcadeButtonStyle.Primary
+                    )
+                    PremiumButton(
+                        label = "Global Stats",
+                        onClick = onStats,
+                        modifier = Modifier.weight(1f).height(56.dp),
+                        style = ArcadeButtonStyle.Secondary
                     )
                 }
             }
@@ -267,86 +217,89 @@ fun HomeScreen(
 }
 
 @Composable
-private fun GameEntryCard(
-    modifier: Modifier = Modifier,
+private fun GameCard(
     title: String,
-    body: String,
+    description: String,
     highScore: Int,
-    sessions: Int,
-    challenge: DailyChallenge?,
-    featured: Boolean,
-    compact: Boolean = false,
     onPlay: () -> Unit,
+    isFeatured: Boolean,
     testTag: String,
 ) {
     val accent = gameAccentFor(title)
-    val accentTextColor = adaptiveTextColor(accent.color)
-    ArcadeCard(modifier = modifier, accent = accent.brush) {
-        Column(verticalArrangement = Arrangement.spacedBy(if (compact) 10.dp else 12.dp)) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(brush = accent.brush, shape = RoundedCornerShape(20.dp))
-                    .padding(horizontal = 14.dp, vertical = 12.dp),
+    val containerColor = if (isFeatured) accent.color.copy(alpha = 0.08f) else ArcadeTheme.colors.elevatedCardBackground
+    val borderColor = if (isFeatured) accent.color else ArcadeTheme.colors.outlineMuted
+    
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(0.85f)
+            .clip(RoundedCornerShape(28.dp))
+            .testTag(testTag)
+            .clickable { onPlay() },
+        color = containerColor,
+        shape = RoundedCornerShape(28.dp),
+        border = androidx.compose.foundation.BorderStroke(1.5.dp, borderColor)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.Top
             ) {
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Top) {
-                    Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .clip(CircleShape)
+                        .background(accent.color.copy(alpha = 0.2f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = if (isFeatured) Icons.Default.Star else Icons.Default.PlayArrow,
+                        contentDescription = null,
+                        tint = accent.color,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+                
+                if (highScore > 0) {
+                    Column(horizontalAlignment = Alignment.End) {
                         Text(
-                            if (featured) "Continue run" else "Play now",
-                            color = accentTextColor.copy(alpha = 0.86f),
-                            style = MaterialTheme.typography.labelMedium,
+                            "BEST",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = ArcadeTheme.colors.textSecondary,
+                            fontWeight = FontWeight.Bold
                         )
-                        Text(
-                            title,
-                            style = if (compact) MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineMedium,
-                            fontWeight = FontWeight.Black,
-                            color = accentTextColor,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    }
-                    Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text("Best", color = accentTextColor.copy(alpha = 0.86f), style = MaterialTheme.typography.labelMedium)
                         Text(
                             highScore.toString(),
-                            style = if (compact) MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineLarge,
+                            style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Black,
-                            color = accentTextColor,
-                            maxLines = 1
+                            color = ArcadeTheme.colors.textPrimary
                         )
                     }
                 }
             }
-            if (!compact) {
-                Text(body, color = ArcadeTheme.colors.textSecondary)
-            }
-            if (compact) {
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    Text("Sessions", color = ArcadeTheme.colors.textSecondary, style = MaterialTheme.typography.labelMedium)
-                    Text(sessions.toString(), color = ArcadeTheme.colors.textPrimary, fontWeight = FontWeight.Bold)
-                }
-            } else {
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    PremiumStatTile(label = "Best Score", value = highScore.toString(), modifier = Modifier.weight(1f), accent = accent.color)
-                    PremiumStatTile(label = "Sessions", value = sessions.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
-                }
-            }
-            if (challenge != null) {
-                PremiumProgress(
-                    progress = if (challenge.targetValue == 0) 0f else challenge.progress.toFloat() / challenge.targetValue.toFloat(),
-                    label = if (compact) "Daily" else "Daily challenge",
-                    accent = accent.color,
+
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(
+                    title,
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Black,
+                    color = ArcadeTheme.colors.textPrimary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Text(
+                    description,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = ArcadeTheme.colors.textSecondary,
+                    maxLines = 2,
+                    lineHeight = 16.sp,
+                    overflow = TextOverflow.Ellipsis
                 )
             }
-            PremiumButton(
-                label = if (featured) "Play" else "Play",
-                onClick = onPlay,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(52.dp)
-                    .testTag(testTag),
-                style = if (compact) ArcadeButtonStyle.Secondary else ArcadeButtonStyle.Primary,
-            )
         }
     }
 }
@@ -354,10 +307,8 @@ private fun GameEntryCard(
 private data class HomeGameEntry(
     val gameId: GameId,
     val title: String,
-    val body: String,
+    val description: String,
     val highScore: Int,
-    val sessions: Int,
-    val challenge: DailyChallenge?,
     val onPlay: () -> Unit,
     val testTag: String,
 )
