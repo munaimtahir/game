@@ -1,51 +1,91 @@
 # Final GitHub Emulator and MCP Runbook
 
-## 1. Running GitHub Emulator Workflow from GitHub Web UI
-1. Go to your repository on GitHub.
-2. Click the **Actions** tab.
-3. In the left sidebar, click **Android Emulator Gameplay CI**.
-4. Click the **Run workflow** dropdown on the right side.
+## 1. Run the GitHub Emulator Workflow
+1. Open the repository in GitHub.
+2. Click **Actions**.
+3. Select **Android Emulator Gameplay CI**.
+4. Click **Run workflow**.
 
-## 2. Workflow File Path
-`.github/workflows/android-emulator-gameplay-ci.yml`
+## 2. Workflow File
+- [`.github/workflows/android-emulator-gameplay-ci.yml`](../.github/workflows/android-emulator-gameplay-ci.yml)
 
-## 3. Workflow Inputs
-- **game_target**: Choose the target (`all`, `lane_drift`, `pulse_orbit`, `stack_drop`).
-- **test_level**: 
-  - `smoke`: Basic app launch and crash check.
-  - `full`: Complete Android tests (future support).
-  - `screenshots_only`: Fast screenshot capturing.
-- **api_level**: Default `34` (Recommended for KVM acceleration on GitHub Ubuntu runners).
-- **retry_failed**: Set to `true` to retry flaky emulator boots.
+## 3. Inputs
+- `game_target`
+  - `all`
+  - `lane_drift`
+  - `pulse_orbit`
+  - `stack_drop`
+- `test_level`
+  - `smoke`: build + JVM tests + lint + emulator smoke + screenshots
+  - `full`: everything in smoke plus connected tests and bugreport on failure or full runs
+  - `screenshots_only`: screenshot capture only
+- `api_level`
+  - defaults to `35`
+- `emulator_profile`
+  - use a reasonable Pixel profile if the workflow exposes it in future revisions
+- `retry_failed`
+  - `true` or `false`
 
-## 4. Finding Artifacts
-When a workflow completes, scroll to the bottom of the workflow run summary page to find the **Artifacts** section.
+## 4. Artifact Locations
+- Build logs: `artifacts/logs/`
+- Logcat: `artifacts/logcat/`
+- Screenshots: `artifacts/screenshots/`
+- Test results: `artifacts/test-results/`
+- Lint outputs: `artifacts/lint/`
+- Reports: `artifacts/reports/`
+- UI dumps: `artifacts/ui-dumps/`
+- Smoke evidence: `artifacts/gameplay-smoke/`
 
-## 5. Downloading Screenshots & Logs
-Download the artifact named `android-emulator-gameplay-ci-<run_number>`. Unzip it to view:
-- `screenshots/`: Visual state captures.
-- `logcat/`: Full system logs.
-- `logs/`: Build and test logs.
+## 5. Downloading Evidence
+- Open the workflow run in GitHub.
+- Scroll to **Artifacts**.
+- Download `android-emulator-gameplay-ci-<run_number>`.
+- Inspect the log files before looking at the images; they usually explain why a screenshot or test is missing.
 
-## 6. Identifying Failures
-- **Build Failure**: Look in `logs/assembleDebug.txt`.
-- **Emulator Failure**: Look for timeout messages in workflow output or `logcat-final.txt`.
-- **Gameplay/Test Failure**: Look in `test-results/` for unit test failures or `gameplay-smoke/adb-smoke.txt` for crashes.
+## 6. Failure Triage
+- Build failure:
+  - check `artifacts/logs/assembleDebug.txt`
+- JVM test failure:
+  - check `artifacts/logs/testDebugUnitTest.txt`
+- Lint failure:
+  - check `artifacts/logs/lintDebug.txt`
+- Emulator boot failure:
+  - check `artifacts/logs/wait-for-emulator.txt`
+  - check `artifacts/logcat/logcat-final.txt`
+- Smoke/runtime failure:
+  - check `artifacts/gameplay-smoke/adb-smoke.txt`
+  - check `artifacts/logcat/logcat-final.txt`
+- Screenshot failure:
+  - check `artifacts/logs/screenshot-capture.txt`
 
-## 7. Using MCP for this Project
-Read `docs/MCP_SETUP.md`. Configure your client to point to this repository folder with strictly read permissions unless operating on an approved plan.
+## 7. How to Use MCP Here
+- Start with [`docs/MCP_SETUP.md`](./MCP_SETUP.md).
+- Keep the repo root as the only filesystem boundary.
+- Read [`docs/MCP_AGENT_WORKFLOW.md`](./MCP_AGENT_WORKFLOW.md) before writing code.
+- Apply [`docs/MCP_SECURITY_GUARDRAILS.md`](./MCP_SECURITY_GUARDRAILS.md) before enabling write mode.
 
-## 8. Running the Next One-Game Sprint
-Follow `docs/MCP_AGENT_WORKFLOW.md`. Only target Pulse Orbit next. Do not touch Stack Drop.
+## 8. How to Run the Next One-Game Sprint
+1. Pick only one game.
+2. Read the relevant audit docs.
+3. Write or update a test that defines the behavior.
+4. Change the smallest code path possible.
+5. Run `./gradlew testDebugUnitTest lintDebug`.
+6. Run the GitHub emulator workflow and collect screenshots/logs.
+7. Stop and write the before/after report.
 
-## 9. What Not to Do
-- **Do NOT** change multiple games in one sprint.
-- **Do NOT** commit raw secrets.
-- **Do NOT** bypass the emulator smoke checks.
-- **Do NOT** rewrite existing `.github/workflows/completeadbtest.yml` as it may still be required by legacy systems.
+## 9. What Not To Do
+- Do not fix more than one game in the same sprint.
+- Do not add new games.
+- Do not put ads in active gameplay.
+- Do not expose secrets.
+- Do not assume a local adb device is part of the CI plan.
 
-## 10. How to Continue if GitHub Emulator Fails
-If cloud instances hang due to KVM issues, pull the branch locally and run `./gradlew connectedAndroidTest` against a local emulator. 
+## 10. If GitHub Emulator Fails
+- Re-run with the same branch and the same inputs.
+- Check whether the failure is build, emulator boot, runtime, or screenshot capture.
+- Use the local shell only to reproduce, not to change scope.
+- If the issue is real gameplay behavior, move to the relevant game sprint rather than widening the CI job.
 
-## 11. Keeping Work One-Game-at-a-Time
-Adhere to the `GAMEPLAY_ISSUE_MAP.md`. Do not perform global refactors that touch multiple games.
+## 11. One-Game Discipline
+- Lane Drift remains the next gameplay target.
+- Pulse Orbit and Stack Drop should stay in audit-only mode until Lane Drift has a documented pass.

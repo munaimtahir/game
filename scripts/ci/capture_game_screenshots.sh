@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
-set -e
-GAME_TARGET=$1
+set -euo pipefail
 
-echo "Capturing screenshots for Target: $GAME_TARGET"
+GAME_TARGET="${1:-all}"
 SCREENSHOT_DIR="artifacts/screenshots"
+
 mkdir -p "$SCREENSHOT_DIR"
 
-# Wait for potential app launch
-sleep 3
-adb exec-out screencap -p > "$SCREENSHOT_DIR/01_app_state.png" || true
+echo "Capturing screenshots for target: $GAME_TARGET"
 
-# Simple generic taps to try opening games if possible, then capture
+sleep 3
+adb exec-out screencap -p > "$SCREENSHOT_DIR/01_home_or_current.png" || true
+
 adb shell input tap 500 1000 || true
 sleep 2
-adb exec-out screencap -p > "$SCREENSHOT_DIR/02_game_state_1.png" || true
+adb exec-out screencap -p > "$SCREENSHOT_DIR/02_post_tap.png" || true
 
 adb shell input tap 500 1500 || true
 sleep 2
-adb exec-out screencap -p > "$SCREENSHOT_DIR/03_game_state_2.png" || true
+adb exec-out screencap -p > "$SCREENSHOT_DIR/03_secondary_state.png" || true
 
 echo "Screenshots captured to $SCREENSHOT_DIR"
