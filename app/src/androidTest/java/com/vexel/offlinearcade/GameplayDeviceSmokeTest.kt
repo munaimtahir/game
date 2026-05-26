@@ -84,9 +84,16 @@ class GameplayDeviceSmokeTest {
         } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
+        rule.waitForIdle()
+        rule.onNode(hasText("Run paused", substring = true), useUnmergedTree = true).assertIsDisplayed()
+        try {
+            rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
+        } catch (e: AssertionError) {
+            androidx.test.espresso.Espresso.pressBack()
+        }
+        rule.waitForIdle()
         rule.waitUntil(30_000) {
-            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
-            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
+            rule.onAllNodesWithTag(ArcadeTestTags.LaneDriftDetail, true).fetchSemanticsNodes().isNotEmpty()
         }
     }
 }

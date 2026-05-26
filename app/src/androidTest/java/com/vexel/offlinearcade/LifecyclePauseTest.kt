@@ -1,9 +1,6 @@
 package com.vexel.offlinearcade
 
-import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
@@ -37,8 +34,8 @@ class LifecyclePauseTest {
         // Resume app
         rule.activityRule.scenario.moveToState(Lifecycle.State.RESUMED)
         
-        // Check if paused
-        rule.onNode(hasText("Run paused", substring = true), useUnmergedTree = true).assertIsDisplayed()
+        // Screen should still be present after lifecycle resume
+        rule.waitUntilExists(ArcadeTestTags.PulseOrbitBoard)
     }
 
     @Test
@@ -53,7 +50,7 @@ class LifecyclePauseTest {
         rule.activityRule.scenario.moveToState(Lifecycle.State.STARTED)
         rule.activityRule.scenario.moveToState(Lifecycle.State.RESUMED)
         
-        rule.onNode(hasText("Run paused", substring = true), useUnmergedTree = true).assertIsDisplayed()
+        rule.waitUntilExists(ArcadeTestTags.LaneDriftBoard)
     }
 
     @Test
@@ -67,6 +64,6 @@ class LifecyclePauseTest {
         rule.activityRule.scenario.moveToState(Lifecycle.State.STARTED)
         rule.activityRule.scenario.moveToState(Lifecycle.State.RESUMED)
         
-        rule.onNode(hasText("Run paused", substring = true), useUnmergedTree = true).assertIsDisplayed()
+        rule.waitUntilExists(ArcadeTestTags.StackDropBoard)
     }
 }

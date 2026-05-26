@@ -33,20 +33,18 @@ class BackNavigationTest {
         }
         rule.waitForIdle()
         rule.waitUntil(30_000) {
-            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
-            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty()
         }
 
-        // Home -> Pulse Orbit
+        // Home -> Pulse Orbit again
         rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
         
-        // Start Game
+        // Start Game and verify back pauses first
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
         rule.waitUntilExists(ArcadeTestTags.PulseOrbitBoard)
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitBoard, useUnmergedTree = true).performTouchInput { click() }
         
-        // During Gameplay: Back pauses
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
         } catch (e: AssertionError) {
@@ -55,17 +53,15 @@ class BackNavigationTest {
         rule.waitForIdle()
         rule.onNode(hasText("Run paused", substring = true), useUnmergedTree = true).assertIsDisplayed()
 
-        // While Paused: Back returns to Home
+        // While Paused: Back returns to the detail screen
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
         } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
-        rule.waitUntil(30_000) {
-            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
-            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
-        }
+        rule.waitUntilExists(ArcadeTestTags.PulseOrbitDetail)
+        rule.onNodeWithTag(ArcadeTestTags.PulseOrbitDetail, useUnmergedTree = true).assertIsDisplayed()
     }
 
     @Test
@@ -82,8 +78,7 @@ class BackNavigationTest {
         }
         rule.waitForIdle()
         rule.waitUntil(30_000) {
-            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
-            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
+            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty()
         }
 
         // Home -> Lane Drift
@@ -104,17 +99,15 @@ class BackNavigationTest {
         rule.waitForIdle()
         rule.onNode(hasText("Run paused", substring = true), useUnmergedTree = true).assertIsDisplayed()
 
-        // While Paused: Back returns to Home
+        // While Paused: Back returns to detail
         try {
             rule.onNodeWithTag(ArcadeTestTags.BackButton, useUnmergedTree = true).performClick()
         } catch (e: AssertionError) {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
-        rule.waitUntil(30_000) {
-            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
-            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
-        }
+        rule.waitUntilExists(ArcadeTestTags.LaneDriftDetail)
+        rule.onNodeWithTag(ArcadeTestTags.LaneDriftDetail, useUnmergedTree = true).assertIsDisplayed()
     }
 
     @Test
@@ -160,9 +153,7 @@ class BackNavigationTest {
             androidx.test.espresso.Espresso.pressBack()
         }
         rule.waitForIdle()
-        rule.waitUntil(30_000) {
-            rule.onAllNodesWithTag(ArcadeTestTags.HomeScreen, true).fetchSemanticsNodes().isNotEmpty() ||
-            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
-        }
+        rule.waitUntilExists(ArcadeTestTags.StackDropDetail)
+        rule.onNodeWithTag(ArcadeTestTags.StackDropDetail, useUnmergedTree = true).assertIsDisplayed()
     }
 }

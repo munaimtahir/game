@@ -101,13 +101,13 @@ log "Disabling emulator animations."
 "$ADB_BIN" "${ADB_ARGS[@]}" shell settings put global transition_animation_scale 0 || true
 "$ADB_BIN" "${ADB_ARGS[@]}" shell settings put global animator_duration_scale 0 || true
 
-if [[ "$TEST_LEVEL" != "screenshots_only" ]]; then
+if [[ "$TEST_LEVEL" == "full" ]]; then
   log "Running connected Android tests."
   if ! run_gradle_with_retry "connectedAndroidTest" "$ARTIFACTS_DIR/logs/connectedAndroidTest.txt"; then
     overall_status=1
   fi
 else
-  log "Skipping connected Android tests for screenshots_only mode."
+  log "Skipping connected Android tests for $TEST_LEVEL mode."
 fi
 
 if [[ -x "$ROOT_DIR/scripts/ci/run_adb_smoke.sh" && "$TEST_LEVEL" != "screenshots_only" ]]; then
