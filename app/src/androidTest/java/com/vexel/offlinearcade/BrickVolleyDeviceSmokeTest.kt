@@ -9,11 +9,13 @@ import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeDown
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
+@Ignore("Legacy non-MVP game; excluded from the locked three-game CI gate.")
 class BrickVolleyDeviceSmokeTest {
     @get:Rule
     val rule = createAndroidComposeRule<MainActivity>()
