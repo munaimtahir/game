@@ -112,6 +112,13 @@ class ArcadeViewModelTest {
             selectedThemes += themeId
         }
 
+        override suspend fun purchaseSkin(skinId: String): Boolean {
+            return true
+        }
+
+        override suspend fun selectSkin(skinId: String, gameId: GameId) {
+        }
+
         override suspend fun setPremiumUnlocked(unlocked: Boolean) {
             premiumUnlocked = unlocked
         }

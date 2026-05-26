@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
@@ -23,6 +24,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.model.ThemeUnlock
+import com.vexel.offlinearcade.core.model.SkinUnlock
+import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
@@ -37,7 +40,10 @@ import com.vexel.offlinearcade.core.ui.StatRow
 fun SettingsScreen(
     settings: SettingsState,
     themes: List<ThemeUnlock>,
+    skins: List<SkinUnlock>,
     selectedThemeId: String,
+    selectedPulseOrbitSkin: String,
+    selectedGravityFlipSkin: String,
     premiumUnlocked: Boolean,
     onToggleSound: (Boolean) -> Unit,
     onToggleMusic: (Boolean) -> Unit,
@@ -46,6 +52,8 @@ fun SettingsScreen(
     onToggleHighContrast: (Boolean) -> Unit,
     onSelectTheme: (String) -> Unit,
     onUnlockTheme: (String) -> Unit,
+    onSelectSkin: (String, GameId) -> Unit,
+    onUnlockSkin: (String) -> Unit,
     onBack: () -> Unit,
 ) {
     val selectedTheme = themes.firstOrNull { it.id == selectedThemeId }
@@ -147,6 +155,33 @@ fun SettingsScreen(
             }
         }
 
+        SectionHeader(
+            title = "Game Skins",
+            subtitle = "Spend coins to customize individual games.",
+        )
+        val gameSkins = skins.groupBy { it.gameId }
+        gameSkins.forEach { (gameId, gameSpecificSkins) ->
+            Text(gameId.title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
+            val activeSkinId = if (gameId == GameId.PULSE_ORBIT) selectedPulseOrbitSkin else selectedGravityFlipSkin
+            gameSpecificSkins.chunked(2).forEach { rowSkins ->
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    rowSkins.forEach { skin ->
+                        SkinChoiceCard(
+                            skin = skin,
+                            selectedSkinId = activeSkinId,
+                            premiumUnlocked = premiumUnlocked,
+                            onSelectSkin = { onSelectSkin(it, gameId) },
+                            onUnlockSkin = onUnlockSkin,
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
+                    if (rowSkins.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
+                }
+            }
+        }
+
         SectionHeader(title = "Premium Layer", subtitle = "Believable value without fake-online friction.")
         ArcadeCard {
             PremiumBadge(
@@ -219,6 +254,38 @@ private fun ThemeChoiceCard(
             modifier = Modifier.fillMaxWidth(),
             style = if (actionLabel == "Use Theme") ArcadeButtonStyle.Primary else ArcadeButtonStyle.Secondary,
             enabled = actionLabel != "Selected" && actionLabel != "Premium",
+        )
+    }
+}
+
+@Composable
+private fun SkinChoiceCard(
+    skin: SkinUnlock,
+    selectedSkinId: String,
+    premiumUnlocked: Boolean,
+    onSelectSkin: (String) -> Unit,
+    onUnlockSkin: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val actionLabel = when {
+        skin.id == selectedSkinId -> "Selected"
+        skin.unlocked -> "Equip"
+        else -> "Unlock"
+    }
+    ArcadeCard(modifier = modifier, accent = Brush.linearGradient(listOf(ArcadeTheme.colors.outlineMuted, ArcadeTheme.colors.outlineMuted))) {
+        PremiumBadge(
+            text = if (skin.coinCost == 0) "Included" else "${skin.coinCost} coins",
+            color = if (skin.coinCost == 0) ArcadeTheme.colors.success else ArcadeTheme.colors.reward,
+        )
+        Text(skin.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Black)
+        PremiumButton(
+            label = actionLabel,
+            onClick = {
+                if (skin.unlocked) onSelectSkin(skin.id) else onUnlockSkin(skin.id)
+            },
+            modifier = Modifier.fillMaxWidth(),
+            style = if (actionLabel == "Equip") ArcadeButtonStyle.Primary else ArcadeButtonStyle.Secondary,
+            enabled = actionLabel != "Selected",
         )
     }
 }

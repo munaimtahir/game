@@ -12,6 +12,8 @@ internal fun PlayerProfileEntity.toModel(): PlayerProfile = PlayerProfile(
     coins = coins,
     premiumUnlocked = premiumUnlocked,
     selectedThemeId = selectedThemeId,
+    selectedPulseOrbitSkin = selectedPulseOrbitSkin,
+    selectedGravityFlipSkin = selectedGravityFlipSkin,
     currentStreakDays = currentStreakDays,
     lastPlayedEpochDay = lastPlayedEpochDay,
 )
@@ -20,6 +22,8 @@ internal fun PlayerProfile.toEntity(): PlayerProfileEntity = PlayerProfileEntity
     coins = coins,
     premiumUnlocked = premiumUnlocked,
     selectedThemeId = selectedThemeId,
+    selectedPulseOrbitSkin = selectedPulseOrbitSkin,
+    selectedGravityFlipSkin = selectedGravityFlipSkin,
     currentStreakDays = currentStreakDays,
     lastPlayedEpochDay = lastPlayedEpochDay,
 )
@@ -54,6 +58,19 @@ internal fun mergeThemes(unlocks: List<ThemeUnlockEntity>, premiumUnlocked: Bool
             coinCost = theme.coinCost,
             premiumOnly = theme.premiumOnly,
             unlocked = theme.coinCost == 0 || premiumUnlocked || unlockMap[theme.id] == true,
+        )
+    }
+}
+
+internal fun mergeSkins(unlocks: List<SkinUnlockEntity>, premiumUnlocked: Boolean): List<com.vexel.offlinearcade.core.model.SkinUnlock> {
+    val unlockMap = unlocks.associate { it.skinId to it.unlocked }
+    return com.vexel.offlinearcade.core.model.ArcadeSkinCatalog.skins.map { skin ->
+        com.vexel.offlinearcade.core.model.SkinUnlock(
+            id = skin.id,
+            gameId = skin.gameId,
+            title = skin.title,
+            coinCost = skin.coinCost,
+            unlocked = skin.coinCost == 0 || premiumUnlocked || unlockMap[skin.id] == true,
         )
     }
 }

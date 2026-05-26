@@ -40,6 +40,8 @@ fun ArcadeNavHost(
     onToggleHighContrast: (Boolean) -> Unit,
     onUnlockTheme: (String) -> Unit,
     onSelectTheme: (String) -> Unit,
+    onUnlockSkin: (String) -> Unit,
+    onSelectSkin: (String, GameId) -> Unit,
     onRecordRun: (RunResult) -> Unit,
 ) {
     NavHost(navController = navController, startDestination = Routes.Home) {
@@ -73,6 +75,7 @@ fun ArcadeNavHost(
             PulseOrbitScreen(
                 stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
                 settings = snapshot.settings,
+                equippedSkin = snapshot.profile.selectedPulseOrbitSkin,
                 feedback = feedback,
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
@@ -186,6 +189,7 @@ fun ArcadeNavHost(
             GravityFlipScreen(
                 stats = snapshot.statsByGame[GameId.GRAVITY_FLIP],
                 settings = snapshot.settings,
+                equippedSkin = snapshot.profile.selectedGravityFlipSkin,
                 feedback = feedback,
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
@@ -202,7 +206,10 @@ fun ArcadeNavHost(
             SettingsScreen(
                 settings = snapshot.settings,
                 themes = snapshot.themes,
+                skins = snapshot.skins,
                 selectedThemeId = snapshot.profile.selectedThemeId,
+                selectedPulseOrbitSkin = snapshot.profile.selectedPulseOrbitSkin,
+                selectedGravityFlipSkin = snapshot.profile.selectedGravityFlipSkin,
                 premiumUnlocked = snapshot.profile.premiumUnlocked,
                 onToggleSound = onToggleSound,
                 onToggleMusic = onToggleMusic,
@@ -211,6 +218,8 @@ fun ArcadeNavHost(
                 onToggleHighContrast = onToggleHighContrast,
                 onSelectTheme = onSelectTheme,
                 onUnlockTheme = onUnlockTheme,
+                onSelectSkin = onSelectSkin,
+                onUnlockSkin = onUnlockSkin,
                 onBack = { navController.popBackStack() },
             )
         }

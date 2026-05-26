@@ -1,7 +1,0 @@
-Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity }
-Status: ok
-LaunchState: COLD
-Activity: com.vexel.offlinearcade/.MainActivity
-TotalTime: 8280
-WaitTime: 8595
-Complete

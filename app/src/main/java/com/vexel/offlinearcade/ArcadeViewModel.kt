@@ -42,6 +42,14 @@ class ArcadeViewModel(
         viewModelScope.launch { repository.selectTheme(themeId) }
     }
 
+    fun unlockSkin(skinId: String) {
+        viewModelScope.launch { repository.purchaseSkin(skinId) }
+    }
+
+    fun selectSkin(skinId: String, gameId: com.vexel.offlinearcade.core.model.GameId) {
+        viewModelScope.launch { repository.selectSkin(skinId, gameId) }
+    }
+
     fun recordRun(result: RunResult) {
         viewModelScope.launch { repository.recordRun(result) }
     }
