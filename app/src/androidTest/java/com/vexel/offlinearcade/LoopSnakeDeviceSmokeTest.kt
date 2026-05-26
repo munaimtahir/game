@@ -20,7 +20,7 @@ class LoopSnakeDeviceSmokeTest {
 
     @Test
     fun loopSnakeRouteOpensAndShowsReadyState() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LoopSnakeEntry, ArcadeTestTags.LoopSnakeDetailRoot)
         rule.onNodeWithTag(ArcadeTestTags.LoopSnakeStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
@@ -30,7 +30,7 @@ class LoopSnakeDeviceSmokeTest {
 
     @Test
     fun loopSnakeStartGameAndSteer() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LoopSnakeEntry, ArcadeTestTags.LoopSnakeDetailRoot)
         rule.onNodeWithTag(ArcadeTestTags.LoopSnakeStartButton, useUnmergedTree = true).performClick()
         rule.waitUntilExists(ArcadeTestTags.LoopSnakeReady)
@@ -52,7 +52,7 @@ class LoopSnakeDeviceSmokeTest {
 
     @Test
     fun loopSnakeBackNavigationDoesNotCrash() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LoopSnakeEntry, ArcadeTestTags.LoopSnakeDetailRoot)
         rule.onNodeWithTag(ArcadeTestTags.LoopSnakeStartButton, useUnmergedTree = true).performClick()
         rule.waitUntilExists(ArcadeTestTags.LoopSnakeReady)

@@ -22,19 +22,17 @@ class NavigationSmokeTest {
 
     @Test
     fun homeNavigatesToAllCoreRoutes() {
-        Thread.sleep(2000)
-        openRouteByText("Pulse Orbit", "Game Info")
-        openRouteByText("Lane Drift", "Game Info")
-        openRouteByText("Stack Drop", "Game Info")
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
+        openRouteByText("Pulse Orbit", ArcadeTestTags.PulseOrbitDetail)
+        openRouteByText("Lane Drift", ArcadeTestTags.LaneDriftDetail)
+        openRouteByText("Stack Drop", ArcadeTestTags.StackDropDetail)
         openRouteByText("Daily Challenges", "Daily Challenges")
         openRouteByText("Stats", "Stats")
         openRouteByText("Settings", "Settings")
     }
 
     private fun openRouteByText(entryText: String, expectedTitle: String) {
-        rule.waitUntil(30_000) {
-            rule.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
-        }
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         
         try {
             rule.onNodeWithTag(ArcadeTestTags.HomeList, useUnmergedTree = true)
@@ -51,10 +49,20 @@ class NavigationSmokeTest {
         rule.waitForIdle()
         
         rule.waitUntil(30_000) {
-            rule.onAllNodes(hasText(expectedTitle, substring = true)).fetchSemanticsNodes().isNotEmpty()
+            runCatching {
+                rule.onAllNodesWithTag(expectedTitle, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty()
+            }.getOrDefault(false) ||
+            runCatching {
+                rule.onAllNodes(hasText(expectedTitle, substring = true)).fetchSemanticsNodes().isNotEmpty()
+            }.getOrDefault(false)
         }
         
-        rule.onNode(hasText(expectedTitle, substring = true)).assertIsDisplayed()
+        if (expectedTitle != ArcadeTestTags.PulseOrbitDetail &&
+            expectedTitle != ArcadeTestTags.LaneDriftDetail &&
+            expectedTitle != ArcadeTestTags.StackDropDetail
+        ) {
+            rule.onNode(hasText(expectedTitle, substring = true)).assertIsDisplayed()
+        }
         
         // Return to Home
         try {

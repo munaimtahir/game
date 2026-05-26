@@ -25,7 +25,7 @@ class GameplayDeviceSmokeTest {
 
     @Test
     fun pulseOrbitStartsFromButtonOnDevice() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
@@ -34,7 +34,7 @@ class GameplayDeviceSmokeTest {
 
     @Test
     fun laneDriftStartsAndSpawnsTraffic() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
@@ -49,7 +49,7 @@ class GameplayDeviceSmokeTest {
 
     @Test
     fun stackDropGestureControlsWork() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
@@ -75,7 +75,7 @@ class GameplayDeviceSmokeTest {
 
     @Test
     fun gameplayHintsCanBeDismissed() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()

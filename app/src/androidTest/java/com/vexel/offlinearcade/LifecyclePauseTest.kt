@@ -22,7 +22,7 @@ class LifecyclePauseTest {
 
     @Test
     fun pulseOrbitPausesOnBackground() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
@@ -43,7 +43,7 @@ class LifecyclePauseTest {
 
     @Test
     fun laneDriftPausesOnBackground() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
@@ -58,7 +58,7 @@ class LifecyclePauseTest {
 
     @Test
     fun stackDropPausesOnBackground() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()

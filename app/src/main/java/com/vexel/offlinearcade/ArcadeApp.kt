@@ -10,12 +10,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
+import com.vexel.offlinearcade.BuildConfig
 import com.vexel.offlinearcade.core.ui.OfflineMiniArcadeTheme
 import com.vexel.offlinearcade.core.ui.SplashShell
 import kotlinx.coroutines.delay
 
 @Composable
-fun ArcadeApp() {
+fun ArcadeApp(
+    debugLaunchRoute: String? = null,
+    debugLaunchState: String? = null,
+) {
     val context = LocalContext.current
     val viewModel: ArcadeViewModel = viewModel(factory = ArcadeViewModel.factory(ArcadeDependencies.repository(context)))
     val snapshot by viewModel.snapshot.collectAsState()
@@ -41,6 +45,31 @@ fun ArcadeApp() {
 
     // Force showSplash to false immediately in tests
     val actualShowSplash = if (isTest) false else showSplash
+    val launchRoute = if (BuildConfig.DEBUG) debugLaunchRoute else null
+
+    fun mapDebugRoute(route: String?): String? = when (route) {
+        null, "", "home" -> null
+        "pulse_detail", "pulse_orbit_detail" -> Routes.PulseOrbitDetail
+        "pulse_game", "pulse_orbit_game" -> Routes.PulseOrbitGame
+        "lane_detail", "lane_drift_detail" -> Routes.LaneDriftDetail
+        "lane_game", "lane_drift_game" -> Routes.LaneDriftGame
+        "stack_detail", "stack_drop_detail" -> Routes.StackDropDetail
+        "stack_game", "stack_drop_game" -> Routes.StackDropGame
+        "challenges" -> Routes.Challenges
+        "stats" -> Routes.Stats
+        "settings" -> Routes.Settings
+        else -> null
+    }
+    val resolvedLaunchRoute = mapDebugRoute(launchRoute)
+
+    LaunchedEffect(resolvedLaunchRoute) {
+        if (resolvedLaunchRoute != null) {
+            navController.navigate(resolvedLaunchRoute) {
+                popUpTo(Routes.Home) { inclusive = false }
+                launchSingleTop = true
+            }
+        }
+    }
 
     OfflineMiniArcadeTheme(
         themeId = snapshot.profile.selectedThemeId,

@@ -20,7 +20,7 @@ class BrickVolleyDeviceSmokeTest {
 
     @Test
     fun brickVolleyRouteOpensAndShowsReadyState() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.BrickVolleyEntry, ArcadeTestTags.BrickVolleyDetail)
         rule.onNodeWithTag(ArcadeTestTags.BrickVolleyStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
@@ -32,7 +32,7 @@ class BrickVolleyDeviceSmokeTest {
 
     @Test
     fun brickVolleyDragReleaseChangesBoardState() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.BrickVolleyEntry, ArcadeTestTags.BrickVolleyDetail)
         rule.onNodeWithTag(ArcadeTestTags.BrickVolleyStartButton, useUnmergedTree = true).performClick()
         rule.waitUntilExists(ArcadeTestTags.BrickVolleyRoot)
@@ -50,7 +50,7 @@ class BrickVolleyDeviceSmokeTest {
 
     @Test
     fun brickVolleyBackDoesNotCrash() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.BrickVolleyEntry, ArcadeTestTags.BrickVolleyDetail)
         rule.onNodeWithTag(ArcadeTestTags.BrickVolleyStartButton, useUnmergedTree = true).performClick()
         rule.waitUntilExists(ArcadeTestTags.BrickVolleyRoot)
