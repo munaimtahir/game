@@ -14,7 +14,7 @@ echo "Waiting for emulator/device boot..."
 timeout "$TIMEOUT_SECONDS" "$ADB_BIN" "${ADB_ARGS[@]}" wait-for-device
 elapsed=0
 while [[ "$elapsed" -lt "$TIMEOUT_SECONDS" ]]; do
-  boot_completed="$("$ADB_BIN" "${ADB_ARGS[@]}" shell getprop sys.boot_completed | tr -d '\r')"
+  boot_completed="$("$ADB_BIN" "${ADB_ARGS[@]}" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
   if [[ "$boot_completed" == "1" ]]; then
     echo "Boot completed after ${elapsed}s."
     exit 0
