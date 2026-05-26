@@ -20,10 +20,10 @@ class LaneDriftLogicTest {
     }
 
     @Test
-    fun earlyPatternAvoidsImmediateSameBlockerLane() {
+    fun earlyPatternKeepsCenterLaneClear() {
         repeat(64) {
-            val lane = pickBlockerLane(random = Random(it), previousLane = 1, elapsedSeconds = 6f)
-            assertTrue(lane != 1)
+            val lane = pickBlockerLane(random = Random(it), previousLane = 1, elapsedSeconds = 4f)
+            assertTrue(lane == 0 || lane == 2)
         }
     }
 
@@ -159,6 +159,41 @@ class LaneDriftLogicTest {
         val items = listOf(DriftItem(lane = 2, y = blockerY, type = DriftItemType.BLOCKER, skin = 0))
         val result = resolveLaneDriftCollision(playerLane = 1, items = items, boardWidthPx = boardWidthPx, boardHeightPx = boardHeightPx, config = config, sizes = sizes)
         assertEquals(LaneDriftCollisionType.NONE, result.type)
+    }
+
+    @Test
+    fun collision_pickupCollectsPredictably() {
+        val boardWidthPx = 360f
+        val boardHeightPx = 600f
+        val sizes = LaneDriftSizesPx(playerHeightPx = 84f, blockerHeightPx = 84f, pickupHeightPx = 50f)
+        val config = LaneDriftCollisionConfig(
+            playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+            playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+            blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+            blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+            pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+            pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+            blockerMinOverlapPx = 10f,
+            pickupMinOverlapPx = 8f,
+        )
+
+        val laneWidth = boardWidthPx / 3f
+        val playerHit = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+            .insetFraction(config.playerInsetXFraction, config.playerInsetYFraction)
+
+        val pickupTop = playerHit.bottom - 28f
+        val pickup = DriftItem(lane = 1, y = pickupTop / boardHeightPx, type = DriftItemType.PICKUP, skin = 0)
+        val result = resolveLaneDriftCollision(
+            playerLane = 1,
+            items = listOf(pickup),
+            boardWidthPx = boardWidthPx,
+            boardHeightPx = boardHeightPx,
+            config = config,
+            sizes = sizes,
+        )
+
+        assertEquals(LaneDriftCollisionType.PICKUP, result.type)
+        assertEquals(pickup, result.hitItem)
     }
 
     @Test

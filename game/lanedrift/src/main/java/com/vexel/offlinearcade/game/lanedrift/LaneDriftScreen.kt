@@ -92,33 +92,37 @@ private data class LaneDriftState(
     val message: String = "Swipe left or right",
 )
 
+data class LaneDriftDebugConfig(
+    val randomSeed: Long = 0x6A1E_D1F7L,
+)
+
 internal object LaneDriftTuning {
     // Difficulty tuning (made more beginner-friendly).
-    const val initialSpeed = 110f
-    const val maxSpeed = 330f
-    const val speedRampPerSecond = 3.5f
-    const val initialSpawnInterval = 1.6f
-    const val minimumSpawnInterval = 0.75f
-    const val spawnIntervalRampPerSecond = 0.006f
-    const val playerZoneY = 0.88f
+    const val initialSpeed = 100f
+    const val maxSpeed = 320f
+    const val speedRampPerSecond = 3.0f
+    const val initialSpawnInterval = 1.9f
+    const val minimumSpawnInterval = 0.85f
+    const val spawnIntervalRampPerSecond = 0.0045f
+    const val playerZoneY = 0.885f
     // Visual sizes are expressed in dp and converted to px at runtime for consistent behavior across densities.
     val playerHeightDp = 84.dp
     val blockerHeightDp = 84.dp
     val pickupHeightDp = 50.dp
 
     // Forgiving hitboxes (smaller than visuals).
-    const val playerHitboxInsetXFraction = 0.22f
-    const val playerHitboxInsetYFraction = 0.18f
-    const val blockerHitboxInsetXFraction = 0.20f
-    const val blockerHitboxInsetYFraction = 0.18f
-    const val pickupHitboxInsetXFraction = 0.15f
-    const val pickupHitboxInsetYFraction = 0.15f
+    const val playerHitboxInsetXFraction = 0.24f
+    const val playerHitboxInsetYFraction = 0.20f
+    const val blockerHitboxInsetXFraction = 0.24f
+    const val blockerHitboxInsetYFraction = 0.22f
+    const val pickupHitboxInsetXFraction = 0.18f
+    const val pickupHitboxInsetYFraction = 0.18f
 
-    val blockerMinOverlapDp = 8.dp
-    val pickupMinOverlapDp = 6.dp
+    val blockerMinOverlapDp = 10.dp
+    val pickupMinOverlapDp = 8.dp
 
     // Tutorial-like ramp: keep the first seconds extra readable.
-    const val graceSeconds = 15f
+    const val graceSeconds = 18f
 
     fun speedFor(elapsedSeconds: Float): Float =
         min(maxSpeed, initialSpeed + elapsedSeconds * speedRampPerSecond)
@@ -134,11 +138,14 @@ fun LaneDriftScreen(
     feedback: ArcadeFeedback,
     onRunComplete: (RunResult) -> Unit,
     onBack: () -> Unit,
+    debugConfig: LaneDriftDebugConfig? = null,
 ) {
     var state by remember { mutableStateOf(LaneDriftState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
-    val random = remember { Random(System.currentTimeMillis()) }
+    val random = remember(debugConfig?.randomSeed) {
+        Random(debugConfig?.randomSeed ?: System.currentTimeMillis())
+    }
     val gestureThresholds = rememberArcadeGestureThresholdsPx()
     val pickupFlash = remember { androidx.compose.animation.core.Animatable(0f) }
 
@@ -218,12 +225,12 @@ fun LaneDriftScreen(
                 val nextSpeedBase = LaneDriftTuning.speedFor(nextElapsed)
                 val nextSpeed = if (nextElapsed < LaneDriftTuning.graceSeconds) {
                     val t = (nextElapsed / LaneDriftTuning.graceSeconds).coerceIn(0f, 1f)
-                    nextSpeedBase * (0.86f + 0.14f * t)
+                    nextSpeedBase * (0.88f + 0.12f * t)
                 } else {
                     nextSpeedBase
                 }
                 val spawnIntervalBase = LaneDriftTuning.spawnIntervalFor(nextElapsed)
-                val spawnInterval = if (nextElapsed < LaneDriftTuning.graceSeconds) spawnIntervalBase * 1.18f else spawnIntervalBase
+                val spawnInterval = if (nextElapsed < LaneDriftTuning.graceSeconds) spawnIntervalBase * 1.24f else spawnIntervalBase
                 var nextSpawnTimer = state.spawnTimer + delta
                 var nextSpawnCount = state.spawnCount
                 var nextLastBlockerLane = state.lastBlockerLane
@@ -454,12 +461,34 @@ fun LaneDriftScreen(
                 }
 
                 repeat(3) { lane ->
+                    val laneColor = when {
+                        lane == state.lane -> colors.hudCard.copy(alpha = 0.95f)
+                        else -> colors.gameBoardRaised
+                    }
                     drawRoundRect(
-                        color = if (lane == state.lane) colors.hudCard else colors.gameBoardRaised,
+                        color = laneColor,
                         topLeft = Offset(laneWidth * lane + 8f, 0f),
                         size = Size(laneWidth - 16f, size.height),
                         cornerRadius = CornerRadius(28f, 28f),
                     )
+                    if (lane < 2) {
+                        val separatorX = laneWidth * (lane + 1)
+                        drawLine(
+                            color = colors.textInverse.copy(alpha = 0.14f),
+                            start = Offset(separatorX, 14f),
+                            end = Offset(separatorX, size.height - 14f),
+                            strokeWidth = 3f,
+                        )
+                        for (dash in 0 until 6) {
+                            val dashY = (dash + 0.5f) * (size.height / 6f)
+                            drawLine(
+                                color = colors.primaryCyan.copy(alpha = 0.16f),
+                                start = Offset(separatorX - 9f, dashY),
+                                end = Offset(separatorX + 9f, dashY),
+                                strokeWidth = 2f,
+                            )
+                        }
+                    }
                 }
                 
                 state.items.forEach { item ->
@@ -528,6 +557,9 @@ internal fun pickBlockerLane(
     previousLane: Int,
     elapsedSeconds: Float,
 ): Int {
+    if (elapsedSeconds < 8f) {
+        return if (random.nextBoolean()) 0 else 2
+    }
     if (elapsedSeconds < 12f && previousLane in 0..2) {
         return when (previousLane) {
             0 -> if (random.nextBoolean()) 1 else 2

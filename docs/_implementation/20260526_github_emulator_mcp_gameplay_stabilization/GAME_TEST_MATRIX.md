@@ -43,6 +43,7 @@ Date: 2026-05-26
   - items keep moving
   - state description changes over time
   - no unexpected pause loops
+  - debug build uses a deterministic seed for repeatable emulator evidence
 
 ## Pulse Orbit
 - Launch route:
@@ -117,6 +118,8 @@ Date: 2026-05-26
   - home visible
   - no immediate crash
   - basic game entry
+  - pause / quit / restart flow via visible text labels
 - Screenshot capture:
-  - current baseline now
-  - deterministic debug states later if exact game-over screenshots are needed
+  - home
+  - per-game detail / ready / active states
+  - lane drift game over via deterministic debug seed and scripted wait
