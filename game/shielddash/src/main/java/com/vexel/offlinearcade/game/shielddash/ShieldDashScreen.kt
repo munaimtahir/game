@@ -19,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.input.pointer.pointerInput
@@ -237,9 +239,22 @@ fun ShieldDashScreen(
                 drawCircle(colors.gridLine.copy(alpha = 0.05f), radius = center.x * 0.4f, center = center, style = Stroke(2f))
                 drawCircle(colors.gridLine.copy(alpha = 0.05f), radius = center.x * 0.8f, center = center, style = Stroke(2f))
 
-                // Core
-                drawCircle(color = colors.primaryCyan, radius = ShieldDashTuning.coreRadius, center = center)
-                drawCircle(color = colors.primaryCyan.copy(alpha = 0.3f), radius = ShieldDashTuning.coreRadius + 10f, center = center, style = Stroke(4f))
+                // Hexagonal Power Core
+                val hexPath = Path().apply {
+                    val radius = ShieldDashTuning.coreRadius
+                    for (i in 0..5) {
+                        val angle = i * 60f * (PI / 180f).toFloat()
+                        val x = center.x + cos(angle) * radius
+                        val y = center.y + sin(angle) * radius
+                        if (i == 0) moveTo(x, y) else lineTo(x, y)
+                    }
+                    close()
+                }
+                drawPath(path = hexPath, color = colors.primaryCyan)
+                drawPath(path = hexPath, color = colors.primaryCyan.copy(alpha = 0.4f), style = Stroke(4.dp.toPx()))
+                
+                // Outer Core Glow
+                drawCircle(color = colors.primaryCyan.copy(alpha = 0.15f), radius = ShieldDashTuning.coreRadius + 12f, center = center)
 
                 // Shield
                 rotate(degrees = state.shieldAngle, pivot = center) {
@@ -257,6 +272,19 @@ fun ShieldDashScreen(
 
                 // Hazards
                 state.hazards.forEach { h ->
+                    val streakLen = 40f
+                    val angle = atan2(h.velocity.y, h.velocity.x)
+                    drawLine(
+                        brush = androidx.compose.ui.graphics.Brush.linearGradient(
+                            colors = listOf(colors.dangerCoral.copy(alpha = 0f), colors.dangerCoral.copy(alpha = 0.4f)),
+                            start = h.position - Offset(cos(angle) * streakLen, sin(angle) * streakLen),
+                            end = h.position
+                        ),
+                        start = h.position - Offset(cos(angle) * streakLen, sin(angle) * streakLen),
+                        end = h.position,
+                        strokeWidth = 8f,
+                        cap = StrokeCap.Round
+                    )
                     drawCircle(color = colors.dangerCoral, radius = 12f, center = h.position)
                     drawCircle(color = colors.dangerCoral.copy(alpha = 0.2f), radius = 20f, center = h.position)
                 }

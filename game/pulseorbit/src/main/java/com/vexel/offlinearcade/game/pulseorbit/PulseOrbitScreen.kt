@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -95,6 +96,7 @@ internal object PulseOrbitTuning {
 fun PulseOrbitScreen(
     stats: GameStats?,
     settings: SettingsState,
+    equippedSkin: String,
     feedback: ArcadeFeedback,
     onRunComplete: (RunResult) -> Unit,
     onBack: () -> Unit,
@@ -173,6 +175,12 @@ fun PulseOrbitScreen(
     }
 
     val colors = ArcadeTheme.colors
+    
+    val (coreColor, orbColor) = when (equippedSkin) {
+        "po_gold" -> colors.reward to colors.reward
+        "po_neon" -> Color(0xFFFF007F) to Color(0xFFFF007F) // Custom neon pink
+        else -> colors.gameBoardRaised to colors.accentViolet
+    }
 
     // Animation state
     val successPulse = remember { androidx.compose.animation.core.Animatable(0f) }
@@ -348,7 +356,7 @@ fun PulseOrbitScreen(
 
                 // Central core
                 drawCircle(
-                    color = androidx.compose.ui.graphics.lerp(colors.gameBoardRaised, colors.pickupMint, successPulse.value * 0.5f),
+                    color = androidx.compose.ui.graphics.lerp(coreColor, colors.pickupMint, successPulse.value * 0.5f),
                     radius = radius * 0.42f + successPulse.value * 12f,
                     center = center
                 )
@@ -371,7 +379,7 @@ fun PulseOrbitScreen(
                     y = center.y + sin(orbAngleRadians).toFloat() * radius,
                 )
                 drawCircle(
-                    color = androidx.compose.ui.graphics.lerp(colors.accentViolet, colors.dangerCoral, failPulse.value),
+                    color = androidx.compose.ui.graphics.lerp(orbColor, colors.dangerCoral, failPulse.value),
                     radius = ringStroke * 0.48f + successPulse.value * 6f,
                     center = orbCenter
                 )

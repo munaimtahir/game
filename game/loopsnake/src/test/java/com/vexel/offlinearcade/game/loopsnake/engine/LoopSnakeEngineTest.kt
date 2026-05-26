@@ -133,7 +133,7 @@ class LoopSnakeEngineTest {
         // Wait, a snake of length 3 cannot collide with itself. It needs to be at least length 5 to collide with itself.
         // Let's grow it by navigating to food, then do a self-intersecting move.
         // Let's navigate to collect 2 foods to grow to length 5.
-        while (engine.state.snake.size < 5) {
+        while (engine.state.snake.size < 5 && engine.state.status == GameStatus.Playing) {
             val head = engine.state.snake[0].position
             val food = engine.state.food.position
             if (head.x < food.x) engine.setDirection(Direction.Right)
@@ -142,6 +142,8 @@ class LoopSnakeEngineTest {
             else if (head.y > food.y) engine.setDirection(Direction.Up)
             engine.tick()
         }
+        
+        assertTrue("Snake should have reached length 5 for this test", engine.state.snake.size >= 5)
         
         // Snake is now length 5. Let's make a self-colliding loop.
         // Head is going some direction, let's turn to form a loop.

@@ -21,7 +21,9 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
@@ -38,6 +40,7 @@ import kotlinx.coroutines.delay
 fun GravityFlipScreen(
     stats: GameStats?,
     settings: SettingsState,
+    equippedSkin: String,
     feedback: ArcadeFeedback,
     onRunComplete: (RunResult) -> Unit,
     onBack: () -> Unit,
@@ -236,12 +239,43 @@ fun GravityFlipScreen(
                 drawRect(colors.gridLine.copy(alpha = 0.2f), topLeft = Offset(0f, size.height - 60f), size = Size(size.width, 60f))
 
                 // Player
-                drawRoundRect(
-                    color = colors.primaryCyan,
-                    topLeft = Offset(state.playerPosition.x - 25f, state.playerPosition.y - 25f),
-                    size = Size(50f, 50f),
-                    cornerRadius = CornerRadius(12f)
-                )
+                val px = state.playerPosition.x
+                val py = state.playerPosition.y
+                val tiltAngle = (state.playerVelocityY * 2f).coerceIn(-45f, 45f)
+                
+                rotate(degrees = tiltAngle, pivot = state.playerPosition) {
+                    when (equippedSkin) {
+                        "gf_fighter" -> {
+                            // Fighter Jet Shape
+                            val path = Path().apply {
+                                moveTo(px + 25f, py)
+                                lineTo(px - 15f, py - 20f)
+                                lineTo(px - 25f, py - 10f)
+                                lineTo(px - 15f, py)
+                                lineTo(px - 25f, py + 10f)
+                                lineTo(px - 15f, py + 20f)
+                                close()
+                            }
+                            drawPath(path, color = colors.dangerCoral)
+                        }
+                        "gf_saucer" -> {
+                            // UFO Saucer Shape
+                            drawOval(color = colors.accentViolet, topLeft = Offset(px - 25f, py - 10f), size = Size(50f, 20f))
+                            drawArc(color = colors.primaryCyan, startAngle = 180f, sweepAngle = 180f, useCenter = false, topLeft = Offset(px - 15f, py - 15f), size = Size(30f, 30f))
+                        }
+                        else -> {
+                            // Default Ship Shape
+                            val path = Path().apply {
+                                moveTo(px + 25f, py)
+                                lineTo(px - 25f, py - 20f)
+                                lineTo(px - 15f, py)
+                                lineTo(px - 25f, py + 20f)
+                                close()
+                            }
+                            drawPath(path, color = colors.primaryCyan)
+                        }
+                    }
+                }
 
                 // Obstacles
                 state.obstacles.forEach { obs ->

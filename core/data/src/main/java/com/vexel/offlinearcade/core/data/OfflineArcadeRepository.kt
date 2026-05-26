@@ -34,7 +34,14 @@ class OfflineArcadeRepository(
             dao.observeSkinUnlocks(),
             preferences.settingsFlow(),
             challengesForDay(clock.currentEpochDay()),
-        ) { profileEntity, statsEntities, themeUnlocks, skinUnlocks, settings, challenges ->
+        ) { flows ->
+            val profileEntity = flows[0] as PlayerProfileEntity?
+            val statsEntities = flows[1] as List<GameStatsEntity>
+            val themeUnlocks = flows[2] as List<ThemeUnlockEntity>
+            val skinUnlocks = flows[3] as List<SkinUnlockEntity>
+            val settings = flows[4] as SettingsState
+            val challenges = flows[5] as List<DailyChallenge>
+            
             val profile = profileEntity?.toModel() ?: PlayerProfile()
             ArcadeSnapshot(
                 profile = profile,

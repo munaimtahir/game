@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
@@ -22,8 +23,18 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.SettingsState
+import com.vexel.offlinearcade.core.model.ThemeUnlock
 import com.vexel.offlinearcade.core.model.SkinUnlock
 import com.vexel.offlinearcade.core.model.GameId
+import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
+import com.vexel.offlinearcade.core.ui.ArcadeCard
+import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.ArcadeTestTags
+import com.vexel.offlinearcade.core.ui.ArcadeTheme
+import com.vexel.offlinearcade.core.ui.PremiumBadge
+import com.vexel.offlinearcade.core.ui.PremiumButton
+import com.vexel.offlinearcade.core.ui.SectionHeader
+import com.vexel.offlinearcade.core.ui.StatRow
 
 @Composable
 fun SettingsScreen(
@@ -278,6 +289,7 @@ private fun SkinChoiceCard(
         )
     }
 }
+
 @Composable
 private fun themeAccentBrush(themeId: String): Brush {
     val colors = ArcadeTheme.colors

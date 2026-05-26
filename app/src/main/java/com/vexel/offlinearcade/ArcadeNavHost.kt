@@ -74,6 +74,7 @@ fun ArcadeNavHost(
             PulseOrbitScreen(
                 stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
                 settings = snapshot.settings,
+                equippedSkin = snapshot.profile.selectedPulseOrbitSkin,
                 feedback = feedback,
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
@@ -182,6 +183,7 @@ fun ArcadeNavHost(
             GravityFlipScreen(
                 stats = snapshot.statsByGame[GameId.GRAVITY_FLIP],
                 settings = snapshot.settings,
+                equippedSkin = snapshot.profile.selectedGravityFlipSkin,
                 feedback = feedback,
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
