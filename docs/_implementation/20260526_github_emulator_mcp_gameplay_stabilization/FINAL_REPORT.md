@@ -14,13 +14,18 @@ CONDITIONAL GO
   - honor `test_level`
   - retry connected tests once when configured
   - capture logcat, UI dumps, and bugreport artifacts
-- Hardened the smoke helper to write to the expected artifact tree and fail on crash / ANR signals.
+- Added a shared ADB UI helper so smoke/screenshot flows can use visible text instead of hard-coded coordinates.
+- Hardened the smoke helper to verify the visible game flow, pause / quit, and restart paths.
+- Hardened the screenshot helper to drive the locked games by visible text and capture ready / active / failure states where possible.
 - Fixed the hanging loopsnake unit test by making it deterministic instead of using an unbounded growth loop.
+- Lane Drift now has a gentler early tuning curve, a more forgiving collision envelope, clearer lane separators, and a deterministic debug seed for repeatable emulator evidence.
+- Added Lane Drift before/after and collision / tuning / visual docs for the gameplay pass.
 - Updated the MCP docs, guardrails, and runbook for the current repo state.
 - Added a new implementation audit set for 20260526.
 
 ## What Was Tested
-- `./gradlew clean assembleDebug` PASS
+- `./gradlew :app:compileDebugKotlin` PASS
+- `./gradlew :game:lanedrift:testDebugUnitTest` PASS
 - `./gradlew testDebugUnitTest` PASS
 - `./gradlew lintDebug` PASS
 - `./gradlew :game:loopsnake:testDebugUnitTest` PASS
@@ -39,6 +44,7 @@ CONDITIONAL GO
 - [`scripts/ci/run_emulator_tasks.sh`](../../../scripts/ci/run_emulator_tasks.sh)
 - [`scripts/ci/run_adb_smoke.sh`](../../../scripts/ci/run_adb_smoke.sh)
 - [`scripts/ci/capture_game_screenshots.sh`](../../../scripts/ci/capture_game_screenshots.sh)
+- [`scripts/ci/adb_ui_helpers.sh`](../../../scripts/ci/adb_ui_helpers.sh)
 - [`scripts/ci/wait_for_emulator.sh`](../../../scripts/ci/wait_for_emulator.sh)
 - [`scripts/ci/collect_android_artifacts.sh`](../../../scripts/ci/collect_android_artifacts.sh)
 - [`scripts/ci/print_android_env.sh`](../../../scripts/ci/print_android_env.sh)
@@ -73,11 +79,11 @@ CONDITIONAL GO
 
 ## Known Limitations
 - The emulator workflow has not yet been exercised in GitHub Actions for this pass.
-- Screenshot capture is still a baseline flow and may need more deterministic per-game state hooks later.
+- Screenshot capture now has better text-driven navigation, but GitHub Actions artifact proof still needs an actual run.
 - AGP still warns about `compileSdk 35` compatibility.
 
 ## Remaining Gameplay Issues
-- Lane Drift still needs the actual gameplay polish pass.
+- Lane Drift is improved, but it still needs live emulator evidence and playtest tuning.
 - Pulse Orbit and Stack Drop were audited only.
 - The one-game-at-a-time rule remains active.
 
@@ -85,7 +91,7 @@ CONDITIONAL GO
 - Lane Drift gameplay stabilization and before/after evidence capture.
 
 ## Lane Drift Readiness
-- Ready for focused design polish, but not yet completed in this pass.
+- Ready for focused design polish and evidence capture.
 
 ## Pulse Orbit / Stack Drop Status
 - Pulse Orbit: audited only.
@@ -95,4 +101,4 @@ CONDITIONAL GO
 - `ci/emulator-mcp-gameplay-stabilization`
 
 ## Commit Hash
-- `33c807c7` (`docs: finalize emulator stabilization report`)
+- `bc49fb60` (`fix: soften lane drift and improve adb evidence flow`)
