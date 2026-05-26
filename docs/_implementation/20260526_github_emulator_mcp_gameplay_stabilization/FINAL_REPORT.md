@@ -95,4 +95,4 @@ CONDITIONAL GO
 - `ci/emulator-mcp-gameplay-stabilization`
 
 ## Commit Hash
-- TBD after the local changes are committed.
+- `31caf763` (`fix: restore emulator task script execute bit`)
