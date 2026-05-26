@@ -19,6 +19,12 @@ internal fun DrawScope.drawPlayerCar(
     // Hover-car silhouette: body + canopy + thruster glow. Kept simple for low-end devices.
     val bodyRadius = CornerRadius(height * 0.28f, height * 0.28f)
     drawRoundRect(
+        color = colors.primaryCyan.copy(alpha = 0.12f),
+        topLeft = Offset(topLeft.x - width * 0.03f, topLeft.y + height * 0.06f),
+        size = Size(width * 1.06f, height * 0.86f),
+        cornerRadius = CornerRadius(height * 0.32f, height * 0.32f),
+    )
+    drawRoundRect(
         color = colors.player,
         topLeft = topLeft,
         size = Size(width, height),
@@ -86,6 +92,7 @@ private fun DrawScope.drawCoinPickup(
     val cx = topLeft.x + width / 2f
     val cy = topLeft.y + height / 2f
     val r = minOf(width, height) * 0.40f
+    drawCircle(color = colors.collectible.copy(alpha = 0.18f), radius = r * 1.48f, center = Offset(cx, cy))
     drawCircle(color = colors.collectible, radius = r, center = Offset(cx, cy))
     drawCircle(color = colors.collectible.copy(alpha = 0.35f), radius = r * 0.78f, center = Offset(cx, cy))
     drawCircle(color = colors.textInverse.copy(alpha = 0.75f), radius = r, center = Offset(cx, cy), style = Stroke(width = maxOf(2f, r * 0.14f)))
@@ -102,6 +109,7 @@ private fun DrawScope.drawStarPickup(
     val outer = minOf(width, height) * 0.42f
     val inner = outer * 0.46f
     val path = starPath(cx, cy, outer, inner)
+    drawCircle(color = colors.collectible.copy(alpha = 0.14f), radius = outer * 1.45f, center = Offset(cx, cy))
     drawPath(path, color = colors.collectible)
     drawPath(path, color = colors.textInverse.copy(alpha = 0.70f), style = Stroke(width = maxOf(2f, outer * 0.10f)))
 }
@@ -114,6 +122,12 @@ private fun DrawScope.drawEnergyPickup(
 ) {
     // Energy cell: capsule + bolt.
     val radius = CornerRadius(height * 0.45f, height * 0.45f)
+    drawRoundRect(
+        color = colors.pickupMint.copy(alpha = 0.16f),
+        topLeft = Offset(topLeft.x + width * 0.10f, topLeft.y + height * 0.08f),
+        size = Size(width * 0.80f, height * 0.84f),
+        cornerRadius = CornerRadius(height * 0.48f, height * 0.48f),
+    )
     drawRoundRect(
         color = colors.pickupMint.copy(alpha = 0.95f),
         topLeft = Offset(topLeft.x + width * 0.16f, topLeft.y + height * 0.18f),
@@ -151,6 +165,7 @@ private fun DrawScope.drawGemPickup(
         lineTo(left, topLeft.y + height * 0.40f)
         close()
     }
+    drawCircle(color = colors.accentViolet.copy(alpha = 0.16f), radius = minOf(width, height) * 0.50f, center = Offset(topLeft.x + width / 2f, topLeft.y + height / 2f))
     drawPath(path, color = colors.accentViolet.copy(alpha = 0.95f))
     drawPath(path, color = colors.textInverse.copy(alpha = 0.70f), style = Stroke(width = maxOf(2f, height * 0.07f)))
 }
@@ -165,6 +180,7 @@ private fun DrawScope.drawFuelPickup(
     val cx = topLeft.x + width / 2f
     val cy = topLeft.y + height / 2f
     val r = minOf(width, height) * 0.40f
+    drawCircle(color = colors.collectible.copy(alpha = 0.14f), radius = r * 1.55f, center = Offset(cx, cy))
     drawCircle(color = colors.collectible.copy(alpha = 0.28f), radius = r, center = Offset(cx, cy))
     drawCircle(color = colors.collectible, radius = r * 0.62f, center = Offset(cx, cy), style = Stroke(width = maxOf(2f, r * 0.22f)))
     drawCircle(color = colors.textInverse.copy(alpha = 0.75f), radius = r * 0.14f, center = Offset(cx, cy))
@@ -177,6 +193,12 @@ internal fun DrawScope.drawHazard(
     height: Float,
     colors: ArcadeExtendedColors,
 ) {
+    drawRoundRect(
+        color = colors.dangerCoral.copy(alpha = 0.16f),
+        topLeft = Offset(topLeft.x + width * 0.02f, topLeft.y + height * 0.10f),
+        size = Size(width * 0.96f, height * 0.84f),
+        cornerRadius = CornerRadius(height * 0.22f, height * 0.22f),
+    )
     when (skin) {
         DriftHazardSkin.CONE -> drawConeHazard(topLeft, width, height, colors)
         DriftHazardSkin.BARRIER -> drawBarrierHazard(topLeft, width, height, colors)

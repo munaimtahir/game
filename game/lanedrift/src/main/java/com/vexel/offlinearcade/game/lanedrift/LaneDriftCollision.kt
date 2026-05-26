@@ -44,6 +44,13 @@ internal data class LaneDriftCollisionResult(
     val hitItem: DriftItem? = null,
 )
 
+internal enum class LaneDriftProximityType { NONE, NEAR_MISS }
+
+internal data class LaneDriftProximityResult(
+    val type: LaneDriftProximityType,
+    val hitItem: DriftItem? = null,
+)
+
 internal data class LaneDriftCollisionConfig(
     val playerInsetXFraction: Float,
     val playerInsetYFraction: Float,
@@ -104,6 +111,58 @@ internal fun resolveLaneDriftCollision(
             overlap(playerHit, pickupHit).exceeds(config.pickupMinOverlapPx)
         }
     return if (pickup != null) LaneDriftCollisionResult(LaneDriftCollisionType.PICKUP, pickup) else LaneDriftCollisionResult(LaneDriftCollisionType.NONE)
+}
+
+internal fun detectLaneDriftNearMiss(
+    playerLane: Int,
+    items: List<DriftItem>,
+    boardWidthPx: Float,
+    boardHeightPx: Float,
+    config: LaneDriftCollisionConfig,
+    sizes: LaneDriftSizesPx,
+    nearMissBandPx: Float,
+): LaneDriftProximityResult {
+    if (boardWidthPx <= 0f || boardHeightPx <= 0f || nearMissBandPx <= 0f) {
+        return LaneDriftProximityResult(LaneDriftProximityType.NONE)
+    }
+
+    val laneWidth = boardWidthPx / 3f
+    val playerVisual = playerVisualRectPx(
+        laneWidth = laneWidth,
+        boardHeightPx = boardHeightPx,
+        lane = playerLane,
+        playerHeightPx = sizes.playerHeightPx,
+    )
+    val playerHit = playerVisual.insetFraction(config.playerInsetXFraction, config.playerInsetYFraction)
+
+    val nearMiss = items
+        .asSequence()
+        .filter { it.type == DriftItemType.BLOCKER && it.lane == playerLane }
+        .firstOrNull { candidate ->
+            val obstacleVisual = itemVisualRectPx(
+                laneWidth = laneWidth,
+                boardHeightPx = boardHeightPx,
+                item = candidate,
+                sizes = sizes,
+            )
+            val obstacleHit = obstacleVisual.insetFraction(config.blockerInsetXFraction, config.blockerInsetYFraction)
+            val collision = overlap(playerHit, obstacleHit).exceeds(config.blockerMinOverlapPx)
+            if (collision) return@firstOrNull false
+
+            val verticalGap = when {
+                obstacleVisual.bottom <= playerVisual.top -> playerVisual.top - obstacleVisual.bottom
+                playerVisual.bottom <= obstacleVisual.top -> obstacleVisual.top - playerVisual.bottom
+                else -> 0f
+            }
+            val visualOverlap = overlap(playerVisual, obstacleVisual)
+            visualOverlap.overlapX > 0f && verticalGap in 0f..nearMissBandPx
+        }
+
+    return if (nearMiss != null) {
+        LaneDriftProximityResult(LaneDriftProximityType.NEAR_MISS, nearMiss)
+    } else {
+        LaneDriftProximityResult(LaneDriftProximityType.NONE)
+    }
 }
 
 internal data class LaneDriftSizesPx(

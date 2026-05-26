@@ -87,6 +87,7 @@ private data class LaneDriftState(
     val spawnTimer: Float = 0f,
     val spawnCount: Int = 0,
     val lastBlockerLane: Int = -1,
+    val lastNearMissMillis: Long = 0L,
     val gameOver: Boolean = false,
     val runStartMillis: Long = 0L,
     val message: String = "Swipe left or right",
@@ -98,17 +99,18 @@ data class LaneDriftDebugConfig(
 
 internal object LaneDriftTuning {
     // Difficulty tuning (made more beginner-friendly).
-    const val initialSpeed = 100f
-    const val maxSpeed = 320f
-    const val speedRampPerSecond = 3.0f
-    const val initialSpawnInterval = 1.9f
-    const val minimumSpawnInterval = 0.85f
-    const val spawnIntervalRampPerSecond = 0.0045f
-    const val playerZoneY = 0.885f
+    const val initialSpeed = 92f
+    const val maxSpeed = 300f
+    const val speedRampPerSecond = 2.7f
+    const val initialSpawnInterval = 2.05f
+    const val minimumSpawnInterval = 0.90f
+    const val spawnIntervalRampPerSecond = 0.0038f
+    const val playerZoneY = 0.888f
     // Visual sizes are expressed in dp and converted to px at runtime for consistent behavior across densities.
     val playerHeightDp = 84.dp
     val blockerHeightDp = 84.dp
     val pickupHeightDp = 50.dp
+    val nearMissBandDp = 14.dp
 
     // Forgiving hitboxes (smaller than visuals).
     const val playerHitboxInsetXFraction = 0.24f
@@ -164,7 +166,7 @@ fun LaneDriftScreen(
             paused = false,
             speed = LaneDriftTuning.initialSpeed,
             runStartMillis = System.currentTimeMillis(),
-            message = "Clean lane.",
+            message = "Clean lane. Collect shards.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
     }
@@ -307,6 +309,28 @@ fun LaneDriftScreen(
                         score = nextState.score + 14,
                         message = "Shard collected.",
                     )
+                } else {
+                    val nearMiss = detectLaneDriftNearMiss(
+                        playerLane = nextState.lane,
+                        items = nextItems,
+                        boardWidthPx = boardWidthPx,
+                        boardHeightPx = boardHeightPx,
+                        config = collisionConfig,
+                        sizes = sizes,
+                        nearMissBandPx = with(density) { LaneDriftTuning.nearMissBandDp.toPx() },
+                    )
+                    val nowMillis = System.currentTimeMillis()
+                    if (
+                        nearMiss.type == LaneDriftProximityType.NEAR_MISS &&
+                        nowMillis - nextState.lastNearMissMillis >= 900L
+                    ) {
+                        feedback.play(ArcadeFeedbackEvent.SUCCESS)
+                        nextState = nextState.copy(
+                            score = nextState.score + 2,
+                            message = "Near miss!",
+                            lastNearMissMillis = nowMillis,
+                        )
+                    }
                 }
                 state = nextState
             }
@@ -463,7 +487,7 @@ fun LaneDriftScreen(
                 repeat(3) { lane ->
                     val laneColor = when {
                         lane == state.lane -> colors.hudCard.copy(alpha = 0.95f)
-                        else -> colors.gameBoardRaised
+                        else -> colors.gameBoardRaised.copy(alpha = 0.88f)
                     }
                     drawRoundRect(
                         color = laneColor,
@@ -471,6 +495,14 @@ fun LaneDriftScreen(
                         size = Size(laneWidth - 16f, size.height),
                         cornerRadius = CornerRadius(28f, 28f),
                     )
+                    if (lane == state.lane) {
+                        drawRoundRect(
+                            color = colors.primaryCyan.copy(alpha = 0.08f),
+                            topLeft = Offset(laneWidth * lane + 10f, 10f),
+                            size = Size(laneWidth - 20f, size.height - 20f),
+                            cornerRadius = CornerRadius(24f, 24f),
+                        )
+                    }
                     if (lane < 2) {
                         val separatorX = laneWidth * (lane + 1)
                         drawLine(
@@ -482,7 +514,7 @@ fun LaneDriftScreen(
                         for (dash in 0 until 6) {
                             val dashY = (dash + 0.5f) * (size.height / 6f)
                             drawLine(
-                                color = colors.primaryCyan.copy(alpha = 0.16f),
+                                color = colors.primaryCyan.copy(alpha = 0.20f),
                                 start = Offset(separatorX - 9f, dashY),
                                 end = Offset(separatorX + 9f, dashY),
                                 strokeWidth = 2f,

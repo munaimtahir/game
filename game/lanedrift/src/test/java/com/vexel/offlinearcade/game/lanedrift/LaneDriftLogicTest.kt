@@ -17,6 +17,7 @@ class LaneDriftLogicTest {
         assertEquals(LaneDriftTuning.maxSpeed, speedLate, 0.001f)
         assertEquals(LaneDriftTuning.initialSpawnInterval, spawnStart, 0.001f)
         assertEquals(LaneDriftTuning.minimumSpawnInterval, spawnLate, 0.001f)
+        assertEquals(18f, LaneDriftTuning.graceSeconds, 0.001f)
     }
 
     @Test
@@ -224,6 +225,75 @@ class LaneDriftLogicTest {
         )
         val result = resolveLaneDriftCollision(playerLane = 1, items = items, boardWidthPx = boardWidthPx, boardHeightPx = boardHeightPx, config = config, sizes = sizes)
         assertEquals(LaneDriftCollisionType.BLOCKER, result.type)
+    }
+
+    @Test
+    fun nearMiss_detectedForVisibleClosePassWithoutCollision() {
+        val boardWidthPx = 360f
+        val boardHeightPx = 600f
+        val sizes = LaneDriftSizesPx(playerHeightPx = 84f, blockerHeightPx = 84f, pickupHeightPx = 50f)
+        val config = LaneDriftCollisionConfig(
+            playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+            playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+            blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+            blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+            pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+            pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+            blockerMinOverlapPx = 8f,
+            pickupMinOverlapPx = 6f,
+        )
+
+        val laneWidth = boardWidthPx / 3f
+        val playerVisual = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+        val blockerTop = playerVisual.top - 6f - sizes.blockerHeightPx
+        val blocker = DriftItem(lane = 1, y = blockerTop / boardHeightPx, type = DriftItemType.BLOCKER, skin = 0)
+
+        val result = detectLaneDriftNearMiss(
+            playerLane = 1,
+            items = listOf(blocker),
+            boardWidthPx = boardWidthPx,
+            boardHeightPx = boardHeightPx,
+            config = config,
+            sizes = sizes,
+            nearMissBandPx = 14f,
+        )
+
+        assertEquals(LaneDriftProximityType.NEAR_MISS, result.type)
+        assertEquals(blocker, result.hitItem)
+    }
+
+    @Test
+    fun nearMiss_notDetectedWhenGapIsTooLarge() {
+        val boardWidthPx = 360f
+        val boardHeightPx = 600f
+        val sizes = LaneDriftSizesPx(playerHeightPx = 84f, blockerHeightPx = 84f, pickupHeightPx = 50f)
+        val config = LaneDriftCollisionConfig(
+            playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+            playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+            blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+            blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+            pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+            pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+            blockerMinOverlapPx = 8f,
+            pickupMinOverlapPx = 6f,
+        )
+
+        val laneWidth = boardWidthPx / 3f
+        val playerVisual = playerVisualRectPx(laneWidth, boardHeightPx, lane = 1, playerHeightPx = sizes.playerHeightPx)
+        val blockerTop = playerVisual.top - 28f
+        val blocker = DriftItem(lane = 1, y = blockerTop / boardHeightPx, type = DriftItemType.BLOCKER, skin = 0)
+
+        val result = detectLaneDriftNearMiss(
+            playerLane = 1,
+            items = listOf(blocker),
+            boardWidthPx = boardWidthPx,
+            boardHeightPx = boardHeightPx,
+            config = config,
+            sizes = sizes,
+            nearMissBandPx = 14f,
+        )
+
+        assertEquals(LaneDriftProximityType.NONE, result.type)
     }
 
     @Test
