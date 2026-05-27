@@ -14,6 +14,11 @@ data class PlayerProfile(
     val premiumUnlocked: Boolean = false,
     val selectedThemeId: String = ArcadeThemeCatalog.defaultTheme.id,
     val selectedPulseOrbitSkin: String = ArcadeSkinCatalog.defaultPulseOrbitSkin.id,
+    val selectedLaneDriftSkin: String = ArcadeSkinCatalog.defaultLaneDriftSkin.id,
+    val selectedStackDropSkin: String = ArcadeSkinCatalog.defaultStackDropSkin.id,
+    val selectedBrickVolleySkin: String = ArcadeSkinCatalog.defaultBrickVolleySkin.id,
+    val selectedLoopSnakeSkin: String = ArcadeSkinCatalog.defaultLoopSnakeSkin.id,
+    val selectedShieldDashSkin: String = ArcadeSkinCatalog.defaultShieldDashSkin.id,
     val currentStreakDays: Int = 0,
     val lastPlayedEpochDay: Long? = null,
 )
@@ -27,11 +32,36 @@ data class SkinDefinition(
 
 object ArcadeSkinCatalog {
     val defaultPulseOrbitSkin = SkinDefinition("po_default", GameId.PULSE_ORBIT, "Default Core", 0)
+    val defaultLaneDriftSkin = SkinDefinition("ld_default", GameId.LANE_DRIFT, "Default Racer", 0)
+    val defaultStackDropSkin = SkinDefinition("sd_default", GameId.STACK_DROP, "Default Blocks", 0)
+    val defaultBrickVolleySkin = SkinDefinition("bv_default", GameId.BRICK_VOLLEY, "Default Paddle", 0)
+    val defaultLoopSnakeSkin = SkinDefinition("ls_default", GameId.LOOP_SNAKE, "Default Snake", 0)
+    val defaultShieldDashSkin = SkinDefinition("sh_default", GameId.SHIELD_DASH, "Default Shield", 0)
 
     val skins = listOf(
         defaultPulseOrbitSkin,
         SkinDefinition("po_gold", GameId.PULSE_ORBIT, "Golden Core", 250),
         SkinDefinition("po_neon", GameId.PULSE_ORBIT, "Neon Pink Core", 400),
+        
+        defaultLaneDriftSkin,
+        SkinDefinition("ld_sport", GameId.LANE_DRIFT, "Sport Coupe", 300),
+        SkinDefinition("ld_classic", GameId.LANE_DRIFT, "Classic Muscle", 450),
+        
+        defaultStackDropSkin,
+        SkinDefinition("sd_mono", GameId.STACK_DROP, "Monochrome", 200),
+        SkinDefinition("sd_crystal", GameId.STACK_DROP, "Crystal Blocks", 500),
+        
+        defaultBrickVolleySkin,
+        SkinDefinition("bv_metal", GameId.BRICK_VOLLEY, "Metallic Paddle", 250),
+        SkinDefinition("bv_glow", GameId.BRICK_VOLLEY, "Glow Paddle", 400),
+        
+        defaultLoopSnakeSkin,
+        SkinDefinition("ls_dotted", GameId.LOOP_SNAKE, "Dotted Snake", 300),
+        SkinDefinition("ls_rainbow", GameId.LOOP_SNAKE, "Rainbow Trail", 600),
+        
+        defaultShieldDashSkin,
+        SkinDefinition("sh_plasma", GameId.SHIELD_DASH, "Plasma Shield", 350),
+        SkinDefinition("sh_titanium", GameId.SHIELD_DASH, "Titanium Guard", 500),
     )
 }
 

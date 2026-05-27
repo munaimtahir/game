@@ -37,6 +37,11 @@ fun MarketplaceScreen(
     skins: List<SkinUnlock>,
     selectedThemeId: String,
     selectedPulseOrbitSkin: String,
+    selectedLaneDriftSkin: String,
+    selectedStackDropSkin: String,
+    selectedBrickVolleySkin: String,
+    selectedLoopSnakeSkin: String,
+    selectedShieldDashSkin: String,
     premiumUnlocked: Boolean,
     onSelectTheme: (String) -> Unit,
     onUnlockTheme: (String) -> Unit,
@@ -127,7 +132,14 @@ fun MarketplaceScreen(
         val gameSkins = skins.groupBy { it.gameId }
         gameSkins.forEach { (gameId, gameSpecificSkins) ->
             Text(gameId.title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
-            val activeSkinId = if (gameId == GameId.PULSE_ORBIT) selectedPulseOrbitSkin else ""
+            val activeSkinId = when (gameId) {
+                GameId.PULSE_ORBIT -> selectedPulseOrbitSkin
+                GameId.LANE_DRIFT -> selectedLaneDriftSkin
+                GameId.STACK_DROP -> selectedStackDropSkin
+                GameId.BRICK_VOLLEY -> selectedBrickVolleySkin
+                GameId.LOOP_SNAKE -> selectedLoopSnakeSkin
+                GameId.SHIELD_DASH -> selectedShieldDashSkin
+            }
             gameSpecificSkins.chunked(2).forEach { rowSkins ->
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     rowSkins.forEach { skin ->

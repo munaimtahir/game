@@ -145,7 +145,11 @@ class OfflineArcadeRepository(
             if (unlockedSkins.any { it.id == skinId && it.unlocked && it.gameId == gameId }) {
                 val updatedProfile = when (gameId) {
                     GameId.PULSE_ORBIT -> profile.copy(selectedPulseOrbitSkin = skinId)
-                    else -> profile // Extend here as more games get skins
+                    GameId.LANE_DRIFT -> profile.copy(selectedLaneDriftSkin = skinId)
+                    GameId.STACK_DROP -> profile.copy(selectedStackDropSkin = skinId)
+                    GameId.BRICK_VOLLEY -> profile.copy(selectedBrickVolleySkin = skinId)
+                    GameId.LOOP_SNAKE -> profile.copy(selectedLoopSnakeSkin = skinId)
+                    GameId.SHIELD_DASH -> profile.copy(selectedShieldDashSkin = skinId)
                 }
                 dao.upsertProfile(updatedProfile.toEntity())
             }
