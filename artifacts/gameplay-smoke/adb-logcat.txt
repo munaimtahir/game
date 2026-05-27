@@ -1,0 +1,30 @@
+--------- beginning of main
+05-26 09:10:42.390 28134 28134 W main    : type=1400 audit(0.0:156864): avc: denied { read } for name="u:object_r:vendor_memfusion_size_prop:s0" dev="tmpfs" ino=7885 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:vendor_memfusion_size_prop:s0 tclass=file permissive=0 app=com.vexel.offlinearcade
+05-26 09:10:42.390 28134 28134 W main    : type=1400 audit(0.0:156865): avc: denied { read } for name="u:object_r:vendor_memfusion_state_prop:s0" dev="tmpfs" ino=7886 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:vendor_memfusion_state_prop:s0 tclass=file permissive=0 app=com.vexel.offlinearcade
+05-26 09:10:42.390 28134 28134 W main    : type=1400 audit(0.0:156866): avc: denied { read } for name="u:object_r:vendor_memfusion_tranlog_prop:s0" dev="tmpfs" ino=7888 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:vendor_memfusion_tranlog_prop:s0 tclass=file permissive=0 app=com.vexel.offlinearcade
+05-26 09:10:42.390 28134 28134 W main    : type=1400 audit(0.0:156867): avc: denied { read } for name="u:object_r:vendor_memfusion_ui_enable_prop:s0" dev="tmpfs" ino=7889 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:vendor_memfusion_ui_enable_prop:s0 tclass=file permissive=0 app=com.vexel.offlinearcade
+05-26 09:10:42.394 28134 28134 W main    : type=1400 audit(0.0:156868): avc: denied { read } for name="u:object_r:vendor_uxcompaction_enable_prop:s0" dev="tmpfs" ino=8134 scontext=u:r:untrusted_app:s0:c214,c257,c512,c768 tcontext=u:object_r:vendor_uxcompaction_enable_prop:s0 tclass=file permissive=0 app=com.vexel.offlinearcade
+05-26 09:10:42.396 28134 28134 I l.offlinearcade: Late-enabling -Xcheck:jni
+05-26 09:10:42.427 28134 28134 I l.offlinearcade: Using CollectorTypeCC GC.
+05-26 09:10:42.979 28134 28134 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+05-26 09:10:43.020 28134 28152 I libMEOW_gift: open /data/performance/gift/arc.ini
+05-26 09:10:43.020 28134 28152 E QT      : [QT]file does not exist
+05-26 09:10:43.057 28134 28134 W libc    : Access denied finding property "vendor.transsion.scroll_adjust.support"
+05-26 09:10:43.068 28134 28134 I WhiteNavigationLice: Modify naviBarColor to 0xFFF0F0F0, and windowBackgroundColor is -921356   /windowIsTranslucent:false
+05-26 09:10:43.070 28134 28134 W libc    : Access denied finding property "vendor.transsion.scroll_adjust.support"
+05-26 09:10:43.071 28134 28134 W libc    : Access denied finding property "vendor.transsion.scroll_adjust.support"
+05-26 09:10:43.074 28134 28134 I MSYNC3-VariableRefreshRate: Variable refreshrate is disabled
+05-26 09:10:43.161 28134 28153 I PowerHalWrapper: PowerHalWrapper.getInstance 
+05-26 09:10:43.163 28134 28134 I SurfaceFactory: [static] sSurfaceFactory = com.mediatek.view.impl.SurfaceFactoryImpl@f2d89b3
+05-26 09:10:43.175 28134 28134 I config_debug: updateDecorCaptionStatus: {1.0 ?mcc?mnc [en_US,ur_PK] ldltr sw360dp w360dp h744dp 480dpi nrml long port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2460) mAppBounds=Rect(0, 108 - 1080, 2340) mMaxBounds=Rect(0, 0 - 1080, 2460) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mMultiWindowMode=normal mMultiWindowId=0 mWindowResiable=6 mInLargeScreen=-1 mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0 mDisplayUniqueId=0} as.25 s.1 fontWeightAdjustment=0} fromMultiWindow: false
+05-26 09:10:43.639 28134 28134 I AudioTrack: createTrack_l(0): AUDIO_OUTPUT_FLAG_FAST successful; frameCount 960 -> 960
+05-26 09:10:43.813 28134 28134 W l.offlinearcade: Method boolean androidx.compose.runtime.snapshots.SnapshotStateList.conditionalUpdate(boolean, kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-26 09:10:43.813 28134 28134 W l.offlinearcade: Common causes for lock verification issues are non-optimized dex code
+05-26 09:10:43.813 28134 28134 W l.offlinearcade: and incorrect proguard optimizations.
+05-26 09:10:43.813 28134 28134 W l.offlinearcade: Method boolean androidx.compose.runtime.snapshots.SnapshotStateList.conditionalUpdate$default(androidx.compose.runtime.snapshots.SnapshotStateList, boolean, kotlin.jvm.functions.Function1, int, java.lang.Object) failed lock verification and will run slower.
+05-26 09:10:43.814 28134 28134 W l.offlinearcade: Method java.lang.Object androidx.compose.runtime.snapshots.SnapshotStateList.mutate(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-26 09:10:43.814 28134 28134 W l.offlinearcade: Method void androidx.compose.runtime.snapshots.SnapshotStateList.update(boolean, kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-26 09:10:43.814 28134 28134 W l.offlinearcade: Method void androidx.compose.runtime.snapshots.SnapshotStateList.update$default(androidx.compose.runtime.snapshots.SnapshotStateList, boolean, kotlin.jvm.functions.Function1, int, java.lang.Object) failed lock verification and will run slower.
+05-26 09:10:44.042 28134 28134 I config_debug: updateDecorCaptionStatus: {1.0 ?mcc?mnc [en_US,ur_PK] ldltr sw360dp w360dp h744dp 480dpi nrml long port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2460) mAppBounds=Rect(0, 108 - 1080, 2340) mMaxBounds=Rect(0, 0 - 1080, 2460) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mMultiWindowMode=normal mMultiWindowId=0 mWindowResiable=6 mInLargeScreen=-1 mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0 mDisplayUniqueId=0} as.25 s.1 fontWeightAdjustment=0} fromMultiWindow: false
+05-26 09:10:44.109 28134 28134 I Choreographer: Skipped 49 frames!  The application may be doing too much work on its main thread.
+05-26 09:10:44.569 28134 28138 I l.offlinearcade: Compiler allocated 4963KB to compile void android.view.ViewRootImpl.performTraversals()

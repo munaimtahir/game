@@ -36,7 +36,7 @@ fun LaneDriftDetailScreen(
         HeroPanel(
             overline = "Speed & Reflexes",
             title = "Lane Drift",
-            subtitle = "One-hand dodge flow. Swipe to survive the rush.",
+            subtitle = "One-hand dodge flow. Read the road, then swipe.",
         )
 
         ArcadeCard {
@@ -50,9 +50,9 @@ fun LaneDriftDetailScreen(
             SectionHeader(title = "How to play", badge = "Tutorial")
             Column(verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
                 Text("• Swipe left or right to change lanes.", color = ArcadeTheme.colors.textSecondary)
-                Text("• Avoid the red blockers.", color = ArcadeTheme.colors.textSecondary)
-                Text("• Collect cyan shards for bonus points.", color = ArcadeTheme.colors.textSecondary)
-                Text("• Traffic speed increases as you survive.", color = ArcadeTheme.colors.textSecondary)
+                Text("• Keep the highlighted lane and the road edges in view.", color = ArcadeTheme.colors.textSecondary)
+                Text("• Avoid the red hazards and collect cyan shards for bonus points.", color = ArcadeTheme.colors.textSecondary)
+                Text("• The opening stretch is gentler, then speed builds as you survive.", color = ArcadeTheme.colors.textSecondary)
             }
         }
 

@@ -126,28 +126,18 @@ class LoopSnakeEngineTest {
 
     @Test
     fun testSelfCollisionTriggersGameOver() {
-        val engine = LoopSnakeEngine(cols = 20, rows = 20)
+        val engine = LoopSnakeEngine(cols = 20, rows = 20, seed = 42L)
         engine.startGame()
-        
-        // Let's grow the snake by tricking/navigating or by just making a loop.
-        // Wait, a snake of length 3 cannot collide with itself. It needs to be at least length 5 to collide with itself.
-        // Let's grow it by navigating to food, then do a self-intersecting move.
-        // Let's navigate to collect 2 foods to grow to length 5.
-        while (engine.state.snake.size < 5 && engine.state.status == GameStatus.Playing) {
-            val head = engine.state.snake[0].position
-            val food = engine.state.food.position
-            if (head.x < food.x) engine.setDirection(Direction.Right)
-            else if (head.x > food.x) engine.setDirection(Direction.Left)
-            else if (head.y < food.y) engine.setDirection(Direction.Down)
-            else if (head.y > food.y) engine.setDirection(Direction.Up)
-            engine.tick()
-        }
-        
-        assertTrue("Snake should have reached length 5 for this test", engine.state.snake.size >= 5)
-        
-        // Snake is now length 5. Let's make a self-colliding loop.
-        // Head is going some direction, let's turn to form a loop.
-        // E.g. Right, Down, Left, Up
+
+        // Grow deterministically to length 5 using two scripted food placements.
+        engine.setFoodForTesting(Offset(8f, 10f))
+        engine.tick()
+        engine.setFoodForTesting(Offset(9f, 10f))
+        engine.tick()
+
+        assertEquals(5, engine.state.snake.size)
+
+        // Head is now moving right; a small clockwise loop should collide with the body.
         engine.setDirection(Direction.Right)
         engine.tick()
         engine.setDirection(Direction.Down)

@@ -3,10 +3,13 @@ package com.vexel.offlinearcade
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.vexel.offlinearcade.BuildConfig
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { ArcadeApp() }
+        val debugLaunchRoute = if (BuildConfig.DEBUG) intent?.getStringExtra("screenshot_route") else null
+        val debugLaunchState = if (BuildConfig.DEBUG) intent?.getStringExtra("screenshot_state") else null
+        setContent { ArcadeApp(debugLaunchRoute = debugLaunchRoute, debugLaunchState = debugLaunchState) }
     }
 }

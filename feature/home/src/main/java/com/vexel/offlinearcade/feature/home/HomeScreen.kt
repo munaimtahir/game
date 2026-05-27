@@ -166,7 +166,7 @@ fun HomeScreen(
                         label = "Settings",
                         onClick = onSettings,
                         style = ArcadeButtonStyle.Secondary,
-                        modifier = Modifier.size(52.dp),
+                        modifier = Modifier.size(52.dp).testTag(ArcadeTestTags.SettingsEntry),
                         labelOverride = "⚙"
                     )
                 }
@@ -201,13 +201,13 @@ fun HomeScreen(
                     PremiumButton(
                         label = "Daily Challenges",
                         onClick = onChallenges,
-                        modifier = Modifier.weight(1f).height(56.dp),
+                        modifier = Modifier.weight(1f).height(56.dp).testTag(ArcadeTestTags.ChallengesEntry),
                         style = ArcadeButtonStyle.Primary
                     )
                     PremiumButton(
                         label = "Stats",
                         onClick = onStats,
-                        modifier = Modifier.weight(1f).height(56.dp),
+                        modifier = Modifier.weight(1f).height(56.dp).testTag(ArcadeTestTags.StatsEntry),
                         style = ArcadeButtonStyle.Secondary
                     )
                 }

@@ -1,0 +1,923 @@
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.BackNavigationTest:
+INSTRUMENTATION_STATUS: test=stackDropBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.stackDropBackNavigationFlow(BackNavigationTest.kt:125)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.stackDropBackNavigationFlow(BackNavigationTest.kt:125)
+
+INSTRUMENTATION_STATUS: test=stackDropBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pulseOrbitBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.pulseOrbitBackNavigationFlow(BackNavigationTest.kt:25)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pulseOrbitBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.pulseOrbitBackNavigationFlow(BackNavigationTest.kt:25)
+
+INSTRUMENTATION_STATUS: test=pulseOrbitBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BackNavigationTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.laneDriftBackNavigationFlow(BackNavigationTest.kt:75)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.laneDriftBackNavigationFlow(BackNavigationTest.kt:75)
+
+INSTRUMENTATION_STATUS: test=laneDriftBackNavigationFlow
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=brickVolleyDragReleaseChangesBoardState
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyDragReleaseChangesBoardState(BrickVolleyDeviceSmokeTest.kt:36)
+
+INSTRUMENTATION_STATUS: stream=
+Error in brickVolleyDragReleaseChangesBoardState(com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyDragReleaseChangesBoardState(BrickVolleyDeviceSmokeTest.kt:36)
+
+INSTRUMENTATION_STATUS: test=brickVolleyDragReleaseChangesBoardState
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=brickVolleyRouteOpensAndShowsReadyState
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyRouteOpensAndShowsReadyState(BrickVolleyDeviceSmokeTest.kt:24)
+
+INSTRUMENTATION_STATUS: stream=
+Error in brickVolleyRouteOpensAndShowsReadyState(com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyRouteOpensAndShowsReadyState(BrickVolleyDeviceSmokeTest.kt:24)
+
+INSTRUMENTATION_STATUS: test=brickVolleyRouteOpensAndShowsReadyState
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=brickVolleyBackDoesNotCrash
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyBackDoesNotCrash(BrickVolleyDeviceSmokeTest.kt:54)
+
+INSTRUMENTATION_STATUS: stream=
+Error in brickVolleyBackDoesNotCrash(com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyBackDoesNotCrash(BrickVolleyDeviceSmokeTest.kt:54)
+
+INSTRUMENTATION_STATUS: test=brickVolleyBackDoesNotCrash
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.ChallengeUpdateTest:
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.GameplayDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=gameplayHintsCanBeDismissed
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:79)
+
+INSTRUMENTATION_STATUS: stream=
+Error in gameplayHintsCanBeDismissed(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:79)
+
+INSTRUMENTATION_STATUS: test=gameplayHintsCanBeDismissed
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:29)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pulseOrbitStartsFromButtonOnDevice(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:29)
+
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:53)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropGestureControlsWork(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:53)
+
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:38)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftStartsAndSpawnsTraffic(com.vexel.offlinearcade.GameplayDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:38)
+
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.LifecyclePauseTest:
+INSTRUMENTATION_STATUS: test=laneDriftPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.laneDriftPausesOnBackground(LifecyclePauseTest.kt:47)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftPausesOnBackground(com.vexel.offlinearcade.LifecyclePauseTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.laneDriftPausesOnBackground(LifecyclePauseTest.kt:47)
+
+INSTRUMENTATION_STATUS: test=laneDriftPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.stackDropPausesOnBackground(LifecyclePauseTest.kt:62)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropPausesOnBackground(com.vexel.offlinearcade.LifecyclePauseTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.stackDropPausesOnBackground(LifecyclePauseTest.kt:62)
+
+INSTRUMENTATION_STATUS: test=stackDropPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pulseOrbitPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.pulseOrbitPausesOnBackground(LifecyclePauseTest.kt:26)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pulseOrbitPausesOnBackground(com.vexel.offlinearcade.LifecyclePauseTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.pulseOrbitPausesOnBackground(LifecyclePauseTest.kt:26)
+
+INSTRUMENTATION_STATUS: test=pulseOrbitPausesOnBackground
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=15
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=loopSnakeRouteOpensAndShowsReadyState
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=15
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeRouteOpensAndShowsReadyState(LoopSnakeDeviceSmokeTest.kt:24)
+
+INSTRUMENTATION_STATUS: stream=
+Error in loopSnakeRouteOpensAndShowsReadyState(com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeRouteOpensAndShowsReadyState(LoopSnakeDeviceSmokeTest.kt:24)
+
+INSTRUMENTATION_STATUS: test=loopSnakeRouteOpensAndShowsReadyState
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=16
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=loopSnakeBackNavigationDoesNotCrash
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=16
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeBackNavigationDoesNotCrash(LoopSnakeDeviceSmokeTest.kt:56)
+
+INSTRUMENTATION_STATUS: stream=
+Error in loopSnakeBackNavigationDoesNotCrash(com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeBackNavigationDoesNotCrash(LoopSnakeDeviceSmokeTest.kt:56)
+
+INSTRUMENTATION_STATUS: test=loopSnakeBackNavigationDoesNotCrash
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=17
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=loopSnakeStartGameAndSteer
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=17
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeStartGameAndSteer(LoopSnakeDeviceSmokeTest.kt:34)
+
+INSTRUMENTATION_STATUS: stream=
+Error in loopSnakeStartGameAndSteer(com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeStartGameAndSteer(LoopSnakeDeviceSmokeTest.kt:34)
+
+INSTRUMENTATION_STATUS: test=loopSnakeStartGameAndSteer
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=18
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=homeNavigatesToAllCoreRoutes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=18
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.NavigationSmokeTest$openRouteByText$1.invoke(NavigationSmokeTest.kt:36)
+	at com.vexel.offlinearcade.NavigationSmokeTest$openRouteByText$1.invoke(NavigationSmokeTest.kt:35)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRouteByText(NavigationSmokeTest.kt:35)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:26)
+
+INSTRUMENTATION_STATUS: stream=
+Error in homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.NavigationSmokeTest$openRouteByText$1.invoke(NavigationSmokeTest.kt:36)
+	at com.vexel.offlinearcade.NavigationSmokeTest$openRouteByText$1.invoke(NavigationSmokeTest.kt:35)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRouteByText(NavigationSmokeTest.kt:35)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:26)
+
+INSTRUMENTATION_STATUS: test=homeNavigatesToAllCoreRoutes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=19
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stream=
+com.vexel.offlinearcade.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=settingsScreenSurvivesActivityRecreate
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.offlinearcade.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=19
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=19
+INSTRUMENTATION_STATUS: stack=java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.SettingsPersistenceSmokeTest.settingsScreenSurvivesActivityRecreate(SettingsPersistenceSmokeTest.kt:20)
+
+INSTRUMENTATION_STATUS: stream=
+Error in settingsScreenSurvivesActivityRecreate(com.vexel.offlinearcade.SettingsPersistenceSmokeTest):
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.SettingsPersistenceSmokeTest.settingsScreenSurvivesActivityRecreate(SettingsPersistenceSmokeTest.kt:20)
+
+INSTRUMENTATION_STATUS: test=settingsScreenSurvivesActivityRecreate
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 178.791
+There were 18 failures:
+1) stackDropBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.stackDropBackNavigationFlow(BackNavigationTest.kt:125)
+2) pulseOrbitBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.pulseOrbitBackNavigationFlow(BackNavigationTest.kt:25)
+3) laneDriftBackNavigationFlow(com.vexel.offlinearcade.BackNavigationTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNodes$ui_test_release(SemanticsNodeInteraction.kt:63)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:157)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.vexel.offlinearcade.BackNavigationTest.laneDriftBackNavigationFlow(BackNavigationTest.kt:75)
+4) brickVolleyDragReleaseChangesBoardState(com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyDragReleaseChangesBoardState(BrickVolleyDeviceSmokeTest.kt:36)
+5) brickVolleyRouteOpensAndShowsReadyState(com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyRouteOpensAndShowsReadyState(BrickVolleyDeviceSmokeTest.kt:24)
+6) brickVolleyBackDoesNotCrash(com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.BrickVolleyDeviceSmokeTest.brickVolleyBackDoesNotCrash(BrickVolleyDeviceSmokeTest.kt:54)
+7) gameplayHintsCanBeDismissed(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.gameplayHintsCanBeDismissed(GameplayDeviceSmokeTest.kt:79)
+8) pulseOrbitStartsFromButtonOnDevice(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:29)
+9) stackDropGestureControlsWork(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:53)
+10) laneDriftStartsAndSpawnsTraffic(com.vexel.offlinearcade.GameplayDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:38)
+11) laneDriftPausesOnBackground(com.vexel.offlinearcade.LifecyclePauseTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.laneDriftPausesOnBackground(LifecyclePauseTest.kt:47)
+12) stackDropPausesOnBackground(com.vexel.offlinearcade.LifecyclePauseTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.stackDropPausesOnBackground(LifecyclePauseTest.kt:62)
+13) pulseOrbitPausesOnBackground(com.vexel.offlinearcade.LifecyclePauseTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LifecyclePauseTest.pulseOrbitPausesOnBackground(LifecyclePauseTest.kt:26)
+14) loopSnakeRouteOpensAndShowsReadyState(com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeRouteOpensAndShowsReadyState(LoopSnakeDeviceSmokeTest.kt:24)
+15) loopSnakeBackNavigationDoesNotCrash(com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeBackNavigationDoesNotCrash(LoopSnakeDeviceSmokeTest.kt:56)
+16) loopSnakeStartGameAndSteer(com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.LoopSnakeDeviceSmokeTest.loopSnakeStartGameAndSteer(LoopSnakeDeviceSmokeTest.kt:34)
+17) homeNavigatesToAllCoreRoutes(com.vexel.offlinearcade.NavigationSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.NavigationSmokeTest$openRouteByText$1.invoke(NavigationSmokeTest.kt:36)
+	at com.vexel.offlinearcade.NavigationSmokeTest$openRouteByText$1.invoke(NavigationSmokeTest.kt:35)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.NavigationSmokeTest.openRouteByText(NavigationSmokeTest.kt:35)
+	at com.vexel.offlinearcade.NavigationSmokeTest.homeNavigatesToAllCoreRoutes(NavigationSmokeTest.kt:26)
+18) settingsScreenSurvivesActivityRecreate(com.vexel.offlinearcade.SettingsPersistenceSmokeTest)
+java.lang.IllegalStateException: No compose hierarchies found in the app. Possible reasons include: (1) the Activity that calls setContent did not launch; (2) setContent was not called; (3) setContent was called before the ComposeTestRule ran. If setContent is called by the Activity, make sure the Activity is launched after the ComposeTestRule runs
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release(TestOwner.kt:87)
+	at androidx.compose.ui.test.TestContext.getAllSemanticsNodes$ui_test_release$default(TestOwner.kt:81)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes(SemanticsNodeInteraction.kt:256)
+	at androidx.compose.ui.test.SemanticsNodeInteractionCollection.fetchSemanticsNodes$default(SemanticsNodeInteraction.kt:249)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:23)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt$openHomeRoute$1.invoke(DeviceTestHelpers.kt:22)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:424)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.offlinearcade.DeviceTestHelpersKt.openHomeRoute(DeviceTestHelpers.kt:22)
+	at com.vexel.offlinearcade.SettingsPersistenceSmokeTest.settingsScreenSurvivesActivityRecreate(SettingsPersistenceSmokeTest.kt:20)
+
+FAILURES!!!
+Tests run: 19,  Failures: 18
+
+
+INSTRUMENTATION_CODE: -1

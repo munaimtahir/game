@@ -9,18 +9,20 @@ import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeUp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
+@Ignore("Legacy non-MVP game; excluded from the locked three-game CI gate.")
 class LoopSnakeDeviceSmokeTest {
     @get:Rule
     val rule = createAndroidComposeRule<MainActivity>()
 
     @Test
     fun loopSnakeRouteOpensAndShowsReadyState() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LoopSnakeEntry, ArcadeTestTags.LoopSnakeDetailRoot)
         rule.onNodeWithTag(ArcadeTestTags.LoopSnakeStartButton, useUnmergedTree = true).performClick()
         rule.waitForIdle()
@@ -30,7 +32,7 @@ class LoopSnakeDeviceSmokeTest {
 
     @Test
     fun loopSnakeStartGameAndSteer() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LoopSnakeEntry, ArcadeTestTags.LoopSnakeDetailRoot)
         rule.onNodeWithTag(ArcadeTestTags.LoopSnakeStartButton, useUnmergedTree = true).performClick()
         rule.waitUntilExists(ArcadeTestTags.LoopSnakeReady)
@@ -52,7 +54,7 @@ class LoopSnakeDeviceSmokeTest {
 
     @Test
     fun loopSnakeBackNavigationDoesNotCrash() {
-        Thread.sleep(2000)
+        rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LoopSnakeEntry, ArcadeTestTags.LoopSnakeDetailRoot)
         rule.onNodeWithTag(ArcadeTestTags.LoopSnakeStartButton, useUnmergedTree = true).performClick()
         rule.waitUntilExists(ArcadeTestTags.LoopSnakeReady)

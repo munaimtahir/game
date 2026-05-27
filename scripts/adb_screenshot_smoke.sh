@@ -8,6 +8,7 @@ SKIP_BUILD="${SKIP_BUILD:-0}"
 SKIP_INSTALL="${SKIP_INSTALL:-0}"
 FOREGROUND_TIMEOUT="${FOREGROUND_TIMEOUT:-30}"
 COLD_START_WAIT="${COLD_START_WAIT:-12}"
+GAME_TARGET="${1:-all}"
 
 TIMESTAMP="$(date +"%Y%m%d_%H%M%S")"
 OUT_DIR="artifacts/adb_screenshots/${TIMESTAMP}"
@@ -335,38 +336,85 @@ take_screenshot "01_splash_or_launch.png" "Splash or launch screen"
 start_route "home"
 take_screenshot "02_home.png" "Home"
 
-start_route "pulse_detail"
-take_screenshot "03_pulse_detail.png" "Pulse Orbit detail"
+case "$GAME_TARGET" in
+  all)
+    start_route "pulse_detail"
+    take_screenshot "03_pulse_detail.png" "Pulse Orbit detail"
 
-start_route "pulse_game" "ready"
-take_screenshot "04_pulse_game_ready.png" "Pulse Orbit gameplay ready"
+    start_route "pulse_game" "ready"
+    take_screenshot "04_pulse_game_ready.png" "Pulse Orbit gameplay ready"
 
-start_route "pulse_game" "paused"
-take_screenshot "05_pulse_game_pause.png" "Pulse Orbit paused"
+    start_route "pulse_game" "paused"
+    take_screenshot "05_pulse_game_pause.png" "Pulse Orbit paused"
 
-start_route "lane_detail"
-take_screenshot "06_lane_detail.png" "Lane Drift detail"
+    start_route "lane_detail"
+    take_screenshot "06_lane_detail.png" "Lane Drift detail"
 
-start_route "lane_game" "ready"
-take_screenshot "07_lane_game_ready.png" "Lane Drift gameplay ready"
+    start_route "lane_game" "ready"
+    take_screenshot "07_lane_game_ready.png" "Lane Drift gameplay ready"
 
-start_route "lane_game" "playing"
-take_screenshot "08_lane_game_active.png" "Lane Drift gameplay active"
+    start_route "lane_game" "playing"
+    take_screenshot "08_lane_game_active.png" "Lane Drift gameplay active"
 
-start_route "stack_detail"
-take_screenshot "09_stack_detail.png" "Stack Drop detail"
+    start_route "stack_detail"
+    take_screenshot "09_stack_detail.png" "Stack Drop detail"
 
-start_route "stack_game" "ready"
-take_screenshot "10_stack_game_ready.png" "Stack Drop gameplay ready"
+    start_route "stack_game" "ready"
+    take_screenshot "10_stack_game_ready.png" "Stack Drop gameplay ready"
 
-start_route "stack_game" "playing"
-take_screenshot "11_stack_game_controls.png" "Stack Drop controls"
+    start_route "stack_game" "playing"
+    take_screenshot "11_stack_game_controls.png" "Stack Drop controls"
 
-start_route "stack_game" "paused"
-take_screenshot "12_stack_game_pause.png" "Stack Drop paused"
+    start_route "stack_game" "paused"
+    take_screenshot "12_stack_game_pause.png" "Stack Drop paused"
+    ;;
+  pulse_orbit)
+    start_route "pulse_detail"
+    take_screenshot "03_pulse_detail.png" "Pulse Orbit detail"
+    start_route "pulse_game" "ready"
+    take_screenshot "04_pulse_game_ready.png" "Pulse Orbit gameplay ready"
+    start_route "pulse_game" "paused"
+    take_screenshot "05_pulse_game_pause.png" "Pulse Orbit paused"
+    ;;
+  lane_drift)
+    start_route "lane_detail"
+    take_screenshot "06_lane_detail.png" "Lane Drift detail"
+    start_route "lane_game" "ready"
+    take_screenshot "07_lane_game_ready.png" "Lane Drift gameplay ready"
+    start_route "lane_game" "playing"
+    take_screenshot "08_lane_game_active.png" "Lane Drift gameplay active"
+    ;;
+  stack_drop)
+    start_route "stack_detail"
+    take_screenshot "09_stack_detail.png" "Stack Drop detail"
+    start_route "stack_game" "ready"
+    take_screenshot "10_stack_game_ready.png" "Stack Drop gameplay ready"
+    start_route "stack_game" "playing"
+    take_screenshot "11_stack_game_controls.png" "Stack Drop controls"
+    start_route "stack_game" "paused"
+    take_screenshot "12_stack_game_pause.png" "Stack Drop paused"
+    ;;
+  *)
+    echo "Unknown game target: $GAME_TARGET" >&2
+    exit 1
+    ;;
+esac
 
 log "Saving logcat"
-adb logcat -d > "$OUT_DIR/logcat.txt" || true
+APP_PID="$(adb shell pidof -s "$PACKAGE_NAME" 2>/dev/null | tr -d '\r' || true)"
+if [[ -n "$APP_PID" ]]; then
+  log "Filtering logcat to package pid: $APP_PID"
+  adb logcat --pid="$APP_PID" -d > "$OUT_DIR/logcat.txt" || true
+else
+  log "WARNING: package pid not found; falling back to full logcat"
+  adb logcat -d > "$OUT_DIR/logcat.txt" || true
+fi
+
+if grep -iE "fatal exception|app not responding|ANR in|Process crashed" "$OUT_DIR/logcat.txt" >/dev/null; then
+  log "ERROR: crash or ANR detected in logcat"
+  report "**RESULT: FAIL** — crash or ANR detected in logcat."
+  exit 1
+fi
 
 report ""
 report "## Logcat"
@@ -404,4 +452,3 @@ if [[ "$APP_INSTALLED" -ne 1 || "$APP_LAUNCHED" -ne 1 || \
       "$FOREGROUND_CONFIRMED" -ne 1 || "$PASS" -ne 1 ]]; then
   exit 1
 fi
-

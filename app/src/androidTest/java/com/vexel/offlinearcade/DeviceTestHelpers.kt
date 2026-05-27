@@ -14,14 +14,20 @@ import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 
 internal fun AndroidComposeTestRule<*, *>.waitUntilExists(tag: String, timeoutMillis: Long = 30_000) {
     waitUntil(timeoutMillis = timeoutMillis) {
-        onAllNodesWithTag(tag, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty()
+        runCatching {
+            onAllNodesWithTag(tag, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false)
     }
 }
 
 internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screenTag: String) {
     waitUntil(timeoutMillis = 30_000) {
-        onAllNodesWithTag(ArcadeTestTags.HomeScreen, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty() ||
-        this.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
+        runCatching {
+            onAllNodesWithTag(ArcadeTestTags.HomeScreen, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false) ||
+        runCatching {
+            this.onAllNodes(hasText("Library", substring = true)).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false)
     }
 
     // Ensure the entry is visible and click it
@@ -41,11 +47,21 @@ internal fun AndroidComposeTestRule<*, *>.openHomeRoute(entryTag: String, screen
     waitForIdle()
 
     waitUntil(timeoutMillis = 30_000) {
-        onAllNodesWithTag(screenTag, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty() ||
-        this.onAllNodes(hasText("Game Info")).fetchSemanticsNodes().isNotEmpty() ||
-        this.onAllNodes(hasText("Daily Challenges")).fetchSemanticsNodes().isNotEmpty() ||
-        this.onAllNodes(hasText("Stats")).fetchSemanticsNodes().isNotEmpty() ||
-        this.onAllNodes(hasText("Settings")).fetchSemanticsNodes().isNotEmpty()
+        runCatching {
+            onAllNodesWithTag(screenTag, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false) ||
+        runCatching {
+            this.onAllNodes(hasText("Game Info")).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false) ||
+        runCatching {
+            this.onAllNodes(hasText("Daily Challenges")).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false) ||
+        runCatching {
+            this.onAllNodes(hasText("Stats")).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false) ||
+        runCatching {
+            this.onAllNodes(hasText("Settings")).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false)
     }
 }
 

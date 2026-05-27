@@ -1,6 +1,19 @@
-# .mcp Configuration
+# .mcp
 
-This directory is intended for custom Model Context Protocol (MCP) server definitions and resources specific to the Offline Arcade repository.
+This directory is reserved for local MCP configuration notes or client-specific resources for the Offline Mini Arcade repo.
 
-Currently, we support a lightweight file-and-shell based workflow via standard agents rather than requiring a dedicated heavy MCP server.
-Read `docs/MCP_SETUP.md` for client configuration.
+## Intended Use
+- Keep repo access local and narrow.
+- Prefer read-only inspection by default.
+- Enable write access only for a scoped, approved task.
+
+## Safe Defaults
+- Repo root only.
+- No secrets.
+- No broad shell access.
+- No untrusted automation.
+
+## Reference Docs
+- [`docs/MCP_SETUP.md`](../docs/MCP_SETUP.md)
+- [`docs/MCP_AGENT_WORKFLOW.md`](../docs/MCP_AGENT_WORKFLOW.md)
+- [`docs/MCP_SECURITY_GUARDRAILS.md`](../docs/MCP_SECURITY_GUARDRAILS.md)

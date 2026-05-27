@@ -13,6 +13,7 @@ import com.vexel.offlinearcade.feature.home.HomeScreen
 import com.vexel.offlinearcade.feature.settings.SettingsScreen
 import com.vexel.offlinearcade.feature.stats.StatsScreen
 import com.vexel.offlinearcade.game.lanedrift.LaneDriftDetailScreen
+import com.vexel.offlinearcade.game.lanedrift.LaneDriftDebugConfig
 import com.vexel.offlinearcade.game.lanedrift.LaneDriftScreen
 import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitDetailScreen
 import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitScreen
@@ -96,6 +97,11 @@ fun ArcadeNavHost(
                 feedback = feedback,
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
+                debugConfig = if (BuildConfig.DEBUG) {
+                    LaneDriftDebugConfig()
+                } else {
+                    null
+                },
             )
         }
         

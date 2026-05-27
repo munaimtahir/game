@@ -26,6 +26,10 @@ on:
         description: "Android API level"
         required: false
         default: "35"
+      emulator_profile:
+        description: "Emulator profile"
+        required: false
+        default: "pixel_6"
       retry_failed:
         description: "Retry failed emulator test once"
         required: false
@@ -34,6 +38,10 @@ on:
         options:
           - "true"
           - "false"
+
+  push:
+    branches:
+      - main
 
   pull_request:
     branches:
@@ -54,7 +62,9 @@ jobs:
     env:
       GAME_TARGET: ${{ inputs.game_target || 'all' }}
       TEST_LEVEL: ${{ inputs.test_level || 'smoke' }}
-      API_LEVEL: ${{ inputs.api_level || '34' }} # KVM acceleration requires 34 usually, 35 might be slow on github
+      API_LEVEL: ${{ inputs.api_level || '35' }}
+      EMULATOR_PROFILE: ${{ inputs.emulator_profile || 'pixel_6' }}
+      RETRY_FAILED: ${{ inputs.retry_failed || 'true' }}
 
     steps:
       - name: Checkout
@@ -108,7 +118,7 @@ jobs:
           api-level: ${{ env.API_LEVEL }}
           target: google_apis
           arch: x86_64
-          profile: pixel_6
+          profile: ${{ env.EMULATOR_PROFILE }}
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           script: scripts/ci/run_emulator_tasks.sh
