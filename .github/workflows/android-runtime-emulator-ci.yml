@@ -42,9 +42,7 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           script: |
             ./gradlew connectedCheck
-            if [ -x scripts/ci/run_adb_smoke.sh ]; then
-              scripts/ci/run_adb_smoke.sh
-            fi
+            [ -x scripts/ci/run_adb_smoke.sh ] && scripts/ci/run_adb_smoke.sh
 
       - name: Upload Test Reports
         if: always()
