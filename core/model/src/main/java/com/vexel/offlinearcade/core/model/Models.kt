@@ -7,7 +7,6 @@ enum class GameId(val title: String) {
     BRICK_VOLLEY("Brick Volley"),
     LOOP_SNAKE("Loop Snake"),
     SHIELD_DASH("Shield Dash"),
-    GRAVITY_FLIP("Gravity Flip"),
 }
 
 data class PlayerProfile(
@@ -15,7 +14,6 @@ data class PlayerProfile(
     val premiumUnlocked: Boolean = false,
     val selectedThemeId: String = ArcadeThemeCatalog.defaultTheme.id,
     val selectedPulseOrbitSkin: String = ArcadeSkinCatalog.defaultPulseOrbitSkin.id,
-    val selectedGravityFlipSkin: String = ArcadeSkinCatalog.defaultGravityFlipSkin.id,
     val currentStreakDays: Int = 0,
     val lastPlayedEpochDay: Long? = null,
 )
@@ -29,15 +27,11 @@ data class SkinDefinition(
 
 object ArcadeSkinCatalog {
     val defaultPulseOrbitSkin = SkinDefinition("po_default", GameId.PULSE_ORBIT, "Default Core", 0)
-    val defaultGravityFlipSkin = SkinDefinition("gf_default", GameId.GRAVITY_FLIP, "Default Ship", 0)
 
     val skins = listOf(
         defaultPulseOrbitSkin,
         SkinDefinition("po_gold", GameId.PULSE_ORBIT, "Golden Core", 250),
         SkinDefinition("po_neon", GameId.PULSE_ORBIT, "Neon Pink Core", 400),
-        defaultGravityFlipSkin,
-        SkinDefinition("gf_fighter", GameId.GRAVITY_FLIP, "Fighter Jet", 300),
-        SkinDefinition("gf_saucer", GameId.GRAVITY_FLIP, "UFO Saucer", 500)
     )
 }
 

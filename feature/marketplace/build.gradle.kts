@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vexel.offlinearcade.game.gravityflip"
+    namespace = "com.vexel.offlinearcade.feature.marketplace"
     compileSdk = 35
 
     defaultConfig {
@@ -33,8 +33,4 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.lifecycle.runtime.compose)
-
-    testImplementation(libs.junit4)
 }

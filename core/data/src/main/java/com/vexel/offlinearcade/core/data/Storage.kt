@@ -23,7 +23,6 @@ data class PlayerProfileEntity(
     val premiumUnlocked: Boolean = false,
     val selectedThemeId: String = "default",
     val selectedPulseOrbitSkin: String = "po_default",
-    val selectedGravityFlipSkin: String = "gf_default",
     val currentStreakDays: Int = 0,
     val lastPlayedEpochDay: Long? = null,
 )
@@ -104,7 +103,7 @@ interface ArcadeDao {
         SkinUnlockEntity::class,
         ChallengeProgressEntity::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = false,
 )
 abstract class ArcadeDatabase : RoomDatabase() {

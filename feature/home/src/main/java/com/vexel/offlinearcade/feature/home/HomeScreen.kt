@@ -65,10 +65,10 @@ fun HomeScreen(
     onBrickVolley: () -> Unit,
     onLoopSnake: () -> Unit,
     onShieldDash: () -> Unit,
-    onGravityFlip: () -> Unit,
     onChallenges: () -> Unit,
     onStats: () -> Unit,
     onSettings: () -> Unit,
+    onMarketplace: () -> Unit,
 ) {
     val spacing = ArcadeTheme.spacing
     val completedChallenges = todayChallenges.count { it.completed }
@@ -159,9 +159,17 @@ fun HomeScreen(
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(spacing.sm),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
                     HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
+                    PremiumButton(
+                        label = "Market",
+                        onClick = onMarketplace,
+                        style = ArcadeButtonStyle.Primary,
+                        modifier = Modifier.height(52.dp).weight(0.8f),
+                        labelOverride = "🛒"
+                    )
                     PremiumButton(
                         label = "Settings",
                         onClick = onSettings,

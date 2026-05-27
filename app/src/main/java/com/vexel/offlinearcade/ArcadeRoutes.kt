@@ -21,10 +21,9 @@ object Routes {
     const val ShieldDashDetail = "shield_dash_detail"
     const val ShieldDashGame = "shield_dash_game"
 
-    const val GravityFlipDetail = "gravity_flip_detail"
-    const val GravityFlipGame = "gravity_flip_game"
     
     const val Challenges = "challenges"
     const val Stats = "stats"
     const val Settings = "settings"
+    const val Marketplace = "marketplace"
 }
