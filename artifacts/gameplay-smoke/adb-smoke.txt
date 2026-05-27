@@ -1,0 +1,153 @@
+[09:08:37] Starting local/GitHub ADB screenshot smoke test
+[09:08:37] Package: com.vexel.offlinearcade
+[09:08:37] Main activity: .MainActivity
+[09:08:37] Output: artifacts/adb_screenshots/20260526_090837
+[09:08:37] Checking connected ADB devices
+List of devices attached
+08357252AE006901	device
+
+[09:08:37] Disabling animations
+[09:08:37] Skipping build because SKIP_BUILD=1
+[09:08:37] APK found: ./app/build/outputs/apk/debug/app-debug.apk
+[09:08:37] Installing APK
+Performing Streamed Install
+Success
+[09:08:38] Waking emulator and dismissing keyguard
+[09:08:41] Launching app normally
+[09:08:41] Waking emulator and dismissing keyguard
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.vexel.offlinearcade/.MainActivity }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3024
+Complete
+[09:08:47] Waiting 12s for cold start to settle...
+[09:08:59] Capturing: Splash or launch screen
+[09:08:59] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:08:59] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:09:02] Launching route: home 
+[09:09:02] Waking emulator and dismissing keyguard
+[09:09:09] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3017
+Complete
+[09:09:09] Capturing: Home
+[09:09:09] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:09:09] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:09:11] Launching route: pulse_detail 
+[09:09:11] Waking emulator and dismissing keyguard
+[09:09:19] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3015
+Complete
+[09:09:19] Capturing: Pulse Orbit detail
+[09:09:19] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:09:19] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:09:21] Launching route: pulse_game state=ready
+[09:09:21] Waking emulator and dismissing keyguard
+[09:09:28] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3024
+Complete
+[09:09:28] Capturing: Pulse Orbit gameplay ready
+[09:09:28] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:09:28] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:09:31] Launching route: pulse_game state=paused
+[09:09:31] Waking emulator and dismissing keyguard
+[09:09:38] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3017
+Complete
+[09:09:38] Capturing: Pulse Orbit paused
+[09:09:38] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:09:38] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:09:40] Launching route: lane_detail 
+[09:09:40] Waking emulator and dismissing keyguard
+[09:09:47] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3018
+Complete
+[09:09:47] Capturing: Lane Drift detail
+[09:09:47] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:09:48] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:09:50] Launching route: lane_game state=ready
+[09:09:50] Waking emulator and dismissing keyguard
+[09:09:57] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3017
+Complete
+[09:09:57] Capturing: Lane Drift gameplay ready
+[09:09:57] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:09:57] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:09:59] Launching route: lane_game state=playing
+[09:09:59] Waking emulator and dismissing keyguard
+[09:10:07] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3021
+Complete
+[09:10:07] Capturing: Lane Drift gameplay active
+[09:10:07] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:10:07] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:10:09] Launching route: stack_detail 
+[09:10:09] Waking emulator and dismissing keyguard
+[09:10:16] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3017
+Complete
+[09:10:16] Capturing: Stack Drop detail
+[09:10:16] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:10:16] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:10:19] Launching route: stack_game state=ready
+[09:10:19] Waking emulator and dismissing keyguard
+[09:10:26] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3017
+Complete
+[09:10:26] Capturing: Stack Drop gameplay ready
+[09:10:26] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:10:26] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:10:28] Launching route: stack_game state=playing
+[09:10:28] Waking emulator and dismissing keyguard
+[09:10:35] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3021
+Complete
+[09:10:35] Capturing: Stack Drop controls
+[09:10:35] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:10:35] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:10:38] Launching route: stack_game state=paused
+[09:10:38] Waking emulator and dismissing keyguard
+[09:10:45] am start result: Starting: Intent { cmp=com.vexel.offlinearcade/.MainActivity (has extras) }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: com.vexel.offlinearcade/.MainActivity
+WaitTime: 3018
+Complete
+[09:10:45] Capturing: Stack Drop paused
+[09:10:45] Waiting for com.vexel.offlinearcade to be foregrounded (timeout: 30s)
+[09:10:45] App com.vexel.offlinearcade confirmed in foreground via activity (0s)
+[09:10:47] Saving logcat
+[09:10:47] Filtering logcat to package pid: 28134
+[09:10:47] RESULT: PASS
+[09:10:47] Screenshot smoke test complete
+[09:10:47] Artifacts saved to: artifacts/adb_screenshots/20260526_090837

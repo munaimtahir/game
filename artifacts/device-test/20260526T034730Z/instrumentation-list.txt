@@ -1,0 +1,1 @@
+instrumentation:com.vexel.offlinearcade.test/androidx.test.runner.AndroidJUnitRunner (target=com.vexel.offlinearcade)
