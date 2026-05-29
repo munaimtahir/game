@@ -25,9 +25,6 @@ data class PlayerProfileEntity(
     val selectedPulseOrbitSkin: String = "po_default",
     val selectedLaneDriftSkin: String = "ld_default",
     val selectedStackDropSkin: String = "sd_default",
-    val selectedBrickVolleySkin: String = "bv_default",
-    val selectedLoopSnakeSkin: String = "ls_default",
-    val selectedShieldDashSkin: String = "sh_default",
     val currentStreakDays: Int = 0,
     val lastPlayedEpochDay: Long? = null,
 )

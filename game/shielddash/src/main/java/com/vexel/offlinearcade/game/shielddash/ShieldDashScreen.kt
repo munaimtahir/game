@@ -160,7 +160,7 @@ fun ShieldDashScreen(
         hasReportedRun = true
         onRunComplete(
             RunResult(
-                gameId = GameId.SHIELD_DASH,
+                gameId = GameId.PULSE_ORBIT,
                 score = state.score,
                 durationMillis = System.currentTimeMillis() - state.runStartMillis,
                 coinsEarned = state.score / 5,

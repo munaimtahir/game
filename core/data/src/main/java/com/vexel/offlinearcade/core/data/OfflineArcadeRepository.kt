@@ -147,9 +147,6 @@ class OfflineArcadeRepository(
                     GameId.PULSE_ORBIT -> profile.copy(selectedPulseOrbitSkin = skinId)
                     GameId.LANE_DRIFT -> profile.copy(selectedLaneDriftSkin = skinId)
                     GameId.STACK_DROP -> profile.copy(selectedStackDropSkin = skinId)
-                    GameId.BRICK_VOLLEY -> profile.copy(selectedBrickVolleySkin = skinId)
-                    GameId.LOOP_SNAKE -> profile.copy(selectedLoopSnakeSkin = skinId)
-                    GameId.SHIELD_DASH -> profile.copy(selectedShieldDashSkin = skinId)
                 }
                 dao.upsertProfile(updatedProfile.toEntity())
             }

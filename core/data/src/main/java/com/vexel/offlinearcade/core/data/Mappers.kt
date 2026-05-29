@@ -15,9 +15,6 @@ internal fun PlayerProfileEntity.toModel(): PlayerProfile = PlayerProfile(
     selectedPulseOrbitSkin = selectedPulseOrbitSkin,
     selectedLaneDriftSkin = selectedLaneDriftSkin,
     selectedStackDropSkin = selectedStackDropSkin,
-    selectedBrickVolleySkin = selectedBrickVolleySkin,
-    selectedLoopSnakeSkin = selectedLoopSnakeSkin,
-    selectedShieldDashSkin = selectedShieldDashSkin,
     currentStreakDays = currentStreakDays,
     lastPlayedEpochDay = lastPlayedEpochDay,
 )
@@ -29,9 +26,6 @@ internal fun PlayerProfile.toEntity(): PlayerProfileEntity = PlayerProfileEntity
     selectedPulseOrbitSkin = selectedPulseOrbitSkin,
     selectedLaneDriftSkin = selectedLaneDriftSkin,
     selectedStackDropSkin = selectedStackDropSkin,
-    selectedBrickVolleySkin = selectedBrickVolleySkin,
-    selectedLoopSnakeSkin = selectedLoopSnakeSkin,
-    selectedShieldDashSkin = selectedShieldDashSkin,
     currentStreakDays = currentStreakDays,
     lastPlayedEpochDay = lastPlayedEpochDay,
 )

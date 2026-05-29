@@ -52,9 +52,6 @@ fun ArcadeNavHost(
                 onPulseOrbit = { navController.navigate(Routes.PulseOrbitDetail) },
                 onLaneDrift = { navController.navigate(Routes.LaneDriftDetail) },
                 onStackDrop = { navController.navigate(Routes.StackDropDetail) },
-                onBrickVolley = { navController.navigate(Routes.BrickVolleyDetail) },
-                onLoopSnake = { navController.navigate(Routes.LoopSnakeDetail) },
-                onShieldDash = { navController.navigate(Routes.ShieldDashDetail) },
                 onChallenges = { navController.navigate(Routes.Challenges) },
                 onStats = { navController.navigate(Routes.Stats) },
                 onSettings = { navController.navigate(Routes.Settings) },
@@ -122,58 +119,60 @@ fun ArcadeNavHost(
             )
         }
         
-        composable(Routes.BrickVolleyDetail) {
-            BrickVolleyDetailScreen(
-                stats = snapshot.statsByGame[GameId.BRICK_VOLLEY],
-                onPlay = { navController.navigate(Routes.BrickVolleyGame) },
-                onBack = { navController.popBackStack() },
-            )
-        }
+        if (BuildConfig.DEBUG) {
+            composable(Routes.BrickVolleyDetail) {
+                BrickVolleyDetailScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    onPlay = { navController.navigate(Routes.BrickVolleyGame) },
+                    onBack = { navController.popBackStack() },
+                )
+            }
 
-        composable(Routes.BrickVolleyGame) {
-            BrickVolleyScreen(
-                stats = snapshot.statsByGame[GameId.BRICK_VOLLEY],
-                settings = snapshot.settings,
-                feedback = feedback,
-                onRunComplete = onRecordRun,
-                onBack = { navController.popBackStack() },
-            )
-        }
-        
-        composable(Routes.LoopSnakeDetail) {
-            LoopSnakeDetailScreen(
-                stats = snapshot.statsByGame[GameId.LOOP_SNAKE],
-                onPlay = { navController.navigate(Routes.LoopSnakeGame) },
-                onBack = { navController.popBackStack() },
-            )
-        }
+            composable(Routes.BrickVolleyGame) {
+                BrickVolleyScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    settings = snapshot.settings,
+                    feedback = feedback,
+                    onRunComplete = onRecordRun,
+                    onBack = { navController.popBackStack() },
+                )
+            }
+            
+            composable(Routes.LoopSnakeDetail) {
+                LoopSnakeDetailScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    onPlay = { navController.navigate(Routes.LoopSnakeGame) },
+                    onBack = { navController.popBackStack() },
+                )
+            }
 
-        composable(Routes.LoopSnakeGame) {
-            LoopSnakeScreen(
-                stats = snapshot.statsByGame[GameId.LOOP_SNAKE],
-                settings = snapshot.settings,
-                feedback = feedback,
-                onRunComplete = onRecordRun,
-                onBack = { navController.popBackStack() },
-            )
-        }
+            composable(Routes.LoopSnakeGame) {
+                LoopSnakeScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    settings = snapshot.settings,
+                    feedback = feedback,
+                    onRunComplete = onRecordRun,
+                    onBack = { navController.popBackStack() },
+                )
+            }
 
-        composable(Routes.ShieldDashDetail) {
-            ShieldDashDetailScreen(
-                stats = snapshot.statsByGame[GameId.SHIELD_DASH],
-                onPlay = { navController.navigate(Routes.ShieldDashGame) },
-                onBack = { navController.popBackStack() },
-            )
-        }
+            composable(Routes.ShieldDashDetail) {
+                ShieldDashDetailScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    onPlay = { navController.navigate(Routes.ShieldDashGame) },
+                    onBack = { navController.popBackStack() },
+                )
+            }
 
-        composable(Routes.ShieldDashGame) {
-            ShieldDashScreen(
-                stats = snapshot.statsByGame[GameId.SHIELD_DASH],
-                settings = snapshot.settings,
-                feedback = feedback,
-                onRunComplete = onRecordRun,
-                onBack = { navController.popBackStack() },
-            )
+            composable(Routes.ShieldDashGame) {
+                ShieldDashScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    settings = snapshot.settings,
+                    feedback = feedback,
+                    onRunComplete = onRecordRun,
+                    onBack = { navController.popBackStack() },
+                )
+            }
         }
 
         composable(Routes.Challenges) {
@@ -204,9 +203,6 @@ fun ArcadeNavHost(
                 selectedPulseOrbitSkin = snapshot.profile.selectedPulseOrbitSkin,
                 selectedLaneDriftSkin = snapshot.profile.selectedLaneDriftSkin,
                 selectedStackDropSkin = snapshot.profile.selectedStackDropSkin,
-                selectedBrickVolleySkin = snapshot.profile.selectedBrickVolleySkin,
-                selectedLoopSnakeSkin = snapshot.profile.selectedLoopSnakeSkin,
-                selectedShieldDashSkin = snapshot.profile.selectedShieldDashSkin,
                 premiumUnlocked = snapshot.profile.premiumUnlocked,
                 onSelectTheme = onSelectTheme,
                 onUnlockTheme = onUnlockTheme,

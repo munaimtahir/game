@@ -39,9 +39,6 @@ fun MarketplaceScreen(
     selectedPulseOrbitSkin: String,
     selectedLaneDriftSkin: String,
     selectedStackDropSkin: String,
-    selectedBrickVolleySkin: String,
-    selectedLoopSnakeSkin: String,
-    selectedShieldDashSkin: String,
     premiumUnlocked: Boolean,
     onSelectTheme: (String) -> Unit,
     onUnlockTheme: (String) -> Unit,
@@ -136,9 +133,6 @@ fun MarketplaceScreen(
                 GameId.PULSE_ORBIT -> selectedPulseOrbitSkin
                 GameId.LANE_DRIFT -> selectedLaneDriftSkin
                 GameId.STACK_DROP -> selectedStackDropSkin
-                GameId.BRICK_VOLLEY -> selectedBrickVolleySkin
-                GameId.LOOP_SNAKE -> selectedLoopSnakeSkin
-                GameId.SHIELD_DASH -> selectedShieldDashSkin
             }
             gameSpecificSkins.chunked(2).forEach { rowSkins ->
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
