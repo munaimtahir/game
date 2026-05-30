@@ -5,6 +5,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.remember
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,17 +38,39 @@ fun PulseOrbitDetailScreen(
 ) {
     val spacing = ArcadeTheme.spacing
 
+    val context = LocalContext.current
+    val headerResId = remember(context) {
+        context.resources.getIdentifier("header_pulse_orbit", "drawable", context.packageName)
+    }
+
     ArcadeScaffold(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
         screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitDetail,
     ) {
-        HeroPanel(
-            overline = "Rhythm & Timing",
-            title = "Pulse Orbit",
-            subtitle = "Thread the gap. Build the combo. Don't break the cadence.",
-        )
+        if (headerResId != 0) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(32.dp))
+            ) {
+                Image(
+                    painter = painterResource(id = headerResId),
+                    contentDescription = "Pulse Orbit Header",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(1.78f),
+                    contentScale = ContentScale.Crop
+                )
+            }
+        } else {
+            HeroPanel(
+                overline = "Rhythm & Timing",
+                title = "Pulse Orbit",
+                subtitle = "Thread the gap. Build the combo. Don't break the cadence.",
+            )
+        }
 
         ArcadeCard {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.sm)) {

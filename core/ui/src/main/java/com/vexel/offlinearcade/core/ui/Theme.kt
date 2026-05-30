@@ -19,46 +19,46 @@ import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 
 // Soft Arcade Light Baseline - Refined
-private val LightBackground = Color(0xFFF8FAF7)
-private val LightSurface = Color(0xFFFFFFFF)
-private val LightSurfaceContainer = Color(0xFFEEF4F2)
-private val LightSurfaceVariant = Color(0xFFE4EEEC)
+private val LightBackground = Color(0xFF070B1E) // Sleek dark blue
+private val LightSurface = Color(0xFF0F172A)    // Slate-900
+private val LightSurfaceContainer = Color(0xFF1E293B) // Slate-800
+private val LightSurfaceVariant = Color(0xFF334155) // Slate-700
 
-private val LightPrimary = Color(0xFF236A76)
+private val LightPrimary = Color(0xFF0EA5E9)    // Ocean blue/cyan
 private val LightOnPrimary = Color(0xFFFFFFFF)
-private val LightPrimaryContainer = Color(0xFFD7F0F2)
-private val LightOnPrimaryContainer = Color(0xFF0B3B45)
+private val LightPrimaryContainer = Color(0xFF0369A1)
+private val LightOnPrimaryContainer = Color(0xFFE0F2FE)
 
-private val LightSecondary = Color(0xFF695AA8)
+private val LightSecondary = Color(0xFFD946EF)  // Fuchsia
 private val LightOnSecondary = Color(0xFFFFFFFF)
-private val LightSecondaryContainer = Color(0xFFE9E3FF)
-private val LightOnSecondaryContainer = Color(0xFF2F245C)
+private val LightSecondaryContainer = Color(0xFF701A75)
+private val LightOnSecondaryContainer = Color(0xFFFDF4FF)
 
-private val LightTertiary = Color(0xFF9C5A27)
+private val LightTertiary = Color(0xFFF59E0B)   // Amber
 private val LightOnTertiary = Color(0xFFFFFFFF)
-private val LightTertiaryContainer = Color(0xFFFFE1C7)
-private val LightOnTertiaryContainer = Color(0xFF3B1E08)
+private val LightTertiaryContainer = Color(0xFF78350F)
+private val LightOnTertiaryContainer = Color(0xFFFEF3C7)
 
-private val LightTextPrimary = Color(0xFF17252B)
-private val LightTextSecondary = Color(0xFF4B5D63)
-private val LightOutline = Color(0xFF6E8187)
-private val LightOutlineVariant = Color(0xFFC9D7DA)
+private val LightTextPrimary = Color(0xFFF8FAFC) // Slate-50 (white)
+private val LightTextSecondary = Color(0xFF94A3B8) // Slate-400
+private val LightOutline = Color(0xFF475569) // Slate-600
+private val LightOutlineVariant = Color(0xFF334155) // Slate-700
 
 // Gameplay
-private val LightGameBackground = Color(0xFFF3F8F6)
-private val LightGameSurface = Color(0xFFFFFFFF)
-private val LightGameTrack = Color(0xFFD9EAE8)
-private val LightGameGrid = Color(0xFFC7DBD8)
-private val LightGameGuideLine = Color(0xFF9BB7B3)
-private val LightPlayer = Color(0xFF236A76)
-private val LightPlayerAccent = Color(0xFF49A6B4)
-private val LightCollectible = Color(0xFFD99A20)
-private val LightCollectibleSoft = Color(0xFFFFE3A3)
-private val LightHazard = Color(0xFFB94E4E)
-private val LightHazardSoft = Color(0xFFFFD8D8)
-private val LightSuccessPulse = Color(0xFF2E7D5B)
-private val LightScoreText = Color(0xFF17252B)
-private val LightMutedText = Color(0xFF4B5D63)
+private val LightGameBackground = Color(0xFF0F172A)
+private val LightGameSurface = Color(0xFF1E293B)
+private val LightGameTrack = Color(0xFF1E293B)
+private val LightGameGrid = Color(0xFF334155)
+private val LightGameGuideLine = Color(0xFF475569)
+private val LightPlayer = Color(0xFF0EA5E9)
+private val LightPlayerAccent = Color(0xFF38BDF8)
+private val LightCollectible = Color(0xFFF59E0B)
+private val LightCollectibleSoft = Color(0xFF78350F)
+private val LightHazard = Color(0xFFEF4444)
+private val LightHazardSoft = Color(0xFF7F1D1D)
+private val LightSuccessPulse = Color(0xFF10B981)
+private val LightScoreText = Color(0xFFF8FAFC)
+private val LightMutedText = Color(0xFF94A3B8)
 
 @Immutable
 data class ArcadeExtendedColors(
@@ -252,8 +252,8 @@ fun OfflineMiniArcadeTheme(
             val window = (view.context as Activity).window
             window.statusBarColor = colorScheme.background.toArgb()
             window.navigationBarColor = colorScheme.background.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
-            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = true
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = false
+            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = false
         }
     }
 

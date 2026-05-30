@@ -1,5 +1,10 @@
 package com.vexel.offlinearcade.feature.home
 
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.remember
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -71,6 +76,11 @@ fun HomeScreen(
     val completedChallenges = todayChallenges.count { it.completed }
     val continueGame = stats.maxByOrNull { it.sessionsPlayed.takeIf { count -> count > 0 } ?: -1 }?.gameId ?: GameId.PULSE_ORBIT
     
+    val context = LocalContext.current
+    val headerResId = remember(context) {
+        context.resources.getIdentifier("arcade_home_header", "drawable", context.packageName)
+    }
+
     val gameCards = listOf(
         HomeGameEntry(
             gameId = GameId.PULSE_ORBIT,
@@ -113,19 +123,40 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(spacing.md),
         ) {
             item(span = { GridItemSpan(2) }) {
-                HeroPanel(
-                    overline = "Daily Session",
-                    title = "Keep the streak.",
-                    subtitle = "Instant offline play. No ads in-game.",
-                    trailing = {
-                        Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
-                            PremiumBadge(
-                                text = "${profile.currentStreakDays} Day Streak",
-                                color = ArcadeTheme.colors.premium,
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    if (headerResId != 0) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(32.dp))
+                        ) {
+                            Image(
+                                painter = painterResource(id = headerResId),
+                                contentDescription = "Arcade Home Header",
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .aspectRatio(1.5f),
+                                contentScale = ContentScale.Crop
                             )
                         }
-                    },
-                )
+                    } else {
+                        HeroPanel(
+                            overline = "Daily Session",
+                            title = "Keep the streak.",
+                            subtitle = "Instant offline play. No ads in-game.",
+                        )
+                    }
+                    
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        PremiumBadge(
+                            text = "${profile.currentStreakDays} Day Streak",
+                            color = ArcadeTheme.colors.premium,
+                        )
+                    }
+                }
             }
 
             item(span = { GridItemSpan(2) }) {
@@ -210,6 +241,21 @@ private fun GameCard(
     val containerColor = if (isFeatured) accent.color.copy(alpha = 0.08f) else ArcadeTheme.colors.elevatedCardBackground
     val borderColor = if (isFeatured) accent.color else ArcadeTheme.colors.outlineMuted
     
+    val context = LocalContext.current
+    val iconName = when (title) {
+        "Pulse Orbit" -> "icon_pulse_orbit"
+        "Lane Drift" -> "icon_lane_drift"
+        "Stack Drop" -> "icon_stack_drop"
+        else -> null
+    }
+    val iconResId = remember(context, iconName) {
+        if (iconName != null) {
+            context.resources.getIdentifier(iconName, "drawable", context.packageName)
+        } else {
+            0
+        }
+    }
+    
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -230,19 +276,30 @@ private fun GameCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.Top
             ) {
-                Box(
-                    modifier = Modifier
-                        .size(44.dp)
-                        .clip(CircleShape)
-                        .background(accent.color.copy(alpha = 0.2f)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        imageVector = if (isFeatured) Icons.Default.Star else Icons.Default.PlayArrow,
-                        contentDescription = null,
-                        tint = accent.color,
-                        modifier = Modifier.size(24.dp)
+                if (iconResId != 0) {
+                    Image(
+                        painter = painterResource(id = iconResId),
+                        contentDescription = title,
+                        modifier = Modifier
+                            .size(44.dp)
+                            .clip(CircleShape),
+                        contentScale = ContentScale.Crop
                     )
+                } else {
+                    Box(
+                        modifier = Modifier
+                            .size(44.dp)
+                            .clip(CircleShape)
+                            .background(accent.color.copy(alpha = 0.2f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            imageVector = if (isFeatured) Icons.Default.Star else Icons.Default.PlayArrow,
+                            contentDescription = null,
+                            tint = accent.color,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
                 }
                 
                 if (highScore > 0) {

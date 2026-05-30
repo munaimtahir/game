@@ -5,6 +5,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.remember
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,17 +36,39 @@ fun StackDropDetailScreen(
 ) {
     val spacing = ArcadeTheme.spacing
 
+    val context = LocalContext.current
+    val headerResId = remember(context) {
+        context.resources.getIdentifier("header_stack_drop", "drawable", context.packageName)
+    }
+
     ArcadeScaffold(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
         screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.StackDropDetail,
     ) {
-        HeroPanel(
-            overline = "Strategy & Tactics",
-            title = "Stack Drop",
-            subtitle = "Cobalt and amber mastery. Clear lines and keep the board clean.",
-        )
+        if (headerResId != 0) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(32.dp))
+            ) {
+                Image(
+                    painter = painterResource(id = headerResId),
+                    contentDescription = "Stack Drop Header",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(1.78f),
+                    contentScale = ContentScale.Crop
+                )
+            }
+        } else {
+            HeroPanel(
+                overline = "Strategy & Tactics",
+                title = "Stack Drop",
+                subtitle = "Cobalt and amber mastery. Clear lines and keep the board clean.",
+            )
+        }
 
         ArcadeCard {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.sm)) {
