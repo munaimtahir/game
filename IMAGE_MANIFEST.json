@@ -1,0 +1,102 @@
+[
+  {
+    "target_filename": "app_launcher_icon.png",
+    "source_uploaded_name": "app icon.png",
+    "size_px": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "intended_use": "Launcher icon source / adaptive icon source"
+  },
+  {
+    "target_filename": "logo_wordmark.png",
+    "source_uploaded_name": "launch screen option 1.png",
+    "size_px": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "intended_use": "Logo / wordmark branding image"
+  },
+  {
+    "target_filename": "splash_loading_screen.png",
+    "source_uploaded_name": "Loading screen.png",
+    "size_px": [
+      941,
+      1672
+    ],
+    "mode": "RGBA",
+    "intended_use": "Startup splash/loading screen background"
+  },
+  {
+    "target_filename": "arcade_home_header.png",
+    "source_uploaded_name": "arcade screen header.png",
+    "size_px": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "intended_use": "Arcade Home hero/header banner"
+  },
+  {
+    "target_filename": "icon_pulse_orbit.png",
+    "source_uploaded_name": "pulse orbit icon.png",
+    "size_px": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "intended_use": "Pulse Orbit card/icon asset"
+  },
+  {
+    "target_filename": "icon_lane_drift.png",
+    "source_uploaded_name": "lane drift icon.png",
+    "size_px": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "intended_use": "Lane Drift card/icon asset"
+  },
+  {
+    "target_filename": "icon_stack_drop.png",
+    "source_uploaded_name": "stack drop icon.png",
+    "size_px": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "intended_use": "Stack Drop card/icon asset"
+  },
+  {
+    "target_filename": "header_pulse_orbit.png",
+    "source_uploaded_name": "pulse orbit info header.png",
+    "size_px": [
+      1672,
+      941
+    ],
+    "mode": "RGBA",
+    "intended_use": "Pulse Orbit game info header card"
+  },
+  {
+    "target_filename": "header_lane_drift.png",
+    "source_uploaded_name": "lane drift info header .png",
+    "size_px": [
+      1672,
+      941
+    ],
+    "mode": "RGBA",
+    "intended_use": "Lane Drift game info header card"
+  },
+  {
+    "target_filename": "header_stack_drop.png",
+    "source_uploaded_name": "stack drop info header.png",
+    "size_px": [
+      1672,
+      941
+    ],
+    "mode": "RGBA",
+    "intended_use": "Stack Drop game info header card"
+  }
+]
