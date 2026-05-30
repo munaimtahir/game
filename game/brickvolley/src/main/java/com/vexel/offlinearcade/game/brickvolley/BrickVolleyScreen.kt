@@ -182,7 +182,7 @@ fun BrickVolleyScreen(
         hasReportedRun = true
         onRunComplete(
             RunResult(
-                gameId = GameId.BRICK_VOLLEY,
+                gameId = GameId.PULSE_ORBIT,
                 score = state.score,
                 durationMillis = System.currentTimeMillis() - state.runStartMillis,
                 coinsEarned = state.score / 10

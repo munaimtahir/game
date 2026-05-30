@@ -13,7 +13,8 @@ internal fun PlayerProfileEntity.toModel(): PlayerProfile = PlayerProfile(
     premiumUnlocked = premiumUnlocked,
     selectedThemeId = selectedThemeId,
     selectedPulseOrbitSkin = selectedPulseOrbitSkin,
-    selectedGravityFlipSkin = selectedGravityFlipSkin,
+    selectedLaneDriftSkin = selectedLaneDriftSkin,
+    selectedStackDropSkin = selectedStackDropSkin,
     currentStreakDays = currentStreakDays,
     lastPlayedEpochDay = lastPlayedEpochDay,
 )
@@ -23,7 +24,8 @@ internal fun PlayerProfile.toEntity(): PlayerProfileEntity = PlayerProfileEntity
     premiumUnlocked = premiumUnlocked,
     selectedThemeId = selectedThemeId,
     selectedPulseOrbitSkin = selectedPulseOrbitSkin,
-    selectedGravityFlipSkin = selectedGravityFlipSkin,
+    selectedLaneDriftSkin = selectedLaneDriftSkin,
+    selectedStackDropSkin = selectedStackDropSkin,
     currentStreakDays = currentStreakDays,
     lastPlayedEpochDay = lastPlayedEpochDay,
 )

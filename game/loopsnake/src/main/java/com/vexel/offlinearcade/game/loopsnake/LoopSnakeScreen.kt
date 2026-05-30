@@ -142,7 +142,7 @@ fun LoopSnakeScreen(
         hasReportedRun = true
         onRunComplete(
             RunResult(
-                gameId = GameId.LOOP_SNAKE,
+                gameId = GameId.PULSE_ORBIT,
                 score = state.score,
                 durationMillis = System.currentTimeMillis() - state.runStartMillis,
                 coinsEarned = state.score * 5,

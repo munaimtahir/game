@@ -4,10 +4,6 @@ enum class GameId(val title: String) {
     PULSE_ORBIT("Pulse Orbit"),
     LANE_DRIFT("Lane Drift"),
     STACK_DROP("Stack Drop"),
-    BRICK_VOLLEY("Brick Volley"),
-    LOOP_SNAKE("Loop Snake"),
-    SHIELD_DASH("Shield Dash"),
-    GRAVITY_FLIP("Gravity Flip"),
 }
 
 data class PlayerProfile(
@@ -15,7 +11,8 @@ data class PlayerProfile(
     val premiumUnlocked: Boolean = false,
     val selectedThemeId: String = ArcadeThemeCatalog.defaultTheme.id,
     val selectedPulseOrbitSkin: String = ArcadeSkinCatalog.defaultPulseOrbitSkin.id,
-    val selectedGravityFlipSkin: String = ArcadeSkinCatalog.defaultGravityFlipSkin.id,
+    val selectedLaneDriftSkin: String = ArcadeSkinCatalog.defaultLaneDriftSkin.id,
+    val selectedStackDropSkin: String = ArcadeSkinCatalog.defaultStackDropSkin.id,
     val currentStreakDays: Int = 0,
     val lastPlayedEpochDay: Long? = null,
 )
@@ -29,15 +26,21 @@ data class SkinDefinition(
 
 object ArcadeSkinCatalog {
     val defaultPulseOrbitSkin = SkinDefinition("po_default", GameId.PULSE_ORBIT, "Default Core", 0)
-    val defaultGravityFlipSkin = SkinDefinition("gf_default", GameId.GRAVITY_FLIP, "Default Ship", 0)
+    val defaultLaneDriftSkin = SkinDefinition("ld_default", GameId.LANE_DRIFT, "Default Racer", 0)
+    val defaultStackDropSkin = SkinDefinition("sd_default", GameId.STACK_DROP, "Default Blocks", 0)
 
     val skins = listOf(
         defaultPulseOrbitSkin,
         SkinDefinition("po_gold", GameId.PULSE_ORBIT, "Golden Core", 250),
         SkinDefinition("po_neon", GameId.PULSE_ORBIT, "Neon Pink Core", 400),
-        defaultGravityFlipSkin,
-        SkinDefinition("gf_fighter", GameId.GRAVITY_FLIP, "Fighter Jet", 300),
-        SkinDefinition("gf_saucer", GameId.GRAVITY_FLIP, "UFO Saucer", 500)
+        
+        defaultLaneDriftSkin,
+        SkinDefinition("ld_sport", GameId.LANE_DRIFT, "Sport Coupe", 300),
+        SkinDefinition("ld_classic", GameId.LANE_DRIFT, "Classic Muscle", 450),
+        
+        defaultStackDropSkin,
+        SkinDefinition("sd_mono", GameId.STACK_DROP, "Monochrome", 200),
+        SkinDefinition("sd_crystal", GameId.STACK_DROP, "Crystal Blocks", 500),
     )
 }
 

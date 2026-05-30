@@ -12,6 +12,7 @@ import com.vexel.offlinearcade.feature.challenges.ChallengesScreen
 import com.vexel.offlinearcade.feature.home.HomeScreen
 import com.vexel.offlinearcade.feature.settings.SettingsScreen
 import com.vexel.offlinearcade.feature.stats.StatsScreen
+import com.vexel.offlinearcade.feature.marketplace.MarketplaceScreen
 import com.vexel.offlinearcade.game.lanedrift.LaneDriftDetailScreen
 import com.vexel.offlinearcade.game.lanedrift.LaneDriftDebugConfig
 import com.vexel.offlinearcade.game.lanedrift.LaneDriftScreen
@@ -25,8 +26,6 @@ import com.vexel.offlinearcade.game.loopsnake.LoopSnakeDetailScreen
 import com.vexel.offlinearcade.game.loopsnake.LoopSnakeScreen
 import com.vexel.offlinearcade.game.shielddash.ShieldDashDetailScreen
 import com.vexel.offlinearcade.game.shielddash.ShieldDashScreen
-import com.vexel.offlinearcade.game.gravityflip.GravityFlipDetailScreen
-import com.vexel.offlinearcade.game.gravityflip.GravityFlipScreen
 
 @Composable
 fun ArcadeNavHost(
@@ -53,13 +52,10 @@ fun ArcadeNavHost(
                 onPulseOrbit = { navController.navigate(Routes.PulseOrbitDetail) },
                 onLaneDrift = { navController.navigate(Routes.LaneDriftDetail) },
                 onStackDrop = { navController.navigate(Routes.StackDropDetail) },
-                onBrickVolley = { navController.navigate(Routes.BrickVolleyDetail) },
-                onLoopSnake = { navController.navigate(Routes.LoopSnakeDetail) },
-                onShieldDash = { navController.navigate(Routes.ShieldDashDetail) },
-                onGravityFlip = { navController.navigate(Routes.GravityFlipDetail) },
                 onChallenges = { navController.navigate(Routes.Challenges) },
                 onStats = { navController.navigate(Routes.Stats) },
                 onSettings = { navController.navigate(Routes.Settings) },
+                onMarketplace = { navController.navigate(Routes.Marketplace) },
             )
         }
         
@@ -123,79 +119,62 @@ fun ArcadeNavHost(
             )
         }
         
-        composable(Routes.BrickVolleyDetail) {
-            BrickVolleyDetailScreen(
-                stats = snapshot.statsByGame[GameId.BRICK_VOLLEY],
-                onPlay = { navController.navigate(Routes.BrickVolleyGame) },
-                onBack = { navController.popBackStack() },
-            )
+        if (BuildConfig.DEBUG) {
+            composable(Routes.BrickVolleyDetail) {
+                BrickVolleyDetailScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    onPlay = { navController.navigate(Routes.BrickVolleyGame) },
+                    onBack = { navController.popBackStack() },
+                )
+            }
+
+            composable(Routes.BrickVolleyGame) {
+                BrickVolleyScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    settings = snapshot.settings,
+                    feedback = feedback,
+                    onRunComplete = onRecordRun,
+                    onBack = { navController.popBackStack() },
+                )
+            }
+            
+            composable(Routes.LoopSnakeDetail) {
+                LoopSnakeDetailScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    onPlay = { navController.navigate(Routes.LoopSnakeGame) },
+                    onBack = { navController.popBackStack() },
+                )
+            }
+
+            composable(Routes.LoopSnakeGame) {
+                LoopSnakeScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    settings = snapshot.settings,
+                    feedback = feedback,
+                    onRunComplete = onRecordRun,
+                    onBack = { navController.popBackStack() },
+                )
+            }
+
+            composable(Routes.ShieldDashDetail) {
+                ShieldDashDetailScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    onPlay = { navController.navigate(Routes.ShieldDashGame) },
+                    onBack = { navController.popBackStack() },
+                )
+            }
+
+            composable(Routes.ShieldDashGame) {
+                ShieldDashScreen(
+                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                    settings = snapshot.settings,
+                    feedback = feedback,
+                    onRunComplete = onRecordRun,
+                    onBack = { navController.popBackStack() },
+                )
+            }
         }
 
-        composable(Routes.BrickVolleyGame) {
-            BrickVolleyScreen(
-                stats = snapshot.statsByGame[GameId.BRICK_VOLLEY],
-                settings = snapshot.settings,
-                feedback = feedback,
-                onRunComplete = onRecordRun,
-                onBack = { navController.popBackStack() },
-            )
-        }
-        
-        composable(Routes.LoopSnakeDetail) {
-            LoopSnakeDetailScreen(
-                stats = snapshot.statsByGame[GameId.LOOP_SNAKE],
-                onPlay = { navController.navigate(Routes.LoopSnakeGame) },
-                onBack = { navController.popBackStack() },
-            )
-        }
-
-        composable(Routes.LoopSnakeGame) {
-            LoopSnakeScreen(
-                stats = snapshot.statsByGame[GameId.LOOP_SNAKE],
-                settings = snapshot.settings,
-                feedback = feedback,
-                onRunComplete = onRecordRun,
-                onBack = { navController.popBackStack() },
-            )
-        }
-
-        composable(Routes.ShieldDashDetail) {
-            ShieldDashDetailScreen(
-                stats = snapshot.statsByGame[GameId.SHIELD_DASH],
-                onPlay = { navController.navigate(Routes.ShieldDashGame) },
-                onBack = { navController.popBackStack() },
-            )
-        }
-
-        composable(Routes.ShieldDashGame) {
-            ShieldDashScreen(
-                stats = snapshot.statsByGame[GameId.SHIELD_DASH],
-                settings = snapshot.settings,
-                feedback = feedback,
-                onRunComplete = onRecordRun,
-                onBack = { navController.popBackStack() },
-            )
-        }
-
-        composable(Routes.GravityFlipDetail) {
-            GravityFlipDetailScreen(
-                stats = snapshot.statsByGame[GameId.GRAVITY_FLIP],
-                onPlay = { navController.navigate(Routes.GravityFlipGame) },
-                onBack = { navController.popBackStack() },
-            )
-        }
-
-        composable(Routes.GravityFlipGame) {
-            GravityFlipScreen(
-                stats = snapshot.statsByGame[GameId.GRAVITY_FLIP],
-                settings = snapshot.settings,
-                equippedSkin = snapshot.profile.selectedGravityFlipSkin,
-                feedback = feedback,
-                onRunComplete = onRecordRun,
-                onBack = { navController.popBackStack() },
-            )
-        }
-        
         composable(Routes.Challenges) {
             ChallengesScreen(challenges = snapshot.challenges, onBack = { navController.popBackStack() })
         }
@@ -205,17 +184,26 @@ fun ArcadeNavHost(
         composable(Routes.Settings) {
             SettingsScreen(
                 settings = snapshot.settings,
-                themes = snapshot.themes,
-                skins = snapshot.skins,
-                selectedThemeId = snapshot.profile.selectedThemeId,
-                selectedPulseOrbitSkin = snapshot.profile.selectedPulseOrbitSkin,
-                selectedGravityFlipSkin = snapshot.profile.selectedGravityFlipSkin,
                 premiumUnlocked = snapshot.profile.premiumUnlocked,
                 onToggleSound = onToggleSound,
                 onToggleMusic = onToggleMusic,
                 onToggleVibration = onToggleVibration,
                 onToggleReducedEffects = onToggleReducedEffects,
                 onToggleHighContrast = onToggleHighContrast,
+                onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(Routes.Marketplace) {
+            MarketplaceScreen(
+                coins = snapshot.profile.coins,
+                themes = snapshot.themes,
+                skins = snapshot.skins,
+                selectedThemeId = snapshot.profile.selectedThemeId,
+                selectedPulseOrbitSkin = snapshot.profile.selectedPulseOrbitSkin,
+                selectedLaneDriftSkin = snapshot.profile.selectedLaneDriftSkin,
+                selectedStackDropSkin = snapshot.profile.selectedStackDropSkin,
+                premiumUnlocked = snapshot.profile.premiumUnlocked,
                 onSelectTheme = onSelectTheme,
                 onUnlockTheme = onUnlockTheme,
                 onSelectSkin = onSelectSkin,

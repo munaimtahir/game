@@ -62,13 +62,10 @@ fun HomeScreen(
     onPulseOrbit: () -> Unit,
     onLaneDrift: () -> Unit,
     onStackDrop: () -> Unit,
-    onBrickVolley: () -> Unit,
-    onLoopSnake: () -> Unit,
-    onShieldDash: () -> Unit,
-    onGravityFlip: () -> Unit,
     onChallenges: () -> Unit,
     onStats: () -> Unit,
     onSettings: () -> Unit,
+    onMarketplace: () -> Unit,
 ) {
     val spacing = ArcadeTheme.spacing
     val completedChallenges = todayChallenges.count { it.completed }
@@ -98,30 +95,6 @@ fun HomeScreen(
             highScore = stats.find { it.gameId == GameId.STACK_DROP }?.highScore ?: 0,
             onPlay = onStackDrop,
             testTag = ArcadeTestTags.StackDropEntry,
-        ),
-        HomeGameEntry(
-            gameId = GameId.BRICK_VOLLEY,
-            title = "Brick Volley",
-            description = "Ball volley fun.",
-            highScore = stats.find { it.gameId == GameId.BRICK_VOLLEY }?.highScore ?: 0,
-            onPlay = onBrickVolley,
-            testTag = ArcadeTestTags.BrickVolleyEntry,
-        ),
-        HomeGameEntry(
-            gameId = GameId.LOOP_SNAKE,
-            title = "Loop Snake",
-            description = "Modern snake.",
-            highScore = stats.find { it.gameId == GameId.LOOP_SNAKE }?.highScore ?: 0,
-            onPlay = onLoopSnake,
-            testTag = ArcadeTestTags.LoopSnakeEntry,
-        ),
-        HomeGameEntry(
-            gameId = GameId.SHIELD_DASH,
-            title = "Shield Dash",
-            description = "Defensive block.",
-            highScore = stats.find { it.gameId == GameId.SHIELD_DASH }?.highScore ?: 0,
-            onPlay = onShieldDash,
-            testTag = ArcadeTestTags.ShieldDashEntry,
         ),
     )
 
@@ -159,9 +132,17 @@ fun HomeScreen(
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(spacing.sm),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
                     HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
+                    PremiumButton(
+                        label = "Market",
+                        onClick = onMarketplace,
+                        style = ArcadeButtonStyle.Primary,
+                        modifier = Modifier.height(52.dp).weight(0.8f),
+                        labelOverride = "🛒"
+                    )
                     PremiumButton(
                         label = "Settings",
                         onClick = onSettings,

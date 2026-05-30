@@ -24,11 +24,11 @@ include(
     ":feature:challenges",
     ":feature:stats",
     ":feature:settings",
+    ":feature:marketplace",
     ":game:pulseorbit",
     ":game:lanedrift",
     ":game:stackdrop",
     ":game:brickvolley",
     ":game:loopsnake",
-    ":game:shielddash",
-    ":game:gravityflip"
+    ":game:shielddash"
 )
