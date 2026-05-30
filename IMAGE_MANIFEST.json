@@ -1,102 +1,92 @@
 [
   {
-    "target_filename": "app_launcher_icon.png",
-    "source_uploaded_name": "app icon.png",
-    "size_px": [
+    "file": "image/app_launcher_icon.png",
+    "source": "app icon.png",
+    "size": [
       1254,
       1254
     ],
-    "mode": "RGBA",
-    "intended_use": "Launcher icon source / adaptive icon source"
+    "mode": "RGBA"
   },
   {
-    "target_filename": "logo_wordmark.png",
-    "source_uploaded_name": "launch screen option 1.png",
-    "size_px": [
-      1254,
-      1254
-    ],
-    "mode": "RGBA",
-    "intended_use": "Logo / wordmark branding image"
-  },
-  {
-    "target_filename": "splash_loading_screen.png",
-    "source_uploaded_name": "Loading screen.png",
-    "size_px": [
+    "file": "image/splash_loading_screen.png",
+    "source": "آف_لائن_آرکیڈ_نیون_تھیم.png",
+    "size": [
       941,
       1672
     ],
-    "mode": "RGBA",
-    "intended_use": "Startup splash/loading screen background"
+    "mode": "RGB"
   },
   {
-    "target_filename": "arcade_home_header.png",
-    "source_uploaded_name": "arcade screen header.png",
-    "size_px": [
-      1536,
-      1024
+    "file": "image/arcade_home_header.png",
+    "source": "neon_arcade_game_hub_design.png",
+    "size": [
+      2172,
+      724
     ],
-    "mode": "RGBA",
-    "intended_use": "Arcade Home hero/header banner"
+    "mode": "RGB"
   },
   {
-    "target_filename": "icon_pulse_orbit.png",
-    "source_uploaded_name": "pulse orbit icon.png",
-    "size_px": [
+    "file": "image/header_pulse_orbit.png",
+    "source": "pulse_orbit_rhythm_in_motion.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "image/header_lane_drift.png",
+    "source": "lane_drift_speed_reflexes_game_ui.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "image/header_stack_drop.png",
+    "source": "stack_drop_neon_puzzle_strategy.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "image/icon_pulse_orbit.png",
+    "source": "pulse orbit icon.png",
+    "size": [
       1254,
       1254
     ],
-    "mode": "RGBA",
-    "intended_use": "Pulse Orbit card/icon asset"
+    "mode": "RGBA"
   },
   {
-    "target_filename": "icon_lane_drift.png",
-    "source_uploaded_name": "lane drift icon.png",
-    "size_px": [
+    "file": "image/icon_lane_drift.png",
+    "source": "lane drift icon.png",
+    "size": [
       1254,
       1254
     ],
-    "mode": "RGBA",
-    "intended_use": "Lane Drift card/icon asset"
+    "mode": "RGBA"
   },
   {
-    "target_filename": "icon_stack_drop.png",
-    "source_uploaded_name": "stack drop icon.png",
-    "size_px": [
+    "file": "image/icon_stack_drop.png",
+    "source": "stack drop icon.png",
+    "size": [
       1254,
       1254
     ],
-    "mode": "RGBA",
-    "intended_use": "Stack Drop card/icon asset"
+    "mode": "RGBA"
   },
   {
-    "target_filename": "header_pulse_orbit.png",
-    "source_uploaded_name": "pulse orbit info header.png",
-    "size_px": [
-      1672,
-      941
+    "file": "image/play_store_icon_512.png",
+    "source": "app icon.png resized",
+    "size": [
+      512,
+      512
     ],
-    "mode": "RGBA",
-    "intended_use": "Pulse Orbit game info header card"
-  },
-  {
-    "target_filename": "header_lane_drift.png",
-    "source_uploaded_name": "lane drift info header .png",
-    "size_px": [
-      1672,
-      941
-    ],
-    "mode": "RGBA",
-    "intended_use": "Lane Drift game info header card"
-  },
-  {
-    "target_filename": "header_stack_drop.png",
-    "source_uploaded_name": "stack drop info header.png",
-    "size_px": [
-      1672,
-      941
-    ],
-    "mode": "RGBA",
-    "intended_use": "Stack Drop game info header card"
+    "mode": "RGBA"
   }
 ]
