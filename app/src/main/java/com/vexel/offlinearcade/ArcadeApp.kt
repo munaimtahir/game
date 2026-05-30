@@ -150,13 +150,15 @@ fun SplashLoadingScreen() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
+            // Progress track — soft white frosted pill
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(8.dp)
                     .clip(RoundedCornerShape(4.dp))
-                    .background(Color.White.copy(alpha = 0.2f))
+                    .background(Color.White.copy(alpha = 0.35f))
             ) {
+                // Progress fill — Daylight Arcade: primary blue → arcade gold
                 Box(
                     modifier = Modifier
                         .fillMaxWidth(progress.value)
@@ -165,19 +167,13 @@ fun SplashLoadingScreen() {
                         .background(
                             Brush.linearGradient(
                                 colors = listOf(
-                                    Color(0xFFFF007F), // Neon Pink
-                                    Color(0xFF00F0FF)  // Neon Cyan
+                                    Color(0xFF2F80ED), // Arcade Blue
+                                    Color(0xFFFFB703)  // Arcade Gold
                                 )
                             )
                         )
                 )
             }
-            Text(
-                text = "LOADING... ${(progress.value * 100).toInt()}%",
-                style = MaterialTheme.typography.labelLarge,
-                color = Color.White,
-                fontWeight = FontWeight.Bold
-            )
         }
     }
 }

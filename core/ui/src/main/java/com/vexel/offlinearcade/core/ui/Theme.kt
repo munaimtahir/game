@@ -18,47 +18,65 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 
-// Soft Arcade Light Baseline - Refined
-private val LightBackground = Color(0xFF070B1E) // Sleek dark blue
-private val LightSurface = Color(0xFF0F172A)    // Slate-900
-private val LightSurfaceContainer = Color(0xFF1E293B) // Slate-800
-private val LightSurfaceVariant = Color(0xFF334155) // Slate-700
+// ────────────────────────────────────────────────────────────
+// Daylight Arcade — Global Palette Tokens
+// ────────────────────────────────────────────────────────────
 
-private val LightPrimary = Color(0xFF0EA5E9)    // Ocean blue/cyan
-private val LightOnPrimary = Color(0xFFFFFFFF)
-private val LightPrimaryContainer = Color(0xFF0369A1)
-private val LightOnPrimaryContainer = Color(0xFFE0F2FE)
+// Backgrounds & surfaces
+private val DayBackground        = Color(0xFFF8FAFF) // Sky white
+private val DaySurface           = Color(0xFFFFFFFF) // Pure white
+private val DaySurfaceVariant    = Color(0xFFEAF4FF) // Soft blue
+private val DaySurfaceContainer  = Color(0xFFDCE6F2) // Pale blue / border
 
-private val LightSecondary = Color(0xFFD946EF)  // Fuchsia
-private val LightOnSecondary = Color(0xFFFFFFFF)
-private val LightSecondaryContainer = Color(0xFF701A75)
-private val LightOnSecondaryContainer = Color(0xFFFDF4FF)
+// Text
+private val DayTextPrimary       = Color(0xFF14213D) // Deep navy
+private val DayTextSecondary     = Color(0xFF526173) // Slate blue
+private val DayTextMuted         = Color(0xFF8B9BB4) // Steel
 
-private val LightTertiary = Color(0xFFF59E0B)   // Amber
-private val LightOnTertiary = Color(0xFFFFFFFF)
-private val LightTertiaryContainer = Color(0xFF78350F)
-private val LightOnTertiaryContainer = Color(0xFFFEF3C7)
+// Primary action (Arcade Blue)
+private val DayPrimary           = Color(0xFF2F80ED)
+private val DayOnPrimary         = Color(0xFFFFFFFF)
+private val DayPrimaryContainer  = Color(0xFF1565C0)
+private val DayOnPrimaryContainer= Color(0xFFE8F1FF)
 
-private val LightTextPrimary = Color(0xFFF8FAFC) // Slate-50 (white)
-private val LightTextSecondary = Color(0xFF94A3B8) // Slate-400
-private val LightOutline = Color(0xFF475569) // Slate-600
-private val LightOutlineVariant = Color(0xFF334155) // Slate-700
+// Secondary accent (Energy Violet)
+private val DaySecondary         = Color(0xFF8E7CFF)
+private val DayOnSecondary       = Color(0xFFFFFFFF)
+private val DaySecondaryContainer= Color(0xFFE8E4FF)
+private val DayOnSecondaryContainer = Color(0xFF2E0082)
 
-// Gameplay
-private val LightGameBackground = Color(0xFF0F172A)
-private val LightGameSurface = Color(0xFF1E293B)
-private val LightGameTrack = Color(0xFF1E293B)
-private val LightGameGrid = Color(0xFF334155)
-private val LightGameGuideLine = Color(0xFF475569)
-private val LightPlayer = Color(0xFF0EA5E9)
-private val LightPlayerAccent = Color(0xFF38BDF8)
-private val LightCollectible = Color(0xFFF59E0B)
-private val LightCollectibleSoft = Color(0xFF78350F)
-private val LightHazard = Color(0xFFEF4444)
-private val LightHazardSoft = Color(0xFF7F1D1D)
-private val LightSuccessPulse = Color(0xFF10B981)
-private val LightScoreText = Color(0xFFF8FAFC)
-private val LightMutedText = Color(0xFF94A3B8)
+// Tertiary / reward (Arcade Gold)
+private val DayTertiary          = Color(0xFFFFB703)
+private val DayOnTertiary        = Color(0xFF14213D)
+private val DayTertiaryContainer = Color(0xFFFFF3C4)
+private val DayOnTertiaryContainer = Color(0xFF3D2800)
+
+// Semantic
+private val DayDanger            = Color(0xFFEF476F) // Coral red
+private val DaySuccess           = Color(0xFF20C997) // Mint teal
+private val DayOutline           = Color(0xFFDCE6F2) // Cloud border
+private val DayOutlineVariant    = Color(0xFFA8C7FA) // Soft blue outline
+
+// ────────────────────────────────────────────────────────────
+// Gameplay tokens
+// ────────────────────────────────────────────────────────────
+
+// Shared game board
+private val DayGameBackground    = Color(0xFFF4FAFF) // Light sky backdrop
+private val DayGameSurface       = Color(0xFFEAF4FF) // Game canvas / board bg
+private val DayGameTrack         = Color(0xFFEAF4FF) // Lane track base
+private val DayGameGrid          = Color(0xFFC8DAEA) // Grid separators
+private val DayGuideLine         = Color(0xFFA8C7FA) // Subtle guide lines
+
+// Player / collectibles / hazard
+private val DayPlayer            = Color(0xFF2F80ED) // Arcade blue car
+private val DayPlayerAccent      = Color(0xFF60A5FA) // Lighter blue canopy
+private val DayCollectible       = Color(0xFFFFB703) // Gold coin/star
+private val DayCollectibleSoft   = Color(0xFFFFF3C4) // Soft gold bg
+private val DayHazard            = Color(0xFFEF476F) // Coral red hazard
+private val DayHazardSoft        = Color(0xFFFFE0E8) // Soft coral bg
+private val DaySuccessPulse      = Color(0xFF20C997) // Teal success
+private val DayScoreText         = Color(0xFF14213D) // Dark on light board
 
 @Immutable
 data class ArcadeExtendedColors(
@@ -107,51 +125,55 @@ data class ArcadeExtendedColors(
     val textInverse: Color,
 )
 
-private val SoftArcadeLightExtendedColors = ArcadeExtendedColors(
-    shellGradient = Brush.verticalGradient(listOf(LightBackground, LightSurfaceContainer)),
-    panelGradient = Brush.linearGradient(listOf(LightSurface, LightSurfaceContainer)),
-    heroGradient = Brush.linearGradient(listOf(LightSecondary, LightPrimary)),
-    pulseAccent = LightSecondary,
-    laneAccent = LightPrimary,
-    stackAccent = LightTertiary,
-    brickVolleyAccent = Color(0xFFE57373),
-    loopSnakeAccent = Color(0xFF4CAF50),
-    shieldDashAccent = Color(0xFF9C27B0),
-    gravityFlipAccent = Color(0xFFFF9800),
-    reward = LightCollectible,
-    success = LightSuccessPulse,
-    danger = LightHazard,
-    premium = LightSecondary,
-    outlineMuted = LightOutlineVariant,
-    glow = LightPrimary.copy(alpha = 0.10f),
-    textPrimary = LightTextPrimary,
-    textSecondary = LightTextSecondary,
-    textMuted = LightMutedText,
-    background = LightBackground,
-    cardBackground = LightSurfaceContainer,
-    elevatedCardBackground = LightSurface,
-    gameBackground = LightGameBackground,
-    gameBoard = LightGameTrack,
-    gameBoardRaised = LightSurfaceContainer,
-    hudCard = LightSurface,
-    hudBorder = LightOutlineVariant,
-    controlSurface = LightSurface,
-    controlBorder = LightOutline,
-    primaryCyan = LightPlayer,
-    primaryOnCyan = LightOnPrimary,
-    accentViolet = LightSecondary,
-    dangerCoral = LightHazard,
-    pickupMint = LightSuccessPulse,
-    overlayScrim = Color.Black.copy(alpha = 0.35f),
-    player = LightPlayer,
-    playerAccent = LightPlayerAccent,
-    collectible = LightCollectible,
-    gameBoardInner = LightGameSurface,
-    gridLine = LightGameGrid,
-    textInverse = Color.White,
+// ────────────────────────────────────────────────────────────
+// Daylight Arcade — Extended Color Set
+// ────────────────────────────────────────────────────────────
+
+private val DaylightArcadeExtendedColors = ArcadeExtendedColors(
+    shellGradient           = Brush.verticalGradient(listOf(DayBackground, DaySurfaceVariant)),
+    panelGradient           = Brush.linearGradient(listOf(DaySurface, DaySurfaceVariant)),
+    heroGradient            = Brush.linearGradient(listOf(DayPrimary, DaySecondary)),
+    pulseAccent             = DaySecondary,
+    laneAccent              = DayPrimary,
+    stackAccent             = DayTertiary,
+    brickVolleyAccent       = Color(0xFFF97316), // Orange
+    loopSnakeAccent         = Color(0xFF20C997), // Teal
+    shieldDashAccent        = Color(0xFF8E7CFF), // Violet
+    gravityFlipAccent       = Color(0xFFFFB703), // Gold
+    reward                  = DayCollectible,
+    success                 = DaySuccessPulse,
+    danger                  = DayHazard,
+    premium                 = DaySecondary,
+    outlineMuted            = DayOutline,
+    glow                    = DayPrimary.copy(alpha = 0.12f),
+    textPrimary             = DayTextPrimary,
+    textSecondary           = DayTextSecondary,
+    textMuted               = DayTextMuted,
+    background              = DayBackground,
+    cardBackground          = DaySurfaceVariant,
+    elevatedCardBackground  = DaySurface,
+    gameBackground          = DayGameBackground,
+    gameBoard               = DayGameSurface,
+    gameBoardRaised         = DaySurface,
+    hudCard                 = DaySurface,
+    hudBorder               = DayOutline,
+    controlSurface          = DaySurface,
+    controlBorder           = DayOutlineVariant,
+    primaryCyan             = DayPlayer,
+    primaryOnCyan           = DayOnPrimary,
+    accentViolet            = DaySecondary,
+    dangerCoral             = DayHazard,
+    pickupMint              = DaySuccessPulse,
+    overlayScrim            = Color.Black.copy(alpha = 0.25f),
+    player                  = DayPlayer,
+    playerAccent            = DayPlayerAccent,
+    collectible             = DayCollectible,
+    gameBoardInner          = Color(0xFFF0F6FF), // Misty empty cell
+    gridLine                = DayGameGrid,
+    textInverse             = DayTextPrimary, // On light boards: dark text/outlines
 )
 
-val LocalArcadeExtendedColors = staticCompositionLocalOf { SoftArcadeLightExtendedColors }
+val LocalArcadeExtendedColors = staticCompositionLocalOf { DaylightArcadeExtendedColors }
 val LocalArcadeReducedEffects = staticCompositionLocalOf { false }
 
 @Immutable
@@ -180,55 +202,48 @@ private val PremiumTypography = Typography(
 )
 
 private fun getThemeColorScheme(themeId: String, highContrast: Boolean): androidx.compose.material3.ColorScheme {
-    // Aligning with user request to explicitly use themeId logic
-    val baseBackground = when (themeId) {
-        "sunset_shift" -> LightBackground
-        "ice_grid" -> LightBackground
-        else -> LightBackground
-    }
-
     return lightColorScheme(
-        primary = LightPrimary,
-        onPrimary = LightOnPrimary,
-        primaryContainer = LightPrimaryContainer,
-        onPrimaryContainer = LightOnPrimaryContainer,
-        secondary = LightSecondary,
-        onSecondary = LightOnSecondary,
-        secondaryContainer = LightSecondaryContainer,
-        onSecondaryContainer = LightOnSecondaryContainer,
-        tertiary = LightTertiary,
-        onTertiary = LightOnTertiary,
-        tertiaryContainer = LightTertiaryContainer,
-        onTertiaryContainer = LightOnTertiaryContainer,
-        background = baseBackground,
-        onBackground = LightTextPrimary,
-        surface = LightSurface,
-        onSurface = LightTextPrimary,
-        surfaceVariant = LightSurfaceVariant,
-        onSurfaceVariant = if (highContrast) Color.Black else LightTextSecondary,
-        error = LightHazard,
-        onError = Color.White,
-        outline = if (highContrast) Color.Black else LightOutline,
-        outlineVariant = LightOutlineVariant,
-        scrim = Color.Black.copy(alpha = 0.35f),
+        primary             = DayPrimary,
+        onPrimary           = DayOnPrimary,
+        primaryContainer    = DayPrimaryContainer,
+        onPrimaryContainer  = DayOnPrimaryContainer,
+        secondary           = DaySecondary,
+        onSecondary         = DayOnSecondary,
+        secondaryContainer  = DaySecondaryContainer,
+        onSecondaryContainer= DayOnSecondaryContainer,
+        tertiary            = DayTertiary,
+        onTertiary          = DayOnTertiary,
+        tertiaryContainer   = DayTertiaryContainer,
+        onTertiaryContainer = DayOnTertiaryContainer,
+        background          = DayBackground,
+        onBackground        = DayTextPrimary,
+        surface             = DaySurface,
+        onSurface           = DayTextPrimary,
+        surfaceVariant      = DaySurfaceVariant,
+        onSurfaceVariant    = if (highContrast) DayTextPrimary else DayTextSecondary,
+        error               = DayHazard,
+        onError             = Color.White,
+        outline             = if (highContrast) DayTextPrimary else DayOutline,
+        outlineVariant      = DayOutlineVariant,
+        scrim               = Color.Black.copy(alpha = 0.25f),
     )
 }
 
 private fun getExtendedColors(themeId: String, reducedEffects: Boolean): ArcadeExtendedColors {
     val base = when (themeId) {
-        "sunset_shift" -> SoftArcadeLightExtendedColors.copy(
-            heroGradient = Brush.linearGradient(listOf(LightSecondary, LightCollectible))
+        "sunset_shift" -> DaylightArcadeExtendedColors.copy(
+            heroGradient = Brush.linearGradient(listOf(Color(0xFFF97316), DayCollectible))
         )
-        "ice_grid" -> SoftArcadeLightExtendedColors.copy(
-            heroGradient = Brush.linearGradient(listOf(LightPlayerAccent, LightPrimary))
+        "ice_grid" -> DaylightArcadeExtendedColors.copy(
+            heroGradient = Brush.linearGradient(listOf(DayPlayerAccent, DayPrimary))
         )
-        else -> SoftArcadeLightExtendedColors
+        else -> DaylightArcadeExtendedColors
     }
 
     return if (reducedEffects) {
         base.copy(
-            shellGradient = Brush.verticalGradient(listOf(LightBackground, LightBackground)),
-            panelGradient = Brush.linearGradient(listOf(LightSurface, LightSurface)),
+            shellGradient = Brush.verticalGradient(listOf(DayBackground, DayBackground)),
+            panelGradient = Brush.linearGradient(listOf(DaySurface, DaySurface)),
             glow = Color.Transparent
         )
     } else {
@@ -252,8 +267,9 @@ fun OfflineMiniArcadeTheme(
             val window = (view.context as Activity).window
             window.statusBarColor = colorScheme.background.toArgb()
             window.navigationBarColor = colorScheme.background.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = false
-            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = false
+            // Light theme: use dark icons on the bright status/nav bar
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
+            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = true
         }
     }
 

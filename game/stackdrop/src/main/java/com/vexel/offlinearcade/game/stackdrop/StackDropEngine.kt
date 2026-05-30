@@ -9,18 +9,21 @@ data class Cell(val x: Int, val y: Int)
 
 enum class PieceType(val color: Int, val rotations: List<List<Cell>>) {
     I(
-        color = 0xFF0891B2.toInt(),
+        // Arcade Blue — #2F80ED
+        color = 0xFF2F80ED.toInt(),
         rotations = listOf(
             listOf(Cell(-1, 0), Cell(0, 0), Cell(1, 0), Cell(2, 0)),
             listOf(Cell(1, -1), Cell(1, 0), Cell(1, 1), Cell(1, 2)),
         ),
     ),
     O(
-        color = 0xFFD97706.toInt(),
+        // Arcade Gold — #FFB703
+        color = 0xFFFFB703.toInt(),
         rotations = listOf(listOf(Cell(0, 0), Cell(1, 0), Cell(0, 1), Cell(1, 1))),
     ),
     T(
-        color = 0xFF7C3AED.toInt(),
+        // Energy Violet — #8E7CFF
+        color = 0xFF8E7CFF.toInt(),
         rotations = listOf(
             listOf(Cell(-1, 0), Cell(0, 0), Cell(1, 0), Cell(0, 1)),
             listOf(Cell(0, -1), Cell(0, 0), Cell(1, 0), Cell(0, 1)),
@@ -29,7 +32,8 @@ enum class PieceType(val color: Int, val rotations: List<List<Cell>>) {
         ),
     ),
     L(
-        color = 0xFFEA580C.toInt(),
+        // Playful Orange — #F97316
+        color = 0xFFF97316.toInt(),
         rotations = listOf(
             listOf(Cell(-1, 0), Cell(0, 0), Cell(1, 0), Cell(1, 1)),
             listOf(Cell(0, -1), Cell(0, 0), Cell(0, 1), Cell(1, -1)),
@@ -38,7 +42,8 @@ enum class PieceType(val color: Int, val rotations: List<List<Cell>>) {
         ),
     ),
     S(
-        color = 0xFF16A34A.toInt(),
+        // Mint Teal — #20C997
+        color = 0xFF20C997.toInt(),
         rotations = listOf(
             listOf(Cell(0, 0), Cell(1, 0), Cell(-1, 1), Cell(0, 1)),
             listOf(Cell(0, -1), Cell(0, 0), Cell(1, 0), Cell(1, 1)),

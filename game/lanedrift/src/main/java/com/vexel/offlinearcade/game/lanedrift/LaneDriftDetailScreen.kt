@@ -51,7 +51,7 @@ fun LaneDriftDetailScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clip(RoundedCornerShape(32.dp))
+                    .clip(RoundedCornerShape(24.dp))
             ) {
                 Image(
                     painter = painterResource(id = headerResId),

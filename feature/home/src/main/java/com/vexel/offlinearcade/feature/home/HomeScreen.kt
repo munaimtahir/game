@@ -128,14 +128,14 @@ fun HomeScreen(
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clip(RoundedCornerShape(32.dp))
+                                .clip(RoundedCornerShape(24.dp))
                         ) {
                             Image(
                                 painter = painterResource(id = headerResId),
                                 contentDescription = "Arcade Home Header",
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .aspectRatio(1.5f),
+                                    .aspectRatio(3f),
                                 contentScale = ContentScale.Crop
                             )
                         }
@@ -281,8 +281,8 @@ private fun GameCard(
                         painter = painterResource(id = iconResId),
                         contentDescription = title,
                         modifier = Modifier
-                            .size(44.dp)
-                            .clip(CircleShape),
+                            .size(48.dp)
+                            .clip(RoundedCornerShape(12.dp)),
                         contentScale = ContentScale.Crop
                     )
                 } else {
