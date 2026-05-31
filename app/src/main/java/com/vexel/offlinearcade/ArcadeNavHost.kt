@@ -62,6 +62,8 @@ fun ArcadeNavHost(
         composable(Routes.PulseOrbitDetail) {
             PulseOrbitDetailScreen(
                 stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
+                coins = snapshot.profile.coins,
+                streak = snapshot.profile.currentStreakDays,
                 onPlay = { navController.navigate(Routes.PulseOrbitGame) },
                 onBack = { navController.popBackStack() },
             )
@@ -81,6 +83,8 @@ fun ArcadeNavHost(
         composable(Routes.LaneDriftDetail) {
             LaneDriftDetailScreen(
                 stats = snapshot.statsByGame[GameId.LANE_DRIFT],
+                coins = snapshot.profile.coins,
+                streak = snapshot.profile.currentStreakDays,
                 onPlay = { navController.navigate(Routes.LaneDriftGame) },
                 onBack = { navController.popBackStack() },
             )
@@ -104,6 +108,8 @@ fun ArcadeNavHost(
         composable(Routes.StackDropDetail) {
             StackDropDetailScreen(
                 stats = snapshot.statsByGame[GameId.STACK_DROP],
+                coins = snapshot.profile.coins,
+                streak = snapshot.profile.currentStreakDays,
                 onPlay = { navController.navigate(Routes.StackDropGame) },
                 onBack = { navController.popBackStack() },
             )
@@ -176,15 +182,27 @@ fun ArcadeNavHost(
         }
 
         composable(Routes.Challenges) {
-            ChallengesScreen(challenges = snapshot.challenges, onBack = { navController.popBackStack() })
+            ChallengesScreen(
+                challenges = snapshot.challenges,
+                coins = snapshot.profile.coins,
+                streak = snapshot.profile.currentStreakDays,
+                onBack = { navController.popBackStack() }
+            )
         }
         composable(Routes.Stats) {
-            StatsScreen(stats = snapshot.stats, onBack = { navController.popBackStack() })
+            StatsScreen(
+                stats = snapshot.stats,
+                coins = snapshot.profile.coins,
+                streak = snapshot.profile.currentStreakDays,
+                onBack = { navController.popBackStack() }
+            )
         }
         composable(Routes.Settings) {
             SettingsScreen(
                 settings = snapshot.settings,
                 premiumUnlocked = snapshot.profile.premiumUnlocked,
+                coins = snapshot.profile.coins,
+                streak = snapshot.profile.currentStreakDays,
                 onToggleSound = onToggleSound,
                 onToggleMusic = onToggleMusic,
                 onToggleVibration = onToggleVibration,
@@ -197,6 +215,7 @@ fun ArcadeNavHost(
         composable(Routes.Marketplace) {
             MarketplaceScreen(
                 coins = snapshot.profile.coins,
+                streak = snapshot.profile.currentStreakDays,
                 themes = snapshot.themes,
                 skins = snapshot.skins,
                 selectedThemeId = snapshot.profile.selectedThemeId,

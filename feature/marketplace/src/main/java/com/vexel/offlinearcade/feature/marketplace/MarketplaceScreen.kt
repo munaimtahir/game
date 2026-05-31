@@ -33,6 +33,7 @@ import com.vexel.offlinearcade.core.ui.SectionHeader
 @Composable
 fun MarketplaceScreen(
     coins: Int,
+    streak: Int,
     themes: List<ThemeUnlock>,
     skins: List<SkinUnlock>,
     selectedThemeId: String,
@@ -50,6 +51,8 @@ fun MarketplaceScreen(
     ArcadeScaffold(
         title = "Marketplace",
         onBack = onBack,
+        coins = coins,
+        streak = streak,
     ) {
         SectionHeader(
             title = "Your Wallet",

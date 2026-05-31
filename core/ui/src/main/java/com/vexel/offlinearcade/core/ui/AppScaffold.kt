@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
@@ -49,6 +50,15 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.ui.unit.sp
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.RepeatMode
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -70,6 +80,8 @@ fun ArcadeScaffold(
     scrollable: Boolean = true,
     resetScrollOnEnter: Boolean = false,
     screenTestTag: String? = null,
+    coins: Int? = null,
+    streak: Int? = null,
     actions: @Composable (() -> Unit) = {},
     content: @Composable () -> Unit,
 ) {
@@ -96,26 +108,92 @@ fun ArcadeScaffold(
     Scaffold(
         containerColor = Color.Transparent,
         topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Transparent,
-                    titleContentColor = ArcadeTheme.colors.textPrimary,
-                ),
-                title = {
-                    Text(title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
-                },
-                navigationIcon = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
+                    .padding(horizontal = spacing.lg, vertical = spacing.sm),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(spacing.sm)
+                ) {
                     if (onBack != null) {
-                        TextButton(
-                            onClick = onBack,
-                            modifier = Modifier.testTag(ArcadeTestTags.BackButton),
+                        Box(
+                            modifier = Modifier
+                                .size(40.dp)
+                                .clip(RoundedCornerShape(12.dp))
+                                .background(ArcadeTheme.colors.controlSurface)
+                                .border(1.dp, ArcadeTheme.colors.controlBorder, RoundedCornerShape(12.dp))
+                                .clickable { onBack() }
+                                .testTag(ArcadeTestTags.BackButton),
+                            contentAlignment = Alignment.Center
                         ) {
-                            Text("Back", color = ArcadeTheme.colors.textPrimary)
+                            Text(
+                                "←", 
+                                color = ArcadeTheme.colors.textPrimary,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 18.sp
+                            )
                         }
                     }
-                },
-                actions = { actions() },
-            )
+                    Text(
+                        text = title, 
+                        style = MaterialTheme.typography.titleLarge, 
+                        fontWeight = FontWeight.Black,
+                        color = ArcadeTheme.colors.textPrimary
+                    )
+                }
+                
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(spacing.xs)
+                ) {
+                    actions()
+                    
+                    if (streak != null) {
+                        Row(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(99.dp))
+                                .background(ArcadeTheme.colors.premium.copy(alpha = 0.12f))
+                                .border(1.dp, ArcadeTheme.colors.premium.copy(alpha = 0.3f), RoundedCornerShape(99.dp))
+                                .padding(horizontal = 10.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Text("🔥", fontSize = 14.sp)
+                            Text(
+                                text = streak.toString(),
+                                style = MaterialTheme.typography.labelMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = ArcadeTheme.colors.textPrimary
+                            )
+                        }
+                    }
+                    
+                    if (coins != null) {
+                        Row(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(99.dp))
+                                .background(ArcadeTheme.colors.reward.copy(alpha = 0.12f))
+                                .border(1.dp, ArcadeTheme.colors.reward.copy(alpha = 0.3f), RoundedCornerShape(99.dp))
+                                .padding(horizontal = 10.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Text("🪙", fontSize = 14.sp)
+                            Text(
+                                text = coins.toString(),
+                                style = MaterialTheme.typography.labelMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = ArcadeTheme.colors.textPrimary
+                            )
+                        }
+                    }
+                }
+            }
         },
     ) { padding ->
         val colors = ArcadeTheme.colors
@@ -576,5 +654,153 @@ fun gameAccentFor(label: String): ArcadeGameAccent {
         "Shield Dash" -> ArcadeGameAccent(label = "Shield Dash", brush = Brush.linearGradient(listOf(colors.shieldDashAccent, colors.pulseAccent)), color = colors.shieldDashAccent)
         "Gravity Flip" -> ArcadeGameAccent(label = "Gravity Flip", brush = Brush.linearGradient(listOf(colors.gravityFlipAccent, colors.reward)), color = colors.gravityFlipAccent)
         else -> ArcadeGameAccent(label = label, brush = Brush.linearGradient(listOf(colors.stackAccent, colors.reward)), color = colors.stackAccent)
+    }
+}
+
+@Composable
+fun ArcadeMarquee(
+    resId: Int,
+    contentDescription: String,
+    accentColor: Color,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(24.dp))
+            .background(Color(0xFF181A20)) // Cabinet bezel base
+            .border(3.dp, Color(0xFF2C2F36), RoundedCornerShape(24.dp)) // Outer plastic molding
+            .padding(6.dp)
+    ) {
+        Column {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(18.dp))
+            ) {
+                Image(
+                    painter = painterResource(id = resId),
+                    contentDescription = contentDescription,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(3f),
+                    contentScale = ContentScale.Crop
+                )
+                // Acrylic sheen overlay
+                Box(
+                    modifier = Modifier
+                        .matchParentSize()
+                        .background(
+                            Brush.verticalGradient(
+                                listOf(
+                                    Color.White.copy(alpha = 0.15f),
+                                    Color.Transparent,
+                                    Color.Black.copy(alpha = 0.35f)
+                                )
+                            )
+                        )
+                )
+            }
+            // Neon accent strip
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(6.dp)
+                    .padding(top = 2.dp)
+                    .clip(RoundedCornerShape(3.dp))
+                    .background(
+                        Brush.horizontalGradient(
+                            listOf(
+                                accentColor.copy(alpha = 0.3f),
+                                accentColor,
+                                accentColor.copy(alpha = 0.3f)
+                            )
+                        )
+                    )
+            )
+        }
+    }
+}
+
+@Composable
+fun ArcadePlayButton(
+    label: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    accentColor: Color = MaterialTheme.colorScheme.primary,
+    testTag: String = ""
+) {
+    val reducedEffects = ArcadeTheme.reducedEffects
+    val scale = if (reducedEffects) {
+        1f
+    } else {
+        val infiniteTransition = rememberInfiniteTransition(label = "play_btn")
+        val animatedScale by infiniteTransition.animateFloat(
+            initialValue = 1f,
+            targetValue = 1.04f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(1000, easing = androidx.compose.animation.core.FastOutSlowInEasing),
+                repeatMode = RepeatMode.Reverse
+            ),
+            label = "scale"
+        )
+        animatedScale
+    }
+
+    Box(
+        modifier = modifier
+            .graphicsLayer {
+                scaleX = scale
+                scaleY = scale
+            }
+            .shadow(
+                elevation = 12.dp,
+                shape = RoundedCornerShape(20.dp),
+                ambientColor = accentColor.copy(alpha = 0.5f),
+                spotColor = accentColor
+            )
+            .clip(RoundedCornerShape(20.dp))
+            .background(
+                Brush.verticalGradient(
+                    listOf(
+                        accentColor.copy(alpha = 0.9f),
+                        accentColor
+                    )
+                )
+            )
+            .border(
+                border = BorderStroke(2.dp, Color.White.copy(alpha = 0.6f)),
+                shape = RoundedCornerShape(20.dp)
+            )
+            .then(
+                if (enabled) {
+                    Modifier.clickable { onClick() }
+                } else {
+                    Modifier
+                }
+            )
+            .padding(vertical = 14.dp, horizontal = 24.dp)
+            .testTag(testTag),
+        contentAlignment = Alignment.Center
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Text(
+                text = "▶",
+                color = Color.White,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Black
+            )
+            Text(
+                text = label.uppercase(),
+                color = Color.White,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Black,
+                letterSpacing = 1.sp
+            )
+        }
     }
 }

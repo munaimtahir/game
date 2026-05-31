@@ -24,13 +24,16 @@ import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
-import com.vexel.offlinearcade.core.ui.PremiumButton
+import com.vexel.offlinearcade.core.ui.ArcadeMarquee
+import com.vexel.offlinearcade.core.ui.ArcadePlayButton
 import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
 
 @Composable
 fun LaneDriftDetailScreen(
     stats: GameStats?,
+    coins: Int,
+    streak: Int,
     onPlay: () -> Unit,
     onBack: () -> Unit,
 ) {
@@ -46,22 +49,15 @@ fun LaneDriftDetailScreen(
         onBack = onBack,
         resetScrollOnEnter = true,
         screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.LaneDriftDetail,
+        coins = coins,
+        streak = streak,
     ) {
         if (headerResId != 0) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(24.dp))
-            ) {
-                Image(
-                    painter = painterResource(id = headerResId),
-                    contentDescription = "Lane Drift Header",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(1.78f),
-                    contentScale = ContentScale.Crop
-                )
-            }
+            ArcadeMarquee(
+                resId = headerResId,
+                contentDescription = "Lane Drift Header",
+                accentColor = ArcadeTheme.colors.laneAccent
+            )
         } else {
             HeroPanel(
                 overline = "Speed & Reflexes",
@@ -87,10 +83,12 @@ fun LaneDriftDetailScreen(
             }
         }
 
-        PremiumButton(
+        ArcadePlayButton(
             label = "Start Game",
             onClick = onPlay,
-            modifier = Modifier.fillMaxWidth().height(56.dp).testTag(com.vexel.offlinearcade.core.ui.ArcadeTestTags.LaneDriftStartButton)
+            accentColor = ArcadeTheme.colors.laneAccent,
+            modifier = Modifier.fillMaxWidth().height(56.dp),
+            testTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.LaneDriftStartButton
         )
 
         androidx.compose.foundation.layout.Spacer(modifier = Modifier.height(spacing.xl))

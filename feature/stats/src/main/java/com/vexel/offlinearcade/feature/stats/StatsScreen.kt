@@ -26,6 +26,8 @@ import com.vexel.offlinearcade.core.ui.gameAccentFor
 @Composable
 fun StatsScreen(
     stats: List<GameStats>,
+    coins: Int,
+    streak: Int,
     onBack: () -> Unit,
 ) {
     val totalRuns = stats.sumOf { it.sessionsPlayed }
@@ -38,6 +40,8 @@ fun StatsScreen(
         title = "Stats",
         onBack = onBack,
         screenTestTag = ArcadeTestTags.StatsScreen,
+        coins = coins,
+        streak = streak,
     ) {
         SectionHeader(
             title = "Player Snapshot",

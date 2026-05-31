@@ -26,6 +26,8 @@ import com.vexel.offlinearcade.core.ui.gameAccentFor
 @Composable
 fun ChallengesScreen(
     challenges: List<DailyChallenge>,
+    coins: Int,
+    streak: Int,
     onBack: () -> Unit,
 ) {
     val completeCount = challenges.count { it.completed }
@@ -35,6 +37,8 @@ fun ChallengesScreen(
         title = "Daily Challenges",
         onBack = onBack,
         screenTestTag = ArcadeTestTags.ChallengesScreen,
+        coins = coins,
+        streak = streak,
     ) {
         SectionHeader(
             title = "Daily Circuit",

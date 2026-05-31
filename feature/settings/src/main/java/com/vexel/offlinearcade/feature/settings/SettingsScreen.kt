@@ -24,6 +24,8 @@ import com.vexel.offlinearcade.core.ui.StatRow
 fun SettingsScreen(
     settings: SettingsState,
     premiumUnlocked: Boolean,
+    coins: Int,
+    streak: Int,
     onToggleSound: (Boolean) -> Unit,
     onToggleMusic: (Boolean) -> Unit,
     onToggleVibration: (Boolean) -> Unit,
@@ -35,6 +37,8 @@ fun SettingsScreen(
         title = "Settings",
         onBack = onBack,
         screenTestTag = ArcadeTestTags.SettingsScreen,
+        coins = coins,
+        streak = streak,
     ) {
         SectionHeader(
             title = "Control Cluster",

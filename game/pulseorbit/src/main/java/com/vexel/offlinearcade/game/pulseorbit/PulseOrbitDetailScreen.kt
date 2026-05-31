@@ -26,13 +26,16 @@ import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
-import com.vexel.offlinearcade.core.ui.PremiumButton
+import com.vexel.offlinearcade.core.ui.ArcadeMarquee
+import com.vexel.offlinearcade.core.ui.ArcadePlayButton
 import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
 
 @Composable
 fun PulseOrbitDetailScreen(
     stats: GameStats?,
+    coins: Int,
+    streak: Int,
     onPlay: () -> Unit,
     onBack: () -> Unit,
 ) {
@@ -48,22 +51,15 @@ fun PulseOrbitDetailScreen(
         onBack = onBack,
         resetScrollOnEnter = true,
         screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitDetail,
+        coins = coins,
+        streak = streak,
     ) {
         if (headerResId != 0) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(24.dp))
-            ) {
-                Image(
-                    painter = painterResource(id = headerResId),
-                    contentDescription = "Pulse Orbit Header",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(1.78f),
-                    contentScale = ContentScale.Crop
-                )
-            }
+            ArcadeMarquee(
+                resId = headerResId,
+                contentDescription = "Pulse Orbit Header",
+                accentColor = ArcadeTheme.colors.pulseAccent
+            )
         } else {
             HeroPanel(
                 overline = "Rhythm & Timing",
@@ -88,10 +84,12 @@ fun PulseOrbitDetailScreen(
             }
         }
 
-        PremiumButton(
+        ArcadePlayButton(
             label = "Start Game",
             onClick = onPlay,
-            modifier = Modifier.fillMaxWidth().height(56.dp).testTag(com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitStartButton)
+            accentColor = ArcadeTheme.colors.pulseAccent,
+            modifier = Modifier.fillMaxWidth().height(56.dp),
+            testTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitStartButton
         )
         
         androidx.compose.foundation.layout.Spacer(modifier = Modifier.height(spacing.xl))

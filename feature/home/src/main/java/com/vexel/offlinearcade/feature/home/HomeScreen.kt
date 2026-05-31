@@ -6,6 +6,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.runtime.remember
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -35,6 +36,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -58,6 +60,7 @@ import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.SectionHeader
 import com.vexel.offlinearcade.core.ui.gameAccentFor
+import com.vexel.offlinearcade.core.ui.ArcadeMarquee
 
 @Composable
 fun HomeScreen(
@@ -112,6 +115,8 @@ fun HomeScreen(
         title = "Arcade Home",
         scrollable = false,
         screenTestTag = ArcadeTestTags.HomeScreen,
+        coins = profile.coins,
+        streak = profile.currentStreakDays,
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
@@ -125,20 +130,11 @@ fun HomeScreen(
             item(span = { GridItemSpan(2) }) {
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     if (headerResId != 0) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clip(RoundedCornerShape(24.dp))
-                        ) {
-                            Image(
-                                painter = painterResource(id = headerResId),
-                                contentDescription = "Arcade Home Header",
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .aspectRatio(3f),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
+                        ArcadeMarquee(
+                            resId = headerResId,
+                            contentDescription = "Arcade Home Header",
+                            accentColor = MaterialTheme.colorScheme.primary
+                        )
                     } else {
                         HeroPanel(
                             overline = "Daily Session",
@@ -238,8 +234,9 @@ private fun GameCard(
     testTag: String,
 ) {
     val accent = gameAccentFor(title)
-    val containerColor = if (isFeatured) accent.color.copy(alpha = 0.08f) else ArcadeTheme.colors.elevatedCardBackground
-    val borderColor = if (isFeatured) accent.color else ArcadeTheme.colors.outlineMuted
+    
+    val borderColor = if (isFeatured) accent.color else accent.color.copy(alpha = 0.35f)
+    val borderWidth = if (isFeatured) 2.dp else 1.dp
     
     val context = LocalContext.current
     val iconName = when (title) {
@@ -259,71 +256,88 @@ private fun GameCard(
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .aspectRatio(0.85f)
-            .clip(RoundedCornerShape(28.dp))
+            .clip(RoundedCornerShape(20.dp))
             .testTag(testTag)
             .clickable { onPlay() },
-        color = containerColor,
-        shape = RoundedCornerShape(28.dp),
-        border = androidx.compose.foundation.BorderStroke(1.5.dp, borderColor)
+        color = ArcadeTheme.colors.elevatedCardBackground,
+        shape = RoundedCornerShape(20.dp),
+        border = androidx.compose.foundation.BorderStroke(borderWidth, borderColor),
+        shadowElevation = if (isFeatured) 8.dp else 2.dp
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.SpaceBetween
+            modifier = Modifier.fillMaxWidth()
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.Top
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(1.2f)
+                    .background(Color(0xFF181A20))
             ) {
                 if (iconResId != 0) {
                     Image(
                         painter = painterResource(id = iconResId),
                         contentDescription = title,
-                        modifier = Modifier
-                            .size(48.dp)
-                            .clip(RoundedCornerShape(12.dp)),
+                        modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop
                     )
                 } else {
                     Box(
-                        modifier = Modifier
-                            .size(44.dp)
-                            .clip(CircleShape)
-                            .background(accent.color.copy(alpha = 0.2f)),
+                        modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Icon(
-                            imageVector = if (isFeatured) Icons.Default.Star else Icons.Default.PlayArrow,
-                            contentDescription = null,
-                            tint = accent.color,
-                            modifier = Modifier.size(24.dp)
+                        Text(
+                            title.take(2).uppercase(),
+                            color = accent.color,
+                            style = MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.Black
                         )
                     }
                 }
                 
                 if (highScore > 0) {
-                    Column(horizontalAlignment = Alignment.End) {
+                    Row(
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .padding(8.dp)
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(Color.Black.copy(alpha = 0.65f))
+                            .border(1.dp, accent.color.copy(alpha = 0.8f), RoundedCornerShape(6.dp))
+                            .padding(horizontal = 6.dp, vertical = 3.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(3.dp)
+                    ) {
+                        Text("🏆", fontSize = 10.sp)
                         Text(
-                            "BEST",
+                            text = highScore.toString(),
                             style = MaterialTheme.typography.labelSmall,
-                            color = ArcadeTheme.colors.textSecondary,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            highScore.toString(),
-                            style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Black,
-                            color = ArcadeTheme.colors.textPrimary
+                            color = Color.White
                         )
                     }
                 }
+                
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(24.dp)
+                        .align(Alignment.BottomCenter)
+                        .background(
+                            Brush.verticalGradient(
+                                listOf(Color.Transparent, Color.Black.copy(alpha = 0.4f))
+                            )
+                        )
+                )
             }
-
-            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(12.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
                 Text(
                     title,
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Black,
                     color = ArcadeTheme.colors.textPrimary,
                     maxLines = 1,
@@ -333,8 +347,7 @@ private fun GameCard(
                     description,
                     style = MaterialTheme.typography.bodySmall,
                     color = ArcadeTheme.colors.textSecondary,
-                    maxLines = 2,
-                    lineHeight = 16.sp,
+                    maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
             }
