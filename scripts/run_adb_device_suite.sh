@@ -36,7 +36,7 @@ require_file() {
 validate_locked_spec() {
   echo "Validating locked app spec shape..."
 
-  local -a expected_games=("brickvolley" "gravityflip" "lanedrift" "loopsnake" "pulseorbit" "shielddash" "stackdrop")
+  local -a expected_games=("brickvolley" "lanedrift" "loopsnake" "pulseorbit" "shielddash" "stackdrop")
   local -a actual_games=()
   local game_dir
   while IFS= read -r game_dir; do
