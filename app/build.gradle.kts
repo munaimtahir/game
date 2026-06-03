@@ -32,7 +32,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.vexel.offlinearcade"
+        applicationId = "com.vexel.arcadetrio"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
