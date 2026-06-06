@@ -1,4 +1,4 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -10,7 +10,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
-import com.vexel.offlinearcade.BuildConfig
+import com.vexel.arcadetrio.BuildConfig
 import com.vexel.offlinearcade.core.ui.OfflineMiniArcadeTheme
 import kotlinx.coroutines.delay
 import androidx.compose.animation.core.Animatable
@@ -54,7 +54,7 @@ fun ArcadeApp(
     // Force reduced effects in test environments to prevent infinite animations from blocking tests
     val isTest = remember {
         try {
-            Class.forName("com.vexel.offlinearcade.ChallengeUpdateTest")
+            Class.forName("com.vexel.arcadetrio.ChallengeUpdateTest")
             true
         } catch (e: Exception) {
             false

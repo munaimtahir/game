@@ -28,15 +28,15 @@ val hasReleaseSigning =
         !releaseKeyPassword.isNullOrBlank()
 
 android {
-    namespace = "com.vexel.offlinearcade"
+    namespace = "com.vexel.arcadetrio"
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.vexel.arcadetrio"
         minSdk = 24
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 3
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -76,6 +76,9 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
+            ndk {
+                debugSymbolLevel = "symbol_table"
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -145,7 +148,6 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.tooling.preview)
     implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.datastore.preferences)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.google.material)
 

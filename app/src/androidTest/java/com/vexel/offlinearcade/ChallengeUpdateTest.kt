@@ -1,4 +1,4 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.vexel.offlinearcade.core.model.GameId

@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,10 +24,6 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -39,10 +34,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -55,12 +48,9 @@ import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
-import com.vexel.offlinearcade.core.ui.HudPill
-import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.SectionHeader
 import com.vexel.offlinearcade.core.ui.gameAccentFor
-import com.vexel.offlinearcade.core.ui.ArcadeMarquee
 
 @Composable
 fun HomeScreen(
@@ -78,11 +68,6 @@ fun HomeScreen(
     val spacing = ArcadeTheme.spacing
     val completedChallenges = todayChallenges.count { it.completed }
     val continueGame = stats.maxByOrNull { it.sessionsPlayed.takeIf { count -> count > 0 } ?: -1 }?.gameId ?: GameId.PULSE_ORBIT
-    
-    val context = LocalContext.current
-    val headerResId = remember(context) {
-        context.resources.getIdentifier("arcade_home_header", "drawable", context.packageName)
-    }
 
     val gameCards = listOf(
         HomeGameEntry(
@@ -128,62 +113,17 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(spacing.md),
         ) {
             item(span = { GridItemSpan(2) }) {
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    if (headerResId != 0) {
-                        ArcadeMarquee(
-                            resId = headerResId,
-                            contentDescription = "Arcade Home Header",
-                            accentColor = MaterialTheme.colorScheme.primary
-                        )
-                    } else {
-                        HeroPanel(
-                            overline = "Daily Session",
-                            title = "Keep the streak.",
-                            subtitle = "Instant offline play. No ads in-game.",
-                        )
-                    }
-                    
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        PremiumBadge(
-                            text = "${profile.currentStreakDays} Day Streak",
-                            color = ArcadeTheme.colors.premium,
-                        )
-                    }
-                }
-            }
-
-            item(span = { GridItemSpan(2) }) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(spacing.sm),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    HudPill(label = "Coins", value = profile.coins.toString(), modifier = Modifier.weight(1f))
-                    HudPill(label = "Daily", value = "$completedChallenges/${todayChallenges.size}", modifier = Modifier.weight(1f))
-                    PremiumButton(
-                        label = "Market",
-                        onClick = onMarketplace,
-                        style = ArcadeButtonStyle.Primary,
-                        modifier = Modifier.height(52.dp).weight(0.8f),
-                        labelOverride = "🛒"
-                    )
-                    PremiumButton(
-                        label = "Settings",
-                        onClick = onSettings,
-                        style = ArcadeButtonStyle.Secondary,
-                        modifier = Modifier.size(52.dp).testTag(ArcadeTestTags.SettingsEntry),
-                        labelOverride = "⚙"
-                    )
-                }
+                HeroPanel(
+                    overline = "Calm focus arcade",
+                    title = "Three games. One premium shell.",
+                    subtitle = "Fast offline runs, shared progression, and instant retries.",
+                )
             }
 
             item(span = { GridItemSpan(2) }) {
                 SectionHeader(
                     title = "Arcade Library",
-                    badge = continueGame.title,
+                    badge = "3 games",
                 )
             }
 
@@ -200,12 +140,14 @@ fun HomeScreen(
             }
             
             item(span = { GridItemSpan(2) }) {
-                Spacer(modifier = Modifier.height(spacing.sm))
-                SectionHeader(title = "Arcade Meta", subtitle = "Shared progression & daily tasks.")
+                SectionHeader(
+                    title = "Quick Actions",
+                    subtitle = "$completedChallenges/${todayChallenges.size} daily tasks complete",
+                )
             }
 
             item(span = { GridItemSpan(2) }) {
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.md)) {
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.sm)) {
                     PremiumButton(
                         label = "Daily Challenges",
                         onClick = onChallenges,
@@ -217,6 +159,23 @@ fun HomeScreen(
                         onClick = onStats,
                         modifier = Modifier.weight(1f).height(56.dp).testTag(ArcadeTestTags.StatsEntry),
                         style = ArcadeButtonStyle.Secondary
+                    )
+                }
+            }
+
+            item(span = { GridItemSpan(2) }) {
+                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(spacing.sm)) {
+                    PremiumButton(
+                        label = "Market",
+                        onClick = onMarketplace,
+                        style = ArcadeButtonStyle.Primary,
+                        modifier = Modifier.weight(1f).height(56.dp).testTag(ArcadeTestTags.MarketplaceEntry),
+                    )
+                    PremiumButton(
+                        label = "Settings",
+                        onClick = onSettings,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).height(56.dp).testTag(ArcadeTestTags.SettingsEntry),
                     )
                 }
             }

@@ -91,6 +91,7 @@ app/build/outputs/bundle/release/app-release.aab
 ## Pre-upload checklist
 
 - Confirm `versionCode` and `versionName` are updated in `app/build.gradle.kts`.
+- Confirm the current release build is `versionCode 3` and `versionName 1.0.2`.
 - Re-run `./scripts/run_adb_device_suite.sh` on a physical device.
 - Install and sanity-check the release variant locally if needed.
 - Confirm Play Store listing assets exist outside the repo:
@@ -105,7 +106,7 @@ app/build/outputs/bundle/release/app-release.aab
 
 These are not blocked at the Gradle level, but still need product/release work:
 
-- Final versioning is still baseline.
+- Release versioning should be bumped for each upload and recorded in the release notes.
 - Store listing metadata is not tracked in this repo.
 - Privacy policy URL is not defined in this repo.
 - Launcher/adaptive icon assets should be reviewed before store submission.

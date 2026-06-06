@@ -1,18 +1,16 @@
 package com.vexel.offlinearcade.core.data
 
 import android.content.Context
-import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.vexel.offlinearcade.core.common.ArcadeClock
 import com.vexel.offlinearcade.core.common.ArcadeDispatchers
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.RunResult
-import kotlinx.coroutines.CoroutineScope
+import com.vexel.offlinearcade.core.model.SettingsState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -31,20 +29,19 @@ import java.io.File
 class OfflineArcadeRepositoryRuntimeIntegrationTest {
     private val dispatcher = StandardTestDispatcher()
     private lateinit var context: Context
-    private lateinit var databaseFile: File
-    private lateinit var dataStoreFile: File
+    private lateinit var databaseFile: java.io.File
+    private lateinit var settingsStore: InMemorySettingsStore
 
     @Before
     fun setUp() {
         context = ApplicationProvider.getApplicationContext()
         databaseFile = File.createTempFile("offline-arcade", ".db")
-        dataStoreFile = File.createTempFile("offline-arcade", ".preferences_pb")
+        settingsStore = InMemorySettingsStore()
     }
 
     @After
     fun tearDown() {
         databaseFile.delete()
-        dataStoreFile.delete()
     }
 
     @Test
@@ -146,11 +143,6 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
     }
 
     private fun createRuntime(clock: ArcadeClock): RuntimeHarness {
-        val dataStoreScope = CoroutineScope(SupervisorJob() + dispatcher)
-        val dataStore = PreferenceDataStoreFactory.create(
-            scope = dataStoreScope,
-            produceFile = { dataStoreFile },
-        )
         val database = Room.databaseBuilder(context, ArcadeDatabase::class.java, databaseFile.absolutePath)
             .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
@@ -158,23 +150,20 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
         return RuntimeHarness(
             repository = OfflineArcadeRepository(
                 database = database,
-                preferences = dataStore,
+                preferences = settingsStore,
                 clock = clock,
                 dispatchers = ArcadeDispatchers(io = dispatcher, default = dispatcher),
             ),
             database = database,
-            scope = dataStoreScope,
         )
     }
 
     private data class RuntimeHarness(
         val repository: OfflineArcadeRepository,
         val database: ArcadeDatabase,
-        val scope: CoroutineScope,
     ) {
         fun close() {
             database.close()
-            scope.cancel()
         }
     }
 
@@ -182,5 +171,15 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
         var day: Long,
     ) : ArcadeClock {
         override fun currentEpochDay(): Long = day
+    }
+
+    private class InMemorySettingsStore : SettingsStore {
+        private val state = MutableStateFlow(SettingsState())
+
+        override val settings = state
+
+        override suspend fun updateSettings(transform: (SettingsState) -> SettingsState) {
+            state.value = transform(state.value)
+        }
     }
 }

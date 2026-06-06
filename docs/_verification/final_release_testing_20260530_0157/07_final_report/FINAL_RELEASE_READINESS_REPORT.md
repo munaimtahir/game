@@ -3,6 +3,10 @@
 ## Verdict
 **GO** — Ready for Play Store internal/closed testing track upload.
 
+## Release Version
+- **Version Code:** `3`
+- **Version Name:** `1.0.2`
+
 ## Tested Commit
 - **Branch:** `release/final-testing-suite`
 - **Commit SHA:** `b7566bfe716b1c744a65305065d7b4bdbcb933b7`

@@ -1,4 +1,4 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import android.content.Context
 import android.media.AudioManager

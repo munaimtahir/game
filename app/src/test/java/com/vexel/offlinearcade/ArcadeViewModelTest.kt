@@ -1,4 +1,4 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import com.vexel.offlinearcade.core.data.ArcadeRepository
 import com.vexel.offlinearcade.core.model.ArcadeSnapshot

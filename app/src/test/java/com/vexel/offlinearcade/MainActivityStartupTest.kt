@@ -1,4 +1,4 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import org.junit.Assert.assertNotNull
 import org.junit.Test

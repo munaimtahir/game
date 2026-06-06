@@ -1,4 +1,4 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

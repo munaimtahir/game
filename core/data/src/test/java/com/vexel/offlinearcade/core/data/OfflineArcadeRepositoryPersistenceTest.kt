@@ -1,16 +1,16 @@
 package com.vexel.offlinearcade.core.data
 
 import android.content.Context
-import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.vexel.offlinearcade.core.common.ArcadeClock
 import com.vexel.offlinearcade.core.common.ArcadeDispatchers
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.RunResult
-import kotlinx.coroutines.CoroutineScope
+import com.vexel.offlinearcade.core.model.SettingsState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -22,7 +22,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import java.io.File
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
@@ -31,7 +30,7 @@ class OfflineArcadeRepositoryPersistenceTest {
     private val dispatcher = StandardTestDispatcher()
     private lateinit var context: Context
     private lateinit var database: ArcadeDatabase
-    private lateinit var dataStoreFile: File
+    private lateinit var settingsStore: InMemorySettingsStore
     private lateinit var repository: OfflineArcadeRepository
 
     @Before
@@ -40,14 +39,10 @@ class OfflineArcadeRepositoryPersistenceTest {
         database = Room.inMemoryDatabaseBuilder(context, ArcadeDatabase::class.java)
             .allowMainThreadQueries()
             .build()
-        dataStoreFile = File.createTempFile("arcade", ".preferences_pb")
-        val dataStore = PreferenceDataStoreFactory.create(
-            scope = CoroutineScope(dispatcher),
-            produceFile = { dataStoreFile },
-        )
+        settingsStore = InMemorySettingsStore()
         repository = OfflineArcadeRepository(
             database = database,
-            preferences = dataStore,
+            preferences = settingsStore,
             clock = ArcadeClock { 20_000L },
             dispatchers = ArcadeDispatchers(io = dispatcher, default = dispatcher),
         )
@@ -56,7 +51,6 @@ class OfflineArcadeRepositoryPersistenceTest {
     @After
     fun tearDown() {
         database.close()
-        dataStoreFile.delete()
     }
 
     @Test
@@ -109,5 +103,15 @@ class OfflineArcadeRepositoryPersistenceTest {
         assertTrue(purchased)
         assertEquals("sunset_shift", snapshot.profile.selectedThemeId)
         assertTrue(snapshot.themes.first { it.id == "sunset_shift" }.unlocked)
+    }
+
+    private class InMemorySettingsStore : SettingsStore {
+        private val state = MutableStateFlow(SettingsState())
+
+        override val settings = state
+
+        override suspend fun updateSettings(transform: (SettingsState) -> SettingsState) {
+            state.value = transform(state.value)
+        }
     }
 }

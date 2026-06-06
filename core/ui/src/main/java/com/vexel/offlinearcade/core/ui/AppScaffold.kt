@@ -60,6 +60,11 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.onClick
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -123,11 +128,23 @@ fun ArcadeScaffold(
                     if (onBack != null) {
                         Box(
                             modifier = Modifier
-                                .size(40.dp)
+                                .size(48.dp)
                                 .clip(RoundedCornerShape(12.dp))
                                 .background(ArcadeTheme.colors.controlSurface)
                                 .border(1.dp, ArcadeTheme.colors.controlBorder, RoundedCornerShape(12.dp))
-                                .clickable { onBack() }
+                                .clickable(
+                                    role = Role.Button,
+                                    onClickLabel = "Back",
+                                    onClick = onBack,
+                                )
+                                .semantics {
+                                    role = Role.Button
+                                    contentDescription = "Back"
+                                    onClick(label = "Back") {
+                                        onBack()
+                                        true
+                                    }
+                                }
                                 .testTag(ArcadeTestTags.BackButton),
                             contentAlignment = Alignment.Center
                         ) {

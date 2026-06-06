@@ -1,4 +1,4 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

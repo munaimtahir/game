@@ -24,5 +24,6 @@
 ## Play Store Readiness
 - [x] App targetSdk meets Google Play requirements (SDK 35)
 - [x] Minimal permissions (VIBRATE only) requested in AndroidManifest.xml
+- [x] Release version is updated to `versionCode 3` / `versionName 1.0.2`
 - [x] Release bundle (.aab) successfully compiled with active optimization
 - [x] Signing key configurations match setup configurations locally without leaks

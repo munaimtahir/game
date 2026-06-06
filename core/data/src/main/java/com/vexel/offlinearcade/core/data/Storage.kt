@@ -1,9 +1,7 @@
 package com.vexel.offlinearcade.core.data
 
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.booleanPreferencesKey
-import androidx.datastore.preferences.core.edit
+import android.content.SharedPreferences
+import androidx.core.content.edit
 import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Entity
@@ -13,7 +11,10 @@ import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.RoomDatabase
 import com.vexel.offlinearcade.core.model.SettingsState
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 
 @Entity(tableName = "player_profile")
@@ -113,29 +114,60 @@ abstract class ArcadeDatabase : RoomDatabase() {
 }
 
 object ArcadePreferenceKeys {
-    val soundEnabled = booleanPreferencesKey("sound_enabled")
-    val musicEnabled = booleanPreferencesKey("music_enabled")
-    val vibrationEnabled = booleanPreferencesKey("vibration_enabled")
-    val reducedEffects = booleanPreferencesKey("reduced_effects")
-    val highContrastEnabled = booleanPreferencesKey("high_contrast_enabled")
+    const val soundEnabled = "sound_enabled"
+    const val musicEnabled = "music_enabled"
+    const val vibrationEnabled = "vibration_enabled"
+    const val reducedEffects = "reduced_effects"
+    const val highContrastEnabled = "high_contrast_enabled"
 }
 
-fun DataStore<Preferences>.settingsFlow(): Flow<SettingsState> = data.map { preferences ->
-    SettingsState(
-        soundEnabled = preferences[ArcadePreferenceKeys.soundEnabled] ?: true,
-        musicEnabled = preferences[ArcadePreferenceKeys.musicEnabled] ?: true,
-        vibrationEnabled = preferences[ArcadePreferenceKeys.vibrationEnabled] ?: true,
-        reducedEffects = preferences[ArcadePreferenceKeys.reducedEffects] ?: false,
-        highContrastEnabled = preferences[ArcadePreferenceKeys.highContrastEnabled] ?: false,
+fun SharedPreferences.settingsFlow(): Flow<SettingsState> = callbackFlow {
+    fun emitCurrent() {
+        trySend(readSettings())
+    }
+
+    emitCurrent()
+    val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
+        emitCurrent()
+    }
+    registerOnSharedPreferenceChangeListener(listener)
+    awaitClose {
+        unregisterOnSharedPreferenceChangeListener(listener)
+    }
+}.distinctUntilChanged()
+
+suspend fun SharedPreferences.updateSettings(settings: SettingsState) {
+    edit(commit = true) {
+        putBoolean(ArcadePreferenceKeys.soundEnabled, settings.soundEnabled)
+        putBoolean(ArcadePreferenceKeys.musicEnabled, settings.musicEnabled)
+        putBoolean(ArcadePreferenceKeys.vibrationEnabled, settings.vibrationEnabled)
+        putBoolean(ArcadePreferenceKeys.reducedEffects, settings.reducedEffects)
+        putBoolean(ArcadePreferenceKeys.highContrastEnabled, settings.highContrastEnabled)
+    }
+}
+
+fun SharedPreferences.readSettings(): SettingsState {
+    return SettingsState(
+        soundEnabled = getBoolean(ArcadePreferenceKeys.soundEnabled, true),
+        musicEnabled = getBoolean(ArcadePreferenceKeys.musicEnabled, true),
+        vibrationEnabled = getBoolean(ArcadePreferenceKeys.vibrationEnabled, true),
+        reducedEffects = getBoolean(ArcadePreferenceKeys.reducedEffects, false),
+        highContrastEnabled = getBoolean(ArcadePreferenceKeys.highContrastEnabled, false),
     )
 }
 
-suspend fun DataStore<Preferences>.updateSettings(settings: SettingsState) {
-    edit { preferences ->
-        preferences[ArcadePreferenceKeys.soundEnabled] = settings.soundEnabled
-        preferences[ArcadePreferenceKeys.musicEnabled] = settings.musicEnabled
-        preferences[ArcadePreferenceKeys.vibrationEnabled] = settings.vibrationEnabled
-        preferences[ArcadePreferenceKeys.reducedEffects] = settings.reducedEffects
-        preferences[ArcadePreferenceKeys.highContrastEnabled] = settings.highContrastEnabled
+interface SettingsStore {
+    val settings: Flow<SettingsState>
+
+    suspend fun updateSettings(transform: (SettingsState) -> SettingsState)
+}
+
+class SharedPreferencesSettingsStore(
+    private val sharedPreferences: SharedPreferences,
+) : SettingsStore {
+    override val settings: Flow<SettingsState> = sharedPreferences.settingsFlow()
+
+    override suspend fun updateSettings(transform: (SettingsState) -> SettingsState) {
+        sharedPreferences.updateSettings(transform(sharedPreferences.readSettings()))
     }
 }

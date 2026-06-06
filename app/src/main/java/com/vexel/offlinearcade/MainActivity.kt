@@ -1,9 +1,9 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.vexel.offlinearcade.BuildConfig
+import com.vexel.arcadetrio.BuildConfig
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

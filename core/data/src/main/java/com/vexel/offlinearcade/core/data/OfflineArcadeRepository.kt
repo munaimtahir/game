@@ -1,7 +1,5 @@
 package com.vexel.offlinearcade.core.data
 
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import com.vexel.offlinearcade.core.common.ArcadeClock
 import com.vexel.offlinearcade.core.common.ArcadeDispatchers
 import com.vexel.offlinearcade.core.model.ArcadeSnapshot
@@ -19,7 +17,7 @@ import kotlinx.coroutines.withContext
 
 class OfflineArcadeRepository(
     private val database: ArcadeDatabase,
-    private val preferences: DataStore<Preferences>,
+    private val preferences: SettingsStore,
     private val clock: ArcadeClock,
     private val dispatchers: ArcadeDispatchers,
 ) : ArcadeRepository {
@@ -32,7 +30,7 @@ class OfflineArcadeRepository(
             dao.observeStats(),
             dao.observeThemeUnlocks(),
             dao.observeSkinUnlocks(),
-            preferences.settingsFlow(),
+            preferences.settings,
             challengesForDay(clock.currentEpochDay()),
         ) { flows ->
             val profileEntity = flows[0] as PlayerProfileEntity?
@@ -65,8 +63,7 @@ class OfflineArcadeRepository(
 
     override suspend fun updateSettings(transform: (SettingsState) -> SettingsState) {
         withContext(dispatchers.io) {
-            val current = preferences.settingsFlow().first()
-            preferences.updateSettings(transform(current))
+            preferences.updateSettings(transform)
         }
     }
 

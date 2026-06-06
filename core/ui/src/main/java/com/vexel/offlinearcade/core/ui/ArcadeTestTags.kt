@@ -14,6 +14,7 @@ object ArcadeTestTags {
     const val ChallengesEntry = "challenges_entry"
     const val StatsEntry = "stats_entry"
     const val SettingsEntry = "settings_entry"
+    const val MarketplaceEntry = "marketplace_entry"
 
     const val PulseOrbitScreen = "pulse_orbit_screen"
     const val LaneDriftScreen = "lane_drift_screen"

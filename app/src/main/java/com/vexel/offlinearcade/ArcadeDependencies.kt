@@ -1,14 +1,12 @@
-package com.vexel.offlinearcade
+package com.vexel.arcadetrio
 
 import android.content.Context
-import androidx.datastore.preferences.preferencesDataStore
 import androidx.room.Room
 import com.vexel.offlinearcade.core.common.ArcadeDispatchers
 import com.vexel.offlinearcade.core.common.SystemArcadeClock
 import com.vexel.offlinearcade.core.data.ArcadeDatabase
 import com.vexel.offlinearcade.core.data.OfflineArcadeRepository
-
-private val Context.arcadePreferences by preferencesDataStore(name = "offline_arcade_preferences")
+import com.vexel.offlinearcade.core.data.SharedPreferencesSettingsStore
 
 object ArcadeDependencies {
     @Volatile
@@ -22,7 +20,12 @@ object ArcadeDependencies {
                     ArcadeDatabase::class.java,
                     "offline-arcade.db",
                 ).fallbackToDestructiveMigration().build(),
-                preferences = context.applicationContext.arcadePreferences,
+                preferences = SharedPreferencesSettingsStore(
+                    context.applicationContext.getSharedPreferences(
+                        "offline_arcade_preferences",
+                        Context.MODE_PRIVATE,
+                    ),
+                ),
                 clock = SystemArcadeClock,
                 dispatchers = ArcadeDispatchers(),
             ).also { repository = it }

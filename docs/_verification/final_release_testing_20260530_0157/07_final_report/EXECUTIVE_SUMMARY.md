@@ -20,4 +20,4 @@ The experimental games (*Brick Volley*, *Loop Snake*, *Shield Dash*) have been s
 * **Device Testing:** Successfully installed and executed gameplay validation on a connected physical **vivo V2109** (Android 13, API 33). All E2E instrumentation tests passed.
 * **Offline Guardrail:** Validated that app data structures, daily challenges, and game progression operate fully offline without external server dependencies.
 
-The Offline Mini Arcade is fully ready for closed/internal test track release on the Google Play Store.
+The Offline Mini Arcade is fully ready for closed/internal test track release on the Google Play Store as version `1.0.2` (`versionCode 3`).
