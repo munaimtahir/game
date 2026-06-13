@@ -1,22 +1,17 @@
 package com.vexel.offlinearcade.core.ui
 
-import android.app.Activity
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.view.WindowCompat
 
 // ────────────────────────────────────────────────────────────
 // Daylight Arcade — Global Palette Tokens
@@ -201,6 +196,7 @@ private val PremiumTypography = Typography(
     labelMedium = TextStyle(fontSize = 12.sp, lineHeight = 16.sp, fontWeight = FontWeight.SemiBold, letterSpacing = 0.3.sp),
 )
 
+@Suppress("UNUSED_PARAMETER")
 private fun getThemeColorScheme(themeId: String, highContrast: Boolean): androidx.compose.material3.ColorScheme {
     return lightColorScheme(
         primary             = DayPrimary,
@@ -260,18 +256,6 @@ fun OfflineMiniArcadeTheme(
 ) {
     val colorScheme = getThemeColorScheme(themeId, highContrast)
     val extendedColors = getExtendedColors(themeId, reducedEffects)
-    
-    val view = LocalView.current
-    if (!view.isInEditMode) {
-        SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.background.toArgb()
-            window.navigationBarColor = colorScheme.background.toArgb()
-            // Light theme: use dark icons on the bright status/nav bar
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
-            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = true
-        }
-    }
 
     androidx.compose.runtime.CompositionLocalProvider(
         LocalArcadeExtendedColors provides extendedColors,

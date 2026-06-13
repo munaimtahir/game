@@ -4,8 +4,8 @@
 **GO** — Ready for Play Store internal/closed testing track upload.
 
 ## Release Version
-- **Version Code:** `3`
-- **Version Name:** `1.0.2`
+- **Version Code:** `5`
+- **Version Name:** `1.0.4`
 
 ## Tested Commit
 - **Branch:** `release/final-testing-suite`

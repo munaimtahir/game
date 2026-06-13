@@ -5,8 +5,8 @@
 - Min SDK: 24
 - Target SDK: 35
 - Compile SDK: 35
-- Version Code: 3
-- Version Name: 1.0.2
+- Version Code: 5
+- Version Name: 1.0.4
 
 ## Gradle Modules
 - `app`

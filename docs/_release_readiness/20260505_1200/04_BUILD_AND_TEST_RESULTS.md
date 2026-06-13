@@ -10,7 +10,7 @@ The following command was executed to verify build integrity and tests:
 - **Lint**: PASS (Warnings were generated for unused parameters in `LaneDriftScreen.kt`, `PulseOrbitScreen.kt`, and `StackDropScreen.kt`, but no errors that break the build.)
 - **Release AAB Build**: PASS (`:app:bundleRelease` completed successfully)
 - **Manifest Merger**: PASS
-- **Version Check**: Version code `3`, version name `1.0.2`.
+- **Version Check**: Version code `5`, version name `1.0.4`.
 
 ## Warnings
 - **Lint**: "Parameter 'settings' is never used" in the three game screens.

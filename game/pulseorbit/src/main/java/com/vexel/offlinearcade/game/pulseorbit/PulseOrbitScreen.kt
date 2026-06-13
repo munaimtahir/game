@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -93,6 +93,7 @@ internal object PulseOrbitTuning {
 }
 
 @Composable
+@Suppress("UNUSED_PARAMETER")
 fun PulseOrbitScreen(
     stats: GameStats?,
     settings: SettingsState,
@@ -275,7 +276,7 @@ fun PulseOrbitScreen(
                         modifier = Modifier.testTag(ArcadeTestTags.BackButton)
                     ) {
                         androidx.compose.material3.Icon(
-                            Icons.Default.ArrowBack,
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
                             tint = colors.textPrimary
                         )

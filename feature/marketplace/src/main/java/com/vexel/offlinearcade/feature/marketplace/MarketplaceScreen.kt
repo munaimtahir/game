@@ -201,6 +201,7 @@ private fun ThemeChoiceCard(
 }
 
 @Composable
+@Suppress("UNUSED_PARAMETER")
 private fun SkinChoiceCard(
     skin: SkinUnlock,
     selectedSkinId: String,

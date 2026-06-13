@@ -10,7 +10,7 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -28,7 +28,6 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.vexel.offlinearcade.core.model.ArcadeFeedback
@@ -42,6 +41,7 @@ import kotlinx.coroutines.delay
 import kotlin.math.*
 
 @Composable
+@Suppress("UNUSED_PARAMETER")
 fun ShieldDashScreen(
     stats: GameStats?,
     settings: SettingsState,
@@ -53,7 +53,6 @@ fun ShieldDashScreen(
     var canvasSize by remember { mutableStateOf(androidx.compose.ui.geometry.Size.Zero) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var paused by remember { mutableStateOf(false) }
-    val textMeasurer = rememberTextMeasurer()
     val colors = ArcadeTheme.colors
     val blockPulse = remember { Animatable(0f) }
 
@@ -203,7 +202,7 @@ fun ShieldDashScreen(
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     androidx.compose.material3.IconButton(onClick = onBack) {
-                        androidx.compose.material3.Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
+                        androidx.compose.material3.Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
                     }
                     HudPill("Score", state.score.toString())
                 }

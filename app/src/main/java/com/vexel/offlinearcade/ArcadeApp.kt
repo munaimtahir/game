@@ -42,7 +42,6 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ArcadeApp(
     debugLaunchRoute: String? = null,
-    debugLaunchState: String? = null,
 ) {
     val context = LocalContext.current
     val viewModel: ArcadeViewModel = viewModel(factory = ArcadeViewModel.factory(ArcadeDependencies.repository(context)))

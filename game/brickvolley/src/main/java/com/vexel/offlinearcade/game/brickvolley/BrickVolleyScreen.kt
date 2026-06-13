@@ -10,7 +10,7 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -45,6 +45,7 @@ import kotlin.math.sin
 import androidx.compose.ui.graphics.lerp
 
 @Composable
+@Suppress("UNUSED_PARAMETER")
 fun BrickVolleyScreen(
     stats: GameStats?,
     settings: SettingsState,
@@ -112,12 +113,10 @@ fun BrickVolleyScreen(
                     val cellW = canvasSize.width / BrickVolleyTuning.columns
                     val cellH = canvasSize.height / BrickVolleyTuning.rows
                     
-                    var hit = false
                     for (i in currentBricks.indices) {
                         val b = currentBricks[i]
                         val bRect = Rect(b.col * cellW, b.row * cellH, (b.col + 1) * cellW, (b.row + 1) * cellH)
                         if (bRect.contains(newPos)) {
-                            hit = true
                             val updatedBrick = b.copy(hp = b.hp - 1)
                             if (updatedBrick.hp <= 0) {
                                 currentBricks.removeAt(i)
@@ -210,7 +209,7 @@ fun BrickVolleyScreen(
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     androidx.compose.material3.IconButton(onClick = onBack) {
-                        androidx.compose.material3.Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
+                        androidx.compose.material3.Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
                     }
                     HudPill("Score", state.score.toString(), modifier = Modifier.testTag(ArcadeTestTags.BrickVolleyScore))
                     HudPill("Balls", state.ballCount.toString())

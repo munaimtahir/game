@@ -86,6 +86,7 @@ private class ArcadeFeedbackController(
         toneGenerator.startTone(tone, durationMs)
     }
 
+    @Suppress("DEPRECATION")
     private fun vibrate(event: ArcadeFeedbackEvent) {
         if (!settingsState.vibrationEnabled) return
         val vibrator = vibrator ?: return
@@ -111,7 +112,6 @@ private class ArcadeFeedbackController(
                 }
                 vibrator.vibrate(VibrationEffect.createOneShot(durationMs, amplitude))
             } else {
-                @Suppress("DEPRECATION")
                 val durationMs = when (event) {
                     ArcadeFeedbackEvent.TAP -> 15L
                     ArcadeFeedbackEvent.SUCCESS -> 25L

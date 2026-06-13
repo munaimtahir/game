@@ -1,5 +1,4 @@
 <resources>
     <style name="Theme.OfflineMiniArcade" parent="">
-        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>

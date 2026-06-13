@@ -10,7 +10,7 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -35,6 +35,7 @@ import kotlinx.coroutines.delay
 import kotlin.math.abs
 
 @Composable
+@Suppress("UNUSED_PARAMETER")
 fun LoopSnakeScreen(
     stats: GameStats?,
     settings: SettingsState,
@@ -185,7 +186,7 @@ fun LoopSnakeScreen(
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     androidx.compose.material3.IconButton(onClick = onBack) {
-                        androidx.compose.material3.Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
+                        androidx.compose.material3.Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = colors.textPrimary)
                     }
                     HudPill("Score", state.score.toString(), modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeScore))
                     HudPill("Length", state.snake.size.toString(), modifier = Modifier.testTag(ArcadeTestTags.LoopSnakeLength))

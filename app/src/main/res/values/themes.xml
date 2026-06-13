@@ -1,7 +1,4 @@
 <resources>
     <style name="Theme.OfflineMiniArcade" parent="Theme.Material3.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/app_background</item>
-        <item name="android:navigationBarColor">@color/app_background</item>
-        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

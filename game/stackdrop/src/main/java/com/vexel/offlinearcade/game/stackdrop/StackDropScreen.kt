@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -57,6 +57,7 @@ import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
+@Suppress("UNUSED_PARAMETER")
 fun StackDropScreen(
     stats: GameStats?,
     settings: SettingsState,
@@ -237,8 +238,8 @@ fun StackDropScreen(
                         },
                         modifier = Modifier.testTag(ArcadeTestTags.BackButton)
                     ) {
-                        androidx.compose.material3.Icon(
-                            Icons.Default.ArrowBack,
+                            androidx.compose.material3.Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
                             tint = colors.textPrimary
                         )
