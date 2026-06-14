@@ -42,7 +42,18 @@ fun ArcadeNavHost(
     onUnlockSkin: (String) -> Unit,
     onSelectSkin: (String, GameId) -> Unit,
     onRecordRun: (RunResult) -> Unit,
+    onTutorialSeen: (GameId) -> Unit,
 ) {
+    fun navigateToGame(gameId: GameId) {
+        navController.navigate(
+            when (gameId) {
+                GameId.PULSE_ORBIT -> Routes.PulseOrbitGame
+                GameId.LANE_DRIFT -> Routes.LaneDriftGame
+                GameId.STACK_DROP -> Routes.StackDropGame
+            },
+        )
+    }
+
     NavHost(navController = navController, startDestination = Routes.Home) {
         composable(Routes.Home) {
             HomeScreen(
@@ -75,6 +86,8 @@ fun ArcadeNavHost(
                 settings = snapshot.settings,
                 equippedSkin = snapshot.profile.selectedPulseOrbitSkin,
                 feedback = feedback,
+                tutorialSeen = snapshot.profile.tutorialSeenPulseOrbit,
+                onTutorialSeen = { onTutorialSeen(GameId.PULSE_ORBIT) },
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
@@ -95,6 +108,8 @@ fun ArcadeNavHost(
                 stats = snapshot.statsByGame[GameId.LANE_DRIFT],
                 settings = snapshot.settings,
                 feedback = feedback,
+                tutorialSeen = snapshot.profile.tutorialSeenLaneDrift,
+                onTutorialSeen = { onTutorialSeen(GameId.LANE_DRIFT) },
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
                 debugConfig = if (BuildConfig.DEBUG) {
@@ -120,6 +135,8 @@ fun ArcadeNavHost(
                 stats = snapshot.statsByGame[GameId.STACK_DROP],
                 settings = snapshot.settings,
                 feedback = feedback,
+                tutorialSeen = snapshot.profile.tutorialSeenStackDrop,
+                onTutorialSeen = { onTutorialSeen(GameId.STACK_DROP) },
                 onRunComplete = onRecordRun,
                 onBack = { navController.popBackStack() },
             )
@@ -186,12 +203,15 @@ fun ArcadeNavHost(
                 challenges = snapshot.challenges,
                 coins = snapshot.profile.coins,
                 streak = snapshot.profile.currentStreakDays,
+                onPlayGame = ::navigateToGame,
                 onBack = { navController.popBackStack() }
             )
         }
         composable(Routes.Stats) {
             StatsScreen(
                 stats = snapshot.stats,
+                profile = snapshot.profile,
+                achievements = snapshot.achievements,
                 coins = snapshot.profile.coins,
                 streak = snapshot.profile.currentStreakDays,
                 onBack = { navController.popBackStack() }

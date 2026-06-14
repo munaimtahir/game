@@ -241,11 +241,17 @@ fun GameplayScaffold(
 ) {
     val spacing = ArcadeTheme.spacing
     val colors = ArcadeTheme.colors
+    val contentSafeSides = WindowInsets.safeDrawing.only(
+        if (controls == null) {
+            WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom
+        } else {
+            WindowInsetsSides.Horizontal
+        }
+    )
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(colors.gameBackground)
-            .windowInsetsPadding(WindowInsets.safeDrawing)
     ) {
         Column(
             modifier = Modifier
@@ -253,23 +259,38 @@ fun GameplayScaffold(
                 .padding(spacing.md),
             verticalArrangement = Arrangement.spacedBy(spacing.md)
         ) {
-            topBar()
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
+            ) {
+                topBar()
+            }
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)
+                    .windowInsetsPadding(contentSafeSides)
             ) {
                 content()
             }
             if (controls != null) {
-                controls()
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom))
+                ) {
+                    controls()
+                }
             }
         }
         if (overlay != null) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(colors.overlayScrim),
+                    .background(colors.overlayScrim)
+                    .windowInsetsPadding(WindowInsets.safeDrawing)
+                    .padding(spacing.md),
                 contentAlignment = Alignment.Center
             ) {
                 overlay()

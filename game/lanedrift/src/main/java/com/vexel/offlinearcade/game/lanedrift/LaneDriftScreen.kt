@@ -53,8 +53,11 @@ import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
+import com.vexel.offlinearcade.core.ui.CompletionPopup
+import com.vexel.offlinearcade.core.ui.GameTutorialContent
 import com.vexel.offlinearcade.core.ui.GameplayScaffold
 import com.vexel.offlinearcade.core.ui.HudPill
+import com.vexel.offlinearcade.core.ui.HowToPlayOverlay
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
 import com.vexel.offlinearcade.core.ui.StatRow
@@ -139,6 +142,8 @@ fun LaneDriftScreen(
     stats: GameStats?,
     settings: SettingsState,
     feedback: ArcadeFeedback,
+    tutorialSeen: Boolean,
+    onTutorialSeen: () -> Unit,
     onRunComplete: (RunResult) -> Unit,
     onBack: () -> Unit,
     debugConfig: LaneDriftDebugConfig? = null,
@@ -146,6 +151,8 @@ fun LaneDriftScreen(
     var state by remember { mutableStateOf(LaneDriftState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
+    var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
+    var showCompletionSummary by remember { mutableStateOf(false) }
     val random = remember(debugConfig?.randomSeed) {
         Random(debugConfig?.randomSeed ?: System.currentTimeMillis())
     }
@@ -161,6 +168,7 @@ fun LaneDriftScreen(
 
     fun restart() {
         hasReportedRun = false
+        showCompletionSummary = false
         lastFrameNanos = 0L
         state = LaneDriftState(
             playing = true,
@@ -170,6 +178,19 @@ fun LaneDriftScreen(
             message = "Clean lane. Collect shards.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
+    }
+
+    fun showHowToPlay() {
+        if (state.playing && !state.paused && !state.gameOver) {
+            state = state.copy(playing = false, paused = true)
+        }
+        showTutorial = true
+    }
+
+    fun closeTutorial(startAfterClose: Boolean) {
+        onTutorialSeen()
+        showTutorial = false
+        if (startAfterClose) restart()
     }
 
     fun togglePause() {
@@ -349,11 +370,44 @@ fun LaneDriftScreen(
                 coinsEarned = state.pickups * 3 + state.score / 20,
             ),
         )
+        showCompletionSummary = true
     }
 
     val colors = ArcadeTheme.colors
 
     val overlayContent: (@Composable () -> Unit)? = when {
+        showTutorial -> {
+            {
+                HowToPlayOverlay(
+                    content = GameTutorialContent(
+                        gameId = GameId.LANE_DRIFT,
+                        title = "How to Play Lane Drift",
+                        lines = listOf(
+                            "Move between lanes.",
+                            "Avoid blockers.",
+                            "Collect energy shards as speed increases.",
+                        ),
+                        controls = "Swipe left or right.",
+                        goal = "Travel farther and collect more shards.",
+                    ),
+                    onPlay = { closeTutorial(startAfterClose = true) },
+                    onSkip = { closeTutorial(startAfterClose = false) },
+                )
+            }
+        }
+        state.gameOver && showCompletionSummary -> {
+            {
+                CompletionPopup(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New High Score" else "Run Summary",
+                    lines = listOf(
+                        "Score: ${state.score}",
+                        "Shards: ${state.pickups}",
+                        "Daily challenges and achievements updated after the run.",
+                    ),
+                    onContinue = { showCompletionSummary = false },
+                )
+            }
+        }
         state.paused -> {
             {
                 PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or restart.") {
@@ -361,6 +415,7 @@ fun LaneDriftScreen(
                         StatRow("Score", state.score.toString())
                         StatRow("Pickups", state.pickups.toString())
                         PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "How to Play", onClick = ::showHowToPlay, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                         PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                         PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
@@ -417,12 +472,20 @@ fun LaneDriftScreen(
                         HudPill("Score", state.score.toString())
                         HudPill("Pickups", state.pickups.toString())
                     }
-                    PremiumButton(
-                        label = if (state.paused) "Resume" else "Pause",
-                        onClick = ::togglePause,
-                        style = ArcadeButtonStyle.Secondary,
-                        enabled = state.playing || state.paused,
-                    )
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                        PremiumButton(
+                            label = "How",
+                            onClick = ::showHowToPlay,
+                            style = ArcadeButtonStyle.Secondary,
+                            borderOverride = colors.primaryCyan,
+                        )
+                        PremiumButton(
+                            label = if (state.paused) "Resume" else "Pause",
+                            onClick = ::togglePause,
+                            style = ArcadeButtonStyle.Secondary,
+                            enabled = state.playing || state.paused,
+                        )
+                    }
                 }
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                     Text(

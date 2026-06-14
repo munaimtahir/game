@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.vexel.offlinearcade.game.lanedrift"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24

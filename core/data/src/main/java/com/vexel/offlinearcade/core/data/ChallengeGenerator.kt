@@ -14,7 +14,7 @@ object DailyChallengeGenerator {
         val laneReward = 25 + random.nextInt(11)
         val stackTarget = 4 + random.nextInt(4)
         val stackReward = 30 + random.nextInt(11)
-        val bundleTarget = 3 + random.nextInt(2)
+        val bundleTarget = 2
         val bundleReward = 50 + random.nextInt(21)
         
         return listOf(
@@ -53,8 +53,8 @@ object DailyChallengeGenerator {
                 epochDay = epochDay,
                 gameId = null,
                 title = "Arcade Circuit",
-                description = "Finish $bundleTarget arcade runs today.",
-                metric = ChallengeMetric.ARCADE_RUNS,
+                description = "Complete any $bundleTarget of the 3 game challenges.",
+                metric = ChallengeMetric.DAILY_COMPLETIONS,
                 targetValue = bundleTarget,
                 rewardCoins = bundleReward,
             ),

@@ -12,11 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.DailyChallenge
+import com.vexel.offlinearcade.core.model.GameId
+import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.PremiumBadge
+import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumProgress
 import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
@@ -28,6 +31,7 @@ fun ChallengesScreen(
     challenges: List<DailyChallenge>,
     coins: Int,
     streak: Int,
+    onPlayGame: (GameId) -> Unit,
     onBack: () -> Unit,
 ) {
     val completeCount = challenges.count { it.completed }
@@ -73,6 +77,7 @@ fun ChallengesScreen(
                     rowChallenges.forEach { challenge ->
                         GameChallengeCard(
                             challenge = challenge,
+                            onPlayGame = onPlayGame,
                             modifier = Modifier.weight(1f),
                         )
                     }
@@ -88,6 +93,7 @@ fun ChallengesScreen(
 @Composable
 private fun GameChallengeCard(
     challenge: DailyChallenge,
+    onPlayGame: (GameId) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val gameId = challenge.gameId ?: return
@@ -107,5 +113,11 @@ private fun GameChallengeCard(
         PremiumProgress(progress = progressFraction, label = "Progress", accent = accent.color)
         StatRow("Current", "${challenge.progress}/${challenge.targetValue}")
         StatRow("Reward", "${challenge.rewardCoins} coins", valueColor = ArcadeTheme.colors.reward)
+        PremiumButton(
+            label = if (challenge.completed) "Play Again" else "Continue",
+            onClick = { onPlayGame(gameId) },
+            modifier = Modifier.fillMaxWidth(),
+            style = if (challenge.completed) ArcadeButtonStyle.Secondary else ArcadeButtonStyle.Primary,
+        )
     }
 }

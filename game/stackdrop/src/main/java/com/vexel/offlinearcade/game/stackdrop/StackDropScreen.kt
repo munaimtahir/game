@@ -47,8 +47,11 @@ import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
+import com.vexel.offlinearcade.core.ui.CompletionPopup
+import com.vexel.offlinearcade.core.ui.GameTutorialContent
 import com.vexel.offlinearcade.core.ui.GameplayScaffold
 import com.vexel.offlinearcade.core.ui.HudPill
+import com.vexel.offlinearcade.core.ui.HowToPlayOverlay
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
 import com.vexel.offlinearcade.core.ui.StatRow
@@ -62,6 +65,8 @@ fun StackDropScreen(
     stats: GameStats?,
     settings: SettingsState,
     feedback: ArcadeFeedback,
+    tutorialSeen: Boolean,
+    onTutorialSeen: () -> Unit,
     onRunComplete: (RunResult) -> Unit,
     onBack: () -> Unit,
 ) {
@@ -70,6 +75,8 @@ fun StackDropScreen(
     var lastTickMillis by remember { mutableLongStateOf(0L) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var paused by remember { mutableStateOf(false) }
+    var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
+    var showCompletionSummary by remember { mutableStateOf(false) }
     val gestureThresholds = rememberArcadeGestureThresholdsPx()
     val lineClearFlash = remember { androidx.compose.animation.core.Animatable(0f) }
 
@@ -77,8 +84,22 @@ fun StackDropScreen(
         state = engine.newState()
         lastTickMillis = System.currentTimeMillis()
         hasReportedRun = false
+        showCompletionSummary = false
         paused = false
         feedback.play(ArcadeFeedbackEvent.TAP)
+    }
+
+    fun showHowToPlay() {
+        if (state.playing && !paused && !state.gameOver) {
+            paused = true
+        }
+        showTutorial = true
+    }
+
+    fun closeTutorial(startAfterClose: Boolean) {
+        onTutorialSeen()
+        showTutorial = false
+        if (startAfterClose) restart()
     }
 
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -149,6 +170,7 @@ fun StackDropScreen(
                 coinsEarned = state.linesCleared * 4 + state.score / 40,
             ),
         )
+        showCompletionSummary = true
     }
 
     val colors = ArcadeTheme.colors
@@ -156,6 +178,38 @@ fun StackDropScreen(
     val reducedEffects = ArcadeTheme.reducedEffects
 
     val overlayContent: (@Composable () -> Unit)? = when {
+        showTutorial -> {
+            {
+                HowToPlayOverlay(
+                    content = GameTutorialContent(
+                        gameId = GameId.STACK_DROP,
+                        title = "How to Play Stack Drop",
+                        lines = listOf(
+                            "Move and rotate falling blocks.",
+                            "Complete horizontal lines to clear them.",
+                            "The run ends when the stack reaches the top.",
+                        ),
+                        controls = "Left, right, rotate, and drop.",
+                        goal = "Clear lines and beat your best score.",
+                    ),
+                    onPlay = { closeTutorial(startAfterClose = true) },
+                    onSkip = { closeTutorial(startAfterClose = false) },
+                )
+            }
+        }
+        state.gameOver && showCompletionSummary -> {
+            {
+                CompletionPopup(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New High Score" else "Run Summary",
+                    lines = listOf(
+                        "Score: ${state.score}",
+                        "Lines: ${state.linesCleared}",
+                        "Daily challenges and achievements updated after the run.",
+                    ),
+                    onContinue = { showCompletionSummary = false },
+                )
+            }
+        }
         paused -> {
             {
                 PremiumOverlayCard(title = "Run paused", subtitle = "Resume, restart, or leave the board.") {
@@ -163,6 +217,7 @@ fun StackDropScreen(
                         StatRow("Score", state.score.toString())
                         StatRow("Lines", state.linesCleared.toString())
                         PremiumButton(label = "Resume", onClick = { paused = false }, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "How to Play", onClick = ::showHowToPlay, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                         PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                         PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
@@ -247,12 +302,20 @@ fun StackDropScreen(
                     HudPill("Score", state.score.toString())
                     HudPill("Lines", state.linesCleared.toString())
                 }
-                PremiumButton(
-                    label = if (paused) "Resume" else "Pause",
-                    onClick = { if (!state.gameOver && (state.playing || paused)) paused = !paused },
-                    style = ArcadeButtonStyle.Secondary,
-                    enabled = state.playing || paused,
-                )
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    PremiumButton(
+                        label = "How",
+                        onClick = ::showHowToPlay,
+                        style = ArcadeButtonStyle.Secondary,
+                        borderOverride = colors.primaryCyan,
+                    )
+                    PremiumButton(
+                        label = if (paused) "Resume" else "Pause",
+                        onClick = { if (!state.gameOver && (state.playing || paused)) paused = !paused },
+                        style = ArcadeButtonStyle.Secondary,
+                        enabled = state.playing || paused,
+                    )
+                }
             }
         },
         controls = {

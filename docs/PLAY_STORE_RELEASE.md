@@ -88,10 +88,27 @@ Primary output:
 app/build/outputs/bundle/release/app-release.aab
 ```
 
+## Release notes for 1.0.8
+
+Version 1.0.8
+
+- Added How-to-Play guidance for Pulse Orbit, Lane Drift, and Stack Drop.
+- Improved local progression foundations including high scores, sessions, daily challenges, achievements, and stats where supported.
+- Added visually consistent arcade-style challenge, achievement, and progress screens/components.
+- Improved offline-first behavior and airplane-mode reliability checks.
+- Performed gameplay responsiveness and performance verification for smoother short-session play.
+
+Play Console short notes:
+
+```text
+Version 1.0.8 adds How-to-Play guidance, improved local progress tracking, daily challenge/achievement polish, and performance/offline reliability checks.
+```
+
 ## Pre-upload checklist
 
 - Confirm `versionCode` and `versionName` are updated in `app/build.gradle.kts`.
-- Confirm the current release build is `versionCode 5` and `versionName 1.0.4`.
+- Confirm the current release build is `versionCode 8` and `versionName 1.0.8`.
+- Confirm `versionCode 8` has not already been uploaded to Play Console.
 - Re-run `./scripts/run_adb_device_suite.sh` on a physical device.
 - Install and sanity-check the release variant locally if needed.
 - Confirm Play Store listing assets exist outside the repo:
@@ -107,7 +124,7 @@ app/build/outputs/bundle/release/app-release.aab
 These are not blocked at the Gradle level, but still need product/release work:
 
 - Release versioning should be bumped for each upload and recorded in the release notes.
-- Current release notes should reflect `versionCode 5` and `versionName 1.0.4` after the latest upload.
+- Current release notes should reflect `versionCode 8` and `versionName 1.0.8` after the latest upload.
 - Store listing metadata is not tracked in this repo.
 - Privacy policy URL is not defined in this repo.
 - Launcher/adaptive icon assets should be reviewed before store submission.
