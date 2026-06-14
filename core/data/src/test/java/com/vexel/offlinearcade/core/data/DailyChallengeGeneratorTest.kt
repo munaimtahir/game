@@ -12,7 +12,9 @@ class DailyChallengeGeneratorTest {
 
         assertEquals(first, second)
         assertEquals(4, first.size)
-        assertTrue(first.any { it.gameId == null })
+        val bundle = first.first { it.gameId == null }
+        assertEquals(2, bundle.targetValue)
+        assertEquals("Complete any 2 of the 3 game challenges.", bundle.description)
     }
 
     @Test

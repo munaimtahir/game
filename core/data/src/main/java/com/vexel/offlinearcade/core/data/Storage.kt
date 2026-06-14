@@ -27,7 +27,12 @@ data class PlayerProfileEntity(
     val selectedLaneDriftSkin: String = "ld_default",
     val selectedStackDropSkin: String = "sd_default",
     val currentStreakDays: Int = 0,
+    val bestStreakDays: Int = 0,
     val lastPlayedEpochDay: Long? = null,
+    val completedDailyChallenges: Int = 0,
+    val tutorialSeenPulseOrbit: Boolean = false,
+    val tutorialSeenLaneDrift: Boolean = false,
+    val tutorialSeenStackDrop: Boolean = false,
 )
 
 @Entity(tableName = "game_stats")
@@ -37,6 +42,8 @@ data class GameStatsEntity(
     val sessionsPlayed: Int = 0,
     val totalPlayMillis: Long = 0,
     val totalScore: Int = 0,
+    val totalPickups: Int = 0,
+    val totalLinesCleared: Int = 0,
     val bestCombo: Int = 0,
     val bestLines: Int = 0,
 )
@@ -106,7 +113,7 @@ interface ArcadeDao {
         SkinUnlockEntity::class,
         ChallengeProgressEntity::class,
     ],
-    version = 3,
+    version = 4,
     exportSchema = false,
 )
 abstract class ArcadeDatabase : RoomDatabase() {

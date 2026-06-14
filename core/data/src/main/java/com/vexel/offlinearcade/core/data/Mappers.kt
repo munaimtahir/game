@@ -16,7 +16,12 @@ internal fun PlayerProfileEntity.toModel(): PlayerProfile = PlayerProfile(
     selectedLaneDriftSkin = selectedLaneDriftSkin,
     selectedStackDropSkin = selectedStackDropSkin,
     currentStreakDays = currentStreakDays,
+    bestStreakDays = bestStreakDays,
     lastPlayedEpochDay = lastPlayedEpochDay,
+    completedDailyChallenges = completedDailyChallenges,
+    tutorialSeenPulseOrbit = tutorialSeenPulseOrbit,
+    tutorialSeenLaneDrift = tutorialSeenLaneDrift,
+    tutorialSeenStackDrop = tutorialSeenStackDrop,
 )
 
 internal fun PlayerProfile.toEntity(): PlayerProfileEntity = PlayerProfileEntity(
@@ -27,7 +32,12 @@ internal fun PlayerProfile.toEntity(): PlayerProfileEntity = PlayerProfileEntity
     selectedLaneDriftSkin = selectedLaneDriftSkin,
     selectedStackDropSkin = selectedStackDropSkin,
     currentStreakDays = currentStreakDays,
+    bestStreakDays = bestStreakDays,
     lastPlayedEpochDay = lastPlayedEpochDay,
+    completedDailyChallenges = completedDailyChallenges,
+    tutorialSeenPulseOrbit = tutorialSeenPulseOrbit,
+    tutorialSeenLaneDrift = tutorialSeenLaneDrift,
+    tutorialSeenStackDrop = tutorialSeenStackDrop,
 )
 
 internal fun GameStatsEntity.toModel(): GameStats = GameStats(
@@ -36,6 +46,8 @@ internal fun GameStatsEntity.toModel(): GameStats = GameStats(
     sessionsPlayed = sessionsPlayed,
     totalPlayMillis = totalPlayMillis,
     totalScore = totalScore,
+    totalPickups = totalPickups,
+    totalLinesCleared = totalLinesCleared,
     bestCombo = bestCombo,
     bestLines = bestLines,
 )
@@ -46,6 +58,8 @@ internal fun GameStats.toEntity(): GameStatsEntity = GameStatsEntity(
     sessionsPlayed = sessionsPlayed,
     totalPlayMillis = totalPlayMillis,
     totalScore = totalScore,
+    totalPickups = totalPickups,
+    totalLinesCleared = totalLinesCleared,
     bestCombo = bestCombo,
     bestLines = bestLines,
 )
@@ -98,4 +112,5 @@ internal fun metricProgress(metric: ChallengeMetric, runResult: com.vexel.offlin
         ChallengeMetric.LANE_PICKUPS -> if (runResult.gameId == GameId.LANE_DRIFT) runResult.pickupsCollected else 0
         ChallengeMetric.STACK_LINES -> if (runResult.gameId == GameId.STACK_DROP) runResult.linesCleared else 0
         ChallengeMetric.ARCADE_RUNS -> 1
+        ChallengeMetric.DAILY_COMPLETIONS -> 0
     }

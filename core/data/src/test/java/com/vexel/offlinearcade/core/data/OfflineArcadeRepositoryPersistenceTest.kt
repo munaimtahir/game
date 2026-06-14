@@ -81,7 +81,77 @@ class OfflineArcadeRepositoryPersistenceTest {
         assertEquals(1, pulseStats.sessionsPlayed)
         assertEquals(9, snapshot.profile.coins)
         assertEquals(1, snapshot.profile.currentStreakDays)
+        assertEquals(1, snapshot.profile.bestStreakDays)
         assertTrue(snapshot.challenges.any { it.challengeId == "pulse-20000" && it.progress > 0 })
+    }
+
+    @Test
+    fun tutorialSeenFlagsPersistPerGame() = runTest(dispatcher) {
+        repository.markTutorialSeen(GameId.PULSE_ORBIT)
+        repository.markTutorialSeen(GameId.STACK_DROP)
+
+        val profile = repository.snapshot.first().profile
+        assertTrue(profile.tutorialSeenPulseOrbit)
+        assertFalse(profile.tutorialSeenLaneDrift)
+        assertTrue(profile.tutorialSeenStackDrop)
+    }
+
+    @Test
+    fun recordRunTracksTotalsAndAchievements() = runTest(dispatcher) {
+        repository.recordRun(
+            RunResult(
+                gameId = GameId.LANE_DRIFT,
+                score = 520,
+                durationMillis = 60_000,
+                pickupsCollected = 25,
+                coinsEarned = 10,
+            ),
+        )
+        repository.recordRun(
+            RunResult(
+                gameId = GameId.STACK_DROP,
+                score = 1_100,
+                durationMillis = 90_000,
+                linesCleared = 5,
+                coinsEarned = 12,
+            ),
+        )
+
+        val snapshot = repository.snapshot.first()
+        val lane = snapshot.statsByGame.getValue(GameId.LANE_DRIFT)
+        val stack = snapshot.statsByGame.getValue(GameId.STACK_DROP)
+        assertEquals(25, lane.totalPickups)
+        assertEquals(5, stack.totalLinesCleared)
+        assertTrue(snapshot.achievements.first { it.achievementId == "lane_shards_25" }.unlocked)
+        assertTrue(snapshot.achievements.first { it.achievementId == "stack_lines_5" }.unlocked)
+    }
+
+    @Test
+    fun completingTwoGameChallengesCompletesBundle() = runTest(dispatcher) {
+        repository.recordRun(
+            RunResult(
+                gameId = GameId.PULSE_ORBIT,
+                score = 200,
+                durationMillis = 120_000,
+                bestCombo = 20,
+                coinsEarned = 0,
+            ),
+        )
+        repository.recordRun(
+            RunResult(
+                gameId = GameId.LANE_DRIFT,
+                score = 2_000,
+                durationMillis = 120_000,
+                pickupsCollected = 100,
+                coinsEarned = 0,
+            ),
+        )
+
+        val snapshot = repository.snapshot.first()
+        val bundle = snapshot.challenges.first { it.gameId == null }
+        assertTrue(bundle.completed)
+        assertEquals(2, bundle.progress)
+        assertTrue(snapshot.profile.completedDailyChallenges >= 3)
     }
 
     @Test

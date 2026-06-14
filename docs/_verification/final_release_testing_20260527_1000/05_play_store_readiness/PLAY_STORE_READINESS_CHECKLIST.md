@@ -2,8 +2,8 @@
 
 - [x] Application ID (`com.vexel.offlinearcade`) is set.
 - [x] App Label (`@string/app_name`) is set.
-- [x] Version Code is 5.
-- [x] Version Name is 1.0.4.
+- [x] Version Code is 7.
+- [x] Version Name is 1.0.7.
 - [x] Min SDK is 24 (acceptable).
 - [x] Target SDK is 35 (meets current Google Play requirement).
 - [x] Compile SDK is 35.

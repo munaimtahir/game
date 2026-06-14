@@ -8,8 +8,8 @@
 
 ## App Identity
 - **Package/Namespace**: `com.vexel.offlinearcade`
-- **Version Code**: 5
-- **Version Name**: 1.0.4
+- **Version Code**: 7
+- **Version Name**: 1.0.7
 
 ## Build Configuration
 - **minSdk**: 24

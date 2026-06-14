@@ -59,12 +59,14 @@ class ArcadeViewModelTest {
         val runResult = RunResult(gameId = GameId.PULSE_ORBIT, score = 14, durationMillis = 12000, bestCombo = 4, coinsEarned = 8)
 
         viewModel.recordRun(runResult)
+        viewModel.markTutorialSeen(GameId.PULSE_ORBIT)
         viewModel.unlockTheme("sunset_shift")
         viewModel.selectTheme("sunset_shift")
         viewModel.setPremiumUnlocked(true)
         advanceUntilIdle()
 
         assertEquals(runResult, repository.recordedRuns.single())
+        assertEquals(GameId.PULSE_ORBIT, repository.tutorialsSeen.single())
         assertEquals("sunset_shift", repository.purchasedThemes.single())
         assertEquals("sunset_shift", repository.selectedThemes.single())
         assertTrue(repository.premiumUnlocked)
@@ -88,6 +90,7 @@ class ArcadeViewModelTest {
         val recordedRuns = mutableListOf<RunResult>()
         val purchasedThemes = mutableListOf<String>()
         val selectedThemes = mutableListOf<String>()
+        val tutorialsSeen = mutableListOf<GameId>()
         var premiumUnlocked = false
 
         override val snapshot: Flow<ArcadeSnapshot> = snapshotFlow
@@ -101,6 +104,10 @@ class ArcadeViewModelTest {
 
         override suspend fun recordRun(result: RunResult) {
             recordedRuns += result
+        }
+
+        override suspend fun markTutorialSeen(gameId: GameId) {
+            tutorialsSeen += gameId
         }
 
         override suspend fun purchaseTheme(themeId: String): Boolean {

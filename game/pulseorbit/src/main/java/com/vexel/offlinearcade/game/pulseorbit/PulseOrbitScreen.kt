@@ -47,8 +47,11 @@ import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
+import com.vexel.offlinearcade.core.ui.CompletionPopup
+import com.vexel.offlinearcade.core.ui.GameTutorialContent
 import com.vexel.offlinearcade.core.ui.GameplayScaffold
 import com.vexel.offlinearcade.core.ui.HudPill
+import com.vexel.offlinearcade.core.ui.HowToPlayOverlay
 import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
@@ -99,15 +102,20 @@ fun PulseOrbitScreen(
     settings: SettingsState,
     equippedSkin: String,
     feedback: ArcadeFeedback,
+    tutorialSeen: Boolean,
+    onTutorialSeen: () -> Unit,
     onRunComplete: (RunResult) -> Unit,
     onBack: () -> Unit,
 ) {
     var state by remember { mutableStateOf(PulseOrbitState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
+    var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
+    var showCompletionSummary by remember { mutableStateOf(false) }
 
     fun restart() {
         hasReportedRun = false
+        showCompletionSummary = false
         lastFrameNanos = 0L
         state = PulseOrbitState(
             playing = true,
@@ -116,6 +124,19 @@ fun PulseOrbitScreen(
             feedback = "Thread the gap.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
+    }
+
+    fun showHowToPlay() {
+        if (state.playing && !state.paused && !state.gameOver) {
+            state = state.copy(playing = false, paused = true)
+        }
+        showTutorial = true
+    }
+
+    fun closeTutorial(startAfterClose: Boolean) {
+        onTutorialSeen()
+        showTutorial = false
+        if (startAfterClose) restart()
     }
 
     fun togglePause() {
@@ -173,6 +194,7 @@ fun PulseOrbitScreen(
                 coinsEarned = state.score + state.bestCombo,
             ),
         )
+        showCompletionSummary = true
     }
 
     val colors = ArcadeTheme.colors
@@ -222,6 +244,38 @@ fun PulseOrbitScreen(
     }
 
     val overlayContent: (@Composable () -> Unit)? = when {
+        showTutorial -> {
+            {
+                HowToPlayOverlay(
+                    content = GameTutorialContent(
+                        gameId = GameId.PULSE_ORBIT,
+                        title = "How to Play Pulse Orbit",
+                        lines = listOf(
+                            "Tap when the orb reaches the opening.",
+                            "Clean passes build combo.",
+                            "Miss the opening and the run ends.",
+                        ),
+                        controls = "Tap anywhere.",
+                        goal = "Beat your high score.",
+                    ),
+                    onPlay = { closeTutorial(startAfterClose = true) },
+                    onSkip = { closeTutorial(startAfterClose = false) },
+                )
+            }
+        }
+        state.gameOver && showCompletionSummary -> {
+            {
+                CompletionPopup(
+                    title = if (state.score > (stats?.highScore ?: 0)) "New High Score" else "Run Summary",
+                    lines = listOf(
+                        "Score: ${state.score}",
+                        "Best combo: ${state.bestCombo}",
+                        "Daily challenges and achievements updated after the run.",
+                    ),
+                    onContinue = { showCompletionSummary = false },
+                )
+            }
+        }
         state.paused -> {
             {
                 PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or reset the loop.") {
@@ -229,6 +283,7 @@ fun PulseOrbitScreen(
                         StatRow("Score", state.score.toString())
                         StatRow("Combo", state.combo.toString())
                         PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(label = "How to Play", onClick = ::showHowToPlay, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                         PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                         PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
@@ -284,13 +339,21 @@ fun PulseOrbitScreen(
                     HudPill("Score", state.score.toString())
                     HudPill("Combo", state.combo.toString())
                 }
-                PremiumButton(
-                    label = if (state.paused) "Resume" else "Pause",
-                    onClick = ::togglePause,
-                    style = ArcadeButtonStyle.Secondary,
-                    enabled = state.playing || state.paused,
-                    borderOverride = colors.accentViolet,
-                )
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    PremiumButton(
+                        label = "How",
+                        onClick = ::showHowToPlay,
+                        style = ArcadeButtonStyle.Secondary,
+                        borderOverride = colors.primaryCyan,
+                    )
+                    PremiumButton(
+                        label = if (state.paused) "Resume" else "Pause",
+                        onClick = ::togglePause,
+                        style = ArcadeButtonStyle.Secondary,
+                        enabled = state.playing || state.paused,
+                        borderOverride = colors.accentViolet,
+                    )
+                }
             }
         },
         overlay = overlayContent,

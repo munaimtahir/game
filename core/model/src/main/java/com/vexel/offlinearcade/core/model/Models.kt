@@ -14,7 +14,12 @@ data class PlayerProfile(
     val selectedLaneDriftSkin: String = ArcadeSkinCatalog.defaultLaneDriftSkin.id,
     val selectedStackDropSkin: String = ArcadeSkinCatalog.defaultStackDropSkin.id,
     val currentStreakDays: Int = 0,
+    val bestStreakDays: Int = 0,
     val lastPlayedEpochDay: Long? = null,
+    val completedDailyChallenges: Int = 0,
+    val tutorialSeenPulseOrbit: Boolean = false,
+    val tutorialSeenLaneDrift: Boolean = false,
+    val tutorialSeenStackDrop: Boolean = false,
 )
 
 data class SkinDefinition(
@@ -58,6 +63,8 @@ data class GameStats(
     val sessionsPlayed: Int = 0,
     val totalPlayMillis: Long = 0,
     val totalScore: Int = 0,
+    val totalPickups: Int = 0,
+    val totalLinesCleared: Int = 0,
     val bestCombo: Int = 0,
     val bestLines: Int = 0,
 )
@@ -84,6 +91,7 @@ enum class ChallengeMetric {
     LANE_PICKUPS,
     STACK_LINES,
     ARCADE_RUNS,
+    DAILY_COMPLETIONS,
 }
 
 data class DailyChallenge(
@@ -110,6 +118,24 @@ data class RunResult(
     val coinsEarned: Int = 0,
 )
 
+enum class AchievementGroup(val title: String) {
+    PULSE_ORBIT("Pulse Orbit"),
+    LANE_DRIFT("Lane Drift"),
+    STACK_DROP("Stack Drop"),
+    GLOBAL("Global"),
+}
+
+data class AchievementProgress(
+    val achievementId: String,
+    val group: AchievementGroup,
+    val title: String,
+    val description: String,
+    val currentProgress: Int,
+    val targetValue: Int,
+) {
+    val unlocked: Boolean = currentProgress >= targetValue
+}
+
 data class ArcadeSnapshot(
     val profile: PlayerProfile = PlayerProfile(),
     val settings: SettingsState = SettingsState(),
@@ -134,8 +160,10 @@ data class ArcadeSnapshot(
         )
     },
     val challenges: List<DailyChallenge> = emptyList(),
+    val achievements: List<AchievementProgress> = emptyList(),
 ) {
     val statsByGame: Map<GameId, GameStats> = stats.associateBy { it.gameId }
+    val achievementsUnlocked: Int = achievements.count { it.unlocked }
 }
 
 data class ThemeDefinition(

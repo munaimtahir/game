@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.vexel.offlinearcade.core.data.ArcadeRepository
 import com.vexel.offlinearcade.core.model.ArcadeSnapshot
+import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.RunResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -46,12 +47,16 @@ class ArcadeViewModel(
         viewModelScope.launch { repository.purchaseSkin(skinId) }
     }
 
-    fun selectSkin(skinId: String, gameId: com.vexel.offlinearcade.core.model.GameId) {
+    fun selectSkin(skinId: String, gameId: GameId) {
         viewModelScope.launch { repository.selectSkin(skinId, gameId) }
     }
 
     fun recordRun(result: RunResult) {
         viewModelScope.launch { repository.recordRun(result) }
+    }
+
+    fun markTutorialSeen(gameId: GameId) {
+        viewModelScope.launch { repository.markTutorialSeen(gameId) }
     }
 
     fun setPremiumUnlocked(unlocked: Boolean) {
