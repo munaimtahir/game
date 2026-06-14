@@ -28,6 +28,7 @@ import com.vexel.offlinearcade.core.ui.ArcadeMarquee
 import com.vexel.offlinearcade.core.ui.ArcadePlayButton
 import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
+import com.vexel.offlinearcade.core.ui.StatRow
 
 @Composable
 fun LaneDriftDetailScreen(
@@ -71,6 +72,11 @@ fun LaneDriftDetailScreen(
                 PremiumStatTile(label = "Best Score", value = (stats?.highScore ?: 0).toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.laneAccent)
                 PremiumStatTile(label = "Sessions", value = (stats?.sessionsPlayed ?: 0).toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
             }
+            if ((stats?.sessionsPlayed ?: 0) == 0) {
+                Text("No runs yet. Dodge hazards and collect shards to fill this in.", color = ArcadeTheme.colors.textSecondary)
+            }
+            StatRow("Movement focus", "Dodge and collect")
+            StatRow("Shards total", (stats?.totalPickups ?: 0).toString(), valueColor = ArcadeTheme.colors.laneAccent)
         }
 
         ArcadeCard {

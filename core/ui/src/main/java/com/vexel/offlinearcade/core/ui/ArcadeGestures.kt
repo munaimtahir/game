@@ -29,6 +29,7 @@ data class ArcadeGestureThresholds(
     val softDropMinDistanceDp: Dp = 56.dp,
     val hardDropMinDistanceDp: Dp = 132.dp,
     val hardDropMaxDurationMs: Long = 160L,
+    val edgeExclusionDp: Dp = 0.dp,
 )
 
 internal fun classifyArcadeGesture(
@@ -62,6 +63,7 @@ data class ArcadeGestureThresholdsPx(
     val softDropMinDistancePx: Float,
     val hardDropMinDistancePx: Float,
     val hardDropMaxDurationMs: Long,
+    val edgeExclusionPx: Float = 0f,
 )
 
 @Composable
@@ -76,6 +78,7 @@ fun rememberArcadeGestureThresholdsPx(
         softDropMinDistancePx = with(density) { thresholds.softDropMinDistanceDp.toPx() },
         hardDropMinDistancePx = with(density) { thresholds.hardDropMinDistanceDp.toPx() },
         hardDropMaxDurationMs = thresholds.hardDropMaxDurationMs,
+        edgeExclusionPx = with(density) { thresholds.edgeExclusionDp.toPx() },
     )
 }
 
@@ -89,6 +92,13 @@ fun Modifier.arcadeGestureInput(
         if (!enabled) return@pointerInput
         awaitEachGesture {
             val down = awaitFirstDown(requireUnconsumed = false, pass = PointerEventPass.Initial)
+            if (thresholds.edgeExclusionPx > 0f) {
+                val startX = down.position.x
+                val edgeLimit = thresholds.edgeExclusionPx
+                if (startX < edgeLimit || startX > size.width - edgeLimit) {
+                    return@awaitEachGesture
+                }
+            }
             var totalOffset = Offset.Zero
             val startTime = down.uptimeMillis.toLong()
             var pointerId = down.id

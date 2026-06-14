@@ -78,6 +78,12 @@ fun StatsScreen(
             }
             StatRow("Play time", "${totalPlaySeconds}s")
             StatRow("Top score", topScore.toString(), valueColor = ArcadeTheme.colors.reward)
+            if (totalRuns == 0) {
+                Text(
+                    "Play any game to start your streak. High scores and rewards will appear here.",
+                    color = ArcadeTheme.colors.textSecondary,
+                )
+            }
             PremiumProgress(
                 progress = if (totalScore == 0) 0f else topScore.toFloat() / totalScore.toFloat(),
                 label = "Top-score share",
@@ -125,6 +131,9 @@ private fun GameStatsDrilldownCard(
             PremiumBadge(text = "${gameStats.sessionsPlayed} sessions", color = accent.color)
         }
         PremiumStatTile("High Score", gameStats.highScore.toString(), accent = accent.color)
+        if (gameStats.sessionsPlayed == 0) {
+            Text("No runs yet. Start your first game.", color = ArcadeTheme.colors.textSecondary)
+        }
         StatRow(
             label = if (gameStats.bestLines > 0) "Best lines" else "Best combo",
             value = if (gameStats.bestLines > 0) gameStats.bestLines.toString() else gameStats.bestCombo.toString(),

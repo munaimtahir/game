@@ -53,6 +53,11 @@ fun ChallengesScreen(
             PremiumStatTile("Completed", completeCount.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.success)
             PremiumStatTile("Reward Pool", "${challenges.sumOf { it.rewardCoins }}", modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
         }
+        if (completeCount == 0) {
+            ArcadeCard {
+                Text("Complete a challenge to earn rewards. Start with any active game track.", color = ArcadeTheme.colors.textSecondary)
+            }
+        }
         if (bundleChallenge != null) {
             val bundleProgress = if (bundleChallenge.targetValue == 0) 0f else bundleChallenge.progress.toFloat() / bundleChallenge.targetValue.toFloat()
             ArcadeCard(accent = gameAccentFor("Pulse Orbit").brush) {

@@ -23,6 +23,17 @@ class StackDropEngineTest {
     }
 
     @Test
+    fun nextPieceBecomesActiveAfterLock() {
+        val engine = StackDropEngine(seed = 1)
+        val start = engine.newState()
+        val previewedPiece = start.nextPiece
+
+        val afterLock = engine.hardDrop(start)
+
+        assertEquals(previewedPiece, afterLock.activePiece.type)
+    }
+
+    @Test
     fun rotateWithWallKickAtLeftEdge() {
         val engine = StackDropEngine(seed = 1)
         // I piece at X=0, vertical. Rotating it might push it out of bounds if not for kicks.

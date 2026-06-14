@@ -30,6 +30,7 @@ import com.vexel.offlinearcade.core.ui.ArcadeMarquee
 import com.vexel.offlinearcade.core.ui.ArcadePlayButton
 import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
+import com.vexel.offlinearcade.core.ui.StatRow
 
 @Composable
 fun PulseOrbitDetailScreen(
@@ -73,6 +74,11 @@ fun PulseOrbitDetailScreen(
                 PremiumStatTile(label = "Best Score", value = (stats?.highScore ?: 0).toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.pulseAccent)
                 PremiumStatTile(label = "Sessions", value = (stats?.sessionsPlayed ?: 0).toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
             }
+            if ((stats?.sessionsPlayed ?: 0) == 0) {
+                Text("No runs yet. Your first clean pass will start the board.", color = ArcadeTheme.colors.textSecondary)
+            }
+            StatRow("Precision focus", "Gap timing")
+            StatRow("Best combo", (stats?.bestCombo ?: 0).toString(), valueColor = ArcadeTheme.colors.pulseAccent)
         }
 
         ArcadeCard {
