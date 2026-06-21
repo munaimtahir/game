@@ -57,6 +57,7 @@ import com.vexel.offlinearcade.core.ui.ArcadeGestureThresholds
 import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
+import com.vexel.offlinearcade.core.ui.ArcadeStateTone
 import com.vexel.offlinearcade.core.ui.CompletionPopup
 import com.vexel.offlinearcade.core.ui.GameTutorialContent
 import com.vexel.offlinearcade.core.ui.GameplayScaffold
@@ -64,9 +65,11 @@ import com.vexel.offlinearcade.core.ui.HudPill
 import com.vexel.offlinearcade.core.ui.HowToPlayOverlay
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
+import com.vexel.offlinearcade.core.ui.ReadyCueCard
 import com.vexel.offlinearcade.core.ui.StatRow
 import com.vexel.offlinearcade.core.ui.arcadeGestureInput
 import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
+import com.vexel.offlinearcade.core.ui.StateBadge
 import kotlin.math.min
 import kotlin.random.Random
 
@@ -154,6 +157,7 @@ fun LaneDriftScreen(
 ) {
     var state by remember { mutableStateOf(LaneDriftState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
+    var hasSeenReadyCue by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
     var showCompletionSummary by remember { mutableStateOf(false) }
@@ -180,6 +184,7 @@ fun LaneDriftScreen(
         hasReportedRun = false
         showCompletionSummary = false
         lastFrameNanos = 0L
+        hasSeenReadyCue = true
         state = LaneDriftState(
             playing = true,
             paused = false,
@@ -418,13 +423,26 @@ fun LaneDriftScreen(
         }
         state.gameOver && showCompletionSummary -> {
             {
+                val duration = System.currentTimeMillis() - state.runStartMillis
+                val isNewBest = state.score > (stats?.highScore ?: 0)
                 CompletionPopup(
-                    title = if (state.score > (stats?.highScore ?: 0)) "New High Score" else "Run Summary",
+                    gameId = GameId.LANE_DRIFT,
+                    durationMillis = duration,
+                    title = when {
+                        isNewBest -> "New best distance"
+                        duration < 10_000L -> "Dodge the first blocker"
+                        else -> "Run summary"
+                    },
                     lines = listOf(
                         "Score: ${state.score}",
                         "Shards: ${state.pickups}",
                         "Daily challenges and achievements updated after the run.",
                     ),
+                    badgeLabel = when {
+                        isNewBest -> "New best"
+                        duration < 10_000L -> "Quick run"
+                        else -> "Run summary"
+                    },
                     onContinue = { showCompletionSummary = false },
                 )
             }
@@ -433,6 +451,7 @@ fun LaneDriftScreen(
             {
                 PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or restart.") {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StateBadge("Paused", ArcadeStateTone.Ready)
                         StatRow("Score", state.score.toString())
                         StatRow("Pickups", state.pickups.toString())
                         PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
@@ -445,11 +464,16 @@ fun LaneDriftScreen(
         }
         state.gameOver -> {
             {
+                val isNewBest = state.score > (stats?.highScore ?: 0)
                 PremiumOverlayCard(
-                    title = if (state.score > (stats?.highScore ?: 0)) "New drift record" else "Run complete",
-                    subtitle = "Keep the lane read tight and go again.",
+                    title = if (isNewBest) "New drift record" else "Run ended",
+                    subtitle = if (isNewBest) "You set a new distance mark." else "Keep the lane read tight and go again.",
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        StateBadge(
+                            label = if (isNewBest) "New best" else "Run ended",
+                            tone = if (isNewBest) ArcadeStateTone.NewBest else ArcadeStateTone.Failure,
+                        )
                         StatRow("Score", state.score.toString(), valueColor = colors.reward)
                         StatRow("Pickups", state.pickups.toString(), valueColor = colors.success)
                         StatRow("Coins earned", (state.pickups * 3 + state.score / 20).toString(), valueColor = colors.reward)
@@ -556,10 +580,9 @@ fun LaneDriftScreen(
                         }
                     }
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                        Text(
-                            text = state.message,
-                            style = MaterialTheme.typography.labelMedium,
-                            color = colors.textSecondary
+                        StateBadge(
+                            label = state.message,
+                            tone = driftMessageTone(state.message),
                         )
                     }
                 }
@@ -742,22 +765,39 @@ fun LaneDriftScreen(
             }
 
             if (!state.playing && !state.paused && !state.gameOver) {
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
+                if (!hasSeenReadyCue) {
+                        ReadyCueCard(
+                            gameId = GameId.LANE_DRIFT,
+                            title = "Swipe left or right to change lanes",
+                            subtitle = "Collect shards and keep moving.",
+                            startLabel = "Start",
+                            onStart = ::restart,
+                            secondaryLabel = "How to Play",
+                            onSecondaryAction = ::showHowToPlay,
+                            startTestTag = ArcadeTestTags.LaneDriftStartButton,
+                            modifier = Modifier
+                                .align(Alignment.Center)
+                                .padding(20.dp),
+                        )
+                } else {
                     PremiumButton(
-                        label = "Tap to start",
+                        label = "Start",
                         onClick = ::restart,
-                        modifier = Modifier.testTag(ArcadeTestTags.LaneDriftStartButton),
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .testTag(ArcadeTestTags.LaneDriftStartButton),
                     )
                 }
             }
         }
     }
+}
+
+private fun driftMessageTone(message: String): ArcadeStateTone = when {
+    message.contains("Collision", ignoreCase = true) -> ArcadeStateTone.Failure
+    message.contains("Shard", ignoreCase = true) -> ArcadeStateTone.Reward
+    message.contains("Near miss", ignoreCase = true) -> ArcadeStateTone.Success
+    else -> ArcadeStateTone.Ready
 }
 
 internal fun pickBlockerLane(

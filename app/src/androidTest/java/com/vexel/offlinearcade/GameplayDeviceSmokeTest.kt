@@ -79,7 +79,7 @@ class GameplayDeviceSmokeTest {
 
         val startState = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
 
-        rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).performTouchInput { click() }
+        rule.onNodeWithTag(ArcadeTestTags.StackDropLeftControl, useUnmergedTree = true).performClick()
         rule.waitUntil(timeoutMillis = 2_000) {
             val state = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
             state != startState
@@ -87,7 +87,7 @@ class GameplayDeviceSmokeTest {
         val afterTap = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
         assertNotEquals(startState, afterTap)
 
-        rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).performTouchInput { swipeLeft() }
+        rule.onNodeWithTag(ArcadeTestTags.StackDropRightControl, useUnmergedTree = true).performClick()
         rule.waitUntil(timeoutMillis = 2_000) {
             val state = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
             state != afterTap
