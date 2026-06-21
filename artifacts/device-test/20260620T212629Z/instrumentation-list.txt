@@ -1,0 +1,2 @@
+instrumentation:com.vexel.arcadetrio.test/androidx.test.runner.AndroidJUnitRunner (target=com.vexel.arcadetrio)
+instrumentation:com.vexel.stackdrop.test/androidx.test.runner.AndroidJUnitRunner (target=com.vexel.stackdrop)

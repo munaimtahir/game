@@ -87,6 +87,7 @@ fun ArcadeScaffold(
     screenTestTag: String? = null,
     coins: Int? = null,
     streak: Int? = null,
+    backgroundBrush: Brush? = null,
     actions: @Composable (() -> Unit) = {},
     content: @Composable () -> Unit,
 ) {
@@ -214,10 +215,15 @@ fun ArcadeScaffold(
         },
     ) { padding ->
         val colors = ArcadeTheme.colors
+        val bgModifier = if (backgroundBrush != null) {
+            Modifier.background(backgroundBrush)
+        } else {
+            Modifier.background(colors.background)
+        }
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colors.background)
+                .then(bgModifier)
                 .padding(padding)
                 .testTag(screenTestTag ?: ""),
         ) {
@@ -540,17 +546,18 @@ fun HeroPanel(
     trailing: @Composable (() -> Unit)? = null,
 ) {
     val reducedEffects = ArcadeTheme.reducedEffects
-    val infiniteTransition = androidx.compose.animation.core.rememberInfiniteTransition()
     val animatedOffset by if (reducedEffects) {
         androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(0f) }
     } else {
+        val infiniteTransition = androidx.compose.animation.core.rememberInfiniteTransition(label = "hero_glow")
         infiniteTransition.animateFloat(
             initialValue = 0f,
             targetValue = 1000f,
             animationSpec = androidx.compose.animation.core.infiniteRepeatable(
                 animation = androidx.compose.animation.core.tween(8000, easing = androidx.compose.animation.core.LinearEasing),
                 repeatMode = androidx.compose.animation.core.RepeatMode.Reverse
-            )
+            ),
+            label = "offset"
         )
     }
     

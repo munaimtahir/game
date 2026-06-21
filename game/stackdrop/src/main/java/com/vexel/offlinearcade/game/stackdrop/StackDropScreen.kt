@@ -128,9 +128,12 @@ fun StackDropScreen(
         }
     }
 
+    val reducedEffects = ArcadeTheme.reducedEffects
+
     LaunchedEffect(state.playing, state.dropIntervalMillis, paused) {
         while (state.playing && !paused) {
-            kotlinx.coroutines.delay(16L)
+            val delayMillis = if (reducedEffects) 120L else 16L
+            kotlinx.coroutines.delay(delayMillis)
             val now = System.currentTimeMillis()
             if (lastTickMillis == 0L) {
                 lastTickMillis = now
@@ -180,7 +183,6 @@ fun StackDropScreen(
 
     val colors = ArcadeTheme.colors
     val spacing = ArcadeTheme.spacing
-    val reducedEffects = ArcadeTheme.reducedEffects
 
     val overlayContent: (@Composable () -> Unit)? = when {
         showTutorial -> {
@@ -331,40 +333,84 @@ fun StackDropScreen(
                         .padding(top = spacing.sm),
                 ) {
                     val compact = maxWidth < 360.dp
-                    val controlHeight = if (compact) 52.dp else 56.dp
+                    val controlHeight = if (compact) 48.dp else 56.dp
                     val controlGap = if (compact) 6.dp else 8.dp
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .heightIn(min = controlHeight),
-                        horizontalArrangement = Arrangement.spacedBy(controlGap),
-                    ) {
-                        PremiumButton(
-                            label = "Left",
-                            onClick = { handleAction(ArcadeGestureAction.SwipeLeft) },
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.weight(1f).height(controlHeight),
-                        )
-                        PremiumButton(
-                            label = if (compact) "Turn" else "Rotate",
-                            onClick = { handleAction(ArcadeGestureAction.Tap) },
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.weight(1f).height(controlHeight),
-                            borderOverride = colors.accentViolet,
-                        )
-                        PremiumButton(
-                            label = "Drop",
-                            onClick = { handleAction(ArcadeGestureAction.SwipeDown) },
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.weight(1f).height(controlHeight),
-                            borderOverride = colors.primaryCyan,
-                        )
-                        PremiumButton(
-                            label = "Right",
-                            onClick = { handleAction(ArcadeGestureAction.SwipeRight) },
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.weight(1f).height(controlHeight),
-                        )
+                    if (compact) {
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth().height(controlHeight),
+                                horizontalArrangement = Arrangement.spacedBy(controlGap)
+                            ) {
+                                PremiumButton(
+                                    label = "Left",
+                                    onClick = { handleAction(ArcadeGestureAction.SwipeLeft) },
+                                    style = ArcadeButtonStyle.Secondary,
+                                    modifier = Modifier.weight(1f).height(controlHeight),
+                                )
+                                PremiumButton(
+                                    label = "Right",
+                                    onClick = { handleAction(ArcadeGestureAction.SwipeRight) },
+                                    style = ArcadeButtonStyle.Secondary,
+                                    modifier = Modifier.weight(1f).height(controlHeight),
+                                )
+                            }
+                            Row(
+                                modifier = Modifier.fillMaxWidth().height(controlHeight),
+                                horizontalArrangement = Arrangement.spacedBy(controlGap)
+                            ) {
+                                PremiumButton(
+                                    label = "Rotate",
+                                    onClick = { handleAction(ArcadeGestureAction.Tap) },
+                                    style = ArcadeButtonStyle.Secondary,
+                                    modifier = Modifier.weight(1f).height(controlHeight),
+                                    borderOverride = colors.accentViolet,
+                                )
+                                PremiumButton(
+                                    label = "Drop",
+                                    onClick = { handleAction(ArcadeGestureAction.SwipeDown) },
+                                    style = ArcadeButtonStyle.Secondary,
+                                    modifier = Modifier.weight(1f).height(controlHeight),
+                                    borderOverride = colors.primaryCyan,
+                                )
+                            }
+                        }
+                    } else {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .heightIn(min = controlHeight),
+                            horizontalArrangement = Arrangement.spacedBy(controlGap),
+                        ) {
+                            PremiumButton(
+                                label = "Left",
+                                onClick = { handleAction(ArcadeGestureAction.SwipeLeft) },
+                                style = ArcadeButtonStyle.Secondary,
+                                modifier = Modifier.weight(1f).height(controlHeight),
+                            )
+                            PremiumButton(
+                                label = "Rotate",
+                                onClick = { handleAction(ArcadeGestureAction.Tap) },
+                                style = ArcadeButtonStyle.Secondary,
+                                modifier = Modifier.weight(1f).height(controlHeight),
+                                borderOverride = colors.accentViolet,
+                            )
+                            PremiumButton(
+                                label = "Drop",
+                                onClick = { handleAction(ArcadeGestureAction.SwipeDown) },
+                                style = ArcadeButtonStyle.Secondary,
+                                modifier = Modifier.weight(1f).height(controlHeight),
+                                borderOverride = colors.primaryCyan,
+                            )
+                            PremiumButton(
+                                label = "Right",
+                                onClick = { handleAction(ArcadeGestureAction.SwipeRight) },
+                                style = ArcadeButtonStyle.Secondary,
+                                modifier = Modifier.weight(1f).height(controlHeight),
+                            )
+                        }
                     }
                 }
             }

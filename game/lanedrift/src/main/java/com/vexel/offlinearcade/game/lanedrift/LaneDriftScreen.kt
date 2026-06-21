@@ -5,10 +5,13 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -103,12 +106,12 @@ data class LaneDriftDebugConfig(
 
 internal object LaneDriftTuning {
     // Difficulty tuning (made more beginner-friendly).
-    const val initialSpeed = 92f
+    const val initialSpeed = 96f
     const val maxSpeed = 300f
-    const val speedRampPerSecond = 2.7f
-    const val initialSpawnInterval = 2.05f
-    const val minimumSpawnInterval = 0.90f
-    const val spawnIntervalRampPerSecond = 0.0038f
+    const val speedRampPerSecond = 2.85f
+    const val initialSpawnInterval = 2.00f
+    const val minimumSpawnInterval = 0.88f
+    const val spawnIntervalRampPerSecond = 0.004f
     const val playerZoneY = 0.888f
     // Visual sizes are expressed in dp and converted to px at runtime for consistent behavior across densities.
     val playerHeightDp = 84.dp
@@ -159,9 +162,9 @@ fun LaneDriftScreen(
     }
     val gestureThresholds = rememberArcadeGestureThresholdsPx(
         ArcadeGestureThresholds(
-            swipeMinDistanceDp = 54.dp,
+            swipeMinDistanceDp = 50.dp,
             dominantAxisRatio = 1.55f,
-            edgeExclusionDp = 24.dp,
+            edgeExclusionDp = 20.dp,
         ),
     )
     val pickupFlash = remember { androidx.compose.animation.core.Animatable(0f) }
@@ -182,7 +185,7 @@ fun LaneDriftScreen(
             paused = false,
             speed = LaneDriftTuning.initialSpeed,
             runStartMillis = System.currentTimeMillis(),
-            message = "Clean lane. Collect shards.",
+            message = "Swipe or use buttons. Collect shards.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
     }
@@ -242,127 +245,138 @@ fun LaneDriftScreen(
     var boardSizePx by remember { mutableStateOf(IntSize.Zero) }
     val fallbackBoardHeightPx = with(density) { 600.dp.toPx() }
     val fallbackBoardWidthPx = with(density) { 360.dp.toPx() }
+    val reducedEffects = ArcadeTheme.reducedEffects
 
     LaunchedEffect(state.playing) {
         while (state.playing) {
-            withFrameNanos { frameTime ->
-                if (lastFrameNanos == 0L) {
-                    lastFrameNanos = frameTime
-                    return@withFrameNanos
-                }
-                val delta = (frameTime - lastFrameNanos) / 1_000_000_000f
-                lastFrameNanos = frameTime
-                val nextElapsed = state.elapsedSeconds + delta
-                val nextSpeedBase = LaneDriftTuning.speedFor(nextElapsed)
-                val nextSpeed = if (nextElapsed < LaneDriftTuning.graceSeconds) {
-                    val t = (nextElapsed / LaneDriftTuning.graceSeconds).coerceIn(0f, 1f)
-                    nextSpeedBase * (0.88f + 0.12f * t)
-                } else {
-                    nextSpeedBase
-                }
-                val spawnIntervalBase = LaneDriftTuning.spawnIntervalFor(nextElapsed)
-                val spawnInterval = if (nextElapsed < LaneDriftTuning.graceSeconds) spawnIntervalBase * 1.24f else spawnIntervalBase
-                var nextSpawnTimer = state.spawnTimer + delta
-                var nextSpawnCount = state.spawnCount
-                var nextLastBlockerLane = state.lastBlockerLane
-                val nextItems = ArrayList<DriftItem>(state.items.size + 2)
-                val boardHeightPx = boardSizePx.height.takeIf { it > 0 }?.toFloat() ?: fallbackBoardHeightPx
-                state.items.forEach { item ->
-                    val nextY = item.y + (nextSpeed * delta) / boardHeightPx
-                    if (nextY < 1.14f) {
-                        nextItems += item.copy(y = nextY)
+            val delta: Float
+            if (reducedEffects) {
+                kotlinx.coroutines.delay(120L)
+                delta = 0.120f
+            } else {
+                var d = 0f
+                withFrameNanos { frameTime ->
+                    if (lastFrameNanos == 0L) {
+                        lastFrameNanos = frameTime
+                    } else {
+                        d = (frameTime - lastFrameNanos) / 1_000_000_000f
+                        lastFrameNanos = frameTime
                     }
                 }
-                while (nextSpawnTimer >= spawnInterval) {
-                    nextSpawnTimer -= spawnInterval
-                    val blockerLane = pickBlockerLane(
-                        random = random,
-                        previousLane = nextLastBlockerLane,
-                        elapsedSeconds = nextElapsed,
-                    )
-                    val hazardSkin = random.nextInt(DriftHazardSkin.entries.size)
-                    nextItems += DriftItem(blockerLane, -0.14f, DriftItemType.BLOCKER, skin = hazardSkin)
-                    if (shouldSpawnPickup(spawnCount = nextSpawnCount, elapsedSeconds = nextElapsed, random = random)) {
-                        val pickupSkin = random.nextInt(DriftPickupSkin.entries.size)
-                        nextItems += DriftItem(pickupLaneFor(blockerLane, random), -0.44f, DriftItemType.PICKUP, skin = pickupSkin)
-                    }
-                    nextSpawnCount += 1
-                    nextLastBlockerLane = blockerLane
+                if (d == 0f) continue
+                delta = d
+            }
+
+            val nextElapsed = state.elapsedSeconds + delta
+            val nextSpeedBase = LaneDriftTuning.speedFor(nextElapsed)
+            val nextSpeed = if (nextElapsed < LaneDriftTuning.graceSeconds) {
+                val t = (nextElapsed / LaneDriftTuning.graceSeconds).coerceIn(0f, 1f)
+                nextSpeedBase * (0.88f + 0.12f * t)
+            } else {
+                nextSpeedBase
+            }
+            val spawnIntervalBase = LaneDriftTuning.spawnIntervalFor(nextElapsed)
+            val spawnInterval = if (nextElapsed < LaneDriftTuning.graceSeconds) spawnIntervalBase * 1.24f else spawnIntervalBase
+            var nextSpawnTimer = state.spawnTimer + delta
+            var nextSpawnCount = state.spawnCount
+            var nextLastBlockerLane = state.lastBlockerLane
+            val nextItems = ArrayList<DriftItem>(state.items.size + 2)
+            val boardHeightPx = boardSizePx.height.takeIf { it > 0 }?.toFloat() ?: fallbackBoardHeightPx
+            state.items.forEach { item ->
+                val nextY = item.y + (nextSpeed * delta) / boardHeightPx
+                if (nextY < 1.14f) {
+                    nextItems += item.copy(y = nextY)
                 }
-                var nextState = state.copy(
-                    items = nextItems,
-                    speed = nextSpeed,
+            }
+            while (nextSpawnTimer >= spawnInterval) {
+                nextSpawnTimer -= spawnInterval
+                val blockerLane = pickBlockerLane(
+                    random = random,
+                    previousLane = nextLastBlockerLane,
                     elapsedSeconds = nextElapsed,
-                    score = (nextElapsed * 9f).toInt() + state.pickups * 4,
-                    spawnTimer = nextSpawnTimer,
-                    spawnCount = nextSpawnCount,
-                    lastBlockerLane = nextLastBlockerLane,
                 )
-                val boardWidthPx = boardSizePx.width.takeIf { it > 0 }?.toFloat() ?: fallbackBoardWidthPx
-                val sizes = LaneDriftSizesPx(
-                    playerHeightPx = with(density) { LaneDriftTuning.playerHeightDp.toPx() },
-                    blockerHeightPx = with(density) { LaneDriftTuning.blockerHeightDp.toPx() },
-                    pickupHeightPx = with(density) { LaneDriftTuning.pickupHeightDp.toPx() },
+                val hazardSkin = random.nextInt(DriftHazardSkin.entries.size)
+                nextItems += DriftItem(blockerLane, -0.14f, DriftItemType.BLOCKER, skin = hazardSkin)
+                if (shouldSpawnPickup(spawnCount = nextSpawnCount, elapsedSeconds = nextElapsed, random = random)) {
+                    val pickupSkin = random.nextInt(DriftPickupSkin.entries.size)
+                    nextItems += DriftItem(pickupLaneFor(blockerLane, random), -0.44f, DriftItemType.PICKUP, skin = pickupSkin)
+                }
+                nextSpawnCount += 1
+                nextLastBlockerLane = blockerLane
+            }
+            var nextState = state.copy(
+                items = nextItems,
+                speed = nextSpeed,
+                elapsedSeconds = nextElapsed,
+                score = (nextElapsed * 9f).toInt() + state.pickups * 4,
+                spawnTimer = nextSpawnTimer,
+                spawnCount = nextSpawnCount,
+                lastBlockerLane = nextLastBlockerLane,
+            )
+            val boardWidthPx = boardSizePx.width.takeIf { it > 0 }?.toFloat() ?: fallbackBoardWidthPx
+            val sizes = LaneDriftSizesPx(
+                playerHeightPx = with(density) { LaneDriftTuning.playerHeightDp.toPx() },
+                blockerHeightPx = with(density) { LaneDriftTuning.blockerHeightDp.toPx() },
+                pickupHeightPx = with(density) { LaneDriftTuning.pickupHeightDp.toPx() },
+            )
+            val collisionConfig = LaneDriftCollisionConfig(
+                playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
+                playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
+                blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
+                blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
+                pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
+                pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
+                blockerMinOverlapPx = with(density) { LaneDriftTuning.blockerMinOverlapDp.toPx() },
+                pickupMinOverlapPx = with(density) { LaneDriftTuning.pickupMinOverlapDp.toPx() },
+            )
+            val collision = resolveLaneDriftCollision(
+                playerLane = nextState.lane,
+                items = nextItems,
+                boardWidthPx = boardWidthPx,
+                boardHeightPx = boardHeightPx,
+                config = collisionConfig,
+                sizes = sizes,
+            )
+            if (collision.type == LaneDriftCollisionType.BLOCKER && !reducedEffects) {
+                feedback.play(ArcadeFeedbackEvent.FAIL)
+                nextState = nextState.copy(
+                    playing = false,
+                    gameOver = true,
+                    message = "Collision.",
                 )
-                val collisionConfig = LaneDriftCollisionConfig(
-                    playerInsetXFraction = LaneDriftTuning.playerHitboxInsetXFraction,
-                    playerInsetYFraction = LaneDriftTuning.playerHitboxInsetYFraction,
-                    blockerInsetXFraction = LaneDriftTuning.blockerHitboxInsetXFraction,
-                    blockerInsetYFraction = LaneDriftTuning.blockerHitboxInsetYFraction,
-                    pickupInsetXFraction = LaneDriftTuning.pickupHitboxInsetXFraction,
-                    pickupInsetYFraction = LaneDriftTuning.pickupHitboxInsetYFraction,
-                    blockerMinOverlapPx = with(density) { LaneDriftTuning.blockerMinOverlapDp.toPx() },
-                    pickupMinOverlapPx = with(density) { LaneDriftTuning.pickupMinOverlapDp.toPx() },
+            } else if (collision.type == LaneDriftCollisionType.PICKUP && collision.hitItem != null) {
+                feedback.play(ArcadeFeedbackEvent.PICKUP)
+                nextItems.remove(collision.hitItem)
+                nextState = nextState.copy(
+                    items = nextItems,
+                    pickups = nextState.pickups + 1,
+                    score = nextState.score + 14,
+                    message = "Shard collected.",
                 )
-                val collision = resolveLaneDriftCollision(
+            } else {
+                val nearMiss = detectLaneDriftNearMiss(
                     playerLane = nextState.lane,
                     items = nextItems,
                     boardWidthPx = boardWidthPx,
                     boardHeightPx = boardHeightPx,
                     config = collisionConfig,
                     sizes = sizes,
+                    nearMissBandPx = with(density) { LaneDriftTuning.nearMissBandDp.toPx() },
                 )
-                if (collision.type == LaneDriftCollisionType.BLOCKER) {
-                    feedback.play(ArcadeFeedbackEvent.FAIL)
+                val nowMillis = System.currentTimeMillis()
+                if (
+                    nearMiss.type == LaneDriftProximityType.NEAR_MISS &&
+                    nowMillis - nextState.lastNearMissMillis >= 900L
+                ) {
+                    feedback.play(ArcadeFeedbackEvent.SUCCESS)
                     nextState = nextState.copy(
-                        playing = false,
-                        gameOver = true,
-                        message = "Collision.",
+                        score = nextState.score + 2,
+                        message = "Near miss!",
+                        lastNearMissMillis = nowMillis,
                     )
-                } else if (collision.type == LaneDriftCollisionType.PICKUP && collision.hitItem != null) {
-                    feedback.play(ArcadeFeedbackEvent.PICKUP)
-                    nextItems.remove(collision.hitItem)
-                    nextState = nextState.copy(
-                        items = nextItems,
-                        pickups = nextState.pickups + 1,
-                        score = nextState.score + 14,
-                        message = "Shard collected.",
-                    )
-                } else {
-                    val nearMiss = detectLaneDriftNearMiss(
-                        playerLane = nextState.lane,
-                        items = nextItems,
-                        boardWidthPx = boardWidthPx,
-                        boardHeightPx = boardHeightPx,
-                        config = collisionConfig,
-                        sizes = sizes,
-                        nearMissBandPx = with(density) { LaneDriftTuning.nearMissBandDp.toPx() },
-                    )
-                    val nowMillis = System.currentTimeMillis()
-                    if (
-                        nearMiss.type == LaneDriftProximityType.NEAR_MISS &&
-                        nowMillis - nextState.lastNearMissMillis >= 900L
-                    ) {
-                        feedback.play(ArcadeFeedbackEvent.SUCCESS)
-                        nextState = nextState.copy(
-                            score = nextState.score + 2,
-                            message = "Near miss!",
-                            lastNearMissMillis = nowMillis,
-                        )
-                    }
                 }
-                state = nextState
             }
+            state = nextState
         }
     }
 
@@ -500,6 +514,49 @@ fun LaneDriftScreen(
                         style = MaterialTheme.typography.labelMedium,
                         color = colors.textSecondary
                     )
+                }
+            }
+        },
+        controls = {
+            if (state.playing && !state.paused) {
+                BoxWithConstraints(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 6.dp),
+                ) {
+                    val compact = maxWidth < 360.dp
+                    val controlHeight = if (compact) 52.dp else 56.dp
+                    val controlGap = if (compact) 6.dp else 8.dp
+                    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .heightIn(min = controlHeight),
+                            horizontalArrangement = Arrangement.spacedBy(controlGap),
+                        ) {
+                            PremiumButton(
+                                label = "Left",
+                                onClick = { moveLane(-1) },
+                                style = ArcadeButtonStyle.Secondary,
+                                modifier = Modifier.weight(1f).height(controlHeight),
+                                borderOverride = colors.primaryCyan,
+                            )
+                            PremiumButton(
+                                label = "Right",
+                                onClick = { moveLane(1) },
+                                style = ArcadeButtonStyle.Secondary,
+                                modifier = Modifier.weight(1f).height(controlHeight),
+                                borderOverride = colors.accentViolet,
+                            )
+                        }
+                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                            Text(
+                                text = "Swipe left or right, or use the lane buttons.",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = colors.textSecondary,
+                            )
+                        }
+                    }
                 }
             }
         },

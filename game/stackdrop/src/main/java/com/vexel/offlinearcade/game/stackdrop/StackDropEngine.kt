@@ -73,7 +73,7 @@ data class StackDropState(
     val score: Int = 0,
     val linesCleared: Int = 0,
     val level: Int = 1,
-    val dropIntervalMillis: Long = 700L,
+    val dropIntervalMillis: Long = 680L,
     val recentLineClearCount: Int = 0,
     val playing: Boolean = false,
     val gameOver: Boolean = false,
@@ -209,7 +209,7 @@ class StackDropEngine(seed: Int = 7) {
             score = state.score + lineBonus,
             linesCleared = totalLines,
             level = level,
-            dropIntervalMillis = (700L - (level - 1) * 35L).coerceAtLeast(160L),
+            dropIntervalMillis = (680L - (level - 1) * 37L).coerceAtLeast(160L),
             recentLineClearCount = clearedRows,
         )
         return if (collides(nextBoard, nextPiece)) {

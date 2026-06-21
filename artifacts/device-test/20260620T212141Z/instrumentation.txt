@@ -1,0 +1,190 @@
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.BackNavigationTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.BackNavigationTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.ChallengeUpdateTest:
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.GameplayDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'stack_drop_board')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.readStateDescription(DeviceTestHelpers.kt:75)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:55)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropGestureControlsWork(com.vexel.arcadetrio.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'stack_drop_board')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.readStateDescription(DeviceTestHelpers.kt:75)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:55)
+
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftPauseButtonShowsOverlayAndResumes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:84)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftPauseButtonShowsOverlayAndResumes(com.vexel.arcadetrio.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:84)
+
+INSTRUMENTATION_STATUS: test=laneDriftPauseButtonShowsOverlayAndResumes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.LifecyclePauseTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.LifecyclePauseTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_RESULT: stream=
+
+Time: 16.246
+There were 2 failures:
+1) stackDropGestureControlsWork(com.vexel.arcadetrio.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (TestTag = 'stack_drop_board')
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode$default(SemanticsNodeInteraction.kt:83)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.readStateDescription(DeviceTestHelpers.kt:75)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:55)
+2) laneDriftPauseButtonShowsOverlayAndResumes(com.vexel.arcadetrio.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:84)
+
+FAILURES!!!
+Tests run: 5,  Failures: 2
+
+
+INSTRUMENTATION_CODE: -1

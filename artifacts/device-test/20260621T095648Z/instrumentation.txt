@@ -1,0 +1,162 @@
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.BackNavigationTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.BackNavigationTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.ChallengeUpdateTest:
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.GameplayDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftPauseButtonShowsOverlayAndResumes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 5000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:116)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftPauseButtonShowsOverlayAndResumes(com.vexel.arcadetrio.GameplayDeviceSmokeTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 5000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:116)
+
+INSTRUMENTATION_STATUS: test=laneDriftPauseButtonShowsOverlayAndResumes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.LifecyclePauseTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.LifecyclePauseTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_RESULT: stream=
+
+Time: 22.777
+There was 1 failure:
+1) laneDriftPauseButtonShowsOverlayAndResumes(com.vexel.arcadetrio.GameplayDeviceSmokeTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 5000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:116)
+
+FAILURES!!!
+Tests run: 5,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Brush
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
@@ -47,6 +48,13 @@ fun PulseOrbitDetailScreen(
         context.resources.getIdentifier("header_pulse_orbit", "drawable", context.packageName)
     }
 
+    val backgroundBrush = Brush.verticalGradient(
+        listOf(
+            ArcadeTheme.colors.background,
+            ArcadeTheme.colors.pulseAccent.copy(alpha = 0.08f)
+        )
+    )
+
     ArcadeScaffold(
         title = "Game Info",
         onBack = onBack,
@@ -54,6 +62,7 @@ fun PulseOrbitDetailScreen(
         screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.PulseOrbitDetail,
         coins = coins,
         streak = streak,
+        backgroundBrush = backgroundBrush,
     ) {
         if (headerResId != 0) {
             ArcadeMarquee(

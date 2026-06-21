@@ -112,6 +112,7 @@ fun PulseOrbitScreen(
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
     var showCompletionSummary by remember { mutableStateOf(false) }
+    val reducedEffects = ArcadeTheme.reducedEffects
 
     fun restart() {
         hasReportedRun = false
@@ -170,14 +171,20 @@ fun PulseOrbitScreen(
 
     LaunchedEffect(state.playing) {
         while (state.playing) {
-            withFrameNanos { frameTime ->
-                if (lastFrameNanos == 0L) {
-                    lastFrameNanos = frameTime
-                    return@withFrameNanos
-                }
-                val deltaSeconds = (frameTime - lastFrameNanos) / 1_000_000_000f
-                lastFrameNanos = frameTime
+            if (reducedEffects) {
+                kotlinx.coroutines.delay(120L)
+                val deltaSeconds = 0.120f
                 state = state.copy(orbitAngle = (state.orbitAngle + state.rotationSpeedDegPerSec * deltaSeconds).normalizeAngle())
+            } else {
+                withFrameNanos { frameTime ->
+                    if (lastFrameNanos == 0L) {
+                        lastFrameNanos = frameTime
+                        return@withFrameNanos
+                    }
+                    val deltaSeconds = (frameTime - lastFrameNanos) / 1_000_000_000f
+                    lastFrameNanos = frameTime
+                    state = state.copy(orbitAngle = (state.orbitAngle + state.rotationSpeedDegPerSec * deltaSeconds).normalizeAngle())
+                }
             }
         }
     }
@@ -211,15 +218,19 @@ fun PulseOrbitScreen(
     val ringBurst = remember { androidx.compose.animation.core.Animatable(0f) }
     val readyPulse = remember { androidx.compose.animation.core.Animatable(0.6f) }
 
-    LaunchedEffect(state.playing, state.gameOver) {
+    LaunchedEffect(state.playing, state.gameOver, reducedEffects) {
         if (!state.playing && !state.gameOver) {
-            readyPulse.animateTo(
-                targetValue = 1f,
-                animationSpec = androidx.compose.animation.core.infiniteRepeatable(
-                    animation = androidx.compose.animation.core.tween(1000, easing = androidx.compose.animation.core.LinearOutSlowInEasing),
-                    repeatMode = androidx.compose.animation.core.RepeatMode.Reverse
+            if (reducedEffects) {
+                readyPulse.snapTo(1f)
+            } else {
+                readyPulse.animateTo(
+                    targetValue = 1f,
+                    animationSpec = androidx.compose.animation.core.infiniteRepeatable(
+                        animation = androidx.compose.animation.core.tween(1000, easing = androidx.compose.animation.core.LinearOutSlowInEasing),
+                        repeatMode = androidx.compose.animation.core.RepeatMode.Reverse
+                    )
                 )
-            )
+            }
         } else {
             readyPulse.snapTo(1f)
         }

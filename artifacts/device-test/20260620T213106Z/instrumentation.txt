@@ -1,0 +1,324 @@
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.BackNavigationTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.BackNavigationTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.BackNavigationTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.ChallengeUpdateTest:
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.ChallengeUpdateTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=testChallengeUpdates
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.GameplayDeviceSmokeTest:
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.junit4.android.ComposeNotIdleException: Idling resource timed out: possibly due to compose being busy.
+IdlingResourceRegistry has the following idling resources registered:
+- [busy] ComposeIdlingResource is busy due to pending recompositions.
+         - Note: Timeout on pending recomposition means that there are most likely infinite re-compositions happening in the tested code.
+         - Debug: hadRecomposerChanges = true, hadSnapshotChanges = false, hadAwaitersOnMainClock = false 
+All registered idling resources: Compose-Espresso link
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.rethrowWithMoreInfo(EspressoLink.android.kt:136)
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.runEspressoOnIdle(EspressoLink.android.kt:110)
+	at androidx.compose.ui.test.junit4.EspressoLink.runUntilIdle(EspressoLink.android.kt:79)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.waitForIdle(ComposeUiTest.android.kt:340)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$waitForIdle(ComposeUiTest.android.kt:230)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitForIdle(ComposeUiTest.android.kt:410)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitForIdle(AndroidComposeTestRule.android.kt:301)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:34)
+	... 53 trimmed
+Caused by: androidx.test.espresso.IdlingResourceTimeoutException: Wait for [Compose-Espresso link] to become idle timed out
+	at androidx.test.espresso.IdlingPolicy.handleTimeout(IdlingPolicy.java:63)
+	at androidx.test.espresso.base.UiControllerImpl$5.resourcesHaveTimedOut(UiControllerImpl.java:420)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleTimeout(IdlingResourceRegistry.java:533)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleMessage(IdlingResourceRegistry.java:466)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at androidx.test.espresso.base.Interrogator.loopAndInterrogate(Interrogator.java:156)
+	at androidx.test.espresso.base.UiControllerImpl.loopUntil(UiControllerImpl.java:510)
+	at androidx.test.espresso.base.UiControllerImpl.loopMainThreadUntilIdle(UiControllerImpl.java:433)
+	at androidx.test.espresso.Espresso.lambda$onIdle$2(Espresso.java:340)
+	at androidx.test.espresso.Espresso$$ExternalSyntheticLambda1.call(D8$$SyntheticClass:0)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at android.os.Handler.handleCallback(Handler.java:942)
+	at android.os.Handler.dispatchMessage(Handler.java:99)
+	at android.os.Looper.loopOnce(Looper.java:204)
+	at android.os.Looper.loop(Looper.java:291)
+	at android.app.ActivityThread.main(ActivityThread.java:8134)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:601)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1019)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pulseOrbitStartsFromButtonOnDevice(com.vexel.arcadetrio.GameplayDeviceSmokeTest):
+androidx.compose.ui.test.junit4.android.ComposeNotIdleException: Idling resource timed out: possibly due to compose being busy.
+IdlingResourceRegistry has the following idling resources registered:
+- [busy] ComposeIdlingResource is busy due to pending recompositions.
+         - Note: Timeout on pending recomposition means that there are most likely infinite re-compositions happening in the tested code.
+         - Debug: hadRecomposerChanges = true, hadSnapshotChanges = false, hadAwaitersOnMainClock = false 
+All registered idling resources: Compose-Espresso link
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.rethrowWithMoreInfo(EspressoLink.android.kt:136)
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.runEspressoOnIdle(EspressoLink.android.kt:110)
+	at androidx.compose.ui.test.junit4.EspressoLink.runUntilIdle(EspressoLink.android.kt:79)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.waitForIdle(ComposeUiTest.android.kt:340)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$waitForIdle(ComposeUiTest.android.kt:230)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitForIdle(ComposeUiTest.android.kt:410)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitForIdle(AndroidComposeTestRule.android.kt:301)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:34)
+	... 53 trimmed
+Caused by: androidx.test.espresso.IdlingResourceTimeoutException: Wait for [Compose-Espresso link] to become idle timed out
+	at androidx.test.espresso.IdlingPolicy.handleTimeout(IdlingPolicy.java:63)
+	at androidx.test.espresso.base.UiControllerImpl$5.resourcesHaveTimedOut(UiControllerImpl.java:420)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleTimeout(IdlingResourceRegistry.java:533)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleMessage(IdlingResourceRegistry.java:466)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at androidx.test.espresso.base.Interrogator.loopAndInterrogate(Interrogator.java:156)
+	at androidx.test.espresso.base.UiControllerImpl.loopUntil(UiControllerImpl.java:510)
+	at androidx.test.espresso.base.UiControllerImpl.loopMainThreadUntilIdle(UiControllerImpl.java:433)
+	at androidx.test.espresso.Espresso.lambda$onIdle$2(Espresso.java:340)
+	at androidx.test.espresso.Espresso$$ExternalSyntheticLambda1.call(D8$$SyntheticClass:0)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at android.os.Handler.handleCallback(Handler.java:942)
+	at android.os.Handler.dispatchMessage(Handler.java:99)
+	at android.os.Looper.loopOnce(Looper.java:204)
+	at android.os.Looper.loop(Looper.java:291)
+	at android.app.ActivityThread.main(ActivityThread.java:8134)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:601)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1019)
+
+INSTRUMENTATION_STATUS: test=pulseOrbitStartsFromButtonOnDevice
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.waitUntilExists(DeviceTestHelpers.kt:16)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.waitUntilExists$default(DeviceTestHelpers.kt:15)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:64)
+
+INSTRUMENTATION_STATUS: stream=
+Error in stackDropGestureControlsWork(com.vexel.arcadetrio.GameplayDeviceSmokeTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.waitUntilExists(DeviceTestHelpers.kt:16)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.waitUntilExists$default(DeviceTestHelpers.kt:15)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:64)
+
+INSTRUMENTATION_STATUS: test=stackDropGestureControlsWork
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftPauseButtonShowsOverlayAndResumes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:103)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftPauseButtonShowsOverlayAndResumes(com.vexel.arcadetrio.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:103)
+
+INSTRUMENTATION_STATUS: test=laneDriftPauseButtonShowsOverlayAndResumes
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.GameplayDeviceSmokeTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed to inject touch input.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + EditableText contains 'Play' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performTouchInput(Actions.kt:368)
+	at androidx.compose.ui.test.Actions_androidKt.performClickImpl(Actions.android.kt:20)
+	at androidx.compose.ui.test.ActionsKt.performClick(Actions.kt:51)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:47)
+
+INSTRUMENTATION_STATUS: stream=
+Error in laneDriftStartsAndSpawnsTraffic(com.vexel.arcadetrio.GameplayDeviceSmokeTest):
+java.lang.AssertionError: Failed to inject touch input.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + EditableText contains 'Play' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performTouchInput(Actions.kt:368)
+	at androidx.compose.ui.test.Actions_androidKt.performClickImpl(Actions.android.kt:20)
+	at androidx.compose.ui.test.ActionsKt.performClick(Actions.kt:51)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:47)
+
+INSTRUMENTATION_STATUS: test=laneDriftStartsAndSpawnsTraffic
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.LifecyclePauseTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.LifecyclePauseTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.LifecyclePauseTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.NavigationSmokeTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.NavigationSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.vexel.arcadetrio.SettingsPersistenceSmokeTest:
+INSTRUMENTATION_STATUS: test=null
+INSTRUMENTATION_STATUS_CODE: -3
+INSTRUMENTATION_RESULT: stream=
+
+Time: 77.775
+There were 4 failures:
+1) pulseOrbitStartsFromButtonOnDevice(com.vexel.arcadetrio.GameplayDeviceSmokeTest)
+androidx.compose.ui.test.junit4.android.ComposeNotIdleException: Idling resource timed out: possibly due to compose being busy.
+IdlingResourceRegistry has the following idling resources registered:
+- [busy] ComposeIdlingResource is busy due to pending recompositions.
+         - Note: Timeout on pending recomposition means that there are most likely infinite re-compositions happening in the tested code.
+         - Debug: hadRecomposerChanges = true, hadSnapshotChanges = false, hadAwaitersOnMainClock = false 
+All registered idling resources: Compose-Espresso link
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.rethrowWithMoreInfo(EspressoLink.android.kt:136)
+	at androidx.compose.ui.test.junit4.EspressoLink_androidKt.runEspressoOnIdle(EspressoLink.android.kt:110)
+	at androidx.compose.ui.test.junit4.EspressoLink.runUntilIdle(EspressoLink.android.kt:79)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.waitForIdle(ComposeUiTest.android.kt:340)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$waitForIdle(ComposeUiTest.android.kt:230)
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitForIdle(ComposeUiTest.android.kt:410)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitForIdle(AndroidComposeTestRule.android.kt:301)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.pulseOrbitStartsFromButtonOnDevice(GameplayDeviceSmokeTest.kt:34)
+	... 53 trimmed
+Caused by: androidx.test.espresso.IdlingResourceTimeoutException: Wait for [Compose-Espresso link] to become idle timed out
+	at androidx.test.espresso.IdlingPolicy.handleTimeout(IdlingPolicy.java:63)
+	at androidx.test.espresso.base.UiControllerImpl$5.resourcesHaveTimedOut(UiControllerImpl.java:420)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleTimeout(IdlingResourceRegistry.java:533)
+	at androidx.test.espresso.base.IdlingResourceRegistry$Dispatcher.handleMessage(IdlingResourceRegistry.java:466)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at androidx.test.espresso.base.Interrogator.loopAndInterrogate(Interrogator.java:156)
+	at androidx.test.espresso.base.UiControllerImpl.loopUntil(UiControllerImpl.java:510)
+	at androidx.test.espresso.base.UiControllerImpl.loopMainThreadUntilIdle(UiControllerImpl.java:433)
+	at androidx.test.espresso.Espresso.lambda$onIdle$2(Espresso.java:340)
+	at androidx.test.espresso.Espresso$$ExternalSyntheticLambda1.call(D8$$SyntheticClass:0)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at android.os.Handler.handleCallback(Handler.java:942)
+	at android.os.Handler.dispatchMessage(Handler.java:99)
+	at android.os.Looper.loopOnce(Looper.java:204)
+	at android.os.Looper.loop(Looper.java:291)
+	at android.app.ActivityThread.main(ActivityThread.java:8134)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:601)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1019)
+2) stackDropGestureControlsWork(com.vexel.arcadetrio.GameplayDeviceSmokeTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 30000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:431)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.waitUntilExists(DeviceTestHelpers.kt:16)
+	at com.vexel.arcadetrio.DeviceTestHelpersKt.waitUntilExists$default(DeviceTestHelpers.kt:15)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.stackDropGestureControlsWork(GameplayDeviceSmokeTest.kt:64)
+3) laneDriftPauseButtonShowsOverlayAndResumes(com.vexel.arcadetrio.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Assert failed: The component is not displayed!
+	at androidx.compose.ui.test.AssertionsKt.assertIsDisplayed(Assertions.kt:34)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftPauseButtonShowsOverlayAndResumes(GameplayDeviceSmokeTest.kt:103)
+4) laneDriftStartsAndSpawnsTraffic(com.vexel.arcadetrio.GameplayDeviceSmokeTest)
+java.lang.AssertionError: Failed to inject touch input.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + EditableText contains 'Play' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrDie$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performTouchInput(Actions.kt:368)
+	at androidx.compose.ui.test.Actions_androidKt.performClickImpl(Actions.android.kt:20)
+	at androidx.compose.ui.test.ActionsKt.performClick(Actions.kt:51)
+	at com.vexel.arcadetrio.GameplayDeviceSmokeTest.laneDriftStartsAndSpawnsTraffic(GameplayDeviceSmokeTest.kt:47)
+
+FAILURES!!!
+Tests run: 5,  Failures: 4
+
+
+INSTRUMENTATION_CODE: -1

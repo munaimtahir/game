@@ -4,8 +4,8 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP_APK="${APP_APK:-$ROOT_DIR/app/build/outputs/apk/debug/app-debug.apk}"
 TEST_APK="${TEST_APK:-$ROOT_DIR/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk}"
-APP_ID="${APP_ID:-com.vexel.offlinearcade}"
-TEST_ID="${TEST_ID:-com.vexel.offlinearcade.test}"
+APP_ID="${APP_ID:-com.vexel.arcadetrio}"
+TEST_ID="${TEST_ID:-com.vexel.arcadetrio.test}"
 RUNNER="${RUNNER:-androidx.test.runner.AndroidJUnitRunner}"
 ARTIFACT_DIR="${ARTIFACT_DIR:-$ROOT_DIR/artifacts/device-test}"
 SKIP_BUILD="${SKIP_BUILD:-0}"
@@ -152,6 +152,9 @@ echo "Installing app APK..."
 
 echo "Installing test APK..."
 "$ADB_BIN" "${ADB_ARGS[@]}" install -r -t "$TEST_APK" | tee "$RUN_DIR/install-test.txt"
+
+echo "Waiting 5 seconds for Package Manager to settle..."
+sleep 5
 
 echo "Listing installed instrumentation targets..."
 adb_shell pm list instrumentation > "$RUN_DIR/instrumentation-list.txt" || true

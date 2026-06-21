@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Brush
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.ArcadeScaffold
@@ -45,6 +46,13 @@ fun LaneDriftDetailScreen(
         context.resources.getIdentifier("header_lane_drift", "drawable", context.packageName)
     }
 
+    val backgroundBrush = Brush.verticalGradient(
+        listOf(
+            ArcadeTheme.colors.background,
+            ArcadeTheme.colors.laneAccent.copy(alpha = 0.08f)
+        )
+    )
+
     ArcadeScaffold(
         title = "Game Info",
         onBack = onBack,
@@ -52,6 +60,7 @@ fun LaneDriftDetailScreen(
         screenTestTag = com.vexel.offlinearcade.core.ui.ArcadeTestTags.LaneDriftDetail,
         coins = coins,
         streak = streak,
+        backgroundBrush = backgroundBrush,
     ) {
         if (headerResId != 0) {
             ArcadeMarquee(

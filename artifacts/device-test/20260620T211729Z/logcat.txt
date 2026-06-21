@@ -1,0 +1,1194 @@
+--------- beginning of main
+06-21 02:17:54.386 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.392  1461  1568 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/system/install_sessions.xml
+06-21 02:17:54.392  1461  1568 W BaseXMLFilesVerify: format is normal
+06-21 02:17:54.392  1461  1568 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-21 02:17:54.396 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.WidgetEventRegister:  onBusEvent:WigAppChangeEvent, package : com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:54.397 23754 23904 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:54.397 23754 23904 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+06-21 02:17:54.397 23754 23904 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+06-21 02:17:54.397 23754 23904 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+06-21 02:17:54.398 23754 23904 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+06-21 02:17:54.415 23605 23705 I Finsky  : [201] AIM: AppInfoManager-Perf > ItemModel > CacheSize=143, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=2. Missed  in cache (limit 10) : []
+06-21 02:17:54.418   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039811,0.000030, totalTime 0.039843 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.420 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{e431e72: android.os.BinderProxy@3fc9f69}
+06-21 02:17:54.422  9071 25768 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+06-21 02:17:54.424  1461  1568 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/system/install_sessions.xmlsecnew.bak
+06-21 02:17:54.425  1461  1568 W BaseXMLFilesVerify: format is normal
+06-21 02:17:54.425  1461  1568 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-21 02:17:54.429  3526  3526 E ApduServiceInfo: Not adding <aid-group> with empty or invalid AIDs
+06-21 02:17:54.434   713 25801 I resolv  : GetAddrInfoHandler::run: {0 0 0 983040 10367 0}
+06-21 02:17:54.440   714   714 I Zygote  : Process 24787 exited due to signal 9 (Killed)
+06-21 02:17:54.442 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{406e2c3: android.os.BinderProxy@d0a28f}
+06-21 02:17:54.448 23754 23904 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+06-21 02:17:54.449 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+06-21 02:17:54.452 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+06-21 02:17:54.453 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.459  1461  4183 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.documentsui/com.google.android.documentsui pid=24787 state:3
+06-21 02:17:54.459  1461  4183 I game_scn: collectForegroundAppList packName=com.google.android.documentsui, actName=com.google.android.documentsui, pid=24787, uid=10057, state:DEAD
+06-21 02:17:54.459  1461  4183 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 22027, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+06-21 02:17:54.460   740   840 I libPowerHal: [perfNotifyAppState] pack:com.google.android.documentsui, act:com.google.android.documentsui, state:3, pid:24787, uid:10057, fps:-1
+06-21 02:17:54.461   740   840 I libPowerHal: [perfNotifyAppState] pack:com.google.android.documentsui, pid:24787, STATE_DEAD
+06-21 02:17:54.468 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:54.468 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.468 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:54.469 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.469 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.469 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.469 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.469 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.470 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.471 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.471  9071 25476 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+06-21 02:17:54.478   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039814,0.000034, totalTime 0.039848 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.479 23605 23715 I Finsky  : [203] AIM: AppInfoManager-Perf > getApps > data collection finished
+06-21 02:17:54.471 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:54.479 23605 23715 I Finsky  : [203] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 0
+06-21 02:17:54.502  1461  1475 W System  : A resource failed to call close. 
+06-21 02:17:54.497  1461  1461 W ackgroundThread: type=1400 audit(0.0:169751): avc: denied { ioctl } for path="/data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak" dev="dm-42" ino=2751266 ioctlcmd=0x6685 scontext=u:r:system_server:s0 tcontext=u:object_r:apex_system_server_data_file:s0 tclass=file permissive=0
+06-21 02:17:54.511 23605 23705 I Finsky  : [201] AIM: AppInfoManager-Perf > ItemModel > CacheSize=143, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=2. Missed  in cache (limit 10) : []
+06-21 02:17:54.518   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039691,0.000030, totalTime 0.039722 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: roles.xmlsec.baksetup fs failed
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak: Permission denied
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:81)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-21 02:17:54.527  1461  1665 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-21 02:17:54.547  1461  1593 I RoleService: Granting default roles...
+06-21 02:17:54.549 22027 22027 I kolun_slot_ViewStub: executeRefresh: hashCode:55952385
+06-21 02:17:54.549 22027 22027 I kolun_slot_ViewStub: executeRefresh: action : 1
+06-21 02:17:54.549 22027 22027 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+06-21 02:17:54.549 22027 22027 I kolun_slot_ViewStub: realItemDataChange: hashCode:55952385 position:1
+06-21 02:17:54.550 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+06-21 02:17:54.550 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+06-21 02:17:54.550 22027 22027 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:76813543position:1
+06-21 02:17:54.550 22027 22027 I kolun_slot_ViewStub: executeRefresh: action : 1
+06-21 02:17:54.550 22027 22027 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+06-21 02:17:54.550 22027 22027 I kolun_slot_ViewStub: realItemDataChange: hashCode:55952385 position:1
+06-21 02:17:54.550 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+06-21 02:17:54.550 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+06-21 02:17:54.550 22027 22027 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:76813543position:1
+06-21 02:17:54.558   713 25808 I resolv  : GetAddrInfoHandler::run: {0 0 0 983040 10367 0}
+06-21 02:17:54.558   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039761,0.000029, totalTime 0.039791 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.586 16122 22690 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-21 02:17:54.590 16122 22690 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+06-21 02:17:54.598   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039742,0.000030, totalTime 0.039774 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.623 25518 25595 I OneAuthLog: [OneAuth:0002:Info:48bf5:00000000] MATS DeviceProfileTelemetryId: 83378f30b6c12df9
+06-21 02:17:54.624 25518 25595 I OneAuthLog: [OneAuth:0002:Info:4md94:00000000] MATS device telemetry disabled.
+06-21 02:17:54.626 16349 22858 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+06-21 02:17:54.627   713 25812 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:54.634 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:54.638   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039722,0.000055, totalTime 0.039778 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.639 16349 22858 I Icing   : Indexing done com.google.android.gms-apps
+06-21 02:17:54.652   713 25813 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:54.661 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+--------- beginning of system
+06-21 02:17:54.694 25499 25683 W PowerProfile: screen.on is deprecated! Use screen.on.display0 instead.
+06-21 02:17:54.694 25499 25683 W PowerProfile: screen.full is deprecated! Use screen.full.display0 instead.
+06-21 02:17:54.694 25499 25683 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x0, drain:0,RAT:DEFAULT
+06-21 02:17:54.695 25499 25683 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x10000000, drain:IDLE,RAT:DEFAULT
+06-21 02:17:54.695 25499 25683 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x20000000, drain:RX,RAT:DEFAULT
+06-21 02:17:54.695 25499 25683 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x30000000, drain:TX,level:UNKNOWN(0x0)RAT:DEFAULT
+06-21 02:17:54.695 25499 25683 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x31000000, drain:TX,level:UNKNOWN(0x1000000)RAT:DEFAULT
+06-21 02:17:54.695 25499 25683 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x32000000, drain:TX,level:UNKNOWN(0x2000000)RAT:DEFAULT
+06-21 02:17:54.695 25499 25683 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x33000000, drain:TX,level:UNKNOWN(0x3000000)RAT:DEFAULT
+06-21 02:17:54.695 25499 25683 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x34000000, drain:TX,level:UNKNOWN(0x4000000)RAT:DEFAULT
+06-21 02:17:54.698   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039784,0.000036, totalTime 0.039821 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.725 25518 25595 I OneAuthLog: [MSAL:0002]	INFO   	CreateSingletonComponents:143	Starting up MSAL
+06-21 02:17:54.736 25518 25595 I OneAuthLog: [MSAL:0002]	INFO   	AddConfigurationWithStorageManager:269	Created a new public client application with ID ''
+06-21 02:17:54.738   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039743,0.000029, totalTime 0.039773 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.740 25518 25595 I OneAuthLog: [OneAuth:0002:Info:8mqsd:ef036c83] OneAuth Version 10.1.1 (com.microsoft.appmanager)
+06-21 02:17:54.748 25518 25595 I OneAuthLog: [OneAuth:0002:Info:9zj7z:ef036c83] Language code 'en-US' is not supported, fall back to 'en'
+06-21 02:17:54.778   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039754,0.000029, totalTime 0.039784 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.826 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:54.828 23754 24007 I Kolun.SkillCard===:  skill card isNUll
+06-21 02:17:54.828 25499 25695 W ApiInvoke1.5.150: ApiInvokeRegister: initServiceChannelMap, add commonChannel PmApiService
+06-21 02:17:54.838   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039796,0.000030, totalTime 0.039827 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.843 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.aivoiceassistant
+06-21 02:17:54.843 25499 25695 W ApiInvoke1.5.150: InvokeWorkHandler: invoke work handler created!!
+06-21 02:17:54.843 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.kolun.assistant
+06-21 02:17:54.843 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.microintelligence
+06-21 02:17:54.843 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.notebook
+06-21 02:17:54.843 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.phonemaster
+06-21 02:17:54.843 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:54.843 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:54.843 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:54.867 25499 25824 W ApiInvoke1.5.150: OxygenBusUtils: isAppServiceProcessStarted, isMainLooper:false, timeout:1000, started:true, cost:19ms
+06-21 02:17:54.868 25499 25824 W ApiInvoke1.5.150: OxygenBusProcess: OxygenBusProcess onAPPServiceStart 
+06-21 02:17:54.868 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: initService false sync start >>>  channelName PmApiService
+06-21 02:17:54.868 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: registerRemoteIpcProxy 
+06-21 02:17:54.869 25499 25824 W ApiInvoke1.5.150: OxygenBusService: dispatchStateChange oldState 0 newState 1
+06-21 02:17:54.870 25499 25827 W ApiInvoke1.5.150: OxygenBusService: OxygenBusCallable call start oxygenBusService
+06-21 02:17:54.871 25499 25826 W ApiInvoke1.5.150: OxygenBusService: dispatchStateChange run size 0 state 1
+06-21 02:17:54.873 25499 25827 W ApiInvoke1.5.150: OxygenBusUtils: isAppServiceProcessStarted, isMainLooper:false, timeout:1000, started:true, cost:2ms
+06-21 02:17:54.878   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039755,0.000033, totalTime 0.039789 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.901 25499 25827 W ApiInvoke1.5.150: OxygenBusService: OxygenBusCallable call end oxygenBusService success true
+06-21 02:17:54.903 25499 25824 W ApiInvoke1.5.150: OxygenBusService: dispatchStateChange oldState 1 newState 2
+06-21 02:17:54.903 25499 25824 W ApiInvoke1.5.150: OxygenBusService: DeathRecipient setReConnectSuccess
+06-21 02:17:54.903 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: registerServiceComponent 
+06-21 02:17:54.903 25499 25824 W ApiInvoke1.5.150:  ChannelEntity{channelName='PmApiService', packageName='com.transsion.phonemaster', className='com.transsion.apiinvoke.ipc.connect.CommonRouterApiService', channelService=[PmApiService], autoConnect=true}
+06-21 02:17:54.904  4342 25501 W OxygenBusServiceImpl: registerService PmApiService entity ComponentInfo{com.transsion.phonemaster/com.transsion.apiinvoke.ipc.connect.CommonRouterApiService} GLOBAL_ROUTER 11
+06-21 02:17:54.912 25499 25829 W ApiInvoke1.5.150: OxygenBusService: dispatchStateChange run size 0 state 2
+06-21 02:17:54.912 25499 25830 W ApiInvoke1.5.150: OxygenBusService: OxygenBusCallable call start subscribeService
+06-21 02:17:54.918   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039714,0.000031, totalTime 0.039746 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.919 25499 25830 W ApiInvoke1.5.150: OxygenBusUtils: isAppServiceProcessStarted, isMainLooper:false, timeout:1000, started:true, cost:6ms
+06-21 02:17:54.925 25499 25830 W ApiInvoke1.5.150: OxygenBusService: OxygenBusCallable call end subscribeService success true
+06-21 02:17:54.926 25499 25824 W ApiInvoke1.5.150: OxygenBusService: dispatchStateChange oldState 2 newState 2
+06-21 02:17:54.927 25499 25824 W ApiInvoke1.5.150: OxygenBusService: DeathRecipient setReConnectSuccess
+06-21 02:17:54.936 25499 25608 I FA      : Tag Manager is not found and thus will not be used
+06-21 02:17:54.938 25499 25832 W ApiInvoke1.5.150: OxygenBusService: dispatchStateChange run size 0 state 2
+06-21 02:17:54.944 25499 25824 W ApiInvoke1.5.150: BReceiverHandler: registerReceiver init getWorkHandler
+06-21 02:17:54.945 25499 25824 W ApiInvoke1.5.150: ApiPublisherConnection: registerRemoteSubscribeStub process {"pid": "25499","process": "com.transsion.phonemaster","packageName": "com.transsion.phonemaster","channels": ["PmApiService"],"version": "1.5.150"} hasLocalPublish false
+06-21 02:17:54.946 25499 25824 W ApiInvoke1.5.150: ApiPublisherConnection: registerRemoteSubscribeStub process {"pid": "25499","process": "com.transsion.phonemaster","packageName": "com.transsion.phonemaster","channels": ["PmApiService"],"version": "1.5.150"} hasLocalPublish false
+06-21 02:17:54.946 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: registerServiceComponent 
+06-21 02:17:54.946 25499 25824 W ApiInvoke1.5.150:  ChannelEntity{channelName='PmApiService', packageName='com.transsion.phonemaster', className='com.transsion.apiinvoke.ipc.connect.CommonRouterApiService', channelService=[PmApiService], autoConnect=true}
+06-21 02:17:54.946  4342 25501 W OxygenBusServiceImpl: registerService PmApiService entity ComponentInfo{com.transsion.phonemaster/com.transsion.apiinvoke.ipc.connect.CommonRouterApiService} GLOBAL_ROUTER 11
+06-21 02:17:54.956 25499 25835 W ion.phonemaster: Opening an oat file without a class loader. Are you using the deprecated DexFile APIs?
+06-21 02:17:54.958   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039752,0.000029, totalTime 0.039781 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:54.966 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:54.969 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:54.976  3711  3729 I ivoiceassistant: Background young concurrent copying GC freed 5628KB AllocSpace bytes, 11(528KB) LOS objects, 46% free, 7641KB/13MB, paused 1.465ms,133us total 111.075ms
+06-21 02:17:54.990 23754 24003 I CardSettings: packageChanged: 
+06-21 02:17:54.991 23754 24003 E Kolun.PackageInfoUtils:  isAppExistAndEnabled NameNotFoundException -> pkg : com.transsion.wallet.tecno
+06-21 02:17:54.991 23754 24003 I WalletCardPretreatment: onReceivePackageChanged: isWalletAppEnable=false; stateChanged=false
+06-21 02:17:54.991 23754 24003 I MoverCardPretreatment: onReceivePackageChanged: isMobileClonerEnable = true; stateChanged = false
+06-21 02:17:54.998   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039788,0.000033, totalTime 0.039822 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.005 23754 24003 I MemoryGalleryPretreatment: onReceivePackageChanged: stateChanged = false
+06-21 02:17:55.009 23754 24007 I Kolun.SkillCard====:  from catch list==19
+06-21 02:17:55.009 23754 24007 I Kolun.Card:  isAvailable mIsEnable: true , mIsActive  true
+06-21 02:17:55.009 23754 24007 W Kolun.Card:  SkillCard toggleStatusInner : enable == mIsEnable
+06-21 02:17:55.010 23754 24007 I Kolun.Card:  updateInner success: true
+06-21 02:17:55.010 23754 24003 I Kolun.CardClient:  execute update start18 CardUpdateRunnable
+06-21 02:17:55.010 23754 24003 I Kolun.SkillCard===:  card displayTimes=1073741823
+06-21 02:17:55.038   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039605,0.000035, totalTime 0.039642 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.054 23754 24003 I Kolun.CardClient:  host onCardUpdated kolun card 18
+06-21 02:17:55.054 23754 24003 I Kolun.CardClient:  execute update success18 CardUpdateRunnable
+06-21 02:17:55.078   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039743,0.000053, totalTime 0.039798 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.118   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039614,0.000063, totalTime 0.039678 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.178   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039830,0.000031, totalTime 0.039862 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.220   740   812 I libPerfCtl: xgfGetFPS pid:22027 fps:-1
+06-21 02:17:55.221   943   943 I thermal_repeater: [recvMdThermalInfo] ret=5, strLen=127, ERROR
+06-21 02:17:55.238   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039815,0.000029, totalTime 0.039845 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.300  1461  1473 I system_server: Background concurrent copying GC freed 31MB AllocSpace bytes, 35(1040KB) LOS objects, 21% free, 87MB/111MB, paused 814us,273us total 1.384s
+06-21 02:17:55.318   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039791,0.000116, totalTime 0.039908 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.387  1461  4158 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.transsion.ossettingsext/.flash.applist.MonitorSysReceiver
+06-21 02:17:55.389  1461  1512 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemonitor.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+06-21 02:17:55.392  1461  1512 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemonitor.backgroundimpl.BackgroundPackageMonitorReceiverImpl$RegisteredReceiver
+06-21 02:17:55.392  1461  1512 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+06-21 02:17:55.394  1461  1461 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio, user:UserHandle{0}, action:android.intent.action.PACKAGE_REMOVED
+06-21 02:17:55.398   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039861,0.000027, totalTime 0.039889 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.409 22687 22687 I BaseFilesVerify: Base File verify start
+06-21 02:17:55.409 22687 22687 W BaseFilesVerify: credential-management-app.xmlis not in fileProtect list,can not protect this file
+06-21 02:17:55.425  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:55.438   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039720,0.000029, totalTime 0.039750 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.445   760   760 I BufferQueueProducer: [com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher#10489](this:0xb400007104fe8ef8,id:-1,api:0,p:-1,c:760) queueBuffer: fps=1.61 dur=1243.82 max=860.56 min=383.26
+06-21 02:17:55.445 25804 25804 I AndroidRuntime: Using default boot image
+06-21 02:17:55.445 25804 25804 I AndroidRuntime: Leaving lock profiling enabled
+06-21 02:17:55.446   729   858 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.608988,dur:1243.02,max:860.91,min:382.11  
+06-21 02:17:55.448 22687 22687 I BaseFilesVerify: Base File verify start
+06-21 02:17:55.448 22687 22687 W BaseFilesVerify: credential-management-app.xmlis not in fileProtect list,can not protect this file
+06-21 02:17:55.464 23605 23605 I Finsky  : [2] akgg - Received: android.intent.action.PACKAGE_FULLY_REMOVED, [ys8O1TXXIMWZPknjbG8d6kPtwf7zmEkjYt4zVSWS2Qo]
+06-21 02:17:55.468 23754 23995 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+06-21 02:17:55.468  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:55.475  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:55.477 23605 23605 I Finsky  : [2] Clearing split related stale data.
+06-21 02:17:55.478   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039931,0.000050, totalTime 0.039982 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.479 23605 23718 I Finsky  : [205] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=1, cacheMissCount=0. Missed  in cache (limit 10) : []
+06-21 02:17:55.479 23605 23718 I Finsky  : [205] AIM: Got app ownership map. App counts: . Unique apps: 0
+06-21 02:17:55.480  1461  1494 I UsageStatsService: Do not remove uninstalled app's usage.
+06-21 02:17:55.484  1461  1494 I BaseFilesVerify: Base File verify start
+06-21 02:17:55.484  1461  1494 W BaseFilesVerify: android0.xmlis not in fileProtect list,can not protect this file
+06-21 02:17:55.490 23605 23718 E Finsky  : [205] [Counters] attempted to use a non-positive increment for: 4752
+06-21 02:17:55.491 23605 23718 E Finsky  : [205] [Counters] attempted to use a non-positive increment for: 4753
+06-21 02:17:55.491 25804 25804 I app_process: Using CollectorTypeCC GC.
+06-21 02:17:55.491  1461  1494 I BaseFilesVerify: Base File verify start
+06-21 02:17:55.492  1461  1494 W BaseFilesVerify: com.transsion.smartpanel0.xmlis not in fileProtect list,can not protect this file
+06-21 02:17:55.498  1461  1494 I BaseFilesVerify: Base File verify start
+06-21 02:17:55.498  1461  1494 W BaseFilesVerify: com.transsion.hilauncher0.xmlis not in fileProtect list,can not protect this file
+06-21 02:17:55.504 23605 23718 I Finsky  : [205] AIM: AppInfoManager-Perf > ItemModel > CacheSize=143, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=2. Missed  in cache (limit 10) : []
+06-21 02:17:55.508  1461  1494 I BaseFilesVerify: Base File verify start
+06-21 02:17:55.509  1461  1494 W BaseFilesVerify: com.android.systemui0.xmlis not in fileProtect list,can not protect this file
+06-21 02:17:55.516 23605 23605 I Finsky  : [2] Do not start WearSupportService due to Wear service optimization
+06-21 02:17:55.517 23605 23605 I Finsky  : [2] AIM: AppInfoCacheUpdater -> invalidating apps: [com.vexel.arcadetrio.test]
+06-21 02:17:55.517 23605 23605 I Finsky  : [2] AIM: AppInfoManager-Perf > getApps > called for 1 apps
+06-21 02:17:55.518   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000000,0.039430,0.000026, totalTime 0.039457 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.520 23605 23715 I Finsky  : [203] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.vexel.arcadetrio.test]
+06-21 02:17:55.520 23605 23715 I Finsky  : [203] AIM: Got app ownership map. App counts: . Unique apps: 0
+06-21 02:17:55.520 23605 23742 I Finsky  : [214] [ContentSync] finished, scheduled=false
+06-21 02:17:55.527 23605 23715 E Finsky  : [203] [Counters] attempted to use a non-positive increment for: 4752
+06-21 02:17:55.531 23605 23715 E Finsky  : [203] [Counters] attempted to use a non-positive increment for: 4753
+06-21 02:17:55.533 23605 23829 I Finsky  : [227] Asset module storage cleared for package com.vexel.arcadetrio.test.
+06-21 02:17:55.536 23605 23670 I Finsky  : [189] RECEIVER_PACKAGE_MONITOR#logWorkEndAndFinishGoAsync: SUCCESS
+06-21 02:17:55.543 24211 24211 I Finsky:background: [2] akfw - Received: android.intent.action.PACKAGE_FULLY_REMOVED, [ys8O1TXXIMWZPknjbG8d6kPtwf7zmEkjYt4zVSWS2Qo]
+06-21 02:17:55.558   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039765,0.000028, totalTime 0.039794 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.567 24211 24388 I Finsky:background: [200] Wrote row to frosting DB: 70198
+06-21 02:17:55.569 24211 24391 I Finsky:background: [201] IQ:PSL: skipping onPackageRemoved(replacing=false) for untracked package=com.vexel.arcadetrio.test
+06-21 02:17:55.570 24211 24392 I Finsky:background: [202] RECEIVER_PACKAGE_MONITOR_BACKGROUND#logWorkEndAndFinishGoAsync: SUCCESS
+06-21 02:17:55.572 23605 23720 I Finsky  : [206] AIM: AppInfoManager-Perf > ItemModel > CacheSize=143, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=2. Missed  in cache (limit 10) : []
+06-21 02:17:55.579 24211 24385 I Finsky:background: [197] RECEIVER_ENGAGE_PACKAGE_CHANGED#logWorkEndAndFinishGoAsync: SUCCESS
+06-21 02:17:55.583  1461  1548 I AppsFilter: interaction: PackageSetting{9291f18 org.amanahquran.app/10285} -> PackageSetting{345c8c4 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:55.583  1461  1548 I AppsFilter: interaction: PackageSetting{fdaf5f3 com.vexel.stackdrop.test/10275} -> PackageSetting{345c8c4 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:55.583  1461  1548 I AppsFilter: interaction: PackageSetting{edb0758 com.warrantyvault/10291} -> PackageSetting{345c8c4 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:55.583  1461  1548 I AppsFilter: interaction: PackageSetting{3cd0996 com.cuecall.app/10251} -> PackageSetting{345c8c4 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:55.584  1461  1548 I AppsFilter: interaction: PackageSetting{bfb37d1 com.vexel.stackdrop/10274} -> PackageSetting{345c8c4 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:55.584  1461  1548 I AppsFilter: interaction: PackageSetting{d98315c com.vexel.arcadetrio.test/10502} -> PackageSetting{345c8c4 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:55.584  1461  1548 I AppsFilter: interaction: PackageSetting{306e389 com.vexel.arcadetrio/10501} -> PackageSetting{345c8c4 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:55.586 23605 23720 I Finsky  : [206] AIM: AppInfoManager-Perf > getApps > data collection finished
+06-21 02:17:55.588 23605 23720 I Finsky  : [206] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 0
+06-21 02:17:55.593 24211 24388 I Finsky:background: [200] Wrote row to frosting DB: 70199
+06-21 02:17:55.593  1461  1570 I OverlayManager: [RetestTagOfQyx OMS updateTargetPackagesLocked] updatedTargets=[]
+06-21 02:17:55.598   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039726,0.000027, totalTime 0.039754 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.599 23754 23754 I Kolun.EventBusImpl:  dispatchEvent: com.transsion.kolun.assistant.common.components.event.PackageChangeEvent@1fbb9cf
+06-21 02:17:55.600 23754 23904 I Kolun.WidgetEventRegister:  onBusEvent:PackageChangedEvent, packageName: com.microsoft.appmanager, actionType: android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.600 23754 23904 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+06-21 02:17:55.600 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.600 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.600 23754 23904 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:55.600 23754 23904 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:55.600 23754 23904 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+06-21 02:17:55.600 23754 23904 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+06-21 02:17:55.600 23754 23904 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+06-21 02:17:55.601 23754 23904 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+06-21 02:17:55.608  4342 22673 W PkgChangeInfoCollector: onPkgChange skip change
+06-21 02:17:55.614  1461  1461 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now com.sh.smart.caller: DDC.oR@DQ0
+06-21 02:17:55.617  1461  1610 I InputReader: Reconfiguring input devices, changes=KEYBOARD_LAYOUTS | 
+06-21 02:17:55.620 16122 16143 I PermissionControllerServiceImpl: Updating user sensitive for uid 10367
+06-21 02:17:55.623 16349 22785 I ComponentChangedIO: Feature is not enabled, skipping component changed intent operation [CONTEXT service_id=469 ]
+06-21 02:17:55.625 31489 22278 W Glide   : Load failed for https://cdn2.palmplaystore.com/static/567/43603ff2860a40469e92b4e4deb30dab.webp?blurhash=LCD%7B4%7ByU00J5ptxakBIn0cRj%7EE%253 with size [-2147483648x-2147483648]
+06-21 02:17:55.625 31489 22278 W Glide   : class com.bumptech.glide.load.engine.GlideException: Failed to load resource
+06-21 02:17:55.631 16122 16168 I ServiceLiveData: Detected PrintServices: [com.android.bips, com.epson.mobilephone.android.epsonprintserviceplugin]
+06-21 02:17:55.631 16122 16163 I ServiceLiveData: Not exempting com.transsion.livewallpaper.smart - not an active WallpaperService for u0
+06-21 02:17:55.631 16122 16171 I ServiceLiveData: Detected AutofillServices: [com.google.android.gms]
+06-21 02:17:55.631 16122 16162 I ServiceLiveData: Not exempting com.android.dreams.basic - not an active DreamService for u0
+06-21 02:17:55.632 16122 16163 I ServiceLiveData: Not exempting com.transsion.livewallpaper.smart - not an active WallpaperService for u0
+06-21 02:17:55.632 16122 16163 I ServiceLiveData: Not exempting com.transsion.livewallpaper.smart - not an active WallpaperService for u0
+06-21 02:17:55.632 16122 16163 I ServiceLiveData: Detected WallpaperServices: []
+06-21 02:17:55.632 16122 16164 I ServiceLiveData: Not exempting com.google.android.marvin.talkback - not an active AccessibilityService for u0
+06-21 02:17:55.633 16122 16164 I ServiceLiveData: Not exempting com.google.android.marvin.talkback - not an active AccessibilityService for u0
+06-21 02:17:55.633 16122 16164 I ServiceLiveData: Not exempting com.google.android.marvin.talkback - not an active AccessibilityService for u0
+06-21 02:17:55.633 16122 16164 I ServiceLiveData: Not exempting com.transsion.mol - not an active AccessibilityService for u0
+06-21 02:17:55.633 16122 16164 I ServiceLiveData: Not exempting com.transsnet.store - not an active AccessibilityService for u0
+06-21 02:17:55.633 16122 16164 I ServiceLiveData: Not exempting com.microsoft.appmanager - not an active AccessibilityService for u0
+06-21 02:17:55.634 16122 16164 I ServiceLiveData: Not exempting com.openai.chatgpt - not an active AccessibilityService for u0
+06-21 02:17:55.634 16122 16164 I ServiceLiveData: Not exempting org.kde.kdeconnect_tp - not an active AccessibilityService for u0
+06-21 02:17:55.634 16122 16164 I ServiceLiveData: Detected AccessibilityServices: [com.transsion.aivoiceassistant, com.piriform.ccleaner]
+06-21 02:17:55.634 16122 16163 I BroadcastReceiverLiveData: Not exempting com.google.android.gms - not an active DEVICE_ADMIN_ENABLED for u0
+06-21 02:17:55.635 16122 16163 I BroadcastReceiverLiveData: Not exempting com.azure.authenticator - not an active DEVICE_ADMIN_ENABLED for u0
+06-21 02:17:55.635 16122 16162 I ServiceLiveData: Not exempting com.google.android.apps.photos - not an active DreamService for u0
+06-21 02:17:55.635 16122 16163 I BroadcastReceiverLiveData: Not exempting com.microsoft.appmanager - not an active DEVICE_ADMIN_ENABLED for u0
+06-21 02:17:55.636 16122 16162 I ServiceLiveData: Not exempting com.transsion.deskclock - not an active DreamService for u0
+06-21 02:17:55.636 16122 16162 I ServiceLiveData: Not exempting com.google.android.deskclock - not an active DreamService for u0
+06-21 02:17:55.636 16122 16162 I ServiceLiveData: Detected DreamServices: []
+06-21 02:17:55.637 16122 16169 I ServiceLiveData: Not exempting com.google.android.gms - not an active InputMethod for u0
+06-21 02:17:55.637 16122 16169 I ServiceLiveData: Not exempting com.google.android.tts - not an active InputMethod for u0
+06-21 02:17:55.637 16122 16169 I ServiceLiveData: Not exempting com.transsion.sk - not an active InputMethod for u0
+06-21 02:17:55.637 16122 16169 I ServiceLiveData: Not exempting com.yandex.yango - not an active InputMethod for u0
+06-21 02:17:55.637 16122 16169 I ServiceLiveData: Not exempting org.kde.kdeconnect_tp - not an active InputMethod for u0
+06-21 02:17:55.637 16122 16169 I ServiceLiveData: Detected InputMethods: [com.facemoji.lite.transsion, com.touchtype.swiftkey]
+06-21 02:17:55.638 16122 16168 I ServiceLiveData: Not exempting com.google.android.gms - not an active DEVICE_ADMIN_SERVICE for u0
+06-21 02:17:55.638   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039730,0.000025, totalTime 0.039756 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.638 16122 16168 I ServiceLiveData: Detected DEVICE_ADMIN_SERVICEs: []
+06-21 02:17:55.640 16122 16167 I ServiceLiveData: Not exempting com.google.android.gms - not an active NotificationListenerService for u0
+06-21 02:17:55.641 16122 16167 I ServiceLiveData: Not exempting com.google.android.googlequicksearchbox - not an active NotificationListenerService for u0
+06-21 02:17:55.641 16122 16167 I ServiceLiveData: Not exempting com.transsion.healthlife - not an active NotificationListenerService for u0
+06-21 02:17:55.641 16122 16167 I ServiceLiveData: Not exempting com.transsion.phonemaster - not an active NotificationListenerService for u0
+06-21 02:17:55.641 16122 16167 I ServiceLiveData: Not exempting com.transsion.videocallenhancer - not an active NotificationListenerService for u0
+06-21 02:17:55.641 16122 16167 I ServiceLiveData: Not exempting com.facebook.stella - not an active NotificationListenerService for u0
+06-21 02:17:55.641 16122 16167 I ServiceLiveData: Not exempting com.google.android.contacts - not an active NotificationListenerService for u0
+06-21 02:17:55.641 16122 16167 I ServiceLiveData: Not exempting com.piriform.ccleaner - not an active NotificationListenerService for u0
+06-21 02:17:55.642 16122 16167 I ServiceLiveData: Not exempting com.truecaller - not an active NotificationListenerService for u0
+06-21 02:17:55.642 16122 16167 I ServiceLiveData: Not exempting org.kde.kdeconnect_tp - not an active NotificationListenerService for u0
+06-21 02:17:55.642 16122 16167 I ServiceLiveData: Detected NotificationListenerServices: [com.google.android.as, com.google.android.projection.gearhead, com.hoffnung, com.transsion.hilauncher, com.transsion.smartpanel, com.lensmoo.app, com.microsoft.appmanager]
+06-21 02:17:55.642 16122 16170 I ServiceLiveData: Not exempting com.transsion.aivoiceassistant - not an active VoiceInteractionService for u0
+06-21 02:17:55.642 16122 16170 I ServiceLiveData: Not exempting com.openai.chatgpt - not an active VoiceInteractionService for u0
+06-21 02:17:55.642 16122 16170 I ServiceLiveData: Detected VoiceInteractionServices: [com.google.android.googlequicksearchbox]
+06-21 02:17:55.644 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{4dfd265: android.os.BinderProxy@3fc9f69}
+06-21 02:17:55.647  1461  1593 I RoleService: Granting default roles...
+06-21 02:17:55.650 16122 16163 I BroadcastReceiverLiveData: Detected DEVICE_ADMIN_ENABLEDs: []
+06-21 02:17:55.661  1461  1513 I ActivityManager: Start proc 25840:com.google.android.apps.wellbeing/u0a118 for broadcast {com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.common.receiver.coalescedreceivers.PackageFullyRemovedCoalescedBroadcast_Receiver}
+06-21 02:17:55.669 25840 25840 W main    : type=1400 audit(0.0:169752): avc: denied { read } for name="u:object_r:vendor_memfusion_size_prop:s0" dev="tmpfs" ino=1656 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_size_prop:s0 tclass=file permissive=0 app=com.google.android.apps.wellbeing
+06-21 02:17:55.669 25840 25840 W main    : type=1400 audit(0.0:169753): avc: denied { read } for name="u:object_r:vendor_memfusion_state_prop:s0" dev="tmpfs" ino=1657 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_state_prop:s0 tclass=file permissive=0 app=com.google.android.apps.wellbeing
+06-21 02:17:55.669 25840 25840 W main    : type=1400 audit(0.0:169754): avc: denied { read } for name="u:object_r:vendor_memfusion_tranlog_prop:s0" dev="tmpfs" ino=1659 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_tranlog_prop:s0 tclass=file permissive=0 app=com.google.android.apps.wellbeing
+06-21 02:17:55.669 25840 25840 W main    : type=1400 audit(0.0:169755): avc: denied { read } for name="u:object_r:vendor_memfusion_ui_enable_prop:s0" dev="tmpfs" ino=1660 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_ui_enable_prop:s0 tclass=file permissive=0 app=com.google.android.apps.wellbeing
+06-21 02:17:55.678   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039814,0.000044, totalTime 0.039858 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.678 25840 25840 I .apps.wellbeing: Using CollectorTypeCC GC.
+06-21 02:17:55.673 25840 25840 W main    : type=1400 audit(0.0:169756): avc: denied { read } for name="u:object_r:vendor_uxcompaction_enable_prop:s0" dev="tmpfs" ino=1905 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_uxcompaction_enable_prop:s0 tclass=file permissive=0 app=com.google.android.apps.wellbeing
+06-21 02:17:55.681 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{4858b3a: android.os.BinderProxy@d0a28f}
+06-21 02:17:55.693  3526  3526 E ApduServiceInfo: Not adding <aid-group> with empty or invalid AIDs
+06-21 02:17:55.695 23754 23904 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+06-21 02:17:55.695 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+06-21 02:17:55.697 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+06-21 02:17:55.698 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.702 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:55.702 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.705 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.WidgetEventRegister:  onBusEvent:WigAppChangeEvent, package : com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.706 23754 23904 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:55.707 23754 23904 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:55.707 23754 23904 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+06-21 02:17:55.707 23754 23904 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+06-21 02:17:55.707 23754 23904 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+06-21 02:17:55.710 23754 23904 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+06-21 02:17:55.712  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:55.718   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039497,0.000055, totalTime 0.039553 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.725 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{3171548: android.os.BinderProxy@3fc9f69}
+06-21 02:17:55.730 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{7002fe1: android.os.BinderProxy@d0a28f}
+06-21 02:17:55.733 23754 23904 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+06-21 02:17:55.733 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+06-21 02:17:55.739 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+06-21 02:17:55.740 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.748 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:55.748 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.750 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:55.750 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.750 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.750 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.750 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.750 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.750 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.750 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.750 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:55.758   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039672,0.000065, totalTime 0.039738 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.759 16122 22690 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-21 02:17:55.761 16122 22690 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+06-21 02:17:55.778 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: registerApi packageClass ==> com.transsion.apiinvoke.routermap.appApiRouterMap
+06-21 02:17:55.778 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: autoScanLocalApiServices found packageClass ==> [com.transsion.apiinvoke.routermap.appApiRouterMap]
+06-21 02:17:55.778 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: registerRemoteIpcProxy 
+06-21 02:17:55.778 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: registerRemoteSubscribe
+06-21 02:17:55.781 25840 25840 W .apps.wellbeing: Failed to find entry 'classes.dex': Entry not found
+06-21 02:17:55.781 25499 25824 W ApiInvoke1.5.150: OxygenBusUtils: isAppServiceProcessStarted, isMainLooper:false, timeout:1000, started:true, cost:2ms
+06-21 02:17:55.781 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: addStateListenerAndCheck startListen  isAppServiceStart true
+06-21 02:17:55.781 25499 25824 W ApiInvoke1.5.150: ApiInvokeRegister: initService done >>>  channelName PmApiService
+06-21 02:17:55.798   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039537,0.000047, totalTime 0.039586 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.833  1461  1494 W PackageManager: Unable to load service info ResolveInfo{6e787a6 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+06-21 02:17:55.834 22027 22027 I kolun_slot_ViewStub: executeRefresh: hashCode:55952385
+06-21 02:17:55.834 22027 22027 I kolun_slot_ViewStub: executeRefresh: action : 1
+06-21 02:17:55.834 22027 22027 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+06-21 02:17:55.834 22027 22027 I kolun_slot_ViewStub: realItemDataChange: hashCode:55952385 position:1
+06-21 02:17:55.834 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+06-21 02:17:55.835 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+06-21 02:17:55.835 22027 22027 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:76813543position:1
+06-21 02:17:55.835 22027 22027 I kolun_slot_ViewStub: executeRefresh: action : 1
+06-21 02:17:55.835 22027 22027 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+06-21 02:17:55.835 22027 22027 I kolun_slot_ViewStub: realItemDataChange: hashCode:55952385 position:1
+06-21 02:17:55.835 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+06-21 02:17:55.835 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+06-21 02:17:55.835 22027 22027 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:76813543position:1
+06-21 02:17:55.838   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039588,0.000028, totalTime 0.039617 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.840 25414 25440 I Finsky:quick_launch: [194] Subscription detail: N/A
+06-21 02:17:55.849 25840 25840 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+06-21 02:17:55.852 25414 25414 I Finsky:quick_launch: [2] onSubscriptionsChanged
+06-21 02:17:55.869   713 25858 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:55.873 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:55.881 16349 22850 I AdvertisingIdClient: shouldSendLog 1147850959
+06-21 02:17:55.882 16349 22850 I AdvertisingIdClient: GetInfoInternal elapse 4ms
+06-21 02:17:55.885 25414 25440 I Finsky:quick_launch: [194] Finished reading experiment flags from file [Se-xCc4LzNyh3UrKMIU2sUf-PUKz4oQEbpKZDMuaFno] numFlags=1999.
+06-21 02:17:55.885 25414 25440 I Finsky:quick_launch: [194] playLoggingServerUrl: https://play.googleapis.com/play/log
+06-21 02:17:55.885 25414 25440 I Finsky:quick_launch: [194] playLoggingServerTimestampUrl: https://play.googleapis.com/play/log/timestamp
+06-21 02:17:55.886   713 25860 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:55.892 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:55.898   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039798,0.000031, totalTime 0.039831 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.924  1461  1665 I BaseFilesVerify: Base File verify start
+06-21 02:17:55.925  1461  1665 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xml
+06-21 02:17:55.926  1461  1665 W BaseXMLFilesVerify: format is normal
+06-21 02:17:55.926  1461  1665 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-21 02:17:55.921  1461  1461 W ackgroundThread: type=1400 audit(0.0:169757): avc: denied { ioctl } for path="/data/misc_de/0/apexdata/com.android.permission/roles.xml" dev="dm-42" ino=2463843 ioctlcmd=0x6685 scontext=u:r:system_server:s0 tcontext=u:object_r:apex_system_server_data_file:s0 tclass=file permissive=0
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: roles.xmlsetup fs failed
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xml: Permission denied
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:58)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-21 02:17:55.927  1461  1665 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-21 02:17:55.933  1461  1665 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xmlsecnew.bak
+06-21 02:17:55.934  1461  1665 W BaseXMLFilesVerify: format is normal
+06-21 02:17:55.934  1461  1665 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-21 02:17:55.938   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039813,0.000036, totalTime 0.039849 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: roles.xmlsec.baksetup fs failed
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak: Permission denied
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:81)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-21 02:17:55.982  1461  1665 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-21 02:17:55.984  1461  1494 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+06-21 02:17:55.985  1461  1494 W TextServicesManagerService: no available spell checker services found
+06-21 02:17:55.998   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039801,0.000033, totalTime 0.039835 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.008 25414 25861 I PlayCommon: [205] Preparing logs for uploading
+06-21 02:17:56.016 25414 25861 I PlayCommon: [205] Connecting to server for timestamp: https://play.googleapis.com/play/log/timestamp
+06-21 02:17:56.020   713 25867 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10108 0}
+06-21 02:17:56.024 25414 25861 E PlayCommon: [205] Failed to connect to server for server timestamp: java.net.UnknownHostException: Unable to resolve host "play.googleapis.com": No address associated with hostname
+06-21 02:17:56.029 25840 25840 I lwk     : SslGuard completed installation.
+06-21 02:17:56.038   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039607,0.000051, totalTime 0.039658 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.050 25804 25804 I app_process: Priority-to-niceness mapping: 19, 16, 13, 10, 0, -2, -4, -5, -6, -8
+06-21 02:17:56.078   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039714,0.000037, totalTime 0.039752 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.105 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:56.108 23754 24007 I Kolun.SkillCard===:  skill card isNUll
+06-21 02:17:56.110 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.aivoiceassistant
+06-21 02:17:56.110 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.kolun.assistant
+06-21 02:17:56.110 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.microintelligence
+06-21 02:17:56.110 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.notebook
+06-21 02:17:56.110 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.phonemaster
+06-21 02:17:56.110 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:56.110 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:56.110 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:56.112 25804 25804 W libc    : Access denied finding property "ro.vendor.tran.hardware"
+06-21 02:17:56.112 25804 25804 W libc    : Access denied finding property "ro.vendor.tran.cpu_model"
+06-21 02:17:56.113  9071 10366 W Auth    : [TokenResponseCallback] TokenResponse failed with exception [CONTEXT service_id=343 ]
+06-21 02:17:56.113  9071 10366 W Auth    : cyqd: Failed to process request
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cyqk.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):23)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cyuh.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):15)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):82)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at lfk.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):19)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cytn.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):6)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cbcu.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):9)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at aglg.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):13)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at aglg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):130)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at aosa.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):28)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at ahgz.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):170)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at ahgz.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):47)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at ahgx.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):745)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at ahgw.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):151)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at aauq.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):800)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at ahaj.getAuthToken(:com.google.android.gms@262031029@26.20.31 (190400-919905943):411)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at android.os.Binder.transact(Binder.java:1165)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cocj.onTransact(:com.google.android.gms@262031029@26.20.31 (190400-919905943):12)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at android.os.Binder.transact(Binder.java:1165)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cbgp.onTransact(:com.google.android.gms@262031029@26.20.31 (190400-919905943):169)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+06-21 02:17:56.113  9071 10366 W Auth    : 	at android.os.Binder.execTransact(Binder.java:1245)
+06-21 02:17:56.113  9071 10366 W Auth    : Caused by: cytj: Connectivity error
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):76)
+06-21 02:17:56.113  9071 10366 W Auth    : 	... 20 more
+06-21 02:17:56.113  9071 10366 W Auth    : Caused by: java.io.IOException
+06-21 02:17:56.113  9071 10366 W Auth    : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):73)
+06-21 02:17:56.113  9071 10366 W Auth    : 	... 20 more
+06-21 02:17:56.118   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039711,0.000040, totalTime 0.039752 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.124  9071 10366 E AuthPII : [RequestTokenManager] getToken() -> NETWORK_ERROR. App: com.android.vending, Service: oauth2:https://www.googleapis.com/auth/googleplay
+06-21 02:17:56.124  9071 10366 E AuthPII : bigq: Error when calling server using GmsNetworkStack.
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):1542)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgx.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):745)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgw.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):151)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at aauq.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):800)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahaj.getAuthToken(:com.google.android.gms@262031029@26.20.31 (190400-919905943):411)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cocj.onTransact(:com.google.android.gms@262031029@26.20.31 (190400-919905943):12)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cbgp.onTransact(:com.google.android.gms@262031029@26.20.31 (190400-919905943):169)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1245)
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: bigq: Error requesting token.
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):212)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):47)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 12 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: java.util.concurrent.ExecutionException: cyqd: Failed to process request
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at hjnn.j(:com.google.android.gms@262031029@26.20.31 (190400-919905943):21)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at hjnw.u(:com.google.android.gms@262031029@26.20.31 (190400-919905943):110)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):197)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 13 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: cyqd: Failed to process request
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cyqk.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):23)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cyuh.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):15)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):82)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at lfk.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):19)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cytn.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):6)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cbcu.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):9)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at aglg.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):13)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at aglg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):130)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at aosa.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):28)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):170)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 13 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: cytj: Connectivity error
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):76)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 20 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: java.io.IOException
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):73)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 20 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Message is Error when calling server using GmsNetworkStack.
+06-21 02:17:56.124  9071 10366 E AuthPII : bigq: Error when calling server using GmsNetworkStack.
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):1542)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgx.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):745)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgw.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):151)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at aauq.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):800)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahaj.getAuthToken(:com.google.android.gms@262031029@26.20.31 (190400-919905943):411)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cocj.onTransact(:com.google.android.gms@262031029@26.20.31 (190400-919905943):12)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cbgp.onTransact(:com.google.android.gms@262031029@26.20.31 (190400-919905943):169)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1245)
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: bigq: Error requesting token.
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):212)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):47)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 12 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: java.util.concurrent.ExecutionException: cyqd: Failed to process request
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at hjnn.j(:com.google.android.gms@262031029@26.20.31 (190400-919905943):21)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at hjnw.u(:com.google.android.gms@262031029@26.20.31 (190400-919905943):110)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):197)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 13 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: cyqd: Failed to process request
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cyqk.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):23)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cyuh.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):15)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):82)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at lfk.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):19)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cytn.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):6)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cbcu.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):9)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at aglg.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):13)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at aglg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):130)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at aosa.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):28)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at ahgz.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):170)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 13 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: cytj: Connectivity error
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):76)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 20 more
+06-21 02:17:56.124  9071 10366 E AuthPII : Caused by: java.io.IOException
+06-21 02:17:56.124  9071 10366 E AuthPII : 	at cytg.a(:com.google.android.gms@262031029@26.20.31 (190400-919905943):73)
+06-21 02:17:56.124  9071 10366 E AuthPII : 	... 20 more
+06-21 02:17:56.124  9071 10366 I Auth    : (REDACTED) [GetToken] GetToken failed for app=%s with non recoverable status code: %s 
+06-21 02:17:56.125  9071 10366 W Auth    : [ChimeraGetToken] exception while trying to fetch auth tokens for app=com.google.android.gms, scope=oauth2:https://www.googleapis.com/auth/googleplay [CONTEXT service_id=153 ]
+06-21 02:17:56.125  9071 10366 W Auth    : ahgr: GetToken failed with status code: NetworkError
+06-21 02:17:56.125  9071 10366 W Auth    : 	at ahgw.b(:com.google.android.gms@262031029@26.20.31 (190400-919905943):359)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at aauq.d(:com.google.android.gms@262031029@26.20.31 (190400-919905943):800)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at ahaj.getAuthToken(:com.google.android.gms@262031029@26.20.31 (190400-919905943):411)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at android.os.Binder.transact(Binder.java:1165)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at cocj.onTransact(:com.google.android.gms@262031029@26.20.31 (190400-919905943):12)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at android.os.Binder.transact(Binder.java:1165)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at cbgp.onTransact(:com.google.android.gms@262031029@26.20.31 (190400-919905943):169)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+06-21 02:17:56.125  9071 10366 W Auth    : 	at android.os.Binder.execTransact(Binder.java:1245)
+06-21 02:17:56.125  9071 10366 W GLSActivity: [GmsAccountAuthenticatorImpl] error status while fetching token:NetworkError
+06-21 02:17:56.132 25414 25861 E PlayCommon: [205] Failed to get auth token: java.io.IOException: NetworkError
+06-21 02:17:56.134 25414 25861 W PlayCommon: [205] Deferring log upload because couldn't retrieve auth token
+06-21 02:17:56.158   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039785,0.000051, totalTime 0.039837 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.163 25804 25804 W System  : ClassLoader referenced unknown path: /system/framework/mediatek-cta.jar
+06-21 02:17:56.163 25804 25804 W CtaManagerFactory: CtaManagerFactoryImpl not found
+06-21 02:17:56.180  1461  1893 I ActivityManager: Force stopping com.vexel.arcadetrio appid=10501 user=0: start instr
+06-21 02:17:56.198   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039562,0.000029, totalTime 0.039592 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.208  1461  1513 I ActivityManager: Start proc 25897:com.vexel.arcadetrio/u0a501 for added application com.vexel.arcadetrio
+06-21 02:17:56.213 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:56.216 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:56.220   740   812 I libPerfCtl: xgfGetFPS pid:22027 fps:-1
+06-21 02:17:56.225 23754 24007 I Kolun.SkillCard====:  from catch list==19
+06-21 02:17:56.225 23754 24007 I Kolun.Card:  isAvailable mIsEnable: true , mIsActive  true
+06-21 02:17:56.225 23754 24007 W Kolun.Card:  SkillCard toggleStatusInner : enable == mIsEnable
+06-21 02:17:56.225 23754 24007 I Kolun.Card:  updateInner success: true
+06-21 02:17:56.226 23754 24003 I Kolun.CardClient:  execute update start18 CardUpdateRunnable
+06-21 02:17:56.226 23754 24003 I Kolun.SkillCard===:  card displayTimes=1073741823
+06-21 02:17:56.227 25897 25897 I exel.arcadetrio: Late-enabling -Xcheck:jni
+06-21 02:17:56.238   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039755,0.000054, totalTime 0.039810 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.253 23754 24003 I Kolun.CardClient:  host onCardUpdated kolun card 18
+06-21 02:17:56.253 23754 24003 I Kolun.CardClient:  execute update success18 CardUpdateRunnable
+06-21 02:17:56.253 23754 24003 I CardSettings: packageChanged: 
+06-21 02:17:56.254 23754 24003 E Kolun.PackageInfoUtils:  isAppExistAndEnabled NameNotFoundException -> pkg : com.transsion.wallet.tecno
+06-21 02:17:56.254 23754 24003 I WalletCardPretreatment: onReceivePackageChanged: isWalletAppEnable=false; stateChanged=false
+06-21 02:17:56.255 23754 24003 I MoverCardPretreatment: onReceivePackageChanged: isMobileClonerEnable = true; stateChanged = false
+06-21 02:17:56.260 23754 24003 I MemoryGalleryPretreatment: onReceivePackageChanged: stateChanged = false
+06-21 02:17:56.271 25897 25897 I exel.arcadetrio: Using CollectorTypeCC GC.
+06-21 02:17:56.299 26815 26831 I adbd    : jdwp connection from 25897
+06-21 02:17:56.318   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039734,0.000043, totalTime 0.039778 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.378   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039747,0.000047, totalTime 0.039795 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.418   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039568,0.000045, totalTime 0.039614 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.458   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039623,0.000029, totalTime 0.039653 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.472  1461  1461 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio, user:UserHandle{0}, action:android.intent.action.PACKAGE_ADDED
+06-21 02:17:56.473  1461  1494 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+06-21 02:17:56.498   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039769,0.000061, totalTime 0.039830 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.558   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039741,0.000051, totalTime 0.039794 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.598   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039607,0.000049, totalTime 0.039656 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.601  1461  1548 I AppsFilter: interaction: PackageSetting{9291f18 org.amanahquran.app/10285} -> PackageSetting{d7c0756 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:56.601  1461  1548 I AppsFilter: interaction: PackageSetting{fdaf5f3 com.vexel.stackdrop.test/10275} -> PackageSetting{d7c0756 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:56.601  1461  1548 I AppsFilter: interaction: PackageSetting{edb0758 com.warrantyvault/10291} -> PackageSetting{d7c0756 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:56.601  1461  1548 I AppsFilter: interaction: PackageSetting{3cd0996 com.cuecall.app/10251} -> PackageSetting{d7c0756 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:56.601  1461  1548 I AppsFilter: interaction: PackageSetting{bfb37d1 com.vexel.stackdrop/10274} -> PackageSetting{d7c0756 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:56.601  1461  1548 I AppsFilter: interaction: PackageSetting{d98315c com.vexel.arcadetrio.test/10502} -> PackageSetting{d7c0756 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:56.601  1461  1548 I AppsFilter: interaction: PackageSetting{a8f83d7 com.vexel.arcadetrio/10501} -> PackageSetting{d7c0756 com.microsoft.appmanager/10367} BLOCKED
+06-21 02:17:56.604  1461  1570 I OverlayManager: [RetestTagOfQyx OMS updateTargetPackagesLocked] updatedTargets=[]
+06-21 02:17:56.619  1461  1494 W PackageManager: Unable to load service info ResolveInfo{5ec4c3a com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+06-21 02:17:56.620 16122 16143 I PermissionControllerServiceImpl: Updating user sensitive for uid 10367
+06-21 02:17:56.636  1461  1461 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now com.sh.smart.caller: DDC.oR@DQ4
+06-21 02:17:56.637  1461  1610 I InputReader: Reconfiguring input devices, changes=KEYBOARD_LAYOUTS | 
+06-21 02:17:56.638  4342 22673 W PkgChangeInfoCollector: onPkgChange skip change
+06-21 02:17:56.638   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039598,0.000031, totalTime 0.039629 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.640 23754 23754 I Kolun.EventBusImpl:  dispatchEvent: com.transsion.kolun.assistant.common.components.event.PackageChangeEvent@7171a47
+06-21 02:17:56.643   713 25910 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:56.643   713 25911 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:56.643 23754 23904 I Kolun.WidgetEventRegister:  onBusEvent:PackageChangedEvent, packageName: com.microsoft.appmanager, actionType: android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.644 23754 23904 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+06-21 02:17:56.644 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.644 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.644 23754 23904 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:56.644 23754 23904 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:56.644 23754 23904 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+06-21 02:17:56.644 23754 23904 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+06-21 02:17:56.644 23754 23904 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+06-21 02:17:56.644  1461  4183 I ActivityManager: Killing 20962:com.transsion.notebook/u0a172 (adj 945): empty for 236s
+06-21 02:17:56.644 16122 16167 I ServiceLiveData: Detected PrintServices: [com.android.bips, com.epson.mobilephone.android.epsonprintserviceplugin]
+06-21 02:17:56.644 16122 16168 I ServiceLiveData: Not exempting com.transsion.aivoiceassistant - not an active VoiceInteractionService for u0
+06-21 02:17:56.645 16122 16168 I ServiceLiveData: Not exempting com.openai.chatgpt - not an active VoiceInteractionService for u0
+06-21 02:17:56.645 16122 16168 I ServiceLiveData: Detected VoiceInteractionServices: [com.google.android.googlequicksearchbox]
+06-21 02:17:56.645 23754 23904 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+06-21 02:17:56.645 16122 16171 I ServiceLiveData: Not exempting com.transsion.livewallpaper.smart - not an active WallpaperService for u0
+06-21 02:17:56.645 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:56.645 16122 16171 I ServiceLiveData: Not exempting com.transsion.livewallpaper.smart - not an active WallpaperService for u0
+06-21 02:17:56.645 16122 16171 I ServiceLiveData: Not exempting com.transsion.livewallpaper.smart - not an active WallpaperService for u0
+06-21 02:17:56.645 16122 16171 I ServiceLiveData: Detected WallpaperServices: []
+06-21 02:17:56.646 16122 16168 I ServiceLiveData: Not exempting com.google.android.gms - not an active DEVICE_ADMIN_SERVICE for u0
+06-21 02:17:56.646 16122 16168 I ServiceLiveData: Detected DEVICE_ADMIN_SERVICEs: []
+06-21 02:17:56.647 16122 16170 I ServiceLiveData: Not exempting com.android.dreams.basic - not an active DreamService for u0
+06-21 02:17:56.648 16122 16169 I ServiceLiveData: Not exempting com.google.android.marvin.talkback - not an active AccessibilityService for u0
+06-21 02:17:56.648 16122 16170 I ServiceLiveData: Not exempting com.google.android.apps.photos - not an active DreamService for u0
+06-21 02:17:56.648 16122 16169 I ServiceLiveData: Not exempting com.google.android.marvin.talkback - not an active AccessibilityService for u0
+06-21 02:17:56.648 16122 16169 I ServiceLiveData: Not exempting com.google.android.marvin.talkback - not an active AccessibilityService for u0
+06-21 02:17:56.648 16122 16169 I ServiceLiveData: Not exempting com.transsion.mol - not an active AccessibilityService for u0
+06-21 02:17:56.648 16122 16170 I ServiceLiveData: Not exempting com.transsion.deskclock - not an active DreamService for u0
+06-21 02:17:56.648 16122 16170 I ServiceLiveData: Not exempting com.google.android.deskclock - not an active DreamService for u0
+06-21 02:17:56.648 16122 16170 I ServiceLiveData: Detected DreamServices: []
+06-21 02:17:56.649 16122 16162 I ServiceLiveData: Not exempting com.google.android.gms - not an active NotificationListenerService for u0
+06-21 02:17:56.649 16122 16162 I ServiceLiveData: Not exempting com.google.android.googlequicksearchbox - not an active NotificationListenerService for u0
+06-21 02:17:56.649 16122 16169 I ServiceLiveData: Not exempting com.transsnet.store - not an active AccessibilityService for u0
+06-21 02:17:56.649 16122 16169 I ServiceLiveData: Not exempting com.microsoft.appmanager - not an active AccessibilityService for u0
+06-21 02:17:56.649 16122 16169 I ServiceLiveData: Not exempting com.openai.chatgpt - not an active AccessibilityService for u0
+06-21 02:17:56.649 16122 16169 I ServiceLiveData: Not exempting org.kde.kdeconnect_tp - not an active AccessibilityService for u0
+06-21 02:17:56.649 16122 16169 I ServiceLiveData: Detected AccessibilityServices: [com.transsion.aivoiceassistant, com.piriform.ccleaner]
+06-21 02:17:56.650 16122 16162 I ServiceLiveData: Not exempting com.transsion.healthlife - not an active NotificationListenerService for u0
+06-21 02:17:56.650 16122 16163 I ServiceLiveData: Not exempting com.google.android.gms - not an active InputMethod for u0
+06-21 02:17:56.650 16122 16162 I ServiceLiveData: Not exempting com.transsion.phonemaster - not an active NotificationListenerService for u0
+06-21 02:17:56.650 16122 16163 I ServiceLiveData: Not exempting com.google.android.tts - not an active InputMethod for u0
+06-21 02:17:56.650 16122 16162 I ServiceLiveData: Not exempting com.transsion.videocallenhancer - not an active NotificationListenerService for u0
+06-21 02:17:56.650 16122 16163 I ServiceLiveData: Not exempting com.transsion.sk - not an active InputMethod for u0
+06-21 02:17:56.651 16122 16162 I ServiceLiveData: Not exempting com.facebook.stella - not an active NotificationListenerService for u0
+06-21 02:17:56.651 16122 16162 I ServiceLiveData: Not exempting com.google.android.contacts - not an active NotificationListenerService for u0
+06-21 02:17:56.651 16122 16171 I BroadcastReceiverLiveData: Not exempting com.google.android.gms - not an active DEVICE_ADMIN_ENABLED for u0
+06-21 02:17:56.651 16122 16162 I ServiceLiveData: Not exempting com.piriform.ccleaner - not an active NotificationListenerService for u0
+06-21 02:17:56.651 16122 16171 I BroadcastReceiverLiveData: Not exempting com.azure.authenticator - not an active DEVICE_ADMIN_ENABLED for u0
+06-21 02:17:56.651 16122 16162 I ServiceLiveData: Not exempting com.truecaller - not an active NotificationListenerService for u0
+06-21 02:17:56.651 16122 16162 I ServiceLiveData: Not exempting org.kde.kdeconnect_tp - not an active NotificationListenerService for u0
+06-21 02:17:56.651 16122 16162 I ServiceLiveData: Detected NotificationListenerServices: [com.google.android.as, com.google.android.projection.gearhead, com.hoffnung, com.transsion.hilauncher, com.transsion.smartpanel, com.lensmoo.app, com.microsoft.appmanager]
+06-21 02:17:56.652  1461  1514 I libprocessgroup: Successfully killed process cgroup uid 10172 pid 20962 in 5ms
+06-21 02:17:56.652 16122 16171 I BroadcastReceiverLiveData: Not exempting com.microsoft.appmanager - not an active DEVICE_ADMIN_ENABLED for u0
+06-21 02:17:56.652 16122 16171 I BroadcastReceiverLiveData: Detected DEVICE_ADMIN_ENABLEDs: []
+06-21 02:17:56.652 16122 16163 I ServiceLiveData: Not exempting com.yandex.yango - not an active InputMethod for u0
+06-21 02:17:56.652 16122 16163 I ServiceLiveData: Not exempting org.kde.kdeconnect_tp - not an active InputMethod for u0
+06-21 02:17:56.652 16122 16163 I ServiceLiveData: Detected InputMethods: [com.facemoji.lite.transsion, com.touchtype.swiftkey]
+06-21 02:17:56.654 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{112939d: android.os.BinderProxy@3fc9f69}
+06-21 02:17:56.655 16122 16167 I ServiceLiveData: Detected AutofillServices: [com.google.android.gms]
+06-21 02:17:56.671 16349 22785 I ComponentChangedIO: Feature is not enabled, skipping component changed intent operation [CONTEXT service_id=469 ]
+06-21 02:17:56.675 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:56.678   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039681,0.000028, totalTime 0.039710 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.683 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{650e012: android.os.BinderProxy@d0a28f}
+06-21 02:17:56.683   760   760 I BufferQueueProducer: [com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher#10489](this:0xb400007104fe8ef8,id:-1,api:0,p:-1,c:760) queueBuffer: fps=2.42 dur=1238.36 max=821.55 min=49.90
+06-21 02:17:56.684 23754 23904 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+06-21 02:17:56.684 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+06-21 02:17:56.685   729   858 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:2.422232,dur:1238.53,max:821.72,min:49.62  
+06-21 02:17:56.686 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+06-21 02:17:56.686 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.692 23754 23995 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+06-21 02:17:56.696 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:56.696 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.697  3526  3526 E ApduServiceInfo: Not adding <aid-group> with empty or invalid AIDs
+06-21 02:17:56.702 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:56.703 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.706 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.707 23754 23904 I Kolun.WidgetEventRegister:  onBusEvent:WigAppChangeEvent, package : com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.707 23754 23904 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+06-21 02:17:56.707 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.707 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.707 23754 23904 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:56.707 23754 23904 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-21 02:17:56.707 23754 23904 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+06-21 02:17:56.707 23754 23904 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+06-21 02:17:56.707 23754 23904 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+06-21 02:17:56.711 23754 23904 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+06-21 02:17:56.713  1461  1494 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+06-21 02:17:56.713  1461  1494 W TextServicesManagerService: no available spell checker services found
+06-21 02:17:56.718 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{136d1e0: android.os.BinderProxy@3fc9f69}
+06-21 02:17:56.722   714   714 I Zygote  : Process 20962 exited due to signal 9 (Killed)
+06-21 02:17:56.722  1461  2144 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.transsion.notebook/com.transsion.notebook pid=20962 state:3
+06-21 02:17:56.722  1461  2144 I game_scn: collectForegroundAppList packName=com.transsion.notebook, actName=com.transsion.notebook, pid=20962, uid=10172, state:DEAD
+06-21 02:17:56.722  1461  2144 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 22027, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+06-21 02:17:56.722   740   840 I libPowerHal: [perfNotifyAppState] pack:com.transsion.notebook, act:com.transsion.notebook, state:3, pid:20962, uid:10172, fps:-1
+06-21 02:17:56.722   740   840 I libPowerHal: [perfNotifyAppState] pack:com.transsion.notebook, pid:20962, STATE_DEAD
+06-21 02:17:56.727 23754 23904 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{b89cc99: android.os.BinderProxy@d0a28f}
+06-21 02:17:56.728 23754 23904 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+06-21 02:17:56.728 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+06-21 02:17:56.728 23754 23904 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+06-21 02:17:56.737 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.739 23754 23904 I Kolun.BaseWidget:  refreshOnPackageChange event com.microsoft.appmanager type android.intent.action.PACKAGE_CHANGED
+06-21 02:17:56.788 23754 23995 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+06-21 02:17:56.828 22027 22027 I kolun_slot_ViewStub: executeRefresh: hashCode:55952385
+06-21 02:17:56.829 22027 22027 I kolun_slot_ViewStub: executeRefresh: action : 1
+06-21 02:17:56.829 22027 22027 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+06-21 02:17:56.829 22027 22027 I kolun_slot_ViewStub: realItemDataChange: hashCode:55952385 position:1
+06-21 02:17:56.829 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+06-21 02:17:56.829 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+06-21 02:17:56.829 22027 22027 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:76813543position:1
+06-21 02:17:56.829 22027 22027 I kolun_slot_ViewStub: executeRefresh: action : 1
+06-21 02:17:56.829 22027 22027 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+06-21 02:17:56.829 22027 22027 I kolun_slot_ViewStub: realItemDataChange: hashCode:55952385 position:1
+06-21 02:17:56.829 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+06-21 02:17:56.829 22027 22027 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+06-21 02:17:56.829 22027 22027 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:76813543position:1
+06-21 02:17:56.838   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039766,0.000058, totalTime 0.039825 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.860   713 25912 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:56.864 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:56.869   713 25913 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:56.871 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:56.878   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039439,0.000052, totalTime 0.039492 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.918   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039635,0.000055, totalTime 0.039690 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.958   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039648,0.000061, totalTime 0.039710 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:56.995  1461  1473 I system_server: Background young concurrent copying GC freed 17MB AllocSpace bytes, 17(340KB) LOS objects, 19% free, 89MB/111MB, paused 741us,536us total 114.570ms
+06-21 02:17:56.998   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039503,0.000052, totalTime 0.039556 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.078   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039673,0.000050, totalTime 0.039724 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.118   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039596,0.000046, totalTime 0.039643 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.148 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:57.149 23754 24007 I Kolun.SkillCard===:  skill card isNUll
+06-21 02:17:57.151 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.aivoiceassistant
+06-21 02:17:57.151 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.kolun.assistant
+06-21 02:17:57.151 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.microintelligence
+06-21 02:17:57.151 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.notebook
+06-21 02:17:57.151 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.phonemaster
+06-21 02:17:57.151 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:57.151 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:57.151 23754 24007 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-21 02:17:57.178   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039615,0.000050, totalTime 0.039666 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.197 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:57.202 23754 24007 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-21 02:17:57.212 23754 24007 I Kolun.SkillCard====:  from catch list==19
+06-21 02:17:57.213 23754 24007 I Kolun.Card:  isAvailable mIsEnable: true , mIsActive  true
+06-21 02:17:57.213 23754 24007 W Kolun.Card:  SkillCard toggleStatusInner : enable == mIsEnable
+06-21 02:17:57.213 23754 24007 I Kolun.Card:  updateInner success: true
+06-21 02:17:57.214 23754 24003 I Kolun.CardClient:  execute update start18 CardUpdateRunnable
+06-21 02:17:57.214 23754 24003 I Kolun.SkillCard===:  card displayTimes=1073741823
+06-21 02:17:57.218   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039623,0.000048, totalTime 0.039671 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.220   740   812 I libPerfCtl: xgfGetFPS pid:22027 fps:-1
+06-21 02:17:57.238 23754 24003 I Kolun.CardClient:  host onCardUpdated kolun card 18
+06-21 02:17:57.238 23754 24003 I Kolun.CardClient:  execute update success18 CardUpdateRunnable
+06-21 02:17:57.240 23754 24003 I CardSettings: packageChanged: 
+06-21 02:17:57.240 23754 24003 E Kolun.PackageInfoUtils:  isAppExistAndEnabled NameNotFoundException -> pkg : com.transsion.wallet.tecno
+06-21 02:17:57.240 23754 24003 I WalletCardPretreatment: onReceivePackageChanged: isWalletAppEnable=false; stateChanged=false
+06-21 02:17:57.247  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.stackdrop' not found Error while validating document (android$apps-db/apps, com.vexel.stackdrop)
+06-21 02:17:57.247  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.stackdrop' not found
+06-21 02:17:57.247  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found Error while validating document (android$apps-db/apps, org.amanahquran.app)
+06-21 02:17:57.247  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found
+06-21 02:17:57.247  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found Error while validating document (android$apps-db/apps, com.vexel.pulseorbit)
+06-21 02:17:57.247  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found
+06-21 02:17:57.247  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found Error while validating document (android$apps-db/apps, com.appfactory.generated.app)
+06-21 02:17:57.247  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found
+06-21 02:17:57.247  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.auravion.strikefall' not found Error while validating document (android$apps-db/apps, com.auravion.strikefall)
+06-21 02:17:57.247  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.auravion.strikefall' not found
+06-21 02:17:57.247  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found Error while validating document (android$apps-db/apps, com.xre.privatequest)
+06-21 02:17:57.247  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found
+06-21 02:17:57.247  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found Error while validating document (android$apps-db/apps, io.supercent.linkedcubic)
+06-21 02:17:57.247  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found
+06-21 02:17:57.247  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.blood.sugar.pressure.monitor.app' not found Error while validating document (android$apps-db/apps, com.blood.sugar.pressure.monitor.app)
+06-21 02:17:57.247  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.blood.sugar.pressure.monitor.app' not found
+06-21 02:17:57.248  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found Error while validating document (android$apps-db/apps, com.easyui.launcher.debug)
+06-21 02:17:57.248  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found
+06-21 02:17:57.248  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.guardianlauncher' not found Error while validating document (android$apps-db/apps, com.easyui.guardianlauncher)
+06-21 02:17:57.248  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.guardianlauncher' not found
+06-21 02:17:57.248  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.scalpelstudios.snapscanpro' not found Error while validating document (android$apps-db/apps, com.scalpelstudios.snapscanpro)
+06-21 02:17:57.248  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.scalpelstudios.snapscanpro' not found
+06-21 02:17:57.248  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found Error while validating document (android$apps-db/apps, com.easyui.core)
+06-21 02:17:57.248  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found
+06-21 02:17:57.248  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found Error while validating document (android$apps-db/apps, com.YoBroStudios.MergeSpinner)
+06-21 02:17:57.248  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found
+06-21 02:17:57.248  1461  3443 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found Error while validating document (android$apps-db/apps, com.jazz.rox)
+06-21 02:17:57.248  1461  3443 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found
+06-21 02:17:57.248 23754 24003 I MoverCardPretreatment: onReceivePackageChanged: isMobileClonerEnable = true; stateChanged = false
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.guardianlauncher' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.scalpelstudios.snapscanpro' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.stackdrop' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.blood.sugar.pressure.monitor.app' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.auravion.strikefall' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found
+06-21 02:17:57.249  1461  3449 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found
+06-21 02:17:57.250 23754 24003 I MemoryGalleryPretreatment: onReceivePackageChanged: stateChanged = false
+06-21 02:17:57.253  1461  1461 W pool-26-thread-: type=1400 audit(0.0:169766): avc: denied { read } for name="u:object_r:build_bootimage_prop:s0" dev="tmpfs" ino=59 scontext=u:r:system_server:s0 tcontext=u:object_r:build_bootimage_prop:s0 tclass=file permissive=0
+06-21 02:17:57.256  1461  3449 W libc    : Access denied finding property "ro.bootimage.build.fingerprint"
+06-21 02:17:57.258   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039650,0.000051, totalTime 0.039701 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.298   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039590,0.000056, totalTime 0.039647 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.331 23855 24279 W RealtimeClientManager: Channel state: MqttChannelState{mConnectionState=CONNECTING, mDisconnectionReason=null, mLastConnectionMs=0, mLastDisconnectMs=1147983646}
+06-21 02:17:57.338   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039568,0.000045, totalTime 0.039614 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.343   713 25920 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:57.367   713 25921 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:57.374 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:57.378   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039642,0.000051, totalTime 0.039694 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.388   713 25922 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:57.391  1461  3443 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-21 02:17:57.392  1461  3443 W AppSearchResult: Converting throwable to failed result.
+06-21 02:17:57.392  1461  3443 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:22)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:7)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:695)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaWithChangeNotificationNoGetSchemaLocked(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:76)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:90)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:21)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda10.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:41)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+06-21 02:17:57.392  1461  3443 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1564)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: Failed to setSchema in batch due to invalid schema.
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:50)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:20)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:420)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:198)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:129)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:9)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:10)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+06-21 02:17:57.393  1461  3449 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1564)
+06-21 02:17:57.396 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:57.403 23754 23995 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+06-21 02:17:57.418   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039581,0.000085, totalTime 0.039667 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.421 23855 24731 E msys    : E[N MQTT]onConnectError(562)=>Connect Error: folly::AsyncSocketException: AsyncSocketException: connect failed (immediately), type = Socket not open, errno = 101 (Network is unreachable)
+06-21 02:17:57.425 23855 24279 W RealtimeClientManager: Channel state: MqttChannelState{mConnectionState=DISCONNECTED, mDisconnectionReason=null, mLastConnectionMs=0, mLastDisconnectMs=1147996744}
+06-21 02:17:57.425  1461  3443 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+06-21 02:17:57.426  1461  3443 W AppSearchResult: Converting throwable to failed result.
+06-21 02:17:57.426  1461  3443 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:22)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:7)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:695)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaWithChangeNotificationNoGetSchemaLocked(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:76)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:90)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:21)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda10.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:41)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+06-21 02:17:57.426  1461  3443 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1564)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: Skipping invalid schemas for package: com.google.android.apps.adm
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:50)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:20)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:520)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:198)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:129)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:9)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:10)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+06-21 02:17:57.427  1461  3449 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1564)
+06-21 02:17:57.448  1461  1494 W PackageManager: Unable to load service info ResolveInfo{5635919 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+06-21 02:17:57.457  1461  3443 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-21 02:17:57.458  1461  3443 W AppSearchResult: Converting throwable to failed result.
+06-21 02:17:57.458  1461  3443 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:22)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:7)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:695)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaWithChangeNotificationNoGetSchemaLocked(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:76)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:90)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:21)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda10.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:41)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+06-21 02:17:57.458  1461  3443 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1564)
+06-21 02:17:57.458   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000000,0.039674,0.000050, totalTime 0.039725 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: Skipping invalid schemas for package: com.google.android.apps.wellbeing
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:50)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:20)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:520)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:198)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:129)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:9)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme 4b35b1d0335779bf3503db8b6d4c463377b1dccaf52b5251bacbe47de43d3dd8:10)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1154)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:652)
+06-21 02:17:57.459  1461  3449 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1564)
+06-21 02:17:57.498   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039494,0.000050, totalTime 0.039545 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.526   713 25923 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:57.528 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:57.528   713 25924 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:57.529 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:57.538   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039581,0.000026, totalTime 0.039607 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.575  1461  1494 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+06-21 02:17:57.575  1461  1494 W TextServicesManagerService: no available spell checker services found
+06-21 02:17:57.578   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039819,0.000069, totalTime 0.039889 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.598   713 25925 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:57.601 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:57.604   713 25926 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:57.605 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:57.618   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039496,0.000055, totalTime 0.039551 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.678   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039695,0.000050, totalTime 0.039747 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.686 25897 25897 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+06-21 02:17:57.687 25897 25897 I AndroidJUnitRunner: newApplication android.app.Application
+06-21 02:17:57.718   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039570,0.000053, totalTime 0.039624 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.733 25897 25897 I AndroidJUnitRunner: onCreate Bundle[EMPTY_PARCEL]
+06-21 02:17:57.758   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039623,0.000052, totalTime 0.039676 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.798   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039589,0.000066, totalTime 0.039656 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.814 25897 25897 I MSYNC3-VariableRefreshRate: Variable refreshrate is disabled
+06-21 02:17:57.838   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039494,0.000052, totalTime 0.039547 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.842 25897 25928 I TestRequestBuilder: Scanning classpath to find tests in paths [/data/app/~~-fUTmBw185BrThi1plXOhw==/com.vexel.arcadetrio.test-G9YPnCugxNkD7j3YrwJLgg==/base.apk]
+06-21 02:17:57.844 25897 25928 W exel.arcadetrio: Opening an oat file without a class loader. Are you using the deprecated DexFile APIs?
+06-21 02:17:57.898   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039771,0.000043, totalTime 0.039816 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.901  1461  2144 I ActivityManager: Killing 24812:com.google.android.apps.docs/u0a216 (adj 945): empty for 17s
+06-21 02:17:57.918  1461  1513 I ActivityManager: Start proc 25932:com.google.android.documentsui/u0a57 for broadcast {com.google.android.documentsui/com.android.documentsui.PackageReceiver}
+06-21 02:17:57.929  1461  1514 I libprocessgroup: Successfully killed process cgroup uid 10216 pid 24812 in 22ms
+06-21 02:17:57.938   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039594,0.000046, totalTime 0.039641 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.933 25932 25932 W main    : type=1400 audit(0.0:169767): avc: denied { read } for name="u:object_r:vendor_memfusion_size_prop:s0" dev="tmpfs" ino=1656 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_size_prop:s0 tclass=file permissive=0
+06-21 02:17:57.933 25932 25932 W main    : type=1400 audit(0.0:169768): avc: denied { read } for name="u:object_r:vendor_memfusion_state_prop:s0" dev="tmpfs" ino=1657 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_state_prop:s0 tclass=file permissive=0
+06-21 02:17:57.933 25932 25932 W main    : type=1400 audit(0.0:169769): avc: denied { read } for name="u:object_r:vendor_memfusion_tranlog_prop:s0" dev="tmpfs" ino=1659 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_tranlog_prop:s0 tclass=file permissive=0
+06-21 02:17:57.933 25932 25932 W main    : type=1400 audit(0.0:169770): avc: denied { read } for name="u:object_r:vendor_memfusion_ui_enable_prop:s0" dev="tmpfs" ino=1660 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_ui_enable_prop:s0 tclass=file permissive=0
+06-21 02:17:57.946 25932 25932 I oid.documentsui: Using CollectorTypeCC GC.
+06-21 02:17:57.973  1461  1461 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio.test, user:UserHandle{0}, action:android.intent.action.PACKAGE_ADDED
+06-21 02:17:57.974  1461  1494 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+06-21 02:17:57.978  1461  1494 W ActivityManager: Rescheduling restart of crashed service com.transsion.mol/.service.tile.MolTileService in 0ms for mem-pressure-event
+06-21 02:17:57.981  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:57.986  1461  1893 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.apps.docs/com.google.android.apps.docs pid=24812 state:3
+06-21 02:17:57.986  1461  1893 I game_scn: collectForegroundAppList packName=com.google.android.apps.docs, actName=com.google.android.apps.docs, pid=24812, uid=10216, state:DEAD
+06-21 02:17:57.986  1461  1893 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 22027, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+06-21 02:17:57.987   740   840 I libPowerHal: [perfNotifyAppState] pack:com.google.android.apps.docs, act:com.google.android.apps.docs, state:3, pid:24812, uid:10216, fps:-1
+06-21 02:17:57.987   740   840 I libPowerHal: [perfNotifyAppState] pack:com.google.android.apps.docs, pid:24812, STATE_DEAD
+06-21 02:17:57.998   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039770,0.000050, totalTime 0.039822 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:57.999   714   714 I Zygote  : Process 24812 exited due to signal 9 (Killed)
+06-21 02:17:58.000  1461  1513 I ActivityManager: Start proc 25943:com.transsion.mol/1000 for service {com.transsion.mol/com.transsion.mol.service.tile.MolTileService}
+06-21 02:17:58.027 25932 25932 W oid.documentsui: Failed to find entry 'classes.dex': Entry not found
+06-21 02:17:58.036 25943 25943 I m.transsion.mol: Using CollectorTypeCC GC.
+06-21 02:17:58.038   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039527,0.000053, totalTime 0.039580 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.063 25932 25932 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+06-21 02:17:58.064  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:58.097  1461  1494 W PackageManager: Unable to load service info ResolveInfo{eed053d com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+06-21 02:17:58.098   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039853,0.000049, totalTime 0.039903 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.108  3936 24766 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{9618dc8 com.funbase.xradio}
+06-21 02:17:58.110 25932 25957 W ThemeOverlayManager: Skip enabled overlay package:com.google.android.overlay.modules.documentsui, user:UserHandle{0}
+06-21 02:17:58.117  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.129  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.136 25932 25932 W libc    : Access denied finding property "vendor.transsion.scroll_adjust.support"
+06-21 02:17:58.138   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039594,0.000050, totalTime 0.039644 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.144  1461  1893 W TranCloudEngine_F: This key = 1001000014 has registered!!!
+06-21 02:17:58.144 25897 25928 I TestRunner: run started: 6 tests
+06-21 02:17:58.148 25897 25928 I TestRunner: ignored: com.vexel.arcadetrio.BackNavigationTest
+06-21 02:17:58.149 25943 25943 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+06-21 02:17:58.152 25897 25928 I TestRunner: started: testChallengeUpdates(com.vexel.arcadetrio.ChallengeUpdateTest)
+06-21 02:17:58.176  1461  1494 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+06-21 02:17:58.177  1461  1494 W TextServicesManagerService: no available spell checker services found
+06-21 02:17:58.178   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039599,0.000062, totalTime 0.039662 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.220   740   812 I libPerfCtl: xgfGetFPS pid:22027 fps:-1
+06-21 02:17:58.238   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039721,0.000044, totalTime 0.039766 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.268  1461  4180 I ActivityManager: Killing 24855:com.google.android.packageinstaller/u0a65 (adj 985): empty for 16s
+06-21 02:17:58.272  1461  1514 I libprocessgroup: Successfully killed process cgroup uid 10065 pid 24855 in 0ms
+06-21 02:17:58.280 25943 25943 E thub-   : TranHubSdkManagerProxy init
+06-21 02:17:58.284 25943 25943 I TranVersion: TranVersion static initializer: default = 33.1.6.1
+06-21 02:17:58.284 25943 25943 I TranVersion:  debug = false, debug_version = 33.1.6.1
+06-21 02:17:58.285 25943 25943 I TranVersion: initializer: version = 33.1.6.1, THUBCORE_VERSION = 33161
+06-21 02:17:58.299   714   714 I Zygote  : Process 24855 exited due to signal 9 (Killed)
+06-21 02:17:58.301 16349 25356 W AppInstallOperation: FDL Migration::InstallIntentOperation by FDL Module [CONTEXT service_id=77 ]
+06-21 02:17:58.303 25943 25943 I TranAthena: user_experience: false
+06-21 02:17:58.303  3936 24766 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{2d02bd0 com.transsion.healthlife}
+06-21 02:17:58.306 25943 25943 I TranActivityTaskManager: TranThubActivityTaskManager
+06-21 02:17:58.306  1461  2643 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.packageinstaller/com.google.android.packageinstaller pid=24855 state:3
+06-21 02:17:58.306  1461  2643 I game_scn: collectForegroundAppList packName=com.google.android.packageinstaller, actName=com.google.android.packageinstaller, pid=24855, uid=10065, state:DEAD
+06-21 02:17:58.306  1461  2643 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 22027, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+06-21 02:17:58.306   740   840 I libPowerHal: [perfNotifyAppState] pack:com.google.android.packageinstaller, act:com.google.android.packageinstaller, state:3, pid:24855, uid:10065, fps:-1
+06-21 02:17:58.306   740   840 I libPowerHal: [perfNotifyAppState] pack:com.google.android.packageinstaller, pid:24855, STATE_DEAD
+06-21 02:17:58.307 25943 25943 I TranSystemProperties: TranThubSystemProperties
+06-21 02:17:58.307  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.312  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.318   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039804,0.000068, totalTime 0.039874 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.328  3936 24766 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{8725bf5 com.transsion.hilauncher}
+06-21 02:17:58.336  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.341  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.358   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039461,0.000043, totalTime 0.039505 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.359 25943 25943 I ContactLocale: AddressBook Labels [[en_US]]: […, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, Α, Β, Γ, Δ, Ε, Ζ, Η, Θ, Ι, Κ, Λ, Μ, Ν, Ξ, Ο, Π, Ρ, Σ, Τ, Υ, Φ, Χ, Ψ, Ω, …, А, Б, В, Г, Д, Ђ, Е, Є, Ж, З, И, І, Й, Ј, К, Л, Љ, М, Н, Њ, О, П, Р, С, Т, Ћ, У, Ф, Х, Ц, Ч, Џ, Ш, Щ, Ю, Я, …, א, ב, ג, ד, ה, ו, ז, ח, ט, י, כ, ל, מ, נ, ס, ע, פ, צ, ק, ר, ש, ת, …, ا, ب, ت, ث, ج, ح, خ, د, ذ, ر, ز, س, ش, ص, ض, ط, ظ, ع, غ, ف, ق, ك, ل, م, ن, ه, و, ي, …, ก, ข, ฃ, ค, ฅ, ฆ, ง, จ, ฉ, ช, ซ, ฌ, ญ, ฎ, ฏ, ฐ, ฑ, ฒ, ณ, ด, ต, ถ, ท, ธ, น, บ, ป, ผ, ฝ, พ, ฟ, ภ, ม, ย, ร, ฤ, ล, ฦ, ว, ศ, ษ, ส, ห, ฬ, อ, ฮ, …, ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅅ, ㅇ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ, …, あ, か, さ, た, な, は, ま, や, ら, わ, #, …]
+06-21 02:17:58.365 16122 11915 I BaseFilesVerify: Base File verify start
+06-21 02:17:58.365 16122 11915 W BaseFilesVerify: the file protect is not available, open the cloud switch
+06-21 02:17:58.372  3403  3403 I MediaServiceV2: Creating work for intent Intent { act=android.intent.action.PACKAGE_FULLY_REMOVED dat=package: flg=0x5000010 cmp=com.google.android.providers.media.module/com.android.providers.media.MediaServiceV2 (has extras) }
+06-21 02:17:58.372  3403  3403 I MediaServiceV2: Work enqueued for intent: Intent { act=android.intent.action.PACKAGE_FULLY_REMOVED dat=package: flg=0x5000010 cmp=com.google.android.providers.media.module/com.android.providers.media.MediaServiceV2 (has extras) }
+06-21 02:17:58.379 16122 11915 I BaseFilesVerify: Base File verify start
+06-21 02:17:58.379 16122 11915 W BaseFilesVerify: the file protect is not available, open the cloud switch
+06-21 02:17:58.383  1461  3556 I ActivityManager: Killing 25518:com.microsoft.appmanager/u0a367 (adj 985): empty for 6s
+06-21 02:17:58.395  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:58.398   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039601,0.000056, totalTime 0.039658 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.408  1461  1514 I libprocessgroup: Successfully killed process cgroup uid 10367 pid 25518 in 23ms
+06-21 02:17:58.425 12615 12615 W TranVersion: THUBCore No support Call!!! method version = 33181, >>> ThubCore vserion = 33161
+06-21 02:17:58.425 12615 12615 W TranVersion:  mthod version must <= ThubCore version.
+06-21 02:17:58.425 12615 12615 W TranVersion:  ---java.lang.Throwable
+06-21 02:17:58.425 12615 12615 W TranVersion: #com.transsion.hubsdk.common.version.TranVersion.isIntegratedThubCore[64]
+06-21 02:17:58.425 12615 12615 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getService[0]
+06-21 02:17:58.425 12615 12615 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getBoolean[2]
+06-21 02:17:58.425 12615 12615 W TranVersion: #d.e.b.z.c.getBoolean[0]
+06-21 02:17:58.426 12615 12615 I TranSystemProperties: TranAospSystemProperties
+06-21 02:17:58.437  1461  2643 W BroadcastQueue: Unable to launch app com.google.android.apps.carrier.carrierwifi/10301 for broadcast Intent { act=android.intent.action.PACKAGE_FULLY_REMOVED dat=package: flg=0x5000010 (has extras) }: AutoStart Limit
+06-21 02:17:58.438   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039641,0.000044, totalTime 0.039686 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.440  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:58.440  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:58.441  1461  1517 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-21 02:17:58.468 25943 25986 I DynamiteModule: Considering local module com.google.mlkit.dynamite.text.latin:10000 and remote module com.google.mlkit.dynamite.text.latin:0
+06-21 02:17:58.468 25943 25986 I DynamiteModule: Selected local version of com.google.mlkit.dynamite.text.latin
+06-21 02:17:58.478   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039650,0.000047, totalTime 0.039698 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.479   713 25987 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:58.486 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:58.493   713 25988 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10231 0}
+06-21 02:17:58.500 23855 24328 E msys    : E[N mns:DGWClient]_LogError(304)=>Failed to resolve using system DNS resolver, getaddrinfo(): No address associated with hostname
+06-21 02:17:58.510  4100  4488 I BaseFilesVerify: Base File verify start
+06-21 02:17:58.510  4100  4488 W BaseFilesVerify: adservices.appconsent.xmlis not in fileProtect list,can not protect this file
+06-21 02:17:58.518   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039601,0.000054, totalTime 0.039656 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.524  1461  1893 I BaseFilesVerify: Base File verify start
+06-21 02:17:58.524  1461  1893 W BaseFilesVerify: adservices.appconsent.xmlis not in fileProtect list,can not protect this file
+06-21 02:17:58.544  1461  2643 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.transsion.ossettingsext/.flash.applist.MonitorSysReceiver
+06-21 02:17:58.552  1461  1512 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemonitor.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+06-21 02:17:58.552  1461  1512 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemonitor.backgroundimpl.BackgroundPackageMonitorReceiverImpl$RegisteredReceiver
+06-21 02:17:58.552  1461  1512 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+06-21 02:17:58.553  1461  1512 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.daraz.android/com.taobao.accs.EventReceiver
+06-21 02:17:58.553  1461  1512 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package: flg=0x4000010 (has extras) } to com.daraz.android/com.taobao.agoo.AgooCommondReceiver
+06-21 02:17:58.553   714   714 I Zygote  : Process 25518 exited due to signal 9 (Killed)
+06-21 02:17:58.558   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039715,0.000053, totalTime 0.039769 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.560 25943 25985 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:2085 android.content.ContextWrapper.bindService:853 g.g.a.b.b.l.a.b:4 g.g.a.b.b.j.y0.a:7 g.g.a.b.b.j.a1.c:2 
+06-21 02:17:58.565  3936 24766 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{ec26852 com.magiconnect.tcast}
+06-21 02:17:58.568 25897 25928 I TestRunner: finished: testChallengeUpdates(com.vexel.arcadetrio.ChallengeUpdateTest)
+06-21 02:17:58.568  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.568   740   840 I libPowerHal: [perfNotifyAppState] pack:com.microsoft.appmanager, act:com.microsoft.appmanager, state:3, pid:25518, uid:10367, fps:-1
+06-21 02:17:58.568   740   840 I libPowerHal: [perfNotifyAppState] pack:com.microsoft.appmanager, pid:25518, STATE_DEAD
+06-21 02:17:58.569  1461  4204 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.microsoft.appmanager/com.microsoft.appmanager pid=25518 state:3
+06-21 02:17:58.569  1461  4204 I game_scn: collectForegroundAppList packName=com.microsoft.appmanager, actName=com.microsoft.appmanager, pid=25518, uid=10367, state:DEAD
+06-21 02:17:58.569  1461  4204 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 22027, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+06-21 02:17:58.572 25897 25928 I TestRunner: ignored: com.vexel.arcadetrio.GameplayDeviceSmokeTest
+06-21 02:17:58.574 25897 25928 I TestRunner: ignored: com.vexel.arcadetrio.LifecyclePauseTest
+06-21 02:17:58.577  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.580 25897 25928 I TestRunner: ignored: com.vexel.arcadetrio.NavigationSmokeTest
+06-21 02:17:58.586 25897 25928 I TestRunner: ignored: com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+06-21 02:17:58.591 25897 25928 I TestRunner: run finished: 1 tests, 0 failed, 5 ignored
+06-21 02:17:58.598   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039469,0.000049, totalTime 0.039520 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.609  3403 26003 I MediaServiceV2: Work initiated for action [ android.intent.action.PACKAGE_FULLY_REMOVED ]
+06-21 02:17:58.613 23605 23605 I Finsky  : [2] akgg - Received: android.intent.action.PACKAGE_FULLY_REMOVED, [JXZctJ-iWnPUz8mywqprsIqFc8u6YhVaCZchiOLXBYM]
+06-21 02:17:58.623  1461  1478 I ActivityManager: Force stopping com.vexel.arcadetrio appid=10501 user=0: finished inst
+06-21 02:17:58.623 23605 23605 I Finsky  : [2] Clearing split related stale data.
+06-21 02:17:58.624  1461  1478 I ActivityManager: Killing 25897:com.vexel.arcadetrio/u0a501 (adj 0): stop com.vexel.arcadetrio due to finished inst
+06-21 02:17:58.625  1461  1478 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.vexel.arcadetrio/com.vexel.arcadetrio pid=25897 state:3
+06-21 02:17:58.625  1461  1478 I game_scn: collectForegroundAppList packName=com.vexel.arcadetrio, actName=com.vexel.arcadetrio, pid=25897, uid=10501, state:DEAD
+06-21 02:17:58.625  1461  1478 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 22027, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+06-21 02:17:58.629   740   840 I libPowerHal: [perfNotifyAppState] pack:com.vexel.arcadetrio, act:com.vexel.arcadetrio, state:3, pid:25897, uid:10501, fps:-1
+06-21 02:17:58.629   740   840 I libPowerHal: [perfNotifyAppState] pack:com.vexel.arcadetrio, pid:25897, STATE_DEAD
+06-21 02:17:58.630 23605 23715 I Finsky  : [203] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=1, cacheMissCount=0. Missed  in cache (limit 10) : []
+06-21 02:17:58.630 23605 23715 I Finsky  : [203] AIM: Got app ownership map. App counts: . Unique apps: 0
+06-21 02:17:58.631 23605 23715 E Finsky  : [203] [Counters] attempted to use a non-positive increment for: 4752
+06-21 02:17:58.631 23605 23715 E Finsky  : [203] [Counters] attempted to use a non-positive increment for: 4753
+06-21 02:17:58.632  1461  1514 I libprocessgroup: Successfully killed process cgroup uid 10501 pid 25897 in 5ms
+06-21 02:17:58.635 25804 25804 I app_process: System.exit called, status: 0
+06-21 02:17:58.636 25804 25804 I AndroidRuntime: VM exiting with result code 0.
+06-21 02:17:58.638  3936 24766 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{96c2f7b invo8.meezan.mb}
+06-21 02:17:58.638   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039677,0.000049, totalTime 0.039726 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.641 23605 23605 I Finsky  : [2] Do not start WearSupportService due to Wear service optimization
+06-21 02:17:58.642 23605 23605 I Finsky  : [2] AIM: AppInfoCacheUpdater -> invalidating apps: [com.vexel.arcadetrio]
+06-21 02:17:58.642  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.642 23605 23605 I Finsky  : [2] AIM: AppInfoManager-Perf > getApps > called for 1 apps
+06-21 02:17:58.643 23605 23720 I Finsky  : [206] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.vexel.arcadetrio]
+06-21 02:17:58.646 23605 23742 I Finsky  : [214] [ContentSync] finished, scheduled=false
+06-21 02:17:58.647  3936 24766 I TranIconHelper: Destory assetMAnager
+06-21 02:17:58.659 23605 23715 I Finsky  : [203] AIM: Got app ownership map. App counts: . Unique apps: 0
+06-21 02:17:58.660 23605 23715 E Finsky  : [203] [Counters] attempted to use a non-positive increment for: 4752
+06-21 02:17:58.661 23605 23715 E Finsky  : [203] [Counters] attempted to use a non-positive increment for: 4753
+06-21 02:17:58.664 23605 23718 I Finsky  : [205] AIM: AppInfoManager-Perf > ItemModel > CacheSize=143, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=2. Missed  in cache (limit 10) : []
+06-21 02:17:58.665 23605 23670 I Finsky  : [189] RECEIVER_PACKAGE_MONITOR#logWorkEndAndFinishGoAsync: SUCCESS
+06-21 02:17:58.666 23605 23829 I Finsky  : [227] Asset module storage cleared for package com.vexel.arcadetrio.
+06-21 02:17:58.678   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039628,0.000055, totalTime 0.039683 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.679 24211 24211 I Finsky:background: [2] akfw - Received: android.intent.action.PACKAGE_FULLY_REMOVED, [JXZctJ-iWnPUz8mywqprsIqFc8u6YhVaCZchiOLXBYM]
+06-21 02:17:58.693 24211 24396 I Finsky:background: [205] RECEIVER_PACKAGE_MONITOR_BACKGROUND#logWorkEndAndFinishGoAsync: SUCCESS
+06-21 02:17:58.702  3403 26003 I FuseDaemon: Successfully deleted rows in leveldb for owner_id:  and ownerPackageIdentifier: com.vexel.arcadetrio.test::0
+06-21 02:17:58.703  3403 26003 I MediaServiceV2: Work ended for action [ android.intent.action.PACKAGE_FULLY_REMOVED ]
+06-21 02:17:58.704 24211 24388 I Finsky:background: [200] Wrote row to frosting DB: 70200
+06-21 02:17:58.705  3403  3718 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=5833c473-954a-475a-81f2-030ad1fb70f8, tags={ com.android.providers.media.MediaServiceV2 } ]
+06-21 02:17:58.715 24211 24391 I Finsky:background: [201] IQ:PSL: skipping onPackageRemoved(replacing=false) for untracked package=com.vexel.arcadetrio
+06-21 02:17:58.716 24211 24388 I Finsky:background: [200] Wrote row to frosting DB: 70201
+06-21 02:17:58.720 26815 26815 I adbd    : Remote process closed the socket (on MSG_PEEK)
+06-21 02:17:58.721 24211 24383 I Finsky:background: [196] akfw - recording uninstall for com.vexel.arcadetrio on [Ie8F88DxEN7y1TgUBiTEHqHWClOo7nxmsy2EXRZmOlU]
+06-21 02:17:58.723 24211 24392 I Finsky:background: [202] RECEIVER_ENGAGE_PACKAGE_CHANGED#logWorkEndAndFinishGoAsync: SUCCESS
+06-21 02:17:58.723   714   714 I Zygote  : Process 25897 exited due to signal 9 (Killed)
+06-21 02:17:58.732 23605 23718 I Finsky  : [205] AIM: AppInfoManager-Perf > ItemModel > CacheSize=143, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=2. Missed  in cache (limit 10) : []
+06-21 02:17:58.738   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039730,0.000065, totalTime 0.039796 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.744 23605 23718 I Finsky  : [205] AIM: AppInfoManager-Perf > getApps > data collection finished
+06-21 02:17:58.744 23605 23718 I Finsky  : [205] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 0
+06-21 02:17:58.778   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039560,0.000034, totalTime 0.039594 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.796 16349 22785 W AppInstallOperation: FDL Migration::InstallIntentOperation by FDL Module [CONTEXT service_id=77 ]
+06-21 02:17:58.818   722 26906 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039662,0.000038, totalTime 0.039701 > logTimeout 0.022000 TIMEOUT!!
+06-21 02:17:58.819   750 23291 D TimeCheck: isMT6580Project boolVal = 0 
+06-21 02:17:58.821 16122 16122 D PersistedStoragePackageUninstalledReceiver: Received android.intent.action.PACKAGE_FULLY_REMOVED for com.vexel.arcadetrio for u0
+06-21 02:17:58.821   750  1050 D TimeCheck: isMT6580Project boolVal = 0 
+06-21 02:17:58.822 16122 11915 I BaseFilesVerify: Base File verify start
+06-21 02:17:58.822 16122 11915 W BaseFilesVerify: the file protect is not available, open the cloud switch

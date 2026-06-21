@@ -8,16 +8,19 @@ Scope: locked 3-game MVP only
 ## Release Version Ledger
 
 ### Current ongoing release
-- `versionName`: `1.0.8`
-- `versionCode`: `8`
-- Status: current upload-ready build
+- `versionName`: `1.0.9`
+- `versionCode`: `9`
+- Status: current in-progress release
+
+### Release 1.0.9 focus
+- Release 1.0.8 is complete and was uploaded as `versionCode 8` / `versionName 1.0.8`.
 
 ### Fixed items included in `1.0.8`
 - Added How-to-Play guidance for Pulse Orbit, Lane Drift, and Stack Drop.
 - Added tutorial-seen local persistence with manual replay access.
 - Improved local progression foundations for high scores, sessions, daily challenges, achievements, and stats.
 - Added arcade-style challenge, achievement, and progress UI updates using existing theme components.
-- Prepared the next Play Console upload version as `versionCode 8` / `versionName 1.0.8`.
+- Prepared the current Play Console upload version as `versionCode 8` / `versionName 1.0.8`.
 
 ### Fixed items included in `1.0.7`
 - Shared scaffold accessibility improvements
@@ -29,8 +32,8 @@ Scope: locked 3-game MVP only
 
 ### Next release rule
 - Always increment `versionCode` for the next Play Store upload.
-- Suggested next build after more fixes: `versionName` `1.0.9`, `versionCode` `9`.
-- Do not reuse `versionCode 8` for another upload, or Play Console will reject it as a duplicate/conflicting release.
+- Suggested next build after more fixes: `versionName` `1.1.0`, `versionCode` `10`.
+- Do not reuse `versionCode 9` for another upload, or Play Console will reject it as a duplicate/conflicting release.
 
 ## Completed
 
@@ -50,6 +53,20 @@ Scope: locked 3-game MVP only
 - Updated release notes and Play Store prep docs to match the new release.
 - Release bundle verification is tracked in the final build report.
 
+### Release 1.0.9 planning
+- Next sprint is now targeting `versionCode 9` / `versionName 1.0.9`.
+- Keep the locked 3-game MVP scope unchanged while continuing polish and run-behavior work.
+
+### Run behavior updates
+- Added one-time tutorials for all 3 MVP games with manual replay access.
+- Added completion summaries after game-over to surface high score and progression updates.
+- Wired daily challenge, achievement, and stats updates into the run-result flow.
+- Added per-game challenge play/continue actions from the challenge screen.
+- Slightly increased Lane Drift and Stack Drop pacing to keep short runs brisk without changing core rules.
+- Added clearer Lane Drift lane buttons and slightly more forgiving swipe thresholds for gesture-navigation devices.
+- Stack Drop already has a next-piece preview in the current screen layout.
+- Kept gameplay rules unchanged while improving onboarding and progress feedback.
+
 ### Build warning cleanup
 - Migrated all in-game back icons to the AndroidX `AutoMirrored` versions to remove Android deprecation warnings.
 - Removed the last release-build warning from the shared theme helper.
@@ -62,9 +79,6 @@ Scope: locked 3-game MVP only
 ### High priority
 - Give each of the 3 game detail screens a more distinct visual identity so they do not feel like copies of the same template.
 - Make the home game cards more explicit as launch targets with stronger play affordance cues.
-- Improve Pulse Orbit first-run guidance so the tap timing loop is more obvious on entry.
-- Add safe-gesture protection or clearer gesture handling for Lane Drift so it plays better on gesture-navigation devices.
-- Add Stack Drop next-piece preview so the player can plan ahead.
 - Rework Stack Drop compact controls so they feel less cramped on smaller phones.
 
 ### Medium priority
@@ -72,6 +86,7 @@ Scope: locked 3-game MVP only
 - Improve the visual distinction between success, failure, and reward states across all three games.
 - Verify layout behavior on compact-width devices to make sure no HUD or bottom control gets crowded.
 - Review whether any remaining icon-only actions need text labels on smaller screens.
+- Review whether the new run-summary popup needs a slightly lighter presentation on very short sessions.
 
 ### Lower priority
 - Add more game-specific polish assets or micro-illustrations for the detail pages.

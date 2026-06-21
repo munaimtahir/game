@@ -13,7 +13,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -326,23 +328,23 @@ private fun GameCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(14.dp))
-                        .background(accent.color.copy(alpha = if (isFeatured) 0.18f else 0.10f))
-                        .border(1.dp, accent.color.copy(alpha = 0.42f), RoundedCornerShape(14.dp))
-                        .padding(horizontal = 10.dp, vertical = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                        .background(accent.color)
+                        .padding(horizontal = 12.dp, vertical = 10.dp),
+                    horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
-                        text = "Play",
+                        text = "PLAY",
                         style = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.Black,
-                        color = ArcadeTheme.colors.textPrimary,
+                        color = adaptiveTextColor(accent.color),
                     )
+                    Spacer(modifier = Modifier.width(6.dp))
                     Text(
-                        text = "Start",
-                        style = MaterialTheme.typography.labelMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = accent.color,
+                        text = "→",
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.Black,
+                        color = adaptiveTextColor(accent.color),
                     )
                 }
             }
