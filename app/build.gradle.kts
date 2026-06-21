@@ -90,8 +90,9 @@ tasks.withType<org.gradle.api.tasks.testing.Test>().configureEach {
 
     // Work around occasional missing-dir failures when the test process aborts early.
     doFirst {
-        file("$buildDir/test-results/$name").mkdirs()
-        file("$buildDir/test-results/$name/binary").mkdirs()
+        val testResultsDir = layout.buildDirectory.dir("test-results/$name").get().asFile
+        testResultsDir.mkdirs()
+        testResultsDir.resolve("binary").mkdirs()
     }
 }
 

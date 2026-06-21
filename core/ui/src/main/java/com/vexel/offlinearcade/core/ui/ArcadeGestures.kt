@@ -100,7 +100,7 @@ fun Modifier.arcadeGestureInput(
                 }
             }
             var totalOffset = Offset.Zero
-            val startTime = down.uptimeMillis.toLong()
+            val startTime = down.uptimeMillis
             var pointerId = down.id
             while (true) {
                 val event = awaitPointerEvent()
@@ -111,7 +111,7 @@ fun Modifier.arcadeGestureInput(
                     change.consume()
                     val action = classifyArcadeGesture(
                         totalOffset = totalOffset,
-                        durationMillis = change.uptimeMillis.toLong() - startTime,
+                        durationMillis = change.uptimeMillis - startTime,
                         thresholdsPx = thresholds,
                     )
                     if (action != null) {

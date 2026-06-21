@@ -450,8 +450,8 @@ fun PulseOrbitScreen(
                 // Orb
                 val orbAngleRadians = state.orbitAngle * (PI / 180f).toFloat()
                 val orbCenter = Offset(
-                    x = center.x + cos(orbAngleRadians).toFloat() * radius,
-                    y = center.y + sin(orbAngleRadians).toFloat() * radius,
+                    x = center.x + cos(orbAngleRadians) * radius,
+                    y = center.y + sin(orbAngleRadians) * radius,
                 )
                 drawCircle(
                     color = androidx.compose.ui.graphics.lerp(orbColor, colors.dangerCoral, failPulse.value),
