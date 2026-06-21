@@ -288,40 +288,93 @@ fun StackDropScreen(
     GameplayScaffold(
         modifier = Modifier.testTag(ArcadeTestTags.StackDropScreen),
         topBar = {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    androidx.compose.material3.IconButton(
-                        onClick = {
-                            if (state.playing && !paused) {
-                                paused = true
-                            } else {
-                                onBack()
+            BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+                val compact = maxWidth < 400.dp
+                if (compact) {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                androidx.compose.material3.IconButton(
+                                    onClick = {
+                                        if (state.playing && !paused) {
+                                            paused = true
+                                        } else {
+                                            onBack()
+                                        }
+                                    },
+                                    modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                                ) {
+                                    androidx.compose.material3.Icon(
+                                        Icons.AutoMirrored.Filled.ArrowBack,
+                                        contentDescription = "Back",
+                                        tint = colors.textPrimary
+                                    )
+                                }
+                                HudPill("Score", state.score.toString())
                             }
-                        },
-                        modifier = Modifier.testTag(ArcadeTestTags.BackButton)
-                    ) {
-                            androidx.compose.material3.Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
-                            tint = colors.textPrimary
-                        )
+                            HudPill("Lines", state.linesCleared.toString())
+                        }
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            PremiumButton(
+                                label = "How",
+                                onClick = ::showHowToPlay,
+                                style = ArcadeButtonStyle.Secondary,
+                                borderOverride = colors.primaryCyan,
+                                modifier = Modifier.weight(1f),
+                            )
+                            PremiumButton(
+                                label = if (paused) "Resume" else "Pause",
+                                onClick = { if (!state.gameOver && (state.playing || paused)) paused = !paused },
+                                style = ArcadeButtonStyle.Secondary,
+                                enabled = state.playing || paused,
+                                modifier = Modifier.weight(1f),
+                            )
+                        }
                     }
-                    HudPill("Score", state.score.toString())
-                    HudPill("Lines", state.linesCleared.toString())
-                }
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                    PremiumButton(
-                        label = "How",
-                        onClick = ::showHowToPlay,
-                        style = ArcadeButtonStyle.Secondary,
-                        borderOverride = colors.primaryCyan,
-                    )
-                    PremiumButton(
-                        label = if (paused) "Resume" else "Pause",
-                        onClick = { if (!state.gameOver && (state.playing || paused)) paused = !paused },
-                        style = ArcadeButtonStyle.Secondary,
-                        enabled = state.playing || paused,
-                    )
+                } else {
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            androidx.compose.material3.IconButton(
+                                onClick = {
+                                    if (state.playing && !paused) {
+                                        paused = true
+                                    } else {
+                                        onBack()
+                                    }
+                                },
+                                modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                            ) {
+                                androidx.compose.material3.Icon(
+                                    Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = "Back",
+                                    tint = colors.textPrimary
+                                )
+                            }
+                            HudPill("Score", state.score.toString())
+                            HudPill("Lines", state.linesCleared.toString())
+                        }
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                            PremiumButton(
+                                label = "How",
+                                onClick = ::showHowToPlay,
+                                style = ArcadeButtonStyle.Secondary,
+                                borderOverride = colors.primaryCyan,
+                            )
+                            PremiumButton(
+                                label = if (paused) "Resume" else "Pause",
+                                onClick = { if (!state.gameOver && (state.playing || paused)) paused = !paused },
+                                style = ArcadeButtonStyle.Secondary,
+                                enabled = state.playing || paused,
+                            )
+                        }
+                    }
                 }
             }
         },
@@ -332,8 +385,8 @@ fun StackDropScreen(
                         .fillMaxWidth()
                         .padding(top = spacing.sm),
                 ) {
-                    val compact = maxWidth < 360.dp
-                    val controlHeight = if (compact) 48.dp else 56.dp
+                    val compact = maxWidth < 420.dp
+                    val controlHeight = if (maxWidth < 340.dp) 48.dp else 52.dp
                     val controlGap = if (compact) 6.dp else 8.dp
                     if (compact) {
                         Column(
@@ -351,17 +404,6 @@ fun StackDropScreen(
                                     modifier = Modifier.weight(1f).height(controlHeight),
                                 )
                                 PremiumButton(
-                                    label = "Right",
-                                    onClick = { handleAction(ArcadeGestureAction.SwipeRight) },
-                                    style = ArcadeButtonStyle.Secondary,
-                                    modifier = Modifier.weight(1f).height(controlHeight),
-                                )
-                            }
-                            Row(
-                                modifier = Modifier.fillMaxWidth().height(controlHeight),
-                                horizontalArrangement = Arrangement.spacedBy(controlGap)
-                            ) {
-                                PremiumButton(
                                     label = "Rotate",
                                     onClick = { handleAction(ArcadeGestureAction.Tap) },
                                     style = ArcadeButtonStyle.Secondary,
@@ -369,13 +411,19 @@ fun StackDropScreen(
                                     borderOverride = colors.accentViolet,
                                 )
                                 PremiumButton(
-                                    label = "Drop",
-                                    onClick = { handleAction(ArcadeGestureAction.SwipeDown) },
+                                    label = "Right",
+                                    onClick = { handleAction(ArcadeGestureAction.SwipeRight) },
                                     style = ArcadeButtonStyle.Secondary,
                                     modifier = Modifier.weight(1f).height(controlHeight),
-                                    borderOverride = colors.primaryCyan,
                                 )
                             }
+                            PremiumButton(
+                                label = "Drop",
+                                onClick = { handleAction(ArcadeGestureAction.SwipeDown) },
+                                style = ArcadeButtonStyle.Secondary,
+                                modifier = Modifier.fillMaxWidth().height(controlHeight),
+                                borderOverride = colors.primaryCyan,
+                            )
                         }
                     } else {
                         Row(
@@ -401,7 +449,7 @@ fun StackDropScreen(
                                 label = "Drop",
                                 onClick = { handleAction(ArcadeGestureAction.SwipeDown) },
                                 style = ArcadeButtonStyle.Secondary,
-                                modifier = Modifier.weight(1f).height(controlHeight),
+                                modifier = Modifier.weight(1.2f).height(controlHeight),
                                 borderOverride = colors.primaryCyan,
                             )
                             PremiumButton(

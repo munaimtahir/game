@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -329,41 +330,95 @@ fun PulseOrbitScreen(
     GameplayScaffold(
         modifier = Modifier.testTag(ArcadeTestTags.PulseOrbitScreen),
         topBar = {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        androidx.compose.material3.IconButton(
-                        onClick = {
-                            if (state.playing && !state.paused) {
-                                togglePause()
-                            } else {
-                                onBack()
+            BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+                val compact = maxWidth < 400.dp
+                if (compact) {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                androidx.compose.material3.IconButton(
+                                    onClick = {
+                                        if (state.playing && !state.paused) {
+                                            togglePause()
+                                        } else {
+                                            onBack()
+                                        }
+                                    },
+                                    modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                                ) {
+                                    androidx.compose.material3.Icon(
+                                        Icons.AutoMirrored.Filled.ArrowBack,
+                                        contentDescription = "Back",
+                                        tint = colors.textPrimary
+                                    )
+                                }
+                                HudPill("Score", state.score.toString())
                             }
-                        },
-                        modifier = Modifier.testTag(ArcadeTestTags.BackButton)
-                    ) {
-                        androidx.compose.material3.Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
-                            tint = colors.textPrimary
-                        )
+                            HudPill("Combo", state.combo.toString())
+                        }
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            PremiumButton(
+                                label = "How",
+                                onClick = ::showHowToPlay,
+                                style = ArcadeButtonStyle.Secondary,
+                                borderOverride = colors.primaryCyan,
+                                modifier = Modifier.weight(1f),
+                            )
+                            PremiumButton(
+                                label = if (state.paused) "Resume" else "Pause",
+                                onClick = ::togglePause,
+                                style = ArcadeButtonStyle.Secondary,
+                                enabled = state.playing || state.paused,
+                                borderOverride = colors.accentViolet,
+                                modifier = Modifier.weight(1f),
+                            )
+                        }
                     }
-                    HudPill("Score", state.score.toString())
-                    HudPill("Combo", state.combo.toString())
-                }
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                    PremiumButton(
-                        label = "How",
-                        onClick = ::showHowToPlay,
-                        style = ArcadeButtonStyle.Secondary,
-                        borderOverride = colors.primaryCyan,
-                    )
-                    PremiumButton(
-                        label = if (state.paused) "Resume" else "Pause",
-                        onClick = ::togglePause,
-                        style = ArcadeButtonStyle.Secondary,
-                        enabled = state.playing || state.paused,
-                        borderOverride = colors.accentViolet,
-                    )
+                } else {
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            androidx.compose.material3.IconButton(
+                                onClick = {
+                                    if (state.playing && !state.paused) {
+                                        togglePause()
+                                    } else {
+                                        onBack()
+                                    }
+                                },
+                                modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                            ) {
+                                androidx.compose.material3.Icon(
+                                    Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = "Back",
+                                    tint = colors.textPrimary
+                                )
+                            }
+                            HudPill("Score", state.score.toString())
+                            HudPill("Combo", state.combo.toString())
+                        }
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                            PremiumButton(
+                                label = "How",
+                                onClick = ::showHowToPlay,
+                                style = ArcadeButtonStyle.Secondary,
+                                borderOverride = colors.primaryCyan,
+                            )
+                            PremiumButton(
+                                label = if (state.paused) "Resume" else "Pause",
+                                onClick = ::togglePause,
+                                style = ArcadeButtonStyle.Secondary,
+                                enabled = state.playing || state.paused,
+                                borderOverride = colors.accentViolet,
+                            )
+                        }
+                    }
                 }
             }
         },

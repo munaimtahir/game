@@ -471,49 +471,97 @@ fun LaneDriftScreen(
     GameplayScaffold(
         modifier = Modifier.testTag(ArcadeTestTags.LaneDriftScreen),
         topBar = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        androidx.compose.material3.IconButton(
-                            onClick = {
-                                if (state.playing && !state.paused) {
-                                    togglePause()
-                                } else {
-                                    onBack()
-                                }
-                            },
-                            modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+            BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+                val compact = maxWidth < 400.dp
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    if (compact) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
-                            androidx.compose.material3.Icon(
-                                Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Back",
-                                tint = colors.textPrimary
+                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                androidx.compose.material3.IconButton(
+                                    onClick = {
+                                        if (state.playing && !state.paused) {
+                                            togglePause()
+                                        } else {
+                                            onBack()
+                                        }
+                                    },
+                                    modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                                ) {
+                                    androidx.compose.material3.Icon(
+                                        Icons.AutoMirrored.Filled.ArrowBack,
+                                        contentDescription = "Back",
+                                        tint = colors.textPrimary
+                                    )
+                                }
+                                HudPill("Score", state.score.toString())
+                            }
+                            HudPill("Pickups", state.pickups.toString())
+                        }
+                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            PremiumButton(
+                                label = "How",
+                                onClick = ::showHowToPlay,
+                                style = ArcadeButtonStyle.Secondary,
+                                borderOverride = colors.primaryCyan,
+                                modifier = Modifier.weight(1f),
+                            )
+                            PremiumButton(
+                                label = if (state.paused) "Resume" else "Pause",
+                                onClick = ::togglePause,
+                                style = ArcadeButtonStyle.Secondary,
+                                enabled = state.playing || state.paused,
+                                modifier = Modifier.weight(1f),
                             )
                         }
-                        HudPill("Score", state.score.toString())
-                        HudPill("Pickups", state.pickups.toString())
+                    } else {
+                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                androidx.compose.material3.IconButton(
+                                    onClick = {
+                                        if (state.playing && !state.paused) {
+                                            togglePause()
+                                        } else {
+                                            onBack()
+                                        }
+                                    },
+                                    modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                                ) {
+                                    androidx.compose.material3.Icon(
+                                        Icons.AutoMirrored.Filled.ArrowBack,
+                                        contentDescription = "Back",
+                                        tint = colors.textPrimary
+                                    )
+                                }
+                                HudPill("Score", state.score.toString())
+                                HudPill("Pickups", state.pickups.toString())
+                            }
+                            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                                PremiumButton(
+                                    label = "How",
+                                    onClick = ::showHowToPlay,
+                                    style = ArcadeButtonStyle.Secondary,
+                                    borderOverride = colors.primaryCyan,
+                                )
+                                PremiumButton(
+                                    label = if (state.paused) "Resume" else "Pause",
+                                    onClick = ::togglePause,
+                                    style = ArcadeButtonStyle.Secondary,
+                                    enabled = state.playing || state.paused,
+                                )
+                            }
+                        }
                     }
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                        PremiumButton(
-                            label = "How",
-                            onClick = ::showHowToPlay,
-                            style = ArcadeButtonStyle.Secondary,
-                            borderOverride = colors.primaryCyan,
-                        )
-                        PremiumButton(
-                            label = if (state.paused) "Resume" else "Pause",
-                            onClick = ::togglePause,
-                            style = ArcadeButtonStyle.Secondary,
-                            enabled = state.playing || state.paused,
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                        Text(
+                            text = state.message,
+                            style = MaterialTheme.typography.labelMedium,
+                            color = colors.textSecondary
                         )
                     }
-                }
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                    Text(
-                        text = state.message,
-                        style = MaterialTheme.typography.labelMedium,
-                        color = colors.textSecondary
-                    )
                 }
             }
         },

@@ -14,6 +14,7 @@ Scope: locked 3-game MVP only
 
 ### Release 1.0.9 focus
 - Release 1.0.8 is complete and was uploaded as `versionCode 8` / `versionName 1.0.8`.
+- Final release-polish work for `1.0.9` is now implemented and verified in the current worktree.
 
 ### Fixed items included in `1.0.8`
 - Added How-to-Play guidance for Pulse Orbit, Lane Drift, and Stack Drop.
@@ -57,6 +58,12 @@ Scope: locked 3-game MVP only
 - Next sprint is now targeting `versionCode 9` / `versionName 1.0.9`.
 - Keep the locked 3-game MVP scope unchanged while continuing polish and run-behavior work.
 
+### Release 1.0.9 UI polish completed
+- Made the home game cards read clearly as launch targets with a visible play affordance.
+- Reworked Stack Drop compact controls so the layout stays usable on smaller phones.
+- Verified compact-width HUD and bottom-control behavior on debug/device validation runs.
+- Gave Pulse Orbit, Lane Drift, and Stack Drop distinct detail-screen identities while keeping the shared arcade design language.
+
 ### Run behavior updates
 - Added one-time tutorials for all 3 MVP games with manual replay access.
 - Added completion summaries after game-over to surface high score and progression updates.
@@ -74,24 +81,22 @@ Scope: locked 3-game MVP only
 - Upgraded Android Gradle Plugin to `8.6.0`, which is the documented minimum for `compileSdk 35`.
 - Removed the temporary `gradle.properties` suppression for the compileSdk advisory.
 
-## Pending
+### Must Fix Before Final Release
+- Made the home game cards more explicit as launch targets with stronger play affordance cues.
+- Reworked Stack Drop compact controls so they feel less cramped on smaller phones.
+- Verified layout behavior on compact-width devices so no HUD or bottom control gets crowded.
+- Gave each of the 3 game detail screens a more distinct visual identity so they do not feel like copies of the same template.
 
-### High priority
-- Give each of the 3 game detail screens a more distinct visual identity so they do not feel like copies of the same template.
-- Make the home game cards more explicit as launch targets with stronger play affordance cues.
-- Rework Stack Drop compact controls so they feel less cramped on smaller phones.
-
-### Medium priority
-- Add stronger empty-state / first-run cues for any game that starts in a ready state.
+### Should Fix If Time Allows
 - Improve the visual distinction between success, failure, and reward states across all three games.
-- Verify layout behavior on compact-width devices to make sure no HUD or bottom control gets crowded.
+- Add stronger empty-state / first-run cues for any game that starts in a ready state.
 - Review whether any remaining icon-only actions need text labels on smaller screens.
+- Review whether additional accessibility labels are needed on gameplay overlays and result cards.
 - Review whether the new run-summary popup needs a slightly lighter presentation on very short sessions.
 
-### Lower priority
+### Nice to Have
 - Add more game-specific polish assets or micro-illustrations for the detail pages.
 - Consider a more opinionated home-screen hierarchy if future meta systems grow larger.
-- Review whether additional accessibility labels are needed on gameplay overlays and result cards.
 
 ## Notes
 
