@@ -42,6 +42,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -67,6 +68,7 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
 enum class ArcadeButtonStyle { Primary, Secondary, Tonal }
@@ -320,7 +322,7 @@ fun ArcadeCard(
             containerColor = ArcadeTheme.colors.elevatedCardBackground,
             contentColor = ArcadeTheme.colors.textPrimary
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
     ) {
         Box(
             modifier = Modifier
@@ -371,7 +373,7 @@ fun PremiumButton(
                 disabledContentColor = colors.textMuted,
             ),
         ) {
-            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1)
+            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
 
         ArcadeButtonStyle.Secondary -> OutlinedButton(
@@ -386,7 +388,7 @@ fun PremiumButton(
                 disabledContentColor = colors.textMuted,
             )
         ) {
-            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1)
+            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
 
         ArcadeButtonStyle.Tonal -> Button(
@@ -399,7 +401,7 @@ fun PremiumButton(
                 contentColor = colors.textPrimary,
             ),
         ) {
-            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1)
+            Text(text, style = MaterialTheme.typography.labelLarge, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
     }
 }
@@ -415,6 +417,7 @@ fun HudPill(label: String, value: String, modifier: Modifier = Modifier) {
     ) {
         Column(
             modifier = Modifier
+                .semantics { contentDescription = "$label $value" }
                 .border(1.dp, ArcadeTheme.colors.hudBorder, RoundedCornerShape(20.dp))
                 .padding(horizontal = 14.dp, vertical = 10.dp),
         ) {
@@ -465,13 +468,38 @@ fun SectionHeader(
 
 @Composable
 fun StatRow(label: String, value: String, valueColor: Color = ArcadeTheme.colors.textPrimary) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(label, color = ArcadeTheme.colors.textSecondary, style = MaterialTheme.typography.bodyMedium)
-        Text(value, color = valueColor, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+    BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+        val fontScale = LocalDensity.current.fontScale
+        val compact = maxWidth < 280.dp || fontScale > 1.15f || value.length > 26
+        if (compact) {
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(label, color = ArcadeTheme.colors.textSecondary, style = MaterialTheme.typography.bodyMedium)
+                Text(
+                    value,
+                    color = valueColor,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        } else {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(label, color = ArcadeTheme.colors.textSecondary, style = MaterialTheme.typography.bodyMedium)
+                Text(
+                    value,
+                    color = valueColor,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        }
     }
 }
 
@@ -646,9 +674,12 @@ fun PremiumOverlayCard(
     content: @Composable () -> Unit,
 ) {
     ArcadeCard(
-        modifier = modifier.widthIn(max = 400.dp).testTag("premium_overlay"),
+        modifier = modifier
+            .widthIn(max = 400.dp)
+            .semantics { contentDescription = "$title. $subtitle" }
+            .testTag("premium_overlay"),
         accent = Brush.linearGradient(listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary)),
-        contentPadding = ArcadeTheme.spacing.lg,
+        contentPadding = ArcadeTheme.spacing.md,
     ) {
         Text(title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), color = ArcadeTheme.colors.textPrimary)
         Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = ArcadeTheme.colors.textSecondary, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
@@ -798,6 +829,10 @@ fun ArcadePlayButton(
             .graphicsLayer {
                 scaleX = scale
                 scaleY = scale
+            }
+            .semantics {
+                role = Role.Button
+                contentDescription = label
             }
             .shadow(
                 elevation = 12.dp,

@@ -169,7 +169,7 @@ private val DaylightArcadeExtendedColors = ArcadeExtendedColors(
     accentViolet            = DaySecondary,
     dangerCoral             = DayHazard,
     pickupMint              = DaySuccessPulse,
-    overlayScrim            = Color.Black.copy(alpha = 0.25f),
+    overlayScrim            = Color.Black.copy(alpha = 0.22f),
     player                  = DayPlayer,
     playerAccent            = DayPlayerAccent,
     collectible             = DayCollectible,

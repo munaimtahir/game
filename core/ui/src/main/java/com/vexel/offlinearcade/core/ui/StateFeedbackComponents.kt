@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -125,42 +127,63 @@ fun ReadyCueCard(
     startTestTag: String? = null,
 ) {
     val accent = gameAccentFor(gameId.title)
-    ArcadeCard(
-        modifier = modifier.semantics { contentDescription = "$title. $subtitle" },
-        accent = accent.brush,
-        contentPadding = ArcadeTheme.spacing.md,
-    ) {
-        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            StateBadge(label = "Ready", tone = ArcadeStateTone.Ready)
-            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Black,
-                    color = ArcadeTheme.colors.textPrimary,
-                )
-                Text(
-                    text = subtitle,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = ArcadeTheme.colors.textSecondary,
-                )
-            }
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                if (onSecondaryAction != null && secondaryLabel != null) {
-                    PremiumButton(
-                        label = secondaryLabel,
-                        onClick = onSecondaryAction,
-                        modifier = Modifier.weight(1f),
-                        style = ArcadeButtonStyle.Secondary,
+    BoxWithConstraints {
+        val compact = maxWidth < 340.dp || LocalDensity.current.fontScale > 1.15f
+        ArcadeCard(
+            modifier = modifier.semantics { contentDescription = "$title. $subtitle" },
+            accent = accent.brush,
+            contentPadding = ArcadeTheme.spacing.md,
+        ) {
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                StateBadge(label = "Ready", tone = ArcadeStateTone.Ready)
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Black,
+                        color = ArcadeTheme.colors.textPrimary,
+                    )
+                    Text(
+                        text = subtitle,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = ArcadeTheme.colors.textSecondary,
                     )
                 }
-                PremiumButton(
-                    label = startLabel,
-                    onClick = onStart,
-                    modifier = Modifier
-                        .weight(if (onSecondaryAction != null && secondaryLabel != null) 1f else 1f)
-                        .then(if (startTestTag != null) Modifier.testTag(startTestTag) else Modifier),
-                )
+                if (compact && onSecondaryAction != null && secondaryLabel != null) {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        PremiumButton(
+                            label = secondaryLabel,
+                            onClick = onSecondaryAction,
+                            modifier = Modifier.fillMaxWidth(),
+                            style = ArcadeButtonStyle.Secondary,
+                        )
+                        PremiumButton(
+                            label = startLabel,
+                            onClick = onStart,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .then(if (startTestTag != null) Modifier.testTag(startTestTag) else Modifier),
+                        )
+                    }
+                } else {
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        if (onSecondaryAction != null && secondaryLabel != null) {
+                            PremiumButton(
+                                label = secondaryLabel,
+                                onClick = onSecondaryAction,
+                                modifier = Modifier.weight(1f),
+                                style = ArcadeButtonStyle.Secondary,
+                            )
+                        }
+                        PremiumButton(
+                            label = startLabel,
+                            onClick = onStart,
+                            modifier = Modifier
+                                .weight(if (onSecondaryAction != null && secondaryLabel != null) 1f else 1f)
+                                .then(if (startTestTag != null) Modifier.testTag(startTestTag) else Modifier),
+                        )
+                    }
+                }
             }
         }
     }
