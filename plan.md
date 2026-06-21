@@ -8,13 +8,13 @@ Scope: locked 3-game MVP only
 ## Release Version Ledger
 
 ### Current ongoing release
-- `versionName`: `1.0.9`
-- `versionCode`: `9`
-- Status: current in-progress release
+- `versionName`: `1.1.0`
+- `versionCode`: `10`
+- Status: first production release candidate
 
-### Release 1.0.9 focus
+### Release 1.1.0 focus
 - Release 1.0.8 is complete and was uploaded as `versionCode 8` / `versionName 1.0.8`.
-- Final release-polish work for `1.0.9` is now implemented and verified in the current worktree.
+- Final release-polish work for `1.1.0` is now implemented and verified in the current worktree.
 
 ### Fixed items included in `1.0.8`
 - Added How-to-Play guidance for Pulse Orbit, Lane Drift, and Stack Drop.
@@ -33,8 +33,7 @@ Scope: locked 3-game MVP only
 
 ### Next release rule
 - Always increment `versionCode` for the next Play Store upload.
-- Suggested next build after more fixes: `versionName` `1.1.0`, `versionCode` `10`.
-- Do not reuse `versionCode 9` for another upload, or Play Console will reject it as a duplicate/conflicting release.
+- Do not reuse `versionCode 10` for another upload, or Play Console will reject it as a duplicate/conflicting release.
 
 ## Completed
 
@@ -54,11 +53,11 @@ Scope: locked 3-game MVP only
 - Updated release notes and Play Store prep docs to match the new release.
 - Release bundle verification is tracked in the final build report.
 
-### Release 1.0.9 planning
-- Next sprint is now targeting `versionCode 9` / `versionName 1.0.9`.
+### Release 1.1.0 planning
+- This is the first production release.
 - Keep the locked 3-game MVP scope unchanged while continuing polish and run-behavior work.
 
-### Release 1.0.9 UI polish completed
+### Release 1.1.0 UI polish completed
 - Made the home game cards read clearly as launch targets with a visible play affordance.
 - Reworked Stack Drop compact controls so the layout stays usable on smaller phones.
 - Verified compact-width HUD and bottom-control behavior on debug/device validation runs.
