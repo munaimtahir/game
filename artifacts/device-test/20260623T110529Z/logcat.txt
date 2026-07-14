@@ -1,0 +1,27 @@
+--------- beginning of main
+06-23 16:07:03.739 14777 19128 E Dck     : Could not get ProviderInfo when resolving the content provider authority. [CONTEXT service_id=289 ]
+06-23 16:07:03.770 19199 19199 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath failed , error(Permission denied)
+06-23 16:07:03.771 19199 19199 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 16:07:03.771 19199 19199 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath2 failed , error(Permission denied)
+06-23 16:07:03.771 19199 19199 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 16:07:03.771 19199 19199 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath3 failed , error(Permission denied)
+06-23 16:07:03.771 19199 19199 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 16:07:03.771 19199 19199 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath4 failed , error(Permission denied)
+06-23 16:07:03.771 19199 19199 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 16:07:04.544 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:07:04.637 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:07:04.980 19223 19223 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+06-23 16:07:04.984 19223 19223 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+06-23 16:07:04.989 19223 19223 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+06-23 16:07:04.992 19223 19223 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+06-23 16:07:05.001 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:07:05.025 19223 19223 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+06-23 16:07:05.957 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:07:06.014 11899 11930 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:07:06.123 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:07:06.126 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:07:06.237 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:07:07.028  2139 18639 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-23 16:07:08.600  2139 18639 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-23 16:07:09.756 15039 19275 D nativeloader: Load libpowerhalwrap_jni.so using system ns (caller=/system/framework/mediatek-framework.jar): ok
+06-23 16:07:09.757 15039 19275 I PowerHalWrapper: PowerHalWrapper.getInstance 

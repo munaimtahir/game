@@ -13,7 +13,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeCard
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.PremiumBadge
@@ -33,7 +33,7 @@ fun SettingsScreen(
     onToggleHighContrast: (Boolean) -> Unit,
     onBack: () -> Unit,
 ) {
-    ArcadeScaffold(
+    EdgeToEdgeAppScaffold(
         title = "Settings",
         onBack = onBack,
         screenTestTag = ArcadeTestTags.SettingsScreen,

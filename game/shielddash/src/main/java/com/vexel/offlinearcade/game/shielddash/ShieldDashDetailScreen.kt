@@ -12,7 +12,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.ui.ArcadeCard
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
 import com.vexel.offlinearcade.core.ui.PremiumButton
@@ -27,7 +27,7 @@ fun ShieldDashDetailScreen(
 ) {
     val spacing = ArcadeTheme.spacing
 
-    ArcadeScaffold(
+    EdgeToEdgeAppScaffold(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,

@@ -74,7 +74,7 @@ private data class PulseOrbitState(
     val bestCombo: Int = 0,
     val runStartMillis: Long = 0L,
     val gameOver: Boolean = false,
-    val feedback: String = "Tap when the orb reaches the gap.",
+    val feedback: String = "Tap to start",
 )
 
 internal object PulseOrbitTuning {
@@ -121,7 +121,7 @@ fun PulseOrbitScreen(
             playing = true,
             paused = false,
             runStartMillis = System.currentTimeMillis(),
-            feedback = "Time your tap to pass through.",
+            feedback = "Thread the gap.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
     }
@@ -249,11 +249,11 @@ fun PulseOrbitScreen(
                 HowToPlayOverlay(
                     content = GameTutorialContent(
                         gameId = GameId.PULSE_ORBIT,
-                        title = "Quick cue",
+                        title = "How to Play Pulse Orbit",
                         lines = listOf(
-                            "Tap when the orb reaches the gap.",
-                            "Time your tap to pass through.",
-                            "Miss the gap and the run ends.",
+                            "Tap when the orb reaches the opening.",
+                            "Clean passes build combo.",
+                            "Miss the opening and the run ends.",
                         ),
                         controls = "Tap anywhere.",
                         goal = "Beat your high score.",

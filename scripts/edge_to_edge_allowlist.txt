@@ -1,0 +1,2 @@
+# Allowlist for check_edge_to_edge.sh
+# Add file paths here if they have documented exceptions for legacy system UI APIs.

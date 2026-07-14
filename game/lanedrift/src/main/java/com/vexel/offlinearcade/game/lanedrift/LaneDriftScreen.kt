@@ -50,7 +50,6 @@ import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
-import com.vexel.offlinearcade.core.ui.ArcadeGestureThresholds
 import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
@@ -157,13 +156,7 @@ fun LaneDriftScreen(
     val random = remember(debugConfig?.randomSeed) {
         Random(debugConfig?.randomSeed ?: System.currentTimeMillis())
     }
-    val gestureThresholds = rememberArcadeGestureThresholdsPx(
-        ArcadeGestureThresholds(
-            swipeMinDistanceDp = 54.dp,
-            dominantAxisRatio = 1.55f,
-            edgeExclusionDp = 24.dp,
-        ),
-    )
+    val gestureThresholds = rememberArcadeGestureThresholdsPx()
     val pickupFlash = remember { androidx.compose.animation.core.Animatable(0f) }
 
     LaunchedEffect(state.pickups) {

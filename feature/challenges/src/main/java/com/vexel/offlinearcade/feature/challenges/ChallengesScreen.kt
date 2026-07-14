@@ -15,7 +15,7 @@ import com.vexel.offlinearcade.core.model.DailyChallenge
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeCard
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.PremiumBadge
@@ -37,7 +37,7 @@ fun ChallengesScreen(
     val completeCount = challenges.count { it.completed }
     val bundleChallenge = challenges.firstOrNull { it.gameId == null }
     val gameChallenges = challenges.filter { it.gameId != null }
-    ArcadeScaffold(
+    EdgeToEdgeAppScaffold(
         title = "Daily Challenges",
         onBack = onBack,
         screenTestTag = ArcadeTestTags.ChallengesScreen,
@@ -52,11 +52,6 @@ fun ChallengesScreen(
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             PremiumStatTile("Completed", completeCount.toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.success)
             PremiumStatTile("Reward Pool", "${challenges.sumOf { it.rewardCoins }}", modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
-        }
-        if (completeCount == 0) {
-            ArcadeCard {
-                Text("Complete a challenge to earn rewards. Start with any active game track.", color = ArcadeTheme.colors.textSecondary)
-            }
         }
         if (bundleChallenge != null) {
             val bundleProgress = if (bundleChallenge.targetValue == 0) 0f else bundleChallenge.progress.toFloat() / bundleChallenge.targetValue.toFloat()

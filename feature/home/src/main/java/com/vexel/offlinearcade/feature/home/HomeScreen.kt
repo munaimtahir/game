@@ -44,7 +44,7 @@ import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.PlayerProfile
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
@@ -96,7 +96,7 @@ fun HomeScreen(
         ),
     )
 
-    ArcadeScaffold(
+    EdgeToEdgeAppScaffold(
         title = "Arcade Home",
         scrollable = false,
         screenTestTag = ArcadeTestTags.HomeScreen,
@@ -278,27 +278,14 @@ private fun GameCard(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(40.dp)
+                        .height(24.dp)
                         .align(Alignment.BottomCenter)
                         .background(
                             Brush.verticalGradient(
-                                listOf(Color.Transparent, Color.Black.copy(alpha = 0.62f))
+                                listOf(Color.Transparent, Color.Black.copy(alpha = 0.4f))
                             )
                         )
-                ) {
-                    Text(
-                        text = if (isFeatured) "Continue" else "Tap to Play",
-                        modifier = Modifier
-                            .align(Alignment.BottomStart)
-                            .padding(start = 10.dp, bottom = 8.dp)
-                            .clip(RoundedCornerShape(999.dp))
-                            .background(accent.color.copy(alpha = 0.92f))
-                            .padding(horizontal = 10.dp, vertical = 4.dp),
-                        style = MaterialTheme.typography.labelMedium,
-                        fontWeight = FontWeight.Black,
-                        color = adaptiveTextColor(accent.color),
-                    )
-                }
+                )
             }
             
             Column(
@@ -322,29 +309,6 @@ private fun GameCard(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(14.dp))
-                        .background(accent.color.copy(alpha = if (isFeatured) 0.18f else 0.10f))
-                        .border(1.dp, accent.color.copy(alpha = 0.42f), RoundedCornerShape(14.dp))
-                        .padding(horizontal = 10.dp, vertical = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = "Play",
-                        style = MaterialTheme.typography.labelLarge,
-                        fontWeight = FontWeight.Black,
-                        color = ArcadeTheme.colors.textPrimary,
-                    )
-                    Text(
-                        text = "Start",
-                        style = MaterialTheme.typography.labelMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = accent.color,
-                    )
-                }
             }
         }
     }

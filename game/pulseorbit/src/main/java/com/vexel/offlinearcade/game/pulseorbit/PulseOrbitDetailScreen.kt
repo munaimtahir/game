@@ -23,14 +23,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.ui.ArcadeCard
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
 import com.vexel.offlinearcade.core.ui.ArcadeMarquee
 import com.vexel.offlinearcade.core.ui.ArcadePlayButton
 import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
-import com.vexel.offlinearcade.core.ui.StatRow
 
 @Composable
 fun PulseOrbitDetailScreen(
@@ -47,7 +46,7 @@ fun PulseOrbitDetailScreen(
         context.resources.getIdentifier("header_pulse_orbit", "drawable", context.packageName)
     }
 
-    ArcadeScaffold(
+    EdgeToEdgeAppScaffold(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
@@ -74,11 +73,6 @@ fun PulseOrbitDetailScreen(
                 PremiumStatTile(label = "Best Score", value = (stats?.highScore ?: 0).toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.pulseAccent)
                 PremiumStatTile(label = "Sessions", value = (stats?.sessionsPlayed ?: 0).toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
             }
-            if ((stats?.sessionsPlayed ?: 0) == 0) {
-                Text("No runs yet. Your first clean pass will start the board.", color = ArcadeTheme.colors.textSecondary)
-            }
-            StatRow("Precision focus", "Gap timing")
-            StatRow("Best combo", (stats?.bestCombo ?: 0).toString(), valueColor = ArcadeTheme.colors.pulseAccent)
         }
 
         ArcadeCard {

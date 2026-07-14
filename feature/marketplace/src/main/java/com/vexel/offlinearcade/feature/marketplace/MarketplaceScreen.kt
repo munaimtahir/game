@@ -23,8 +23,8 @@ import com.vexel.offlinearcade.core.model.SkinUnlock
 import com.vexel.offlinearcade.core.model.ThemeUnlock
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeCard
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
+import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.HudPill
 import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumButton
@@ -48,7 +48,7 @@ fun MarketplaceScreen(
     onBack: () -> Unit,
 ) {
     val selectedTheme = themes.firstOrNull { it.id == selectedThemeId }
-    ArcadeScaffold(
+    EdgeToEdgeAppScaffold(
         title = "Marketplace",
         onBack = onBack,
         coins = coins,
