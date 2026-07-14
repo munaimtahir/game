@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.plugin.compose")
+    id("org.jetbrains.kotlin.android")
 }
 
 import java.util.Properties
@@ -29,14 +29,14 @@ val hasReleaseSigning =
 
 android {
     namespace = "com.vexel.arcadetrio"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.vexel.arcadetrio"
         minSdk = 24
-        targetSdk = 36
-        versionCode = 10
-        versionName = "1.1.0"
+        targetSdk = 35
+        versionCode = 13
+        versionName = "1.1.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -46,9 +46,15 @@ android {
         compose = true
         buildConfig = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.14"
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
     packaging {
         resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -90,9 +96,8 @@ tasks.withType<org.gradle.api.tasks.testing.Test>().configureEach {
 
     // Work around occasional missing-dir failures when the test process aborts early.
     doFirst {
-        val testResultsDir = layout.buildDirectory.dir("test-results/$name").get().asFile
-        testResultsDir.mkdirs()
-        testResultsDir.resolve("binary").mkdirs()
+        file("$buildDir/test-results/$name").mkdirs()
+        file("$buildDir/test-results/$name/binary").mkdirs()
     }
 }
 

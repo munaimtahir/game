@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -33,6 +34,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -45,17 +47,15 @@ import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
-import com.vexel.offlinearcade.core.ui.ArcadeStateTone
 import com.vexel.offlinearcade.core.ui.CompletionPopup
 import com.vexel.offlinearcade.core.ui.GameTutorialContent
 import com.vexel.offlinearcade.core.ui.GameplayScaffold
 import com.vexel.offlinearcade.core.ui.HudPill
 import com.vexel.offlinearcade.core.ui.HowToPlayOverlay
+import com.vexel.offlinearcade.core.ui.PremiumBadge
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
 import com.vexel.offlinearcade.core.ui.StatRow
-import com.vexel.offlinearcade.core.ui.ReadyCueCard
-import com.vexel.offlinearcade.core.ui.StateBadge
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.min
@@ -74,7 +74,7 @@ private data class PulseOrbitState(
     val bestCombo: Int = 0,
     val runStartMillis: Long = 0L,
     val gameOver: Boolean = false,
-    val feedback: String = "Tap when the orb reaches the gap.",
+    val feedback: String = "Tap to start",
 )
 
 internal object PulseOrbitTuning {
@@ -109,22 +109,19 @@ fun PulseOrbitScreen(
 ) {
     var state by remember { mutableStateOf(PulseOrbitState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
-    var hasSeenReadyCue by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
     var showCompletionSummary by remember { mutableStateOf(false) }
-    val reducedEffects = ArcadeTheme.reducedEffects
 
     fun restart() {
         hasReportedRun = false
         showCompletionSummary = false
         lastFrameNanos = 0L
-        hasSeenReadyCue = true
         state = PulseOrbitState(
             playing = true,
             paused = false,
             runStartMillis = System.currentTimeMillis(),
-            feedback = "Time your tap to pass through.",
+            feedback = "Thread the gap.",
         )
         feedback.play(ArcadeFeedbackEvent.TAP)
     }
@@ -173,20 +170,14 @@ fun PulseOrbitScreen(
 
     LaunchedEffect(state.playing) {
         while (state.playing) {
-            if (reducedEffects) {
-                kotlinx.coroutines.delay(120L)
-                val deltaSeconds = 0.120f
-                state = state.copy(orbitAngle = (state.orbitAngle + state.rotationSpeedDegPerSec * deltaSeconds).normalizeAngle())
-            } else {
-                withFrameNanos { frameTime ->
-                    if (lastFrameNanos == 0L) {
-                        lastFrameNanos = frameTime
-                        return@withFrameNanos
-                    }
-                    val deltaSeconds = (frameTime - lastFrameNanos) / 1_000_000_000f
+            withFrameNanos { frameTime ->
+                if (lastFrameNanos == 0L) {
                     lastFrameNanos = frameTime
-                    state = state.copy(orbitAngle = (state.orbitAngle + state.rotationSpeedDegPerSec * deltaSeconds).normalizeAngle())
+                    return@withFrameNanos
                 }
+                val deltaSeconds = (frameTime - lastFrameNanos) / 1_000_000_000f
+                lastFrameNanos = frameTime
+                state = state.copy(orbitAngle = (state.orbitAngle + state.rotationSpeedDegPerSec * deltaSeconds).normalizeAngle())
             }
         }
     }
@@ -218,6 +209,22 @@ fun PulseOrbitScreen(
     val successPulse = remember { androidx.compose.animation.core.Animatable(0f) }
     val failPulse = remember { androidx.compose.animation.core.Animatable(0f) }
     val ringBurst = remember { androidx.compose.animation.core.Animatable(0f) }
+    val readyPulse = remember { androidx.compose.animation.core.Animatable(0.6f) }
+
+    LaunchedEffect(state.playing, state.gameOver) {
+        if (!state.playing && !state.gameOver) {
+            readyPulse.animateTo(
+                targetValue = 1f,
+                animationSpec = androidx.compose.animation.core.infiniteRepeatable(
+                    animation = androidx.compose.animation.core.tween(1000, easing = androidx.compose.animation.core.LinearOutSlowInEasing),
+                    repeatMode = androidx.compose.animation.core.RepeatMode.Reverse
+                )
+            )
+        } else {
+            readyPulse.snapTo(1f)
+        }
+    }
+
     LaunchedEffect(state.passes) {
         if (state.passes > 0) {
             successPulse.snapTo(1f)
@@ -242,11 +249,11 @@ fun PulseOrbitScreen(
                 HowToPlayOverlay(
                     content = GameTutorialContent(
                         gameId = GameId.PULSE_ORBIT,
-                        title = "Quick cue",
+                        title = "How to Play Pulse Orbit",
                         lines = listOf(
-                            "Tap when the orb reaches the gap.",
-                            "Time your tap to pass through.",
-                            "Miss the gap and the run ends.",
+                            "Tap when the orb reaches the opening.",
+                            "Clean passes build combo.",
+                            "Miss the opening and the run ends.",
                         ),
                         controls = "Tap anywhere.",
                         goal = "Beat your high score.",
@@ -256,42 +263,15 @@ fun PulseOrbitScreen(
                 )
             }
         }
-        !state.playing && !state.paused && !state.gameOver && !hasSeenReadyCue -> {
-            {
-                ReadyCueCard(
-                    gameId = GameId.PULSE_ORBIT,
-                    title = "Tap when the opening lines up",
-                    subtitle = "Clean passes build combo.",
-                    startLabel = "Start",
-                    onStart = ::restart,
-                    secondaryLabel = "How to Play",
-                    onSecondaryAction = ::showHowToPlay,
-                    modifier = Modifier.fillMaxWidth(),
-                )
-            }
-        }
         state.gameOver && showCompletionSummary -> {
             {
-                val duration = System.currentTimeMillis() - state.runStartMillis
-                val isNewBest = state.score > (stats?.highScore ?: 0)
                 CompletionPopup(
-                    gameId = GameId.PULSE_ORBIT,
-                    durationMillis = duration,
-                    title = when {
-                        isNewBest -> "New best score"
-                        duration < 10_000L -> "Find the opening"
-                        else -> "Run summary"
-                    },
+                    title = if (state.score > (stats?.highScore ?: 0)) "New High Score" else "Run Summary",
                     lines = listOf(
                         "Score: ${state.score}",
                         "Best combo: ${state.bestCombo}",
                         "Daily challenges and achievements updated after the run.",
                     ),
-                    badgeLabel = when {
-                        isNewBest -> "New best"
-                        duration < 10_000L -> "Quick run"
-                        else -> "Run summary"
-                    },
                     onContinue = { showCompletionSummary = false },
                 )
             }
@@ -300,7 +280,6 @@ fun PulseOrbitScreen(
             {
                 PremiumOverlayCard(title = "Run paused", subtitle = "Resume instantly or reset the loop.") {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StateBadge("Paused", ArcadeStateTone.Ready)
                         StatRow("Score", state.score.toString())
                         StatRow("Combo", state.combo.toString())
                         PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
@@ -313,16 +292,11 @@ fun PulseOrbitScreen(
         }
         state.gameOver -> {
             {
-                val isNewBest = state.score > (stats?.highScore ?: 0)
                 PremiumOverlayCard(
-                    title = if (isNewBest) "New best rhythm" else "Run ended",
-                    subtitle = if (isNewBest) "That timing set a new mark." else "One more clean sequence is only a tap away.",
+                    title = if (state.score > (stats?.highScore ?: 0)) "New best rhythm" else "Run complete",
+                    subtitle = "One more clean sequence is only a tap away.",
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        StateBadge(
-                            label = if (isNewBest) "New best" else "Run ended",
-                            tone = if (isNewBest) ArcadeStateTone.NewBest else ArcadeStateTone.Failure,
-                        )
                         StatRow("Score", state.score.toString(), valueColor = colors.reward)
                         StatRow("Best combo", state.bestCombo.toString(), valueColor = colors.success)
                         StatRow("Coins earned", (state.score + state.bestCombo).toString(), valueColor = colors.reward)
@@ -344,95 +318,41 @@ fun PulseOrbitScreen(
     GameplayScaffold(
         modifier = Modifier.testTag(ArcadeTestTags.PulseOrbitScreen),
         topBar = {
-            BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
-                val compact = maxWidth < 400.dp
-                if (compact) {
-                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                                androidx.compose.material3.IconButton(
-                                    onClick = {
-                                        if (state.playing && !state.paused) {
-                                            togglePause()
-                                        } else {
-                                            onBack()
-                                        }
-                                    },
-                                    modifier = Modifier.testTag(ArcadeTestTags.BackButton)
-                                ) {
-                                    androidx.compose.material3.Icon(
-                                        Icons.AutoMirrored.Filled.ArrowBack,
-                                        contentDescription = "Back",
-                                        tint = colors.textPrimary
-                                    )
-                                }
-                                HudPill("Score", state.score.toString())
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        androidx.compose.material3.IconButton(
+                        onClick = {
+                            if (state.playing && !state.paused) {
+                                togglePause()
+                            } else {
+                                onBack()
                             }
-                            HudPill("Combo", state.combo.toString())
-                        }
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        ) {
-                            PremiumButton(
-                                label = "How",
-                                onClick = ::showHowToPlay,
-                                style = ArcadeButtonStyle.Secondary,
-                                borderOverride = colors.primaryCyan,
-                                modifier = Modifier.weight(1f),
-                            )
-                            PremiumButton(
-                                label = if (state.paused) "Resume" else "Pause",
-                                onClick = ::togglePause,
-                                style = ArcadeButtonStyle.Secondary,
-                                enabled = state.playing || state.paused,
-                                borderOverride = colors.accentViolet,
-                                modifier = Modifier.weight(1f),
-                            )
-                        }
+                        },
+                        modifier = Modifier.testTag(ArcadeTestTags.BackButton)
+                    ) {
+                        androidx.compose.material3.Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Back",
+                            tint = colors.textPrimary
+                        )
                     }
-                } else {
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            androidx.compose.material3.IconButton(
-                                onClick = {
-                                    if (state.playing && !state.paused) {
-                                        togglePause()
-                                    } else {
-                                        onBack()
-                                    }
-                                },
-                                modifier = Modifier.testTag(ArcadeTestTags.BackButton)
-                            ) {
-                                androidx.compose.material3.Icon(
-                                    Icons.AutoMirrored.Filled.ArrowBack,
-                                    contentDescription = "Back",
-                                    tint = colors.textPrimary
-                                )
-                            }
-                            HudPill("Score", state.score.toString())
-                            HudPill("Combo", state.combo.toString())
-                        }
-                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                            PremiumButton(
-                                label = "How",
-                                onClick = ::showHowToPlay,
-                                style = ArcadeButtonStyle.Secondary,
-                                borderOverride = colors.primaryCyan,
-                            )
-                            PremiumButton(
-                                label = if (state.paused) "Resume" else "Pause",
-                                onClick = ::togglePause,
-                                style = ArcadeButtonStyle.Secondary,
-                                enabled = state.playing || state.paused,
-                                borderOverride = colors.accentViolet,
-                            )
-                        }
-                    }
+                    HudPill("Score", state.score.toString())
+                    HudPill("Combo", state.combo.toString())
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    PremiumButton(
+                        label = "How",
+                        onClick = ::showHowToPlay,
+                        style = ArcadeButtonStyle.Secondary,
+                        borderOverride = colors.primaryCyan,
+                    )
+                    PremiumButton(
+                        label = if (state.paused) "Resume" else "Pause",
+                        onClick = ::togglePause,
+                        style = ArcadeButtonStyle.Secondary,
+                        enabled = state.playing || state.paused,
+                        borderOverride = colors.accentViolet,
+                    )
                 }
             }
         },
@@ -519,8 +439,8 @@ fun PulseOrbitScreen(
                 // Orb
                 val orbAngleRadians = state.orbitAngle * (PI / 180f).toFloat()
                 val orbCenter = Offset(
-                    x = center.x + cos(orbAngleRadians) * radius,
-                    y = center.y + sin(orbAngleRadians) * radius,
+                    x = center.x + cos(orbAngleRadians).toFloat() * radius,
+                    y = center.y + sin(orbAngleRadians).toFloat() * radius,
                 )
                 drawCircle(
                     color = androidx.compose.ui.graphics.lerp(orbColor, colors.dangerCoral, failPulse.value),
@@ -537,26 +457,19 @@ fun PulseOrbitScreen(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 if (state.playing && state.combo > 0) {
-                    StateBadge(
-                        label = if (state.combo % PulseOrbitTuning.comboBonusEvery == 0) "Perfect timing" else "Clean timing",
-                        tone = if (state.combo % PulseOrbitTuning.comboBonusEvery == 0) ArcadeStateTone.Reward else ArcadeStateTone.Success,
+                    PremiumBadge(
+                        text = if (state.combo % PulseOrbitTuning.comboBonusEvery == 0) "Perfect timing" else "Clean timing",
+                        color = colors.accentViolet,
                     )
                 }
-                StateBadge(
-                    label = state.feedback,
-                    tone = pulseFeedbackTone(state),
+                Text(
+                    state.feedback,
+                    color = colors.textSecondary.copy(alpha = if (!state.playing && !state.gameOver) readyPulse.value else 1f),
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         }
     }
-}
-
-private fun pulseFeedbackTone(state: PulseOrbitState): ArcadeStateTone = when {
-    state.gameOver -> ArcadeStateTone.Failure
-    state.feedback.contains("Perfect", ignoreCase = true) -> ArcadeStateTone.Reward
-    state.feedback.contains("Clean", ignoreCase = true) -> ArcadeStateTone.Success
-    state.feedback.contains("Missed", ignoreCase = true) -> ArcadeStateTone.Failure
-    else -> ArcadeStateTone.Ready
 }
 
 internal fun angularDistance(first: Float, second: Float): Float {

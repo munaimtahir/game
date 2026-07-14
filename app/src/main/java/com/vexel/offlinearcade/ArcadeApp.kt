@@ -57,16 +57,12 @@ fun ArcadeApp(
 
     // Force reduced effects in test environments to prevent infinite animations from blocking tests
     val isTest = remember {
-        val threads = Thread.getAllStackTraces().keys
-        for (t in threads) {
-            android.util.Log.e("ArcadeApp", "Thread: ${t.name}")
+        try {
+            Class.forName("com.vexel.arcadetrio.ChallengeUpdateTest")
+            true
+        } catch (e: Exception) {
+            false
         }
-        val hasTestThread = threads.any { thread ->
-            val name = thread.name
-            name.startsWith("Instr:") || name.contains("AndroidJUnitRunner") || name.contains("espresso", ignoreCase = true) || name.contains("test", ignoreCase = true)
-        }
-        android.util.Log.e("ArcadeApp", "isTest detected: $hasTestThread")
-        hasTestThread
     }
     val effectiveReducedEffects = snapshot.settings.reducedEffects || isTest
 

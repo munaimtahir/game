@@ -1,0 +1,53 @@
+--------- beginning of main
+06-23 16:00:00.089 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:00:00.127 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:00:00.190 17140 17140 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath failed , error(Permission denied)
+06-23 16:00:00.190 17140 17140 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 16:00:00.190 17140 17140 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath2 failed , error(Permission denied)
+06-23 16:00:00.190 17140 17140 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 16:00:00.190 17140 17140 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath3 failed , error(Permission denied)
+06-23 16:00:00.190 17140 17140 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 16:00:00.190 17140 17140 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath4 failed , error(Permission denied)
+06-23 16:00:00.190 17140 17140 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 16:00:00.279 14777 17044 E Dck     : Could not get ProviderInfo when resolving the content provider authority. [CONTEXT service_id=289 ]
+06-23 16:00:00.765 17104 17104 E rtvip   : error 10 (0xd503245f)
+06-23 16:00:00.766 17104 17104 E rtvip   : error 2
+06-23 16:00:01.028 17178 17178 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+06-23 16:00:01.034 17178 17178 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+06-23 16:00:01.036 17178 17178 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+06-23 16:00:01.039 17178 17178 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+06-23 16:00:01.050 17178 17178 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+06-23 16:00:02.281 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:00:02.367 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:00:02.370 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:00:02.371 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:00:02.419 17104 17213 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(556)=>[I] http/task/regular/create/start
+06-23 16:00:02.420 17104 17213 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(591)=>[I] http/task/regular/create/execute
+06-23 16:00:02.420 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4752
+06-23 16:00:02.421 17104 17213 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(614)=>[I] http/task/regular/create/success
+06-23 16:00:02.421 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:00:02.428 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:00:02.429 11899 11936 E Finsky  : [97] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:00:02.462 17104 17192 E com.whatsapp: No implementation found for void com.facebook.quicklog.QuickPerformanceLoggerNativeProvider.nativeUpdateQPLInstance() (tried Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance and Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance__) - is the library loaded, e.g. System.loadLibrary?
+06-23 16:00:02.463 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:00:02.464 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4753
+06-23 16:00:02.535 17104 17194 E com.whatsapp: hiddenapi: Accessing hidden method Lcom/android/org/conscrypt/OpenSSLSocketImpl;->setUseSessionTickets(Z)V (runtime_flags=CorePlatformApi, domain=core-platform, api=max-target-q,core-platform-api) from LX/GIa; (domain=app, TargetSdkVersion=36) using reflection: denied
+06-23 16:00:02.535 17104 17194 E com.whatsapp: hiddenapi: Accessing hidden method Lcom/android/org/conscrypt/AbstractConscryptSocket;->setUseSessionTickets(Z)V (runtime_flags=0, domain=core-platform, api=max-target-q) from LX/GIa; (domain=app, TargetSdkVersion=36) using reflection: denied
+06-23 16:00:03.130 17104 17224 E msys    : E[N mns:TigonMNS]_OnResolverSuccess(335)=>Cache refresh succeeded with system DNS resolver. IP count: 1
+06-23 16:00:03.147  2139 17031 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-23 16:00:05.048 17104 17260 E msys    : E[ADNSUCTIMH WAJMNSRuntime]WAJContextInitMNSRuntime(446)=>[LogLevel:I] Secondary DNS resolver enabled
+06-23 16:00:05.050 17104 17260 E msys    : E[N WA]_WAJMNSStreamImplMNSTCPStreamCreate(361)=>[LogLevel:I] WAJMNSStream/impl/tcpStreamCreate/MNSStreamRaw/p=0xb400007689b77a80
+06-23 16:00:05.050 17104 17260 E msys    : E[N WA]WAJMNSStreamImplCreate(421)=>[LogLevel:I] WAJMNSStream/impl/create/p=0xb400007689b77a80 (mnsConn=0xb400007659adff10)
+06-23 16:00:05.051 17104 17260 E msys    : E[N WA]_WAJMNSStreamCreateMnsIpsFromIpAddressStrings(87)=>[LogLevel:I] no ip addresses provided, using DNS resolution
+06-23 16:00:05.052 17104 17260 E msys    : E[N WA]WAJMNSStreamImplConnect(450)=>[LogLevel:I] WAJMNSStream/impl/connect/p=0xb400007689b77a80 (endpoint=g.whatsapp.net:443)(ipAddressCount=0)
+06-23 16:00:05.052 17104 17260 E msys    : E[N WA]_WAJMNSStreamImplUpdateStreamState(230)=>[LogLevel:I] WAJMNSStream/impl/state-changed/p=0xb400007689b77a80 (initial=>connecting)
+06-23 16:00:05.100 17104 17270 E msys    : E[N mns]_OnResolverSuccess(335)=>Cache refresh succeeded with system DNS resolver. IP count: 1
+06-23 16:00:05.107  2139 17031 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-23 16:00:05.126 17104 17270 E msys    : E[N WA]_WAJMNSStreamImplOnMNSReady(259)=>[LogLevel:I] WAJMNSStream/impl/callback/onMNSReady/p=0xb400007689b77a80
+06-23 16:00:05.127 17104 17270 E msys    : E[N WA]_WAJMNSStreamImplCreateConnectionReport(194)=>[LogLevel:I] WAJMNSStream/impl/report port=443, connectedIPVersion=4, resolvedIPAddressCount=1, dnsResolutionStartTimeMS=58944074, dnsResolutionEndTimeMS=58944075, dnsCacheHit=Yes, connectStartTimeMS=58944075, connectEndTimeMS=58944147, proxyConnectStartTimeMS=0, proxyConnectEndTimeMS=0
+06-23 16:00:05.127 17104 17270 E msys    : E[N WA]_WAJMNSStreamImplUpdateStreamState(230)=>[LogLevel:I] WAJMNSStream/impl/state-changed/p=0xb400007689b77a80 (connecting=>connected)
+06-23 16:00:06.342 17104 17104 E WakeLockMetricsCollector: Unknown wakelock modified
+06-23 16:00:06.353 17104 17305 E WakeLockMetricsCollector: Unknown wakelock modified
+06-23 16:00:06.700 17104 17213 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(556)=>[I] http/task/regular/create/start
+06-23 16:00:06.701 17104 17213 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(591)=>[I] http/task/regular/create/execute
+06-23 16:00:06.701 17104 17213 E msys    : E[N WCIHTTPImplNetworkSession]WCIHTTPTaskImplCreateRegular(614)=>[I] http/task/regular/create/success

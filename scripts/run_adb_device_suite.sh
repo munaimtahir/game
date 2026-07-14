@@ -153,9 +153,6 @@ echo "Installing app APK..."
 echo "Installing test APK..."
 "$ADB_BIN" "${ADB_ARGS[@]}" install -r -t "$TEST_APK" | tee "$RUN_DIR/install-test.txt"
 
-echo "Waiting 5 seconds for Package Manager to settle..."
-sleep 5
-
 echo "Listing installed instrumentation targets..."
 adb_shell pm list instrumentation > "$RUN_DIR/instrumentation-list.txt" || true
 grep -q "$TEST_ID/$RUNNER" "$RUN_DIR/instrumentation-list.txt" || fail "Installed instrumentation target $TEST_ID/$RUNNER was not found on device"

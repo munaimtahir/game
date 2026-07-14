@@ -13,8 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.GameId
@@ -74,43 +72,20 @@ fun HowToPlayOverlay(
 
 @Composable
 fun CompletionPopup(
-    gameId: GameId,
-    durationMillis: Long,
     title: String,
     lines: List<String>,
     onContinue: () -> Unit,
-    badgeLabel: String? = null,
 ) {
-    val shortRun = durationMillis in 1L..9_999L
-    val badge = badgeLabel ?: if (shortRun) "Quick run" else "Run summary"
-    val contentPadding = if (shortRun) ArcadeTheme.spacing.md else ArcadeTheme.spacing.lg
-    val badgeTone = when {
-        badge.contains("new", ignoreCase = true) || title.contains("new", ignoreCase = true) -> ArcadeStateTone.NewBest
-        shortRun -> ArcadeStateTone.Ready
-        else -> ArcadeStateTone.Reward
-    }
     ArcadeCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(20.dp)
-            .semantics {
-                contentDescription = "$badge for ${gameId.title}. $title"
-            },
-        contentPadding = contentPadding,
-        accent = gameAccentFor(gameId.title).brush,
+            .padding(20.dp),
+        accent = gameAccentFor(title).brush,
     ) {
-        StateBadge(label = badge, tone = badgeTone)
-        Text(
-            title,
-            style = if (shortRun) MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Black,
-        )
+        PremiumBadge(text = "Run Summary", color = ArcadeTheme.colors.success)
+        Text(title, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Black)
         lines.take(4).forEach { line ->
-            Text(
-                line,
-                color = ArcadeTheme.colors.textSecondary,
-                style = if (shortRun) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodyLarge,
-            )
+            Text(line, color = ArcadeTheme.colors.textSecondary)
         }
         PremiumButton(label = "Continue", onClick = onContinue, modifier = Modifier.fillMaxWidth())
     }

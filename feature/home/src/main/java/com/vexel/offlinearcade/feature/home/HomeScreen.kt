@@ -1,13 +1,13 @@
 package com.vexel.offlinearcade.feature.home
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.runtime.remember
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,12 +17,12 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -35,10 +35,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.role
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -48,7 +44,7 @@ import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.PlayerProfile
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
@@ -100,7 +96,7 @@ fun HomeScreen(
         ),
     )
 
-    ArcadeScaffold(
+    EdgeToEdgeAppScaffold(
         title = "Arcade Home",
         scrollable = false,
         screenTestTag = ArcadeTestTags.HomeScreen,
@@ -112,7 +108,7 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .testTag(ArcadeTestTags.HomeList),
-            contentPadding = PaddingValues(top = 4.dp, bottom = 40.dp),
+            contentPadding = PaddingValues(bottom = 24.dp),
             horizontalArrangement = Arrangement.spacedBy(spacing.md),
             verticalArrangement = Arrangement.spacedBy(spacing.md),
         ) {
@@ -197,8 +193,10 @@ private fun GameCard(
     testTag: String,
 ) {
     val accent = gameAccentFor(title)
+    
     val borderColor = if (isFeatured) accent.color else accent.color.copy(alpha = 0.35f)
     val borderWidth = if (isFeatured) 2.dp else 1.dp
+    
     val context = LocalContext.current
     val iconName = when (title) {
         "Pulse Orbit" -> "icon_pulse_orbit"
@@ -213,27 +211,25 @@ private fun GameCard(
             0
         }
     }
+    
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .heightIn(min = 312.dp)
             .clip(RoundedCornerShape(20.dp))
-            .semantics(mergeDescendants = true) {
-                role = Role.Button
-                contentDescription = "Play $title"
-            }
             .testTag(testTag)
-            .clickable(role = Role.Button, onClickLabel = "Play $title") { onPlay() },
+            .clickable { onPlay() },
         color = ArcadeTheme.colors.elevatedCardBackground,
         shape = RoundedCornerShape(20.dp),
         border = androidx.compose.foundation.BorderStroke(borderWidth, borderColor),
         shadowElevation = if (isFeatured) 8.dp else 2.dp
     ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(1.18f)
+                    .aspectRatio(1.2f)
                     .background(Color(0xFF181A20))
             ) {
                 if (iconResId != 0) {
@@ -256,7 +252,7 @@ private fun GameCard(
                         )
                     }
                 }
-
+                
                 if (highScore > 0) {
                     Row(
                         modifier = Modifier
@@ -278,25 +274,25 @@ private fun GameCard(
                         )
                     }
                 }
-
+                
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(42.dp)
+                        .height(24.dp)
                         .align(Alignment.BottomCenter)
                         .background(
                             Brush.verticalGradient(
-                                listOf(Color.Transparent, Color.Black.copy(alpha = 0.50f))
+                                listOf(Color.Transparent, Color.Black.copy(alpha = 0.4f))
                             )
                         )
                 )
             }
-
+            
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(12.dp),
-                verticalArrangement = Arrangement.spacedBy(6.dp)
+                verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Text(
                     title,
@@ -313,23 +309,6 @@ private fun GameCard(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp)
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(accent.color.copy(alpha = 0.94f))
-                        .padding(horizontal = 12.dp, vertical = 10.dp),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = "Play",
-                        style = MaterialTheme.typography.labelLarge,
-                        fontWeight = FontWeight.Black,
-                        color = adaptiveTextColor(accent.color),
-                    )
-                }
             }
         }
     }

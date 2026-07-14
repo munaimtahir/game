@@ -75,34 +75,34 @@ interface ArcadeDao {
     fun observeProfile(): Flow<PlayerProfileEntity?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsertProfile(profile: PlayerProfileEntity): Long
+    suspend fun upsertProfile(profile: PlayerProfileEntity)
 
     @Query("SELECT * FROM game_stats")
     fun observeStats(): Flow<List<GameStatsEntity>>
 
     @Query("SELECT * FROM game_stats WHERE gameId = :gameId")
-    fun getStats(gameId: String): GameStatsEntity?
+    suspend fun getStats(gameId: String): GameStatsEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsertStats(stats: GameStatsEntity): Long
+    suspend fun upsertStats(stats: GameStatsEntity)
 
     @Query("SELECT * FROM theme_unlocks")
     fun observeThemeUnlocks(): Flow<List<ThemeUnlockEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsertThemeUnlock(themeUnlock: ThemeUnlockEntity): Long
+    suspend fun upsertThemeUnlock(themeUnlock: ThemeUnlockEntity)
 
     @Query("SELECT * FROM skin_unlocks")
     fun observeSkinUnlocks(): Flow<List<SkinUnlockEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsertSkinUnlock(skinUnlock: SkinUnlockEntity): Long
+    suspend fun upsertSkinUnlock(skinUnlock: SkinUnlockEntity)
 
     @Query("SELECT * FROM challenge_progress WHERE epochDay = :epochDay")
     fun observeChallengeProgress(epochDay: Long): Flow<List<ChallengeProgressEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsertChallengeProgress(progress: ChallengeProgressEntity): Long
+    suspend fun upsertChallengeProgress(progress: ChallengeProgressEntity)
 }
 
 @Database(

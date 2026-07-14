@@ -41,10 +41,6 @@ object ArcadeTestTags {
     const val StackDropBoard = "stack_drop_board"
     const val StackDropStartButton = "stack_drop_start_button"
     const val StackDropHint = "stack_drop_hint"
-    const val StackDropLeftControl = "stack_drop_left_control"
-    const val StackDropRotateControl = "stack_drop_rotate_control"
-    const val StackDropRightControl = "stack_drop_right_control"
-    const val StackDropDropControl = "stack_drop_drop_control"
 
     const val BrickVolleyScreen = "brick_volley_screen"
     const val BrickVolleyBoard = "brick_volley_board"
