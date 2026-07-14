@@ -53,4 +53,7 @@ DataStore:
 3. Lane Drift
 4. Stack Drop
 5. Shared meta completion
-6. Monetization and hardening
+6. Monetization and Hardening (performed in 3 AI-led stages; see the authoritative [BUILD_PLANNING_NEXT_STEPS.md](file:///home/munaim/Documents/github/game/docs/BUILD_PLANNING_NEXT_STEPS.md) for details):
+   - **Stage 1 — Repository Discovery & Contract Verification** (Architecture mapping, no behavior changes)
+   - **Stage 2 — Consolidated Monetization Implementation** (AdMob, consent, billing, settings UI, and offline checks)
+   - **Stage 3 — Release Hardening & Store Handoff** (Device verification, Play Console checks, and final release gates)

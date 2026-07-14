@@ -32,8 +32,8 @@
 - streak logic
 - polished stats/settings
 
-## Phase 6 — Release hardening
-- low-end optimization
-- ad discipline outside gameplay
-- premium unlock
-- final QA
+## Phase 6 — Monetization & Release Hardening
+This phase is executed in 3 AI-led stages (see the authoritative [BUILD_PLANNING_NEXT_STEPS.md](file:///home/munaim/Documents/github/game/docs/BUILD_PLANNING_NEXT_STEPS.md)):
+- **Stage 1 — Repository Discovery** (Architecture mapping, no behavior changes)
+- **Stage 2 — Consolidated Monetization Implementation** (Consent management, AdMob integration, interstitial controls, Google Play Billing for `premium_lifetime`, and settings UI)
+- **Stage 3 — Release Hardening** (Low-end Android testing, offline validation, ad/purchase verification, and store release checklists)

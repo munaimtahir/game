@@ -11,6 +11,36 @@ This is a modular Android/Kotlin offline arcade app. Modules are declared in `se
 - `scripts/` and `scripts/ci/` contain local and CI Android/ADB helpers.
 - `docs/`, `new/`, and `artifacts/` hold planning, release notes, game design packs, and validation output.
 
+## Monetization Policy & Agent Guidelines
+
+The app has transitioned from a paid download model to a **free-plus-advertising model**. Future coding agents must strictly adhere to the following decisions and rules:
+
+### Authoritative Product Decisions
+* **Precedence of Truth**: Refer to the canonical documentation for all product policies. Precedence is:
+  1. [LOCKED_DECISIONS.md](file:///home/munaim/Documents/github/game/docs/LOCKED_DECISIONS.md) — final approved product decisions
+  2. [PROJECT_CONTEXT_MASTER.md](file:///home/munaim/Documents/github/game/docs/PROJECT_CONTEXT_MASTER.md) — complete project context
+  3. [PRODUCT_RULES_AND_GUARDRAILS.md](file:///home/munaim/Documents/github/game/docs/PRODUCT_RULES_AND_GUARDRAILS.md) — behavioural and product constraints
+  4. [BUILD_PLANNING_NEXT_STEPS.md](file:///home/munaim/Documents/github/game/docs/BUILD_PLANNING_NEXT_STEPS.md) — current development sequence
+  5. [NEXT_CHAT_BOOTSTRAP.md](file:///home/munaim/Documents/github/game/docs/NEXT_CHAT_BOOTSTRAP.md) — context restoration
+  6. [README.md](file:///home/munaim/Documents/github/game/README.md) / [docs/README.md](file:///home/munaim/Documents/github/game/docs/README.md) — overview summaries
+* **Conflict Resolution**: Conflicting older documentation (e.g., legacy files or historical audits) must not be followed. If a conflict arises, the updated policy files above win.
+
+### Critical Rules
+* **Free Model**: The app is free to download. All 3 games and core progression/stats remain 100% free.
+* **Offline-First & Low-End-Device Friendly**: All gameplay and local progress must work fully offline. Monetization/ad/billing SDK failures must fail-safe silently and never block gameplay or navigation.
+* **Restricted Interstitial Cadence**:
+  - No ads during active gameplay or on app-open or screen transitions like Retry/Play.
+  - Interstitials are allowed only at natural post-run transitions, starting only after the first 5 completed runs.
+  - Eligibility begins after every 3 completed runs, with a minimum 2-minute cooldown and a maximum of 4 interstitials per user per day.
+  - No app-open or banner ads initially.
+* **Lifetime Ad Removal**: A single non-consumable purchase named `premium_lifetime` permanently removes forced ads. Entitlements defined: `FREE` and `LIFETIME_AD_FREE`. Optional rewarded ads can remain available to premium users upon deliberate request.
+* **No Subscriptions**: Do not implement subscriptions in the initial release. Subscription-first monetization is prohibited.
+* **No Legacy Migration**: The app has no real historical users/purchases. Legacy-user migration, grandfathering, or historical-purchase detection is not required.
+* **AI-Led 3-Stage Plan**: Monetization must be developed in three explicit stages:
+  1. **Stage 1 (Repository Discovery)**: Architecture/gameplay flow mapping, insertion-point identification, no behavior changes.
+  2. **Stage 2 (Consolidated Implementation)**: Core monetization code, consent, billing, UI, analytics, and tests.
+  3. **Stage 3 (Release Hardening)**: Testing, verification, store release checklist, final verdict.
+
 ## Build, Test, and Development Commands
 
 Use the checked-in Gradle wrapper.

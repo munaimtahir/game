@@ -53,6 +53,13 @@ DEVICE_SERIAL=<adb-serial> ./scripts/run_adb_device_suite.sh
 
 ## Key Docs
 
+- Project Context & Monetization Index: [docs/README.md](docs/README.md)
+- Locked Decisions: [docs/LOCKED_DECISIONS.md](docs/LOCKED_DECISIONS.md)
+- Master Project Context: [docs/PROJECT_CONTEXT_MASTER.md](docs/PROJECT_CONTEXT_MASTER.md)
+- Product Rules & Guardrails: [docs/PRODUCT_RULES_AND_GUARDRAILS.md](docs/PRODUCT_RULES_AND_GUARDRAILS.md)
+- Build Planning & Next Steps (Monetization): [docs/BUILD_PLANNING_NEXT_STEPS.md](docs/BUILD_PLANNING_NEXT_STEPS.md)
+- Next Chat Bootstrap: [docs/NEXT_CHAT_BOOTSTRAP.md](docs/NEXT_CHAT_BOOTSTRAP.md)
+- MVP Game Specs: [docs/GAME_SPECS_MVP.md](docs/GAME_SPECS_MVP.md)
 - Device testing: [docs/ADB_DEVICE_TESTING.md](docs/ADB_DEVICE_TESTING.md)
 - Play Store release prep: [docs/PLAY_STORE_RELEASE.md](docs/PLAY_STORE_RELEASE.md)
 - Implementation plan: [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md)
