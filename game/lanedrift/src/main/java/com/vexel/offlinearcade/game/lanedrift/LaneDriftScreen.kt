@@ -65,6 +65,7 @@ import com.vexel.offlinearcade.core.ui.arcadeGestureInput
 import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
 import kotlin.math.min
 import kotlin.random.Random
+import java.util.UUID
 
 internal enum class DriftItemType { BLOCKER, PICKUP }
 
@@ -79,6 +80,7 @@ internal data class DriftItem(
 )
 
 private data class LaneDriftState(
+    val sessionId: String = "",
     val playing: Boolean = false,
     val paused: Boolean = false,
     val lane: Int = 1,
@@ -171,6 +173,7 @@ fun LaneDriftScreen(
         showCompletionSummary = false
         lastFrameNanos = 0L
         state = LaneDriftState(
+            sessionId = UUID.randomUUID().toString(),
             playing = true,
             paused = false,
             speed = LaneDriftTuning.initialSpeed,
@@ -363,8 +366,11 @@ fun LaneDriftScreen(
         hasReportedRun = true
         onRunComplete(
             RunResult(
+                sessionId = state.sessionId,
                 gameId = GameId.LANE_DRIFT,
                 score = state.score,
+                startedAtEpochMillis = state.runStartMillis,
+                finishedAtEpochMillis = System.currentTimeMillis(),
                 durationMillis = System.currentTimeMillis() - state.runStartMillis,
                 pickupsCollected = state.pickups,
                 coinsEarned = state.pickups * 3 + state.score / 20,

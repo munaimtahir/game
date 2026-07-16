@@ -3,8 +3,9 @@ package com.vexel.offlinearcade.core.data
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.vexel.offlinearcade.core.common.ArcadeClock
 import com.vexel.offlinearcade.core.common.ArcadeDispatchers
+import com.vexel.offlinearcade.core.common.LocalDayService
+import com.vexel.offlinearcade.core.common.LocalDaySnapshot
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
@@ -43,7 +44,7 @@ class OfflineArcadeRepositoryPersistenceTest {
         repository = OfflineArcadeRepository(
             database = database,
             preferences = settingsStore,
-            clock = ArcadeClock { 20_000L },
+            localDayService = FixedLocalDayService(20_000L),
             dispatchers = ArcadeDispatchers(io = dispatcher, default = dispatcher),
         )
     }
@@ -175,6 +176,30 @@ class OfflineArcadeRepositoryPersistenceTest {
         assertTrue(snapshot.themes.first { it.id == "sunset_shift" }.unlocked)
     }
 
+    @Test
+    fun duplicateSessionIdDoesNotDoubleAwardCoinsOrStats() = runTest(dispatcher) {
+        val result = RunResult(
+            sessionId = "lane-session-1",
+            gameId = GameId.LANE_DRIFT,
+            score = 180,
+            startedAtEpochMillis = 1_000L,
+            finishedAtEpochMillis = 10_000L,
+            durationMillis = 9_000L,
+            pickupsCollected = 8,
+            coinsEarned = 22,
+        )
+
+        repository.recordRun(result)
+        repository.recordRun(result)
+
+        val snapshot = repository.snapshot.first()
+        val laneStats = snapshot.statsByGame.getValue(GameId.LANE_DRIFT)
+
+        assertEquals(1, laneStats.sessionsPlayed)
+        assertEquals(22, snapshot.profile.coins)
+        assertEquals(8, laneStats.totalPickups)
+    }
+
     private class InMemorySettingsStore : SettingsStore {
         private val state = MutableStateFlow(SettingsState())
 
@@ -183,5 +208,11 @@ class OfflineArcadeRepositoryPersistenceTest {
         override suspend fun updateSettings(transform: (SettingsState) -> SettingsState) {
             state.value = transform(state.value)
         }
+    }
+
+    private class FixedLocalDayService(
+        private val epochDay: Long,
+    ) : LocalDayService {
+        override fun currentDay(): LocalDaySnapshot = LocalDaySnapshot(epochDay = epochDay, zoneId = "UTC")
     }
 }

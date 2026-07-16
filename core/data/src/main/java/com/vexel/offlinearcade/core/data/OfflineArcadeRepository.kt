@@ -1,7 +1,7 @@
 package com.vexel.offlinearcade.core.data
 
-import com.vexel.offlinearcade.core.common.ArcadeClock
 import com.vexel.offlinearcade.core.common.ArcadeDispatchers
+import com.vexel.offlinearcade.core.common.LocalDayService
 import com.vexel.offlinearcade.core.model.ArcadeSnapshot
 import com.vexel.offlinearcade.core.model.DailyChallenge
 import com.vexel.offlinearcade.core.model.GameId
@@ -9,6 +9,7 @@ import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.PlayerProfile
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
+import androidx.room.withTransaction
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
@@ -18,7 +19,7 @@ import kotlinx.coroutines.withContext
 class OfflineArcadeRepository(
     private val database: ArcadeDatabase,
     private val preferences: SettingsStore,
-    private val clock: ArcadeClock,
+    private val localDayService: LocalDayService,
     private val dispatchers: ArcadeDispatchers,
 ) : ArcadeRepository {
 
@@ -31,7 +32,7 @@ class OfflineArcadeRepository(
             dao.observeThemeUnlocks(),
             dao.observeSkinUnlocks(),
             preferences.settings,
-            challengesForDay(clock.currentEpochDay()),
+            challengesForDay(localDayService.currentDay().epochDay),
         ) { flows ->
             val profileEntity = flows[0] as PlayerProfileEntity?
             val statsEntities = flows[1] as List<GameStatsEntity>
@@ -71,27 +72,50 @@ class OfflineArcadeRepository(
 
     override suspend fun recordRun(result: RunResult) {
         withContext(dispatchers.io) {
-            val epochDay = clock.currentEpochDay()
-            val currentProfile = dao.observeProfile().first()?.toModel() ?: PlayerProfile()
-            val updatedProfile = updateStreak(currentProfile, epochDay).copy(
-                coins = currentProfile.coins + result.coinsEarned,
-            )
-            dao.upsertProfile(updatedProfile.toEntity())
+            val sessionId = normalizedSessionId(result)
+            if (dao.getRunRecord(sessionId) != null) {
+                return@withContext
+            }
+            val epochDay = localDayService.currentDay().epochDay
+            database.withTransaction {
+                if (dao.getRunRecord(sessionId) != null) {
+                    return@withTransaction
+                }
+                dao.insertRunRecord(
+                    RunRecordEntity(
+                        sessionId = sessionId,
+                        gameId = result.gameId.name,
+                        score = result.score,
+                        coinsEarned = result.coinsEarned,
+                        finishedAtEpochMillis = result.finishedAtEpochMillis,
+                    ),
+                )
 
-            val currentStats = dao.getStats(result.gameId.name)?.toModel() ?: GameStats(gameId = result.gameId)
-            val updatedStats = currentStats.copy(
-                highScore = maxOf(currentStats.highScore, result.score),
-                sessionsPlayed = currentStats.sessionsPlayed + 1,
-                totalPlayMillis = currentStats.totalPlayMillis + result.durationMillis,
-                totalScore = currentStats.totalScore + result.score,
-                totalPickups = currentStats.totalPickups + result.pickupsCollected,
-                totalLinesCleared = currentStats.totalLinesCleared + result.linesCleared,
-                bestCombo = maxOf(currentStats.bestCombo, result.bestCombo),
-                bestLines = maxOf(currentStats.bestLines, result.linesCleared),
-            )
-            dao.upsertStats(updatedStats.toEntity())
+                val currentProfile = dao.observeProfile().first()?.toModel() ?: PlayerProfile()
+                val updatedProfile = updateStreak(currentProfile, epochDay).copy(
+                    coins = currentProfile.coins + result.coinsEarned,
+                )
+                dao.upsertProfile(updatedProfile.toEntity())
 
-            applyChallengeProgress(epochDay = epochDay, result = result)
+                val currentStats = dao.getStats(result.gameId.name)?.toModel() ?: GameStats(gameId = result.gameId)
+                val updatedStats = currentStats.copy(
+                    highScore = maxOf(currentStats.highScore, result.score),
+                    sessionsPlayed = currentStats.sessionsPlayed + 1,
+                    completedRuns = currentStats.completedRuns + 1,
+                    lastPlayedAtEpochMillis = maxOf(currentStats.lastPlayedAtEpochMillis, result.finishedAtEpochMillis),
+                    totalPlayMillis = currentStats.totalPlayMillis + result.durationMillis,
+                    totalScore = currentStats.totalScore + result.score,
+                    totalPickups = currentStats.totalPickups + result.pickupsCollected,
+                    totalLinesCleared = currentStats.totalLinesCleared + result.linesCleared,
+                    bestCombo = maxOf(currentStats.bestCombo, result.bestCombo),
+                    bestLines = maxOf(currentStats.bestLines, result.linesCleared),
+                    totalPasses = currentStats.totalPasses + result.totalPasses,
+                    totalPerfectPasses = currentStats.totalPerfectPasses + result.perfectPasses,
+                )
+                dao.upsertStats(updatedStats.toEntity())
+
+                applyChallengeProgress(epochDay = epochDay, result = result)
+            }
         }
     }
 
@@ -243,5 +267,20 @@ class OfflineArcadeRepository(
             profile.copy(currentStreakDays = nextStreak, bestStreakDays = maxOf(profile.bestStreakDays, nextStreak), lastPlayedEpochDay = epochDay)
         }
         else -> profile.copy(currentStreakDays = 1, bestStreakDays = maxOf(profile.bestStreakDays, 1), lastPlayedEpochDay = epochDay)
+    }
+
+    private fun normalizedSessionId(result: RunResult): String {
+        if (result.sessionId.isNotBlank()) {
+            return result.sessionId
+        }
+        return buildString {
+            append(result.gameId.name)
+            append(':')
+            append(result.startedAtEpochMillis)
+            append(':')
+            append(result.finishedAtEpochMillis)
+            append(':')
+            append(result.score)
+        }
     }
 }

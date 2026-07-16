@@ -135,7 +135,7 @@ fun HomeScreen(
                     highScore = game.highScore,
                     onPlay = game.onPlay,
                     isFeatured = game.gameId == continueGame,
-                    testTag = game.testTag
+                    testTag = game.testTag,
                 )
             }
             
@@ -152,13 +152,13 @@ fun HomeScreen(
                         label = "Daily Challenges",
                         onClick = onChallenges,
                         modifier = Modifier.weight(1f).height(56.dp).testTag(ArcadeTestTags.ChallengesEntry),
-                        style = ArcadeButtonStyle.Primary
+                        style = ArcadeButtonStyle.Primary,
                     )
                     PremiumButton(
                         label = "Stats",
                         onClick = onStats,
                         modifier = Modifier.weight(1f).height(56.dp).testTag(ArcadeTestTags.StatsEntry),
-                        style = ArcadeButtonStyle.Secondary
+                        style = ArcadeButtonStyle.Secondary,
                     )
                 }
             }
@@ -274,7 +274,7 @@ private fun GameCard(
                         )
                     }
                 }
-                
+
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()

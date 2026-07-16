@@ -42,6 +42,7 @@ import com.vexel.offlinearcade.core.model.ArcadeFeedback
 import com.vexel.offlinearcade.core.model.ArcadeFeedbackEvent
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.GameStats
+import com.vexel.offlinearcade.core.model.RunCompletionReason
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
@@ -60,40 +61,7 @@ import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
-
-private data class PulseOrbitState(
-    val playing: Boolean = false,
-    val paused: Boolean = false,
-    val orbitAngle: Float = -90f,
-    val gapCenterAngle: Float = 0f,
-    val gapSize: Float = PulseOrbitTuning.initialGapSize,
-    val rotationSpeedDegPerSec: Float = PulseOrbitTuning.initialRotationSpeed,
-    val passes: Int = 0,
-    val score: Int = 0,
-    val combo: Int = 0,
-    val bestCombo: Int = 0,
-    val runStartMillis: Long = 0L,
-    val gameOver: Boolean = false,
-    val feedback: String = "Tap to start",
-)
-
-internal object PulseOrbitTuning {
-    const val initialGapSize = 88f
-    const val minimumGapSize = 40f
-    const val gapShrinkPerPass = 1.2f
-    const val initialRotationSpeed = 85f
-    const val speedIncreasePerPass = 4.2f
-    const val maxRotationSpeed = 230f
-    const val gapStepBase = 72f
-    const val gapStepPerPass = 3.5f
-    const val maxGapStep = 140f
-    const val comboBonusEvery = 5
-    const val collisionToleranceDegrees = 4.5f
-
-    fun gapSizeFor(passes: Int): Float = maxOf(minimumGapSize, initialGapSize - passes * gapShrinkPerPass)
-    fun rotationSpeedFor(passes: Int): Float = min(maxRotationSpeed, initialRotationSpeed + passes * speedIncreasePerPass)
-    fun gapStepFor(passes: Int): Float = min(maxGapStep, gapStepBase + passes * gapStepPerPass)
-}
+import java.util.UUID
 
 @Composable
 @Suppress("UNUSED_PARAMETER")
@@ -107,7 +75,15 @@ fun PulseOrbitScreen(
     onRunComplete: (RunResult) -> Unit,
     onBack: () -> Unit,
 ) {
-    var state by remember { mutableStateOf(PulseOrbitState()) }
+    fun newReadyState(): PulseOrbitState {
+        val now = System.currentTimeMillis()
+        return createPulseOrbitReadyState(
+            sessionId = UUID.randomUUID().toString(),
+            seed = now,
+        )
+    }
+
+    var state by remember { mutableStateOf(newReadyState()) }
     var hasReportedRun by remember { mutableStateOf(false) }
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
@@ -117,18 +93,13 @@ fun PulseOrbitScreen(
         hasReportedRun = false
         showCompletionSummary = false
         lastFrameNanos = 0L
-        state = PulseOrbitState(
-            playing = true,
-            paused = false,
-            runStartMillis = System.currentTimeMillis(),
-            feedback = "Thread the gap.",
-        )
+        state = startPulseOrbitRun(newReadyState(), System.currentTimeMillis())
         feedback.play(ArcadeFeedbackEvent.TAP)
     }
 
     fun showHowToPlay() {
         if (state.playing && !state.paused && !state.gameOver) {
-            state = state.copy(playing = false, paused = true)
+            state = pausePulseOrbitRun(state)
         }
         showTutorial = true
     }
@@ -141,10 +112,11 @@ fun PulseOrbitScreen(
 
     fun togglePause() {
         if (state.gameOver) return
-        state = state.copy(
-            paused = !state.paused,
-            playing = state.paused,
-        )
+        state = if (state.paused) {
+            resumePulseOrbitRun(state)
+        } else {
+            pausePulseOrbitRun(state)
+        }
     }
 
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -177,7 +149,7 @@ fun PulseOrbitScreen(
                 }
                 val deltaSeconds = (frameTime - lastFrameNanos) / 1_000_000_000f
                 lastFrameNanos = frameTime
-                state = state.copy(orbitAngle = (state.orbitAngle + state.rotationSpeedDegPerSec * deltaSeconds).normalizeAngle())
+                state = advancePulseOrbitState(state, deltaSeconds)
             }
         }
     }
@@ -187,11 +159,17 @@ fun PulseOrbitScreen(
         val duration = (System.currentTimeMillis() - state.runStartMillis).coerceAtLeast(0L)
         onRunComplete(
             RunResult(
+                sessionId = state.sessionId,
                 gameId = GameId.PULSE_ORBIT,
                 score = state.score,
+                startedAtEpochMillis = state.runStartMillis,
+                finishedAtEpochMillis = System.currentTimeMillis(),
                 durationMillis = duration,
+                completionReason = RunCompletionReason.FAILED,
                 bestCombo = state.bestCombo,
                 coinsEarned = state.score + state.bestCombo,
+                totalPasses = state.passes,
+                perfectPasses = state.perfectPasses,
             ),
         )
         showCompletionSummary = true
@@ -366,34 +344,18 @@ fun PulseOrbitScreen(
                 .clickable {
                     if (state.paused || state.gameOver) return@clickable
                     if (!state.playing) {
-                        restart()
+                        state = startPulseOrbitRun(state, System.currentTimeMillis())
+                        feedback.play(ArcadeFeedbackEvent.TAP)
                         return@clickable
                     }
-                    val distance = angularDistance(state.orbitAngle, state.gapCenterAngle)
-                    val fairThreshold = (state.gapSize / 2f) + PulseOrbitTuning.collisionToleranceDegrees
-                    if (distance <= fairThreshold) {
-                        val nextPass = state.passes + 1
-                        val nextCombo = state.combo + 1
-                        val comboBonus = if (nextCombo % PulseOrbitTuning.comboBonusEvery == 0) 1 else 0
-                        feedback.play(ArcadeFeedbackEvent.SUCCESS)
-                        state = state.copy(
-                            passes = nextPass,
-                            score = state.score + 1 + comboBonus,
-                            combo = nextCombo,
-                            bestCombo = maxOf(state.bestCombo, nextCombo),
-                            gapCenterAngle = (state.gapCenterAngle + PulseOrbitTuning.gapStepFor(nextPass)).normalizeAngle(),
-                            gapSize = PulseOrbitTuning.gapSizeFor(nextPass),
-                            rotationSpeedDegPerSec = PulseOrbitTuning.rotationSpeedFor(nextPass),
-                            feedback = if (comboBonus > 0) "Perfect chain. Tempo up." else "Clean pass.",
-                        )
-                    } else {
-                        feedback.play(ArcadeFeedbackEvent.FAIL)
-                        state = state.copy(
-                            playing = false,
-                            combo = 0,
-                            gameOver = true,
-                            feedback = "Missed the gap.",
-                        )
+                    val tapResult = resolvePulseOrbitTap(state, System.currentTimeMillis())
+                    state = tapResult.state
+                    when (tapResult.resolution) {
+                        PulseOrbitTapResolution.CLEAN_PASS,
+                        PulseOrbitTapResolution.PERFECT_PASS,
+                        -> feedback.play(ArcadeFeedbackEvent.SUCCESS)
+                        PulseOrbitTapResolution.FAIL -> feedback.play(ArcadeFeedbackEvent.FAIL)
+                        PulseOrbitTapResolution.NONE -> Unit
                     }
                 },
         ) {
@@ -437,7 +399,7 @@ fun PulseOrbitScreen(
                 )
                 
                 // Orb
-                val orbAngleRadians = state.orbitAngle * (PI / 180f).toFloat()
+                val orbAngleRadians = state.orbitAngle * (PI.toFloat() / 180f)
                 val orbCenter = Offset(
                     x = center.x + cos(orbAngleRadians).toFloat() * radius,
                     y = center.y + sin(orbAngleRadians).toFloat() * radius,
@@ -458,7 +420,7 @@ fun PulseOrbitScreen(
             ) {
                 if (state.playing && state.combo > 0) {
                     PremiumBadge(
-                        text = if (state.combo % PulseOrbitTuning.comboBonusEvery == 0) "Perfect timing" else "Clean timing",
+                        text = if (state.combo % PulseOrbitTuning.comboBonusEvery == 0) "Perfect chain" else "Perfect timing",
                         color = colors.accentViolet,
                     )
                 }
@@ -470,15 +432,4 @@ fun PulseOrbitScreen(
             }
         }
     }
-}
-
-internal fun angularDistance(first: Float, second: Float): Float {
-    val raw = kotlin.math.abs(first.normalizeAngle() - second.normalizeAngle())
-    return min(raw, 360f - raw)
-}
-
-internal fun Float.normalizeAngle(): Float {
-    var normalized = this % 360f
-    if (normalized < 0f) normalized += 360f
-    return normalized
 }

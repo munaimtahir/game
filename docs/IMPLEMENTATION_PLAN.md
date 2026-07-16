@@ -1,56 +1,21 @@
 # Implementation Plan
 
-## Locked baseline
-- Exactly 3 MVP games
-- Offline-first
-- Shared progression
-- Daily challenges
-- Local stats
-- Minimal settings
-- One-time premium unlock allowed
-- No accounts, cloud sync, subscriptions, or leaderboards
+This file is now a short pointer document.
 
-## Module graph
-- app
-- core:model
-- core:data
-- core:common
-- core:ui
-- feature:home
-- feature:challenges
-- feature:stats
-- feature:settings
-- game:pulseorbit
-- game:lanedrift
-- game:stackdrop
+Current authoritative planning sources:
 
-## Navigation flow
-Home -> Game / Challenges / Stats / Settings
-Game over -> Retry / Home / Challenges
+- [PROJECT_CONTEXT_MASTER.md](../PROJECT_CONTEXT_MASTER.md)
+- [LOCKED_DECISIONS.md](../LOCKED_DECISIONS.md)
+- [docs/product/TECHNICAL_ARCHITECTURE.md](product/TECHNICAL_ARCHITECTURE.md)
+- [docs/product/IMPLEMENTATION_BACKLOG.md](product/IMPLEMENTATION_BACKLOG.md)
+- [docs/product/TEST_STRATEGY.md](product/TEST_STRATEGY.md)
 
-## Persistence plan
-Room:
-- stats
-- unlocks
-- challenge progress
+Locked baseline summary:
 
-DataStore:
-- sound
-- music
-- vibration
-- lightweight app preferences
-
-## Shared systems
-- coins
-- streak
-- themes
-- local stats
+- exactly 3 public MVP games
+- offline-first
+- shared progression
 - offline daily challenges
-
-## Implementation order
-1. Foundation
-2. Pulse Orbit
-3. Lane Drift
-4. Stack Drop
-5. Shared meta completion
-6. Monetization and hardening
+- restrained ads outside active gameplay only
+- one-time premium ad removal
+- no subscriptions, accounts, cloud sync, or leaderboards

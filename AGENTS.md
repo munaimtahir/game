@@ -7,7 +7,7 @@ This is a modular Android/Kotlin offline arcade app. Modules are declared in `se
 - `app/` contains the Android application, navigation, resources, and instrumentation tests.
 - `core/model`, `core/data`, `core/common`, and `core/ui` contain shared domain types, persistence/runtime data, helpers, and reusable Compose UI.
 - `feature/*` contains top-level screens such as home, challenges, stats, settings, and marketplace.
-- `game/*` contains individual game implementations such as `pulseorbit`, `lanedrift`, `stackdrop`, `brickvolley`, `loopsnake`, and `shielddash`.
+- `game/*` contains game implementations. The locked public MVP scope is `pulseorbit`, `lanedrift`, and `stackdrop`; additional game modules in the repository are legacy or prototype work and are not product source of truth for current staged delivery.
 - `scripts/` and `scripts/ci/` contain local and CI Android/ADB helpers.
 - `docs/`, `new/`, and `artifacts/` hold planning, release notes, game design packs, and validation output.
 

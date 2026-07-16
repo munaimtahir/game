@@ -41,10 +41,10 @@ import com.vexel.offlinearcade.core.model.ArcadeFeedback
 import com.vexel.offlinearcade.core.model.ArcadeFeedbackEvent
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.GameStats
+import com.vexel.offlinearcade.core.model.RunCompletionReason
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
-import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.CompletionPopup
@@ -55,8 +55,6 @@ import com.vexel.offlinearcade.core.ui.HowToPlayOverlay
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
 import com.vexel.offlinearcade.core.ui.StatRow
-import com.vexel.offlinearcade.core.ui.arcadeGestureInput
-import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
@@ -77,7 +75,6 @@ fun StackDropScreen(
     var paused by remember { mutableStateOf(false) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
     var showCompletionSummary by remember { mutableStateOf(false) }
-    val gestureThresholds = rememberArcadeGestureThresholdsPx()
     val lineClearFlash = remember { androidx.compose.animation.core.Animatable(0f) }
 
     fun restart() {
@@ -163,9 +160,13 @@ fun StackDropScreen(
         hasReportedRun = true
         onRunComplete(
             RunResult(
+                sessionId = state.sessionId,
                 gameId = GameId.STACK_DROP,
                 score = state.score,
+                startedAtEpochMillis = state.runStartMillis,
+                finishedAtEpochMillis = System.currentTimeMillis(),
                 durationMillis = System.currentTimeMillis() - state.runStartMillis,
+                completionReason = RunCompletionReason.FAILED,
                 linesCleared = state.linesCleared,
                 coinsEarned = state.linesCleared * 4 + state.score / 40,
             ),
@@ -249,32 +250,38 @@ fun StackDropScreen(
         else -> null
     }
 
-    val handleAction: (ArcadeGestureAction) -> Unit = { action ->
-        when (action) {
-            ArcadeGestureAction.Tap -> {
-                if (!state.playing && !paused && !state.gameOver) {
-                    restart()
-                } else if (state.playing && !paused) {
-                    feedback.play(ArcadeFeedbackEvent.TAP)
-                    state = engine.rotate(state)
-                }
-            }
-            ArcadeGestureAction.SwipeLeft -> if (state.playing && !paused) {
-                feedback.play(ArcadeFeedbackEvent.TAP)
-                state = engine.move(state, -1)
-            }
-            ArcadeGestureAction.SwipeRight -> if (state.playing && !paused) {
-                feedback.play(ArcadeFeedbackEvent.TAP)
-                state = engine.move(state, 1)
-            }
-            ArcadeGestureAction.SwipeDown -> if (state.playing && !paused) {
-                feedback.play(ArcadeFeedbackEvent.TAP)
-                state = engine.softDrop(state)
-            }
-            ArcadeGestureAction.FlickDown -> if (state.playing && !paused) {
-                feedback.play(ArcadeFeedbackEvent.TAP)
-                state = engine.hardDrop(state)
-            }
+    fun moveLeft() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.move(state, -1)
+        }
+    }
+
+    fun rotatePiece() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.rotate(state)
+        }
+    }
+
+    fun softDropPiece() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.softDrop(state)
+        }
+    }
+
+    fun hardDropPiece() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.hardDrop(state)
+        }
+    }
+
+    fun moveRight() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.move(state, 1)
         }
     }
 
@@ -324,10 +331,39 @@ fun StackDropScreen(
                     modifier = Modifier.fillMaxWidth().padding(top = spacing.sm),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    PremiumButton(label = "◀", onClick = { handleAction(ArcadeGestureAction.SwipeLeft) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(end=4.dp))
-                    PremiumButton(label = "⟳", onClick = { handleAction(ArcadeGestureAction.Tap) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(horizontal=4.dp), borderOverride = colors.accentViolet)
-                    PremiumButton(label = "▼", onClick = { handleAction(ArcadeGestureAction.SwipeDown) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(horizontal=4.dp), borderOverride = colors.primaryCyan)
-                    PremiumButton(label = "▶", onClick = { handleAction(ArcadeGestureAction.SwipeRight) }, style = ArcadeButtonStyle.Secondary, modifier = Modifier.weight(1f).padding(start=4.dp))
+                    PremiumButton(
+                        label = "◀",
+                        onClick = ::moveLeft,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(end = 4.dp).testTag(ArcadeTestTags.StackDropMoveLeft),
+                    )
+                    PremiumButton(
+                        label = "⟳",
+                        onClick = ::rotatePiece,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(horizontal = 4.dp).testTag(ArcadeTestTags.StackDropRotate),
+                        borderOverride = colors.accentViolet,
+                    )
+                    PremiumButton(
+                        label = "▼",
+                        onClick = ::softDropPiece,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(horizontal = 4.dp).testTag(ArcadeTestTags.StackDropSoftDrop),
+                        borderOverride = colors.primaryCyan,
+                    )
+                    PremiumButton(
+                        label = "⤓",
+                        onClick = ::hardDropPiece,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(horizontal = 4.dp).testTag(ArcadeTestTags.StackDropHardDrop),
+                        borderOverride = colors.reward,
+                    )
+                    PremiumButton(
+                        label = "▶",
+                        onClick = ::moveRight,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(start = 4.dp).testTag(ArcadeTestTags.StackDropMoveRight),
+                    )
                 }
             }
         },
@@ -359,7 +395,6 @@ fun StackDropScreen(
                     .semantics {
                         stateDescription = "x=${state.activePiece.x};y=${state.activePiece.y};rotation=${state.activePiece.rotationIndex};playing=${state.playing}"
                     }
-                    .arcadeGestureInput(thresholds = gestureThresholds, enabled = true, onAction = handleAction)
                     .align(Alignment.Center),
             ) {
                 val cellWidth = size.width / STACK_DROP_WIDTH

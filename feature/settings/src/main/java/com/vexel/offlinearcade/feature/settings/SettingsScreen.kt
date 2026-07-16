@@ -12,11 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import com.vexel.offlinearcade.core.model.SettingsState
+import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
 import com.vexel.offlinearcade.core.ui.ArcadeCard
 import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.PremiumBadge
+import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.SectionHeader
 import com.vexel.offlinearcade.core.ui.StatRow
 
@@ -24,6 +26,9 @@ import com.vexel.offlinearcade.core.ui.StatRow
 fun SettingsScreen(
     settings: SettingsState,
     premiumUnlocked: Boolean,
+    premiumProductAvailable: Boolean,
+    premiumPending: Boolean,
+    premiumStatusMessage: String?,
     coins: Int,
     streak: Int,
     onToggleSound: (Boolean) -> Unit,
@@ -31,6 +36,8 @@ fun SettingsScreen(
     onToggleVibration: (Boolean) -> Unit,
     onToggleReducedEffects: (Boolean) -> Unit,
     onToggleHighContrast: (Boolean) -> Unit,
+    onBuyPremium: () -> Unit,
+    onRestorePremium: () -> Unit,
     onBack: () -> Unit,
 ) {
     EdgeToEdgeAppScaffold(
@@ -80,7 +87,12 @@ fun SettingsScreen(
         SectionHeader(title = "Premium Layer", subtitle = "Believable value without fake-online friction.")
         ArcadeCard {
             PremiumBadge(
-                text = if (premiumUnlocked) "Premium active" else "Premium shell ready",
+                text = when {
+                    premiumUnlocked -> "Premium active"
+                    premiumPending -> "Purchase pending"
+                    premiumProductAvailable -> "Premium available"
+                    else -> "Premium unavailable"
+                },
                 color = if (premiumUnlocked) ArcadeTheme.colors.premium else ArcadeTheme.colors.reward,
             )
             Text(
@@ -89,6 +101,25 @@ fun SettingsScreen(
             )
             StatRow("Accounts required", "No")
             StatRow("Online dependency", "None")
+            if (!premiumStatusMessage.isNullOrBlank()) {
+                Text(
+                    premiumStatusMessage,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            PremiumButton(
+                label = if (premiumUnlocked) "Premium Owned" else "Buy Premium",
+                onClick = onBuyPremium,
+                enabled = !premiumUnlocked && premiumProductAvailable && !premiumPending,
+                style = ArcadeButtonStyle.Primary,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            PremiumButton(
+                label = "Restore Purchase",
+                onClick = onRestorePremium,
+                style = ArcadeButtonStyle.Secondary,
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
     }
 }

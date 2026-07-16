@@ -44,24 +44,32 @@ internal fun GameStatsEntity.toModel(): GameStats = GameStats(
     gameId = GameId.valueOf(gameId),
     highScore = highScore,
     sessionsPlayed = sessionsPlayed,
+    completedRuns = completedRuns,
+    lastPlayedAtEpochMillis = lastPlayedAtEpochMillis,
     totalPlayMillis = totalPlayMillis,
     totalScore = totalScore,
     totalPickups = totalPickups,
     totalLinesCleared = totalLinesCleared,
     bestCombo = bestCombo,
     bestLines = bestLines,
+    totalPasses = totalPasses,
+    totalPerfectPasses = totalPerfectPasses,
 )
 
 internal fun GameStats.toEntity(): GameStatsEntity = GameStatsEntity(
     gameId = gameId.name,
     highScore = highScore,
     sessionsPlayed = sessionsPlayed,
+    completedRuns = completedRuns,
+    lastPlayedAtEpochMillis = lastPlayedAtEpochMillis,
     totalPlayMillis = totalPlayMillis,
     totalScore = totalScore,
     totalPickups = totalPickups,
     totalLinesCleared = totalLinesCleared,
     bestCombo = bestCombo,
     bestLines = bestLines,
+    totalPasses = totalPasses,
+    totalPerfectPasses = totalPerfectPasses,
 )
 
 internal fun mergeThemes(unlocks: List<ThemeUnlockEntity>, premiumUnlocked: Boolean): List<ThemeUnlock> {

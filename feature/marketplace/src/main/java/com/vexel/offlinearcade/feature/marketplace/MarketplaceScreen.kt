@@ -41,6 +41,9 @@ fun MarketplaceScreen(
     selectedLaneDriftSkin: String,
     selectedStackDropSkin: String,
     premiumUnlocked: Boolean,
+    premiumProductAvailable: Boolean,
+    onBuyPremium: () -> Unit,
+    adSlot: @Composable (() -> Unit)?,
     onSelectTheme: (String) -> Unit,
     onUnlockTheme: (String) -> Unit,
     onSelectSkin: (String, GameId) -> Unit,
@@ -107,6 +110,26 @@ fun MarketplaceScreen(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+        if (!premiumUnlocked) {
+            ArcadeCard(accent = Brush.linearGradient(listOf(ArcadeTheme.colors.premium, ArcadeTheme.colors.reward))) {
+                PremiumBadge(
+                    text = if (premiumProductAvailable) "One-time purchase" else "Billing unavailable",
+                    color = ArcadeTheme.colors.premium,
+                )
+                Text(
+                    "Premium removes ads and may unlock premium-only cosmetics without changing score or difficulty.",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                PremiumButton(
+                    label = "Buy Premium",
+                    onClick = onBuyPremium,
+                    enabled = premiumProductAvailable,
+                    modifier = Modifier.fillMaxWidth(),
+                    style = ArcadeButtonStyle.Primary,
+                )
+            }
+        }
         themes.chunked(2).forEach { rowThemes ->
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 rowThemes.forEach { theme ->
@@ -155,6 +178,7 @@ fun MarketplaceScreen(
                 }
             }
         }
+        adSlot?.invoke()
     }
 }
 

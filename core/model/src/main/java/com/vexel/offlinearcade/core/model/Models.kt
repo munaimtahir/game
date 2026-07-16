@@ -61,12 +61,16 @@ data class GameStats(
     val gameId: GameId,
     val highScore: Int = 0,
     val sessionsPlayed: Int = 0,
+    val completedRuns: Int = 0,
+    val lastPlayedAtEpochMillis: Long = 0,
     val totalPlayMillis: Long = 0,
     val totalScore: Int = 0,
     val totalPickups: Int = 0,
     val totalLinesCleared: Int = 0,
     val bestCombo: Int = 0,
     val bestLines: Int = 0,
+    val totalPasses: Int = 0,
+    val totalPerfectPasses: Int = 0,
 )
 
 data class ThemeUnlock(
@@ -108,14 +112,26 @@ data class DailyChallenge(
     val rewardClaimed: Boolean = false,
 )
 
+enum class RunCompletionReason {
+    FAILED,
+    ABANDONED,
+    COMPLETED,
+}
+
 data class RunResult(
+    val sessionId: String = "",
     val gameId: GameId,
     val score: Int,
+    val startedAtEpochMillis: Long = 0L,
+    val finishedAtEpochMillis: Long = 0L,
     val durationMillis: Long,
+    val completionReason: RunCompletionReason = RunCompletionReason.FAILED,
     val bestCombo: Int = 0,
     val pickupsCollected: Int = 0,
     val linesCleared: Int = 0,
     val coinsEarned: Int = 0,
+    val totalPasses: Int = 0,
+    val perfectPasses: Int = 0,
 )
 
 enum class AchievementGroup(val title: String) {

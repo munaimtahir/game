@@ -5,6 +5,11 @@ Scope: locked 3-game MVP only
 - Lane Drift
 - Stack Drop
 
+Authoritative product policy and scope now live in:
+
+- `LOCKED_DECISIONS.md`
+- `docs/product/*`
+
 ## Release Version Ledger
 
 ### Current ongoing release

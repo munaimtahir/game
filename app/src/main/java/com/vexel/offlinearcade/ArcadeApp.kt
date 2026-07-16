@@ -1,5 +1,6 @@
 package com.vexel.arcadetrio
 
+import android.app.Activity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -43,14 +44,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.unit.dp
+import com.vexel.offlinearcade.monetization.AdEligibilityContext
+import com.vexel.offlinearcade.monetization.AdPlacement
 
 @Composable
 fun ArcadeApp(
     debugLaunchRoute: String? = null,
 ) {
     val context = LocalContext.current
-    val viewModel: ArcadeViewModel = viewModel(factory = ArcadeViewModel.factory(ArcadeDependencies.repository(context)))
+    val repository = ArcadeDependencies.repository(context)
+    val viewModel: ArcadeViewModel = viewModel(factory = ArcadeViewModel.factory(repository))
     val snapshot by viewModel.snapshot.collectAsState()
+    val billingManager = remember { ArcadeDependencies.billingManager(context) }
+    val billingState by billingManager.state.collectAsState()
+    val monetizationPreferences = remember { ArcadeDependencies.monetizationPreferences(context) }
+    val connectivityMonitor = remember { ArcadeDependencies.connectivityMonitor(context) }
+    val adPolicy = remember { ArcadeDependencies.adPolicy() }
     val navController = rememberNavController()
     val feedback = rememberArcadeFeedback(context = context, settings = snapshot.settings)
     var showSplash by remember { mutableStateOf(true) }
@@ -99,6 +108,22 @@ fun ArcadeApp(
         }
     }
 
+    LaunchedEffect(billingManager) {
+        billingManager.start()
+    }
+
+    val completedSessions = snapshot.stats.sumOf { it.completedRuns }
+    val showMarketplaceAd = BuildConfig.ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID.isNotBlank() && adPolicy.canShow(
+        AdEligibilityContext(
+            placement = AdPlacement.MARKETPLACE_BANNER,
+            premiumActive = billingState.premiumActive,
+            onlineCapable = connectivityMonitor.isOnline(),
+            completedSessions = completedSessions,
+            completedSessionsSinceLastAd = completedSessions - monetizationPreferences.lastAdSessionCount(),
+            elapsedMillisSinceLastAd = System.currentTimeMillis() - monetizationPreferences.lastAdShownAtEpochMillis(),
+        ),
+    )
+
     OfflineMiniArcadeTheme(
         themeId = snapshot.profile.selectedThemeId,
         highContrast = snapshot.settings.highContrastEnabled,
@@ -122,6 +147,15 @@ fun ArcadeApp(
                 onSelectSkin = viewModel::selectSkin,
                 onRecordRun = viewModel::recordRun,
                 onTutorialSeen = viewModel::markTutorialSeen,
+                billingState = billingState,
+                onBuyPremium = {
+                    (context as? Activity)?.let(billingManager::launchPremiumPurchase)
+                },
+                onRestorePremium = billingManager::refresh,
+                showMarketplaceAd = showMarketplaceAd,
+                onMarketplaceAdImpression = {
+                    monetizationPreferences.recordAdShown(System.currentTimeMillis(), completedSessions)
+                },
             )
         }
     }

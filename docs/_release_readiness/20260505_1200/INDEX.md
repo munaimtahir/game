@@ -4,6 +4,11 @@
 
 This folder contains the complete Google Play Store release readiness audit for **Offline Mini Arcade**.
 
+Historical note:
+
+- This audit reflects repository state on 2026-05-05.
+- Current product authority is `LOCKED_DECISIONS.md` plus `docs/product/*`.
+
 ## Reports
 1. [Phase 1: Repository Discovery](01_REPOSITORY_DISCOVERY.md)
 2. [Phase 2: Product Readiness Audit](02_PRODUCT_READINESS_AUDIT.md)

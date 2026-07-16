@@ -2,6 +2,11 @@
 
 This repo is prepared to produce a signed Play Store upload bundle on the machine that owns the upload key.
 
+Current product policy source of truth:
+
+- [LOCKED_DECISIONS.md](../LOCKED_DECISIONS.md)
+- [docs/product/MONETIZATION_POLICY.md](product/MONETIZATION_POLICY.md)
+
 ## What is already prepared
 
 - Release builds assemble successfully through Gradle.
@@ -132,6 +137,11 @@ Version 1.1.1 improves launch affordances, ready-state cues, compact controls, a
   - privacy policy URL
   - short and full descriptions
 - Confirm the upload key is the same one registered in Play Console.
+- Confirm store copy matches the locked MVP policy:
+  - 3 games
+  - offline core gameplay
+  - restrained ads in free version
+  - optional one-time premium ad removal
 
 ## Current repo gaps for store submission
 
@@ -157,4 +167,3 @@ Use this checklist for the next Play Store upload:
 - [x] Re-run `./gradlew testDebugUnitTest lintDebug`.
 - [x] Confirm the Play Console upload uses the new `versionCode 12`.
 - [ ] Upload to Play Console.
-
