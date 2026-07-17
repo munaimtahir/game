@@ -1,11 +1,11 @@
 package com.vexel.arcadetrio
 
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.click
 import androidx.compose.ui.test.swipeLeft
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -47,7 +47,7 @@ class GameplayDeviceSmokeTest {
     }
 
     @Test
-    fun stackDropGestureControlsWork() {
+    fun stackDropOnScreenControlsWork() {
         rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
         rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton, useUnmergedTree = true).performClick()
@@ -55,7 +55,7 @@ class GameplayDeviceSmokeTest {
 
         val startState = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
 
-        rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).performTouchInput { click() }
+        rule.onNodeWithTag(ArcadeTestTags.StackDropRotate, useUnmergedTree = true).performClick()
         rule.waitUntil(timeoutMillis = 2_000) {
             val state = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
             state != startState
@@ -63,7 +63,7 @@ class GameplayDeviceSmokeTest {
         val afterTap = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
         assertNotEquals(startState, afterTap)
 
-        rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).performTouchInput { swipeLeft() }
+        rule.onNodeWithTag(ArcadeTestTags.StackDropMoveLeft, useUnmergedTree = true).performClick()
         rule.waitUntil(timeoutMillis = 2_000) {
             val state = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
             state != afterTap

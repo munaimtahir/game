@@ -31,6 +31,9 @@ fi
 echo "Java 17 detected."
 echo "adb detected: $(command -v adb)"
 
+echo "Running edge-to-edge regression guard checks..."
+"$ROOT_DIR/scripts/check_edge_to_edge.sh"
+
 echo "Validating Gradle wrapper and local build graph..."
 (
   cd "$ROOT_DIR" &&

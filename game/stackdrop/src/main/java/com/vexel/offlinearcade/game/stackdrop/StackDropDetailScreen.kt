@@ -21,14 +21,13 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.ui.ArcadeCard
-import com.vexel.offlinearcade.core.ui.ArcadeScaffold
+import com.vexel.offlinearcade.core.ui.EdgeToEdgeAppScaffold
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.HeroPanel
 import com.vexel.offlinearcade.core.ui.ArcadeMarquee
 import com.vexel.offlinearcade.core.ui.ArcadePlayButton
 import com.vexel.offlinearcade.core.ui.PremiumStatTile
 import com.vexel.offlinearcade.core.ui.SectionHeader
-import com.vexel.offlinearcade.core.ui.StatRow
 
 @Composable
 fun StackDropDetailScreen(
@@ -45,7 +44,7 @@ fun StackDropDetailScreen(
         context.resources.getIdentifier("header_stack_drop", "drawable", context.packageName)
     }
 
-    ArcadeScaffold(
+    EdgeToEdgeAppScaffold(
         title = "Game Info",
         onBack = onBack,
         resetScrollOnEnter = true,
@@ -72,11 +71,6 @@ fun StackDropDetailScreen(
                 PremiumStatTile(label = "Best Score", value = (stats?.highScore ?: 0).toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.stackAccent)
                 PremiumStatTile(label = "Sessions", value = (stats?.sessionsPlayed ?: 0).toString(), modifier = Modifier.weight(1f), accent = ArcadeTheme.colors.reward)
             }
-            if ((stats?.sessionsPlayed ?: 0) == 0) {
-                Text("No runs yet. Clear your first line to start building mastery.", color = ArcadeTheme.colors.textSecondary)
-            }
-            StatRow("Planning focus", "Next piece and clean lines")
-            StatRow("Best lines", (stats?.bestLines ?: 0).toString(), valueColor = ArcadeTheme.colors.stackAccent)
         }
 
         ArcadeCard {
@@ -86,7 +80,6 @@ fun StackDropDetailScreen(
                 Text("• Swipe left or right to move.", color = ArcadeTheme.colors.textSecondary)
                 Text("• Swipe down to drop faster.", color = ArcadeTheme.colors.textSecondary)
                 Text("• Use a fast downward flick for an instant hard drop.", color = ArcadeTheme.colors.textSecondary)
-                Text("• Watch the Next panel to plan your board.", color = ArcadeTheme.colors.textSecondary)
             }
         }
 

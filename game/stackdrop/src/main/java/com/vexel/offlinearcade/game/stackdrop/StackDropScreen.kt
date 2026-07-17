@@ -3,18 +3,13 @@ package com.vexel.offlinearcade.game.stackdrop
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -46,10 +41,10 @@ import com.vexel.offlinearcade.core.model.ArcadeFeedback
 import com.vexel.offlinearcade.core.model.ArcadeFeedbackEvent
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.GameStats
+import com.vexel.offlinearcade.core.model.RunCompletionReason
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
-import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
 import com.vexel.offlinearcade.core.ui.CompletionPopup
@@ -60,8 +55,6 @@ import com.vexel.offlinearcade.core.ui.HowToPlayOverlay
 import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.PremiumOverlayCard
 import com.vexel.offlinearcade.core.ui.StatRow
-import com.vexel.offlinearcade.core.ui.arcadeGestureInput
-import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
@@ -82,7 +75,6 @@ fun StackDropScreen(
     var paused by remember { mutableStateOf(false) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
     var showCompletionSummary by remember { mutableStateOf(false) }
-    val gestureThresholds = rememberArcadeGestureThresholdsPx()
     val lineClearFlash = remember { androidx.compose.animation.core.Animatable(0f) }
 
     fun restart() {
@@ -168,9 +160,13 @@ fun StackDropScreen(
         hasReportedRun = true
         onRunComplete(
             RunResult(
+                sessionId = state.sessionId,
                 gameId = GameId.STACK_DROP,
                 score = state.score,
+                startedAtEpochMillis = state.runStartMillis,
+                finishedAtEpochMillis = System.currentTimeMillis(),
                 durationMillis = System.currentTimeMillis() - state.runStartMillis,
+                completionReason = RunCompletionReason.FAILED,
                 linesCleared = state.linesCleared,
                 coinsEarned = state.linesCleared * 4 + state.score / 40,
             ),
@@ -254,32 +250,38 @@ fun StackDropScreen(
         else -> null
     }
 
-    val handleAction: (ArcadeGestureAction) -> Unit = { action ->
-        when (action) {
-            ArcadeGestureAction.Tap -> {
-                if (!state.playing && !paused && !state.gameOver) {
-                    restart()
-                } else if (state.playing && !paused) {
-                    feedback.play(ArcadeFeedbackEvent.TAP)
-                    state = engine.rotate(state)
-                }
-            }
-            ArcadeGestureAction.SwipeLeft -> if (state.playing && !paused) {
-                feedback.play(ArcadeFeedbackEvent.TAP)
-                state = engine.move(state, -1)
-            }
-            ArcadeGestureAction.SwipeRight -> if (state.playing && !paused) {
-                feedback.play(ArcadeFeedbackEvent.TAP)
-                state = engine.move(state, 1)
-            }
-            ArcadeGestureAction.SwipeDown -> if (state.playing && !paused) {
-                feedback.play(ArcadeFeedbackEvent.TAP)
-                state = engine.softDrop(state)
-            }
-            ArcadeGestureAction.FlickDown -> if (state.playing && !paused) {
-                feedback.play(ArcadeFeedbackEvent.TAP)
-                state = engine.hardDrop(state)
-            }
+    fun moveLeft() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.move(state, -1)
+        }
+    }
+
+    fun rotatePiece() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.rotate(state)
+        }
+    }
+
+    fun softDropPiece() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.softDrop(state)
+        }
+    }
+
+    fun hardDropPiece() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.hardDrop(state)
+        }
+    }
+
+    fun moveRight() {
+        if (state.playing && !paused) {
+            feedback.play(ArcadeFeedbackEvent.TAP)
+            state = engine.move(state, 1)
         }
     }
 
@@ -325,47 +327,43 @@ fun StackDropScreen(
         },
         controls = {
             if (state.playing) {
-                BoxWithConstraints(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = spacing.sm),
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(top = spacing.sm),
+                    horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    val compact = maxWidth < 360.dp
-                    val controlHeight = if (compact) 52.dp else 56.dp
-                    val controlGap = if (compact) 6.dp else 8.dp
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .heightIn(min = controlHeight),
-                        horizontalArrangement = Arrangement.spacedBy(controlGap),
-                    ) {
-                        PremiumButton(
-                            label = "Left",
-                            onClick = { handleAction(ArcadeGestureAction.SwipeLeft) },
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.weight(1f).height(controlHeight),
-                        )
-                        PremiumButton(
-                            label = if (compact) "Turn" else "Rotate",
-                            onClick = { handleAction(ArcadeGestureAction.Tap) },
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.weight(1f).height(controlHeight),
-                            borderOverride = colors.accentViolet,
-                        )
-                        PremiumButton(
-                            label = "Drop",
-                            onClick = { handleAction(ArcadeGestureAction.SwipeDown) },
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.weight(1f).height(controlHeight),
-                            borderOverride = colors.primaryCyan,
-                        )
-                        PremiumButton(
-                            label = "Right",
-                            onClick = { handleAction(ArcadeGestureAction.SwipeRight) },
-                            style = ArcadeButtonStyle.Secondary,
-                            modifier = Modifier.weight(1f).height(controlHeight),
-                        )
-                    }
+                    PremiumButton(
+                        label = "◀",
+                        onClick = ::moveLeft,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(end = 4.dp).testTag(ArcadeTestTags.StackDropMoveLeft),
+                    )
+                    PremiumButton(
+                        label = "⟳",
+                        onClick = ::rotatePiece,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(horizontal = 4.dp).testTag(ArcadeTestTags.StackDropRotate),
+                        borderOverride = colors.accentViolet,
+                    )
+                    PremiumButton(
+                        label = "▼",
+                        onClick = ::softDropPiece,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(horizontal = 4.dp).testTag(ArcadeTestTags.StackDropSoftDrop),
+                        borderOverride = colors.primaryCyan,
+                    )
+                    PremiumButton(
+                        label = "⤓",
+                        onClick = ::hardDropPiece,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(horizontal = 4.dp).testTag(ArcadeTestTags.StackDropHardDrop),
+                        borderOverride = colors.reward,
+                    )
+                    PremiumButton(
+                        label = "▶",
+                        onClick = ::moveRight,
+                        style = ArcadeButtonStyle.Secondary,
+                        modifier = Modifier.weight(1f).padding(start = 4.dp).testTag(ArcadeTestTags.StackDropMoveRight),
+                    )
                 }
             }
         },
@@ -383,141 +381,81 @@ fun StackDropScreen(
             }
         }
         
-        BoxWithConstraints(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .clipToBounds()
                 .background(colors.gameBoard, RoundedCornerShape(28.dp))
+                .padding(12.dp)
         ) {
-            val compactPreview = maxWidth < 360.dp || maxHeight < 560.dp
-            val boardPadding = if (maxWidth < 340.dp) 8.dp else 12.dp
-            Box(
+            Canvas(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(boardPadding),
+                    .testTag(ArcadeTestTags.StackDropBoard)
+                    .semantics {
+                        stateDescription = "x=${state.activePiece.x};y=${state.activePiece.y};rotation=${state.activePiece.rotationIndex};playing=${state.playing}"
+                    }
+                    .align(Alignment.Center),
             ) {
-                Canvas(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .testTag(ArcadeTestTags.StackDropBoard)
-                        .semantics {
-                            stateDescription = "x=${state.activePiece.x};y=${state.activePiece.y};rotation=${state.activePiece.rotationIndex};playing=${state.playing}"
-                        }
-                        .arcadeGestureInput(thresholds = gestureThresholds, enabled = true, onAction = handleAction)
-                        .align(Alignment.Center),
-                ) {
-                    val cellWidth = size.width / STACK_DROP_WIDTH
-                    val cellHeight = size.height / STACK_DROP_HEIGHT
-
-                    // Danger Glow
-                    val inDanger = (0 until STACK_DROP_WIDTH).any { x -> (0..3).any { y -> state.board.get(x, y) != 0 } }
-                    if (inDanger && state.playing && !reducedEffects) {
-                        val dangerAlpha = 0.15f + 0.15f * kotlin.math.sin(System.currentTimeMillis() / 200.0).toFloat()
-                        drawRect(
-                            brush = androidx.compose.ui.graphics.Brush.verticalGradient(
-                                colors = listOf(colors.dangerCoral.copy(alpha = dangerAlpha), Color.Transparent),
-                                startY = 0f,
-                                endY = size.height * 0.3f
-                            )
+                val cellWidth = size.width / STACK_DROP_WIDTH
+                val cellHeight = size.height / STACK_DROP_HEIGHT
+                
+                // Danger Glow
+                val inDanger = (0 until STACK_DROP_WIDTH).any { x -> (0..3).any { y -> state.board.get(x, y) != 0 } }
+                if (inDanger && state.playing && !reducedEffects) {
+                    val dangerAlpha = 0.15f + 0.15f * kotlin.math.sin(System.currentTimeMillis() / 200.0).toFloat()
+                    drawRect(
+                        brush = androidx.compose.ui.graphics.Brush.verticalGradient(
+                            colors = listOf(colors.dangerCoral.copy(alpha = dangerAlpha), Color.Transparent),
+                            startY = 0f,
+                            endY = size.height * 0.3f
                         )
-                    }
-
-                    for (y in 0 until STACK_DROP_HEIGHT) {
-                        for (x in 0 until STACK_DROP_WIDTH) {
-                            val baseColor = state.board.get(x, y)
-                            val activeColor = activeCells[y * STACK_DROP_WIDTH + x]
-                            val fillColor = when {
-                                activeColor != 0 -> Color(activeColor)
-                                baseColor != 0 -> Color(baseColor)
-                                else -> colors.gameBoardInner
-                            }
-                            val topLeft = Offset(x * cellWidth + 2f, y * cellHeight + 2f)
-                            val sizeRect = Size(cellWidth - 4f, cellHeight - 4f)
-                            drawRect(color = colors.gridLine, topLeft = topLeft, size = sizeRect)
-                            drawRect(
-                                color = fillColor,
-                                topLeft = topLeft + Offset(1.5f, 1.5f),
-                                size = Size(sizeRect.width - 3f, sizeRect.height - 3f),
-                            )
+                    )
+                }
+                
+                for (y in 0 until STACK_DROP_HEIGHT) {
+                    for (x in 0 until STACK_DROP_WIDTH) {
+                        val baseColor = state.board.get(x, y)
+                        val activeColor = activeCells[y * STACK_DROP_WIDTH + x]
+                        val fillColor = when {
+                            activeColor != 0 -> Color(activeColor)
+                            baseColor != 0 -> Color(baseColor)
+                            else -> colors.gameBoardInner
                         }
-                    }
-
-                    // Line Clear Flash
-                    if (lineClearFlash.value > 0f) {
+                        val topLeft = Offset(x * cellWidth + 2f, y * cellHeight + 2f)
+                        val sizeRect = Size(cellWidth - 4f, cellHeight - 4f)
+                        drawRect(color = colors.gridLine, topLeft = topLeft, size = sizeRect)
                         drawRect(
-                            color = Color.White.copy(alpha = lineClearFlash.value * 0.6f),
-                            topLeft = Offset(0f, 0f),
-                            size = Size(size.width, size.height)
+                            color = fillColor,
+                            topLeft = topLeft + Offset(1.5f, 1.5f),
+                            size = Size(sizeRect.width - 3f, sizeRect.height - 3f),
                         )
                     }
                 }
-                NextPiecePreview(
-                    piece = state.nextPiece,
-                    compact = compactPreview,
-                    modifier = Modifier.align(Alignment.TopEnd),
-                )
-                if (!state.playing && !paused && !state.gameOver) {
-                    Column(
-                        modifier = Modifier
-                            .align(Alignment.Center)
-                            .padding(20.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        PremiumButton(
-                            label = "Tap to start",
-                            onClick = ::restart,
-                            modifier = Modifier.testTag(ArcadeTestTags.StackDropStartButton),
-                        )
-                    }
+                
+                // Line Clear Flash
+                if (lineClearFlash.value > 0f) {
+                    drawRect(
+                        color = Color.White.copy(alpha = lineClearFlash.value * 0.6f),
+                        topLeft = Offset(0f, 0f),
+                        size = Size(size.width, size.height)
+                    )
                 }
             }
-        }
-    }
-}
-
-@Composable
-private fun NextPiecePreview(
-    piece: PieceType,
-    compact: Boolean,
-    modifier: Modifier = Modifier,
-) {
-    val colors = ArcadeTheme.colors
-    val panelSize = if (compact) 68.dp else 82.dp
-    val cellPadding = if (compact) 1.5f else 2f
-    Column(
-        modifier = modifier
-            .background(colors.hudCard.copy(alpha = 0.94f), RoundedCornerShape(16.dp))
-            .border(1.dp, colors.hudBorder, RoundedCornerShape(16.dp))
-            .padding(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        Text(
-            text = "NEXT",
-            style = MaterialTheme.typography.labelMedium,
-            fontWeight = androidx.compose.ui.text.font.FontWeight.Black,
-            color = colors.textSecondary,
-        )
-        Canvas(modifier = Modifier.size(panelSize)) {
-            val cells = piece.rotations.first()
-            val minX = cells.minOf { it.x }
-            val maxX = cells.maxOf { it.x }
-            val minY = cells.minOf { it.y }
-            val maxY = cells.maxOf { it.y }
-            val pieceWidth = maxX - minX + 1
-            val pieceHeight = maxY - minY + 1
-            val cellSize = minOf(size.width / 4f, size.height / 4f)
-            val startX = (size.width - pieceWidth * cellSize) / 2f
-            val startY = (size.height - pieceHeight * cellSize) / 2f
-            cells.forEach { cell ->
-                val x = startX + (cell.x - minX) * cellSize
-                val y = startY + (cell.y - minY) * cellSize
-                drawRect(
-                    color = Color(piece.color),
-                    topLeft = Offset(x + cellPadding, y + cellPadding),
-                    size = Size(cellSize - cellPadding * 2f, cellSize - cellPadding * 2f),
-                )
+            if (!state.playing && !paused && !state.gameOver) {
+                Column(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(20.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    PremiumButton(
+                        label = "Tap to start",
+                        onClick = ::restart,
+                        modifier = Modifier.testTag(ArcadeTestTags.StackDropStartButton),
+                    )
+                }
             }
         }
     }

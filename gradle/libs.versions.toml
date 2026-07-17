@@ -1,6 +1,6 @@
 [versions]
-agp = "9.1.1"
-kotlin = "2.4.0"
+agp = "8.6.0"
+kotlin = "1.9.24"
 compose-bom = "2024.06.00"
 activity-compose = "1.10.1"
 activity-ktx = "1.10.1"
@@ -17,6 +17,9 @@ material = "1.12.0"
 androidx-test-core = "1.6.1"
 androidx-tracing = "1.1.0"
 robolectric = "4.14.1"
+desugar-jdk-libs = "2.1.5"
+billing = "9.1.0"
+play-services-ads = "23.6.0"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
@@ -38,6 +41,7 @@ androidx-compose-test-manifest = { module = "androidx.compose.ui:ui-test-manifes
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
@@ -48,3 +52,6 @@ androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core",
 androidx-tracing = { module = "androidx.tracing:tracing", version.ref = "androidx-tracing" }
 google-material = { module = "com.google.android.material:material", version.ref = "material" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
+google-play-billing = { module = "com.android.billingclient:billing", version.ref = "billing" }
+google-play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "play-services-ads" }

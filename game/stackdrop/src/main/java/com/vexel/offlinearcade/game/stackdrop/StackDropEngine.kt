@@ -1,6 +1,7 @@
 package com.vexel.offlinearcade.game.stackdrop
 
 import kotlin.random.Random
+import java.util.UUID
 
 const val STACK_DROP_WIDTH = 10
 const val STACK_DROP_HEIGHT = 22
@@ -67,6 +68,7 @@ data class StackDropBoard(
 }
 
 data class StackDropState(
+    val sessionId: String = "",
     val board: StackDropBoard = StackDropBoard(),
     val activePiece: ActivePiece = ActivePiece(PieceType.T),
     val nextPiece: PieceType = PieceType.I,
@@ -87,6 +89,7 @@ class StackDropEngine(seed: Int = 7) {
         val first = PieceType.entries.random(random)
         val next = PieceType.entries.random(random)
         val state = StackDropState(
+            sessionId = UUID.randomUUID().toString(),
             activePiece = ActivePiece(first),
             nextPiece = next,
             playing = true,

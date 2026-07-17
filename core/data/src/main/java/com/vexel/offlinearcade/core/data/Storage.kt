@@ -6,10 +6,12 @@ import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Entity
 import androidx.room.Insert
+import androidx.room.migration.Migration
 import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.vexel.offlinearcade.core.model.SettingsState
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -40,12 +42,16 @@ data class GameStatsEntity(
     @PrimaryKey val gameId: String,
     val highScore: Int = 0,
     val sessionsPlayed: Int = 0,
+    val completedRuns: Int = 0,
+    val lastPlayedAtEpochMillis: Long = 0,
     val totalPlayMillis: Long = 0,
     val totalScore: Int = 0,
     val totalPickups: Int = 0,
     val totalLinesCleared: Int = 0,
     val bestCombo: Int = 0,
     val bestLines: Int = 0,
+    val totalPasses: Int = 0,
+    val totalPerfectPasses: Int = 0,
 )
 
 @Entity(tableName = "theme_unlocks")
@@ -67,6 +73,15 @@ data class ChallengeProgressEntity(
     val progress: Int = 0,
     val completed: Boolean = false,
     val rewardClaimed: Boolean = false,
+)
+
+@Entity(tableName = "run_records")
+data class RunRecordEntity(
+    @PrimaryKey val sessionId: String,
+    val gameId: String,
+    val score: Int,
+    val coinsEarned: Int,
+    val finishedAtEpochMillis: Long,
 )
 
 @Dao
@@ -103,6 +118,12 @@ interface ArcadeDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertChallengeProgress(progress: ChallengeProgressEntity)
+
+    @Query("SELECT * FROM run_records WHERE sessionId = :sessionId")
+    suspend fun getRunRecord(sessionId: String): RunRecordEntity?
+
+    @Insert(onConflict = OnConflictStrategy.ABORT)
+    suspend fun insertRunRecord(runRecord: RunRecordEntity)
 }
 
 @Database(
@@ -112,12 +133,50 @@ interface ArcadeDao {
         ThemeUnlockEntity::class,
         SkinUnlockEntity::class,
         ChallengeProgressEntity::class,
+        RunRecordEntity::class,
     ],
-    version = 4,
-    exportSchema = false,
+    version = 5,
+    exportSchema = true,
 )
 abstract class ArcadeDatabase : RoomDatabase() {
     abstract fun arcadeDao(): ArcadeDao
+}
+
+val MIGRATION_4_5 = object : Migration(4, 5) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL(
+            """
+            ALTER TABLE game_stats ADD COLUMN completedRuns INTEGER NOT NULL DEFAULT 0
+            """.trimIndent(),
+        )
+        db.execSQL(
+            """
+            ALTER TABLE game_stats ADD COLUMN lastPlayedAtEpochMillis INTEGER NOT NULL DEFAULT 0
+            """.trimIndent(),
+        )
+        db.execSQL(
+            """
+            ALTER TABLE game_stats ADD COLUMN totalPasses INTEGER NOT NULL DEFAULT 0
+            """.trimIndent(),
+        )
+        db.execSQL(
+            """
+            ALTER TABLE game_stats ADD COLUMN totalPerfectPasses INTEGER NOT NULL DEFAULT 0
+            """.trimIndent(),
+        )
+        db.execSQL(
+            """
+            CREATE TABLE IF NOT EXISTS run_records (
+                sessionId TEXT NOT NULL,
+                gameId TEXT NOT NULL,
+                score INTEGER NOT NULL,
+                coinsEarned INTEGER NOT NULL,
+                finishedAtEpochMillis INTEGER NOT NULL,
+                PRIMARY KEY(sessionId)
+            )
+            """.trimIndent(),
+        )
+    }
 }
 
 object ArcadePreferenceKeys {

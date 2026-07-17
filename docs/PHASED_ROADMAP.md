@@ -1,5 +1,7 @@
 # Phased Roadmap
 
+Authoritative detailed backlog: [docs/product/IMPLEMENTATION_BACKLOG.md](product/IMPLEMENTATION_BACKLOG.md)
+
 ## Phase 1 — Foundation
 - module graph
 - nav shell

@@ -8,6 +8,8 @@ import com.vexel.offlinearcade.core.model.ArcadeFeedback
 import com.vexel.offlinearcade.core.model.ArcadeSnapshot
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.RunResult
+import com.vexel.offlinearcade.monetization.BillingUiState
+import com.vexel.offlinearcade.monetization.MarketplaceAdBanner
 import com.vexel.offlinearcade.feature.challenges.ChallengesScreen
 import com.vexel.offlinearcade.feature.home.HomeScreen
 import com.vexel.offlinearcade.feature.settings.SettingsScreen
@@ -20,12 +22,6 @@ import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitDetailScreen
 import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitScreen
 import com.vexel.offlinearcade.game.stackdrop.StackDropDetailScreen
 import com.vexel.offlinearcade.game.stackdrop.StackDropScreen
-import com.vexel.offlinearcade.game.brickvolley.BrickVolleyScreen
-import com.vexel.offlinearcade.game.brickvolley.BrickVolleyDetailScreen
-import com.vexel.offlinearcade.game.loopsnake.LoopSnakeDetailScreen
-import com.vexel.offlinearcade.game.loopsnake.LoopSnakeScreen
-import com.vexel.offlinearcade.game.shielddash.ShieldDashDetailScreen
-import com.vexel.offlinearcade.game.shielddash.ShieldDashScreen
 
 @Composable
 fun ArcadeNavHost(
@@ -43,6 +39,11 @@ fun ArcadeNavHost(
     onSelectSkin: (String, GameId) -> Unit,
     onRecordRun: (RunResult) -> Unit,
     onTutorialSeen: (GameId) -> Unit,
+    billingState: BillingUiState,
+    onBuyPremium: () -> Unit,
+    onRestorePremium: () -> Unit,
+    showMarketplaceAd: Boolean,
+    onMarketplaceAdImpression: () -> Unit,
 ) {
     fun navigateToGame(gameId: GameId) {
         navController.navigate(
@@ -142,62 +143,6 @@ fun ArcadeNavHost(
             )
         }
         
-        if (BuildConfig.DEBUG) {
-            composable(Routes.BrickVolleyDetail) {
-                BrickVolleyDetailScreen(
-                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
-                    onPlay = { navController.navigate(Routes.BrickVolleyGame) },
-                    onBack = { navController.popBackStack() },
-                )
-            }
-
-            composable(Routes.BrickVolleyGame) {
-                BrickVolleyScreen(
-                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
-                    settings = snapshot.settings,
-                    feedback = feedback,
-                    onRunComplete = onRecordRun,
-                    onBack = { navController.popBackStack() },
-                )
-            }
-            
-            composable(Routes.LoopSnakeDetail) {
-                LoopSnakeDetailScreen(
-                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
-                    onPlay = { navController.navigate(Routes.LoopSnakeGame) },
-                    onBack = { navController.popBackStack() },
-                )
-            }
-
-            composable(Routes.LoopSnakeGame) {
-                LoopSnakeScreen(
-                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
-                    settings = snapshot.settings,
-                    feedback = feedback,
-                    onRunComplete = onRecordRun,
-                    onBack = { navController.popBackStack() },
-                )
-            }
-
-            composable(Routes.ShieldDashDetail) {
-                ShieldDashDetailScreen(
-                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
-                    onPlay = { navController.navigate(Routes.ShieldDashGame) },
-                    onBack = { navController.popBackStack() },
-                )
-            }
-
-            composable(Routes.ShieldDashGame) {
-                ShieldDashScreen(
-                    stats = snapshot.statsByGame[GameId.PULSE_ORBIT],
-                    settings = snapshot.settings,
-                    feedback = feedback,
-                    onRunComplete = onRecordRun,
-                    onBack = { navController.popBackStack() },
-                )
-            }
-        }
-
         composable(Routes.Challenges) {
             ChallengesScreen(
                 challenges = snapshot.challenges,
@@ -221,6 +166,9 @@ fun ArcadeNavHost(
             SettingsScreen(
                 settings = snapshot.settings,
                 premiumUnlocked = snapshot.profile.premiumUnlocked,
+                premiumProductAvailable = billingState.productAvailable,
+                premiumPending = billingState.pendingPurchase,
+                premiumStatusMessage = billingState.message,
                 coins = snapshot.profile.coins,
                 streak = snapshot.profile.currentStreakDays,
                 onToggleSound = onToggleSound,
@@ -228,6 +176,8 @@ fun ArcadeNavHost(
                 onToggleVibration = onToggleVibration,
                 onToggleReducedEffects = onToggleReducedEffects,
                 onToggleHighContrast = onToggleHighContrast,
+                onBuyPremium = onBuyPremium,
+                onRestorePremium = onRestorePremium,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -243,6 +193,18 @@ fun ArcadeNavHost(
                 selectedLaneDriftSkin = snapshot.profile.selectedLaneDriftSkin,
                 selectedStackDropSkin = snapshot.profile.selectedStackDropSkin,
                 premiumUnlocked = snapshot.profile.premiumUnlocked,
+                premiumProductAvailable = billingState.productAvailable,
+                onBuyPremium = onBuyPremium,
+                adSlot = if (showMarketplaceAd) {
+                    {
+                        MarketplaceAdBanner(
+                            adUnitId = BuildConfig.ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID,
+                            onImpression = onMarketplaceAdImpression,
+                        )
+                    }
+                } else {
+                    null
+                },
                 onSelectTheme = onSelectTheme,
                 onUnlockTheme = onUnlockTheme,
                 onSelectSkin = onSelectSkin,

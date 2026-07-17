@@ -3,8 +3,9 @@ package com.vexel.offlinearcade.core.data
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.vexel.offlinearcade.core.common.ArcadeClock
 import com.vexel.offlinearcade.core.common.ArcadeDispatchers
+import com.vexel.offlinearcade.core.common.LocalDayService
+import com.vexel.offlinearcade.core.common.LocalDaySnapshot
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
@@ -46,8 +47,8 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
 
     @Test
     fun roomAndDataStorePersistAcrossRepositoryRecreation() = runTest(dispatcher) {
-        val clock = MutableClock(30_000L)
-        val firstRuntime = createRuntime(clock)
+        val localDayService = MutableLocalDayService(30_000L)
+        val firstRuntime = createRuntime(localDayService)
         firstRuntime.repository.updateSettings { it.copy(soundEnabled = false, musicEnabled = false, vibrationEnabled = true) }
         firstRuntime.repository.recordRun(
             RunResult(
@@ -62,7 +63,7 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
         firstRuntime.repository.selectTheme("sunset_shift")
         firstRuntime.close()
 
-        val secondRuntime = createRuntime(clock)
+        val secondRuntime = createRuntime(localDayService)
         val snapshot = secondRuntime.repository.snapshot.first()
         secondRuntime.close()
 
@@ -76,9 +77,9 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
 
     @Test
     fun challengeGenerationAndProgressLoadFromStorage() = runTest(dispatcher) {
-        val clock = MutableClock(31_111L)
-        val firstRuntime = createRuntime(clock)
-        val generated = firstRuntime.repository.challengesForDay(clock.currentEpochDay()).first()
+        val localDayService = MutableLocalDayService(31_111L)
+        val firstRuntime = createRuntime(localDayService)
+        val generated = firstRuntime.repository.challengesForDay(localDayService.currentDay().epochDay).first()
         firstRuntime.repository.recordRun(
             RunResult(
                 gameId = GameId.PULSE_ORBIT,
@@ -90,8 +91,8 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
         )
         firstRuntime.close()
 
-        val secondRuntime = createRuntime(clock)
-        val loaded = secondRuntime.repository.challengesForDay(clock.currentEpochDay()).first()
+        val secondRuntime = createRuntime(localDayService)
+        val loaded = secondRuntime.repository.challengesForDay(localDayService.currentDay().epochDay).first()
         secondRuntime.close()
 
         assertEquals(generated.map { it.challengeId }, loaded.map { it.challengeId })
@@ -101,8 +102,8 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
 
     @Test
     fun streakAndCoinsFollowRunDays() = runTest(dispatcher) {
-        val clock = MutableClock(32_000L)
-        val runtime = createRuntime(clock)
+        val localDayService = MutableLocalDayService(32_000L)
+        val runtime = createRuntime(localDayService)
 
         runtime.repository.recordRun(
             RunResult(
@@ -113,7 +114,7 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
                 coinsEarned = 30,
             ),
         )
-        clock.day = 32_001L
+        localDayService.day = 32_001L
         runtime.repository.recordRun(
             RunResult(
                 gameId = GameId.PULSE_ORBIT,
@@ -124,7 +125,7 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
             ),
         )
         val afterTwoDays = runtime.repository.snapshot.first().profile
-        clock.day = 32_003L
+        localDayService.day = 32_003L
         runtime.repository.recordRun(
             RunResult(
                 gameId = GameId.STACK_DROP,
@@ -142,7 +143,7 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
         assertTrue(afterGap.coins >= 112)
     }
 
-    private fun createRuntime(clock: ArcadeClock): RuntimeHarness {
+    private fun createRuntime(localDayService: LocalDayService): RuntimeHarness {
         val database = Room.databaseBuilder(context, ArcadeDatabase::class.java, databaseFile.absolutePath)
             .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
@@ -151,7 +152,7 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
             repository = OfflineArcadeRepository(
                 database = database,
                 preferences = settingsStore,
-                clock = clock,
+                localDayService = localDayService,
                 dispatchers = ArcadeDispatchers(io = dispatcher, default = dispatcher),
             ),
             database = database,
@@ -167,10 +168,10 @@ class OfflineArcadeRepositoryRuntimeIntegrationTest {
         }
     }
 
-    private class MutableClock(
+    private class MutableLocalDayService(
         var day: Long,
-    ) : ArcadeClock {
-        override fun currentEpochDay(): Long = day
+    ) : LocalDayService {
+        override fun currentDay(): LocalDaySnapshot = LocalDaySnapshot(epochDay = day, zoneId = "UTC")
     }
 
     private class InMemorySettingsStore : SettingsStore {

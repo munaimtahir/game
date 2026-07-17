@@ -5,7 +5,7 @@ This project includes an adb-driven physical-device suite that installs the debu
 ## What it covers
 
 - Locked MVP app shape preflight:
-  - exactly 3 game modules
+  - exactly 3 public MVP release games
   - required shared feature modules
   - required smoke and persistence test sources
 - Local unit-test preflight through `testDebugUnitTest`
@@ -64,3 +64,4 @@ Files include:
 - The script installs both the main app APK and the `androidTest` APK before invoking `am instrument`.
 - If the APKs are missing, the script builds them automatically.
 - Release assembly is used as a packaging sanity check only. It does not sign an upload-ready Play Store bundle.
+- Legacy or prototype game modules that still exist in the repository are not part of the locked public MVP scope.

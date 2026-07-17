@@ -1,0 +1,30 @@
+--------- beginning of main
+06-23 15:58:48.029 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4752
+06-23 15:58:48.069 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4753
+06-23 15:58:48.655 14777 16707 E Dck     : Could not get ProviderInfo when resolving the content provider authority. [CONTEXT service_id=289 ]
+06-23 15:58:49.200 16819 16819 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath failed , error(Permission denied)
+06-23 15:58:49.200 16819 16819 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 15:58:49.200 16819 16819 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath2 failed , error(Permission denied)
+06-23 15:58:49.200 16819 16819 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 15:58:49.200 16819 16819 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath3 failed , error(Permission denied)
+06-23 15:58:49.200 16819 16819 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 15:58:49.200 16819 16819 E appproc : checkAndSetEnv get_baksize open file /data/dalvik-cache/classpath4 failed , error(Permission denied)
+06-23 15:58:49.200 16819 16819 E appproc : checkAndSetEnv write_classpathbak open file failed:Permission denied
+06-23 15:58:49.528 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4752
+06-23 15:58:49.617 11899 11931 E Finsky  : [92] [Counters] attempted to use a non-positive increment for: 4752
+06-23 15:58:49.628 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4752
+06-23 15:58:49.662 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4752
+06-23 15:58:49.681 11899 11930 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4753
+06-23 15:58:49.727 11899 11930 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4753
+06-23 15:58:49.730 11899 11930 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4752
+06-23 15:58:49.742 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4753
+06-23 15:58:49.811 11899 11929 E Finsky  : [90] [Counters] attempted to use a non-positive increment for: 4753
+06-23 15:58:49.817 11899 11930 E Finsky  : [91] [Counters] attempted to use a non-positive increment for: 4753
+06-23 15:58:50.139 16837 16837 E VivoConfigStore: key:vivo.software.multilandscape isCached is false and normal value is false
+06-23 15:58:50.147 16837 16837 E VivoConfigStore: key:vivo.software.splitrecents isCached is false and normal value is false
+06-23 15:58:50.155 16837 16837 E VivoConfigStore: key:vivo.software.splitratio isCached is false and normal value is false
+06-23 15:58:50.160 16837 16837 E VivoConfigStore: key:vivo.software.multiwindowresidentbar isCached is false and normal value is false
+06-23 15:58:50.171 16837 16837 E VivoConfigStore: key:vivo.software.hovermode isCached is false and normal value is false
+06-23 15:58:50.962  2139 16665 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-23 15:58:52.560  2139 16665 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-23 15:58:53.562  2139 16665 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0

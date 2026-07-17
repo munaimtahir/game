@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.only
@@ -112,6 +113,7 @@ fun ArcadeScaffold(
     }
     Scaffold(
         containerColor = Color.Transparent,
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
         topBar = {
             Row(
                 modifier = Modifier
@@ -259,11 +261,7 @@ fun GameplayScaffold(
                 .padding(spacing.md),
             verticalArrangement = Arrangement.spacedBy(spacing.md)
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
-            ) {
+            SafeTopHudContainer {
                 topBar()
             }
             Box(
@@ -275,11 +273,7 @@ fun GameplayScaffold(
                 content()
             }
             if (controls != null) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom))
-                ) {
+                SafeBottomControlsContainer {
                     controls()
                 }
             }
@@ -288,12 +282,12 @@ fun GameplayScaffold(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(colors.overlayScrim)
-                    .windowInsetsPadding(WindowInsets.safeDrawing)
-                    .padding(spacing.md),
+                    .background(colors.overlayScrim),
                 contentAlignment = Alignment.Center
             ) {
-                overlay()
+                SafeResultCardContainer {
+                    overlay()
+                }
             }
         }
     }
@@ -687,10 +681,6 @@ fun gameAccentFor(label: String): ArcadeGameAccent {
         "Pulse Orbit" -> ArcadeGameAccent(label = "Pulse Orbit", brush = Brush.linearGradient(listOf(colors.pulseAccent, MaterialTheme.colorScheme.secondary)), color = colors.pulseAccent)
         "Lane Drift" -> ArcadeGameAccent(label = "Lane Drift", brush = Brush.linearGradient(listOf(colors.laneAccent, colors.pulseAccent)), color = colors.laneAccent)
         "Stack Drop" -> ArcadeGameAccent(label = "Stack Drop", brush = Brush.linearGradient(listOf(colors.stackAccent, colors.reward)), color = colors.stackAccent)
-        "Brick Volley" -> ArcadeGameAccent(label = "Brick Volley", brush = Brush.linearGradient(listOf(colors.brickVolleyAccent, colors.pulseAccent)), color = colors.brickVolleyAccent)
-        "Loop Snake" -> ArcadeGameAccent(label = "Loop Snake", brush = Brush.linearGradient(listOf(colors.loopSnakeAccent, colors.reward)), color = colors.loopSnakeAccent)
-        "Shield Dash" -> ArcadeGameAccent(label = "Shield Dash", brush = Brush.linearGradient(listOf(colors.shieldDashAccent, colors.pulseAccent)), color = colors.shieldDashAccent)
-        "Gravity Flip" -> ArcadeGameAccent(label = "Gravity Flip", brush = Brush.linearGradient(listOf(colors.gravityFlipAccent, colors.reward)), color = colors.gravityFlipAccent)
         else -> ArcadeGameAccent(label = label, brush = Brush.linearGradient(listOf(colors.stackAccent, colors.reward)), color = colors.stackAccent)
     }
 }
@@ -840,5 +830,86 @@ fun ArcadePlayButton(
                 letterSpacing = 1.sp
             )
         }
+    }
+}
+
+@Composable
+fun EdgeToEdgeAppScaffold(
+    title: String,
+    onBack: (() -> Unit)? = null,
+    scrollable: Boolean = true,
+    resetScrollOnEnter: Boolean = false,
+    screenTestTag: String? = null,
+    coins: Int? = null,
+    streak: Int? = null,
+    actions: @Composable (() -> Unit) = {},
+    content: @Composable () -> Unit,
+) {
+    ArcadeScaffold(
+        title = title,
+        onBack = onBack,
+        scrollable = scrollable,
+        resetScrollOnEnter = resetScrollOnEnter,
+        screenTestTag = screenTestTag,
+        coins = coins,
+        streak = streak,
+        actions = actions,
+        content = content
+    )
+}
+
+@Composable
+fun SafeTopHudContainer(
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
+    ) {
+        content()
+    }
+}
+
+@Composable
+fun SafeBottomControlsContainer(
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Bottom + WindowInsetsSides.Horizontal))
+            .heightIn(min = 48.dp)
+    ) {
+        content()
+    }
+}
+
+@Composable
+fun SafeResultCardContainer(
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    Box(
+        modifier = modifier
+            .windowInsetsPadding(WindowInsets.safeDrawing)
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        content()
+    }
+}
+
+@Composable
+fun FullBleedGameCanvas(
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    Box(
+        modifier = modifier.fillMaxSize()
+    ) {
+        content()
     }
 }

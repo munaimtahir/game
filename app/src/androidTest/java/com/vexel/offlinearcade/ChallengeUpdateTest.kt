@@ -17,7 +17,15 @@ class ChallengeUpdateTest {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val repository = ArcadeDependencies.repository(context)
         
-        repository.recordRun(RunResult(GameId.LANE_DRIFT, 100, 10000, 0, 5, 0, 10))
+        repository.recordRun(
+            RunResult(
+                gameId = GameId.LANE_DRIFT,
+                score = 100,
+                durationMillis = 10_000,
+                pickupsCollected = 5,
+                coinsEarned = 10,
+            ),
+        )
         
         val snapshot = repository.snapshot.first()
         val laneChallenge = snapshot.challenges.firstOrNull { c -> c.gameId == GameId.LANE_DRIFT }

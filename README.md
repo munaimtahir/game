@@ -11,6 +11,14 @@ Offline Android arcade app with the locked MVP scope:
 - Minimal settings
 - Offline-first only
 
+Authoritative Stage 0 documents:
+
+- [PROJECT_CONTEXT_MASTER.md](PROJECT_CONTEXT_MASTER.md)
+- [LOCKED_DECISIONS.md](LOCKED_DECISIONS.md)
+- [docs/product/PRODUCT_SPECIFICATION.md](docs/product/PRODUCT_SPECIFICATION.md)
+- [docs/product/TECHNICAL_ARCHITECTURE.md](docs/product/TECHNICAL_ARCHITECTURE.md)
+- [docs/product/IMPLEMENTATION_BACKLOG.md](docs/product/IMPLEMENTATION_BACKLOG.md)
+
 ## Laptop Setup After Clone
 
 Requirements:
@@ -63,3 +71,4 @@ DEVICE_SERIAL=<adb-serial> ./scripts/run_adb_device_suite.sh
 - Device testing: [docs/ADB_DEVICE_TESTING.md](docs/ADB_DEVICE_TESTING.md)
 - Play Store release prep: [docs/PLAY_STORE_RELEASE.md](docs/PLAY_STORE_RELEASE.md)
 - Implementation plan: [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md)
+- Locked product decisions: [LOCKED_DECISIONS.md](LOCKED_DECISIONS.md)

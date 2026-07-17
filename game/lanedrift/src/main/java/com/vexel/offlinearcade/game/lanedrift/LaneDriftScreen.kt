@@ -50,7 +50,6 @@ import com.vexel.offlinearcade.core.model.GameStats
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.core.model.SettingsState
 import com.vexel.offlinearcade.core.ui.ArcadeButtonStyle
-import com.vexel.offlinearcade.core.ui.ArcadeGestureThresholds
 import com.vexel.offlinearcade.core.ui.ArcadeGestureAction
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
 import com.vexel.offlinearcade.core.ui.ArcadeTheme
@@ -66,6 +65,7 @@ import com.vexel.offlinearcade.core.ui.arcadeGestureInput
 import com.vexel.offlinearcade.core.ui.rememberArcadeGestureThresholdsPx
 import kotlin.math.min
 import kotlin.random.Random
+import java.util.UUID
 
 internal enum class DriftItemType { BLOCKER, PICKUP }
 
@@ -80,6 +80,7 @@ internal data class DriftItem(
 )
 
 private data class LaneDriftState(
+    val sessionId: String = "",
     val playing: Boolean = false,
     val paused: Boolean = false,
     val lane: Int = 1,
@@ -157,13 +158,7 @@ fun LaneDriftScreen(
     val random = remember(debugConfig?.randomSeed) {
         Random(debugConfig?.randomSeed ?: System.currentTimeMillis())
     }
-    val gestureThresholds = rememberArcadeGestureThresholdsPx(
-        ArcadeGestureThresholds(
-            swipeMinDistanceDp = 54.dp,
-            dominantAxisRatio = 1.55f,
-            edgeExclusionDp = 24.dp,
-        ),
-    )
+    val gestureThresholds = rememberArcadeGestureThresholdsPx()
     val pickupFlash = remember { androidx.compose.animation.core.Animatable(0f) }
 
     LaunchedEffect(state.pickups) {
@@ -178,6 +173,7 @@ fun LaneDriftScreen(
         showCompletionSummary = false
         lastFrameNanos = 0L
         state = LaneDriftState(
+            sessionId = UUID.randomUUID().toString(),
             playing = true,
             paused = false,
             speed = LaneDriftTuning.initialSpeed,
@@ -370,8 +366,11 @@ fun LaneDriftScreen(
         hasReportedRun = true
         onRunComplete(
             RunResult(
+                sessionId = state.sessionId,
                 gameId = GameId.LANE_DRIFT,
                 score = state.score,
+                startedAtEpochMillis = state.runStartMillis,
+                finishedAtEpochMillis = System.currentTimeMillis(),
                 durationMillis = System.currentTimeMillis() - state.runStartMillis,
                 pickupsCollected = state.pickups,
                 coinsEarned = state.pickups * 3 + state.score / 20,

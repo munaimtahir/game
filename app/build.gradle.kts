@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 import java.util.Properties
@@ -22,6 +21,9 @@ val releaseStoreFile = releaseProp("storeFile")
 val releaseStorePassword = releaseProp("storePassword")
 val releaseKeyAlias = releaseProp("keyAlias")
 val releaseKeyPassword = releaseProp("keyPassword")
+val admobAppId = providers.environmentVariable("ADMOB_APP_ID").orNull.orEmpty()
+val admobMarketplaceBannerAdUnitId = providers.environmentVariable("ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID").orNull.orEmpty()
+val premiumProductId = providers.environmentVariable("PLAY_PREMIUM_PRODUCT_ID").orNull ?: "offline_arcade_premium"
 val hasReleaseSigning =
     !releaseStoreFile.isNullOrBlank() &&
         !releaseStorePassword.isNullOrBlank() &&
@@ -30,14 +32,18 @@ val hasReleaseSigning =
 
 android {
     namespace = "com.vexel.arcadetrio"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.vexel.arcadetrio"
         minSdk = 24
-        targetSdk = 36
-        versionCode = 8
-        versionName = "1.0.8"
+        targetSdk = 35
+        versionCode = 13
+        versionName = "1.1.3"
+        manifestPlaceholders["admobAppId"] = admobAppId
+        buildConfigField("String", "ADMOB_APP_ID", "\"$admobAppId\"")
+        buildConfigField("String", "ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID", "\"$admobMarketplaceBannerAdUnitId\"")
+        buildConfigField("String", "PLAY_PREMIUM_PRODUCT_ID", "\"$premiumProductId\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -47,9 +53,16 @@ android {
         compose = true
         buildConfig = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.14"
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
     packaging {
         resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -68,6 +81,15 @@ android {
         }
     }
     buildTypes {
+        getByName("debug") {
+            val debugAdmobAppId =
+                if (admobAppId.isBlank()) "ca-app-pub-3940256099942544~3347511713" else admobAppId
+            val debugBannerId =
+                if (admobMarketplaceBannerAdUnitId.isBlank()) "ca-app-pub-3940256099942544/6300978111" else admobMarketplaceBannerAdUnitId
+            manifestPlaceholders["admobAppId"] = debugAdmobAppId
+            buildConfigField("String", "ADMOB_APP_ID", "\"$debugAdmobAppId\"")
+            buildConfigField("String", "ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID", "\"$debugBannerId\"")
+        }
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
@@ -126,9 +148,6 @@ dependencies {
     implementation(project(":game:pulseorbit"))
     implementation(project(":game:lanedrift"))
     implementation(project(":game:stackdrop"))
-    implementation(project(":game:brickvolley"))
-    implementation(project(":game:loopsnake"))
-    implementation(project(":game:shielddash"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.core.ktx)
@@ -146,6 +165,8 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.google.material)
+    implementation(libs.google.play.billing)
+    implementation(libs.google.play.services.ads)
 
     debugImplementation(libs.androidx.compose.tooling)
     debugImplementation(libs.androidx.tracing)
@@ -154,6 +175,7 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.androidx.test.core.ktx)
     testImplementation(libs.robolectric)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.test.ext.junit)

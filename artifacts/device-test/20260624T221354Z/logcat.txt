@@ -1,0 +1,1112 @@
+--------- beginning of main
+06-25 03:15:15.424  5740  5740 I TPMS_EVENT: Notify: com.transsion.phonemanager, of: app_install:com.vexel.arcadetrio.test, DEBUG = false
+06-25 03:15:15.432 18495  5928 I Auth    : (REDACTED) [SupervisedAccountIntentOperation] onHandleIntent: %s
+06-25 03:15:15.434 18495  5930 I Dck     : (REDACTED) disableDckSupport: %s
+06-25 03:15:15.435 18495  5930 E Dck     : Could not get ProviderInfo when resolving the content provider authority. [CONTEXT service_id=289 ]
+06-25 03:15:15.435 18495  5930 I Dck     : Samsung Content Provider failed app verification [CONTEXT service_id=289 ]
+06-25 03:15:15.435 18495  5930 I Dck     : [WirelessCapabilitiesFeatures] wccSysProp: 0 [CONTEXT service_id=289 ]
+06-25 03:15:15.435 18495  5928 W AppInstallOperation: FDL Migration::InstallIntentOperation by FDL Module [CONTEXT service_id=77 ]
+06-25 03:15:15.435 18495  5930 I Dck     : [WirelessCapabilitiesFeatures] wccOverride: not set [CONTEXT service_id=289 ]
+06-25 03:15:15.436 18495  5930 I Dck     : (REDACTED) [WirelessCapabilitiesFeatures] returned wcc: %s
+06-25 03:15:15.436 18495  5930 I Dck     : Dck module condition - hasWccSupport: false [CONTEXT service_id=289 ]
+06-25 03:15:15.436 18495  5930 I Dck     : Dck module condition - downloadAllowed: false [CONTEXT service_id=289 ]
+06-25 03:15:15.436 18495  5930 I Dck     : Dck module not eligible for asynchronous downloading [CONTEXT service_id=289 ]
+06-25 03:15:15.438   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039741,0.000053, totalTime 0.039796 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.438 18495  5930 I FraudProtectUtils: (REDACTED) Latest bank app list size: %d, %s isBankApp: %b
+06-25 03:15:15.438 18495  5930 I PackageInstalledIntentO: (REDACTED) Package %s is not a bank app. Skipping updates.
+06-25 03:15:15.444  3914  3914 E ApduServiceInfo: Not adding <aid-group> with empty or invalid AIDs
+06-25 03:15:15.447  6137  6183 W System  : ClassLoader referenced unknown path: 
+06-25 03:15:15.449  2328  2328 E VvmPkgInstalledRcvr: cannot create TelephonyManager from ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, E, UserHandle{0}
+06-25 03:15:15.454  5817  5990 I Finsky:background: [69] SCH: Scheduling 1 system job(s)
+06-25 03:15:15.455 18538  5915 I ProximityAuth: [RecentAppsMediator] Package added: (user=UserHandle{0}) com.vexel.arcadetrio.test
+06-25 03:15:15.457   942   942 I Zygote  : Process 5741 exited due to signal 9 (Killed)
+06-25 03:15:15.457 18538  5869 I FontLog : (REDACTED) Package %s has no metadata
+06-25 03:15:15.459 18538  5925 W GCM     : Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+06-25 03:15:15.461 18538  5858 W NetworkScheduler: Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+06-25 03:15:15.473  5817  5990 I Finsky:background: [69] SCH: Scheduling system job Id: 10988, L: 0, D: 2684607, C: false, I: true, N: 2
+06-25 03:15:15.475  5740  5740 I TPMS_EVENT: Notify: com.transsion.zahooc, of: app_install:com.vexel.arcadetrio.test, DEBUG = false
+06-25 03:15:15.480  1689  2522 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.apps.turbo/com.google.android.apps.turbo pid=5741 state:3
+06-25 03:15:15.480  1689  2522 I game_scn: collectForegroundAppList packName=com.google.android.apps.turbo, actName=com.google.android.apps.turbo, pid=5741, uid=10117, state:DEAD
+06-25 03:15:15.480  1689  2522 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 29998, packname: org.amanahquran.app, actname: org.amanahquran.app.MainActivity
+06-25 03:15:15.480  5883  6206 I phonemaster_log: HiManager_CustomTpmsEventService: receiver4 event=app_install value=com.vexel.arcadetrio.test
+06-25 03:15:15.481  5883  6206 I phonemaster_log: HiManager_CustomTpmsEventService: rebootTime=226594799
+06-25 03:15:15.481  5883  6206 I phonemaster_log: HiManager_CustomTpmsEventService: rebootTime is not over 5 days, keep silence
+06-25 03:15:15.482   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.google.android.apps.turbo, act:com.google.android.apps.turbo, state:3, pid:5741, uid:10117, fps:-1
+06-25 03:15:15.482   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.google.android.apps.turbo, pid:5741, STATE_DEAD
+06-25 03:15:15.485 18495  5928 I NearbyDiscovery: (REDACTED) processGrantSlicePermission: %s
+--------- beginning of system
+06-25 03:15:15.503  1689  3731 W BackupTransportManager: Package com.vexel.arcadetrio.test enabled setting: 0
+06-25 03:15:15.505  5740  5740 E os_lock_noti_DatabaseHelper: notifyChangeForOberver: uri = /allowedlist--- observer from = setNotificationData
+06-25 03:15:15.507  2061  2061 I TrNotificationAppFilterDataLoader: getAllowContentValue Observer =============== 
+06-25 03:15:15.509 19181 19181 I adbd    : adbd service requested 'shell,v2,TERM=dumb,raw:am instrument -r -w com.vexel.arcadetrio.test/androidx.test.runner.AndroidJUnitRunner'
+06-25 03:15:15.517 18538  5918 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+06-25 03:15:15.517  5817  6123 I Finsky:background: [92] Wrote row to frosting DB: 70701
+06-25 03:15:15.536  5740  5740 I os_lock_noti_receive: onReceive: add pkg = com.vexel.arcadetrio.test to allowed list
+06-25 03:15:15.542  5740  5764 I os_lock_noti_CfgProvider: query: uri = content://com.transsion.locknotification.NotificationCfgProvider/allowedlist, selection = null, selectionArgs = null
+06-25 03:15:15.551  1689  1748 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-25 03:15:15.554  3914  3914 E ApduServiceInfo: Not adding <aid-group> with empty or invalid AIDs
+06-25 03:15:15.556  5924  6207 I SC_TpmsEventManager: app_install: com.vexel.arcadetrio.test
+06-25 03:15:15.562  5924  6207 I SC_TpmsEventManager: showNotificationTimes|lastTime|currentTime|gapTime: 3|1736693095111|1782339315561|45646220450
+06-25 03:15:15.562 10065 10480 I CardSettings: packageChanged: 
+06-25 03:15:15.563 10065 10480 E Kolun.PackageInfoUtils:  isAppExistAndEnabled NameNotFoundException -> pkg : com.transsion.wallet.tecno
+06-25 03:15:15.564 10065 10480 I WalletCardPretreatment: onReceivePackageChanged: isWalletAppEnable=false; stateChanged=false
+06-25 03:15:15.570  4235  4305 I Finsky  : [76] AIM: AppInfoManager-Perf > ItemModel > CacheSize=150, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=150. Missed  in cache (limit 10) : []
+06-25 03:15:15.573   968  1051 I libPerfCtl: xgfGetFPS pid:29998 fps:-1
+06-25 03:15:15.578  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50980
+06-25 03:15:15.578  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50980
+06-25 03:15:15.505 10065 10467 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 0
+06-25 03:15:15.579 10065 10467 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+06-25 03:15:15.580  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50981, CT: 1782338893936, Constraints: [{ L: 0, D: 3106128, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.581  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50982, CT: 1782338893937, Constraints: [{ L: 0, D: 3106127, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.581  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50983, CT: 1782338893937, Constraints: [{ L: 0, D: 3106127, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.581  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50984, CT: 1782338893937, Constraints: [{ L: 0, D: 3106126, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.581  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50985, CT: 1782338893938, Constraints: [{ L: 0, D: 3106125, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.581  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50986, CT: 1782338893938, Constraints: [{ L: 0, D: 3106124, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.581  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50987, CT: 1782338893938, Constraints: [{ L: 0, D: 3106123, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.581  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50988, CT: 1782338893939, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.582  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.582  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.582  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.582  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.582  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.590 10065 10480 I MoverCardPretreatment: onReceivePackageChanged: isMobileClonerEnable = true; stateChanged = false
+06-25 03:15:15.595 10065 10467 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+06-25 03:15:15.598   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000003,0.039398,0.000038, totalTime 0.039439 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.601  1689  1744 I ActivityManager: Start proc 6215:com.google.android.apps.wellbeing/u0a118 for broadcast {com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.common.receiver.coalescedreceivers.PackageFullyRemovedCoalescedBroadcast_Receiver}
+06-25 03:15:15.603  1689  1714 W Looper  : Slow delivery took 209ms android.fg h=android.os.Handler c=<recycled PooledLambda@30a56e0> m=0
+06-25 03:15:15.611 10065 10265 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+06-25 03:15:15.611 10065 10265 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+06-25 03:15:15.611 10065 10265 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+06-25 03:15:15.623  6215  6215 I .apps.wellbeing: Using generational CollectorTypeCC GC.
+06-25 03:15:15.634  1689  1748 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-25 03:15:15.629  5817  5989 I Finsky:background: [68] SCH: Scheduling 1 system job(s)
+06-25 03:15:15.637  5817  5989 I Finsky:background: [68] SCH: Scheduling system job Id: 10002, L: 0, D: 2684426, C: false, I: true, N: 2
+06-25 03:15:15.638   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039678,0.000043, totalTime 0.039722 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.638  1689  4489 I ActivityManager: Killing 6004:com.google.android.documentsui/u0a57 (adj 975): empty for 2s
+06-25 03:15:15.641 10065 10480 I MemoryGalleryPretreatment: onReceivePackageChanged: stateChanged = false
+06-25 03:15:15.647  1689  1744 W ActivityManager: Slow operation: 65ms so far, now at startProcess: returned from zygote!
+06-25 03:15:15.647  1689  1745 I libprocessgroup: Successfully killed process cgroup uid 10057 pid 6004 in 7ms
+06-25 03:15:15.655  1689  1744 W ActivityManager: Slow operation: 73ms so far, now at startProcess: done updating battery stats
+06-25 03:15:15.656  1689  1744 W ActivityManager: Slow operation: 74ms so far, now at startProcess: building log message
+06-25 03:15:15.656  1689  1744 I ActivityManager: Start proc 6218:com.google.process.gservices/u0a115 for content provider {com.google.android.gsf/com.google.android.gsf.gservices.GservicesProvider}
+06-25 03:15:15.656  1689  1744 W ActivityManager: Slow operation: 74ms so far, now at startProcess: starting to update pids map
+06-25 03:15:15.656  1689  1744 W ActivityManager: Slow operation: 74ms so far, now at startProcess: done updating pids map
+06-25 03:15:15.671 18538  5915 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+06-25 03:15:15.678   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039552,0.000045, totalTime 0.039598 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.681  1689  1748 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-25 03:15:15.689  1689  1703 W System  : A resource failed to call close. 
+06-25 03:15:15.689  1689  1714 W Looper  : Drained
+06-25 03:15:15.694  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50981
+06-25 03:15:15.695  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50981
+06-25 03:15:15.699  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50982, CT: 1782338893937, Constraints: [{ L: 0, D: 3106127, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.699  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50983, CT: 1782338893937, Constraints: [{ L: 0, D: 3106127, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.699  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50984, CT: 1782338893937, Constraints: [{ L: 0, D: 3106126, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.699  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50985, CT: 1782338893938, Constraints: [{ L: 0, D: 3106125, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.699  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50986, CT: 1782338893938, Constraints: [{ L: 0, D: 3106124, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.699  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50987, CT: 1782338893938, Constraints: [{ L: 0, D: 3106123, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.700  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50988, CT: 1782338893939, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.700  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.700  6218  6218 I ocess.gservices: Using generational CollectorTypeCC GC.
+06-25 03:15:15.700  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.700  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.700  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.700  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.718   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039560,0.000040, totalTime 0.039601 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.731  6136  6174 I DrmHalHidl: found instance=clearkey version=android.hardware.drm@1.4::IDrmFactory
+06-25 03:15:15.731  6136  6174 I DrmHalHidl: found instance=widevine version=android.hardware.drm@1.4::IDrmFactory
+06-25 03:15:15.732  6136  6174 E DrmHalHidl: uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found
+06-25 03:15:15.733   953  6067 I WVCdm   : [app][com.transsion.calculator] calling virtual Return<void> wvdrm::hardware::drm::V1_4::widevine::WVDrmFactory::createPlugin(const hidl_array<uint8_t, 16> &, const android::hardware::hidl_string &, android::hardware::drm::V1_4::IDrmFactory::createPlugin_cb)
+06-25 03:15:15.736   953  6067 I WVCdm   : [file_utils.cpp(40):Exists] stat failed: ENOENT
+06-25 03:15:15.736   953  6067 I WVCdm   : [oemcrypto_adapter_dynamic.cpp(783):Initialize] Level 3 Build Info (v16): OEMCrypto Level3 Code 28917 Feb  2 2023 02:22:33
+06-25 03:15:15.736 10065 10265 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{3224788: android.os.BinderProxy@e09a142}
+06-25 03:15:15.737  1689  1748 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-25 03:15:15.738 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.google.android.calendar
+06-25 03:15:15.738 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.google.android.calendar
+06-25 03:15:15.741  1689  4512 I ActivityManager: Killing 6061:com.transsion.ossettingsext/1000 (adj 965): empty for 1s
+06-25 03:15:15.741  4235  4302 I Finsky  : [73] AIM: AppInfoManager-Perf > ItemModel > CacheSize=150, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=150. Missed  in cache (limit 10) : []
+06-25 03:15:15.751  4235  4305 I Finsky  : [76] AIM: AppInfoManager-Perf > getApps > data collection finished
+06-25 03:15:15.751  4235  4305 I Finsky  : [76] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 0
+06-25 03:15:15.753   953  6245 I WVCdm   : [(0):] Level3 Library 28917 Feb  2 2023 02:22:33
+06-25 03:15:15.758   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039629,0.000055, totalTime 0.039684 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.764  1689  1725 W PackageManager: Unable to load service info ResolveInfo{dc6702b com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+06-25 03:15:15.776 10065 10265 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+06-25 03:15:15.776 10065 10265 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 0
+06-25 03:15:15.776   953  6067 I WVCdm   : [oemcrypto_adapter_dynamic.cpp(797):Initialize] L3 Initialized. Trying L1.
+06-25 03:15:15.782 10065 10265 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 0
+06-25 03:15:15.782 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.783 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_ADDED
+06-25 03:15:15.787   953  6067 W WVCdm   : [oemcrypto_adapter_dynamic.cpp(1003):LoadLevel1] Could not load L1 _oecc113.
+06-25 03:15:15.787   953  6067 W WVCdm   : [oemcrypto_adapter_dynamic.cpp(1004):LoadLevel1] Could not load L1 _oecc114.
+06-25 03:15:15.787   953  6067 I WVCdm   : [oemcrypto_adapter_dynamic.cpp(819):Initialize] Level 1 Build Info (v16): OEMCrypto Level1 code with V16 on 2021/10/28
+06-25 03:15:15.787 18495 17233 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+06-25 03:15:15.788 10065 10265 I Kolun.WidgetEventRegister:  onBusEvent:PackageChangedEvent, packageName: com.vexel.arcadetrio.test, actionType: android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.788 10065 10265 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+06-25 03:15:15.788 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.788 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.788 10065 10265 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-25 03:15:15.788 10065 10265 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-25 03:15:15.788 10065 10265 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+06-25 03:15:15.788 10065 10265 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+06-25 03:15:15.788 10065 10265 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+06-25 03:15:15.789 10065 10265 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+06-25 03:15:15.790 18495 17233 I Icing   : Indexing done com.google.android.gms-apps
+06-25 03:15:15.794 10065 10467 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+06-25 03:15:15.798   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039570,0.000048, totalTime 0.039619 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.798  5817  5981 I Finsky:background: [64] SCH: Scheduling 1 system job(s)
+06-25 03:15:15.801   953  6067 I WVCdm   : [file_utils.cpp(40):Exists] stat failed: ENOENT
+06-25 03:15:15.803   953  6067 I WVCdm   : [usage_table_header.cpp(204):RestoreTable] Found usage table to restore: entry_count = 0
+06-25 03:15:15.808   953  6067 I WVCdm   : [file_utils.cpp(40):Exists] stat failed: ENOENT
+06-25 03:15:15.813 10065 10265 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{15b8891: android.os.BinderProxy@e09a142}
+06-25 03:15:15.813 18495 17233 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+06-25 03:15:15.814 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.google.android.calendar
+06-25 03:15:15.815   953  6067 I WVCdm   : [file_utils.cpp(40):Exists] stat failed: ENOENT
+06-25 03:15:15.815 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.google.android.calendar
+06-25 03:15:15.817  6136  6174 E DrmHalAidl: Failed to get vendor from drm plugin: -1010
+06-25 03:15:15.817  6136  6174 E DrmHalAidl: Failed to get description from drm plugin: -1010
+06-25 03:15:15.818   953  6067 E WVCdm   : [wv_content_decryption_module.cpp(426):GetMetricsInternal] Cdm Identifier not found
+06-25 03:15:15.820   953  6067 E WVCdm   : [wv_content_decryption_module.cpp(486):CloseCdm] Cdm Identifier not found
+06-25 03:15:15.820   953  6067 E WVCdm   : Failed to close cdm. status 12
+06-25 03:15:15.822   953  6067 I WVCdm   : [(0):] L3 Terminate.
+06-25 03:15:15.822   953  6067 E WVCdm   : [oemcrypto_adapter_dynamic.cpp(831):Level1Terminate] L1 Terminate
+06-25 03:15:15.822   953  6067 I TLCWidevineMdw: TLCMdw_Terminate: release all resources
+06-25 03:15:15.831  5817  5981 I Finsky:background: [64] SCH: Scheduling system job Id: 10015, L: 0, D: 2684262, C: false, I: true, N: 2
+06-25 03:15:15.838   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039620,0.000049, totalTime 0.039670 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.854 18495 17233 I Icing   : Indexing done com.google.android.gms-apps
+06-25 03:15:15.858 10065 10079 I kolun.assistant: NativeAlloc concurrent copying GC freed 2662KB AllocSpace bytes, 27(1756KB) LOS objects, 49% free, 6965KB/13MB, paused 196us,206us total 161.292ms
+06-25 03:15:15.859 10065 10491 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-25 03:15:15.869 10065 10491 I Kolun.SkillCard===:  skill card isNUll
+06-25 03:15:15.873 10065 10491 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.aivoiceassistant
+06-25 03:15:15.873 10065 10491 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.kolun.assistant
+06-25 03:15:15.874 10065 10491 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.microintelligence
+06-25 03:15:15.874 10065 10491 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.notebook
+06-25 03:15:15.874 10065 10491 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.phonemaster
+06-25 03:15:15.874 10065 10491 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-25 03:15:15.874 10065 10491 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-25 03:15:15.874 10065 10491 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+06-25 03:15:15.881  6136  6174 W System.err: java.lang.SecurityException: Need android.permission.BLUETOOTH_CONNECT permission for android.content.AttributionSource@a8ca0ee6: getName
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3021)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.Parcel.createException(Parcel.java:3005)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.Parcel.readException(Parcel.java:2988)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.Parcel.readException(Parcel.java:2930)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.bluetooth.IBluetoothManager$Stub$Proxy.getName(IBluetoothManager.java:552)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.bluetooth.BluetoothAdapter.getName(BluetoothAdapter.java:1573)
+06-25 03:15:15.881  6136  6174 W System.err: 	at com.transsion.sdk.oneid.data.EnvironInfo.<init>(SourceFile:295)
+06-25 03:15:15.881  6136  6174 W System.err: 	at com.transsion.sdk.oneid.data.GroupFpInfo.<init>(SourceFile:216)
+06-25 03:15:15.881  6136  6174 W System.err: 	at m5.h.handleMessage(SourceFile:994)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.Looper.loop(Looper.java:291)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-25 03:15:15.881  6136  6174 W System.err: Caused by: android.os.RemoteException: Remote stack trace:
+06-25 03:15:15.881  6136  6174 W System.err: 	at com.android.server.bluetooth.BluetoothManagerService.checkPermissionForDataDelivery(BluetoothManagerService.java:3547)
+06-25 03:15:15.881  6136  6174 W System.err: 	at com.android.server.bluetooth.BluetoothManagerService.checkConnectPermissionForDataDelivery(BluetoothManagerService.java:3565)
+06-25 03:15:15.881  6136  6174 W System.err: 	at com.android.server.bluetooth.BluetoothManagerService.getName(BluetoothManagerService.java:2152)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.bluetooth.IBluetoothManager$Stub.onTransact(IBluetoothManager.java:256)
+06-25 03:15:15.881  6136  6174 W System.err: 	at android.os.Binder.execTransactInternal(Binder.java:1281)
+06-25 03:15:15.891  6136  6174 W PowerProfile: screen.on is deprecated! Use screen.on.display0 instead.
+06-25 03:15:15.891  6136  6174 W PowerProfile: screen.full is deprecated! Use screen.full.display0 instead.
+06-25 03:15:15.891  6136  6174 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x0, drain:0,RAT:DEFAULT
+06-25 03:15:15.891  6136  6174 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x10000000, drain:IDLE,RAT:DEFAULT
+06-25 03:15:15.891  6136  6174 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x20000000, drain:RX,RAT:DEFAULT
+06-25 03:15:15.891  6136  6174 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x30000000, drain:TX,level:UNKNOWN(0x0)RAT:DEFAULT
+06-25 03:15:15.891  6136  6174 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x31000000, drain:TX,level:UNKNOWN(0x1000000)RAT:DEFAULT
+06-25 03:15:15.891  6136  6174 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x32000000, drain:TX,level:UNKNOWN(0x2000000)RAT:DEFAULT
+06-25 03:15:15.891  6136  6174 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x33000000, drain:TX,level:UNKNOWN(0x3000000)RAT:DEFAULT
+06-25 03:15:15.891  6136  6174 W ModemPowerProfile: getAverageBatteryDrainMaH called with unexpected key: 0x34000000, drain:TX,level:UNKNOWN(0x4000000)RAT:DEFAULT
+06-25 03:15:15.892  6215  6215 W .apps.wellbeing: Failed to find entry 'classes.dex': Entry not found
+06-25 03:15:15.898  6136  6136 W com.transsion.calculator: type=1400 audit(0.0:31446): avc: denied { read } for comm=4F6E65494420576F726B6572 name="u:object_r:serialno_prop:s0" dev="tmpfs" ino=1411 scontext=u:r:untrusted_app:s0:c194,c256,c512,c768 tcontext=u:object_r:serialno_prop:s0 tclass=file permissive=0 app=com.transsion.calculator
+06-25 03:15:15.898   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039791,0.000056, totalTime 0.039849 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.899   979   979 I BufferQueueProducer: [org.amanahquran.app/org.amanahquran.app.MainActivity#2015](this:0xb4000079b3d94e78,id:-1,api:0,p:-1,c:979) queueBuffer: fps=2.00 dur=1000.42 max=500.48 min=499.94
+06-25 03:15:15.899  1689  4512 W TelephonyPermissions: reportAccessDeniedToReadIdentifiers:com.transsion.calculator:getSerial:-1
+06-25 03:15:15.900  6136  6174 W libc    : Access denied finding property "ro.serialno"
+06-25 03:15:15.900 10065 10265 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+06-25 03:15:15.900 10065 10265 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 0
+06-25 03:15:15.908 18495 17233 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+06-25 03:15:15.912 10065 10265 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 0
+06-25 03:15:15.912 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.913  1689  1745 I libprocessgroup: Successfully killed process cgroup uid 1000 pid 6061 in 0ms
+06-25 03:15:15.913 18495 17233 I Icing   : Indexing done com.google.android.gms-apps
+06-25 03:15:15.917 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-25 03:15:15.917 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.921 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-25 03:15:15.921 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.921 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.WidgetEventRegister:  onBusEvent:WigAppChangeEvent, package : com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:15.922 10065 10265 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-25 03:15:15.923 10065 10265 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+06-25 03:15:15.923 10065 10265 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+06-25 03:15:15.923 10065 10265 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+06-25 03:15:15.923 10065 10265 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+06-25 03:15:15.924  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50982
+06-25 03:15:15.925  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50982
+06-25 03:15:15.934  6218  6218 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+06-25 03:15:15.936 10065 10265 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+06-25 03:15:15.941  1689  3360 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.transsion.ossettingsext/com.transsion.ossettingsext pid=6061 state:3
+06-25 03:15:15.942  1689  3360 I game_scn: collectForegroundAppList packName=com.transsion.ossettingsext, actName=com.transsion.ossettingsext, pid=6061, uid=1000, state:DEAD
+06-25 03:15:15.942  1689  3360 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 29998, packname: org.amanahquran.app, actname: org.amanahquran.app.MainActivity
+06-25 03:15:15.942   942   942 I Zygote  : Process 6061 exited due to signal 9 (Killed)
+06-25 03:15:15.945   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.transsion.ossettingsext, act:com.transsion.ossettingsext, state:3, pid:6061, uid:1000, fps:-1
+06-25 03:15:15.945   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.transsion.ossettingsext, pid:6061, STATE_DEAD
+06-25 03:15:15.948  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50983, CT: 1782338893937, Constraints: [{ L: 0, D: 3106127, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.951  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50984, CT: 1782338893937, Constraints: [{ L: 0, D: 3106126, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.953   942   942 I Zygote  : Process 6004 exited due to signal 9 (Killed)
+06-25 03:15:15.954  1689  3815 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.documentsui/com.google.android.documentsui pid=6004 state:3
+06-25 03:15:15.954  1689  3815 I game_scn: collectForegroundAppList packName=com.google.android.documentsui, actName=com.google.android.documentsui, pid=6004, uid=10057, state:DEAD
+06-25 03:15:15.954  1689  3815 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 29998, packname: org.amanahquran.app, actname: org.amanahquran.app.MainActivity
+06-25 03:15:15.954   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.google.android.documentsui, act:com.google.android.documentsui, state:3, pid:6004, uid:10057, fps:-1
+06-25 03:15:15.954   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.google.android.documentsui, pid:6004, STATE_DEAD
+06-25 03:15:15.959  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50985, CT: 1782338893938, Constraints: [{ L: 0, D: 3106125, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.959  1689  1725 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+06-25 03:15:15.960  1689  1725 W TextServicesManagerService: no available spell checker services found
+06-25 03:15:15.960  6215  6215 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+06-25 03:15:15.973  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50986, CT: 1782338893938, Constraints: [{ L: 0, D: 3106124, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.973  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50987, CT: 1782338893938, Constraints: [{ L: 0, D: 3106123, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.974  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50988, CT: 1782338893939, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.974  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.976  6218  6218 I GservicesProvider: Gservices pushing to system: true; secure/global: true
+06-25 03:15:15.976  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.976  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.978   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039772,0.000045, totalTime 0.039818 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:15.982  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.983  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:15.996  5817  5982 I Finsky:background: [65] SCH: Scheduling 1 system job(s)
+06-25 03:15:15.997  5817  5982 I Finsky:background: [65] SCH: Scheduling system job Id: 10028, L: 0, D: 2684064, C: false, I: true, N: 2
+06-25 03:15:16.018   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039570,0.000045, totalTime 0.039616 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.038 10065 10265 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{4ce50e2: android.os.BinderProxy@e09a142}
+06-25 03:15:16.039 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.google.android.calendar
+06-25 03:15:16.039 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.google.android.calendar
+06-25 03:15:16.039  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50983
+06-25 03:15:16.040  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50983
+06-25 03:15:16.042  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50984, CT: 1782338893937, Constraints: [{ L: 0, D: 3106126, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.046  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50985, CT: 1782338893938, Constraints: [{ L: 0, D: 3106125, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.048  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50986, CT: 1782338893938, Constraints: [{ L: 0, D: 3106124, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.048  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50987, CT: 1782338893938, Constraints: [{ L: 0, D: 3106123, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.050  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50988, CT: 1782338893939, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.054  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.056  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.058   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039634,0.000085, totalTime 0.039720 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.058 10065 10265 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+06-25 03:15:16.058 10065 10265 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 0
+06-25 03:15:16.059 10065 10265 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 0
+06-25 03:15:16.060 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.063  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.065  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.067 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-25 03:15:16.067 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.068 10065 10265 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+06-25 03:15:16.068 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.068 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.068 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.068 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.068 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.068 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.068 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.068 10065 10265 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+06-25 03:15:16.071  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.081  5817  5981 I Finsky:background: [64] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.081  5817  5981 I Finsky:background: [64] SCH: Scheduling system job Id: 10039, L: 0, D: 2683980, C: false, I: true, N: 2
+06-25 03:15:16.083  6137  6228 E .apps.nbu.files: No package ID 6a found for ID 0x6a0b0013.
+06-25 03:15:16.088  6137  6228 I FA      : App measurement initialized, version: 170009
+06-25 03:15:16.092  6137  6228 I FA      : To enable debug logging run: adb shell setprop log.tag.FA VERBOSE
+06-25 03:15:16.092  6137  6228 I FA      : To enable faster debug mode event logging run:
+06-25 03:15:16.092  6137  6228 I FA      :   adb shell setprop debug.firebase.analytics.app com.google.android.apps.nbu.files
+06-25 03:15:16.098   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039565,0.000032, totalTime 0.039598 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.107  1689  3851 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.gservices.START pkg=com.google.android.gms } U=0: not found
+06-25 03:15:16.121  1689  4542 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@97f11fd
+06-25 03:15:16.125  6218  6251 E GmsClient: unable to connect to service: com.google.android.gms.gservices.START on com.google.android.gms
+06-25 03:15:16.127  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50984
+06-25 03:15:16.127  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50984
+06-25 03:15:16.135 10065 10491 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-25 03:15:16.138   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039573,0.000031, totalTime 0.039604 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.140 10065 10491 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+06-25 03:15:16.143  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50985, CT: 1782338893938, Constraints: [{ L: 0, D: 3106125, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.143  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50986, CT: 1782338893938, Constraints: [{ L: 0, D: 3106124, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.143  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50987, CT: 1782338893938, Constraints: [{ L: 0, D: 3106123, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.143  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50988, CT: 1782338893939, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.144  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.144  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.144  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.144  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.144  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.155  5817  5982 I Finsky:background: [65] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.155  5817  5982 I Finsky:background: [65] SCH: Scheduling system job Id: 10049, L: 0, D: 2683906, C: false, I: true, N: 2
+06-25 03:15:16.156 10065 10491 I Kolun.SkillCard====:  from catch list==19
+06-25 03:15:16.157 10065 10491 I Kolun.Card:  isAvailable mIsEnable: true , mIsActive  true
+06-25 03:15:16.157 10065 10491 W Kolun.Card:  SkillCard toggleStatusInner : enable == mIsEnable
+06-25 03:15:16.157 10065 10491 I Kolun.Card:  updateInner success: true
+06-25 03:15:16.158 10065 10480 I Kolun.CardClient:  execute update start18 CardUpdateRunnable
+06-25 03:15:16.158 10065 10480 I Kolun.SkillCard===:  card displayTimes=1073741823
+06-25 03:15:16.171  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50985
+06-25 03:15:16.171  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50985
+06-25 03:15:16.174  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50986, CT: 1782338893938, Constraints: [{ L: 0, D: 3106124, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.178   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039746,0.000028, totalTime 0.039775 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.179  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50987, CT: 1782338893938, Constraints: [{ L: 0, D: 3106123, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.182  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50988, CT: 1782338893939, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.185  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.185  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.186  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.186  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.186  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.199  5817  5989 I Finsky:background: [68] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.199  5817  5989 I Finsky:background: [68] SCH: Scheduling system job Id: 10058, L: 0, D: 2683862, C: false, I: true, N: 2
+06-25 03:15:16.200  1689  1830 I RoleService: Granting default roles...
+06-25 03:15:16.202  6215  6215 I lwk     : SslGuard completed installation.
+06-25 03:15:16.207  2328  2908 W TelephonyPermissions: reportAccessDeniedToReadIdentifiers:com.transsion.calculator:getSubscriberIdForSubscriber:1
+06-25 03:15:16.211  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50986
+06-25 03:15:16.212  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50986
+06-25 03:15:16.213  2328  2908 W TelephonyPermissions: reportAccessDeniedToReadIdentifiers:com.transsion.calculator:getImeiForSlot:-1
+06-25 03:15:16.224 10065 10480 I Kolun.CardClient:  host onCardUpdated kolun card 18
+06-25 03:15:16.224 10065 10480 I Kolun.CardClient:  execute update success18 CardUpdateRunnable
+06-25 03:15:16.227  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50987, CT: 1782338893938, Constraints: [{ L: 0, D: 3106123, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.228  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50988, CT: 1782338893939, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.228  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.228  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.228  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.228  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.229  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.238   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039738,0.000056, totalTime 0.039795 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.244  5817  5990 I Finsky:background: [69] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.244  5817  5990 I Finsky:background: [69] SCH: Scheduling system job Id: 10066, L: 0, D: 2683817, C: false, I: true, N: 2
+06-25 03:15:16.260 21548 21899 E SQLiteLog: (13) statement aborts at 7: [INSERT OR REPLACE  INTO stats(tenantid,statsvalue) VALUES (?,?)] database or disk is full
+06-25 03:15:16.266  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50987
+06-25 03:15:16.268  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50987
+06-25 03:15:16.270  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50988, CT: 1782338893939, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.270  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.271  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.271  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.272  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.273  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.278   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039597,0.000050, totalTime 0.039647 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.293  5817  5981 I Finsky:background: [64] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.294  5817  5981 I Finsky:background: [64] SCH: Scheduling system job Id: 10073, L: 0, D: 2683768, C: false, I: true, N: 2
+06-25 03:15:16.324  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50988
+06-25 03:15:16.325  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50988
+06-25 03:15:16.327  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50989, CT: 1782338893940, Constraints: [{ L: 0, D: 3106122, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.334  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.335  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.335  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.336  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.338   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039726,0.000048, totalTime 0.039777 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.344  5855  5964 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-25 03:15:16.355  5817  5989 I Finsky:background: [68] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.355  5817  5989 I Finsky:background: [68] SCH: Scheduling system job Id: 10079, L: 0, D: 2683706, C: false, I: true, N: 2
+06-25 03:15:16.356  5855  5964 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+06-25 03:15:16.359  6208  6208 I AndroidRuntime: Using default boot image
+06-25 03:15:16.359  6208  6208 I AndroidRuntime: Leaving lock profiling enabled
+06-25 03:15:16.367  6208  6208 I app_process: Using generational CollectorTypeCC GC.
+06-25 03:15:16.375  1689  1701 I system_server: Background concurrent copying GC freed 19MB AllocSpace bytes, 24(740KB) LOS objects, 22% free, 83MB/107MB, paused 998us,240us total 1.225s
+06-25 03:15:16.378  1689  1702 W JavaBinder: BinderProxy is being destroyed but the application did not call unlinkToDeath to unlink all of its death recipients beforehand.  Releasing leaked death recipient: com.transsion.hubcore.server.verifykey.TranVerifyKeyManagerService$AppDeathRecipient
+06-25 03:15:16.378  1689  1702 I BpBinder: onLastStrongRef automatically unlinking death recipients: <uncached descriptor>
+06-25 03:15:16.378   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039722,0.000056, totalTime 0.039779 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.389  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50989
+06-25 03:15:16.395  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50989
+06-25 03:15:16.397  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50990, CT: 1782338893941, Constraints: [{ L: 0, D: 3106121, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.398  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.398  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.398  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.414 18495  5953 W AdvertisingIdSettings: Package com.google.android.apps.nbu.files failed Ad Id permission check. Apps that target Android SDK 33 or higher should declare com.google.android.gms.permission.AD_ID in the app manifest to access Ad Id.
+06-25 03:15:16.415 18495  5953 I AdvertisingIdClient: shouldSendLog 225849361
+06-25 03:15:16.415 18495  5953 I AdvertisingIdClient: GetInfoInternal elapse 35ms
+06-25 03:15:16.417  5817  5981 I Finsky:background: [64] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.417  5817  5981 I Finsky:background: [64] SCH: Scheduling system job Id: 10084, L: 0, D: 2683644, C: false, I: true, N: 2
+06-25 03:15:16.454  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50990
+06-25 03:15:16.455  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50990
+06-25 03:15:16.458  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50991, CT: 1782338893941, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.458   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039711,0.000069, totalTime 0.039781 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.463  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.464  5817  5990 I Finsky:background: [69] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.471  5817  5990 I Finsky:background: [69] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.472  5817  5990 I Finsky:background: [69] SCH: Scheduling system job Id: 10088, L: 0, D: 2683590, C: false, I: true, N: 2
+06-25 03:15:16.479  1689  1901 I BaseFilesVerify: Base File verify start
+06-25 03:15:16.479  1689  1901 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xml
+06-25 03:15:16.487  1689  1901 W BaseXMLFilesVerify: format is normal
+06-25 03:15:16.487  1689  1901 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-25 03:15:16.486  1689  1689 W ackgroundThread: type=1400 audit(0.0:31447): avc: denied { ioctl } for path="/data/misc_de/0/apexdata/com.android.permission/roles.xml" dev="dm-42" ino=2787069 ioctlcmd=0x6685 scontext=u:r:system_server:s0 tcontext=u:object_r:apex_system_server_data_file:s0 tclass=file permissive=0
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: roles.xmlsetup fs failed
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xml: Permission denied
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:58)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-25 03:15:16.487  1689  1901 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-25 03:15:16.495  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50991
+06-25 03:15:16.495  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50991
+06-25 03:15:16.498   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039696,0.000067, totalTime 0.039764 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.499  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50992, CT: 1782338893942, Constraints: [{ L: 0, D: 3106120, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.500  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.502  1689  1901 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xmlsecnew.bak
+06-25 03:15:16.508  1689  1901 W BaseXMLFilesVerify: format is normal
+06-25 03:15:16.508  1689  1901 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-25 03:15:16.510  5817  5981 I Finsky:background: [64] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.511  5817  5981 I Finsky:background: [64] SCH: Scheduling system job Id: 10091, L: 0, D: 2683551, C: false, I: true, N: 2
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: roles.xmlsec.baksetup fs failed
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak: Permission denied
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:81)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-25 03:15:16.541  1689  1901 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-25 03:15:16.538  1689  1689 W ackgroundThread: type=1400 audit(0.0:31448): avc: denied { ioctl } for path="/data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak" dev="dm-42" ino=2688294 ioctlcmd=0x6685 scontext=u:r:system_server:s0 tcontext=u:object_r:apex_system_server_data_file:s0 tclass=file permissive=0
+06-25 03:15:16.549  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50992
+06-25 03:15:16.550  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50992
+06-25 03:15:16.552  5817  5982 I Finsky:background: [65] SCH: Scheduling phonesky job Id: 3-50993, CT: 1782338893942, Constraints: [{ L: 0, D: 3106119, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.562  5817  5982 I Finsky:background: [65] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.562  5817  5982 I Finsky:background: [65] SCH: Scheduling system job Id: 10093, L: 0, D: 2683499, C: false, I: true, N: 2
+06-25 03:15:16.570 10065 10480 I CardSettings: packageChanged: 
+06-25 03:15:16.571 10065 10480 E Kolun.PackageInfoUtils:  isAppExistAndEnabled NameNotFoundException -> pkg : com.transsion.wallet.tecno
+06-25 03:15:16.571 10065 10480 I WalletCardPretreatment: onReceivePackageChanged: isWalletAppEnable=false; stateChanged=false
+06-25 03:15:16.573   968  1051 I libPerfCtl: xgfGetFPS pid:29998 fps:-1
+06-25 03:15:16.574 10065 10480 I MoverCardPretreatment: onReceivePackageChanged: isMobileClonerEnable = true; stateChanged = false
+06-25 03:15:16.577 10065 10480 I MemoryGalleryPretreatment: onReceivePackageChanged: stateChanged = false
+06-25 03:15:16.578   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039756,0.000059, totalTime 0.039817 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.590  5817  6049 I Finsky:background: [90] SCH: Canceling job 3-50993
+06-25 03:15:16.590  5817  6049 I Finsky:background: [90] WM::SCH: Logging work end for 3-50993
+06-25 03:15:16.591  5817  5989 I Finsky:background: [68] SCH: no pending jobs to schedule.
+06-25 03:15:16.598  6208  6208 I app_process: Priority-to-niceness mapping: 19, 16, 13, 10, 0, -2, -4, -5, -6, -8
+06-25 03:15:16.647  5817  6018 I Finsky:background: [79] IQ: Creating job 50994, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.213Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.647  4062  6831 I VASDK-AiConnectionClient: send:{"business":"hw","function":"appsChanged","params":{"language":0,"apps":{"com.avanza.ambitwizfbl":"Faysal DigiBank","com.transsion.magicshow":"Visha P......":"Ella","com.auravion.strikefall":"Strikefall"}}}
+06-25 03:15:16.648  5817  6018 I Finsky:background: [79] IQ: Creating job 50995, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.172Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.649  5817  6018 I Finsky:background: [79] IQ: Creating job 50996, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.198Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.650  5817  6018 I Finsky:background: [79] IQ: Creating job 50997, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.187Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.650  4062  6831 I VASDK-Service: [4.0.0.039]message from [com.transsion.aivoiceassistant-4.0.0.039]:{"business":"hw","function":"appsChanged","params":{"language":0,"apps":{"com.avanza.ambitwizfbl":"Faysal DigiBank","com.transsion.magicshow":"Visha P......":"Ella","com.auravion.strikefall":"Strikefall"}}}
+06-25 03:15:16.651  5817  6018 I Finsky:background: [79] IQ: Creating job 50998, for (REQ_CHARGING, REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, AUTHENTICATION_REQUIRED)
+06-25 03:15:16.651  5817  6018 I Finsky:background: [79] IQ: Creating job 50999, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.205Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.652  5817  6018 I Finsky:background: [79] IQ: Creating job 51000, for (REQ_CHARGING, REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, AUTHENTICATION_REQUIRED, PROCESS_IMPORTANCE_THRESHOLD=125, REQ_CAR_KEY_NOT_IN_USE=true)
+06-25 03:15:16.653  5817  6018 I Finsky:background: [79] IQ: Creating job 51001, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.211Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.653  1689  1725 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+06-25 03:15:16.653  1689  1689 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio, user:UserHandle{0}, action:android.intent.action.PACKAGE_ADDED
+06-25 03:15:16.653  5817  6018 I Finsky:background: [79] IQ: Creating job 51002, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.222Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.654  5817  6018 I Finsky:background: [79] IQ: Creating job 51003, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.235Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.655  5817  6018 I Finsky:background: [79] IQ: Creating job 51004, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.193Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.656  5817  6018 I Finsky:background: [79] IQ: Creating job 51005, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.181Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.657  5817  6018 I Finsky:background: [79] IQ: Creating job 51006, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.239Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.658  6208  6208 W main    : type=1400 audit(0.0:31449): avc: denied { read } for name="u:object_r:vendor_exported_default_prop:s0" dev="tmpfs" ino=1562 scontext=u:r:shell:s0 tcontext=u:object_r:vendor_exported_default_prop:s0 tclass=file permissive=0
+06-25 03:15:16.658  6208  6208 W main    : type=1400 audit(0.0:31450): avc: denied { read } for name="u:object_r:vendor_exported_default_prop:s0" dev="tmpfs" ino=1562 scontext=u:r:shell:s0 tcontext=u:object_r:vendor_exported_default_prop:s0 tclass=file permissive=0
+06-25 03:15:16.657  5817  6018 I Finsky:background: [79] IQ: Creating job 51007, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.169Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.658  5817  6018 I Finsky:background: [79] IQ: Creating job 51008, for (REQ_CHARGING, REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, AUTHENTICATION_REQUIRED)
+06-25 03:15:16.659  5817  6018 I Finsky:background: [79] IQ: Creating job 51009, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.202Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.659  5817  6018 I Finsky:background: [79] IQ: Creating job 51010, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.163Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.659  6208  6208 W libc    : Access denied finding property "ro.vendor.tran.hardware"
+06-25 03:15:16.660  6208  6208 W libc    : Access denied finding property "ro.vendor.tran.cpu_model"
+06-25 03:15:16.660  5817  6018 I Finsky:background: [79] IQ: Creating job 51011, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.184Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.660  5817  6018 I Finsky:background: [79] IQ: Creating job 51012, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.220Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.661  5817  6018 I Finsky:background: [79] IQ: Creating job 51013, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.230Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.662  5817  6018 I Finsky:background: [79] IQ: Creating job 51014, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.195Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.662  5817  6018 I Finsky:background: [79] IQ: Creating job 51015, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.225Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.663  5817  6018 I Finsky:background: [79] IQ: Creating job 51016, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.217Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.663  5817  6018 I Finsky:background: [79] IQ: Creating job 51017, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.197Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.664  5817  6018 I Finsky:background: [79] IQ: Creating job 51018, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.200Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.664  5817  6018 I Finsky:background: [79] IQ: Creating job 51019, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.237Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.665  5817  6018 I Finsky:background: [79] IQ: Creating job 51020, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.191Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.666  5817  6018 I Finsky:background: [79] IQ: Creating job 51021, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.227Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.667  5817  6018 I Finsky:background: [79] IQ: Creating job 51022, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.208Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.667  5817  6018 I Finsky:background: [79] IQ: Creating job 51023, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.175Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.668  5817  6018 I Finsky:background: [79] IQ: Creating job 51024, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.189Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.668  5817  6018 I Finsky:background: [79] IQ: Creating job 51025, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, IGNORE_HOLDOFF=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-06-24T20:31:34.178Z-2026-06-24T23:00:00Z], AUTHENTICATION_REQUIRED)
+06-25 03:15:16.669  5817  6018 I Finsky:background: [79] IQ: Bulk scheduling created jobs
+06-25 03:15:16.671  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-50994, Constraints: [{ L: 0, D: 2683353, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.697  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-50995, Constraints: [{ L: 0, D: 2683352, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.699  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-50996, Constraints: [{ L: 0, D: 2683351, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.700  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-50997, Constraints: [{ L: 0, D: 2683350, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.700  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-50998, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.701  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-50999, Constraints: [{ L: 0, D: 2683348, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.702  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51000, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.702  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51001, Constraints: [{ L: 0, D: 2683347, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.703  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51002, Constraints: [{ L: 0, D: 2683347, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.703  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51003, Constraints: [{ L: 0, D: 2683346, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.704  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51004, Constraints: [{ L: 0, D: 2683345, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.705  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51005, Constraints: [{ L: 0, D: 2683344, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.706  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51006, Constraints: [{ L: 0, D: 2683343, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.707  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51007, Constraints: [{ L: 0, D: 2683342, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.707  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51008, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.708  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51009, Constraints: [{ L: 0, D: 2683341, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.708  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51010, Constraints: [{ L: 0, D: 2683341, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.709  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51011, Constraints: [{ L: 0, D: 2683340, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.709  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51012, Constraints: [{ L: 0, D: 2683340, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.710  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51013, Constraints: [{ L: 0, D: 2683339, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.711  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51014, Constraints: [{ L: 0, D: 2683338, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.712  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51015, Constraints: [{ L: 0, D: 2683338, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.712  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51016, Constraints: [{ L: 0, D: 2683337, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.713  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51017, Constraints: [{ L: 0, D: 2683337, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.714  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51018, Constraints: [{ L: 0, D: 2683336, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.715  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51019, Constraints: [{ L: 0, D: 2683335, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.715  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51020, Constraints: [{ L: 0, D: 2683335, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.716  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51021, Constraints: [{ L: 0, D: 2683334, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.716  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51022, Constraints: [{ L: 0, D: 2683333, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.717  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51023, Constraints: [{ L: 0, D: 2683333, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.717  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51024, Constraints: [{ L: 0, D: 2683332, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.718  5817  6018 I Finsky:background: [79] SCH: Received scheduling request: Id: 3-51025, Constraints: [{ L: 0, D: 2683332, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.722  6208  6208 W System  : ClassLoader referenced unknown path: /system/framework/mediatek-cta.jar
+06-25 03:15:16.723  6208  6208 W CtaManagerFactory: CtaManagerFactoryImpl not found
+06-25 03:15:16.734   941  6294 I resolv  : GetAddrInfoHandler::run: {0 262144 0 983040 10108 0}
+06-25 03:15:16.757  5817  5989 I Finsky:background: [68] SSM: Start staged session task with 0 tracked staged sessions
+06-25 03:15:16.765  1689  1971 I ActivityManager: Force stopping com.vexel.arcadetrio appid=10552 user=0: start instr
+06-25 03:15:16.769  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-50994
+06-25 03:15:16.770  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-50995
+06-25 03:15:16.770  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-50996
+06-25 03:15:16.770  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-50997
+06-25 03:15:16.770  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-50998
+06-25 03:15:16.770  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-50999
+06-25 03:15:16.770  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51000
+06-25 03:15:16.772  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51001
+06-25 03:15:16.772  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51002
+06-25 03:15:16.772  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51003
+06-25 03:15:16.772  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51004
+06-25 03:15:16.772  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51005
+06-25 03:15:16.772  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51006
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51007
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51008
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51009
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51010
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51011
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51012
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51013
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51014
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51015
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51016
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51017
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51018
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51019
+06-25 03:15:16.773  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51020
+06-25 03:15:16.774  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51021
+06-25 03:15:16.774  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51022
+06-25 03:15:16.774  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51023
+06-25 03:15:16.774  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51024
+06-25 03:15:16.774  5817  5959 I Finsky:background: [59] WM::SCH: Logging work initialize for 3-51025
+06-25 03:15:16.778   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039764,0.000040, totalTime 0.039806 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.783  1689  1744 I ActivityManager: Start proc 6295:com.vexel.arcadetrio/u0a552 for added application com.vexel.arcadetrio
+06-25 03:15:16.787  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50994, CT: 1782339316671, Constraints: [{ L: 0, D: 2683353, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.788  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50995, CT: 1782339316698, Constraints: [{ L: 0, D: 2683352, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.788  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50996, CT: 1782339316699, Constraints: [{ L: 0, D: 2683351, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.788  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50997, CT: 1782339316700, Constraints: [{ L: 0, D: 2683350, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.788  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50998, CT: 1782339316701, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.788  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-50999, CT: 1782339316701, Constraints: [{ L: 0, D: 2683348, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.788  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51000, CT: 1782339316702, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.788  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51001, CT: 1782339316703, Constraints: [{ L: 0, D: 2683347, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.789  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51002, CT: 1782339316703, Constraints: [{ L: 0, D: 2683347, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.789  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51003, CT: 1782339316704, Constraints: [{ L: 0, D: 2683346, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.789  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51004, CT: 1782339316705, Constraints: [{ L: 0, D: 2683345, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.789  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51005, CT: 1782339316706, Constraints: [{ L: 0, D: 2683344, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.789  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51006, CT: 1782339316706, Constraints: [{ L: 0, D: 2683343, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.789  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51007, CT: 1782339316707, Constraints: [{ L: 0, D: 2683342, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.789  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51008, CT: 1782339316707, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.789  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51009, CT: 1782339316708, Constraints: [{ L: 0, D: 2683341, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.790  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51010, CT: 1782339316709, Constraints: [{ L: 0, D: 2683341, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.790  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51011, CT: 1782339316709, Constraints: [{ L: 0, D: 2683340, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.790  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51012, CT: 1782339316710, Constraints: [{ L: 0, D: 2683340, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.790  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51013, CT: 1782339316710, Constraints: [{ L: 0, D: 2683339, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.790  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51014, CT: 1782339316711, Constraints: [{ L: 0, D: 2683338, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.790  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51015, CT: 1782339316712, Constraints: [{ L: 0, D: 2683338, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.790  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51016, CT: 1782339316713, Constraints: [{ L: 0, D: 2683337, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.791  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51017, CT: 1782339316713, Constraints: [{ L: 0, D: 2683337, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.791  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51018, CT: 1782339316714, Constraints: [{ L: 0, D: 2683336, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.791  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51019, CT: 1782339316715, Constraints: [{ L: 0, D: 2683335, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.792  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51020, CT: 1782339316716, Constraints: [{ L: 0, D: 2683335, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.792  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51021, CT: 1782339316716, Constraints: [{ L: 0, D: 2683334, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.792  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51022, CT: 1782339316717, Constraints: [{ L: 0, D: 2683333, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.792  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51023, CT: 1782339316717, Constraints: [{ L: 0, D: 2683333, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.792  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51024, CT: 1782339316717, Constraints: [{ L: 0, D: 2683332, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.792  5817  5989 I Finsky:background: [68] SCH: Scheduling phonesky job Id: 3-51025, CT: 1782339316718, Constraints: [{ L: 0, D: 2683332, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+06-25 03:15:16.798  5817  5982 I Finsky:background: [65] SCH: Scheduling 1 system job(s)
+06-25 03:15:16.799  6295  6295 I exel.arcadetrio: Late-enabling -Xcheck:jni
+06-25 03:15:16.800  5817  5982 I Finsky:background: [65] SCH: Scheduling system job Id: 10093, L: 0, D: 2683226, C: false, I: true, N: 2
+06-25 03:15:16.818   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039402,0.000056, totalTime 0.039460 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.829  6295  6295 I exel.arcadetrio: Using generational CollectorTypeCC GC.
+06-25 03:15:16.831  1689  1725 W PackageManager: Unable to load service info ResolveInfo{83f43f5 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+06-25 03:15:16.838 19181 19190 I adbd    : jdwp connection from 6295
+06-25 03:15:16.858   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039548,0.000061, totalTime 0.039609 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.900   957  1423 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:2.000618,dur:1499.54,max:500.13,min:499.39  
+06-25 03:15:16.900  1188  1188 I thermal_repeater: [recvMdThermalInfo] ret=33, strLen=127,  2, 32767, -127, 113, 32767, 4046
+06-25 03:15:16.911 10065 10467 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+06-25 03:15:16.918   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039745,0.000055, totalTime 0.039802 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.929   941  6311 I resolv  : GetAddrInfoHandler::run: {0 786432 0 983040 10115 0}
+06-25 03:15:16.933 18495  6077 W jwoa    : [{0}] Failed to resolve name. status={1}
+06-25 03:15:16.958   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039687,0.000066, totalTime 0.039754 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:16.968 10065 10467 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+06-25 03:15:17.007  4062  6831 I VASDK-AiConnectionClient: send:{"business":"hw","function":"appsChanged","params":{"language":0,"apps":{"com.avanza.ambitwizfbl":"Faysal DigiBank","com.transsion.magicshow":"Visha P......":"Ella","com.auravion.strikefall":"Strikefall"}}}
+06-25 03:15:17.010  4062  6831 I VASDK-Service: [4.0.0.039]message from [com.transsion.aivoiceassistant-4.0.0.039]:{"business":"hw","function":"appsChanged","params":{"language":0,"apps":{"com.avanza.ambitwizfbl":"Faysal DigiBank","com.transsion.magicshow":"Visha P......":"Ella","com.auravion.strikefall":"Strikefall"}}}
+06-25 03:15:17.029  1689  1725 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+06-25 03:15:17.029  1689  1725 W TextServicesManagerService: no available spell checker services found
+06-25 03:15:17.038   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000003,0.039675,0.000049, totalTime 0.039727 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.098   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039749,0.000044, totalTime 0.039795 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.103  2391  2391 E Athena  : ------------------------------------------------------------
+06-25 03:15:17.103  2391  2391 E Athena  : 
+06-25 03:15:17.103  2391  2391 E Athena  : Athena is in DEBUG or TEST mode, should not release this APK [com.transsion.multiwindow]
+06-25 03:15:17.103  2391  2391 E Athena  : 
+06-25 03:15:17.103  2391  2391 E Athena  : ------------------------------------------------------------
+06-25 03:15:17.138   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039557,0.000047, totalTime 0.039605 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.178   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039674,0.000058, totalTime 0.039733 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.187  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{5c6c036 com.funbase.xradio}
+06-25 03:15:17.207  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.217  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.218   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039562,0.000056, totalTime 0.039619 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.258   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039654,0.000049, totalTime 0.039703 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.309  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{a9196 com.transsion.healthlife}
+06-25 03:15:17.316  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.323  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.332  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{cabbb34 com.transsion.hilauncher}
+06-25 03:15:17.336  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.338   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039680,0.000066, totalTime 0.039748 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.340  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.378   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039656,0.000047, totalTime 0.039703 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.400   979   979 I BufferQueueProducer: [org.amanahquran.app/org.amanahquran.app.MainActivity#2015](this:0xb4000079b3d94e78,id:-1,api:0,p:-1,c:979) queueBuffer: fps=2.00 dur=1501.54 max=501.84 min=499.55
+06-25 03:15:17.418   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039620,0.000072, totalTime 0.039693 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.424  5855  5964 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-25 03:15:17.427  5855  5964 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+06-25 03:15:17.459  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{f6c2e3d com.magiconnect.tcast}
+06-25 03:15:17.464  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.468  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.496  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{2dbb865 invo8.meezan.mb}
+06-25 03:15:17.501  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.505  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.518   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039846,0.000109, totalTime 0.039956 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.574   968  1051 I libPerfCtl: xgfGetFPS pid:29998 fps:-1
+06-25 03:15:17.580  1689  1901 I BaseFilesVerify: Base File verify start
+06-25 03:15:17.581  1689  1901 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xml
+06-25 03:15:17.582  1689  1901 W BaseXMLFilesVerify: format is normal
+06-25 03:15:17.582  1689  1901 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-25 03:15:17.578  1689  1689 W ackgroundThread: type=1400 audit(0.0:31456): avc: denied { ioctl } for path="/data/misc_de/0/apexdata/com.android.permission/roles.xml" dev="dm-42" ino=2686672 ioctlcmd=0x6685 scontext=u:r:system_server:s0 tcontext=u:object_r:apex_system_server_data_file:s0 tclass=file permissive=0
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: roles.xmlsetup fs failed
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xml: Permission denied
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:58)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-25 03:15:17.583  1689  1901 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-25 03:15:17.586  1689  1901 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xmlsecnew.bak
+06-25 03:15:17.586  1689  1901 W BaseXMLFilesVerify: format is normal
+06-25 03:15:17.586  1689  1901 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-25 03:15:17.598   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039832,0.000068, totalTime 0.039902 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.602  1689  1689 W ackgroundThread: type=1400 audit(0.0:31457): avc: denied { ioctl } for path="/data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak" dev="dm-42" ino=2822366 ioctlcmd=0x6685 scontext=u:r:system_server:s0 tcontext=u:object_r:apex_system_server_data_file:s0 tclass=file permissive=0
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: roles.xmlsec.baksetup fs failed
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak: Permission denied
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:81)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-25 03:15:17.606  1689  1901 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-25 03:15:17.609  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{8714d45 com.transsion.magicshow}
+06-25 03:15:17.615  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.619  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.647  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{4953bbb com.transsnet.store}
+06-25 03:15:17.653  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.657  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.658   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039766,0.000046, totalTime 0.039814 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.686  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{62a20dd com.Neurononfire.SupremeDuelist}
+06-25 03:15:17.688 10065 10467 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+06-25 03:15:17.692  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.696  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.698   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039637,0.000061, totalTime 0.039699 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.704  1689  1725 W PackageManager: Unable to load service info ResolveInfo{864802 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+06-25 03:15:17.720  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{f17ff49 com.YoBroStudios.MergeSpinner}
+06-25 03:15:17.726  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.731  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.738   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039587,0.000067, totalTime 0.039655 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.743  2335  2353 W sion.hilauncher: Reducing the number of considered missed Gc histogram windows from 247 to 100
+06-25 03:15:17.751  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{6e6d85f com.YsoCorp.MobileRun}
+06-25 03:15:17.756  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.760  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.770  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{819abe5 com.YsoCorp.NinjaHands}
+06-25 03:15:17.776  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.778   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000003,0.039564,0.000048, totalTime 0.039615 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.781  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.789  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{c03735b com.YsoCorp.TVInvasion}
+06-25 03:15:17.793  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.796  1689  1725 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+06-25 03:15:17.797  1689  1725 W TextServicesManagerService: no available spell checker services found
+06-25 03:15:17.803  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.817  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{1e5cf27 com.aiswei.international}
+06-25 03:15:17.818   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039624,0.000054, totalTime 0.039679 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.821  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.825  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.901   957  1423 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.996867,dur:1001.57,max:501.92,min:499.65  
+06-25 03:15:17.906   941  6314 I resolv  : GetAddrInfoHandler::run: {0 0 0 983040 10367 0}
+06-25 03:15:17.918   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039715,0.000051, totalTime 0.039768 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.924  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{6d045a5 com.auravion.strikefall}
+06-25 03:15:17.928  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.932  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.953  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{1908a91 com.base.bankalfalah}
+06-25 03:15:17.958   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039632,0.000055, totalTime 0.039688 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:17.959  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.963  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:17.993  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{e612839 com.daraz.android}
+06-25 03:15:17.998  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.003  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.018   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000003,0.039825,0.000031, totalTime 0.039860 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.039  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{492561d com.entertainerasia.vouch365}
+06-25 03:15:18.043  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.047  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.058   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039679,0.000032, totalTime 0.039712 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.085  1689  1689 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio.test, user:UserHandle{0}, action:android.intent.action.PACKAGE_ADDED
+06-25 03:15:18.086  1689  1725 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+06-25 03:15:18.098   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039633,0.000035, totalTime 0.039669 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.138   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039726,0.000055, totalTime 0.039782 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.152  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{8d84fc1 com.feioou.deliprint.yxq}
+06-25 03:15:18.159  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.167  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.180  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{1cac797 com.fun.mxw}
+06-25 03:15:18.183  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.187  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.198   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039784,0.000052, totalTime 0.039838 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.221  1689  1725 W PackageManager: Unable to load service info ResolveInfo{9a518ad com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+06-25 03:15:18.253  6295  6295 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+06-25 03:15:18.259  6295  6295 I AndroidJUnitRunner: newApplication android.app.Application
+06-25 03:15:18.266  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{d13dd77 com.google.android.apps.enterprise.cpanel}
+06-25 03:15:18.271  1689  1701 I system_server: Background young concurrent copying GC freed 20MB AllocSpace bytes, 29(580KB) LOS objects, 21% free, 84MB/107MB, paused 675us,676us total 133.691ms
+06-25 03:15:18.277  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.282  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.327  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{8599a7b com.higames.grounddigger}
+06-25 03:15:18.327  6295  6295 I AndroidJUnitRunner: onCreate Bundle[EMPTY_PARCEL]
+06-25 03:15:18.335  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.341  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.345  5855  5964 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+06-25 03:15:18.350  5855  5964 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+06-25 03:15:18.421  6295  6295 I MSYNC3-VariableRefreshRate: Variable refreshrate is disabled
+06-25 03:15:18.454  6295  6316 I TestRequestBuilder: Scanning classpath to find tests in paths [/data/app/~~DZ_zZxvVUO6t5hg2fzUVLw==/com.vexel.arcadetrio.test-ieEUghDqwvGMBAYfSJekXQ==/base.apk]
+06-25 03:15:18.455  6295  6316 W exel.arcadetrio: Opening an oat file without a class loader. Are you using the deprecated DexFile APIs?
+06-25 03:15:18.458   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039814,0.000066, totalTime 0.039882 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.488  1689  1725 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+06-25 03:15:18.489  1689  1725 W TextServicesManagerService: no available spell checker services found
+06-25 03:15:18.501  1689  1901 I BaseFilesVerify: Base File verify start
+06-25 03:15:18.502  1689  1901 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xml
+06-25 03:15:18.502  1689  1689 W ackgroundThread: type=1400 audit(0.0:31458): avc: denied { ioctl } for path="/data/misc_de/0/apexdata/com.android.permission/roles.xml" dev="dm-42" ino=2686547 ioctlcmd=0x6685 scontext=u:r:system_server:s0 tcontext=u:object_r:apex_system_server_data_file:s0 tclass=file permissive=0
+06-25 03:15:18.504  1689  1901 W BaseXMLFilesVerify: format is normal
+06-25 03:15:18.504  1689  1901 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: roles.xmlsetup fs failed
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xml: Permission denied
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:58)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-25 03:15:18.504  1689  1901 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-25 03:15:18.509  1689  1901 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xmlsecnew.bak
+06-25 03:15:18.512  1689  1901 W BaseXMLFilesVerify: format is normal
+06-25 03:15:18.512  1689  1901 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+06-25 03:15:18.522  1689  1689 W ackgroundThread: type=1400 audit(0.0:31459): avc: denied { ioctl } for path="/data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak" dev="dm-42" ino=2797145 ioctlcmd=0x6685 scontext=u:r:system_server:s0 tcontext=u:object_r:apex_system_server_data_file:s0 tclass=file permissive=0
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: roles.xmlsec.baksetup fs failed
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak: Permission denied
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:81)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+06-25 03:15:18.524  1689  1901 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-25 03:15:18.574   968  1051 I libPerfCtl: xgfGetFPS pid:29998 fps:-1
+06-25 03:15:18.577  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{e329409 com.jazz.rox}
+06-25 03:15:18.589  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.603  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.636  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{a08c144 com.kaerosduplicatescleaner}
+06-25 03:15:18.644  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.652  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.658   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039637,0.000056, totalTime 0.039696 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.798   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039715,0.000090, totalTime 0.039807 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.854  6295  6316 I TestRunner: run started: 6 tests
+06-25 03:15:18.856  6295  6316 I TestRunner: ignored: com.vexel.arcadetrio.BackNavigationTest
+06-25 03:15:18.858   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039891,0.000063, totalTime 0.039955 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.863  6295  6316 I TestRunner: started: testChallengeUpdates(com.vexel.arcadetrio.ChallengeUpdateTest)
+06-25 03:15:18.898   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039517,0.000044, totalTime 0.039562 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.900   979   979 I BufferQueueProducer: [org.amanahquran.app/org.amanahquran.app.MainActivity#2015](this:0xb4000079b3d94e78,id:-1,api:0,p:-1,c:979) queueBuffer: fps=2.00 dur=1499.56 max=500.11 min=499.69
+06-25 03:15:18.902   957  1423 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.999395,dur:1000.30,max:500.58,min:499.72  
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.auravion.strikefall' not found Error while validating document (android$apps-db/apps, com.auravion.strikefall)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.auravion.strikefall' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found Error while validating document (android$apps-db/apps, com.appfactory.generated.app)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found Error while validating document (android$apps-db/apps, com.YoBroStudios.MergeSpinner)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found Error while validating document (android$apps-db/apps, com.easyui.launcher.debug)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.blood.sugar.pressure.monitor.app' not found Error while validating document (android$apps-db/apps, com.blood.sugar.pressure.monitor.app)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.blood.sugar.pressure.monitor.app' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.stackdrop' not found Error while validating document (android$apps-db/apps, com.vexel.stackdrop)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.stackdrop' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.scalpelstudios.snapscanpro' not found Error while validating document (android$apps-db/apps, com.scalpelstudios.snapscanpro)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.scalpelstudios.snapscanpro' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found Error while validating document (android$apps-db/apps, com.easyui.core)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found Error while validating document (android$apps-db/apps, org.amanahquran.app)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found Error while validating document (android$apps-db/apps, com.xre.privatequest)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.guardianlauncher' not found Error while validating document (android$apps-db/apps, com.easyui.guardianlauncher)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.guardianlauncher' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found Error while validating document (android$apps-db/apps, com.jazz.rox)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found Error while validating document (android$apps-db/apps, io.supercent.linkedcubic)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found
+06-25 03:15:18.949  1689  3740 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found Error while validating document (android$apps-db/apps, com.vexel.pulseorbit)
+06-25 03:15:18.949  1689  3740 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.guardianlauncher' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.scalpelstudios.snapscanpro' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.stackdrop' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.blood.sugar.pressure.monitor.app' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.auravion.strikefall' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found
+06-25 03:15:18.950  1689  3745 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found
+06-25 03:15:18.958  1689  3745 W libc    : Access denied finding property "ro.bootimage.build.fingerprint"
+06-25 03:15:18.954  1689  1689 W pool-23-thread-: type=1400 audit(0.0:31460): avc: denied { read } for name="u:object_r:build_bootimage_prop:s0" dev="tmpfs" ino=1242 scontext=u:r:system_server:s0 tcontext=u:object_r:build_bootimage_prop:s0 tclass=file permissive=0
+06-25 03:15:18.978   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039664,0.000044, totalTime 0.039709 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:18.981  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{b4552d1 com.lensmoo.app}
+06-25 03:15:18.989  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:18.993  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.044  1689  4542 I ActivityManager: Killing 5462:com.android.chrome/u0a138 (adj 985): empty for 4s
+06-25 03:15:19.056  1689  1744 I ActivityManager: Start proc 6327:com.google.android.documentsui/u0a57 for broadcast {com.google.android.documentsui/com.android.documentsui.PackageReceiver}
+06-25 03:15:19.058   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039791,0.000063, totalTime 0.039856 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:19.078  6327  6327 W main    : type=1400 audit(0.0:31461): avc: denied { read } for name="u:object_r:vendor_memfusion_size_prop:s0" dev="tmpfs" ino=1570 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_size_prop:s0 tclass=file permissive=0 app=com.google.android.documentsui
+06-25 03:15:19.078  6327  6327 W main    : type=1400 audit(0.0:31462): avc: denied { read } for name="u:object_r:vendor_memfusion_state_prop:s0" dev="tmpfs" ino=1571 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_state_prop:s0 tclass=file permissive=0 app=com.google.android.documentsui
+06-25 03:15:19.078  6327  6327 W main    : type=1400 audit(0.0:31463): avc: denied { read } for name="u:object_r:vendor_memfusion_tranlog_prop:s0" dev="tmpfs" ino=1573 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_tranlog_prop:s0 tclass=file permissive=0 app=com.google.android.documentsui
+06-25 03:15:19.078  6327  6327 W main    : type=1400 audit(0.0:31464): avc: denied { read } for name="u:object_r:vendor_memfusion_ui_enable_prop:s0" dev="tmpfs" ino=1574 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_ui_enable_prop:s0 tclass=file permissive=0 app=com.google.android.documentsui
+06-25 03:15:19.084  1689  1725 W BaseFilesVerify: runtime-permissions.xmlis not in fileProtect list,can not protect this file
+06-25 03:15:19.082  6327  6327 W main    : type=1400 audit(0.0:31465): avc: denied { read } for name="u:object_r:vendor_uxcompaction_enable_prop:s0" dev="tmpfs" ino=1819 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_uxcompaction_enable_prop:s0 tclass=file permissive=0 app=com.google.android.documentsui
+06-25 03:15:19.087  6327  6327 I oid.documentsui: Using generational CollectorTypeCC GC.
+06-25 03:15:19.112  1689  1748 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-25 03:15:19.115   942   942 I Zygote  : Process 5462 exited due to signal 9 (Killed)
+06-25 03:15:19.117  1689  4542 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.android.chrome/com.android.chrome pid=5462 state:3
+06-25 03:15:19.117  1689  4542 I game_scn: collectForegroundAppList packName=com.android.chrome, actName=com.android.chrome, pid=5462, uid=10138, state:DEAD
+06-25 03:15:19.118  1689  1745 I libprocessgroup: Successfully killed process cgroup uid 10138 pid 5462 in 72ms
+06-25 03:15:19.118  1689  4542 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 29998, packname: org.amanahquran.app, actname: org.amanahquran.app.MainActivity
+06-25 03:15:19.119   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.android.chrome, act:com.android.chrome, state:3, pid:5462, uid:10138, fps:-1
+06-25 03:15:19.119   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.android.chrome, pid:5462, STATE_DEAD
+06-25 03:15:19.126  1689  3740 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-25 03:15:19.127  1689  3740 W AppSearchResult: Converting throwable to failed result.
+06-25 03:15:19.127  1689  3740 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaWithChangeNotificationNoGetSchemaLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:76)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:90)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+06-25 03:15:19.127  1689  3740 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: Failed to setSchema in batch due to invalid schema.
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:488)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+06-25 03:15:19.128  1689  3745 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+06-25 03:15:19.130  1689  1748 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-25 03:15:19.133  1689  1748 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-25 03:15:19.158   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039709,0.000032, totalTime 0.039743 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:19.163  6327  6327 W oid.documentsui: Failed to find entry 'classes.dex': Entry not found
+06-25 03:15:19.168  1689  3740 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+06-25 03:15:19.169  1689  3740 W AppSearchResult: Converting throwable to failed result.
+06-25 03:15:19.169  1689  3740 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaWithChangeNotificationNoGetSchemaLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:76)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:90)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+06-25 03:15:19.169  1689  3740 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: Skipping invalid schemas for package: com.google.android.apps.adm
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:588)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+06-25 03:15:19.170  1689  3745 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+06-25 03:15:19.195  6327  6327 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+06-25 03:15:19.199  4000  4373 W Parcel  : **** enforceInterface() expected 'com.transsion.hubsdk.uxdetector.ITranUxDetectorService' but read 'com.transsion.trancare.handler.uxdetector.IUxDetectorService'
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: getAppsArrayRecommend: 
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: java.lang.SecurityException: Binder invocation to an incorrect interface
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3021)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at android.os.Parcel.createException(Parcel.java:3005)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at android.os.Parcel.readException(Parcel.java:2988)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at android.os.Parcel.readException(Parcel.java:2930)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at gc.o$a$a.a(SourceFile:72)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at com.transsion.griffin.core.StateImpl.getAppsArrayRecommend(SourceFile:13)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at f.a.a(SourceFile:1165)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at f.a.g(SourceFile:87)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at f.a.b(SourceFile:61)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at f.a.b(SourceFile:2)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at f.a$d.handleMessage(SourceFile:281)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at android.os.Looper.loopOnce(Looper.java:204)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at android.os.Looper.loop(Looper.java:291)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+06-25 03:15:19.201  1689  1735 E Griffin/StateProvider: 	at com.android.server.ServiceThread.run(ServiceThread.java:44)
+06-25 03:15:19.203  1689  3740 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-25 03:15:19.204  1689  3740 W AppSearchResult: Converting throwable to failed result.
+06-25 03:15:19.204  1689  3740 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaWithChangeNotificationNoGetSchemaLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:76)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:90)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+06-25 03:15:19.204  1689  3740 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: Skipping invalid schemas for package: com.google.android.apps.wellbeing
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:588)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+06-25 03:15:19.205  1689  3745 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+06-25 03:15:19.214  6327  6344 W ThemeOverlayManager: Skip enabled overlay package:com.google.android.overlay.modules.documentsui, user:UserHandle{0}
+06-25 03:15:19.218   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039849,0.000051, totalTime 0.039902 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:19.221  6327  6327 W libc    : Access denied finding property "vendor.transsion.scroll_adjust.support"
+06-25 03:15:19.227  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{23a556 com.pg.pharmaguide}
+06-25 03:15:19.228   941  6349 I resolv  : GetAddrInfoHandler::run: {0 786432 0 983040 10115 0}
+06-25 03:15:19.231  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.233 18495  6077 W jwoa    : [{0}] Failed to resolve name. status={1}
+06-25 03:15:19.235  1689  3366 W TranCloudEngine_F: This key = 1001000014 has registered!!!
+06-25 03:15:19.236  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.263  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{a8079d5 com.rushpro.clonemaster}
+06-25 03:15:19.268  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.273  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.302  1689  2458 I ActivityManager: Killing 4235:com.android.vending/u0a108 (adj 955): empty for 4s
+06-25 03:15:19.328  1689  1745 I libprocessgroup: Successfully killed process cgroup uid 10108 pid 4235 in 24ms
+06-25 03:15:19.332 18495  5919 W AppInstallOperation: FDL Migration::InstallIntentOperation by FDL Module [CONTEXT service_id=77 ]
+06-25 03:15:19.342  1689  2523 W ProcessStats: Tracking association SourceState{a5bcac7 com.google.android.gms/10115 BFgs #491948} whose proc state 4 is better than process ProcessState{dc828f4 com.android.vending/10108 pkg=com.android.vending (sub)} proc state 14 (11 skipped)
+06-25 03:15:19.356  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{1138bb com.silkbank.silkbankretail}
+06-25 03:15:19.363  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.371  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.405  5855  6054 I BaseFilesVerify: Base File verify start
+06-25 03:15:19.405  5855  6054 W BaseFilesVerify: the file protect is not available, open the cloud switch
+06-25 03:15:19.405  6295  6316 I TestRunner: finished: testChallengeUpdates(com.vexel.arcadetrio.ChallengeUpdateTest)
+06-25 03:15:19.410  3665  3665 I MediaServiceV2: Creating work for intent Intent { act=android.intent.action.PACKAGE_FULLY_REMOVED dat=package: flg=0x5000010 cmp=com.google.android.providers.media.module/com.android.providers.media.MediaServiceV2 (has extras) }
+06-25 03:15:19.411  6295  6316 I TestRunner: ignored: com.vexel.arcadetrio.GameplayDeviceSmokeTest
+06-25 03:15:19.411  3665  3665 I MediaServiceV2: Work enqueued for intent: Intent { act=android.intent.action.PACKAGE_FULLY_REMOVED dat=package: flg=0x5000010 cmp=com.google.android.providers.media.module/com.android.providers.media.MediaServiceV2 (has extras) }
+06-25 03:15:19.413  1689  3815 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.android.vending/com.android.vending pid=4235 state:3
+06-25 03:15:19.413  1689  3815 I game_scn: collectForegroundAppList packName=com.android.vending, actName=com.android.vending, pid=4235, uid=10108, state:DEAD
+06-25 03:15:19.413  1689  3815 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 29998, packname: org.amanahquran.app, actname: org.amanahquran.app.MainActivity
+06-25 03:15:19.414  6295  6316 I TestRunner: ignored: com.vexel.arcadetrio.LifecyclePauseTest
+06-25 03:15:19.415   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.android.vending, act:com.android.vending, state:3, pid:4235, uid:10108, fps:-1
+06-25 03:15:19.415   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.android.vending, pid:4235, STATE_DEAD
+06-25 03:15:19.417   942   942 I Zygote  : Process 4235 exited due to signal 9 (Killed)
+06-25 03:15:19.420  6295  6316 I TestRunner: ignored: com.vexel.arcadetrio.NavigationSmokeTest
+06-25 03:15:19.425  6295  6316 I TestRunner: ignored: com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+06-25 03:15:19.428  5855  6054 I BaseFilesVerify: Base File verify start
+06-25 03:15:19.428  5855  6054 W BaseFilesVerify: the file protect is not available, open the cloud switch
+06-25 03:15:19.432  6295  6316 I TestRunner: run finished: 1 tests, 0 failed, 5 ignored
+06-25 03:15:19.438  1689  1744 I ActivityManager: Start proc 6375:com.transsion.childmode/1000 for broadcast {com.transsion.childmode/com.transsion.childmode.receiver.ChildModeBroadcastReceiver}
+06-25 03:15:19.445  1689  1949 I ActivityManager: Force stopping com.vexel.arcadetrio appid=10552 user=0: finished inst
+06-25 03:15:19.445  1689  1949 I ActivityManager: Killing 6295:com.vexel.arcadetrio/u0a552 (adj 0): stop com.vexel.arcadetrio due to finished inst
+06-25 03:15:19.446  1689  1949 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.vexel.arcadetrio/com.vexel.arcadetrio pid=6295 state:3
+06-25 03:15:19.446  1689  1949 I game_scn: collectForegroundAppList packName=com.vexel.arcadetrio, actName=com.vexel.arcadetrio, pid=6295, uid=10552, state:DEAD
+06-25 03:15:19.446  1689  1949 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 29998, packname: org.amanahquran.app, actname: org.amanahquran.app.MainActivity
+06-25 03:15:19.450   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.vexel.arcadetrio, act:com.vexel.arcadetrio, state:3, pid:6295, uid:10552, fps:-1
+06-25 03:15:19.450   968  1066 I libPowerHal: [perfNotifyAppState] pack:com.vexel.arcadetrio, pid:6295, STATE_DEAD
+06-25 03:15:19.455  6208  6208 I app_process: System.exit called, status: 0
+06-25 03:15:19.455  6208  6208 I AndroidRuntime: VM exiting with result code 0.
+06-25 03:15:19.460  1689  1745 I libprocessgroup: Successfully killed process cgroup uid 10552 pid 6295 in 11ms
+06-25 03:15:19.477  6375  6375 I ssion.childmode: Using generational CollectorTypeCC GC.
+06-25 03:15:19.498   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000002,0.039695,0.000062, totalTime 0.039759 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:19.517  1689  1748 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+06-25 03:15:19.518 19181 19181 I adbd    : adbd service requested 'shell,v2,TERM=dumb:export ANDROID_LOG_TAGS=''; exec logcat '-d''
+06-25 03:15:19.520  3665  6390 I MediaServiceV2: Work initiated for action [ android.intent.action.PACKAGE_FULLY_REMOVED ]
+06-25 03:15:19.537 19181 19181 I adbd    : Remote process closed the socket (on MSG_PEEK)
+06-25 03:15:19.538   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039517,0.000063, totalTime 0.039581 > logTimeout 0.022000 TIMEOUT!!
+06-25 03:15:19.541   942   942 I Zygote  : Process 6295 exited due to signal 9 (Killed)
+06-25 03:15:19.562  3450 11213 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{31a8674 com.zhongxun.gps365}
+06-25 03:15:19.567  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.572  3450 11213 I TranIconHelper: Destory assetMAnager
+06-25 03:15:19.574   968  1051 I libPerfCtl: xgfGetFPS pid:29998 fps:-1
+06-25 03:15:19.578   950 18971 W AudioALSACaptureDataProviderNormal: readThread, latency_in_s,0.000001,0.039490,0.000071, totalTime 0.039562 > logTimeout 0.022000 TIMEOUT!!

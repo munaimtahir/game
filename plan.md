@@ -5,19 +5,28 @@ Scope: locked 3-game MVP only
 - Lane Drift
 - Stack Drop
 
+Authoritative product policy and scope now live in:
+
+- `LOCKED_DECISIONS.md`
+- `docs/product/*`
+
 ## Release Version Ledger
 
 ### Current ongoing release
-- `versionName`: `1.0.8`
-- `versionCode`: `8`
-- Status: current upload-ready build
+- `versionName`: `1.1.1`
+- `versionCode`: `11`
+- Status: crash-recovery upload candidate
+
+### Rollback note
+- The repository was temporarily rolled back to the `1.0.8` baseline for validation.
+- The upload target is now back on `1.1.1` after passing the release checks.
 
 ### Fixed items included in `1.0.8`
 - Added How-to-Play guidance for Pulse Orbit, Lane Drift, and Stack Drop.
 - Added tutorial-seen local persistence with manual replay access.
 - Improved local progression foundations for high scores, sessions, daily challenges, achievements, and stats.
 - Added arcade-style challenge, achievement, and progress UI updates using existing theme components.
-- Prepared the next Play Console upload version as `versionCode 8` / `versionName 1.0.8`.
+- Prepared the current Play Console upload version as `versionCode 11` / `versionName 1.1.1`.
 
 ### Fixed items included in `1.0.7`
 - Shared scaffold accessibility improvements
@@ -29,8 +38,14 @@ Scope: locked 3-game MVP only
 
 ### Next release rule
 - Always increment `versionCode` for the next Play Store upload.
-- Suggested next build after more fixes: `versionName` `1.0.9`, `versionCode` `9`.
-- Do not reuse `versionCode 8` for another upload, or Play Console will reject it as a duplicate/conflicting release.
+- Suggested next build after more fixes: `versionName` `1.1.2`, `versionCode` `12`.
+- Do not reuse `versionCode 11` for another upload, or Play Console will reject it as a duplicate/conflicting release.
+- Follow the dedicated crash-recovery checklist in [docs/RELEASE_1.1.0_CHECKLIST.md](docs/RELEASE_1.1.0_CHECKLIST.md).
+
+### Needs update next
+- Refresh `docs/PLAY_STORE_RELEASE.md` for the next upload.
+- Re-run unit and device checks after any reintroduced gameplay or UI changes.
+- Clean up stale generated artifacts if they are not part of the intended baseline.
 
 ## Completed
 
@@ -45,8 +60,8 @@ Scope: locked 3-game MVP only
 - Added a dedicated marketplace entry label/tag for clarity.
 
 ### Release and versioning
-- Bumped app release version to `versionCode 8`.
-- Bumped app release version name to `1.0.8`.
+- Bumped app release version to `versionCode 11`.
+- Bumped app release version name to `1.1.1`.
 - Updated release notes and Play Store prep docs to match the new release.
 - Release bundle verification is tracked in the final build report.
 
@@ -86,3 +101,4 @@ Scope: locked 3-game MVP only
   3. Per-game onboarding and playability polish
   4. Compact-device layout verification
 - Keep the UI bright, clean, and readable. Avoid clutter, noisy motion, and casino-like reward pressure.
+- For the `1.1.0` upload, treat launch-crash verification on a clean install as a hard gate before Play Console submission.

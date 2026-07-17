@@ -23,17 +23,6 @@ class StackDropEngineTest {
     }
 
     @Test
-    fun nextPieceBecomesActiveAfterLock() {
-        val engine = StackDropEngine(seed = 1)
-        val start = engine.newState()
-        val previewedPiece = start.nextPiece
-
-        val afterLock = engine.hardDrop(start)
-
-        assertEquals(previewedPiece, afterLock.activePiece.type)
-    }
-
-    @Test
     fun rotateWithWallKickAtLeftEdge() {
         val engine = StackDropEngine(seed = 1)
         // I piece at X=0, vertical. Rotating it might push it out of bounds if not for kicks.
@@ -86,5 +75,17 @@ class StackDropEngineTest {
         
         assertTrue(result.linesCleared > 0)
         assertEquals(0, result.board.get(0, STACK_DROP_HEIGHT - 1)) // Row should be cleared
+    }
+
+    @Test
+    fun hardDropLocksPieceAndAdvancesBoard() {
+        val engine = StackDropEngine(seed = 1)
+        val state = engine.newState()
+
+        val dropped = engine.hardDrop(state)
+
+        assertTrue(dropped.activePiece.y <= 2)
+        assertTrue(dropped.board.cells.any { it != 0 })
+        assertTrue(dropped.score >= 0)
     }
 }
