@@ -23,7 +23,9 @@ val releaseKeyAlias = releaseProp("keyAlias")
 val releaseKeyPassword = releaseProp("keyPassword")
 val admobAppId = providers.environmentVariable("ADMOB_APP_ID").orNull.orEmpty()
 val admobMarketplaceBannerAdUnitId = providers.environmentVariable("ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID").orNull.orEmpty()
-val premiumProductId = providers.environmentVariable("PLAY_PREMIUM_PRODUCT_ID").orNull ?: "offline_arcade_premium"
+val admobInterstitialAdUnitId = providers.environmentVariable("ADMOB_INTERSTITIAL_AD_UNIT_ID").orNull.orEmpty()
+val premiumProductId = providers.environmentVariable("PLAY_PREMIUM_PRODUCT_ID").orNull ?: "premium_lifetime"
+val allowReleaseTestAdmobIds = providers.environmentVariable("ALLOW_RELEASE_TEST_ADMOB_IDS").orNull == "true"
 val hasReleaseSigning =
     !releaseStoreFile.isNullOrBlank() &&
         !releaseStorePassword.isNullOrBlank() &&
@@ -38,11 +40,12 @@ android {
         applicationId = "com.vexel.arcadetrio"
         minSdk = 24
         targetSdk = 35
-        versionCode = 13
-        versionName = "1.1.3"
+        versionCode = 14
+        versionName = "1.1.4"
         manifestPlaceholders["admobAppId"] = admobAppId
         buildConfigField("String", "ADMOB_APP_ID", "\"$admobAppId\"")
         buildConfigField("String", "ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID", "\"$admobMarketplaceBannerAdUnitId\"")
+        buildConfigField("String", "ADMOB_INTERSTITIAL_AD_UNIT_ID", "\"$admobInterstitialAdUnitId\"")
         buildConfigField("String", "PLAY_PREMIUM_PRODUCT_ID", "\"$premiumProductId\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -86,9 +89,12 @@ android {
                 if (admobAppId.isBlank()) "ca-app-pub-3940256099942544~3347511713" else admobAppId
             val debugBannerId =
                 if (admobMarketplaceBannerAdUnitId.isBlank()) "ca-app-pub-3940256099942544/6300978111" else admobMarketplaceBannerAdUnitId
+            val debugInterstitialId =
+                if (admobInterstitialAdUnitId.isBlank()) "ca-app-pub-3940256099942544/1033173712" else admobInterstitialAdUnitId
             manifestPlaceholders["admobAppId"] = debugAdmobAppId
             buildConfigField("String", "ADMOB_APP_ID", "\"$debugAdmobAppId\"")
             buildConfigField("String", "ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID", "\"$debugBannerId\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_AD_UNIT_ID", "\"$debugInterstitialId\"")
         }
         getByName("release") {
             isMinifyEnabled = true
@@ -133,6 +139,21 @@ if (releaseTaskRequested && !hasReleaseSigning) {
             "Set storeFile/storePassword/keyAlias/keyPassword via key.properties " +
             "or environment variables."
     )
+}
+
+if (releaseTaskRequested) {
+    if (admobAppId.isBlank()) {
+        throw GradleException(
+            "Release AdMob app ID is required because Google Mobile Ads initializes from the manifest. " +
+                "Set ADMOB_APP_ID for production release builds."
+        )
+    }
+    if (!allowReleaseTestAdmobIds && admobAppId.startsWith("ca-app-pub-3940256099942544")) {
+        throw GradleException(
+            "Release builds must not use Google sample AdMob IDs. " +
+                "Set production ADMOB_APP_ID, or set ALLOW_RELEASE_TEST_ADMOB_IDS=true only for local validation artifacts."
+        )
+    }
 }
 
 dependencies {

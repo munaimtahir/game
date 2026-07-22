@@ -1,0 +1,731 @@
+--------- beginning of main
+07-18 04:55:09.184   758   758 I BufferQueueProducer: [com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher#227](this:0xb400006feacb6c58,id:-1,api:0,p:-1,c:758) queueBuffer: fps=0.92 dur=1081.98 max=1081.98 min=1081.98
+07-18 04:55:09.184  1466  1616 I InputReader: Reconfiguring input devices, changes=KEYBOARD_LAYOUTS | 
+07-18 04:55:09.185   731  1221 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:0.924253,dur:1081.95,max:1081.95,min:1081.95  
+07-18 04:55:09.192  3857  2744 I CacheManager:  save new data to cache pkg_change_event
+07-18 04:55:09.192  3857  2744 I bsc     : notifyDataChange in pkg_change_event, 1
+07-18 04:55:09.193  5191  5191 I Kolun.EventBusImpl:  dispatchEvent: com.transsion.kolun.assistant.common.components.event.PackageChangeEvent@a8a8e3
+07-18 04:55:09.195   758  1234 W VSyncPredictor: VSyncPredictor::setPeriod current period =16666667
+07-18 04:55:09.196  5191  5750 I Kolun.WidgetEventRegister:  onBusEvent:PackageChangedEvent, packageName: com.vexel.arcadetrio.test, actionType: android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.196  5191  5750 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+07-18 04:55:09.196  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.196  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.196  5191  5750 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 04:55:09.196  5191  5750 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 04:55:09.196  5191  5750 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+07-18 04:55:09.196  5191  5750 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+07-18 04:55:09.196  5191  5750 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+07-18 04:55:09.197  5191  5750 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+07-18 04:55:09.200  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{447e999: android.os.BinderProxy@682b2b1}
+07-18 04:55:09.202  1089  1128 I PermissionControllerServiceImpl: Updating user sensitive for uid 10565
+07-18 04:55:09.210  3199  3199 I Finsky  : [2] akad - Received: android.intent.action.PACKAGE_CHANGED, [ys8O1TXXIMWZPknjbG8d6kPtwf7zmEkjYt4zVSWS2Qo]
+07-18 04:55:09.212  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{121445e: android.os.BinderProxy@4f7db17}
+07-18 04:55:09.214  5191  5750 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+07-18 04:55:09.214  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+07-18 04:55:09.214 26615  5142 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-18 04:55:09.220  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+07-18 04:55:09.220  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.224  3857  2744 I DesktopAppsCollector: canLaunch count 0
+07-18 04:55:09.227 26615  5142 I Icing   : Indexing done com.google.android.gms-apps
+07-18 04:55:09.227  3857  2744 I DesktopAppsCollector: checkChange  com.vexel.arcadetrio.test, true, 3,  false, 131
+07-18 04:55:09.228  3199  3199 I Finsky  : [2] AIM: AppInfoCacheUpdater -> invalidating apps: [com.vexel.arcadetrio.test]
+07-18 04:55:09.228  3199  3199 I Finsky  : [2] AIM: AppInfoManager-Perf > getApps > called for 1 apps
+07-18 04:55:09.228  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 04:55:09.228  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.229 10485 10485 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:am instrument -r -w com.vexel.arcadetrio.test/androidx.test.runner.AndroidJUnitRunner'
+07-18 04:55:09.230  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 04:55:09.230  3199  3242 I Finsky  : [65] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.vexel.arcadetrio.test]
+07-18 04:55:09.230  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.230  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.230  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.230  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.230  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.230  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.230  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.231  3199  3238 I Finsky  : [63] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=1, cacheMissCount=0. Missed  in cache (limit 10) : []
+07-18 04:55:09.232  3199  3238 I Finsky  : [63] AIM: Got app ownership map. App counts: . Unique apps: 0
+07-18 04:55:09.232  3199  3238 E Finsky  : [63] [Counters] attempted to use a non-positive increment for: 4752
+07-18 04:55:09.235  3199  3238 I Finsky  : [63] AIM: Got app ownership map. App counts: . Unique apps: 0
+07-18 04:55:09.235  3199  3238 E Finsky  : [63] [Counters] attempted to use a non-positive increment for: 4752
+07-18 04:55:09.236  3199  3238 E Finsky  : [63] [Counters] attempted to use a non-positive increment for: 4753
+07-18 04:55:09.236  3199  3238 E Finsky  : [63] [Counters] attempted to use a non-positive increment for: 4753
+07-18 04:55:09.242 26615  2838 W AdvertisingIdSettings: Package com.google.android.apps.nbu.files failed Ad Id permission check. Apps that target Android SDK 33 or higher should declare com.google.android.gms.permission.AD_ID in the app manifest to access Ad Id.
+07-18 04:55:09.245  3199  3223 I Finsky  : [48] RECEIVER_PACKAGE_MONITOR#logWorkEndAndFinishGoAsync: SUCCESS
+07-18 04:55:09.245  2558  5181 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+07-18 04:55:09.258  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.258  5191  5750 I Kolun.WidgetEventRegister:  onBusEvent:WigAppChangeEvent, package : com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.259  5191  5750 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+07-18 04:55:09.259  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.259  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.259  5191  5750 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 04:55:09.259  5191  5750 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 04:55:09.259  5191  5750 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+07-18 04:55:09.259  5191  5750 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+07-18 04:55:09.259  5191  5750 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+07-18 04:55:09.259  5191  5750 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+07-18 04:55:09.268  1089  5177 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+07-18 04:55:09.271  1466  3469 I ActivityManager: isUserAMonkey mUserIsMonkey = false
+07-18 04:55:09.271  1466  3469 I ActivityTaskManager: isControllerAMonkey mController = null,mControllerIsAMonkey = false
+07-18 04:55:09.273  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{d1dad0c: android.os.BinderProxy@682b2b1}
+07-18 04:55:09.273  3380  3380 I Finsky:background: [2] ajzt - Received: android.intent.action.PACKAGE_CHANGED, [ys8O1TXXIMWZPknjbG8d6kPtwf7zmEkjYt4zVSWS2Qo]
+07-18 04:55:09.277 26615  2838 I AdvertisingIdClient: shouldSendLog 6166781
+07-18 04:55:09.277 26615  2838 I AdvertisingIdClient: GetInfoInternal elapse 105ms
+07-18 04:55:09.278  1089  5177 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+07-18 04:55:09.288  2558  5705 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+07-18 04:55:09.295  3380  3810 I Finsky:background: [67] RECEIVER_PACKAGE_MONITOR_BACKGROUND#logWorkEndAndFinishGoAsync: SUCCESS
+07-18 04:55:09.302  3199  3238 I Finsky  : [63] AIM: AppInfoManager-Perf > ItemModel > CacheSize=135, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=0. Missed  in cache (limit 10) : []
+07-18 04:55:09.305  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{3a48655: android.os.BinderProxy@4f7db17}
+07-18 04:55:09.306  5191  5750 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+07-18 04:55:09.306  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+07-18 04:55:09.312  3380  3795 I Finsky:background: [63] RECEIVER_ENGAGE_PACKAGE_CHANGED#logWorkEndAndFinishGoAsync: SKIPPED_PRECONDITIONS_UNMET
+07-18 04:55:09.314  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+07-18 04:55:09.314  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.318  3199  3236 I Finsky  : [61] AIM: AppInfoManager-Perf > ItemModel > CacheSize=135, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=0. Missed  in cache (limit 10) : []
+07-18 04:55:09.321  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 04:55:09.321  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.322  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 04:55:09.322  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.322  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.322  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.322  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.322  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.322  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.322  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.322  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:09.327  3380  3793 I Finsky:background: [62] Wrote row to frosting DB: 73906
+07-18 04:55:09.339  2761  2782 I hoffnung:remote: Background concurrent copying GC freed 1547KB AllocSpace bytes, 2(40KB) LOS objects, 49% free, 3311KB/6622KB, paused 100us,134us total 121.997ms
+07-18 04:55:09.342  3380  3793 I Finsky:background: [62] Wrote row to frosting DB: 73907
+07-18 04:55:09.365  3585  5097 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{640ddd com.zhongxun.gps365}
+07-18 04:55:09.372  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.374 26615  5142 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-18 04:55:09.375 26615  5142 I Icing   : Indexing done com.google.android.gms-apps
+07-18 04:55:09.380  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.380  2558  5705 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+07-18 04:55:09.400  3199  3199 W Finsky  : [2] STU: Failed to get storage stats for package 'com.google.android.scheduling' (1601: Error getting stats: android.content.pm.PackageManager.NameNotFoundException)
+07-18 04:55:09.406  1998  1998 I kolun_slot_ViewStub: executeRefresh: hashCode:158645793
+07-18 04:55:09.406  1998  1998 I kolun_slot_ViewStub: executeRefresh: action : 1
+07-18 04:55:09.406  1998  1998 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+07-18 04:55:09.406  1998  1998 I kolun_slot_ViewStub: realItemDataChange: hashCode:158645793 position:1
+07-18 04:55:09.406  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+07-18 04:55:09.406  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+07-18 04:55:09.407  1998  1998 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:33549319position:1
+07-18 04:55:09.407  1998  1998 I kolun_slot_ViewStub: executeRefresh: action : 1
+07-18 04:55:09.407  1998  1998 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+07-18 04:55:09.407  1998  1998 I kolun_slot_ViewStub: realItemDataChange: hashCode:158645793 position:1
+07-18 04:55:09.407  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+07-18 04:55:09.407  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+07-18 04:55:09.407  1998  1998 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:33549319position:1
+07-18 04:55:09.416  5377  5377 W TranVersion: THUBCore No support Call!!! method version = 33181, >>> ThubCore vserion = 33161
+07-18 04:55:09.416  5377  5377 W TranVersion:  mthod version must <= ThubCore version.
+07-18 04:55:09.416  5377  5377 W TranVersion:  ---java.lang.Throwable
+07-18 04:55:09.416  5377  5377 W TranVersion: #com.transsion.hubsdk.common.version.TranVersion.isIntegratedThubCore[64]
+07-18 04:55:09.416  5377  5377 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getService[0]
+07-18 04:55:09.416  5377  5377 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getBoolean[2]
+07-18 04:55:09.416  5377  5377 W TranVersion: #d.e.b.z.c.getBoolean[0]
+07-18 04:55:09.417  5377  5377 I TranSystemProperties: TranAospSystemProperties
+07-18 04:55:09.427  2558  5708 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+07-18 04:55:09.506  3585  5097 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{8bbd94e com.zong.customercare}
+07-18 04:55:09.513  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.521  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.528 26615  5142 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-18 04:55:09.530 26615  5142 I Icing   : Indexing done com.google.android.gms-apps
+07-18 04:55:09.629  3585  5097 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{564d12d dats.games.cardbattle}
+07-18 04:55:09.637  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.645  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.657  3199  3199 I Finsky  : [2] App states replicator found 46 unowned apps
+07-18 04:55:09.665  3301  3310 W ogle.android.as: Reducing the number of considered missed Gc histogram windows from 123 to 100
+07-18 04:55:09.674  3199  3236 I Finsky  : [61] AIM: AppInfoManager-Perf > getApps > data collection finished
+07-18 04:55:09.674  3199  3236 I Finsky  : [61] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 3
+07-18 04:55:09.675  3199  3236 I Finsky  : [61] AIM: AppInfoManager-Perf > getApps > data collection finished
+07-18 04:55:09.675  3199  3242 I Finsky  : [65] AIM: AppInfoManager-Perf > getApps > data collection finished
+07-18 04:55:09.675  3199  3236 I Finsky  : [61] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 2
+07-18 04:55:09.675  3199  3238 I Finsky  : [63] AIM: AppInfoManager-Perf > getApps > data collection finished
+07-18 04:55:09.675  3199  3238 I Finsky  : [63] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 1
+07-18 04:55:09.676  3199  3242 I Finsky  : [65] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 0
+07-18 04:55:09.704  5191  6266 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+07-18 04:55:09.705  5191  6266 I Kolun.SkillCard===:  skill card isNUll
+07-18 04:55:09.710  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.aivoiceassistant
+07-18 04:55:09.710  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.kolun.assistant
+07-18 04:55:09.710  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.microintelligence
+07-18 04:55:09.710  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.notebook
+07-18 04:55:09.710  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.phonemaster
+07-18 04:55:09.710  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+07-18 04:55:09.710  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+07-18 04:55:09.710  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+07-18 04:55:09.727  1466  1480 I system_server: Background concurrent copying GC freed 28MB AllocSpace bytes, 40(1124KB) LOS objects, 22% free, 80MB/104MB, paused 810us,456us total 818.379ms
+07-18 04:55:09.744  3585  5097 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{212840e it.medieval.blueftp}
+07-18 04:55:09.752   742   820 I libPerfCtl: xgfGetFPS pid:1775 fps:-1
+07-18 04:55:09.752   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 04:55:09.754  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.762  3199  3236 I Finsky  : [61] playLoggingServerUrl: https://play.googleapis.com/play/log
+07-18 04:55:09.762  3199  3236 I Finsky  : [61] playLoggingServerTimestampUrl: https://play.googleapis.com/play/log/timestamp
+07-18 04:55:09.768   758   758 I BufferQueueProducer: [StatusBar#88](this:0xb400006feac83838,id:-1,api:0,p:-1,c:758) queueBuffer: fps=0.20 dur=5001.72 max=5001.72 min=5001.72
+07-18 04:55:09.768  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.797  5191  6266 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+07-18 04:55:09.806  3199  3236 I Finsky  : [61] playLoggingServerUrl: https://play.googleapis.com/play/log
+07-18 04:55:09.806  3199  3236 I Finsky  : [61] playLoggingServerTimestampUrl: https://play.googleapis.com/play/log/timestamp
+07-18 04:55:09.806  5191  6266 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+07-18 04:55:09.809  3585  5097 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{20b3cb1 org.amanahquran.app}
+07-18 04:55:09.813  5191  6266 I Kolun.SkillCard====:  from catch list==19
+07-18 04:55:09.813  5191  6266 I Kolun.Card:  isAvailable mIsEnable: true , mIsActive  true
+07-18 04:55:09.813  5191  6266 W Kolun.Card:  SkillCard toggleStatusInner : enable == mIsEnable
+07-18 04:55:09.813  5191  6266 I Kolun.Card:  updateInner success: true
+07-18 04:55:09.815  5191  6257 I Kolun.CardClient:  execute update start18 CardUpdateRunnable
+07-18 04:55:09.815  5191  6257 I Kolun.SkillCard===:  card displayTimes=1073741823
+07-18 04:55:09.817  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:09.825  3585  5097 I TranIconHelper: Destory assetMAnager
+--------- beginning of system
+07-18 04:55:09.923  1466  1553 W PackageSettings: Skipping PackageSetting{9da5f78 sinet.startup.inDriver/10248} due to missing metadata
+07-18 04:55:09.925  1466  1553 W PackageSettings: Skipping PackageSetting{de7f6af com.easyui.guardianlauncher/10467} due to missing metadata
+07-18 04:55:09.925  1466  1553 W PackageSettings: Skipping PackageSetting{b238a45 com.YsoCorp.NinjaHands/10425} due to missing metadata
+07-18 04:55:09.925  1466  1553 W PackageSettings: Skipping PackageSetting{474ecb com.techlogix.mobilinkcustomer/10324} due to missing metadata
+07-18 04:55:09.927  1466  1553 W PackageSettings: Skipping PackageSetting{62d80bb com.StarLegion.EnergyFight/10423} due to missing metadata
+07-18 04:55:09.931  1466  1553 W PackageSettings: Skipping PackageSetting{c0e4c11 com.vexel.stackdrop/10274} due to missing metadata
+07-18 04:55:09.932  1466  1553 W PackageSettings: Skipping PackageSetting{369c176 com.YsoCorp.MobileRun/10223} due to missing metadata
+07-18 04:55:09.932  1466  1553 W PackageSettings: Skipping PackageSetting{1496be4 com.higames.grounddigger/10286} due to missing metadata
+07-18 04:55:09.932  1466  1553 W PackageSettings: Skipping PackageSetting{97ce013 com.rushpro.clonemaster/10298} due to missing metadata
+07-18 04:55:09.932  1466  1553 W PackageSettings: Skipping PackageSetting{8236250 com.fun.mxw/10233} due to missing metadata
+07-18 04:55:09.932  1466  1553 W PackageSettings: Skipping PackageSetting{60f8405 com.facebook.stella/10220} due to missing metadata
+07-18 04:55:09.933  1466  1553 W PackageSettings: Skipping PackageSetting{64f9b9 com.cuecall.app/10251} due to missing metadata
+07-18 04:55:09.933  1466  1553 W PackageSettings: Skipping PackageSetting{590ac44 com.vexel.stackdrop.test/10275} due to missing metadata
+07-18 04:55:09.933  1466  1553 W PackageSettings: Skipping PackageSetting{c0e48b0 magic.friends.rainbow/10224} due to missing metadata
+07-18 04:55:09.934  1466  1553 W PackageSettings: Skipping PackageSetting{ccecf9d com.lensmoo.app/10379} due to missing metadata
+07-18 04:55:09.967  2558  3397 E AuthPII : [RequestTokenManager] getToken() -> BAD_AUTHENTICATION. App: com.android.vending, Service: oauth2:https://www.googleapis.com/auth/googleplay
+07-18 04:55:09.967  2558  3397 E AuthPII : bjja: Long live credential not available.
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at ahme.a(:com.google.android.gms@262634029@26.26.34 (190400-945364269):1383)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at ahml.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):26)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at ahmj.a(:com.google.android.gms@262634029@26.26.34 (190400-945364269):661)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at ahmi.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):152)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at aayv.d(:com.google.android.gms@262634029@26.26.34 (190400-945364269):113)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at ahfv.getAuthToken(:com.google.android.gms@262634029@26.26.34 (190400-945364269):408)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at cqme.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):12)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at cdrb.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):169)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+07-18 04:55:09.967  2558  3397 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1245)
+07-18 04:55:09.969  2558  3397 E AuthPII : Message is Long live credential not available.
+07-18 04:55:09.969  2558  3397 E AuthPII : bjja: Long live credential not available.
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at ahme.a(:com.google.android.gms@262634029@26.26.34 (190400-945364269):1383)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at ahml.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):26)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at ahmj.a(:com.google.android.gms@262634029@26.26.34 (190400-945364269):661)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at ahmi.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):152)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at aayv.d(:com.google.android.gms@262634029@26.26.34 (190400-945364269):113)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at ahfv.getAuthToken(:com.google.android.gms@262634029@26.26.34 (190400-945364269):408)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at cqme.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):12)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at cdrb.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):169)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+07-18 04:55:09.969  2558  3397 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1245)
+07-18 04:55:09.974  5191  6257 I Kolun.CardClient:  host onCardUpdated kolun card 18
+07-18 04:55:09.974  5191  6257 I Kolun.CardClient:  execute update success18 CardUpdateRunnable
+07-18 04:55:09.974  5191  6257 I CardSettings: packageChanged: 
+07-18 04:55:09.976  5191  6257 E Kolun.PackageInfoUtils:  isAppExistAndEnabled NameNotFoundException -> pkg : com.transsion.wallet.tecno
+07-18 04:55:09.976  5191  6257 I WalletCardPretreatment: onReceivePackageChanged: isWalletAppEnable=false; stateChanged=false
+07-18 04:55:09.978  5191  6257 I MoverCardPretreatment: onReceivePackageChanged: isMobileClonerEnable = true; stateChanged = false
+07-18 04:55:09.986  5191  6257 I MemoryGalleryPretreatment: onReceivePackageChanged: stateChanged = false
+07-18 04:55:10.000  2558  3397 I Auth    : (REDACTED) [GetToken] GetToken failed for app=%s with userRecoverable status: %s 
+07-18 04:55:10.001  2558  3397 W Auth    : [ChimeraGetToken] exception while trying to fetch auth tokens for app=com.google.android.gsf, scope=oauth2:https://www.googleapis.com/auth/googleplay [CONTEXT service_id=153 ]
+07-18 04:55:10.001  2558  3397 W Auth    : ahmd: GetToken failed with status code and recovery intent: BadAuthentication
+07-18 04:55:10.001  2558  3397 W Auth    : 	at ahmi.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):353)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at aayv.d(:com.google.android.gms@262634029@26.26.34 (190400-945364269):113)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at ahfv.getAuthToken(:com.google.android.gms@262634029@26.26.34 (190400-945364269):408)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at cqme.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):12)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at cdrb.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):169)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+07-18 04:55:10.001  2558  3397 W Auth    : 	at android.os.Binder.execTransact(Binder.java:1245)
+07-18 04:55:10.001  2558  3397 W GLSActivity: [GmsAccountAuthenticatorImpl] error status while fetching token:BadAuthentication
+07-18 04:55:10.030  2558  3397 E AuthPII : [RequestTokenManager] getToken() -> BAD_AUTHENTICATION. App: com.android.vending, Service: oauth2:https://www.googleapis.com/auth/googleplay
+07-18 04:55:10.030  2558  3397 E AuthPII : bjja: Long live credential not available.
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahme.a(:com.google.android.gms@262634029@26.26.34 (190400-945364269):1383)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahml.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):26)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahmj.a(:com.google.android.gms@262634029@26.26.34 (190400-945364269):661)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahmi.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):152)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at aayv.d(:com.google.android.gms@262634029@26.26.34 (190400-945364269):113)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahfv.getAuthToken(:com.google.android.gms@262634029@26.26.34 (190400-945364269):408)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at cqme.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):12)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at cdrb.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):169)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1245)
+07-18 04:55:10.030  2558  3397 E AuthPII : Message is Long live credential not available.
+07-18 04:55:10.030  2558  3397 E AuthPII : bjja: Long live credential not available.
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahme.a(:com.google.android.gms@262634029@26.26.34 (190400-945364269):1383)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahml.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):26)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahmj.a(:com.google.android.gms@262634029@26.26.34 (190400-945364269):661)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahmi.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):152)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at aayv.d(:com.google.android.gms@262634029@26.26.34 (190400-945364269):113)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at ahfv.getAuthToken(:com.google.android.gms@262634029@26.26.34 (190400-945364269):408)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at cqme.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):12)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at cdrb.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):169)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+07-18 04:55:10.030  2558  3397 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1245)
+07-18 04:55:10.050  3585  5097 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{64c1a32 pk.xmed.smsapp}
+07-18 04:55:10.056  2558  3397 I Auth    : (REDACTED) [GetToken] GetToken failed for app=%s with userRecoverable status: %s 
+07-18 04:55:10.056  2558  3397 W Auth    : [ChimeraGetToken] exception while trying to fetch auth tokens for app=com.google.android.gsf, scope=oauth2:https://www.googleapis.com/auth/googleplay [CONTEXT service_id=153 ]
+07-18 04:55:10.056  2558  3397 W Auth    : ahmd: GetToken failed with status code and recovery intent: BadAuthentication
+07-18 04:55:10.056  2558  3397 W Auth    : 	at ahmi.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):353)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at aayv.d(:com.google.android.gms@262634029@26.26.34 (190400-945364269):113)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at ahfv.getAuthToken(:com.google.android.gms@262634029@26.26.34 (190400-945364269):408)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:246)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:242)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at cqme.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):12)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at android.os.Binder.transact(Binder.java:1165)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at cdrb.onTransact(:com.google.android.gms@262634029@26.26.34 (190400-945364269):169)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at android.os.Binder.execTransactInternal(Binder.java:1286)
+07-18 04:55:10.056  2558  3397 W Auth    : 	at android.os.Binder.execTransact(Binder.java:1245)
+07-18 04:55:10.056  2558  3397 W GLSActivity: [GmsAccountAuthenticatorImpl] error status while fetching token:BadAuthentication
+07-18 04:55:10.057  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:10.065  3585  5097 I TranIconHelper: Destory assetMAnager
+07-18 04:55:10.074  3585  5097 I SmartPanel_SmartPanelPresenter1: getAllAppInfo finished
+07-18 04:55:10.089  3585  5097 I SmartPanel_PackageReceiver1: packageRemove pkgName = com.vexel.arcadetrio
+07-18 04:55:10.090  1466  1502 W PackageManager: Unable to load service info ResolveInfo{fdb2e24 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+07-18 04:55:10.096  3585  5097 I SmartPanel_SmartPanelBeanHelper: oobe = PK, DefaultAppShortcutList = [screen_shot, screen_record, com.whatsapp, com.facebook.katana, com.google.android.youtube, com.instagram.android, com.zaz.translate, com.android.chrome, com.transsion.notebook, com.transsion.calculator, lock_screen, com.transsion.filemanagerx, com.gallery20, com.transsion.smartmessage, com.transsion.phoenix, scan, com.transsion.camera/selfie, com.zhiliaoapp.musically, com.nemo.vidmate, com.snapchat.android]
+07-18 04:55:10.098  3585  5823 I SmartPanel_SmartPanelPresenter1: onShortcutChange shortcuts size =[ShortcutInfo {id=***, flags=0x5b4 [ImManIc-rKeyStrRets], packageName=com.google.android.apps.docs, activity=ComponentInfo{com.google.android.apps.docs/com.google.android.apps.docs.app.NewMainProxyActivity}, shortLabel=***, resId=0[null], longLabel=***, resId=0[null], disabledMessage=***, resId=0[null], disabledReason=[Not disabled], categories=null, persons=null, icon=null, rank=0, timestamp=1784332504808, intents=null, extras=null}, ShortcutInfo {id=***, flags=0x5b4 [ImManIc-rKeyStrRets], packageName=com.google.android.apps.docs, activity=ComponentInfo{com.google.android.apps.docs/com.google.android.apps.docs.app.NewMainProxyActivity}, shortLabel=***, resId=0[null], longLabel=***, resId=0[null], disabledMessage=***, resId=0[null], disabledReason=[Not disabled], categories=null, persons=null, icon=null, rank=0, timestamp=1784332504808, intents=null, extras=null}, ShortcutInfo {id=***, flags=0x5b4 [ImManIc-rKeyStrRets], packageName=com.google.android.apps.docs, activity=ComponentInfo{com.google.android.apps.docs/com.google.android.apps.docs.app.NewMainProxyActivity}, shortLabel=***, resId=0[null], longLabel=***, resId=0[null], disabledMessage=***, resId=0[null], disabledReason=[Not disabled], categories=null, persons=null, icon=null, rank=0, timestamp=1784332504808, intents=null, extras=null}]
+07-18 04:55:10.098  3585  5823 I SmartPanel_SmartPanelPresenter1: getAllshortcutInfo start
+07-18 04:55:10.148  5812  5812 I AndroidRuntime: Using default boot image
+07-18 04:55:10.149  5812  5812 I AndroidRuntime: Leaving lock profiling enabled
+07-18 04:55:10.156  5812  5812 I app_process: Using generational CollectorTypeCC GC.
+07-18 04:55:10.163  1466  1600 I RoleService: Granting default roles...
+07-18 04:55:10.213  3585  5823 W System.err: java.io.FileNotFoundException: /data/user/0/com.transsion.smartpanel/files/appIcon/com.google.android.contacts122i3d993ee78cd123f5.1733i302c6ddf09ec6de3.1672i660bbc9508f2a909.3176r52907-2A34343A4C2A2A48482A.3176r56673-2A34343A4C2A2A48482A.3364i655b639b8a2ac3a4.3364i994be4a895acb1e.3364i59186c578b82f885.3364i6ed6eac60afeb57d.3176r65821-2A34343A4C2A2A48482A.3176r69588-2A34343A4C2A2A48482A.3176r71164-2A34343A4C2A2A48482A.3176r72233-2A34343A4C2A2A48482A.3176r74309-2A34343A4C2A2A48482A.3176r74310-2A34343A4C2A2A48482A.jpg: open failed: ENAMETOOLONG (File name too long)
+07-18 04:55:10.214  3585  5823 W System.err: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+07-18 04:55:10.214  3585  5823 W System.err: 	at java.io.FileOutputStream.<init>(FileOutputStream.java:259)
+07-18 04:55:10.214  3585  5823 W System.err: 	at java.io.FileOutputStream.<init>(FileOutputStream.java:208)
+07-18 04:55:10.214  3585  5823 W System.err: 	at com.transsion.smartpanel.utils.b.a(SourceFile:39)
+07-18 04:55:10.214  3585  5823 W System.err: 	at com.transsion.smartpanel.presenter.SmartPanelPresenter.g(SourceFile:25)
+07-18 04:55:10.214  3585  5823 W System.err: 	at com.transsion.smartpanel.presenter.SmartPanelPresenter$i0.a(SourceFile:2)
+07-18 04:55:10.214  3585  5823 W System.err: 	at com.transsion.smartpanel.presenter.SmartPanelPresenter$i0.doInBackground(SourceFile:1)
+07-18 04:55:10.214  3585  5823 W System.err: 	at android.os.AsyncTask$3.call(AsyncTask.java:394)
+07-18 04:55:10.214  3585  5823 W System.err: 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+07-18 04:55:10.214  3585  5823 W System.err: 	at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:305)
+07-18 04:55:10.214  3585  5823 W System.err: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 04:55:10.214  3585  5823 W System.err: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 04:55:10.214  3585  5823 W System.err: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 04:55:10.214  3585  5823 W System.err: Caused by: android.system.ErrnoException: open failed: ENAMETOOLONG (File name too long)
+07-18 04:55:10.214  3585  5823 W System.err: 	at libcore.io.Linux.open(Native Method)
+07-18 04:55:10.214  3585  5823 W System.err: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:579)
+07-18 04:55:10.214  3585  5823 W System.err: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+07-18 04:55:10.214  3585  5823 W System.err: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:579)
+07-18 04:55:10.214  3585  5823 W System.err: 	at android.app.ActivityThread$AndroidOs.open(ActivityThread.java:8018)
+07-18 04:55:10.215  3585  5823 W System.err: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+07-18 04:55:10.215  3585  5823 W System.err: 	... 12 more
+07-18 04:55:10.252  1466  1502 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-18 04:55:10.253  1466  1502 W TextServicesManagerService: no available spell checker services found
+07-18 04:55:10.297  3585  5823 W System.err: java.io.FileNotFoundException: /data/user/0/com.transsion.smartpanel/files/appIcon/com.sh.smart.caller122i3d993ee78cd123f5.1733i302c6ddf09ec6de3.1672i660bbc9508f2a909.3176r52907-2A34343A4C2A2A48482A.3176r56673-2A34343A4C2A2A48482A.3364i655b639b8a2ac3a4.3364i994be4a895acb1e.3364i59186c578b82f885.3364i6ed6eac60afeb57d.3176r65821-2A34343A4C2A2A48482A.3176r69588-2A34343A4C2A2A48482A.3176r71164-2A34343A4C2A2A48482A.3176r72233-2A34343A4C2A2A48482A.3176r74309-2A34343A4C2A2A48482A.3176r74310-2A34343A4C2A2A48482A.jpg: open failed: ENAMETOOLONG (File name too long)
+07-18 04:55:10.297  3585  5823 W System.err: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+07-18 04:55:10.297  3585  5823 W System.err: 	at java.io.FileOutputStream.<init>(FileOutputStream.java:259)
+07-18 04:55:10.297  3585  5823 W System.err: 	at java.io.FileOutputStream.<init>(FileOutputStream.java:208)
+07-18 04:55:10.297  3585  5823 W System.err: 	at com.transsion.smartpanel.utils.b.a(SourceFile:39)
+07-18 04:55:10.297  3585  5823 W System.err: 	at com.transsion.smartpanel.presenter.SmartPanelPresenter.g(SourceFile:25)
+07-18 04:55:10.297  3585  5823 W System.err: 	at com.transsion.smartpanel.presenter.SmartPanelPresenter$i0.a(SourceFile:2)
+07-18 04:55:10.297  3585  5823 W System.err: 	at com.transsion.smartpanel.presenter.SmartPanelPresenter$i0.doInBackground(SourceFile:1)
+07-18 04:55:10.297  3585  5823 W System.err: 	at android.os.AsyncTask$3.call(AsyncTask.java:394)
+07-18 04:55:10.297  3585  5823 W System.err: 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+07-18 04:55:10.297  3585  5823 W System.err: 	at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:305)
+07-18 04:55:10.297  3585  5823 W System.err: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 04:55:10.297  3585  5823 W System.err: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 04:55:10.297  3585  5823 W System.err: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 04:55:10.297  3585  5823 W System.err: Caused by: android.system.ErrnoException: open failed: ENAMETOOLONG (File name too long)
+07-18 04:55:10.297  3585  5823 W System.err: 	at libcore.io.Linux.open(Native Method)
+07-18 04:55:10.297  3585  5823 W System.err: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:579)
+07-18 04:55:10.297  3585  5823 W System.err: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+07-18 04:55:10.297  3585  5823 W System.err: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:579)
+07-18 04:55:10.297  3585  5823 W System.err: 	at android.app.ActivityThread$AndroidOs.open(ActivityThread.java:8018)
+07-18 04:55:10.297  3585  5823 W System.err: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+07-18 04:55:10.297  3585  5823 W System.err: 	... 12 more
+07-18 04:55:10.323  3585  5823 I SmartPanel_SmartPanelPresenter1: getAllshortcutInfo finished
+07-18 04:55:10.325  3585  5823 I SmartPanel_SmartPanelPresenter1: onShortcutChange shortcutInfo enable =true
+07-18 04:55:10.325  3585  5823 I SmartPanel_SmartPanelBeanHelper: oobe = PK, DefaultAppShortcutList = [screen_shot, screen_record, com.whatsapp, com.facebook.katana, com.google.android.youtube, com.instagram.android, com.zaz.translate, com.android.chrome, com.transsion.notebook, com.transsion.calculator, lock_screen, com.transsion.filemanagerx, com.gallery20, com.transsion.smartmessage, com.transsion.phoenix, scan, com.transsion.camera/selfie, com.zhiliaoapp.musically, com.nemo.vidmate, com.snapchat.android]
+07-18 04:55:10.325  3585  5823 I SmartPanel_SmartPanelPresenter1: onShortcutChange shortcutInfo enable =true
+07-18 04:55:10.325  3585  5823 I SmartPanel_SmartPanelBeanHelper: oobe = PK, DefaultAppShortcutList = [screen_shot, screen_record, com.whatsapp, com.facebook.katana, com.google.android.youtube, com.instagram.android, com.zaz.translate, com.android.chrome, com.transsion.notebook, com.transsion.calculator, lock_screen, com.transsion.filemanagerx, com.gallery20, com.transsion.smartmessage, com.transsion.phoenix, scan, com.transsion.camera/selfie, com.zhiliaoapp.musically, com.nemo.vidmate, com.snapchat.android]
+07-18 04:55:10.325  3585  5823 I SmartPanel_SmartPanelPresenter1: onShortcutChange shortcutInfo enable =true
+07-18 04:55:10.325  3585  5823 I SmartPanel_SmartPanelBeanHelper: oobe = PK, DefaultAppShortcutList = [screen_shot, screen_record, com.whatsapp, com.facebook.katana, com.google.android.youtube, com.instagram.android, com.zaz.translate, com.android.chrome, com.transsion.notebook, com.transsion.calculator, lock_screen, com.transsion.filemanagerx, com.gallery20, com.transsion.smartmessage, com.transsion.phoenix, scan, com.transsion.camera/selfie, com.zhiliaoapp.musically, com.nemo.vidmate, com.snapchat.android]
+07-18 04:55:10.333  3585  5097 I SmartPanel_PackageReceiver1: PackageReceiver received uri null false, action = android.intent.action.PACKAGE_CHANGED
+07-18 04:55:10.333  3585  5097 I SmartPanel_PackageReceiver1: PackageReceiver received pkgName = com.vexel.arcadetrio.test, action = android.intent.action.PACKAGE_CHANGED
+07-18 04:55:10.333  3585  5097 I SmartPanel_PackageReceiver1: packageChange: com.vexel.arcadetrio.test, name: com.vexel.arcadetrio.test
+07-18 04:55:10.335  3585  5097 I SmartPanel_SmartPanelBeanHelper: oobe = PK, DefaultAppShortcutList = [screen_shot, screen_record, com.whatsapp, com.facebook.katana, com.google.android.youtube, com.instagram.android, com.zaz.translate, com.android.chrome, com.transsion.notebook, com.transsion.calculator, lock_screen, com.transsion.filemanagerx, com.gallery20, com.transsion.smartmessage, com.transsion.phoenix, scan, com.transsion.camera/selfie, com.zhiliaoapp.musically, com.nemo.vidmate, com.snapchat.android]
+07-18 04:55:10.376  1089  5177 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+07-18 04:55:10.380  1089  5177 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+07-18 04:55:10.381  1466  1466 I JobServiceContext: Letting 439b59c #u0a392/29850 com.truecaller/androidx.work.impl.background.systemjob.SystemJobService continue to run past min execution time
+07-18 04:55:10.381  5812  5812 I app_process: Priority-to-niceness mapping: 19, 16, 13, 10, 0, -2, -4, -5, -6, -8
+07-18 04:55:10.416  3199  5111 I Finsky  : [130] Completed 3 account content syncs with 1 successful.
+07-18 04:55:10.418  3199  3199 I Finsky  : [2] [ContentSync] Installation state replication failed, parameters=Id: 12-1, CT: 1784332477033, Constraints: [{ L: 15000, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }].
+07-18 04:55:10.418  3199  3199 I Finsky  : [2] [ContentSync] Scheduling replication attempt 0.
+07-18 04:55:10.418  3199  3199 I Finsky  : [2] SCH: jobFinished: 12-1. TimeElapsed: 15173ms.
+07-18 04:55:10.419  3199  3199 I Finsky  : [2] WM::SCH: Logging work end for 12-1
+07-18 04:55:10.426  3199  3355 I Finsky  : [77] SCH: Attempting to reschedule job: Id: 12-1, Constraints: [{ L: 20000, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+07-18 04:55:10.428  5812  5812 W libc    : Access denied finding property "ro.vendor.tran.hardware"
+07-18 04:55:10.429  5812  5812 W libc    : Access denied finding property "ro.vendor.tran.cpu_model"
+07-18 04:55:10.424  5812  5812 W main    : type=1400 audit(0.0:6687): avc: denied { read } for name="u:object_r:vendor_exported_default_prop:s0" dev="tmpfs" ino=8069 scontext=u:r:shell:s0 tcontext=u:object_r:vendor_exported_default_prop:s0 tclass=file permissive=0
+07-18 04:55:10.424  5812  5812 W main    : type=1400 audit(0.0:6688): avc: denied { read } for name="u:object_r:vendor_exported_default_prop:s0" dev="tmpfs" ino=8069 scontext=u:r:shell:s0 tcontext=u:object_r:vendor_exported_default_prop:s0 tclass=file permissive=0
+07-18 04:55:10.433   715  5832 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 04:55:10.434   715  5833 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 04:55:10.434   715  5833 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000078f80bccb0
+07-18 04:55:10.434   715  5833 I resolv  : doQuery: rcode=0, ancount=1, return value=63
+07-18 04:55:10.435  3199  3236 I Finsky  : [61] SCH: Scheduling phonesky job Id: 1-1337, CT: 1784321529114, Constraints: [{ L: 36846542, D: 80046542, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+07-18 04:55:10.436  3199  3236 I Finsky  : [61] SCH: Scheduling phonesky job Id: 34-3366, CT: 1784321584670, Constraints: [{ L: 79199720, D: 1375199720, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+07-18 04:55:10.436  3199  3236 I Finsky  : [61] SCH: Scheduling phonesky job Id: 34-3367, CT: 1784321585788, Constraints: [{ L: 604800000, D: 2591999095, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+07-18 04:55:10.440  3199  3235 I Finsky  : [60] SCH: Scheduling 1 system job(s)
+07-18 04:55:10.440  3199  3235 I Finsky  : [60] SCH: Scheduling system job Id: 9886, L: 25865216, D: 69065216, C: false, I: false, N: 1
+07-18 04:55:10.447  3199  5109 I Finsky  : [129] SCH: job service finished with id 9866.
+07-18 04:55:10.452  5812  5812 W System  : ClassLoader referenced unknown path: /system/framework/mediatek-cta.jar
+07-18 04:55:10.453  5812  5812 W CtaManagerFactory: CtaManagerFactoryImpl not found
+07-18 04:55:10.457  1000  1000 I thermal_repeater: [recvMdThermalInfo] ret=33, strLen=127,  2, 32767, -127, 113, 32767, 4046
+07-18 04:55:10.457  1466  1737 I ActivityManager: Killing 5186:com.android.keychain/1000 (adj 965): empty for 5s
+07-18 04:55:10.458  1466  1737 I ActivityManager: Killing 5362:com.google.android.apps.docs/u0a216 (adj 965): empty for 8s
+07-18 04:55:10.471  1466  2241 I ActivityManager: Force stopping com.vexel.arcadetrio appid=10561 user=0: start instr
+07-18 04:55:10.479  3199  3226 W FeatureFlagsImplExport: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+07-18 04:55:10.488  1466  1909 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.android.keychain/com.android.keychain pid=5186 state:3
+07-18 04:55:10.488  1466  1909 I game_scn: collectForegroundAppList packName=com.android.keychain, actName=com.android.keychain, pid=5186, uid=1000, state:DEAD
+07-18 04:55:10.488  1466  1909 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 04:55:10.488   742   847 I libPowerHal: [perfNotifyAppState] pack:com.android.keychain, act:com.android.keychain, state:3, pid:5186, uid:1000, fps:-1
+07-18 04:55:10.488   742   847 I libPowerHal: [perfNotifyAppState] pack:com.android.keychain, pid:5186, STATE_DEAD
+07-18 04:55:10.490  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 1000 pid 5186 in 32ms
+07-18 04:55:10.493   716   716 I Zygote  : Process 5186 exited due to signal 9 (Killed)
+07-18 04:55:10.494  1466  1521 I ActivityManager: Start proc 5838:com.vexel.arcadetrio/u0a561 for added application com.vexel.arcadetrio
+07-18 04:55:10.496  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10216 pid 5362 in 5ms
+07-18 04:55:10.500  5838  5838 W main    : type=1400 audit(0.0:6689): avc: denied { read } for name="u:object_r:vendor_memfusion_size_prop:s0" dev="tmpfs" ino=8077 scontext=u:r:untrusted_app:s0:c49,c258,c512,c768 tcontext=u:object_r:vendor_memfusion_size_prop:s0 tclass=file permissive=0 app=com.vexel.arcadetrio
+07-18 04:55:10.500  5838  5838 W main    : type=1400 audit(0.0:6690): avc: denied { read } for name="u:object_r:vendor_memfusion_state_prop:s0" dev="tmpfs" ino=8078 scontext=u:r:untrusted_app:s0:c49,c258,c512,c768 tcontext=u:object_r:vendor_memfusion_state_prop:s0 tclass=file permissive=0 app=com.vexel.arcadetrio
+07-18 04:55:10.500  5838  5838 W main    : type=1400 audit(0.0:6691): avc: denied { read } for name="u:object_r:vendor_memfusion_tranlog_prop:s0" dev="tmpfs" ino=8080 scontext=u:r:untrusted_app:s0:c49,c258,c512,c768 tcontext=u:object_r:vendor_memfusion_tranlog_prop:s0 tclass=file permissive=0 app=com.vexel.arcadetrio
+07-18 04:55:10.500  5838  5838 W main    : type=1400 audit(0.0:6692): avc: denied { read } for name="u:object_r:vendor_memfusion_ui_enable_prop:s0" dev="tmpfs" ino=8081 scontext=u:r:untrusted_app:s0:c49,c258,c512,c768 tcontext=u:object_r:vendor_memfusion_ui_enable_prop:s0 tclass=file permissive=0 app=com.vexel.arcadetrio
+07-18 04:55:10.500  5838  5838 W main    : type=1400 audit(0.0:6693): avc: denied { read } for name="u:object_r:vendor_uxcompaction_enable_prop:s0" dev="tmpfs" ino=11398 scontext=u:r:untrusted_app:s0:c49,c258,c512,c768 tcontext=u:object_r:vendor_uxcompaction_enable_prop:s0 tclass=file permissive=0 app=com.vexel.arcadetrio
+07-18 04:55:10.504  5838  5838 I exel.arcadetrio: Late-enabling -Xcheck:jni
+07-18 04:55:10.531  5838  5838 I exel.arcadetrio: Using generational CollectorTypeCC GC.
+07-18 04:55:10.538 10485 10494 I adbd    : jdwp connection from 5838
+07-18 04:55:10.557   716   716 I Zygote  : Process 5362 exited due to signal 9 (Killed)
+07-18 04:55:10.559  1466  1909 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.apps.docs/com.google.android.apps.docs pid=5362 state:3
+07-18 04:55:10.559  1466  1671 I BaseFilesVerify: Base File verify start
+07-18 04:55:10.559  1466  1909 I game_scn: collectForegroundAppList packName=com.google.android.apps.docs, actName=com.google.android.apps.docs, pid=5362, uid=10216, state:DEAD
+07-18 04:55:10.559  1466  1909 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 04:55:10.559  1466  1671 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xml
+07-18 04:55:10.560  1466  1671 W BaseXMLFilesVerify: format is normal
+07-18 04:55:10.560  1466  1671 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: roles.xmlsetup fs failed
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xml: Permission denied
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:58)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+07-18 04:55:10.560  1466  1671 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+07-18 04:55:10.563   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.apps.docs, act:com.google.android.apps.docs, state:3, pid:5362, uid:10216, fps:-1
+07-18 04:55:10.563   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.apps.docs, pid:5362, STATE_DEAD
+07-18 04:55:10.571  1466  1671 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xmlsecnew.bak
+07-18 04:55:10.571  1466  1671 W BaseXMLFilesVerify: format is normal
+07-18 04:55:10.571  1466  1671 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: roles.xmlsec.baksetup fs failed
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak: Permission denied
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:81)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+07-18 04:55:10.579  1466  1671 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+07-18 04:55:10.590  3585  5097 I SmartPanel_PackageReceiver1: packageAdd pkgName = com.vexel.arcadetrio.test, enabled: 0
+07-18 04:55:10.601  3585  3585 I SmartPanel_SmartPanelPresenter1: smart_panel_can_show set = 0 userid = 0
+07-18 04:55:10.604  3585  3585 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1978 android.content.ContextWrapper.startService:817 com.transsion.smartpanel.presenter.SmartPanelPresenter$r.a:5 com.transsion.smartpanel.commands.e.onChange:1 android.database.ContentObserver.onChange:154 
+07-18 04:55:10.608  3585  3585 I SmartPanel_SmartPanelPresenter1: smart_panel_can_show = 0
+07-18 04:55:10.608  3585  3585 I SmartPanel_SmartPanelService: changeSmartPanelStatus :1,selfSet =true, mTouchView null false
+07-18 04:55:10.617  3585  3585 I SmartPanel_SmartPanelService: do changeSmartPanelStatus show
+07-18 04:55:10.728  3199  3228 I Finsky  : [53] WM::SCH: Logging work initialize for 12-1
+07-18 04:55:10.734  3199  3238 I Finsky  : [63] SCH: Scheduling phonesky job Id: 12-1, CT: 1784332510426, Constraints: [{ L: 20000, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+07-18 04:55:10.738  3199  3235 I Finsky  : [60] SCH: Scheduling 1 system job(s)
+07-18 04:55:10.738  3199  3235 I Finsky  : [60] SCH: Scheduling system job Id: 9886, L: 19688, D: 69064918, C: false, I: false, N: 1
+07-18 04:55:10.752   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 04:55:10.769  1466  1466 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio, user:UserHandle{0}, action:android.intent.action.PACKAGE_ADDED
+07-18 04:55:10.769  1466  1502 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+07-18 04:55:10.772  1466  1502 I BaseFilesVerify: Base File verify start
+07-18 04:55:10.772  1466  1502 W BaseFilesVerify: android0.xmlis not in fileProtect list,can not protect this file
+07-18 04:55:10.775  1466  1502 I BaseFilesVerify: Base File verify start
+07-18 04:55:10.775  1466  1502 W BaseFilesVerify: com.transsion.smartpanel0.xmlis not in fileProtect list,can not protect this file
+07-18 04:55:10.778  1466  1502 I BaseFilesVerify: Base File verify start
+07-18 04:55:10.778  1466  1502 W BaseFilesVerify: com.transsion.hilauncher0.xmlis not in fileProtect list,can not protect this file
+07-18 04:55:10.781  1466  1502 I BaseFilesVerify: Base File verify start
+07-18 04:55:10.781  1466  1502 W BaseFilesVerify: com.android.systemui0.xmlis not in fileProtect list,can not protect this file
+07-18 04:55:10.807  1466  1596 I BaseFilesVerify: Base File verify start
+07-18 04:55:10.807  1466  1596 W BaseFilesVerify: settings_secure.xmlis not in fileProtect list,can not protect this file
+07-18 04:55:10.896   758  1234 W VSyncPredictor: VSyncPredictor::setPeriod current period =16666667
+07-18 04:55:10.905  5191  6254 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+07-18 04:55:10.937  5191  6254 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+07-18 04:55:10.939  3585  3585 I SmartPanel_SmartPanelPresenter1: checkHideAppChange
+07-18 04:55:10.939  3585 14674 I SmartPanel_SmartPanelPresenter1: App hide onChange
+07-18 04:55:10.940  3585 14674 I SmartPanel_SmartPanelPresenter1: App hide contentObserver --> addhideapps([])
+07-18 04:55:10.951   758   758 I BufferQueueProducer: [com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher#227](this:0xb400006feacb6c58,id:-1,api:0,p:-1,c:758) queueBuffer: fps=1.13 dur=1767.84 max=1517.31 min=250.53
+07-18 04:55:10.953   731  1221 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.697090,dur:1767.73,max:1183.90,min:250.14  
+07-18 04:55:11.211  1466  1502 W PackageManager: Unable to load service info ResolveInfo{4978bfb com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+07-18 04:55:11.262  1466  1502 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-18 04:55:11.262  1466  1502 W TextServicesManagerService: no available spell checker services found
+07-18 04:55:11.622  1729  1729 I WifiHAL : Get link layer stats
+07-18 04:55:11.622  1729  1729 I WifiHAL : GetLinkStatsCommand::create
+07-18 04:55:11.623  1729  1729 I android.hardware.wifi@1.0-service-lazy: WifiCommand::requestResponse err=-14
+07-18 04:55:11.623  1729  1729 I WifiHAL : wifi_get_link_stats: result=-1
+07-18 04:55:11.623  1466  1636 E WifiVendorHal: $r8$lambda$s6w0pmKyq6-tDdqCEDbOV_xqgVE(l.1176) failed {.code = ERROR_UNKNOWN, .description = unknown}
+07-18 04:55:11.757   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 04:55:11.763   758  1234 W VSyncPredictor: VSyncPredictor::setPeriod current period =16666667
+07-18 04:55:11.767  1466  1502 W PackageManager: Unable to load service info ResolveInfo{f6c75e2 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+07-18 04:55:11.768  2558  2558 W ThreadPoolForeg: type=1400 audit(0.0:6696): avc: denied { write } for name="traced_producer" dev="tmpfs" ino=885 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:traced_producer_socket:s0 tclass=sock_file permissive=0 app=com.google.android.gms
+07-18 04:55:11.778  5191  6254 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+07-18 04:55:11.820  1466  1502 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-18 04:55:11.821  1466  1502 W TextServicesManagerService: no available spell checker services found
+07-18 04:55:11.830  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.adwords' not found Error while validating document (android$apps-db/apps, com.google.android.apps.adwords)
+07-18 04:55:11.830  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.adwords' not found
+07-18 04:55:11.830  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.playconsole' not found Error while validating document (android$apps-db/apps, com.google.android.apps.playconsole)
+07-18 04:55:11.830  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.playconsole' not found
+07-18 04:55:11.830  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.microsoft.office.outlook' not found Error while validating document (android$apps-db/apps, com.microsoft.office.outlook)
+07-18 04:55:11.830  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.microsoft.office.outlook' not found
+07-18 04:55:11.830  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.softech.trading' not found Error while validating document (android$apps-db/apps, com.softech.trading)
+07-18 04:55:11.830  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.softech.trading' not found
+07-18 04:55:11.830  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.warrantyvault.android' not found Error while validating document (android$apps-db/apps, com.warrantyvault.android)
+07-18 04:55:11.830  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.warrantyvault.android' not found
+07-18 04:55:11.830  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.cdcaccess.csp' not found Error while validating document (android$apps-db/apps, com.cdcaccess.csp)
+07-18 04:55:11.830  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.cdcaccess.csp' not found
+07-18 04:55:11.830  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-dats.games.cardbattle' not found Error while validating document (android$apps-db/apps, dats.games.cardbattle)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-dats.games.cardbattle' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.catalyst.akdtradepro' not found Error while validating document (android$apps-db/apps, com.catalyst.akdtradepro)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.catalyst.akdtradepro' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.fesco.smart' not found Error while validating document (android$apps-db/apps, com.fesco.smart)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.fesco.smart' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-pk.org.sbp.mobileapps' not found Error while validating document (android$apps-db/apps, pk.org.sbp.mobileapps)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-pk.org.sbp.mobileapps' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smartlife' not found Error while validating document (android$apps-db/apps, com.tuya.smartlife)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smartlife' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found Error while validating document (android$apps-db/apps, com.xre.privatequest)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.zzkko' not found Error while validating document (android$apps-db/apps, com.zzkko)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.zzkko' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.classroom' not found Error while validating document (android$apps-db/apps, com.google.android.apps.classroom)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.classroom' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.joinblob.clash' not found Error while validating document (android$apps-db/apps, com.joinblob.clash)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.joinblob.clash' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.kids.familylink' not found Error while validating document (android$apps-db/apps, com.google.android.apps.kids.familylink)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.kids.familylink' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.phonelink_tima_app.timacarmirrorlink_app' not found Error while validating document (android$apps-db/apps, com.phonelink_tima_app.timacarmirrorlink_app)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.phonelink_tima_app.timacarmirrorlink_app' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found Error while validating document (android$apps-db/apps, org.amanahquran.app)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found Error while validating document (android$apps-db/apps, com.jazz.rox)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.olx.pk' not found Error while validating document (android$apps-db/apps, com.olx.pk)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.olx.pk' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.aa.puffup' not found Error while validating document (android$apps-db/apps, com.aa.puffup)
+07-18 04:55:11.831  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.aa.puffup' not found
+07-18 04:55:11.831  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-pk.pitb.gov.maryamKoBatayn' not found Error while validating document (android$apps-db/apps, pk.pitb.gov.maryamKoBatayn)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-pk.pitb.gov.maryamKoBatayn' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found Error while validating document (android$apps-db/apps, com.YoBroStudios.MergeSpinner)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found Error while validating document (android$apps-db/apps, io.supercent.linkedcubic)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found Error while validating document (android$apps-db/apps, com.appfactory.generated.app)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.p3.soneridigital' not found Error while validating document (android$apps-db/apps, com.p3.soneridigital)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.p3.soneridigital' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found Error while validating document (android$apps-db/apps, com.easyui.launcher.debug)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found Error while validating document (android$apps-db/apps, com.easyui.core)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-app.com.brd' not found Error while validating document (android$apps-db/apps, app.com.brd)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-app.com.brd' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smart' not found Error while validating document (android$apps-db/apps, com.tuya.smart)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smart' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found Error while validating document (android$apps-db/apps, com.vexel.pulseorbit)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.walletnfcrel' not found Error while validating document (android$apps-db/apps, com.google.android.apps.walletnfcrel)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.walletnfcrel' not found
+07-18 04:55:11.832  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.zeeai.pro.ai' not found Error while validating document (android$apps-db/apps, com.zeeai.pro.ai)
+07-18 04:55:11.832  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.zeeai.pro.ai' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.catalyst.akdtradepro' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.aa.puffup' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smart' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-pk.org.sbp.mobileapps' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.microsoft.office.outlook' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.playconsole' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.joinblob.clash' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.p3.soneridigital' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.adwords' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.classroom' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-app.com.brd' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.zeeai.pro.ai' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.walletnfcrel' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smartlife' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.kids.familylink' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-dats.games.cardbattle' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.zzkko' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.phonelink_tima_app.timacarmirrorlink_app' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.olx.pk' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.softech.trading' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-pk.pitb.gov.maryamKoBatayn' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.fesco.smart' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.cdcaccess.csp' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found
+07-18 04:55:11.835  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.warrantyvault.android' not found
+07-18 04:55:11.839  1466  3321 W libc    : Access denied finding property "ro.bootimage.build.fingerprint"
+07-18 04:55:11.836  1466  1466 W pool-27-thread-: type=1400 audit(0.0:6697): avc: denied { read } for name="u:object_r:build_bootimage_prop:s0" dev="tmpfs" ino=7749 scontext=u:r:system_server:s0 tcontext=u:object_r:build_bootimage_prop:s0 tclass=file permissive=0
+07-18 04:55:11.892  1466  1466 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio.test, user:UserHandle{0}, action:android.intent.action.PACKAGE_ADDED
+07-18 04:55:11.892  1466  1502 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+07-18 04:55:12.003  1466  1502 W PackageManager: Unable to load service info ResolveInfo{721e49 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+07-18 04:55:12.022  1466  3315 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 04:55:12.023  1466  3315 W AppSearchResult: Converting throwable to failed result.
+07-18 04:55:12.023  1466  3315 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:128)
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 04:55:12.023  1466  3315 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: Failed to setSchema in batch due to invalid schema.
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:488)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 04:55:12.023  1466  3321 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 04:55:12.051  1466  3315 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+07-18 04:55:12.052  1466  3315 W AppSearchResult: Converting throwable to failed result.
+07-18 04:55:12.052  1466  3315 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:128)
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 04:55:12.052  1466  3315 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: Skipping invalid schemas for package: com.google.android.apps.adm
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:588)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 04:55:12.053  1466  3321 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 04:55:12.062  1466  1502 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-18 04:55:12.063  1466  1502 W TextServicesManagerService: no available spell checker services found
+07-18 04:55:12.081  1466  3315 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 04:55:12.081  1466  3315 W AppSearchResult: Converting throwable to failed result.
+07-18 04:55:12.081  1466  3315 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:128)
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 04:55:12.081  1466  3315 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: Skipping invalid schemas for package: com.google.android.apps.wellbeing
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:588)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 04:55:12.082  1466  3321 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 04:55:12.128  5838  5838 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 04:55:12.130  5838  5838 I AndroidJUnitRunner: newApplication android.app.Application
+07-18 04:55:12.183  5838  5856 W exel.arcadetrio: Loading /data/misc/apexdata/com.android.art/dalvik-cache/arm64/system@framework@com.android.location.provider.jar@classes.odex non-executable as it requires an image which we failed to load
+07-18 04:55:12.311  5838  5838 I AndroidJUnitRunner: onCreate Bundle[EMPTY_PARCEL]
+07-18 04:55:12.459  5838  5838 I MSYNC3-VariableRefreshRate: Variable refreshrate is disabled
+07-18 04:55:12.485  5838  5860 I TestRequestBuilder: Scanning classpath to find tests in paths [/data/app/~~Q8dqfAtaEUKnzyX5PFFU7w==/com.vexel.arcadetrio.test-uZNwCeDeoJJ-uOkRWVisLg==/base.apk]
+07-18 04:55:12.486  5838  5860 W exel.arcadetrio: Opening an oat file without a class loader. Are you using the deprecated DexFile APIs?
+07-18 04:55:12.704  1466  1502 I BaseFilesVerify: Base File verify start
+07-18 04:55:12.704  1466  1502 W BaseFilesVerify: runtime-permissions.xmlis not in fileProtect list,can not protect this file
+07-18 04:55:12.757   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 04:55:12.766  5838  5860 I TestRunner: run started: 6 tests
+07-18 04:55:12.770  5838  5860 I TestRunner: ignored: com.vexel.arcadetrio.BackNavigationTest
+07-18 04:55:12.776  5838  5860 I TestRunner: started: testChallengeUpdates(com.vexel.arcadetrio.ChallengeUpdateTest)
+07-18 04:55:13.157  5838  5860 I TestRunner: finished: testChallengeUpdates(com.vexel.arcadetrio.ChallengeUpdateTest)
+07-18 04:55:13.161  5838  5860 I TestRunner: ignored: com.vexel.arcadetrio.GameplayDeviceSmokeTest
+07-18 04:55:13.164  5838  5860 I TestRunner: ignored: com.vexel.arcadetrio.LifecyclePauseTest
+07-18 04:55:13.169  5838  5860 I TestRunner: ignored: com.vexel.arcadetrio.NavigationSmokeTest
+07-18 04:55:13.173  5838  5860 I TestRunner: ignored: com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+07-18 04:55:13.177  5838  5860 I TestRunner: run finished: 1 tests, 0 failed, 5 ignored
+07-18 04:55:13.202  1466  4054 I ActivityManager: Force stopping com.vexel.arcadetrio appid=10561 user=0: finished inst
+07-18 04:55:13.203  1466  4054 I ActivityManager: Killing 5838:com.vexel.arcadetrio/u0a561 (adj 0): stop com.vexel.arcadetrio due to finished inst
+07-18 04:55:13.205  1466  4054 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.vexel.arcadetrio/com.vexel.arcadetrio pid=5838 state:3
+07-18 04:55:13.205  1466  4054 I game_scn: collectForegroundAppList packName=com.vexel.arcadetrio, actName=com.vexel.arcadetrio, pid=5838, uid=10561, state:DEAD
+07-18 04:55:13.205  1466  4054 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 04:55:13.206   742   847 I libPowerHal: [perfNotifyAppState] pack:com.vexel.arcadetrio, act:com.vexel.arcadetrio, state:3, pid:5838, uid:10561, fps:-1
+07-18 04:55:13.206   742   847 I libPowerHal: [perfNotifyAppState] pack:com.vexel.arcadetrio, pid:5838, STATE_DEAD
+07-18 04:55:13.206  5812  5812 I app_process: System.exit called, status: 0
+07-18 04:55:13.206  5812  5812 I AndroidRuntime: VM exiting with result code 0.
+07-18 04:55:13.213  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10561 pid 5838 in 8ms
+07-18 04:55:13.246 10485 10485 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color:export ANDROID_LOG_TAGS=''; exec logcat '-d''
+07-18 04:55:13.252 10485 10485 I adbd    : Remote process closed the socket (on MSG_PEEK)
+07-18 04:55:13.254   716   716 I Zygote  : Process 5838 exited due to signal 9 (Killed)
+07-18 04:55:13.257  1466  1553 I AppsFilter: interaction: PackageSetting{5063798 com.warrantyvault.android/10292} -> PackageSetting{3711d8b com.vexel.arcadetrio/10561} BLOCKED
+07-18 04:55:13.260  1466  1577 I OverlayManager: [RetestTagOfQyx OMS updateTargetPackagesLocked] updatedTargets=[]
+07-18 04:55:13.272  1089  1217 I PermissionControllerServiceImpl: Updating user sensitive for uid 10561
+07-18 04:55:13.273  1466  1466 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now com.sh.smart.caller: DDC.oR@AOA
+07-18 04:55:13.274  1466  1616 I InputReader: Reconfiguring input devices, changes=KEYBOARD_LAYOUTS | 
+07-18 04:55:13.275  5191  5191 I Kolun.EventBusImpl:  dispatchEvent: com.transsion.kolun.assistant.common.components.event.PackageChangeEvent@630cbcf
+07-18 04:55:13.276  5191  5750 I Kolun.WidgetEventRegister:  onBusEvent:PackageChangedEvent, packageName: com.vexel.arcadetrio, actionType: android.intent.action.PACKAGE_CHANGED
+07-18 04:55:13.276  5191  5750 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+07-18 04:55:13.276  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:13.276  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 04:55:13.276  5191  5750 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 04:55:13.276  5191  5750 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 04:55:13.276  5191  5750 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+07-18 04:55:13.276  5191  5750 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+07-18 04:55:13.276  5191  5750 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+07-18 04:55:13.277  5191  5750 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+07-18 04:55:13.281  3857  2744 W PkgChangeInfoCollector: onPkgChange skip change

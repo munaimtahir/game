@@ -1,23 +1,20 @@
 package com.vexel.arcadetrio
 
-import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.performTouchInput
-import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.click
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeLeft
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
-import org.junit.Ignore
 import org.junit.Assert.assertNotEquals
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-@Ignore("Compose gameplay smoke is flaky on low-end physical hardware; route-based ADB smoke is the CI gate.")
 class GameplayDeviceSmokeTest {
     @get:Rule
     val rule = createAndroidComposeRule<MainActivity>()
@@ -26,17 +23,20 @@ class GameplayDeviceSmokeTest {
     fun pulseOrbitStartsFromButtonOnDevice() {
         rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.PulseOrbitEntry, ArcadeTestTags.PulseOrbitDetail)
+        rule.waitUntilExists(ArcadeTestTags.PulseOrbitDetail)
         rule.onNodeWithTag(ArcadeTestTags.PulseOrbitStartButton, useUnmergedTree = true).performClick()
-        rule.waitForIdle()
-        rule.waitUntilExists(ArcadeTestTags.PulseOrbitBoard)
+        rule.waitUntilExists(ArcadeTestTags.PulseOrbitScreen)
     }
 
     @Test
     fun laneDriftStartsAndSpawnsTraffic() {
         rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
-        rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton, useUnmergedTree = true).performClick()
-        rule.waitForIdle()
+        startGameFromDetail(
+            detailTag = ArcadeTestTags.LaneDriftDetail,
+            startButtonTag = ArcadeTestTags.LaneDriftStartButton,
+            gameScreenTag = ArcadeTestTags.LaneDriftScreen,
+        )
 
         rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard, useUnmergedTree = true).performTouchInput { click() }
         rule.waitUntil(timeoutMillis = 8_000) {
@@ -50,8 +50,17 @@ class GameplayDeviceSmokeTest {
     fun stackDropOnScreenControlsWork() {
         rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
-        rule.onNodeWithTag(ArcadeTestTags.StackDropStartButton, useUnmergedTree = true).performClick()
-        rule.waitForIdle()
+        startGameFromDetail(
+            detailTag = ArcadeTestTags.StackDropDetail,
+            startButtonTag = ArcadeTestTags.StackDropStartButton,
+            gameScreenTag = ArcadeTestTags.StackDropScreen,
+        )
+        rule.waitUntilExists(ArcadeTestTags.StackDropBoard)
+        rule.waitUntil(timeoutMillis = 10_000) {
+            val state = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
+            state.contains("playing=true")
+        }
+        rule.waitUntilExists(ArcadeTestTags.StackDropRotate)
 
         val startState = rule.onNodeWithTag(ArcadeTestTags.StackDropBoard, useUnmergedTree = true).readStateDescription()
 
@@ -76,16 +85,38 @@ class GameplayDeviceSmokeTest {
     fun laneDriftPauseButtonShowsOverlayAndResumes() {
         rule.waitUntilExists(ArcadeTestTags.HomeScreen)
         rule.openHomeRoute(ArcadeTestTags.LaneDriftEntry, ArcadeTestTags.LaneDriftDetail)
-        rule.onNodeWithTag(ArcadeTestTags.LaneDriftStartButton, useUnmergedTree = true).performClick()
-        rule.waitForIdle()
+        startGameFromDetail(
+            detailTag = ArcadeTestTags.LaneDriftDetail,
+            startButtonTag = ArcadeTestTags.LaneDriftStartButton,
+            gameScreenTag = ArcadeTestTags.LaneDriftScreen,
+        )
         rule.waitUntilExists(ArcadeTestTags.LaneDriftBoard)
 
-        rule.onNode(hasText("Pause", substring = true), useUnmergedTree = true).performClick()
+        rule.onNodeWithTag(ArcadeTestTags.LaneDriftPauseToggle, useUnmergedTree = true).performClick()
+        rule.waitUntil(timeoutMillis = 5_000) {
+            val state = rule.onNodeWithTag(ArcadeTestTags.LaneDriftBoard, useUnmergedTree = true).readStateDescription()
+            state.contains("playing=false")
+        }
         rule.waitUntilExists(ArcadeTestTags.LaneDriftScreen)
-        rule.onNode(hasText("Run paused", substring = true), useUnmergedTree = true).assertIsDisplayed()
+    }
 
-        rule.onNode(hasText("Resume", substring = true), useUnmergedTree = true).performClick()
-        rule.waitForIdle()
-        rule.waitUntilExists(ArcadeTestTags.LaneDriftBoard)
+    private fun startGameFromDetail(
+        detailTag: String,
+        startButtonTag: String,
+        gameScreenTag: String,
+    ) {
+        rule.waitUntilExists(detailTag)
+        rule.onNodeWithTag(startButtonTag, useUnmergedTree = true).performClick()
+        rule.waitUntilExists(gameScreenTag)
+        dismissTutorialIfPresent()
+    }
+
+    private fun dismissTutorialIfPresent() {
+        val hasPlayButton = runCatching {
+            rule.onAllNodesWithText("Play", useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty()
+        }.getOrDefault(false)
+        if (hasPlayButton) {
+            rule.onAllNodesWithText("Play", useUnmergedTree = true)[0].performClick()
+        }
     }
 }

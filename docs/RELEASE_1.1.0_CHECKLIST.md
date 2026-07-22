@@ -1,11 +1,12 @@
-# Release 1.1.0 Checklist
+# Release Checklist
 
 Scope: crash-recovery upload for the locked 3-game MVP.
+Current target build: `versionName 1.1.4`, `versionCode 14`.
 
 ## Versioning
-- [x] Bump `app/build.gradle.kts` to `versionCode 11`.
-- [x] Bump `app/build.gradle.kts` to `versionName 1.1.1`.
-- [ ] Confirm `versionCode 11` has never been uploaded to Play Console.
+- [x] Confirm `app/build.gradle.kts` is set to `versionCode 14`.
+- [x] Confirm `app/build.gradle.kts` is set to `versionName 1.1.4`.
+- [ ] Confirm `versionCode 14` has never been uploaded to Play Console.
 
 ## Crash Recovery Gate
 - [ ] Install the build on a physical device after uninstalling the previous app.
@@ -41,3 +42,4 @@ Scope: crash-recovery upload for the locked 3-game MVP.
 - The rejected build was treated as a launch-crash issue, so first-open stability is the top release gate.
 - If any gameplay or UI changes are reintroduced before upload, rerun the device suite and cold-launch checks.
 - The device suite is now aligned to the current app id: `com.vexel.arcadetrio` / `com.vexel.arcadetrio.test`.
+- The attached validation device previously had `versionName 1.1.3` / `versionCode 13` installed with a last-update timestamp of July 4, 2026, so release evidence must come from a fresh uninstall/reinstall run rather than the preexisting install.

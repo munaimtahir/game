@@ -66,6 +66,7 @@ fun StackDropScreen(
     tutorialSeen: Boolean,
     onTutorialSeen: () -> Unit,
     onRunComplete: (RunResult) -> Unit,
+    onPostRunExitRequested: (RunResult, () -> Unit) -> Unit,
     onBack: () -> Unit,
 ) {
     val engine = remember { StackDropEngine() }
@@ -75,6 +76,7 @@ fun StackDropScreen(
     var paused by remember { mutableStateOf(false) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
     var showCompletionSummary by remember { mutableStateOf(false) }
+    var latestRunResult by remember { mutableStateOf<RunResult?>(null) }
     val lineClearFlash = remember { androidx.compose.animation.core.Animatable(0f) }
 
     fun restart() {
@@ -82,8 +84,18 @@ fun StackDropScreen(
         lastTickMillis = System.currentTimeMillis()
         hasReportedRun = false
         showCompletionSummary = false
+        latestRunResult = null
         paused = false
         feedback.play(ArcadeFeedbackEvent.TAP)
+    }
+
+    fun exitCompletedRun() {
+        val runResult = latestRunResult
+        if (runResult == null) {
+            onBack()
+            return
+        }
+        onPostRunExitRequested(runResult, onBack)
     }
 
     fun showHowToPlay() {
@@ -115,6 +127,10 @@ fun StackDropScreen(
     BackHandler {
         if (state.playing && !paused) {
             paused = true
+        } else if (state.gameOver && showCompletionSummary) {
+            showCompletionSummary = false
+        } else if (state.gameOver) {
+            exitCompletedRun()
         } else {
             onBack()
         }
@@ -158,8 +174,7 @@ fun StackDropScreen(
 
     if (state.gameOver && !hasReportedRun) {
         hasReportedRun = true
-        onRunComplete(
-            RunResult(
+        val runResult = RunResult(
                 sessionId = state.sessionId,
                 gameId = GameId.STACK_DROP,
                 score = state.score,
@@ -169,8 +184,9 @@ fun StackDropScreen(
                 completionReason = RunCompletionReason.FAILED,
                 linesCleared = state.linesCleared,
                 coinsEarned = state.linesCleared * 4 + state.score / 40,
-            ),
         )
+        latestRunResult = runResult
+        onRunComplete(runResult)
         showCompletionSummary = true
     }
 
@@ -242,7 +258,7 @@ fun StackDropScreen(
                                 .fillMaxWidth()
                                 .testTag(ArcadeTestTags.StackDropStartButton),
                         )
-                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Back to detail", onClick = ::exitCompletedRun, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
                 }
             }
@@ -294,6 +310,10 @@ fun StackDropScreen(
                         onClick = {
                             if (state.playing && !paused) {
                                 paused = true
+                            } else if (state.gameOver && showCompletionSummary) {
+                                showCompletionSummary = false
+                            } else if (state.gameOver) {
+                                exitCompletedRun()
                             } else {
                                 onBack()
                             }

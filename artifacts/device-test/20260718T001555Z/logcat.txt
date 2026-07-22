@@ -1,0 +1,961 @@
+--------- beginning of main
+07-18 05:17:09.248 17555 17555 W .apps.nbu.files: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:09.249 17487 17510 I Finsky  : [50] Finished reading experiment flags from file [7-td5caCQG-g7iGnzw5wR4ZZKuNM5b1f8E4c7t7eK9Y] numFlags=1997.
+07-18 05:17:09.253   715 17610 I resolv  : res_nsend: used send_dg 187 terrno: 0
+07-18 05:17:09.253   715 17610 I resolv  : doQuery: rcode=0, ancount=8, return value=187
+07-18 05:17:09.260  2558 17017 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+07-18 05:17:09.260 17555 17555 W .apps.nbu.files: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:09.262 17555 17555 W .apps.nbu.files: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:09.263 17555 17555 W .apps.nbu.files: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:09.267 17487 17510 I Finsky  : [50] Finished reading experiment flags from file [kUwu4OQ8QJN9QK9gti_oTDwa7sLx1rGkm6uq7otqke8] numFlags=1997.
+07-18 05:17:09.267   715 17612 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:09.273 17487 17510 I Finsky  : [50] Finished reading experiment flags from file [JIDRRk99EC7CWI949zbs_NDs25OFo3GgWBkzNAvkPY0] numFlags=2007.
+07-18 05:17:09.275  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{a8fd584: android.os.BinderProxy@682b2b1}
+07-18 05:17:09.284 17487 17510 I Finsky  : [50] Finished reading experiment flags from file [E2hClBOESl9NjDDocjUiwQqm6kk7lHHxtSr5O9cJ32w] numFlags=2007.
+07-18 05:17:09.290 17487 17510 I Finsky  : [50] Finished reading experiment flags from file [DUfxhY9ZgQ1w2xZRxZppovgU1ZDoWSJbBsHbFY4e4vU] numFlags=1997.
+07-18 05:17:09.292 26615 17413 I NearbyDiscovery: (REDACTED) processGrantSlicePermission: %s
+07-18 05:17:09.293 10485 10485 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color,raw:am instrument -r -w com.vexel.arcadetrio.test/androidx.test.runner.AndroidJUnitRunner'
+07-18 05:17:09.296 17487 17510 I Finsky  : [50] Finished reading experiment flags from file [hT9xIKkNvwHEkkkupG2k8mDi7RiqafEoAds6i8_Fb7s] numFlags=2007.
+07-18 05:17:09.301  1466  1525 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+--------- beginning of system
+07-18 05:17:09.303  1466  3681 I ActivityManager: Killing 17343:com.google.android.documentsui/u0a57 (adj 975): empty for 3s
+07-18 05:17:09.304 17487 17510 I Finsky  : [50] Finished reading experiment flags from file [r4eYrJdelo8nhSLqfXRQaY94BeYuvF8F40NOSxvDy9g] numFlags=2018.
+07-18 05:17:09.305 17487 17511 I Finsky  : [51] cubesStatesValueStore = [2, 2, 2, 2, 2, 2, 2]
+07-18 05:17:09.306   715 17613 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:09.307 17559 17559 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:09.307 17555 17555 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:09.309  1998  1998 I kolun_slot_ViewStub: executeRefresh: hashCode:158645793
+07-18 05:17:09.309  1998  1998 I kolun_slot_ViewStub: executeRefresh: action : 0
+07-18 05:17:09.309  1998  1998 I kolun_slot_ViewStub: realNotifyDataSetChanged: hashCode:158645793 position:0
+07-18 05:17:09.309  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+07-18 05:17:09.309  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+07-18 05:17:09.309  1998  1998 I kolun_slot_RemoteRecyclerviewGroup: hideDefaultEmptyView
+07-18 05:17:09.310  1998  1998 I kolun_slot_RemoteRecyclerviewGroup: hideDefaultEmptyView111
+07-18 05:17:09.311  1998  1998 I kolun_slot_RemoteHolderAdapter: simpleNotifyDate position= 0 hashCode:33549319
+07-18 05:17:09.311  1998  1998 I kolun_slot_RemoteHolderAdapter: notifyRemoteDataChanged, itemCount 3
+07-18 05:17:09.311  1998  1998 I kolun_slot_RemoteHolderAdapter: startNotifyDataSetChanged position = 0is notifyDataSetChange
+07-18 05:17:09.313  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10057 pid 17343 in 10ms
+07-18 05:17:09.314  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{a64516d: android.os.BinderProxy@4f7db17}
+07-18 05:17:09.315  5191  5750 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+07-18 05:17:09.315  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+07-18 05:17:09.321   715 17613 I resolv  : res_nsend: used send_dg 195 terrno: 0
+07-18 05:17:09.321   715 17613 I resolv  : doQuery: rcode=0, ancount=8, return value=195
+07-18 05:17:09.327  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+07-18 05:17:09.327  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.330  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 05:17:09.330  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.331  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 05:17:09.331  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.331  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.331  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.331  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.331  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.331  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.331  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.331  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio.test type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:09.334   758  1234 W VSyncPredictor: VSyncPredictor::setPeriod current period =16666667
+07-18 05:17:09.353 26615  5118 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-18 05:17:09.356 26615  5118 I Icing   : Indexing done com.google.android.gms-apps
+07-18 05:17:09.356   758   758 I BufferQueueProducer: [com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher#272](this:0xb400006feac75468,id:-1,api:0,p:-1,c:758) queueBuffer: fps=1.30 dur=1534.15 max=1317.46 min=216.69
+07-18 05:17:09.359   731  1221 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.303087,dur:1534.82,max:1318.31,min:216.51  
+07-18 05:17:09.365 17555 17555 W ComponentDiscovery: Class com.google.firebase.installations.FirebaseInstallationsKtxRegistrar is not an found.
+07-18 05:17:09.373   715 17621 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:09.380   715 17622 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:09.390  3382  3407 I com.android.nfc: Background young concurrent copying GC freed 1583KB AllocSpace bytes, 0(0B) LOS objects, 35% free, 2911KB/4549KB, paused 92us,301us total 118.521ms
+07-18 05:17:09.402   715 17622 I resolv  : res_nsend: used send_dg 63 terrno: 0
+07-18 05:17:09.402   715 17622 I resolv  : doQuery: rcode=0, ancount=1, return value=63
+07-18 05:17:09.416  1998  1998 I kolun_slot_ViewStub: executeRefresh: hashCode:158645793
+07-18 05:17:09.417  1998  1998 I kolun_slot_ViewStub: executeRefresh: action : 1
+07-18 05:17:09.417  1998  1998 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+07-18 05:17:09.417  1998  1998 I kolun_slot_ViewStub: realItemDataChange: hashCode:158645793 position:1
+07-18 05:17:09.417  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+07-18 05:17:09.417  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+07-18 05:17:09.417  1998  1998 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:33549319position:1
+07-18 05:17:09.421 17559 17559 I GoogleHttpClient: GMS http client unavailable, use old client
+07-18 05:17:09.431   715 17630 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:09.433 17487 17527 I Finsky  : [62] SysUA: Set SystemUpdateActivity enabled state to 1
+07-18 05:17:09.436   715 17631 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:09.442 17487 17527 I Finsky  : [62] Set UnhibernateActivity enabled state to 1
+07-18 05:17:09.442 17487 17527 I Finsky  : [62] SysCUA: Set {com.android.vending/com.google.android.finsky.systemcomponentupdateui.common.SystemComponentUpdateActivity} enabled state to 0
+07-18 05:17:09.444 17487 17527 I Finsky  : [62] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.vexel.arcadetrio.test]
+07-18 05:17:09.459   742   820 I libPerfCtl: xgfGetFPS pid:1775 fps:-1
+07-18 05:17:09.460   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 05:17:09.471 17487 17528 I Finsky  : [63] Loaded library for account: [E3gdTsMoBulIPpFonYSOiwP8OlE-6uOnpRJIa25Fv70]
+07-18 05:17:09.471 17487 17528 I Finsky  : [63] Loaded library for account: [TzjMaCQMLBNWfaAiE7lDqDkYxmbRPa68mC2G5MlpQCM]
+07-18 05:17:09.471 17487 17528 I Finsky  : [63] Loaded library for account: [ZFmBvjyh0GvUdAe-nWnsZ9biA44szOyJ1QtIwbF_Z-c]
+07-18 05:17:09.472 17487 17528 I Finsky  : [63] Loaded library for account: [Ct08yOi5-Xfbk3pl9kX33xTmfsMN2MLwPfoyUYqAKgs]
+07-18 05:17:09.472 17487 17528 I Finsky  : [63] Loaded library for account: [OIT_Z5W75qcGkb_EfRHbUzbbRjpm1pg85gHmwF92XyY]
+07-18 05:17:09.472 17487 17528 I Finsky  : [63] Loaded library for account: [uWsuiEX6p9WKQyCEC71TBWd94xfobfwFF5AFbJDLBnY]
+07-18 05:17:09.472 17487 17528 I Finsky  : [63] Loaded library for account: [4sg5l62w2Hq5p--fWdI2SsnMMyQwm4Sz1mnaVJAtjgI]
+07-18 05:17:09.473 17487 17528 I Finsky  : [63] Loaded library for account: [5omN7Bcx5WOAo7F6m26hJQ1WJIRgs6nNVICiFgpQd8M]
+07-18 05:17:09.473 17487 17528 I Finsky  : [63] Loaded library for account: [pVere21c7Omk0KGYxlKdBLnV-PCv54itWDIWXeF5vC0]
+07-18 05:17:09.473 17487 17528 I Finsky  : [63] Loaded library for account: [UwLWrVjzRFLjxgMZkwAf-1iASOWS2yvjt6_39_QMQ5s]
+07-18 05:17:09.473 17487 17528 I Finsky  : [63] Loaded library for account: [aWT1ofIwiueK7VppOyCooaGEYKl5cnpp5jRyrBG8fWs]
+07-18 05:17:09.473 17487 17528 I Finsky  : [63] Loaded library for account: [sxUcHP9cntHMy9AFHdFXFxFWOjUGUHJjj3CfyCPCX3U]
+07-18 05:17:09.473 17487 17528 I Finsky  : [63] Loaded library for account: [Ie8F88DxEN7y1TgUBiTEHqHWClOo7nxmsy2EXRZmOlU]
+07-18 05:17:09.473 17487 17528 I Finsky  : [63] Finished loading 13 libraries.
+07-18 05:17:09.482   715 17631 I resolv  : res_nsend: used send_dg 173 terrno: 0
+07-18 05:17:09.483   715 17631 I resolv  : doQuery: rcode=0, ancount=9, return value=173
+07-18 05:17:09.496 17555 17628 W .apps.nbu.files: ClassLoaderContext classpath size mismatch. expected=1, found=0 (DLC[];PCL[base.apk*4129373472]{PCL[/system/framework/org.apache.http.legacy.jar*2290010995]#PCL[/system/framework/com.android.location.provider.jar*3868789109]#PCL[/system/framework/com.android.media.remotedisplay.jar*3886290638]} | DLC[];PCL[])
+07-18 05:17:09.502 26615  5118 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-18 05:17:09.502  1466  4062 I ActivityManager: Killing 17401:com.google.android.packageinstaller/u0a65 (adj 965): empty for 1s
+07-18 05:17:09.513 26615  5118 I Icing   : Indexing done com.google.android.gms-apps
+07-18 05:17:09.535  2558 17029 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+07-18 05:17:09.578 17487 17542 I Finsky  : [74] ApplicationRestrictions: {}
+07-18 05:17:09.580  3771  3812 W .plat.appupdate: Reducing the number of considered missed Gc histogram windows from 162 to 100
+07-18 05:17:09.586  1466  1521 I ActivityManager: Start proc 17648:com.transsion.childmode/1000 for broadcast {com.transsion.childmode/com.transsion.childmode.receiver.ChildModeBroadcastReceiver}
+07-18 05:17:09.590  1466  4062 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.documentsui/com.google.android.documentsui pid=17343 state:3
+07-18 05:17:09.590  1466  4062 I game_scn: collectForegroundAppList packName=com.google.android.documentsui, actName=com.google.android.documentsui, pid=17343, uid=10057, state:DEAD
+07-18 05:17:09.590  5191  6266 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+07-18 05:17:09.591  1466  4062 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:09.592  5191  6266 I Kolun.SkillCard===:  skill card isNUll
+07-18 05:17:09.593   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.documentsui, act:com.google.android.documentsui, state:3, pid:17343, uid:10057, fps:-1
+07-18 05:17:09.593   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.documentsui, pid:17343, STATE_DEAD
+07-18 05:17:09.600  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.aivoiceassistant
+07-18 05:17:09.600  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10065 pid 17401 in 0ms
+07-18 05:17:09.600  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.kolun.assistant
+07-18 05:17:09.600  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.microintelligence
+07-18 05:17:09.600  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.notebook
+07-18 05:17:09.600  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.phonemaster
+07-18 05:17:09.600  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+07-18 05:17:09.600  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+07-18 05:17:09.601  5191  6266 I ManifestUtil: getCategoryPackageName: pkgName = com.transsion.videocallenhancer
+07-18 05:17:09.603  1466  1600 I RoleService: Granting default roles...
+07-18 05:17:09.608   716   716 I Zygote  : Process 17343 exited due to signal 9 (Killed)
+07-18 05:17:09.613 17487 17528 I Finsky  : [63] CronetEngine is present. Using Cronet for the networking stack.
+07-18 05:17:09.639 17648 17648 I ssion.childmode: Using generational CollectorTypeCC GC.
+07-18 05:17:09.647  2558 17406 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+07-18 05:17:09.670 26615  5118 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-18 05:17:09.688  1466  1525 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+07-18 05:17:09.705  1466  3699 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.packageinstaller/com.google.android.packageinstaller pid=17401 state:3
+07-18 05:17:09.705  1466  3699 I game_scn: collectForegroundAppList packName=com.google.android.packageinstaller, actName=com.google.android.packageinstaller, pid=17401, uid=10065, state:DEAD
+07-18 05:17:09.705  1466  3699 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:09.705   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.packageinstaller, act:com.google.android.packageinstaller, state:3, pid:17401, uid:10065, fps:-1
+07-18 05:17:09.705   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.packageinstaller, pid:17401, STATE_DEAD
+07-18 05:17:09.711 17555 17645 I FA      : App measurement initialized, version: 176001
+07-18 05:17:09.711 17555 17645 I FA      : To enable debug logging run: adb shell setprop log.tag.FA VERBOSE
+07-18 05:17:09.748  5191  6266 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+07-18 05:17:09.748   716   716 I Zygote  : Process 17401 exited due to signal 9 (Killed)
+07-18 05:17:09.753  5191  6266 W Kolun.TPMSConfigProxy:  getRemoteConfig timeout
+07-18 05:17:09.755 17648 17648 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:09.756 17555 17645 I FA      : To enable faster debug mode event logging run:
+07-18 05:17:09.756 17555 17645 I FA      :   adb shell setprop debug.firebase.analytics.app com.google.android.apps.nbu.files
+07-18 05:17:09.763 26615  5118 I Icing   : Indexing done com.google.android.gms-apps
+07-18 05:17:09.789  5191  6266 I Kolun.SkillCard====:  from catch list==19
+07-18 05:17:09.789  5191  6266 I Kolun.Card:  isAvailable mIsEnable: true , mIsActive  true
+07-18 05:17:09.789  5191  6266 W Kolun.Card:  SkillCard toggleStatusInner : enable == mIsEnable
+07-18 05:17:09.789  5191  6266 I Kolun.Card:  updateInner success: true
+07-18 05:17:09.794  5191  6257 I Kolun.CardClient:  execute update start18 CardUpdateRunnable
+07-18 05:17:09.794  5191  6257 I Kolun.SkillCard===:  card displayTimes=1073741823
+07-18 05:17:09.796 17648 17648 I FirebaseApp: Device unlocked: initializing all Firebase APIs for app [DEFAULT]
+07-18 05:17:09.843 17648 17673 W ssion.childmode: Unsupported class loader: java.lang.Class<d.d.a.b.d.e>
+07-18 05:17:09.847 17648 17673 W ssion.childmode: Unsupported class loader: java.lang.Class<d.d.a.b.d.e>
+07-18 05:17:09.847 17648 17673 W ssion.childmode: Unsupported class loader: java.lang.Class<d.d.a.b.d.e>
+07-18 05:17:09.850  1466  1989 E system_server: Invalid class loader spec: =UnsupportedClassLoaderContext=
+07-18 05:17:09.850  1466  1989 E PackageDexUsage: Unsupported context?
+07-18 05:17:09.850  5191  6257 I Kolun.CardClient:  host onCardUpdated kolun card 18
+07-18 05:17:09.850  5191  6257 I Kolun.CardClient:  execute update success18 CardUpdateRunnable
+07-18 05:17:09.850  5191  6257 I CardSettings: packageChanged: 
+07-18 05:17:09.855  5191  6257 E Kolun.PackageInfoUtils:  isAppExistAndEnabled NameNotFoundException -> pkg : com.transsion.wallet.tecno
+07-18 05:17:09.855  5191  6257 I WalletCardPretreatment: onReceivePackageChanged: isWalletAppEnable=false; stateChanged=false
+07-18 05:17:09.861 17648 17648 I FirebaseCrashlytics: Initializing Crashlytics 17.3.0
+07-18 05:17:09.862  5191  6257 I MoverCardPretreatment: onReceivePackageChanged: isMobileClonerEnable = true; stateChanged = false
+07-18 05:17:09.866  5191  6257 I MemoryGalleryPretreatment: onReceivePackageChanged: stateChanged = false
+07-18 05:17:09.885 17648 17673 I DynamiteModule: Considering local module com.google.android.gms.measurement.dynamite:20 and remote module com.google.android.gms.measurement.dynamite:199
+07-18 05:17:09.885 17648 17673 I DynamiteModule: Selected remote version of com.google.android.gms.measurement.dynamite, version >= 199
+07-18 05:17:09.906   715 17688 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:09.906 17648 17648 I FirebaseInitProvider: FirebaseApp initialization successful
+07-18 05:17:09.907   715 17689 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:09.908   715 17689 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000078e80bd350
+07-18 05:17:09.908   715 17689 I resolv  : doQuery: rcode=0, ancount=1, return value=56
+07-18 05:17:09.915 17648 17648 I TranVersion: TranVersion static initializer: default = 33.1.6.1
+07-18 05:17:09.915 17648 17648 I TranVersion:  debug = false, debug_version = 33.1.6.1
+07-18 05:17:09.915 17648 17648 I TranVersion: initializer: version = 33.1.6.1, THUBCORE_VERSION = 33161
+07-18 05:17:09.916 17648 17648 I TranVerifyKeyManager: TranThubVerifyKeyManager
+07-18 05:17:09.940 17648 17648 W ScionFrontendAp: type=1400 audit(0.0:7822): avc: denied { search } for name="com.google.android.gms" dev="dm-42" ino=4946 scontext=u:r:system_app:s0 tcontext=u:object_r:privapp_data_file:s0:c512,c768 tclass=dir permissive=0
+07-18 05:17:09.948 17648 17648 I TranPackageManager: TranThubPackageManager
+07-18 05:17:09.952 17648 17673 W System  : ClassLoader referenced unknown path: 
+07-18 05:17:09.956 17648 17648 I TranThubPackageManager: getHomeActivities mComponentName:ComponentInfo{com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher}
+07-18 05:17:09.956 17648 17648 I ChildModeApplication: save default launcher is com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:09.979 17648 17648 W TranVersion: THUBCore No support Call!!! method version = 33181, >>> ThubCore vserion = 33161
+07-18 05:17:09.979 17648 17648 W TranVersion:  mthod version must <= ThubCore version.
+07-18 05:17:09.979 17648 17648 W TranVersion:  ---java.lang.Throwable
+07-18 05:17:09.979 17648 17648 W TranVersion: #com.transsion.hubsdk.common.version.TranVersion.isIntegratedThubCore[64]
+07-18 05:17:09.979 17648 17648 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getService[0]
+07-18 05:17:09.979 17648 17648 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.get[4]
+07-18 05:17:09.979 17648 17648 W TranVersion: #d.e.b.z.c.get[0]
+07-18 05:17:09.979 17648 17648 I TranSystemProperties: TranAospSystemProperties
+07-18 05:17:09.979 17648 17648 I TranVerifyKeyManager: TranThubVerifyKeyManager
+07-18 05:17:09.989 17648 17648 W TranVersion: THUBCore No support Call!!! method version = 33181, >>> ThubCore vserion = 33161
+07-18 05:17:09.989 17648 17648 W TranVersion:  mthod version must <= ThubCore version.
+07-18 05:17:09.989 17648 17648 W TranVersion:  ---java.lang.Throwable
+07-18 05:17:09.989 17648 17648 W TranVersion: #com.transsion.hubsdk.common.version.TranVersion.isIntegratedThubCore[64]
+07-18 05:17:09.989 17648 17648 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getService[0]
+07-18 05:17:09.989 17648 17648 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getBoolean[2]
+07-18 05:17:09.989 17648 17648 W TranVersion: #d.e.b.z.c.getBoolean[0]
+07-18 05:17:09.989 17648 17648 I TranSystemProperties: TranAospSystemProperties
+07-18 05:17:09.992 17648 17673 W ssion.childmode: ClassLoaderContext classpath element mismatch. expected=base.apk, found=/system_ext/app/ChildModeThub/ChildModeThub.apk (DLC[];PCL[base.apk*4129373472]{PCL[/system/framework/org.apache.http.legacy.jar*2290010995]#PCL[/system/framework/com.android.location.provider.jar*3868789109]#PCL[/system/framework/com.android.media.remotedisplay.jar*3886290638]} | DLC[];PCL[/system_ext/app/ChildModeThub/ChildModeThub.apk*2637869419])
+07-18 05:17:10.003 17074 17107 I Finsky:background: [58] RECEIVER_SINGLE_USER_SETTINGS#logWorkEndAndFinishGoAsync: SUCCESS
+07-18 05:17:10.014  1466  1989 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 (has extras) } to com.transsion.ossettingsext/.flash.applist.MonitorSysReceiver
+07-18 05:17:10.021  1466  1989 I ActivityManager: Killing 17455:com.transsion.ossettingsext/1000 (adj 985): empty for 2s
+07-18 05:17:10.034  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 1000 pid 17455 in 12ms
+07-18 05:17:10.038  1466  1520 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 (has extras) } to com.google.android.packageinstaller/com.android.packageinstaller.PackageInstalledReceiver
+07-18 05:17:10.039  1466  1520 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemonitor.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+07-18 05:17:10.039  1466  1520 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemonitor.backgroundimpl.BackgroundPackageMonitorReceiverImpl$RegisteredReceiver
+07-18 05:17:10.039  1466  1520 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 (has extras) } to com.google.android.apps.nbu.files/.documentbrowser.browselanding.rootcontainerlist.receiver.PackageChangeReceiver_Receiver
+07-18 05:17:10.040  1466  1520 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 (has extras) } to com.google.android.gms/.gass.chimera.PackageChangeBroadcastReceiver
+07-18 05:17:10.040  1466  1520 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+07-18 05:17:10.042  1466  1520 I ActivityManager: com.google.android.packageinstaller is exempt from freezer
+07-18 05:17:10.043  1729  1729 I WifiHAL : Get link layer stats
+07-18 05:17:10.043  1729  1729 I WifiHAL : GetLinkStatsCommand::create
+07-18 05:17:10.043  1729  1729 I android.hardware.wifi@1.0-service-lazy: WifiCommand::requestResponse err=-14
+07-18 05:17:10.043  1729  1729 I WifiHAL : wifi_get_link_stats: result=-1
+07-18 05:17:10.045  1466  1636 E WifiVendorHal: $r8$lambda$s6w0pmKyq6-tDdqCEDbOV_xqgVE(l.1176) failed {.code = ERROR_UNKNOWN, .description = unknown}
+07-18 05:17:10.069  1466  1521 I ActivityManager: Start proc 17694:com.google.android.packageinstaller/u0a65 for broadcast {com.google.android.packageinstaller/com.android.packageinstaller.PackageInstalledReceiver}
+07-18 05:17:10.076 17694 17694 W main    : type=1400 audit(0.0:7823): avc: denied { read } for name="u:object_r:vendor_memfusion_size_prop:s0" dev="tmpfs" ino=8077 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_size_prop:s0 tclass=file permissive=0 app=com.google.android.packageinstaller
+07-18 05:17:10.080 17694 17694 W main    : type=1400 audit(0.0:7824): avc: denied { read } for name="u:object_r:vendor_memfusion_state_prop:s0" dev="tmpfs" ino=8078 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_state_prop:s0 tclass=file permissive=0 app=com.google.android.packageinstaller
+07-18 05:17:10.080 17694 17694 W main    : type=1400 audit(0.0:7825): avc: denied { read } for name="u:object_r:vendor_memfusion_tranlog_prop:s0" dev="tmpfs" ino=8080 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_tranlog_prop:s0 tclass=file permissive=0 app=com.google.android.packageinstaller
+07-18 05:17:10.080 17694 17694 W main    : type=1400 audit(0.0:7826): avc: denied { read } for name="u:object_r:vendor_memfusion_ui_enable_prop:s0" dev="tmpfs" ino=8081 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_ui_enable_prop:s0 tclass=file permissive=0 app=com.google.android.packageinstaller
+07-18 05:17:10.085 17694 17694 I ackageinstaller: Using generational CollectorTypeCC GC.
+07-18 05:17:10.104  1466  3699 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.transsion.ossettingsext/com.transsion.ossettingsext pid=17455 state:3
+07-18 05:17:10.104  1466  3699 I game_scn: collectForegroundAppList packName=com.transsion.ossettingsext, actName=com.transsion.ossettingsext, pid=17455, uid=1000, state:DEAD
+07-18 05:17:10.104  1466  3699 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:10.105   742   847 I libPowerHal: [perfNotifyAppState] pack:com.transsion.ossettingsext, act:com.transsion.ossettingsext, state:3, pid:17455, uid:1000, fps:-1
+07-18 05:17:10.105   742   847 I libPowerHal: [perfNotifyAppState] pack:com.transsion.ossettingsext, pid:17455, STATE_DEAD
+07-18 05:17:10.112   716   716 I Zygote  : Process 17455 exited due to signal 9 (Killed)
+07-18 05:17:10.127  1466  1480 I system_server: Background concurrent copying GC freed 22MB AllocSpace bytes, 33(920KB) LOS objects, 22% free, 81MB/105MB, paused 938us,1.720ms total 1.191s
+07-18 05:17:10.195  1466  1553 W PackageSettings: Skipping PackageSetting{9da5f78 sinet.startup.inDriver/10248} due to missing metadata
+07-18 05:17:10.197  1466  1553 W PackageSettings: Skipping PackageSetting{de7f6af com.easyui.guardianlauncher/10467} due to missing metadata
+07-18 05:17:10.197  1466  1553 W PackageSettings: Skipping PackageSetting{b238a45 com.YsoCorp.NinjaHands/10425} due to missing metadata
+07-18 05:17:10.197  1466  1553 W PackageSettings: Skipping PackageSetting{474ecb com.techlogix.mobilinkcustomer/10324} due to missing metadata
+07-18 05:17:10.199  1466  1553 W PackageSettings: Skipping PackageSetting{62d80bb com.StarLegion.EnergyFight/10423} due to missing metadata
+07-18 05:17:10.202  1466  1553 W PackageSettings: Skipping PackageSetting{c0e4c11 com.vexel.stackdrop/10274} due to missing metadata
+07-18 05:17:10.202  1466  1553 W PackageSettings: Skipping PackageSetting{369c176 com.YsoCorp.MobileRun/10223} due to missing metadata
+07-18 05:17:10.202  1466  1553 W PackageSettings: Skipping PackageSetting{1496be4 com.higames.grounddigger/10286} due to missing metadata
+07-18 05:17:10.202  1466  1553 W PackageSettings: Skipping PackageSetting{97ce013 com.rushpro.clonemaster/10298} due to missing metadata
+07-18 05:17:10.202  1466  1553 W PackageSettings: Skipping PackageSetting{8236250 com.fun.mxw/10233} due to missing metadata
+07-18 05:17:10.203  1466  1553 W PackageSettings: Skipping PackageSetting{60f8405 com.facebook.stella/10220} due to missing metadata
+07-18 05:17:10.203  1466  1553 W PackageSettings: Skipping PackageSetting{64f9b9 com.cuecall.app/10251} due to missing metadata
+07-18 05:17:10.204  1466  1553 W PackageSettings: Skipping PackageSetting{590ac44 com.vexel.stackdrop.test/10275} due to missing metadata
+07-18 05:17:10.204  1466  1553 W PackageSettings: Skipping PackageSetting{c0e48b0 magic.friends.rainbow/10224} due to missing metadata
+07-18 05:17:10.204  1466  1553 W PackageSettings: Skipping PackageSetting{ccecf9d com.lensmoo.app/10379} due to missing metadata
+07-18 05:17:10.213 17615 17615 I AndroidRuntime: Using default boot image
+07-18 05:17:10.214 17615 17615 I AndroidRuntime: Leaving lock profiling enabled
+07-18 05:17:10.226 17615 17615 I app_process: Using generational CollectorTypeCC GC.
+07-18 05:17:10.228  1466  1485 W ActivityManager: Slow operation: 106ms so far, now at attachApplicationLocked: before bindApplication
+07-18 05:17:10.228  1466  1485 W ActivityManager: Slow operation: 107ms so far, now at attachApplicationLocked: immediately before bindApplication
+07-18 05:17:10.229  1466  1485 W ActivityManager: Slow operation: 108ms so far, now at attachApplicationLocked: immediately after bindApplication
+07-18 05:17:10.229  1466  1485 W ActivityManager: Slow operation: 108ms so far, now at attachApplicationLocked: after updateLruProcessLocked
+07-18 05:17:10.230  1466  1485 W ActivityManager: Slow operation: 109ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+07-18 05:17:10.232  1466  1525 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+07-18 05:17:10.232  1466  1485 W ActivityManager: Slow operation: 111ms so far, now at attachApplicationLocked: after sendPendingBroadcastsLocked
+07-18 05:17:10.259 17648 17711 E ssion.childmode: No package ID 6a found for ID 0x6a0b0013.
+07-18 05:17:10.271 17648 17711 I FA      : App measurement initialized, version: 175000
+07-18 05:17:10.271 17648 17711 I FA      : To enable debug logging run: adb shell setprop log.tag.FA VERBOSE
+07-18 05:17:10.271 17648 17711 I FA      : To enable faster debug mode event logging run:
+07-18 05:17:10.271 17648 17711 I FA      :   adb shell setprop debug.firebase.analytics.app com.transsion.childmode
+07-18 05:17:10.291 17694 17694 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:10.293  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{7f8e93b com.magiconnect.tcast}
+07-18 05:17:10.314  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.317 17487 17558 I cn_CronetUrlRequestContext: destroyNativeStreamLocked android.net.http.internal.org.chromium.net.impl.CronetBidirectionalStream@fd87c9d
+07-18 05:17:10.322  1466  3699 I ActivityManager: Killing 17487:com.android.vending/u0a108 (adj 955): empty for 1s
+07-18 05:17:10.323  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.329  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10108 pid 17487 in 6ms
+07-18 05:17:10.337  2558 14610 I PhenotypeResourceReader: unable to find any Phenotype resource metadata for com.transsion.childmode
+07-18 05:17:10.351  1466  1521 I ActivityManager: Start proc 17717:com.transsion.ossettingsext/1000 for broadcast {com.transsion.ossettingsext/com.transsion.ossettingsext.flash.applist.MonitorSysReceiver}
+07-18 05:17:10.371  2558 14610 W PhBaseOp: Phenotype API error. Event: # jktc@c0b2b69d, EventCode: COMMIT_CONFIG [CONTEXT service_id=51 ]
+07-18 05:17:10.371  2558 14610 W PhBaseOp: ferm: 29542: Stale snapshot for com.google.android.gms.measurement#com.transsion.childmode(new configuration available)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at fetp.d(:com.google.android.gms@262634029@26.26.34 (190400-945364269):331)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at fetp.b(:com.google.android.gms@262634029@26.26.34 (190400-945364269):44)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at feto.i(:com.google.android.gms@262634029@26.26.34 (190400-945364269):3)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at fetk.h(:com.google.android.gms@262634029@26.26.34 (190400-945364269):36)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at fetk.f(:com.google.android.gms@262634029@26.26.34 (190400-945364269):18)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at czsw.fF(:com.google.android.gms@262634029@26.26.34 (190400-945364269):1)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at czth.run(:com.google.android.gms@262634029@26.26.34 (190400-945364269):123)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at hfxb.run(:com.google.android.gms@262634029@26.26.34 (190400-945364269):23)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at bkpw.c(:com.google.android.gms@262634029@26.26.34 (190400-945364269):50)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at bkpw.run(:com.google.android.gms@262634029@26.26.34 (190400-945364269):71)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at bkvp.run(:com.google.android.gms@262634029@26.26.34 (190400-945364269):8)
+07-18 05:17:10.371  2558 14610 W PhBaseOp: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: operation=CommitToConfigurationOperationCall, opStatusCode=29542 [CONTEXT service_id=51 ]
+07-18 05:17:10.372  2558 14610 W AsyncOperation: OperationException[Status{statusCode=Stale snapshot for com.google.android.gms.measurement#com.transsion.childmode(new configuration available), resolution=null}]
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at fetk.h(:com.google.android.gms@262634029@26.26.34 (190400-945364269):66)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at fetk.f(:com.google.android.gms@262634029@26.26.34 (190400-945364269):18)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at czsw.fF(:com.google.android.gms@262634029@26.26.34 (190400-945364269):1)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at czth.run(:com.google.android.gms@262634029@26.26.34 (190400-945364269):123)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at hfxb.run(:com.google.android.gms@262634029@26.26.34 (190400-945364269):23)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at bkpw.c(:com.google.android.gms@262634029@26.26.34 (190400-945364269):50)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at bkpw.run(:com.google.android.gms@262634029@26.26.34 (190400-945364269):71)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at bkvp.run(:com.google.android.gms@262634029@26.26.34 (190400-945364269):8)
+07-18 05:17:10.372  2558 14610 W AsyncOperation: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 05:17:10.384 17717 17717 I n.ossettingsext: Using generational CollectorTypeCC GC.
+07-18 05:17:10.388   716   716 I Zygote  : Process 17487 exited due to signal 9 (Killed)
+07-18 05:17:10.389  1466  4062 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.android.vending/com.android.vending pid=17487 state:3
+07-18 05:17:10.389  1466  4062 I game_scn: collectForegroundAppList packName=com.android.vending, actName=com.android.vending, pid=17487, uid=10108, state:DEAD
+07-18 05:17:10.389  1466  4062 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:10.390   742   847 I libPowerHal: [perfNotifyAppState] pack:com.android.vending, act:com.android.vending, state:3, pid:17487, uid:10108, fps:-1
+07-18 05:17:10.391   742   847 I libPowerHal: [perfNotifyAppState] pack:com.android.vending, pid:17487, STATE_DEAD
+07-18 05:17:10.411 15400 17027 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+07-18 05:17:10.419  1466  1525 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+07-18 05:17:10.421 17648 17711 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:2085 android.content.ContextWrapper.bindService:853 m7.is.g:11 m7.is.d:103 m7.hd.a:203 
+07-18 05:17:10.422 15400 17027 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+07-18 05:17:10.460   742   820 I libPerfCtl: xgfGetFPS pid:1775 fps:-1
+07-18 05:17:10.460   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 05:17:10.460  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{9342ddf invo8.meezan.mb}
+07-18 05:17:10.464  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.467 17717 17717 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:10.467   758  1234 W VSyncPredictor: VSyncPredictor::setPeriod current period =16666667
+07-18 05:17:10.469  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.473   758   758 I BufferQueueProducer: [StatusBar#88](this:0xb400006feac83838,id:-1,api:0,p:-1,c:758) queueBuffer: fps=0.20 dur=5002.21 max=5002.21 min=5002.21
+07-18 05:17:10.475   731  1221 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.791338,dur:1116.48,max:1033.85,min:82.63  
+07-18 05:17:10.495 17615 17615 I app_process: Priority-to-niceness mapping: 19, 16, 13, 10, 0, -2, -4, -5, -6, -8
+07-18 05:17:10.502  1466  4068 I ActivityManager: com.android.vending is exempt from freezer
+07-18 05:17:10.503  1466  4068 I ActivityManager: Killing 17555:com.google.android.apps.nbu.files/u0a104 (adj 935): empty for 1s
+07-18 05:17:10.515  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10104 pid 17555 in 5ms
+07-18 05:17:10.517  1466  1521 I ActivityManager: Start proc 17742:com.android.vending/u0a108 for broadcast {com.android.vending/com.google.android.finsky.packagemonitor.impl.PackageMonitorReceiverImpl$RegisteredReceiver}
+07-18 05:17:10.530 17615 17615 W libc    : Access denied finding property "ro.vendor.tran.hardware"
+07-18 05:17:10.530 17615 17615 W libc    : Access denied finding property "ro.vendor.tran.cpu_model"
+07-18 05:17:10.542 17742 17742 I android.vending: Using generational CollectorTypeCC GC.
+07-18 05:17:10.552  1466  2905 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.apps.nbu.files/com.google.android.apps.nbu.files pid=17555 state:3
+07-18 05:17:10.552  1466  2905 I game_scn: collectForegroundAppList packName=com.google.android.apps.nbu.files, actName=com.google.android.apps.nbu.files, pid=17555, uid=10104, state:DEAD
+07-18 05:17:10.552  1466  2905 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:10.553   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.apps.nbu.files, act:com.google.android.apps.nbu.files, state:3, pid:17555, uid:10104, fps:-1
+07-18 05:17:10.553   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.apps.nbu.files, pid:17555, STATE_DEAD
+07-18 05:17:10.556   716   716 I Zygote  : Process 17555 exited due to signal 9 (Killed)
+07-18 05:17:10.559 17615 17615 W System  : ClassLoader referenced unknown path: /system/framework/mediatek-cta.jar
+07-18 05:17:10.560 17615 17615 W CtaManagerFactory: CtaManagerFactoryImpl not found
+07-18 05:17:10.561  1466  1671 I BaseFilesVerify: Base File verify start
+07-18 05:17:10.562  1466  1671 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xml
+07-18 05:17:10.563  1466  1671 W BaseXMLFilesVerify: format is normal
+07-18 05:17:10.563  1466  1671 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: roles.xmlsetup fs failed
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xml: Permission denied
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:58)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+07-18 05:17:10.564  1466  1671 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+07-18 05:17:10.568  1466  1671 W BaseXMLFilesVerify: isGrammarAndSemanticsLegal file = /data/misc_de/0/apexdata/com.android.permission/roles.xmlsecnew.bak
+07-18 05:17:10.569  1466  1671 W BaseXMLFilesVerify: format is normal
+07-18 05:17:10.572  1466  1671 W BaseXMLFilesVerify: verifyRuleGrammarFormat verifyRuleresult :true
+07-18 05:17:10.574  1466  1525 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+07-18 05:17:10.582  1466  4068 I ActivityManager: Force stopping com.vexel.arcadetrio appid=10574 user=0: start instr
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: roles.xmlsec.baksetup fs failed
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: java.io.IOException: Failed to enable fs-verity on /data/misc_de/0/apexdata/com.android.permission/roles.xmlsec.bak: Permission denied
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.android.internal.security.VerityUtils.setUpFsverity(VerityUtils.java:78)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.setupFsVerity(TranBaseFilesVerify.java:264)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranBaseFilesVerify.verifyFileBeforeFinishWrite(TranBaseFilesVerify.java:81)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.transsion.storage.xmlprotect.TranXmlProtectVerifyComponentImpl.verifyFileBeforeFinishWrite(TranXmlProtectVerifyComponentImpl.java:12)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.transsion.hubcore.util.TranAtomFileImpl.verifyFileBeforeFinishWrite(TranAtomFileImpl.java:11)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at android.util.AtomicFile.finishWrite(AtomicFile.java:213)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.android.role.persistence.RolesPersistenceImpl.writeForUser(RolesPersistenceImpl.java:220)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState.writeFile(RoleUserState.java:580)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState.$r8$lambda$jPDoR6B7JGYQI6CsAtCH-k823J4(RoleUserState.java:0)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at com.android.role.RoleUserState$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at android.os.Handler.handleCallback(Handler.java:942)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at android.os.Looper.loopOnce(Looper.java:204)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at android.os.Looper.loop(Looper.java:291)
+07-18 05:17:10.582  1466  1671 E BaseFilesVerify: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+07-18 05:17:10.596  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{35d3920 com.transsion.magicshow}
+07-18 05:17:10.600  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.605  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.605  1466  1521 I ActivityManager: Start proc 17755:com.vexel.arcadetrio/u0a574 for added application com.vexel.arcadetrio
+07-18 05:17:10.617 17755 17755 I exel.arcadetrio: Late-enabling -Xcheck:jni
+07-18 05:17:10.651 17755 17755 I exel.arcadetrio: Using generational CollectorTypeCC GC.
+07-18 05:17:10.660 10485 10494 I adbd    : jdwp connection from 17755
+07-18 05:17:10.668  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{11b34b2 com.transsnet.store}
+07-18 05:17:10.673  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.674 17742 17742 W android.vending: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:10.675 17742 17742 W android.vending: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:10.677 17742 17742 W android.vending: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:10.679  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.678 17742 17742 W android.vending: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:10.680 17742 17742 W android.vending: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:10.682 17742 17742 W android.vending: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:10.683 17742 17742 W android.vending: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:10.712 17742 17742 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:10.725  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{7fa205b com.Neurononfire.SupremeDuelist}
+07-18 05:17:10.730  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.732 17742 17742 I Finsky  : [2] Process created at version: 52.2.25-31 [0] [PR] 945188457
+07-18 05:17:10.735  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.747  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{550bed4 com.YoBroStudios.MergeSpinner}
+07-18 05:17:10.752  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.757  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.759 17742 17774 W Finsky  : [50] Failed to get the task info for cold start.
+07-18 05:17:10.759 17742 17774 I Finsky  : [50] Process started for unknown session.
+07-18 05:17:10.767 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [_58nLbQPIp-wDzlUne0pMX2MCQv6EMTnW6quEbxsquQ] numFlags=2051.
+07-18 05:17:10.767 17742 17771 I Finsky  : [47] Finished reading experiment flags from file [0tGUNCGIkbk4o6-fQ335kUYSKwVj4lusnHT-A5Dsy08] numFlags=2466.
+07-18 05:17:10.770 17742 17774 I Finsky  : [50] Finished reading experiment flags from file [Se-xCc4LzNyh3UrKMIU2sUf-PUKz4oQEbpKZDMuaFno] numFlags=1999.
+07-18 05:17:10.828 17742 17742 I Finsky  : [2] Profiling: window_size_ms=86400000 delay_ms=49838478
+07-18 05:17:10.833 17742 17742 I Finsky  : [2] Profiling: Starting up (7)
+07-18 05:17:10.834 17742 17774 I Finsky  : [50] akad - Registering in memory receiver for android.intent.action.PACKAGE_ADDED and android.intent.action.PACKAGE_REMOVED
+07-18 05:17:10.857 17742 17742 I Finsky  : [2] This process start was not selected for Play memory metrics collection.
+07-18 05:17:10.862 17742 17742 I Finsky  : [2] akad - Received: android.intent.action.PACKAGE_CHANGED, [ys8O1TXXIMWZPknjbG8d6kPtwf7zmEkjYt4zVSWS2Qo]
+07-18 05:17:10.864  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{6d668e9 com.YsoCorp.TVInvasion}
+07-18 05:17:10.868  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.883  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.924  1466  1502 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+07-18 05:17:10.924  1466  1466 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio, user:UserHandle{0}, action:android.intent.action.PACKAGE_ADDED
+07-18 05:17:10.933  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{ea91a2a com.aa.puffup}
+07-18 05:17:10.934 17742 17742 I Finsky  : [2] VerifyApps: Setup app restrictions monitor
+07-18 05:17:10.936 17742 17742 I Finsky  : [2] VerifyApps: Device wide unknown source restriction updated
+07-18 05:17:10.940 17742 17742 I Finsky  : [2] VerifyApps: Updating ADI Warn Mode activity enabled state
+07-18 05:17:10.940  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.943 17742 17789 I Finsky  : [65] VerifyApps: Resolving target for ADI Warn Mode activity
+07-18 05:17:10.944 17742 17789 I Finsky  : [65] VerifyApps: Feature flag disabled, ADI Warn Mode activity target not resolved
+07-18 05:17:10.944 17742 17789 I Finsky  : [65] VerifyApps: Successfully updated the ADI Warn Mode activity to disabled
+07-18 05:17:10.946 17742 17742 W Settings: Setting download_manager_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
+07-18 05:17:10.947 17742 17742 I Finsky  : [2] SettingNotFoundException, fall through to G.downloadBytesOverMobileMaximum
+07-18 05:17:10.947 17742 17742 W Settings: Setting download_manager_recommended_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
+07-18 05:17:10.948 17742 17742 I Finsky  : [2] SettingNotFoundException, fall through to G.downloadBytesOverMobileRecommended
+07-18 05:17:10.949  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:10.956 17742 17742 I Finsky  : [2] AIM: AppInfoCacheUpdater -> invalidating apps: [com.vexel.arcadetrio.test]
+07-18 05:17:10.957 17742 17742 I Finsky  : [2] AIM: AppInfoManager-Perf > Creating AppInfoManager ...
+07-18 05:17:10.973 17742 17742 I Finsky  : [2] AIM: AppInfoManager-Perf > getApps > called for 1 apps
+07-18 05:17:10.977 17742 17788 I Finsky  : [64] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.vexel.arcadetrio.test]
+07-18 05:17:10.978 17742 17788 I Finsky  : [64] Enqueuing libraries load for -932659468
+07-18 05:17:10.978  2558 14610 I GetConfigSnapshotOp: (REDACTED) Succeeded but not registered: %s
+07-18 05:17:10.980 17742 17784 I Finsky  : [60] Starting libraries load for -932659468
+07-18 05:17:10.997 17742 17771 I Finsky  : [47] RECEIVER_PACKAGE_MONITOR#logWorkEndAndFinishGoAsync: SUCCESS
+07-18 05:17:11.004 17074 17074 I Finsky:background: [2] ajzt - Received: android.intent.action.PACKAGE_CHANGED, [ys8O1TXXIMWZPknjbG8d6kPtwf7zmEkjYt4zVSWS2Qo]
+07-18 05:17:11.011 17742 17789 I Finsky  : [65] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.vexel.arcadetrio.test]
+07-18 05:17:11.013 17742 17774 I Finsky  : [50] Device is eligible for platform Cronet and will attempt to use it.
+07-18 05:17:11.015 17742 17771 I Finsky  : [47] Subscription detail: N/A
+07-18 05:17:11.017 17742 17742 I Finsky  : [2] onSubscriptionsChanged
+07-18 05:17:11.024 17074 17117 I Finsky:background: [67] RECEIVER_PACKAGE_MONITOR_BACKGROUND#logWorkEndAndFinishGoAsync: SUCCESS
+07-18 05:17:11.027 17074 17196 I Finsky:background: [92] Wrote row to frosting DB: 73922
+07-18 05:17:11.030 17074 17116 I Finsky:background: [66] RECEIVER_ENGAGE_PACKAGE_CHANGED#logWorkEndAndFinishGoAsync: SKIPPED_PRECONDITIONS_UNMET
+07-18 05:17:11.035  1466  2240 I ActivityManager: Killing 17559:com.google.process.gapps/u0a115 (adj 955): empty for 1s
+07-18 05:17:11.039   715 17798 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:11.040 17074 17196 I Finsky:background: [92] Wrote row to frosting DB: 73923
+07-18 05:17:11.041   715 17799 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:11.042   715 17799 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000079280b3010
+07-18 05:17:11.042   715 17799 I resolv  : doQuery: rcode=0, ancount=11, return value=238
+07-18 05:17:11.045  1466  4068 W ContentProviderHelper: ProcessRecord{3305f9f 17559:com.google.process.gapps/u0a115} was killed by AM but isn't really dead
+07-18 05:17:11.046  1466  4068 W ActivityManager: ProcessRecord{3305f9f 17559:com.google.process.gapps/u0a115} is attached to a previous process
+07-18 05:17:11.051  1466  4068 W ActivityManager: Existing proc ProcessRecord{3305f9f 17559:com.google.process.gapps/u0a115} was killed 15ms ago when adding ProcessRecord{6d25650 0:com.google.process.gapps/u0a115}
+07-18 05:17:11.057   715 17800 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:11.060   715 17801 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:11.060   715 17801 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000078e80bd350
+07-18 05:17:11.060   715 17801 I resolv  : doQuery: rcode=0, ancount=1, return value=56
+07-18 05:17:11.068  1466  1521 I ActivityManager: Start proc 17804:com.google.android.apps.nbu.files/u0a104 for broadcast {com.google.android.apps.nbu.files/com.google.android.apps.nbu.files.documentbrowser.browselanding.rootcontainerlist.receiver.PackageChangeReceiver_Receiver}
+07-18 05:17:11.069   715 17803 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:11.071   715 17805 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:11.071   715 17805 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000079180b7470
+07-18 05:17:11.071   715 17805 I resolv  : doQuery: rcode=0, ancount=8, return value=165
+07-18 05:17:11.072  1466  2241 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.google.android.gsf/com.google.android.gsf pid=17559 state:3
+07-18 05:17:11.072  1466  2241 I game_scn: collectForegroundAppList packName=com.google.android.gsf, actName=com.google.android.gsf, pid=17559, uid=10115, state:DEAD
+07-18 05:17:11.072  1466  2241 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:11.073   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.gsf, act:com.google.android.gsf, state:3, pid:17559, uid:10115, fps:-1
+07-18 05:17:11.073   742   847 I libPowerHal: [perfNotifyAppState] pack:com.google.android.gsf, pid:17559, STATE_DEAD
+07-18 05:17:11.074   716   716 I Zygote  : Process 17559 exited due to signal 9 (Killed)
+07-18 05:17:11.074 17742 17774 I cn_CronetLibraryLoader: Cronet version: 147.0.7727.132, arch: aarch64
+07-18 05:17:11.074  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10115 pid 17559 in 35ms
+07-18 05:17:11.075  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10115 pid 17559 in 0ms
+07-18 05:17:11.089  5191  6254 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+07-18 05:17:11.092 17742 17785 I Finsky  : [61] CronetEngine is present. Using Cronet for the networking stack.
+07-18 05:17:11.101  1466  1521 I ActivityManager: Start proc 17812:com.google.process.gapps/u0a115 for content provider {com.google.android.gsf/com.google.android.gsf.settings.GoogleSettingsProvider}
+07-18 05:17:11.102   715 17811 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:11.100 17804 17804 W main    : type=1400 audit(0.0:7843): avc: denied { read } for name="u:object_r:vendor_memfusion_size_prop:s0" dev="tmpfs" ino=8077 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_size_prop:s0 tclass=file permissive=0 app=com.google.android.apps.nbu.files
+07-18 05:17:11.100 17804 17804 W main    : type=1400 audit(0.0:7844): avc: denied { read } for name="u:object_r:vendor_memfusion_state_prop:s0" dev="tmpfs" ino=8078 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_state_prop:s0 tclass=file permissive=0 app=com.google.android.apps.nbu.files
+07-18 05:17:11.100 17804 17804 W main    : type=1400 audit(0.0:7845): avc: denied { read } for name="u:object_r:vendor_memfusion_tranlog_prop:s0" dev="tmpfs" ino=8080 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_tranlog_prop:s0 tclass=file permissive=0 app=com.google.android.apps.nbu.files
+07-18 05:17:11.100 17804 17804 W main    : type=1400 audit(0.0:7846): avc: denied { read } for name="u:object_r:vendor_memfusion_ui_enable_prop:s0" dev="tmpfs" ino=8081 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_memfusion_ui_enable_prop:s0 tclass=file permissive=0 app=com.google.android.apps.nbu.files
+07-18 05:17:11.104 17804 17804 W main    : type=1400 audit(0.0:7847): avc: denied { read } for name="u:object_r:vendor_uxcompaction_enable_prop:s0" dev="tmpfs" ino=11398 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_uxcompaction_enable_prop:s0 tclass=file permissive=0 app=com.google.android.apps.nbu.files
+07-18 05:17:11.107 17804 17804 I .apps.nbu.files: Using generational CollectorTypeCC GC.
+07-18 05:17:11.120  5191  6254 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+07-18 05:17:11.121   715 17813 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:11.121   715 17813 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000079180b6ef0
+07-18 05:17:11.121   715 17813 I resolv  : doQuery: rcode=0, ancount=8, return value=187
+07-18 05:17:11.124   758   758 I BufferQueueProducer: [com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher#272](this:0xb400006feac75468,id:-1,api:0,p:-1,c:758) queueBuffer: fps=1.13 dur=1767.32 max=1684.05 min=83.27
+07-18 05:17:11.131   715 17825 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:11.138 17812 17812 I e.process.gapps: Using generational CollectorTypeCC GC.
+07-18 05:17:11.145   715 17835 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:11.145   715 17835 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000079280b6f10
+07-18 05:17:11.145   715 17835 I resolv  : doQuery: rcode=0, ancount=8, return value=195
+07-18 05:17:11.147  1466  1525 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+07-18 05:17:11.154   715 17844 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:11.158   715 17848 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:11.158   715 17848 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000078f80bb430
+07-18 05:17:11.158   715 17848 I resolv  : doQuery: rcode=0, ancount=1, return value=63
+07-18 05:17:11.165   715 17849 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:11.167   715 17850 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:11.167   715 17850 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000079180b6d90
+07-18 05:17:11.167   715 17850 I resolv  : doQuery: rcode=0, ancount=9, return value=173
+07-18 05:17:11.169  1466  1525 W libprocessgroup: Failed to open /dev/blkio/background/cgroup.procs: No such file or directory
+07-18 05:17:11.222 17804 17804 W .apps.nbu.files: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:11.223 17804 17804 W .apps.nbu.files: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:11.226 17812 17812 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:11.226 17804 17804 W .apps.nbu.files: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:11.228 17804 17804 W .apps.nbu.files: Failed to find entry 'classes.dex': Entry not found
+07-18 05:17:11.244  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{9e496bf com.base.bankalfalah}
+07-18 05:17:11.246 17742 17789 I Finsky  : [65] Set UnhibernateActivity enabled state to 1
+07-18 05:17:11.248 17742 17789 I Finsky  : [65] SysUA: Set SystemUpdateActivity enabled state to 1
+07-18 05:17:11.248  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:11.252  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:11.261 17804 17804 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:11.268 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [ipHiLEZHsI_kYGIu8OJiaqDd6TwjVBOnDPyQp6kCn9Q] numFlags=2001.
+07-18 05:17:11.283 17804 17804 W ComponentDiscovery: Class com.google.firebase.installations.FirebaseInstallationsKtxRegistrar is not an found.
+07-18 05:17:11.286 17812 17812 I GoogleHttpClient: GMS http client unavailable, use old client
+07-18 05:17:11.290 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [ndT58QU260bVt3jdsnPeJaze7aw1G7qO9c_miji1nNQ] numFlags=2007.
+07-18 05:17:11.305  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{79a31a8 com.catalyst.akdtradepro}
+07-18 05:17:11.309 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [VU7CStq_LpvxRyARe845DTyqI5M13vZDC1BjUDmkrYI] numFlags=2309.
+07-18 05:17:11.309  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:11.310  1466  2130 I ActivityManager: Killing 17429:com.transsion.zahooc/1000 (adj 935): empty for 2s
+07-18 05:17:11.314  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:11.317  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 1000 pid 17429 in 0ms
+07-18 05:17:11.323 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [5KamiuA2Q0d4htAXb-DiaXppSrKzulrG2xvgFhfpZoI] numFlags=1997.
+07-18 05:17:11.329 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [7-td5caCQG-g7iGnzw5wR4ZZKuNM5b1f8E4c7t7eK9Y] numFlags=1997.
+07-18 05:17:11.348 17804 17864 W .apps.nbu.files: ClassLoaderContext classpath size mismatch. expected=1, found=0 (DLC[];PCL[base.apk*4129373472]{PCL[/system/framework/org.apache.http.legacy.jar*2290010995]#PCL[/system/framework/com.android.location.provider.jar*3868789109]#PCL[/system/framework/com.android.media.remotedisplay.jar*3886290638]} | DLC[];PCL[])
+07-18 05:17:11.375   716   716 I Zygote  : Process 17429 exited due to signal 9 (Killed)
+07-18 05:17:11.376 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [kUwu4OQ8QJN9QK9gti_oTDwa7sLx1rGkm6uq7otqke8] numFlags=1997.
+07-18 05:17:11.376  1466  2905 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.transsion.zahooc/com.transsion.zahooc pid=17429 state:3
+07-18 05:17:11.376  1466  2905 I game_scn: collectForegroundAppList packName=com.transsion.zahooc, actName=com.transsion.zahooc, pid=17429, uid=1000, state:DEAD
+07-18 05:17:11.376  1466  2905 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:11.376   742   847 I libPowerHal: [perfNotifyAppState] pack:com.transsion.zahooc, act:com.transsion.zahooc, state:3, pid:17429, uid:1000, fps:-1
+07-18 05:17:11.376   742   847 I libPowerHal: [perfNotifyAppState] pack:com.transsion.zahooc, pid:17429, STATE_DEAD
+07-18 05:17:11.387 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [JIDRRk99EC7CWI949zbs_NDs25OFo3GgWBkzNAvkPY0] numFlags=2007.
+07-18 05:17:11.404 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [E2hClBOESl9NjDDocjUiwQqm6kk7lHHxtSr5O9cJ32w] numFlags=2007.
+07-18 05:17:11.407 17742 17797 I Finsky  : [73] ApplicationRestrictions: {}
+07-18 05:17:11.417  1466  4067 I ActivityManager: Killing 17426:com.transsion.phonemanager/1000 (adj 985): empty for 2s
+07-18 05:17:11.426  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 1000 pid 17426 in 6ms
+07-18 05:17:11.436 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [DUfxhY9ZgQ1w2xZRxZppovgU1ZDoWSJbBsHbFY4e4vU] numFlags=1997.
+07-18 05:17:11.446 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [hT9xIKkNvwHEkkkupG2k8mDi7RiqafEoAds6i8_Fb7s] numFlags=2007.
+07-18 05:17:11.452 17742 17773 I Finsky  : [49] Finished reading experiment flags from file [r4eYrJdelo8nhSLqfXRQaY94BeYuvF8F40NOSxvDy9g] numFlags=2018.
+07-18 05:17:11.456 17742 17788 I Finsky  : [64] SysCUA: Set {com.android.vending/com.google.android.finsky.systemcomponentupdateui.common.SystemComponentUpdateActivity} enabled state to 0
+07-18 05:17:11.458 17742 17773 I Finsky  : [49] cubesStatesValueStore = [2, 2, 2, 2, 2, 2, 2]
+07-18 05:17:11.460  2558 17029 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+07-18 05:17:11.460   742   820 I libPerfCtl: xgfGetFPS pid:1775 fps:-1
+07-18 05:17:11.460   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 05:17:11.477   716   716 I Zygote  : Process 17426 exited due to signal 9 (Killed)
+07-18 05:17:11.478 17648 17648 W TranVersion: THUBCore No support Call!!! method version = 33181, >>> ThubCore vserion = 33161
+07-18 05:17:11.478 17648 17648 W TranVersion:  mthod version must <= ThubCore version.
+07-18 05:17:11.478 17648 17648 W TranVersion:  ---java.lang.Throwable
+07-18 05:17:11.478 17648 17648 W TranVersion: #com.transsion.hubsdk.common.version.TranVersion.isIntegratedThubCore[64]
+07-18 05:17:11.478 17648 17648 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getService[0]
+07-18 05:17:11.478 17648 17648 W TranVersion: #com.transsion.hubsdk.api.os.TranSystemProperties.getBoolean[2]
+07-18 05:17:11.478 17648 17648 W TranVersion: #d.e.b.z.c.getBoolean[0]
+07-18 05:17:11.478 17648 17648 I TranSystemProperties: TranAospSystemProperties
+07-18 05:17:11.479 17804 17876 I FA      : App measurement initialized, version: 176001
+07-18 05:17:11.479 17804 17876 I FA      : To enable debug logging run: adb shell setprop log.tag.FA VERBOSE
+07-18 05:17:11.479 17804 17876 I FA      : To enable faster debug mode event logging run:
+07-18 05:17:11.479 17804 17876 I FA      :   adb shell setprop debug.firebase.analytics.app com.google.android.apps.nbu.files
+07-18 05:17:11.481  1466  2240 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.transsion.phonemanager/com.transsion.phonemanager pid=17426 state:3
+07-18 05:17:11.481  1466  2240 I game_scn: collectForegroundAppList packName=com.transsion.phonemanager, actName=com.transsion.phonemanager, pid=17426, uid=1000, state:DEAD
+07-18 05:17:11.481  1466  2240 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:11.481   742   847 I libPowerHal: [perfNotifyAppState] pack:com.transsion.phonemanager, act:com.transsion.phonemanager, state:3, pid:17426, uid:1000, fps:-1
+07-18 05:17:11.481   742   847 I libPowerHal: [perfNotifyAppState] pack:com.transsion.phonemanager, pid:17426, STATE_DEAD
+07-18 05:17:11.483  2558 17029 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+07-18 05:17:11.492 26615 17053 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-18 05:17:11.499 17074 17118 I Finsky:background: [68] RECEIVER_SINGLE_USER_SETTINGS#logWorkEndAndFinishGoAsync: SUCCESS
+07-18 05:17:11.556  1466  1502 W PackageManager: Unable to load service info ResolveInfo{6c0a9f4 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+07-18 05:17:11.591 17742 17784 I Finsky  : [60] Loaded library for account: [E3gdTsMoBulIPpFonYSOiwP8OlE-6uOnpRJIa25Fv70]
+07-18 05:17:11.591 17742 17784 I Finsky  : [60] Loaded library for account: [TzjMaCQMLBNWfaAiE7lDqDkYxmbRPa68mC2G5MlpQCM]
+07-18 05:17:11.591 17742 17784 I Finsky  : [60] Loaded library for account: [ZFmBvjyh0GvUdAe-nWnsZ9biA44szOyJ1QtIwbF_Z-c]
+07-18 05:17:11.592 17742 17784 I Finsky  : [60] Loaded library for account: [Ct08yOi5-Xfbk3pl9kX33xTmfsMN2MLwPfoyUYqAKgs]
+07-18 05:17:11.594 17742 17784 I Finsky  : [60] Loaded library for account: [OIT_Z5W75qcGkb_EfRHbUzbbRjpm1pg85gHmwF92XyY]
+07-18 05:17:11.595 17742 17784 I Finsky  : [60] Loaded library for account: [uWsuiEX6p9WKQyCEC71TBWd94xfobfwFF5AFbJDLBnY]
+07-18 05:17:11.595 17742 17784 I Finsky  : [60] Loaded library for account: [4sg5l62w2Hq5p--fWdI2SsnMMyQwm4Sz1mnaVJAtjgI]
+07-18 05:17:11.595 17742 17784 I Finsky  : [60] Loaded library for account: [5omN7Bcx5WOAo7F6m26hJQ1WJIRgs6nNVICiFgpQd8M]
+07-18 05:17:11.596 17742 17784 I Finsky  : [60] Loaded library for account: [pVere21c7Omk0KGYxlKdBLnV-PCv54itWDIWXeF5vC0]
+07-18 05:17:11.596 17742 17784 I Finsky  : [60] Loaded library for account: [UwLWrVjzRFLjxgMZkwAf-1iASOWS2yvjt6_39_QMQ5s]
+07-18 05:17:11.596 17742 17784 I Finsky  : [60] Loaded library for account: [aWT1ofIwiueK7VppOyCooaGEYKl5cnpp5jRyrBG8fWs]
+07-18 05:17:11.596 17742 17784 I Finsky  : [60] Loaded library for account: [sxUcHP9cntHMy9AFHdFXFxFWOjUGUHJjj3CfyCPCX3U]
+07-18 05:17:11.597   715 17896 I resolv  : GetAddrInfoHandler::run: {100 262244 100 983140 10108 0}
+07-18 05:17:11.599   715 17897 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-18 05:17:11.599   715 17897 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xb4000078e80bd350
+07-18 05:17:11.599   715 17897 I resolv  : doQuery: rcode=0, ancount=1, return value=56
+07-18 05:17:11.601 17742 17784 I Finsky  : [60] Loaded library for account: [Ie8F88DxEN7y1TgUBiTEHqHWClOo7nxmsy2EXRZmOlU]
+07-18 05:17:11.601 17742 17784 I Finsky  : [60] Finished loading 13 libraries.
+07-18 05:17:11.603 17742 17789 I Finsky  : [65] CronetEngine is present. Using Cronet for the networking stack.
+07-18 05:17:11.616 26615 17053 I Icing   : Indexing done com.google.android.gms-apps
+07-18 05:17:11.617 17742 17775 I Finsky  : [51] Initializing pausers from value store.
+07-18 05:17:11.621 17742 17784 I Finsky  : [60] AIM: Got app ownership map. App counts: . Unique apps: 0
+07-18 05:17:11.621 17742 17785 I Finsky  : [61] AIM: Got app ownership map. App counts: . Unique apps: 0
+07-18 05:17:11.621 17742 17785 E Finsky  : [61] [Counters] attempted to use a non-positive increment for: 4752
+07-18 05:17:11.621 17742 17784 E Finsky  : [60] [Counters] attempted to use a non-positive increment for: 4752
+07-18 05:17:11.627 17742 17785 E Finsky  : [61] [Counters] attempted to use a non-positive increment for: 4753
+07-18 05:17:11.627 17742 17784 E Finsky  : [60] [Counters] attempted to use a non-positive increment for: 4753
+07-18 05:17:11.641 17742 17775 I Finsky  : [51] IQ::HLD: Callers (Pausers) in PauseUpdatesCallersValueStore: []
+07-18 05:17:11.668  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found Error while validating document (android$apps-db/apps, com.YoBroStudios.MergeSpinner)
+07-18 05:17:11.668  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found
+07-18 05:17:11.668  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found Error while validating document (android$apps-db/apps, com.vexel.pulseorbit)
+07-18 05:17:11.668  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found
+07-18 05:17:11.668  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.classroom' not found Error while validating document (android$apps-db/apps, com.google.android.apps.classroom)
+07-18 05:17:11.668  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.classroom' not found
+07-18 05:17:11.668  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found Error while validating document (android$apps-db/apps, com.easyui.core)
+07-18 05:17:11.668  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found
+07-18 05:17:11.668  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found Error while validating document (android$apps-db/apps, com.xre.privatequest)
+07-18 05:17:11.668  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found
+07-18 05:17:11.668  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-dats.games.cardbattle' not found Error while validating document (android$apps-db/apps, dats.games.cardbattle)
+07-18 05:17:11.669  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-dats.games.cardbattle' not found
+07-18 05:17:11.669  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.walletnfcrel' not found Error while validating document (android$apps-db/apps, com.google.android.apps.walletnfcrel)
+07-18 05:17:11.669  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.walletnfcrel' not found
+07-18 05:17:11.669  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-app.com.brd' not found Error while validating document (android$apps-db/apps, app.com.brd)
+07-18 05:17:11.669  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-app.com.brd' not found
+07-18 05:17:11.669  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.warrantyvault.android' not found Error while validating document (android$apps-db/apps, com.warrantyvault.android)
+07-18 05:17:11.669  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.warrantyvault.android' not found
+07-18 05:17:11.669  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smart' not found Error while validating document (android$apps-db/apps, com.tuya.smart)
+07-18 05:17:11.669  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smart' not found
+07-18 05:17:11.669  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.olx.pk' not found Error while validating document (android$apps-db/apps, com.olx.pk)
+07-18 05:17:11.669  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.olx.pk' not found
+07-18 05:17:11.669  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smartlife' not found Error while validating document (android$apps-db/apps, com.tuya.smartlife)
+07-18 05:17:11.669  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smartlife' not found
+07-18 05:17:11.670  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.catalyst.akdtradepro' not found Error while validating document (android$apps-db/apps, com.catalyst.akdtradepro)
+07-18 05:17:11.670  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.catalyst.akdtradepro' not found
+07-18 05:17:11.670  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found Error while validating document (android$apps-db/apps, com.appfactory.generated.app)
+07-18 05:17:11.670  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found
+07-18 05:17:11.670  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.softech.trading' not found Error while validating document (android$apps-db/apps, com.softech.trading)
+07-18 05:17:11.671  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.softech.trading' not found
+07-18 05:17:11.671  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.phonelink_tima_app.timacarmirrorlink_app' not found Error while validating document (android$apps-db/apps, com.phonelink_tima_app.timacarmirrorlink_app)
+07-18 05:17:11.672  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.phonelink_tima_app.timacarmirrorlink_app' not found
+07-18 05:17:11.672  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.kids.familylink' not found Error while validating document (android$apps-db/apps, com.google.android.apps.kids.familylink)
+07-18 05:17:11.672  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.kids.familylink' not found
+07-18 05:17:11.672  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found Error while validating document (android$apps-db/apps, com.jazz.rox)
+07-18 05:17:11.672  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found
+07-18 05:17:11.672  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.microsoft.office.outlook' not found Error while validating document (android$apps-db/apps, com.microsoft.office.outlook)
+07-18 05:17:11.672  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.microsoft.office.outlook' not found
+07-18 05:17:11.672  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.joinblob.clash' not found Error while validating document (android$apps-db/apps, com.joinblob.clash)
+07-18 05:17:11.672  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.joinblob.clash' not found
+07-18 05:17:11.672  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-pk.pitb.gov.maryamKoBatayn' not found Error while validating document (android$apps-db/apps, pk.pitb.gov.maryamKoBatayn)
+07-18 05:17:11.672  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-pk.pitb.gov.maryamKoBatayn' not found
+07-18 05:17:11.672  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.p3.soneridigital' not found Error while validating document (android$apps-db/apps, com.p3.soneridigital)
+07-18 05:17:11.673  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.p3.soneridigital' not found
+07-18 05:17:11.673  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.cdcaccess.csp' not found Error while validating document (android$apps-db/apps, com.cdcaccess.csp)
+07-18 05:17:11.673  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.cdcaccess.csp' not found
+07-18 05:17:11.673  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.playconsole' not found Error while validating document (android$apps-db/apps, com.google.android.apps.playconsole)
+07-18 05:17:11.673  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.playconsole' not found
+07-18 05:17:11.673  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.aa.puffup' not found Error while validating document (android$apps-db/apps, com.aa.puffup)
+07-18 05:17:11.673  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.aa.puffup' not found
+07-18 05:17:11.673  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found Error while validating document (android$apps-db/apps, org.amanahquran.app)
+07-18 05:17:11.673  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found
+07-18 05:17:11.673  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.adwords' not found Error while validating document (android$apps-db/apps, com.google.android.apps.adwords)
+07-18 05:17:11.673  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.adwords' not found
+07-18 05:17:11.673  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found Error while validating document (android$apps-db/apps, io.supercent.linkedcubic)
+07-18 05:17:11.673  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found
+07-18 05:17:11.673  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found Error while validating document (android$apps-db/apps, com.easyui.launcher.debug)
+07-18 05:17:11.674  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found
+07-18 05:17:11.674  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.fesco.smart' not found Error while validating document (android$apps-db/apps, com.fesco.smart)
+07-18 05:17:11.674  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.fesco.smart' not found
+07-18 05:17:11.674  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-pk.org.sbp.mobileapps' not found Error while validating document (android$apps-db/apps, pk.org.sbp.mobileapps)
+07-18 05:17:11.674  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-pk.org.sbp.mobileapps' not found
+07-18 05:17:11.674  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.zeeai.pro.ai' not found Error while validating document (android$apps-db/apps, com.zeeai.pro.ai)
+07-18 05:17:11.674  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.zeeai.pro.ai' not found
+07-18 05:17:11.674  1466  3315 E AppSearchIcing: document-validator.cc:82: Schema type config 'android$apps-db/builtin:MobileApplication-com.zzkko' not found Error while validating document (android$apps-db/apps, com.zzkko)
+07-18 05:17:11.674  1466  3315 W AppSearchIcing: status-util.h:31: Error: 5, Message: Schema type config 'android$apps-db/builtin:MobileApplication-com.zzkko' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.core' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-io.supercent.linkedcubic' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.catalyst.akdtradepro' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.appfactory.generated.app' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.aa.puffup' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.YoBroStudios.MergeSpinner' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smart' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-pk.org.sbp.mobileapps' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.xre.privatequest' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.microsoft.office.outlook' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.playconsole' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.joinblob.clash' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.p3.soneridigital' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.adwords' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.classroom' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-app.com.brd' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.zeeai.pro.ai' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.walletnfcrel' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.jazz.rox' not found
+07-18 05:17:11.677  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.tuya.smartlife' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.google.android.apps.kids.familylink' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-dats.games.cardbattle' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.zzkko' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.phonelink_tima_app.timacarmirrorlink_app' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.olx.pk' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.vexel.pulseorbit' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.softech.trading' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-pk.pitb.gov.maryamKoBatayn' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.fesco.smart' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.cdcaccess.csp' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-org.amanahquran.app' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.easyui.launcher.debug' not found
+07-18 05:17:11.678  1466  3321 E AppSearchAppIndxrHlp: Ran into error while indexing apps: [FAILURE(6)]: Schema type config 'android$apps-db/builtin:MobileApplication-com.warrantyvault.android' not found
+07-18 05:17:11.683  1466  3321 W libc    : Access denied finding property "ro.bootimage.build.fingerprint"
+07-18 05:17:11.717 17742 17785 I Finsky  : [61] AIM: AppInfoManager-Perf > ItemModel > CacheSize=135, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=0. Missed  in cache (limit 10) : []
+07-18 05:17:11.721 17742 17784 I Finsky  : [60] AIM: AppInfoManager-Perf > ItemModel > CacheSize=135, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=0. Missed  in cache (limit 10) : []
+07-18 05:17:11.755  1466  1502 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-18 05:17:11.755  1466  1502 W TextServicesManagerService: no available spell checker services found
+07-18 05:17:11.766 17742 17785 I Finsky  : [61] AIM: AppInfoManager-Perf > getApps > data collection finished
+07-18 05:17:11.767 17742 17785 I Finsky  : [61] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 0
+07-18 05:17:11.797 17742 17908 I Finsky  : [99] SM: There are no stale sessions to be pruned
+07-18 05:17:11.805 17742 17742 I Finsky  : [2] Connecting InstallListener to SplitInstallService broadcaster...
+07-18 05:17:11.833  1466  3315 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 05:17:11.835  1466  3315 W AppSearchResult: Converting throwable to failed result.
+07-18 05:17:11.835  1466  3315 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:128)
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 05:17:11.835  1466  3315 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: Failed to setSchema in batch due to invalid schema.
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:488)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 05:17:11.835  1466  3321 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 05:17:11.862  1466  3315 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+07-18 05:17:11.864  1466  3315 W AppSearchResult: Converting throwable to failed result.
+07-18 05:17:11.864  1466  3315 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:128)
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 05:17:11.864  1466  3315 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: Skipping invalid schemas for package: com.google.android.apps.adm
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionDataTypeMetadataDocument-com.google.android.apps.adm' references or inherits from itself.
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:588)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 05:17:11.865  1466  3321 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 05:17:11.910  1466  3315 W AppSearchIcing: status-util.h:31: Error: 3, Message: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 05:17:11.911  1466  3315 W AppSearchResult: Converting throwable to failed result.
+07-18 05:17:11.911  1466  3315 W AppSearchResult: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkCodeOneOf(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:22)
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.checkSuccess(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:7)
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.doSetSchemaNoChangeNotificationLocked(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:758)
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.external.localstorage.AppSearchImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:128)
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub.lambda$setSchema$0(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:23)
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at com.android.server.appsearch.AppSearchManagerService$Stub$$ExternalSyntheticLambda9.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:41)
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 05:17:11.911  1466  3315 W AppSearchResult: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: Skipping invalid schemas for package: com.google.android.apps.wellbeing
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: android.app.appsearch.exceptions.AppSearchException: Invalid cycle detected in type configs. 'android$apps-db/AppFunctionNamedDataTypeMetadataDocument-com.google.android.apps.wellbeing' references or inherits from itself.
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchBase.executeAppSearchResultOperation(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:50)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.sync.SyncAppSearchSessionImpl.setSchema(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:20)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppSearchHelper.setSchemasForPackages(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:588)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerImpl.doUpdateIncrementalPut(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:273)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance.doUpdate(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:129)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda3.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:9)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at com.android.server.appsearch.appsindexer.AppsIndexerUserInstance$$ExternalSyntheticLambda0.run(go/retraceme d7f782f29b4c904b1268c185b44df61cf40190c61b0791195743b6fcc019586d:12)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-18 05:17:11.915  1466  3321 E AppSearchAppIndxrHlp: 	at java.lang.Thread.run(Thread.java:1572)
+07-18 05:17:12.018   758  1234 W VSyncPredictor: VSyncPredictor::setPeriod current period =16666667
+07-18 05:17:12.048  1466  1480 I system_server: Background young concurrent copying GC freed 19MB AllocSpace bytes, 34(776KB) LOS objects, 20% free, 83MB/105MB, paused 461us,528us total 186.480ms
+07-18 05:17:12.048 17742 17808 I cn_CronetUrlRequestContext: destroyNativeStreamLocked android.net.http.internal.org.chromium.net.impl.CronetBidirectionalStream@350c8cd
+07-18 05:17:12.051  1466  1481 W JavaBinder: BinderProxy is being destroyed but the application did not call unlinkToDeath to unlink all of its death recipients beforehand.  Releasing leaked death recipient: com.transsion.hubcore.server.verifykey.TranVerifyKeyManagerService$AppDeathRecipient
+07-18 05:17:12.051  1466  1481 W JavaBinder: BinderProxy is being destroyed but the application did not call unlinkToDeath to unlink all of its death recipients beforehand.  Releasing leaked death recipient: com.transsion.hubcore.server.verifykey.TranVerifyKeyManagerService$AppDeathRecipient
+07-18 05:17:12.051  1466  1481 I BpBinder: onLastStrongRef automatically unlinking death recipients: <uncached descriptor>
+07-18 05:17:12.065  5191  6254 I Kolun.ThemeManager:  SettingObserver AppList not changed 
+07-18 05:17:12.075   731  1221 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.249756,dur:1600.31,max:949.80,min:650.51  
+07-18 05:17:12.232  1466  1502 W PackageManager: Unable to load service info ResolveInfo{5722abf com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+07-18 05:17:12.367  1466  1502 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-18 05:17:12.368  1466  1502 W TextServicesManagerService: no available spell checker services found
+07-18 05:17:12.394  1000  1000 I thermal_repeater: [recvMdThermalInfo] ret=33, strLen=127,  2, 32767, -127, 113, 32767, 4046
+07-18 05:17:12.448  2558  2558 W ThreadPoolForeg: type=1400 audit(0.0:7854): avc: denied { write } for name="traced_producer" dev="tmpfs" ino=885 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:traced_producer_socket:s0 tclass=sock_file permissive=0 app=com.google.android.gms
+07-18 05:17:12.460   742   820 I libPerfCtl: xgfGetFPS pid:1775 fps:-1
+07-18 05:17:12.461   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 05:17:12.541 17755 17755 I LoadedApk: No resource references to update in package com.transsion.theme.icon
+07-18 05:17:12.543 17755 17755 I AndroidJUnitRunner: newApplication android.app.Application
+07-18 05:17:12.604 17755 17913 W exel.arcadetrio: Loading /data/misc/apexdata/com.android.art/dalvik-cache/arm64/system@framework@com.android.location.provider.jar@classes.odex non-executable as it requires an image which we failed to load
+07-18 05:17:12.674 17755 17755 I AndroidJUnitRunner: onCreate Bundle[EMPTY_PARCEL]
+07-18 05:17:12.854 17755 17755 I MSYNC3-VariableRefreshRate: Variable refreshrate is disabled
+07-18 05:17:12.872  3440  3472 W Parcel  : **** enforceInterface() expected 'com.transsion.hubsdk.uxdetector.ITranUxDetectorService' but read 'com.transsion.trancare.handler.uxdetector.IUxDetectorService'
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: getAppsArrayRecommend: 
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: java.lang.SecurityException: Binder invocation to an incorrect interface
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3021)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at android.os.Parcel.createException(Parcel.java:3005)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at android.os.Parcel.readException(Parcel.java:2988)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at android.os.Parcel.readException(Parcel.java:2930)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at gc.o$a$a.a(SourceFile:72)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at com.transsion.griffin.core.StateImpl.getAppsArrayRecommend(SourceFile:13)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at f.a.a(SourceFile:1165)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at f.a.c(SourceFile:313)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at f.a.b(SourceFile:62)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at f.a.b(SourceFile:2)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at f.a$d.handleMessage(SourceFile:281)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at android.os.Looper.loopOnce(Looper.java:204)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at android.os.Looper.loop(Looper.java:291)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+07-18 05:17:12.874  1466  1512 E Griffin/StateProvider: 	at com.android.server.ServiceThread.run(ServiceThread.java:44)
+07-18 05:17:12.892 17755 17917 I TestRequestBuilder: Scanning classpath to find tests in paths [/data/app/~~lZKldBxarJJX5aT6sN0n2w==/com.vexel.arcadetrio.test-kbHCfwgPUnpTKr6K1wCraA==/base.apk]
+07-18 05:17:12.894 17755 17917 W exel.arcadetrio: Opening an oat file without a class loader. Are you using the deprecated DexFile APIs?
+07-18 05:17:12.965  1466  1466 W ActivityTaskManager: update dualprofiel: packageName:com.vexel.arcadetrio.test, user:UserHandle{0}, action:android.intent.action.PACKAGE_ADDED
+07-18 05:17:12.965  1466  1502 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+07-18 05:17:13.054  1729  1729 I WifiHAL : Get link layer stats
+07-18 05:17:13.054  1729  1729 I WifiHAL : GetLinkStatsCommand::create
+07-18 05:17:13.054  1729  1729 I android.hardware.wifi@1.0-service-lazy: WifiCommand::requestResponse err=-14
+07-18 05:17:13.054  1729  1729 I WifiHAL : wifi_get_link_stats: result=-1
+07-18 05:17:13.054  1466  1636 E WifiVendorHal: $r8$lambda$s6w0pmKyq6-tDdqCEDbOV_xqgVE(l.1176) failed {.code = ERROR_UNKNOWN, .description = unknown}
+07-18 05:17:13.154  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{d726fb2 com.cdcaccess.csp}
+07-18 05:17:13.158  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.170  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.184  1466  1502 W PackageManager: Unable to load service info ResolveInfo{6b6a9e7 com.piriform.ccleaner/com.avast.android.account.internal.account.authenticator.AuthenticatorService m=0x108000}
+07-18 05:17:13.216  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{9a70d47 com.daraz.android}
+07-18 05:17:13.222  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.229  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.255  1466  1502 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-18 05:17:13.258  1466  1502 W TextServicesManagerService: no available spell checker services found
+07-18 05:17:13.305  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{915f896 com.entertainerasia.vouch365}
+07-18 05:17:13.309  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.312 17755 17917 I TestRunner: run started: 6 tests
+07-18 05:17:13.313  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.315 17755 17917 I TestRunner: ignored: com.vexel.arcadetrio.BackNavigationTest
+07-18 05:17:13.319 17755 17917 I TestRunner: started: testChallengeUpdates(com.vexel.arcadetrio.ChallengeUpdateTest)
+07-18 05:17:13.341  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{57d1864 com.feioou.deliprint.yxq}
+07-18 05:17:13.345  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.350  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.369  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{234b439 com.fesco.smart}
+07-18 05:17:13.373  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.378  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.461   742   820 I libPerfCtl: xgfGetFPS pid:1775 fps:-1
+07-18 05:17:13.461   742   820 I libPerfCtl: xgfGetFPS pid:1998 fps:-1
+07-18 05:17:13.488  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{786f233 com.google.android.apps.enterprise.cpanel}
+07-18 05:17:13.492  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.496  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.621  1466  1553 I AppsFilter: interaction: PackageSetting{5063798 com.warrantyvault.android/10292} -> PackageSetting{53a7759 com.vexel.arcadetrio/10574} BLOCKED
+07-18 05:17:13.632  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{132d5e3 com.jazz.rox}
+07-18 05:17:13.634  1466  1577 I OverlayManager: [RetestTagOfQyx OMS updateTargetPackagesLocked] updatedTargets=[]
+07-18 05:17:13.639  5191  5191 I Kolun.EventBusImpl:  dispatchEvent: com.transsion.kolun.assistant.common.components.event.PackageChangeEvent@6af3cc3
+07-18 05:17:13.640  1466  1616 I InputReader: Reconfiguring input devices, changes=KEYBOARD_LAYOUTS | 
+07-18 05:17:13.640  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.640  3857 15817 W PkgChangeInfoCollector: onPkgChange skip change
+07-18 05:17:13.641  5191  5750 I Kolun.WidgetEventRegister:  onBusEvent:PackageChangedEvent, packageName: com.vexel.arcadetrio, actionType: android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.641  5191  5750 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+07-18 05:17:13.641  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.641  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.641  5191  5750 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 05:17:13.641  5191  5750 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 05:17:13.641  5191  5750 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+07-18 05:17:13.641  5191  5750 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+07-18 05:17:13.641  5191  5750 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+07-18 05:17:13.645  1466  1466 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now com.sh.smart.caller: DDC.oR@AP0
+07-18 05:17:13.647  5191  5750 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+07-18 05:17:13.647  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.653 15400 15414 I PermissionControllerServiceImpl: Updating user sensitive for uid 10574
+07-18 05:17:13.655  1466  1600 I RoleService: Granting default roles...
+07-18 05:17:13.683  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{5af5079: android.os.BinderProxy@682b2b1}
+07-18 05:17:13.684 26615 17036 I FraudProtectUtils: Not in testing population, skipping local test bank apps. [CONTEXT service_id=469 ]
+07-18 05:17:13.684 26615 17036 I FraudProtectUtils: (REDACTED) Latest bank app list size: %d, %s isBankApp: false
+07-18 05:17:13.684 26615 17036 W ComponentChangedIO: No package name in intent data or package is not a bank app [CONTEXT service_id=469 ]
+07-18 05:17:13.688  3585  3619 I sion.smartpanel: NativeAlloc concurrent copying GC freed 1239KB AllocSpace bytes, 7(140KB) LOS objects, 49% free, 5296KB/10MB, paused 145us,92us total 116.707ms
+07-18 05:17:13.691 15400 17027 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+07-18 05:17:13.694 15400 17027 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+07-18 05:17:13.695  3585 16789 I TranNonAdaptiveIconExtImpl: custom icon for ApplicationInfo{2a16a3c com.joinblob.clash}
+07-18 05:17:13.703  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{cc051be: android.os.BinderProxy@4f7db17}
+07-18 05:17:13.704  5191  5750 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+07-18 05:17:13.704  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+07-18 05:17:13.705  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+07-18 05:17:13.705  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.706  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 05:17:13.707  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.707  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 05:17:13.707  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.707  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.707  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.707  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.708  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.708  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.708  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.708  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.708  5191  5750 I Kolun.WidgetEventRegister:  onBusEvent:WigAppChangeEvent, package : com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.708  5191  5750 I Kolun.WidgetManager:  dispatchWidgetEvent com.transsion.kolun.assistant.common.components.event.PackageChangeEvent inited true mMultiUserSwitched false
+07-18 05:17:13.708  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.708  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.708  5191  5750 I Kolun.BaseWidget:  notifyChange widgetType 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 05:17:13.708  5191  5750 I Kolun.DisplayController:  notifyRender 1 operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21
+07-18 05:17:13.709  5191  5750 I Kolun.WidgetRemoteAdapter:  notifyWidgetRender operator com.transsion.kolun.assistant.smartwidget.widget.base.Operator@21 widget 1
+07-18 05:17:13.709  5191  5750 I Kolun.RemoteViewsDisplay:  notifyAdapterItemUpdate widgetType 1
+07-18 05:17:13.709  5191  5750 I Kolun.BaseWidget:  renderSelf widgetType = 1 : color = null
+07-18 05:17:13.710  5191  5750 I Kolun.WidgetConfig:  initWidgetConfig config == null false
+07-18 05:17:13.712  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{625e96c: android.os.BinderProxy@682b2b1}
+07-18 05:17:13.716  5191  5750 I Kolun.BaseWidgetRender:  setSuperClickPendingIntent, setSuperClickPendingIntentByWidgetQuickStep activityIntent = PendingIntent{cb7b35: android.os.BinderProxy@4f7db17}
+07-18 05:17:13.717  5191  5750 I Kolun.RemoteViewsDisplay:  updateWidget widgetTye 1
+07-18 05:17:13.717  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyRemoteItemChange position 1
+07-18 05:17:13.718  5191  5750 I Kolun.LocalRemoteRecyclerViewService:  notifyItemChanged 1
+07-18 05:17:13.718  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.719  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 05:17:13.720  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.724  5191  5750 I Kolun.CommonUtil:  checkAppInstalled error: com.afmobi.boomplayer
+07-18 05:17:13.724  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.724  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.724  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.724  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.724  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.724  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.724  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.724  5191  5750 I Kolun.BaseWidget:  refreshOnPackageChange event com.vexel.arcadetrio type android.intent.action.PACKAGE_CHANGED
+07-18 05:17:13.725  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.748 17755 17917 I TestRunner: finished: testChallengeUpdates(com.vexel.arcadetrio.ChallengeUpdateTest)
+07-18 05:17:13.749  3585 16789 I TranIconHelper: Destory assetMAnager
+07-18 05:17:13.753 17755 17917 I TestRunner: ignored: com.vexel.arcadetrio.GameplayDeviceSmokeTest
+07-18 05:17:13.757 17755 17917 I TestRunner: ignored: com.vexel.arcadetrio.LifecyclePauseTest
+07-18 05:17:13.762 17755 17917 I TestRunner: ignored: com.vexel.arcadetrio.NavigationSmokeTest
+07-18 05:17:13.767 17755 17917 I TestRunner: ignored: com.vexel.arcadetrio.SettingsPersistenceSmokeTest
+07-18 05:17:13.772 17755 17917 I TestRunner: run finished: 1 tests, 0 failed, 5 ignored
+07-18 05:17:13.790  1466  4063 I ActivityManager: Force stopping com.vexel.arcadetrio appid=10574 user=0: finished inst
+07-18 05:17:13.791  1466  4063 I ActivityManager: Killing 17755:com.vexel.arcadetrio/u0a574 (adj 0): stop com.vexel.arcadetrio due to finished inst
+07-18 05:17:13.793  1466  4063 I mtkpower_client: [Legacy][PowerHal_Wrap_notifyAppState] com.vexel.arcadetrio/com.vexel.arcadetrio pid=17755 state:3
+07-18 05:17:13.793  1466  4063 I game_scn: collectForegroundAppList packName=com.vexel.arcadetrio, actName=com.vexel.arcadetrio, pid=17755, uid=10574, state:DEAD
+07-18 05:17:13.793  1466  4063 I game_scn: powerNotifyForegroundApp multi_resumed_app_info: pid: 1998, packname: com.transsion.hilauncher, actname: com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher
+07-18 05:17:13.794   742   847 I libPowerHal: [perfNotifyAppState] pack:com.vexel.arcadetrio, act:com.vexel.arcadetrio, state:3, pid:17755, uid:10574, fps:-1
+07-18 05:17:13.794   742   847 I libPowerHal: [perfNotifyAppState] pack:com.vexel.arcadetrio, pid:17755, STATE_DEAD
+07-18 05:17:13.794 17615 17615 I app_process: System.exit called, status: 0
+07-18 05:17:13.794 17615 17615 I AndroidRuntime: VM exiting with result code 0.
+07-18 05:17:13.811  1466  1522 I libprocessgroup: Successfully killed process cgroup uid 10574 pid 17755 in 19ms
+07-18 05:17:13.818  1998  1998 I kolun_slot_ViewStub: executeRefresh: hashCode:158645793
+07-18 05:17:13.818  1998  1998 I kolun_slot_ViewStub: executeRefresh: action : 1
+07-18 05:17:13.818  1998  1998 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+07-18 05:17:13.818  1998  1998 I kolun_slot_ViewStub: realItemDataChange: hashCode:158645793 position:1
+07-18 05:17:13.818  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+07-18 05:17:13.818  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+07-18 05:17:13.818  1998  1998 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:33549319position:1
+07-18 05:17:13.818  1998  1998 I kolun_slot_ViewStub: executeRefresh: action : 1
+07-18 05:17:13.818  1998  1998 I kolun_slot_ViewStub: executeRefresh: action = TYPE_NOTIFY_ITEM 
+07-18 05:17:13.818  1998  1998 I kolun_slot_ViewStub: realItemDataChange: hashCode:158645793 position:1
+07-18 05:17:13.818  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: size: 1
+07-18 05:17:13.818  1998  1998 I kolun_slot_RecyclerNativeBroadCast: postAll: adapter is match 
+07-18 05:17:13.818  1998  1998 I kolun_slot_RemoteHolderAdapter: executeItemDataChange: hashCode:33549319position:1
+07-18 05:17:13.835  2162  2277 W Trancare: [processReceive] action = android.intent.action.BATTERY_CHANGED
+07-18 05:17:13.838  3323  3323 I Hoffnung: Universal onReceive: Intent { act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras) }
+07-18 05:17:13.838  3323  3323 I Hoffnung: LocalBroadcastManager onReceive Intent { act=android.intent.action.BATTERY_CHANGED flg=0x60000010 (has extras) }
+07-18 05:17:13.841   758   758 I BufferQueueProducer: [com.transsion.hilauncher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher#272](this:0xb400006feac75468,id:-1,api:0,p:-1,c:758) queueBuffer: fps=0.74 dur=2716.88 max=1766.59 min=950.29
+07-18 05:17:13.842   731  1221 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:0.565951,dur:1766.94,max:1766.94,min:1766.94  
+07-18 05:17:13.846 10485 10485 I adbd    : Remote process closed the socket (on MSG_PEEK)
+07-18 05:17:13.847   716   716 I Zygote  : Process 17755 exited due to signal 9 (Killed)
+07-18 05:17:13.847 10485 10485 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color:export ANDROID_LOG_TAGS=''; exec logcat '-d''
+07-18 05:17:13.852   758  1234 W VSyncPredictor: VSyncPredictor::setPeriod current period =16666667
+07-18 05:17:13.858   758   758 I BufferQueueProducer: [StatusBar#88](this:0xb400006feac83838,id:-1,api:0,p:-1,c:758) queueBuffer: fps=0.30 dur=3384.66 max=3384.66 min=3384.66
+07-18 05:17:13.890   749 17836 D TimeCheck: isMT6580Project boolVal = 0 

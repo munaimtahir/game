@@ -23,7 +23,7 @@ data class BillingUiState(
 }
 
 enum class AdPlacement {
-    MARKETPLACE_BANNER,
+    INTERSTITIAL_POST_RUN,
 }
 
 data class AdEligibilityContext(
@@ -35,4 +35,7 @@ data class AdEligibilityContext(
     val completedSessions: Int,
     val completedSessionsSinceLastAd: Int,
     val elapsedMillisSinceLastAd: Long,
+    val impressionsToday: Int = 0,
+    val runDurationMillis: Long = 0L,
+    val rewardedRecentlyShown: Boolean = false,
 )

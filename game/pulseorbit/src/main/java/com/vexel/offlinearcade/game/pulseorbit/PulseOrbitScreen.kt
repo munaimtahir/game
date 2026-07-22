@@ -73,6 +73,7 @@ fun PulseOrbitScreen(
     tutorialSeen: Boolean,
     onTutorialSeen: () -> Unit,
     onRunComplete: (RunResult) -> Unit,
+    onPostRunExitRequested: (RunResult, () -> Unit) -> Unit,
     onBack: () -> Unit,
 ) {
     fun newReadyState(): PulseOrbitState {
@@ -88,10 +89,12 @@ fun PulseOrbitScreen(
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
     var showCompletionSummary by remember { mutableStateOf(false) }
+    var latestRunResult by remember { mutableStateOf<RunResult?>(null) }
 
     fun restart() {
         hasReportedRun = false
         showCompletionSummary = false
+        latestRunResult = null
         lastFrameNanos = 0L
         state = startPulseOrbitRun(newReadyState(), System.currentTimeMillis())
         feedback.play(ArcadeFeedbackEvent.TAP)
@@ -119,6 +122,15 @@ fun PulseOrbitScreen(
         }
     }
 
+    fun exitCompletedRun() {
+        val runResult = latestRunResult
+        if (runResult == null) {
+            onBack()
+            return
+        }
+        onPostRunExitRequested(runResult, onBack)
+    }
+
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
@@ -135,6 +147,10 @@ fun PulseOrbitScreen(
     BackHandler {
         if (state.playing && !state.paused) {
             togglePause()
+        } else if (state.gameOver && showCompletionSummary) {
+            showCompletionSummary = false
+        } else if (state.gameOver) {
+            exitCompletedRun()
         } else {
             onBack()
         }
@@ -157,8 +173,7 @@ fun PulseOrbitScreen(
     if (state.gameOver && !hasReportedRun) {
         hasReportedRun = true
         val duration = (System.currentTimeMillis() - state.runStartMillis).coerceAtLeast(0L)
-        onRunComplete(
-            RunResult(
+        val runResult = RunResult(
                 sessionId = state.sessionId,
                 gameId = GameId.PULSE_ORBIT,
                 score = state.score,
@@ -170,8 +185,9 @@ fun PulseOrbitScreen(
                 coinsEarned = state.score + state.bestCombo,
                 totalPasses = state.passes,
                 perfectPasses = state.perfectPasses,
-            ),
         )
+        latestRunResult = runResult
+        onRunComplete(runResult)
         showCompletionSummary = true
     }
 
@@ -285,7 +301,7 @@ fun PulseOrbitScreen(
                                 .fillMaxWidth()
                                 .testTag(ArcadeTestTags.PulseOrbitStartButton),
                         )
-                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Back to detail", onClick = ::exitCompletedRun, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
                 }
             }
@@ -302,6 +318,10 @@ fun PulseOrbitScreen(
                         onClick = {
                             if (state.playing && !state.paused) {
                                 togglePause()
+                            } else if (state.gameOver && showCompletionSummary) {
+                                showCompletionSummary = false
+                            } else if (state.gameOver) {
+                                exitCompletedRun()
                             } else {
                                 onBack()
                             }

@@ -147,6 +147,7 @@ fun LaneDriftScreen(
     tutorialSeen: Boolean,
     onTutorialSeen: () -> Unit,
     onRunComplete: (RunResult) -> Unit,
+    onPostRunExitRequested: (RunResult, () -> Unit) -> Unit,
     onBack: () -> Unit,
     debugConfig: LaneDriftDebugConfig? = null,
 ) {
@@ -155,6 +156,7 @@ fun LaneDriftScreen(
     var lastFrameNanos by remember { mutableLongStateOf(0L) }
     var showTutorial by remember(tutorialSeen) { mutableStateOf(!tutorialSeen) }
     var showCompletionSummary by remember { mutableStateOf(false) }
+    var latestRunResult by remember { mutableStateOf<RunResult?>(null) }
     val random = remember(debugConfig?.randomSeed) {
         Random(debugConfig?.randomSeed ?: System.currentTimeMillis())
     }
@@ -171,6 +173,7 @@ fun LaneDriftScreen(
     fun restart() {
         hasReportedRun = false
         showCompletionSummary = false
+        latestRunResult = null
         lastFrameNanos = 0L
         state = LaneDriftState(
             sessionId = UUID.randomUUID().toString(),
@@ -213,6 +216,15 @@ fun LaneDriftScreen(
         }
     }
 
+    fun exitCompletedRun() {
+        val runResult = latestRunResult
+        if (runResult == null) {
+            onBack()
+            return
+        }
+        onPostRunExitRequested(runResult, onBack)
+    }
+
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
@@ -229,6 +241,10 @@ fun LaneDriftScreen(
     BackHandler {
         if (state.playing && !state.paused) {
             togglePause()
+        } else if (state.gameOver && showCompletionSummary) {
+            showCompletionSummary = false
+        } else if (state.gameOver) {
+            exitCompletedRun()
         } else {
             onBack()
         }
@@ -364,8 +380,7 @@ fun LaneDriftScreen(
 
     if (state.gameOver && !hasReportedRun) {
         hasReportedRun = true
-        onRunComplete(
-            RunResult(
+        val runResult = RunResult(
                 sessionId = state.sessionId,
                 gameId = GameId.LANE_DRIFT,
                 score = state.score,
@@ -374,8 +389,9 @@ fun LaneDriftScreen(
                 durationMillis = System.currentTimeMillis() - state.runStartMillis,
                 pickupsCollected = state.pickups,
                 coinsEarned = state.pickups * 3 + state.score / 20,
-            ),
         )
+        latestRunResult = runResult
+        onRunComplete(runResult)
         showCompletionSummary = true
     }
 
@@ -420,7 +436,13 @@ fun LaneDriftScreen(
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                         StatRow("Score", state.score.toString())
                         StatRow("Pickups", state.pickups.toString())
-                        PremiumButton(label = "Resume", onClick = ::togglePause, modifier = Modifier.fillMaxWidth())
+                        PremiumButton(
+                            label = "Resume",
+                            onClick = ::togglePause,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag(ArcadeTestTags.LaneDriftResumeButton),
+                        )
                         PremiumButton(label = "How to Play", onClick = ::showHowToPlay, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                         PremiumButton(label = "Restart", onClick = ::restart, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                         PremiumButton(label = "Quit", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
@@ -445,7 +467,7 @@ fun LaneDriftScreen(
                                 .fillMaxWidth()
                                 .testTag(ArcadeTestTags.LaneDriftStartButton),
                         )
-                        PremiumButton(label = "Back to detail", onClick = onBack, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
+                        PremiumButton(label = "Back to detail", onClick = ::exitCompletedRun, modifier = Modifier.fillMaxWidth(), style = ArcadeButtonStyle.Secondary)
                     }
                 }
             }
@@ -463,6 +485,10 @@ fun LaneDriftScreen(
                             onClick = {
                                 if (state.playing && !state.paused) {
                                     togglePause()
+                                } else if (state.gameOver && showCompletionSummary) {
+                                    showCompletionSummary = false
+                                } else if (state.gameOver) {
+                                    exitCompletedRun()
                                 } else {
                                     onBack()
                                 }
@@ -488,6 +514,7 @@ fun LaneDriftScreen(
                         PremiumButton(
                             label = if (state.paused) "Resume" else "Pause",
                             onClick = ::togglePause,
+                            modifier = Modifier.testTag(ArcadeTestTags.LaneDriftPauseToggle),
                             style = ArcadeButtonStyle.Secondary,
                             enabled = state.playing || state.paused,
                         )

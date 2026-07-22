@@ -6,13 +6,11 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.test.espresso.Espresso
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
-import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-@Ignore("Flaky Compose back-navigation behavior; route and gameplay smoke coverage already exercises the core flows.")
 class BackNavigationTest {
     @get:Rule
     val rule = createAndroidComposeRule<MainActivity>()
@@ -28,7 +26,6 @@ class BackNavigationTest {
     }
 
     @Test
-    @Ignore("Flaky device-only path; core Stack Drop coverage is already handled by route and gameplay smoke tests.")
     fun stackDropBackNavigationFlow() {
         backFromDetailReturnsHome(ArcadeTestTags.StackDropEntry, ArcadeTestTags.StackDropDetail)
     }

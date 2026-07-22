@@ -1,0 +1,113 @@
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugBuildConfig
+> Task :core:common:preBuild UP-TO-DATE
+> Task :core:common:preDebugBuild UP-TO-DATE
+> Task :core:data:preBuild UP-TO-DATE
+> Task :core:data:preDebugBuild UP-TO-DATE
+> Task :core:model:preBuild UP-TO-DATE
+> Task :core:model:preDebugBuild UP-TO-DATE
+> Task :core:ui:preBuild UP-TO-DATE
+> Task :core:ui:preDebugBuild UP-TO-DATE
+> Task :core:common:writeDebugAarMetadata
+> Task :core:data:writeDebugAarMetadata
+> Task :core:model:writeDebugAarMetadata
+> Task :core:ui:writeDebugAarMetadata
+> Task :feature:challenges:preBuild UP-TO-DATE
+> Task :feature:challenges:preDebugBuild UP-TO-DATE
+> Task :feature:challenges:writeDebugAarMetadata
+> Task :feature:home:preBuild UP-TO-DATE
+> Task :feature:home:preDebugBuild UP-TO-DATE
+> Task :feature:marketplace:preBuild UP-TO-DATE
+> Task :feature:marketplace:preDebugBuild UP-TO-DATE
+> Task :feature:home:writeDebugAarMetadata
+> Task :feature:marketplace:writeDebugAarMetadata
+> Task :feature:settings:preBuild UP-TO-DATE
+> Task :feature:settings:preDebugBuild UP-TO-DATE
+> Task :feature:stats:preBuild UP-TO-DATE
+> Task :feature:stats:preDebugBuild UP-TO-DATE
+> Task :feature:settings:writeDebugAarMetadata
+> Task :game:lanedrift:preBuild UP-TO-DATE
+> Task :feature:stats:writeDebugAarMetadata
+> Task :game:lanedrift:preDebugBuild UP-TO-DATE
+> Task :game:pulseorbit:preBuild UP-TO-DATE
+> Task :game:pulseorbit:preDebugBuild UP-TO-DATE
+> Task :game:lanedrift:writeDebugAarMetadata
+> Task :game:stackdrop:preBuild UP-TO-DATE
+> Task :game:pulseorbit:writeDebugAarMetadata
+> Task :game:stackdrop:preDebugBuild UP-TO-DATE
+> Task :game:stackdrop:writeDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :core:common:generateDebugResValues
+> Task :core:common:generateDebugResources
+> Task :app:checkDebugAarMetadata
+> Task :core:common:packageDebugResources
+> Task :core:data:generateDebugResValues
+> Task :core:data:generateDebugResources
+> Task :core:data:packageDebugResources
+> Task :core:model:generateDebugResValues
+> Task :core:model:generateDebugResources
+> Task :core:model:packageDebugResources
+> Task :core:ui:generateDebugResValues
+> Task :core:ui:generateDebugResources
+> Task :core:ui:packageDebugResources
+> Task :feature:challenges:generateDebugResValues
+> Task :feature:challenges:generateDebugResources
+> Task :feature:challenges:packageDebugResources
+> Task :feature:home:generateDebugResValues
+> Task :feature:home:generateDebugResources
+> Task :feature:home:packageDebugResources
+> Task :feature:marketplace:generateDebugResValues
+> Task :feature:marketplace:generateDebugResources
+> Task :feature:marketplace:packageDebugResources
+> Task :feature:settings:generateDebugResValues
+> Task :feature:settings:generateDebugResources
+> Task :feature:settings:packageDebugResources
+> Task :feature:stats:generateDebugResValues
+> Task :feature:stats:generateDebugResources
+> Task :feature:stats:packageDebugResources
+> Task :game:lanedrift:generateDebugResValues
+> Task :game:lanedrift:generateDebugResources
+> Task :game:lanedrift:packageDebugResources
+> Task :game:pulseorbit:generateDebugResValues
+> Task :game:pulseorbit:generateDebugResources
+> Task :game:pulseorbit:packageDebugResources
+> Task :game:stackdrop:generateDebugResValues
+> Task :game:stackdrop:generateDebugResources
+> Task :game:stackdrop:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :core:common:extractDeepLinksDebug
+> Task :core:data:extractDeepLinksDebug
+> Task :core:model:extractDeepLinksDebug
+> Task :core:ui:extractDeepLinksDebug
+> Task :feature:challenges:extractDeepLinksDebug
+> Task :feature:home:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :feature:marketplace:extractDeepLinksDebug UP-TO-DATE
+> Task :core:model:processDebugManifest
+> Task :core:ui:processDebugManifest
+> Task :feature:home:processDebugManifest
+> Task :core:data:processDebugManifest
+> Task :feature:marketplace:processDebugManifest UP-TO-DATE
+> Task :feature:settings:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:settings:processDebugManifest UP-TO-DATE
+> Task :feature:stats:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:stats:processDebugManifest UP-TO-DATE
+> Task :game:lanedrift:extractDeepLinksDebug UP-TO-DATE
+> Task :core:common:processDebugManifest
+> Task :feature:challenges:processDebugManifest
+> Task :game:lanedrift:processDebugManifest UP-TO-DATE
+> Task :game:pulseorbit:extractDeepLinksDebug UP-TO-DATE
+> Task :game:pulseorbit:processDebugManifest UP-TO-DATE
+> Task :game:stackdrop:extractDeepLinksDebug UP-TO-DATE
+> Task :game:stackdrop:processDebugManifest UP-TO-DATE
+> Task :app:mergeDebugResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest FAILED
+85 actionable tasks: 72 executed, 13 up-to-date

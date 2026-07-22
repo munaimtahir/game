@@ -1,6 +1,7 @@
 package com.vexel.arcadetrio
 
 import android.app.Activity
+import androidx.activity.ComponentActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -44,8 +45,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.unit.dp
+import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.monetization.AdEligibilityContext
 import com.vexel.offlinearcade.monetization.AdPlacement
+import com.vexel.offlinearcade.monetization.ArcadeInterstitialController
+import java.time.LocalDate
 
 @Composable
 fun ArcadeApp(
@@ -60,6 +64,7 @@ fun ArcadeApp(
     val monetizationPreferences = remember { ArcadeDependencies.monetizationPreferences(context) }
     val connectivityMonitor = remember { ArcadeDependencies.connectivityMonitor(context) }
     val adPolicy = remember { ArcadeDependencies.adPolicy() }
+    val interstitialController = remember { ArcadeInterstitialController(context) }
     val navController = rememberNavController()
     val feedback = rememberArcadeFeedback(context = context, settings = snapshot.settings)
     var showSplash by remember { mutableStateOf(true) }
@@ -113,16 +118,59 @@ fun ArcadeApp(
     }
 
     val completedSessions = snapshot.stats.sumOf { it.completedRuns }
-    val showMarketplaceAd = BuildConfig.ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID.isNotBlank() && adPolicy.canShow(
-        AdEligibilityContext(
-            placement = AdPlacement.MARKETPLACE_BANNER,
-            premiumActive = billingState.premiumActive,
-            onlineCapable = connectivityMonitor.isOnline(),
-            completedSessions = completedSessions,
-            completedSessionsSinceLastAd = completedSessions - monetizationPreferences.lastAdSessionCount(),
-            elapsedMillisSinceLastAd = System.currentTimeMillis() - monetizationPreferences.lastAdShownAtEpochMillis(),
-        ),
-    )
+    val interstitialAdUnitId = BuildConfig.ADMOB_INTERSTITIAL_AD_UNIT_ID
+
+    LaunchedEffect(interstitialAdUnitId, billingState.premiumActive) {
+        if (interstitialAdUnitId.isNotBlank() && !billingState.premiumActive) {
+            interstitialController.preload(interstitialAdUnitId)
+        }
+    }
+
+    fun requestPostRunExit(runResult: RunResult, continueAction: () -> Unit) {
+        val nowEpochMillis = System.currentTimeMillis()
+        val completedSessionsAfterRun = completedSessions + 1
+        val epochDay = LocalDate.now().toEpochDay()
+        val eligible = adPolicy.canShow(
+            AdEligibilityContext(
+                placement = AdPlacement.INTERSTITIAL_POST_RUN,
+                premiumActive = billingState.premiumActive,
+                onlineCapable = connectivityMonitor.isOnline(),
+                onboardingActive = false,
+                activeGameplay = false,
+                completedSessions = completedSessionsAfterRun,
+                completedSessionsSinceLastAd = completedSessionsAfterRun - monetizationPreferences.lastAdSessionCount(),
+                elapsedMillisSinceLastAd = nowEpochMillis - monetizationPreferences.lastAdShownAtEpochMillis(),
+                impressionsToday = monetizationPreferences.interstitialsShownToday(epochDay),
+                runDurationMillis = runResult.durationMillis,
+            ),
+        )
+        if (!eligible) {
+            continueAction()
+            return
+        }
+
+        val activity = context as? ComponentActivity
+        if (activity == null || interstitialAdUnitId.isBlank()) {
+            continueAction()
+            return
+        }
+
+        val shown = interstitialController.showIfReady(
+            activity = activity,
+            adUnitId = interstitialAdUnitId,
+            onShown = {
+                monetizationPreferences.recordInterstitialShown(
+                    nowEpochMillis = nowEpochMillis,
+                    completedSessions = completedSessionsAfterRun,
+                    epochDay = epochDay,
+                )
+            },
+            onFinished = continueAction,
+        )
+        if (!shown) {
+            continueAction()
+        }
+    }
 
     OfflineMiniArcadeTheme(
         themeId = snapshot.profile.selectedThemeId,
@@ -152,10 +200,7 @@ fun ArcadeApp(
                     (context as? Activity)?.let(billingManager::launchPremiumPurchase)
                 },
                 onRestorePremium = billingManager::refresh,
-                showMarketplaceAd = showMarketplaceAd,
-                onMarketplaceAdImpression = {
-                    monetizationPreferences.recordAdShown(System.currentTimeMillis(), completedSessions)
-                },
+                onPostRunExitRequested = ::requestPostRunExit,
             )
         }
     }

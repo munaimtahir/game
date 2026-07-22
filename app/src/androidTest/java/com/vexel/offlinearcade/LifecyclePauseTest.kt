@@ -8,13 +8,11 @@ import androidx.compose.ui.test.click
 import androidx.lifecycle.Lifecycle
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.vexel.offlinearcade.core.ui.ArcadeTestTags
-import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-@Ignore("Lifecycle/background Compose timing is flaky on physical hardware; covered by smoke and app lifecycle testing elsewhere.")
 class LifecyclePauseTest {
     @get:Rule
     val rule = createAndroidComposeRule<MainActivity>()

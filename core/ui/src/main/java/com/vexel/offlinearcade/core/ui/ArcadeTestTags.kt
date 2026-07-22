@@ -29,6 +29,8 @@ object ArcadeTestTags {
 
     const val LaneDriftBoard = "lane_drift_board"
     const val LaneDriftStartButton = "lane_drift_start_button"
+    const val LaneDriftPauseToggle = "lane_drift_pause_toggle"
+    const val LaneDriftResumeButton = "lane_drift_resume_button"
     const val LaneDriftTrafficStatus = "lane_drift_traffic_status"
     const val LaneDriftHint = "lane_drift_hint"
 

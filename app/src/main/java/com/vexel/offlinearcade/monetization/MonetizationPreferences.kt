@@ -11,6 +11,8 @@ private const val EntitlementSourceKey = "premium_entitlement_source"
 private const val LastMessageKey = "premium_last_message"
 private const val LastAdShownAtKey = "last_ad_shown_at"
 private const val LastAdSessionCountKey = "last_ad_session_count"
+private const val InterstitialShownDayKey = "interstitial_shown_epoch_day"
+private const val InterstitialShownCountKey = "interstitial_shown_count"
 
 class MonetizationPreferences(
     private val sharedPreferences: SharedPreferences,
@@ -46,14 +48,27 @@ class MonetizationPreferences(
         }
     }
 
-    fun recordAdShown(nowEpochMillis: Long, completedSessions: Int) {
+    fun recordInterstitialShown(nowEpochMillis: Long, completedSessions: Int, epochDay: Long) {
+        val storedDay = sharedPreferences.getLong(InterstitialShownDayKey, Long.MIN_VALUE)
+        val nextCount = if (storedDay == epochDay) interstitialsShownToday(epochDay) + 1 else 1
         sharedPreferences.edit(commit = true) {
             putLong(LastAdShownAtKey, nowEpochMillis)
             putInt(LastAdSessionCountKey, completedSessions)
+            putLong(InterstitialShownDayKey, epochDay)
+            putInt(InterstitialShownCountKey, nextCount)
         }
     }
 
     fun lastAdShownAtEpochMillis(): Long = sharedPreferences.getLong(LastAdShownAtKey, 0L)
 
     fun lastAdSessionCount(): Int = sharedPreferences.getInt(LastAdSessionCountKey, 0)
+
+    fun interstitialsShownToday(epochDay: Long): Int {
+        val storedDay = sharedPreferences.getLong(InterstitialShownDayKey, Long.MIN_VALUE)
+        return if (storedDay == epochDay) {
+            sharedPreferences.getInt(InterstitialShownCountKey, 0)
+        } else {
+            0
+        }
+    }
 }

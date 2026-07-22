@@ -1,0 +1,611 @@
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseBuildConfig
+> Task :core:common:preBuild UP-TO-DATE
+> Task :core:common:preReleaseBuild UP-TO-DATE
+> Task :core:data:preBuild UP-TO-DATE
+> Task :core:data:preReleaseBuild UP-TO-DATE
+> Task :core:common:writeReleaseAarMetadata
+> Task :core:model:preBuild UP-TO-DATE
+> Task :core:data:writeReleaseAarMetadata
+> Task :core:model:preReleaseBuild UP-TO-DATE
+> Task :core:ui:preBuild UP-TO-DATE
+> Task :core:ui:preReleaseBuild UP-TO-DATE
+> Task :core:model:writeReleaseAarMetadata
+> Task :feature:challenges:preBuild UP-TO-DATE
+> Task :feature:challenges:preReleaseBuild UP-TO-DATE
+> Task :core:ui:writeReleaseAarMetadata
+> Task :feature:home:preBuild UP-TO-DATE
+> Task :feature:home:preReleaseBuild UP-TO-DATE
+> Task :feature:challenges:writeReleaseAarMetadata
+> Task :feature:marketplace:preBuild UP-TO-DATE
+> Task :feature:home:writeReleaseAarMetadata
+> Task :feature:marketplace:preReleaseBuild UP-TO-DATE
+> Task :feature:marketplace:writeReleaseAarMetadata
+> Task :feature:settings:preBuild UP-TO-DATE
+> Task :feature:settings:preReleaseBuild UP-TO-DATE
+> Task :feature:settings:writeReleaseAarMetadata
+> Task :feature:stats:preBuild UP-TO-DATE
+> Task :feature:stats:preReleaseBuild UP-TO-DATE
+> Task :game:lanedrift:preBuild UP-TO-DATE
+> Task :game:lanedrift:preReleaseBuild UP-TO-DATE
+> Task :feature:stats:writeReleaseAarMetadata
+> Task :game:pulseorbit:preBuild UP-TO-DATE
+> Task :game:pulseorbit:preReleaseBuild UP-TO-DATE
+> Task :game:lanedrift:writeReleaseAarMetadata
+> Task :game:stackdrop:preBuild UP-TO-DATE
+> Task :game:stackdrop:preReleaseBuild UP-TO-DATE
+> Task :game:pulseorbit:writeReleaseAarMetadata
+> Task :game:stackdrop:writeReleaseAarMetadata
+> Task :app:generateReleaseResValues
+> Task :core:common:generateReleaseResValues
+> Task :app:checkReleaseAarMetadata
+> Task :core:common:generateReleaseResources
+> Task :core:common:packageReleaseResources
+> Task :core:data:generateReleaseResValues
+> Task :core:data:generateReleaseResources
+> Task :core:data:packageReleaseResources
+> Task :core:model:generateReleaseResValues
+> Task :core:model:generateReleaseResources
+> Task :core:model:packageReleaseResources
+> Task :core:ui:generateReleaseResValues
+> Task :core:ui:generateReleaseResources
+> Task :core:ui:packageReleaseResources
+> Task :feature:challenges:generateReleaseResValues
+> Task :feature:challenges:generateReleaseResources
+> Task :feature:challenges:packageReleaseResources
+> Task :feature:home:generateReleaseResValues
+> Task :feature:home:generateReleaseResources
+> Task :feature:home:packageReleaseResources
+> Task :feature:marketplace:generateReleaseResValues
+> Task :feature:marketplace:generateReleaseResources
+> Task :feature:marketplace:packageReleaseResources
+> Task :feature:settings:generateReleaseResValues
+> Task :feature:settings:generateReleaseResources
+> Task :feature:settings:packageReleaseResources
+> Task :feature:stats:generateReleaseResValues
+> Task :feature:stats:generateReleaseResources
+> Task :feature:stats:packageReleaseResources
+> Task :game:lanedrift:generateReleaseResValues
+> Task :game:lanedrift:generateReleaseResources
+> Task :game:lanedrift:packageReleaseResources
+> Task :game:pulseorbit:generateReleaseResValues
+> Task :game:pulseorbit:generateReleaseResources
+> Task :game:pulseorbit:packageReleaseResources
+> Task :game:stackdrop:generateReleaseResValues
+> Task :game:stackdrop:generateReleaseResources
+> Task :game:stackdrop:packageReleaseResources
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :core:common:extractDeepLinksRelease
+> Task :core:data:extractDeepLinksRelease
+> Task :core:data:processReleaseManifest
+> Task :core:model:extractDeepLinksRelease
+> Task :core:common:processReleaseManifest
+> Task :core:ui:extractDeepLinksRelease
+> Task :app:parseReleaseLocalResources
+> Task :feature:challenges:extractDeepLinksRelease
+> Task :feature:home:extractDeepLinksRelease
+> Task :core:ui:processReleaseManifest
+> Task :feature:marketplace:extractDeepLinksRelease
+> Task :feature:challenges:processReleaseManifest
+> Task :feature:settings:extractDeepLinksRelease
+> Task :feature:home:processReleaseManifest
+> Task :feature:stats:extractDeepLinksRelease
+> Task :core:model:processReleaseManifest
+> Task :game:lanedrift:extractDeepLinksRelease
+> Task :game:pulseorbit:extractDeepLinksRelease
+> Task :game:lanedrift:processReleaseManifest
+> Task :game:stackdrop:extractDeepLinksRelease
+> Task :feature:marketplace:processReleaseManifest
+> Task :feature:stats:processReleaseManifest
+> Task :feature:settings:processReleaseManifest
+> Task :core:model:parseReleaseLocalResources
+> Task :core:data:parseReleaseLocalResources
+> Task :core:model:generateReleaseRFile
+> Task :core:common:parseReleaseLocalResources
+> Task :game:stackdrop:processReleaseManifest
+> Task :feature:challenges:parseReleaseLocalResources
+> Task :feature:marketplace:parseReleaseLocalResources
+> Task :feature:home:parseReleaseLocalResources
+> Task :feature:marketplace:generateReleaseRFile
+> Task :core:common:generateReleaseRFile
+> Task :feature:settings:parseReleaseLocalResources
+> Task :game:pulseorbit:processReleaseManifest
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :core:ui:parseReleaseLocalResources
+> Task :core:data:generateReleaseRFile
+> Task :feature:challenges:generateReleaseRFile
+> Task :feature:home:generateReleaseRFile
+> Task :feature:stats:parseReleaseLocalResources
+> Task :game:pulseorbit:parseReleaseLocalResources
+> Task :game:lanedrift:parseReleaseLocalResources
+> Task :feature:stats:generateReleaseRFile
+> Task :core:common:checkKotlinGradlePluginConfigurationErrors
+> Task :game:stackdrop:parseReleaseLocalResources
+> Task :feature:settings:generateReleaseRFile
+> Task :app:processReleaseManifestForPackage
+> Task :core:data:checkKotlinGradlePluginConfigurationErrors
+> Task :core:model:checkKotlinGradlePluginConfigurationErrors
+> Task :game:stackdrop:generateReleaseRFile
+> Task :game:lanedrift:generateReleaseRFile
+> Task :core:ui:generateReleaseRFile
+> Task :core:common:compileReleaseKotlin
+> Task :core:model:compileReleaseKotlin
+> Task :core:common:javaPreCompileRelease
+> Task :game:pulseorbit:generateReleaseRFile
+> Task :core:model:javaPreCompileRelease
+> Task :core:common:compileReleaseJavaWithJavac NO-SOURCE
+> Task :core:model:compileReleaseJavaWithJavac NO-SOURCE
+> Task :core:ui:checkKotlinGradlePluginConfigurationErrors
+> Task :feature:challenges:checkKotlinGradlePluginConfigurationErrors
+> Task :feature:home:checkKotlinGradlePluginConfigurationErrors
+> Task :feature:marketplace:checkKotlinGradlePluginConfigurationErrors
+> Task :core:data:javaPreCompileRelease
+> Task :feature:settings:checkKotlinGradlePluginConfigurationErrors
+> Task :core:model:bundleLibCompileToJarRelease
+> Task :feature:settings:javaPreCompileRelease
+> Task :core:ui:javaPreCompileRelease
+> Task :feature:home:javaPreCompileRelease
+> Task :feature:marketplace:javaPreCompileRelease
+> Task :core:common:bundleLibCompileToJarRelease
+> Task :core:ui:compileReleaseKotlin
+> Task :core:ui:compileReleaseJavaWithJavac NO-SOURCE
+> Task :feature:stats:checkKotlinGradlePluginConfigurationErrors
+> Task :core:ui:bundleLibCompileToJarRelease
+> Task :feature:challenges:javaPreCompileRelease
+> Task :feature:stats:javaPreCompileRelease
+> Task :feature:challenges:compileReleaseKotlin
+> Task :feature:challenges:compileReleaseJavaWithJavac NO-SOURCE
+> Task :core:data:kaptGenerateStubsReleaseKotlin
+> Task :feature:challenges:bundleLibCompileToJarRelease
+> Task :app:mergeReleaseResources
+> Task :game:lanedrift:checkKotlinGradlePluginConfigurationErrors
+> Task :feature:home:compileReleaseKotlin
+> Task :feature:settings:compileReleaseKotlin
+> Task :feature:home:compileReleaseJavaWithJavac NO-SOURCE
+> Task :feature:settings:compileReleaseJavaWithJavac NO-SOURCE
+> Task :feature:home:bundleLibCompileToJarRelease
+> Task :game:pulseorbit:checkKotlinGradlePluginConfigurationErrors
+> Task :feature:marketplace:compileReleaseKotlin
+> Task :feature:marketplace:compileReleaseJavaWithJavac NO-SOURCE
+> Task :feature:settings:bundleLibCompileToJarRelease
+> Task :feature:marketplace:bundleLibCompileToJarRelease
+> Task :game:stackdrop:checkKotlinGradlePluginConfigurationErrors
+> Task :game:lanedrift:javaPreCompileRelease
+> Task :game:stackdrop:javaPreCompileRelease
+> Task :app:buildKotlinToolingMetadata
+> Task :feature:stats:compileReleaseKotlin
+> Task :feature:stats:compileReleaseJavaWithJavac NO-SOURCE
+> Task :game:pulseorbit:javaPreCompileRelease
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :app:javaPreCompileRelease
+> Task :core:common:processReleaseJavaRes
+> Task :core:common:extractProguardFiles UP-TO-DATE
+> Task :core:common:generateReleaseLintModel
+> Task :core:common:prepareLintJarForPublish UP-TO-DATE
+> Task :core:data:extractProguardFiles UP-TO-DATE
+> Task :feature:stats:bundleLibCompileToJarRelease
+> Task :core:model:processReleaseJavaRes
+> Task :core:model:extractProguardFiles UP-TO-DATE
+> Task :core:model:generateReleaseLintModel
+> Task :core:model:prepareLintJarForPublish UP-TO-DATE
+> Task :core:data:prepareLintJarForPublish UP-TO-DATE
+> Task :core:common:bundleLibRuntimeToJarRelease
+> Task :core:common:createFullJarRelease
+> Task :core:ui:processReleaseJavaRes
+> Task :core:ui:extractProguardFiles UP-TO-DATE
+> Task :core:ui:prepareLintJarForPublish UP-TO-DATE
+> Task :core:ui:bundleLibRuntimeToJarRelease
+> Task :core:ui:createFullJarRelease
+> Task :feature:challenges:processReleaseJavaRes
+> Task :feature:challenges:extractProguardFiles UP-TO-DATE
+> Task :feature:challenges:prepareLintJarForPublish UP-TO-DATE
+> Task :core:model:bundleLibRuntimeToJarRelease
+> Task :core:model:createFullJarRelease
+> Task :feature:home:bundleLibRuntimeToJarRelease
+> Task :feature:challenges:bundleLibRuntimeToJarRelease
+> Task :core:ui:generateReleaseLintModel
+> Task :feature:challenges:createFullJarRelease
+> Task :feature:challenges:generateReleaseLintModel
+> Task :feature:home:processReleaseJavaRes
+> Task :feature:home:createFullJarRelease
+> Task :feature:home:extractProguardFiles UP-TO-DATE
+> Task :feature:home:generateReleaseLintModel
+> Task :feature:home:prepareLintJarForPublish UP-TO-DATE
+> Task :feature:marketplace:processReleaseJavaRes
+> Task :feature:marketplace:extractProguardFiles UP-TO-DATE
+> Task :feature:marketplace:generateReleaseLintModel
+> Task :feature:marketplace:prepareLintJarForPublish UP-TO-DATE
+> Task :feature:settings:processReleaseJavaRes
+> Task :feature:settings:extractProguardFiles UP-TO-DATE
+> Task :feature:settings:generateReleaseLintModel
+> Task :feature:settings:prepareLintJarForPublish UP-TO-DATE
+> Task :feature:marketplace:bundleLibRuntimeToJarRelease
+> Task :feature:marketplace:createFullJarRelease
+> Task :feature:stats:processReleaseJavaRes
+> Task :feature:stats:extractProguardFiles UP-TO-DATE
+> Task :feature:stats:generateReleaseLintModel
+> Task :feature:stats:prepareLintJarForPublish UP-TO-DATE
+> Task :game:lanedrift:extractProguardFiles UP-TO-DATE
+> Task :game:lanedrift:prepareLintJarForPublish UP-TO-DATE
+> Task :game:pulseorbit:extractProguardFiles UP-TO-DATE
+> Task :game:pulseorbit:prepareLintJarForPublish UP-TO-DATE
+> Task :game:stackdrop:extractProguardFiles UP-TO-DATE
+> Task :game:stackdrop:prepareLintJarForPublish UP-TO-DATE
+> Task :feature:stats:bundleLibRuntimeToJarRelease
+> Task :feature:settings:bundleLibRuntimeToJarRelease
+> Task :core:data:mergeReleaseJniLibFolders
+> Task :feature:settings:createFullJarRelease
+> Task :feature:stats:createFullJarRelease
+> Task :core:data:mergeReleaseNativeLibs NO-SOURCE
+> Task :core:data:kaptReleaseKotlin
+> Task :core:data:stripReleaseDebugSymbols NO-SOURCE
+> Task :core:data:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :core:data:copyReleaseJniLibsProjectAndLocalJars
+> Task :core:data:mergeReleaseShaders
+> Task :core:data:compileReleaseShaders NO-SOURCE
+> Task :core:data:generateReleaseAssets UP-TO-DATE
+> Task :core:data:packageReleaseAssets
+> Task :core:data:prepareReleaseArtProfile UP-TO-DATE
+> Task :core:common:mergeReleaseJniLibFolders
+> Task :core:common:mergeReleaseNativeLibs NO-SOURCE
+> Task :core:common:stripReleaseDebugSymbols NO-SOURCE
+> Task :core:common:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :core:common:copyReleaseJniLibsProjectAndLocalJars
+> Task :core:common:extractReleaseAnnotations
+> Task :core:common:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :core:common:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :core:common:mergeReleaseShaders
+> Task :core:common:compileReleaseShaders NO-SOURCE
+> Task :core:common:generateReleaseAssets UP-TO-DATE
+> Task :core:common:packageReleaseAssets
+> Task :core:common:prepareReleaseArtProfile UP-TO-DATE
+> Task :core:common:mergeReleaseJavaResource
+> Task :feature:home:mergeReleaseJniLibFolders
+> Task :core:common:syncReleaseLibJars
+> Task :core:common:bundleReleaseLocalLintAar
+> Task :feature:home:mergeReleaseNativeLibs NO-SOURCE
+> Task :feature:home:stripReleaseDebugSymbols NO-SOURCE
+> Task :feature:home:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :feature:home:extractReleaseAnnotations
+> Task :feature:home:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :feature:home:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:home:mergeReleaseShaders
+> Task :feature:home:compileReleaseShaders NO-SOURCE
+> Task :feature:home:generateReleaseAssets UP-TO-DATE
+> Task :feature:home:copyReleaseJniLibsProjectAndLocalJars
+> Task :feature:home:packageReleaseAssets
+> Task :feature:home:prepareReleaseArtProfile UP-TO-DATE
+> Task :feature:home:mergeReleaseJavaResource
+> Task :feature:home:syncReleaseLibJars
+> Task :feature:home:bundleReleaseLocalLintAar
+> Task :feature:challenges:mergeReleaseJniLibFolders
+> Task :feature:challenges:mergeReleaseNativeLibs NO-SOURCE
+> Task :feature:challenges:stripReleaseDebugSymbols NO-SOURCE
+> Task :feature:challenges:copyReleaseJniLibsProjectAndLocalJars
+> Task :feature:challenges:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :feature:challenges:extractReleaseAnnotations
+> Task :feature:challenges:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :feature:challenges:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:challenges:mergeReleaseShaders
+> Task :feature:challenges:compileReleaseShaders NO-SOURCE
+> Task :feature:challenges:generateReleaseAssets UP-TO-DATE
+> Task :feature:challenges:packageReleaseAssets
+> Task :feature:challenges:prepareReleaseArtProfile UP-TO-DATE
+> Task :feature:stats:mergeReleaseJniLibFolders
+> Task :feature:stats:mergeReleaseNativeLibs NO-SOURCE
+> Task :feature:stats:stripReleaseDebugSymbols NO-SOURCE
+> Task :feature:stats:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :feature:stats:extractReleaseAnnotations
+> Task :feature:stats:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :feature:stats:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:challenges:mergeReleaseJavaResource
+> Task :feature:stats:copyReleaseJniLibsProjectAndLocalJars
+> Task :feature:stats:mergeReleaseShaders
+> Task :feature:challenges:syncReleaseLibJars
+> Task :feature:challenges:bundleReleaseLocalLintAar
+> Task :feature:stats:compileReleaseShaders NO-SOURCE
+> Task :feature:stats:generateReleaseAssets UP-TO-DATE
+> Task :feature:stats:packageReleaseAssets
+> Task :feature:stats:prepareReleaseArtProfile UP-TO-DATE
+> Task :feature:settings:mergeReleaseJniLibFolders
+> Task :feature:settings:mergeReleaseNativeLibs NO-SOURCE
+> Task :feature:settings:stripReleaseDebugSymbols NO-SOURCE
+> Task :feature:settings:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :feature:settings:extractReleaseAnnotations
+> Task :feature:settings:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :feature:settings:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:stats:mergeReleaseJavaResource
+> Task :feature:settings:copyReleaseJniLibsProjectAndLocalJars
+> Task :feature:settings:mergeReleaseShaders
+> Task :feature:stats:syncReleaseLibJars
+> Task :feature:stats:bundleReleaseLocalLintAar
+> Task :feature:settings:compileReleaseShaders NO-SOURCE
+> Task :feature:settings:generateReleaseAssets UP-TO-DATE
+> Task :feature:settings:packageReleaseAssets
+> Task :feature:settings:prepareReleaseArtProfile UP-TO-DATE
+> Task :feature:marketplace:mergeReleaseJniLibFolders
+> Task :feature:marketplace:mergeReleaseNativeLibs NO-SOURCE
+> Task :feature:marketplace:stripReleaseDebugSymbols NO-SOURCE
+> Task :feature:marketplace:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :feature:marketplace:extractReleaseAnnotations
+> Task :feature:marketplace:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :feature:marketplace:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:settings:mergeReleaseJavaResource
+> Task :feature:marketplace:mergeReleaseShaders
+> Task :feature:settings:syncReleaseLibJars
+> Task :feature:settings:bundleReleaseLocalLintAar
+> Task :feature:marketplace:compileReleaseShaders NO-SOURCE
+> Task :feature:marketplace:generateReleaseAssets UP-TO-DATE
+> Task :feature:marketplace:copyReleaseJniLibsProjectAndLocalJars
+> Task :feature:marketplace:packageReleaseAssets
+> Task :feature:marketplace:prepareReleaseArtProfile UP-TO-DATE
+> Task :game:pulseorbit:mergeReleaseJniLibFolders
+> Task :game:pulseorbit:mergeReleaseNativeLibs NO-SOURCE
+> Task :game:pulseorbit:stripReleaseDebugSymbols NO-SOURCE
+> Task :game:pulseorbit:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :feature:marketplace:mergeReleaseJavaResource
+> Task :game:pulseorbit:copyReleaseJniLibsProjectAndLocalJars
+> Task :game:pulseorbit:mergeReleaseShaders
+> Task :feature:marketplace:syncReleaseLibJars
+> Task :feature:marketplace:bundleReleaseLocalLintAar
+> Task :game:pulseorbit:compileReleaseShaders NO-SOURCE
+> Task :game:pulseorbit:generateReleaseAssets UP-TO-DATE
+> Task :game:pulseorbit:packageReleaseAssets
+> Task :game:pulseorbit:prepareReleaseArtProfile UP-TO-DATE
+> Task :game:lanedrift:mergeReleaseJniLibFolders
+> Task :game:lanedrift:mergeReleaseNativeLibs NO-SOURCE
+> Task :game:lanedrift:stripReleaseDebugSymbols NO-SOURCE
+> Task :game:lanedrift:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :game:lanedrift:copyReleaseJniLibsProjectAndLocalJars
+> Task :game:lanedrift:mergeReleaseShaders
+> Task :game:lanedrift:compileReleaseShaders NO-SOURCE
+> Task :game:lanedrift:generateReleaseAssets UP-TO-DATE
+> Task :game:lanedrift:packageReleaseAssets
+> Task :game:lanedrift:prepareReleaseArtProfile UP-TO-DATE
+> Task :game:stackdrop:mergeReleaseJniLibFolders
+> Task :game:stackdrop:mergeReleaseNativeLibs NO-SOURCE
+> Task :game:stackdrop:stripReleaseDebugSymbols NO-SOURCE
+> Task :game:stackdrop:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :game:stackdrop:copyReleaseJniLibsProjectAndLocalJars
+> Task :game:stackdrop:mergeReleaseShaders
+> Task :game:stackdrop:compileReleaseShaders NO-SOURCE
+> Task :game:stackdrop:generateReleaseAssets UP-TO-DATE
+> Task :game:stackdrop:packageReleaseAssets
+> Task :game:stackdrop:prepareReleaseArtProfile UP-TO-DATE
+> Task :core:ui:mergeReleaseJniLibFolders
+> Task :core:ui:mergeReleaseNativeLibs NO-SOURCE
+> Task :core:ui:stripReleaseDebugSymbols NO-SOURCE
+> Task :core:ui:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :core:ui:extractReleaseAnnotations
+> Task :core:ui:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :core:ui:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :core:ui:copyReleaseJniLibsProjectAndLocalJars
+> Task :core:ui:mergeReleaseShaders
+> Task :core:ui:compileReleaseShaders NO-SOURCE
+> Task :core:ui:generateReleaseAssets UP-TO-DATE
+> Task :core:ui:packageReleaseAssets
+> Task :core:ui:prepareReleaseArtProfile UP-TO-DATE
+> Task :core:ui:mergeReleaseJavaResource
+> Task :core:model:mergeReleaseJniLibFolders
+> Task :core:ui:syncReleaseLibJars
+> Task :core:ui:bundleReleaseLocalLintAar
+> Task :core:model:mergeReleaseNativeLibs NO-SOURCE
+> Task :core:model:stripReleaseDebugSymbols NO-SOURCE
+> Task :core:model:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :core:model:extractReleaseAnnotations
+> Task :core:model:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :core:model:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :core:model:copyReleaseJniLibsProjectAndLocalJars
+> Task :core:model:mergeReleaseShaders
+> Task :core:model:compileReleaseShaders NO-SOURCE
+> Task :core:model:generateReleaseAssets UP-TO-DATE
+> Task :core:model:packageReleaseAssets
+> Task :core:model:prepareReleaseArtProfile UP-TO-DATE
+> Task :core:model:mergeReleaseJavaResource
+> Task :core:model:syncReleaseLibJars
+> Task :core:model:bundleReleaseLocalLintAar
+> Task :core:common:writeReleaseLintModelMetadata
+> Task :core:model:writeReleaseLintModelMetadata
+> Task :core:data:writeReleaseLintModelMetadata
+> Task :game:pulseorbit:compileReleaseKotlin
+> Task :game:pulseorbit:compileReleaseJavaWithJavac NO-SOURCE
+> Task :core:common:lintVitalAnalyzeRelease
+> Task :game:pulseorbit:processReleaseJavaRes
+> Task :game:pulseorbit:generateReleaseLintModel
+> Task :game:pulseorbit:extractReleaseAnnotations
+> Task :game:pulseorbit:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :game:pulseorbit:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :game:pulseorbit:bundleLibCompileToJarRelease
+> Task :game:pulseorbit:mergeReleaseJavaResource
+> Task :game:pulseorbit:syncReleaseLibJars
+> Task :game:pulseorbit:bundleReleaseLocalLintAar
+> Task :core:ui:writeReleaseLintModelMetadata
+> Task :game:pulseorbit:bundleLibRuntimeToJarRelease
+> Task :game:pulseorbit:createFullJarRelease
+> Task :feature:challenges:writeReleaseLintModelMetadata
+> Task :core:model:lintVitalAnalyzeRelease
+> Task :feature:challenges:lintVitalAnalyzeRelease
+> Task :feature:home:writeReleaseLintModelMetadata
+
+> Task :core:data:compileReleaseKotlin
+w: file:///home/munaim/Documents/github/game/core/data/src/main/java/com/vexel/offlinearcade/core/data/OfflineArcadeRepository.kt:38:42 Unchecked cast: Any? to List<GameStatsEntity>
+w: file:///home/munaim/Documents/github/game/core/data/src/main/java/com/vexel/offlinearcade/core/data/OfflineArcadeRepository.kt:39:41 Unchecked cast: Any? to List<ThemeUnlockEntity>
+w: file:///home/munaim/Documents/github/game/core/data/src/main/java/com/vexel/offlinearcade/core/data/OfflineArcadeRepository.kt:40:40 Unchecked cast: Any? to List<SkinUnlockEntity>
+w: file:///home/munaim/Documents/github/game/core/data/src/main/java/com/vexel/offlinearcade/core/data/OfflineArcadeRepository.kt:42:39 Unchecked cast: Any? to List<DailyChallenge>
+
+> Task :core:data:compileReleaseJavaWithJavac
+> Task :core:data:bundleLibRuntimeToJarRelease
+> Task :core:data:processReleaseJavaRes
+> Task :core:data:createFullJarRelease
+> Task :core:data:generateReleaseLintModel
+> Task :core:data:extractReleaseAnnotations
+> Task :core:data:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :core:data:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :core:data:bundleLibCompileToJarRelease
+> Task :feature:marketplace:writeReleaseLintModelMetadata
+> Task :feature:settings:writeReleaseLintModelMetadata
+> Task :feature:stats:writeReleaseLintModelMetadata
+> Task :game:lanedrift:writeReleaseLintModelMetadata
+> Task :game:pulseorbit:writeReleaseLintModelMetadata
+> Task :game:stackdrop:writeReleaseLintModelMetadata
+> Task :core:common:generateReleaseLintVitalModel
+> Task :core:data:generateReleaseLintVitalModel
+> Task :core:model:generateReleaseLintVitalModel
+> Task :core:ui:generateReleaseLintVitalModel
+> Task :game:stackdrop:compileReleaseKotlin
+> Task :core:data:mergeReleaseJavaResource
+> Task :feature:challenges:generateReleaseLintVitalModel
+> Task :game:stackdrop:compileReleaseJavaWithJavac NO-SOURCE
+> Task :game:stackdrop:bundleLibCompileToJarRelease
+> Task :game:stackdrop:processReleaseJavaRes
+> Task :game:stackdrop:bundleLibRuntimeToJarRelease
+> Task :game:stackdrop:generateReleaseLintModel
+> Task :game:stackdrop:createFullJarRelease
+> Task :core:data:syncReleaseLibJars
+> Task :core:data:bundleReleaseLocalLintAar
+> Task :game:stackdrop:extractReleaseAnnotations
+> Task :game:stackdrop:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :game:stackdrop:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :game:stackdrop:mergeReleaseJavaResource
+> Task :feature:home:generateReleaseLintVitalModel
+> Task :game:stackdrop:syncReleaseLibJars
+> Task :game:lanedrift:compileReleaseKotlin
+> Task :game:stackdrop:bundleReleaseLocalLintAar
+> Task :game:lanedrift:compileReleaseJavaWithJavac NO-SOURCE
+> Task :game:lanedrift:bundleLibCompileToJarRelease
+> Task :feature:home:lintVitalAnalyzeRelease
+> Task :game:lanedrift:bundleLibRuntimeToJarRelease
+> Task :game:lanedrift:processReleaseJavaRes
+> Task :game:lanedrift:createFullJarRelease
+> Task :game:lanedrift:generateReleaseLintModel
+> Task :game:lanedrift:extractReleaseAnnotations
+> Task :game:lanedrift:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :game:lanedrift:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :game:lanedrift:mergeReleaseJavaResource
+> Task :game:lanedrift:syncReleaseLibJars
+> Task :game:lanedrift:bundleReleaseLocalLintAar
+> Task :feature:marketplace:generateReleaseLintVitalModel
+> Task :feature:marketplace:lintVitalAnalyzeRelease
+> Task :feature:settings:generateReleaseLintVitalModel
+> Task :feature:stats:generateReleaseLintVitalModel
+> Task :game:lanedrift:generateReleaseLintVitalModel
+> Task :game:pulseorbit:generateReleaseLintVitalModel
+> Task :game:stackdrop:generateReleaseLintVitalModel
+> Task :app:mergeReleaseJniLibFolders
+> Task :core:common:copyReleaseJniLibsProjectOnly
+> Task :core:data:copyReleaseJniLibsProjectOnly
+> Task :core:model:copyReleaseJniLibsProjectOnly
+> Task :core:ui:copyReleaseJniLibsProjectOnly
+> Task :feature:challenges:copyReleaseJniLibsProjectOnly
+> Task :feature:home:copyReleaseJniLibsProjectOnly
+> Task :feature:marketplace:copyReleaseJniLibsProjectOnly
+> Task :feature:settings:copyReleaseJniLibsProjectOnly
+> Task :feature:stats:copyReleaseJniLibsProjectOnly
+> Task :game:lanedrift:copyReleaseJniLibsProjectOnly
+> Task :game:pulseorbit:copyReleaseJniLibsProjectOnly
+> Task :game:stackdrop:copyReleaseJniLibsProjectOnly
+> Task :core:ui:lintVitalAnalyzeRelease
+> Task :app:mergeReleaseArtProfile
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :core:data:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :core:common:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:home:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:challenges:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:stats:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:settings:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:marketplace:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :game:pulseorbit:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :game:lanedrift:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :game:stackdrop:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :core:ui:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :core:model:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:mergeReleaseShaders
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :app:compressReleaseAssets
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:expandReleaseL8ArtProfileWildcards
+> Task :feature:settings:lintVitalAnalyzeRelease
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:processApplicationManifestReleaseForBundle
+> Task :app:collectReleaseDependencies
+> Task :app:sdkReleaseDependencyData
+> Task :app:validateSigningRelease
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+> Task :feature:stats:lintVitalAnalyzeRelease
+> Task :core:data:lintVitalAnalyzeRelease
+> Task :game:pulseorbit:lintVitalAnalyzeRelease
+> Task :game:lanedrift:lintVitalAnalyzeRelease
+> Task :game:stackdrop:lintVitalAnalyzeRelease
+> Task :app:processReleaseResources
+> Task :app:bundleReleaseResources
+
+> Task :app:compileReleaseKotlin
+w: file:///home/munaim/Documents/github/game/app/src/main/java/com/vexel/offlinearcade/monetization/ArcadeBillingManager.kt:163:62 Unnecessary safe call on a non-null receiver of type (Mutable)List<ProductDetails!>
+
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :app:processReleaseJavaRes
+> Task :app:mergeReleaseJavaResource
+> Task :app:expandReleaseArtProfileWildcards
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:minifyReleaseWithR8
+
+> Task :app:l8DexDesugarLibRelease
+Info: Proguard configuration rule does not match anything: `-keepclassmembers class j$.util.concurrent.ConcurrentHashMap$TreeBin {
+  int lockState;
+}`
+Info: Proguard configuration rule does not match anything: `-keepclassmembers class j$.util.concurrent.ConcurrentHashMap {
+  int sizeCtl;
+  int transferIndex;
+  long baseCount;
+  int cellsBusy;
+}`
+Info: Proguard configuration rule does not match anything: `-keepclassmembers class j$.util.concurrent.ConcurrentHashMap$CounterCell {
+  long value;
+}`
+Info: Proguard configuration rule does not match anything: `-keepclassmembers class j$.util.IntSummaryStatistics {
+  long count;
+  long sum;
+  int min;
+  int max;
+}`
+Info: Proguard configuration rule does not match anything: `-keepclassmembers class j$.util.LongSummaryStatistics {
+  long count;
+  long sum;
+  long min;
+  long max;
+}`
+Info: Proguard configuration rule does not match anything: `-keepclassmembers class j$.util.DoubleSummaryStatistics {
+  long count;
+  double sum;
+  double min;
+  double max;
+}`
+
+> Task :app:compileReleaseArtProfile
+> Task :app:shrinkReleaseRes
+> Task :app:convertReleaseProtoResources
+> Task :app:optimizeReleaseResources
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :app:assembleRelease
+
+BUILD SUCCESSFUL in 5m 28s
+475 actionable tasks: 388 executed, 87 up-to-date

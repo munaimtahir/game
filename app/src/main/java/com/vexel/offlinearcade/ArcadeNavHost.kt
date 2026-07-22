@@ -9,7 +9,6 @@ import com.vexel.offlinearcade.core.model.ArcadeSnapshot
 import com.vexel.offlinearcade.core.model.GameId
 import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.monetization.BillingUiState
-import com.vexel.offlinearcade.monetization.MarketplaceAdBanner
 import com.vexel.offlinearcade.feature.challenges.ChallengesScreen
 import com.vexel.offlinearcade.feature.home.HomeScreen
 import com.vexel.offlinearcade.feature.settings.SettingsScreen
@@ -42,8 +41,7 @@ fun ArcadeNavHost(
     billingState: BillingUiState,
     onBuyPremium: () -> Unit,
     onRestorePremium: () -> Unit,
-    showMarketplaceAd: Boolean,
-    onMarketplaceAdImpression: () -> Unit,
+    onPostRunExitRequested: (RunResult, () -> Unit) -> Unit,
 ) {
     fun navigateToGame(gameId: GameId) {
         navController.navigate(
@@ -90,6 +88,7 @@ fun ArcadeNavHost(
                 tutorialSeen = snapshot.profile.tutorialSeenPulseOrbit,
                 onTutorialSeen = { onTutorialSeen(GameId.PULSE_ORBIT) },
                 onRunComplete = onRecordRun,
+                onPostRunExitRequested = onPostRunExitRequested,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -112,6 +111,7 @@ fun ArcadeNavHost(
                 tutorialSeen = snapshot.profile.tutorialSeenLaneDrift,
                 onTutorialSeen = { onTutorialSeen(GameId.LANE_DRIFT) },
                 onRunComplete = onRecordRun,
+                onPostRunExitRequested = onPostRunExitRequested,
                 onBack = { navController.popBackStack() },
                 debugConfig = if (BuildConfig.DEBUG) {
                     LaneDriftDebugConfig()
@@ -139,6 +139,7 @@ fun ArcadeNavHost(
                 tutorialSeen = snapshot.profile.tutorialSeenStackDrop,
                 onTutorialSeen = { onTutorialSeen(GameId.STACK_DROP) },
                 onRunComplete = onRecordRun,
+                onPostRunExitRequested = onPostRunExitRequested,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -195,16 +196,7 @@ fun ArcadeNavHost(
                 premiumUnlocked = snapshot.profile.premiumUnlocked,
                 premiumProductAvailable = billingState.productAvailable,
                 onBuyPremium = onBuyPremium,
-                adSlot = if (showMarketplaceAd) {
-                    {
-                        MarketplaceAdBanner(
-                            adUnitId = BuildConfig.ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID,
-                            onImpression = onMarketplaceAdImpression,
-                        )
-                    }
-                } else {
-                    null
-                },
+                adSlot = null,
                 onSelectTheme = onSelectTheme,
                 onUnlockTheme = onUnlockTheme,
                 onSelectSkin = onSelectSkin,
