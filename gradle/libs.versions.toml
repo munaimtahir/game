@@ -20,6 +20,7 @@ robolectric = "4.14.1"
 desugar-jdk-libs = "2.1.5"
 billing = "9.1.0"
 play-services-ads = "23.6.0"
+play-services-ump = "2.2.0"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
@@ -55,3 +56,4 @@ robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectr
 desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
 google-play-billing = { module = "com.android.billingclient:billing", version.ref = "billing" }
 google-play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "play-services-ads" }
+google-user-messaging-platform = { module = "com.google.android.ump:user-messaging-platform", version.ref = "play-services-ump" }

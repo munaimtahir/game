@@ -39,27 +39,47 @@ Authoritative status:
   - milestone thresholds
 - Cosmetic-only differences must keep readability and equivalent gameplay clarity.
 
+## Consent & Privacy Management
+
+- Google User Messaging Platform (UMP) SDK `2.2.0` handles user consent.
+- Advertising requests are strictly gated by `ConsentInformation.canRequestAds()`.
+- A Privacy Options button is provided in Settings whenever consent status allows or requires consent modification.
+- Privacy Policy URL: `https://vexel.pk/apps/offline-mini-arcade/privacy/`
+- Manifest explicitly declares `com.google.android.gms.permission.AD_ID`.
+
 ## Allowed Ad Placements
 
-- Optional non-gameplay placement on a suitable shell screen
-- Occasional interstitial after a completed result flow and only if frequency caps allow
+- Non-gameplay banner placement on the Marketplace screen (`MarketplaceAdBanner.kt`) when `!premiumUnlocked` and consent permits.
+- Non-gameplay banner placement is also available on Home and Stats when the layout has room.
+- Restrained interstitial placement on post-run exit navigation (`ArcadeInterstitialController.kt`) subject to `ArcadeAdPolicy`.
 
 ## Disallowed Ad Placements
 
 - during gameplay
 - on top of controls
 - on every failure
-- before first play
+- before first play / application launch
 - on pause overlays
 - on reward claims
 
 ## Ad Frequency Policy
 
-- Central policy component decides eligibility.
-- Eligibility uses both completed-session count and elapsed time since the last ad.
-- Ads must be skipped if:
+- Central policy component (`ArcadeAdPolicy.kt`) decides interstitial eligibility:
+  - Grace Period: First 5 completed runs show zero ads.
+  - Cadence: Interstitials allowed every 3 completed runs.
+  - Cooldown: Minimum 120 seconds between interstitials.
+  - Daily Cap: Maximum 4 interstitials per day.
+  - Duration: Minimum 8-second run length required.
+- Ads are skipped if:
   - device offline
   - premium active
   - onboarding active
   - result flow not fully completed
-  - frequency cap not met
+  - frequency cap or cooldown not met
+  - consent not granted / `canRequestAds == false`
+
+## Rewarded placement
+
+- The initial voluntary placement is in Marketplace: 50 Arcade Coins per earned reward.
+- Rewarded ads are unavailable to premium users.
+- Rewards are granted only from the earned-reward callback and are persisted through the shared Room repository.

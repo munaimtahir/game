@@ -121,6 +121,30 @@ class ArcadeAdPolicyTest {
     }
 
     @Test
+    fun activeGameplayAndRecentRewardedAdBlockInterstitials() {
+        assertFalse(
+            policy.canShow(
+                baseContext.copy(
+                    completedSessions = 8,
+                    completedSessionsSinceLastAd = 3,
+                    elapsedMillisSinceLastAd = 60 * 60 * 1000L,
+                    activeGameplay = true,
+                ),
+            ),
+        )
+        assertFalse(
+            policy.canShow(
+                baseContext.copy(
+                    completedSessions = 8,
+                    completedSessionsSinceLastAd = 3,
+                    elapsedMillisSinceLastAd = 60 * 60 * 1000L,
+                    rewardedRecentlyShown = true,
+                ),
+            ),
+        )
+    }
+
+    @Test
     fun shortRunsAreRejected() {
         assertFalse(
             policy.canShow(

@@ -129,5 +129,7 @@ class ArcadeViewModelTest {
         override suspend fun setPremiumUnlocked(unlocked: Boolean) {
             premiumUnlocked = unlocked
         }
+
+        override suspend fun addCoins(amount: Int): Boolean = amount > 0
     }
 }

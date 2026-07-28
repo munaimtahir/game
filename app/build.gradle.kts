@@ -22,10 +22,12 @@ val releaseStorePassword = releaseProp("storePassword")
 val releaseKeyAlias = releaseProp("keyAlias")
 val releaseKeyPassword = releaseProp("keyPassword")
 val admobAppId = providers.environmentVariable("ADMOB_APP_ID").orNull.orEmpty()
-val admobMarketplaceBannerAdUnitId = providers.environmentVariable("ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID").orNull.orEmpty()
+val admobBannerAdUnitId = providers.environmentVariable("ADMOB_BANNER_AD_UNIT_ID").orNull.orEmpty()
 val admobInterstitialAdUnitId = providers.environmentVariable("ADMOB_INTERSTITIAL_AD_UNIT_ID").orNull.orEmpty()
+val admobRewardedAdUnitId = providers.environmentVariable("ADMOB_REWARDED_AD_UNIT_ID").orNull.orEmpty()
 val premiumProductId = providers.environmentVariable("PLAY_PREMIUM_PRODUCT_ID").orNull ?: "premium_lifetime"
-val allowReleaseTestAdmobIds = providers.environmentVariable("ALLOW_RELEASE_TEST_ADMOB_IDS").orNull == "true"
+val umpDebugGeographyEea = providers.environmentVariable("UMP_DEBUG_GEOGRAPHY_EEA").orNull == "true"
+val umpDebugTestDeviceHash = providers.environmentVariable("UMP_DEBUG_TEST_DEVICE_HASH").orNull.orEmpty()
 val hasReleaseSigning =
     !releaseStoreFile.isNullOrBlank() &&
         !releaseStorePassword.isNullOrBlank() &&
@@ -34,19 +36,22 @@ val hasReleaseSigning =
 
 android {
     namespace = "com.vexel.arcadetrio"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.vexel.arcadetrio"
         minSdk = 24
-        targetSdk = 35
-        versionCode = 14
-        versionName = "1.1.4"
-        manifestPlaceholders["admobAppId"] = admobAppId
+        targetSdk = 36
+        versionCode = 15
+        versionName = "1.1.5"
+        manifestPlaceholders["resolvedAdMobAppId"] = admobAppId
         buildConfigField("String", "ADMOB_APP_ID", "\"$admobAppId\"")
-        buildConfigField("String", "ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID", "\"$admobMarketplaceBannerAdUnitId\"")
+        buildConfigField("String", "ADMOB_BANNER_AD_UNIT_ID", "\"$admobBannerAdUnitId\"")
         buildConfigField("String", "ADMOB_INTERSTITIAL_AD_UNIT_ID", "\"$admobInterstitialAdUnitId\"")
+        buildConfigField("String", "ADMOB_REWARDED_AD_UNIT_ID", "\"$admobRewardedAdUnitId\"")
         buildConfigField("String", "PLAY_PREMIUM_PRODUCT_ID", "\"$premiumProductId\"")
+        buildConfigField("boolean", "UMP_DEBUG_GEOGRAPHY_EEA", umpDebugGeographyEea.toString())
+        buildConfigField("String", "UMP_DEBUG_TEST_DEVICE_HASH", "\"$umpDebugTestDeviceHash\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -85,16 +90,13 @@ android {
     }
     buildTypes {
         getByName("debug") {
-            val debugAdmobAppId =
-                if (admobAppId.isBlank()) "ca-app-pub-3940256099942544~3347511713" else admobAppId
-            val debugBannerId =
-                if (admobMarketplaceBannerAdUnitId.isBlank()) "ca-app-pub-3940256099942544/6300978111" else admobMarketplaceBannerAdUnitId
-            val debugInterstitialId =
-                if (admobInterstitialAdUnitId.isBlank()) "ca-app-pub-3940256099942544/1033173712" else admobInterstitialAdUnitId
-            manifestPlaceholders["admobAppId"] = debugAdmobAppId
-            buildConfigField("String", "ADMOB_APP_ID", "\"$debugAdmobAppId\"")
-            buildConfigField("String", "ADMOB_MARKETPLACE_BANNER_AD_UNIT_ID", "\"$debugBannerId\"")
-            buildConfigField("String", "ADMOB_INTERSTITIAL_AD_UNIT_ID", "\"$debugInterstitialId\"")
+            manifestPlaceholders["resolvedAdMobAppId"] = "ca-app-pub-3940256099942544~3347511713"
+            buildConfigField("String", "ADMOB_APP_ID", "\"ca-app-pub-3940256099942544~3347511713\"")
+            buildConfigField("String", "ADMOB_BANNER_AD_UNIT_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_AD_UNIT_ID", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "ADMOB_REWARDED_AD_UNIT_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
+            buildConfigField("boolean", "UMP_DEBUG_GEOGRAPHY_EEA", umpDebugGeographyEea.toString())
+            buildConfigField("String", "UMP_DEBUG_TEST_DEVICE_HASH", "\"$umpDebugTestDeviceHash\"")
         }
         getByName("release") {
             isMinifyEnabled = true
@@ -142,16 +144,22 @@ if (releaseTaskRequested && !hasReleaseSigning) {
 }
 
 if (releaseTaskRequested) {
-    if (admobAppId.isBlank()) {
+    val productionIds = listOf(
+        "ADMOB_APP_ID" to admobAppId,
+        "ADMOB_BANNER_AD_UNIT_ID" to admobBannerAdUnitId,
+        "ADMOB_INTERSTITIAL_AD_UNIT_ID" to admobInterstitialAdUnitId,
+        "ADMOB_REWARDED_AD_UNIT_ID" to admobRewardedAdUnitId,
+    )
+    val missingProductionIds = productionIds.filter { it.second.isBlank() }.map { it.first }
+    if (missingProductionIds.isNotEmpty()) {
         throw GradleException(
-            "Release AdMob app ID is required because Google Mobile Ads initializes from the manifest. " +
-                "Set ADMOB_APP_ID for production release builds."
+            "Production AdMob identifiers are required for release builds: ${missingProductionIds.joinToString()}. " +
+                "Set the corresponding environment variables."
         )
     }
-    if (!allowReleaseTestAdmobIds && admobAppId.startsWith("ca-app-pub-3940256099942544")) {
+    if (productionIds.any { it.second.contains("3940256099942544") }) {
         throw GradleException(
-            "Release builds must not use Google sample AdMob IDs. " +
-                "Set production ADMOB_APP_ID, or set ALLOW_RELEASE_TEST_ADMOB_IDS=true only for local validation artifacts."
+            "Release builds must not use Google sample AdMob IDs. Set production AdMob identifiers."
         )
     }
 }
@@ -188,6 +196,7 @@ dependencies {
     implementation(libs.google.material)
     implementation(libs.google.play.billing)
     implementation(libs.google.play.services.ads)
+    implementation(libs.google.user.messaging.platform)
 
     debugImplementation(libs.androidx.compose.tooling)
     debugImplementation(libs.androidx.tracing)

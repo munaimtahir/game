@@ -43,6 +43,8 @@ fun MarketplaceScreen(
     premiumUnlocked: Boolean,
     premiumProductAvailable: Boolean,
     onBuyPremium: () -> Unit,
+    rewardedAdReady: Boolean = false,
+    onWatchRewarded: () -> Unit = {},
     adSlot: @Composable (() -> Unit)?,
     onSelectTheme: (String) -> Unit,
     onUnlockTheme: (String) -> Unit,
@@ -127,6 +129,21 @@ fun MarketplaceScreen(
                     enabled = premiumProductAvailable,
                     modifier = Modifier.fillMaxWidth(),
                     style = ArcadeButtonStyle.Primary,
+                )
+            }
+            ArcadeCard(accent = Brush.linearGradient(listOf(ArcadeTheme.colors.reward, ArcadeTheme.colors.success))) {
+                PremiumBadge(text = "Optional reward", color = ArcadeTheme.colors.reward)
+                Text(
+                    "Watch one ad to receive 50 Arcade Coins.",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                PremiumButton(
+                    label = if (rewardedAdReady) "Watch ad for 50 coins" else "Ad currently unavailable",
+                    onClick = onWatchRewarded,
+                    enabled = rewardedAdReady,
+                    modifier = Modifier.fillMaxWidth(),
+                    style = ArcadeButtonStyle.Secondary,
                 )
             }
         }

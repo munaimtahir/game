@@ -1,12 +1,12 @@
 # Release Checklist
 
 Scope: crash-recovery upload for the locked 3-game MVP.
-Current target build: `versionName 1.1.4`, `versionCode 14`.
+Current target build: `versionName 1.1.5`, `versionCode 15`.
 
 ## Versioning
-- [x] Confirm `app/build.gradle.kts` is set to `versionCode 14`.
-- [x] Confirm `app/build.gradle.kts` is set to `versionName 1.1.4`.
-- [ ] Confirm `versionCode 14` has never been uploaded to Play Console.
+- [x] Confirm `app/build.gradle.kts` is set to `versionCode 15`.
+- [x] Confirm `app/build.gradle.kts` is set to `versionName 1.1.5`.
+- [ ] Confirm `versionCode 15` has never been uploaded to Play Console.
 
 ## Crash Recovery Gate
 - [ ] Install the build on a physical device after uninstalling the previous app.

@@ -22,6 +22,9 @@ import com.vexel.offlinearcade.game.pulseorbit.PulseOrbitScreen
 import com.vexel.offlinearcade.game.stackdrop.StackDropDetailScreen
 import com.vexel.offlinearcade.game.stackdrop.StackDropScreen
 
+import com.vexel.offlinearcade.monetization.MarketplaceAdBanner
+import com.vexel.offlinearcade.monetization.ArcadeBanner
+
 @Composable
 fun ArcadeNavHost(
     navController: NavHostController,
@@ -39,8 +42,13 @@ fun ArcadeNavHost(
     onRecordRun: (RunResult) -> Unit,
     onTutorialSeen: (GameId) -> Unit,
     billingState: BillingUiState,
+    canRequestAds: Boolean = true,
+    isPrivacyOptionsRequired: Boolean = false,
+    onShowPrivacyOptions: (() -> Unit)? = null,
     onBuyPremium: () -> Unit,
     onRestorePremium: () -> Unit,
+    rewardedAdReady: Boolean = false,
+    onWatchRewarded: () -> Unit = {},
     onPostRunExitRequested: (RunResult, () -> Unit) -> Unit,
 ) {
     fun navigateToGame(gameId: GameId) {
@@ -66,6 +74,7 @@ fun ArcadeNavHost(
                 onStats = { navController.navigate(Routes.Stats) },
                 onSettings = { navController.navigate(Routes.Settings) },
                 onMarketplace = { navController.navigate(Routes.Marketplace) },
+                adSlot = { if (canShowBanner(snapshot.profile.premiumUnlocked, canRequestAds)) ArcadeBanner(BuildConfig.ADMOB_BANNER_AD_UNIT_ID) },
             )
         }
         
@@ -150,7 +159,7 @@ fun ArcadeNavHost(
                 coins = snapshot.profile.coins,
                 streak = snapshot.profile.currentStreakDays,
                 onPlayGame = ::navigateToGame,
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
             )
         }
         composable(Routes.Stats) {
@@ -160,7 +169,8 @@ fun ArcadeNavHost(
                 achievements = snapshot.achievements,
                 coins = snapshot.profile.coins,
                 streak = snapshot.profile.currentStreakDays,
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
+                adSlot = { if (canShowBanner(snapshot.profile.premiumUnlocked, canRequestAds)) ArcadeBanner(BuildConfig.ADMOB_BANNER_AD_UNIT_ID) },
             )
         }
         composable(Routes.Settings) {
@@ -172,6 +182,8 @@ fun ArcadeNavHost(
                 premiumStatusMessage = billingState.message,
                 coins = snapshot.profile.coins,
                 streak = snapshot.profile.currentStreakDays,
+                isPrivacyOptionsRequired = isPrivacyOptionsRequired,
+                onShowPrivacyOptions = onShowPrivacyOptions,
                 onToggleSound = onToggleSound,
                 onToggleMusic = onToggleMusic,
                 onToggleVibration = onToggleVibration,
@@ -184,6 +196,8 @@ fun ArcadeNavHost(
         }
 
         composable(Routes.Marketplace) {
+            val bannerUnitId = BuildConfig.ADMOB_BANNER_AD_UNIT_ID
+            val showBanner = canShowBanner(snapshot.profile.premiumUnlocked, canRequestAds)
             MarketplaceScreen(
                 coins = snapshot.profile.coins,
                 streak = snapshot.profile.currentStreakDays,
@@ -196,7 +210,16 @@ fun ArcadeNavHost(
                 premiumUnlocked = snapshot.profile.premiumUnlocked,
                 premiumProductAvailable = billingState.productAvailable,
                 onBuyPremium = onBuyPremium,
-                adSlot = null,
+                rewardedAdReady = rewardedAdReady,
+                onWatchRewarded = onWatchRewarded,
+                adSlot = if (showBanner) {
+                    {
+                        MarketplaceAdBanner(
+                            adUnitId = bannerUnitId,
+                            onImpression = {},
+                        )
+                    }
+                } else null,
                 onSelectTheme = onSelectTheme,
                 onUnlockTheme = onUnlockTheme,
                 onSelectSkin = onSelectSkin,
@@ -206,3 +229,6 @@ fun ArcadeNavHost(
         }
     }
 }
+
+private fun canShowBanner(premiumUnlocked: Boolean, canRequestAds: Boolean): Boolean =
+    !premiumUnlocked && canRequestAds && BuildConfig.ADMOB_BANNER_AD_UNIT_ID.isNotBlank()

@@ -18,4 +18,5 @@ interface ArcadeRepository {
     suspend fun purchaseSkin(skinId: String): Boolean
     suspend fun selectSkin(skinId: String, gameId: com.vexel.offlinearcade.core.model.GameId)
     suspend fun setPremiumUnlocked(unlocked: Boolean)
+    suspend fun addCoins(amount: Int): Boolean
 }

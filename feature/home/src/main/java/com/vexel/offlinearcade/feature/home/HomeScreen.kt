@@ -64,6 +64,7 @@ fun HomeScreen(
     onStats: () -> Unit,
     onSettings: () -> Unit,
     onMarketplace: () -> Unit,
+    adSlot: @Composable (() -> Unit)? = null,
 ) {
     val spacing = ArcadeTheme.spacing
     val completedChallenges = todayChallenges.count { it.completed }
@@ -178,6 +179,10 @@ fun HomeScreen(
                         modifier = Modifier.weight(1f).height(56.dp).testTag(ArcadeTestTags.SettingsEntry),
                     )
                 }
+            }
+
+            if (adSlot != null) {
+                item(span = { GridItemSpan(2) }) { adSlot() }
             }
         }
     }

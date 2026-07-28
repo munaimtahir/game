@@ -35,6 +35,7 @@ fun StatsScreen(
     coins: Int,
     streak: Int,
     onBack: () -> Unit,
+    adSlot: @Composable (() -> Unit)? = null,
 ) {
     val totalRuns = stats.sumOf { it.sessionsPlayed }
     val totalScore = stats.sumOf { it.totalScore }
@@ -110,6 +111,7 @@ fun StatsScreen(
                 AchievementGroupCard(group = group, achievements = groupAchievements)
             }
         }
+        adSlot?.invoke()
     }
 }
 

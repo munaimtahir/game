@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.vexel.offlinearcade.game.loopsnake"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 24

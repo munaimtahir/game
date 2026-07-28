@@ -59,6 +59,8 @@ If multiple devices are attached:
 DEVICE_SERIAL=<adb-serial> ./scripts/run_adb_device_suite.sh
 ```
 
+Monetization architecture, consent, ad cadence, rewarded coins, and release configuration are documented in [docs/product/MONETIZATION_IMPLEMENTATION.md](docs/product/MONETIZATION_IMPLEMENTATION.md).
+
 ## Key Docs
 
 - Project Context & Monetization Index: [docs/README.md](docs/README.md)

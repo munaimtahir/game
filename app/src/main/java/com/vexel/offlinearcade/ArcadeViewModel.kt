@@ -63,6 +63,10 @@ class ArcadeViewModel(
         viewModelScope.launch { repository.setPremiumUnlocked(unlocked) }
     }
 
+    fun grantRewardedCoins(amount: Int = 50) {
+        viewModelScope.launch { repository.addCoins(amount) }
+    }
+
     private fun updateSettings(transform: (com.vexel.offlinearcade.core.model.SettingsState) -> com.vexel.offlinearcade.core.model.SettingsState) {
         viewModelScope.launch { repository.updateSettings(transform) }
     }

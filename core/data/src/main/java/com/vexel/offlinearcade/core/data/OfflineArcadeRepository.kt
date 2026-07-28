@@ -197,6 +197,17 @@ class OfflineArcadeRepository(
         }
     }
 
+    override suspend fun addCoins(amount: Int): Boolean {
+        if (amount <= 0) return false
+        return withContext(dispatchers.io) {
+            database.withTransaction {
+                val profile = dao.observeProfile().first()?.toModel() ?: PlayerProfile()
+                dao.upsertProfile(profile.copy(coins = profile.coins + amount).toEntity())
+                true
+            }
+        }
+    }
+
     private suspend fun applyChallengeProgress(epochDay: Long, result: RunResult) {
         val generated = DailyChallengeGenerator.generate(epochDay)
         val existingProgress = dao.observeChallengeProgress(epochDay).first().associateBy { it.challengeId }

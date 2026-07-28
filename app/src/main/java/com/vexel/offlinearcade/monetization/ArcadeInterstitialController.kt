@@ -10,6 +10,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
 class ArcadeInterstitialController(
     context: Context,
+    private val fullScreenCoordinator: FullScreenAdCoordinator = FullScreenAdCoordinator(),
 ) {
     private val appContext = context.applicationContext
 
@@ -43,14 +44,24 @@ class ArcadeInterstitialController(
         )
     }
 
+    fun clear() {
+        loadedAd = null
+        loadedAdUnitId = null
+        loading = false
+    }
+
     fun showIfReady(
         activity: Activity,
         adUnitId: String,
         onShown: () -> Unit,
         onFinished: () -> Unit,
     ): Boolean {
+        if (activity.isFinishing || activity.isDestroyed || !fullScreenCoordinator.tryBegin()) {
+            return false
+        }
         val interstitialAd = loadedAd
         if (interstitialAd == null || loadedAdUnitId != adUnitId) {
+            fullScreenCoordinator.end()
             preload(adUnitId)
             return false
         }
@@ -69,6 +80,7 @@ class ArcadeInterstitialController(
                     finished = true
                     onFinished()
                 }
+                fullScreenCoordinator.end()
                 preload(adUnitId)
             }
 
@@ -77,6 +89,7 @@ class ArcadeInterstitialController(
                     finished = true
                     onFinished()
                 }
+                fullScreenCoordinator.end()
                 preload(adUnitId)
             }
         }

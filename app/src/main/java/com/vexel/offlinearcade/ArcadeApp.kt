@@ -49,6 +49,7 @@ import com.vexel.offlinearcade.core.model.RunResult
 import com.vexel.offlinearcade.monetization.AdEligibilityContext
 import com.vexel.offlinearcade.monetization.AdPlacement
 import com.vexel.offlinearcade.monetization.ArcadeInterstitialController
+import com.vexel.offlinearcade.monetization.ArcadeRewardedController
 import java.time.LocalDate
 
 @Composable
@@ -64,18 +65,35 @@ fun ArcadeApp(
     val monetizationPreferences = remember { ArcadeDependencies.monetizationPreferences(context) }
     val connectivityMonitor = remember { ArcadeDependencies.connectivityMonitor(context) }
     val adPolicy = remember { ArcadeDependencies.adPolicy() }
-    val interstitialController = remember { ArcadeInterstitialController(context) }
+    val fullScreenAdCoordinator = remember { ArcadeDependencies.fullScreenAdCoordinator() }
+    val interstitialController = remember { ArcadeInterstitialController(context, fullScreenAdCoordinator) }
+    val rewardedController = remember { ArcadeRewardedController(context, fullScreenAdCoordinator) }
+    val rewardedAdReady by rewardedController.ready.collectAsState()
+    val consentManager = remember { ArcadeDependencies.consentManager(context) }
+    val canRequestAds by consentManager.canRequestAdsState.collectAsState()
+    val isPrivacyOptionsRequired by consentManager.isPrivacyOptionsRequiredState.collectAsState()
     val navController = rememberNavController()
     val feedback = rememberArcadeFeedback(context = context, settings = snapshot.settings)
     var showSplash by remember { mutableStateOf(true) }
 
+    LaunchedEffect(context) {
+        (context as? Activity)?.let { activity ->
+            consentManager.gatherConsent(activity) { _ -> }
+        }
+    }
+
     // Force reduced effects in test environments to prevent infinite animations from blocking tests
     val isTest = remember {
         try {
-            Class.forName("com.vexel.arcadetrio.ChallengeUpdateTest")
+            Class.forName("androidx.test.espresso.Espresso")
             true
         } catch (e: Exception) {
-            false
+            try {
+                Class.forName("com.vexel.arcadetrio.ChallengeUpdateTest")
+                true
+            } catch (e2: Exception) {
+                false
+            }
         }
     }
     val effectiveReducedEffects = snapshot.settings.reducedEffects || isTest
@@ -119,14 +137,27 @@ fun ArcadeApp(
 
     val completedSessions = snapshot.stats.sumOf { it.completedRuns }
     val interstitialAdUnitId = BuildConfig.ADMOB_INTERSTITIAL_AD_UNIT_ID
+    val rewardedAdUnitId = BuildConfig.ADMOB_REWARDED_AD_UNIT_ID
 
-    LaunchedEffect(interstitialAdUnitId, billingState.premiumActive) {
-        if (interstitialAdUnitId.isNotBlank() && !billingState.premiumActive) {
+    LaunchedEffect(interstitialAdUnitId, billingState.premiumActive, canRequestAds) {
+        if (interstitialAdUnitId.isNotBlank() && !billingState.premiumActive && canRequestAds) {
             interstitialController.preload(interstitialAdUnitId)
+        }
+    }
+    LaunchedEffect(rewardedAdUnitId, billingState.premiumActive, canRequestAds) {
+        if (rewardedAdUnitId.isNotBlank() && !billingState.premiumActive && canRequestAds) {
+            rewardedController.preload(rewardedAdUnitId)
+        } else if (billingState.premiumActive || !canRequestAds) {
+            interstitialController.clear()
+            rewardedController.clear()
         }
     }
 
     fun requestPostRunExit(runResult: RunResult, continueAction: () -> Unit) {
+        if (!canRequestAds) {
+            continueAction()
+            return
+        }
         val nowEpochMillis = System.currentTimeMillis()
         val completedSessionsAfterRun = completedSessions + 1
         val epochDay = LocalDate.now().toEpochDay()
@@ -142,6 +173,7 @@ fun ArcadeApp(
                 elapsedMillisSinceLastAd = nowEpochMillis - monetizationPreferences.lastAdShownAtEpochMillis(),
                 impressionsToday = monetizationPreferences.interstitialsShownToday(epochDay),
                 runDurationMillis = runResult.durationMillis,
+                rewardedRecentlyShown = monetizationPreferences.rewardedRecentlyShown(nowEpochMillis),
             ),
         )
         if (!eligible) {
@@ -196,10 +228,28 @@ fun ArcadeApp(
                 onRecordRun = viewModel::recordRun,
                 onTutorialSeen = viewModel::markTutorialSeen,
                 billingState = billingState,
+                canRequestAds = canRequestAds,
+                isPrivacyOptionsRequired = isPrivacyOptionsRequired,
+                onShowPrivacyOptions = {
+                    (context as? Activity)?.let { activity ->
+                        consentManager.showPrivacyOptionsForm(activity) {}
+                    }
+                },
                 onBuyPremium = {
                     (context as? Activity)?.let(billingManager::launchPremiumPurchase)
                 },
                 onRestorePremium = billingManager::refresh,
+                rewardedAdReady = rewardedAdReady && !billingState.premiumActive && canRequestAds,
+                onWatchRewarded = {
+                    (context as? ComponentActivity)?.let { activity ->
+                        rewardedController.showIfReady(
+                            activity = activity,
+                            adUnitId = rewardedAdUnitId,
+                            onRewardEarned = { viewModel.grantRewardedCoins(50) },
+                            onShown = { monetizationPreferences.recordRewardedShown(System.currentTimeMillis()) },
+                        )
+                    }
+                },
                 onPostRunExitRequested = ::requestPostRunExit,
             )
         }

@@ -5,8 +5,9 @@
 - Centralized ad eligibility through `ArcadeAdPolicy`
 - Offline-cached premium entitlement through `MonetizationPreferences`
 - One-time in-app premium product flow through `ArcadeBillingManager`
-- Premium purchase and restore entry points in Settings and Marketplace
-- Non-gameplay marketplace banner slot only
+- Google UMP Consent Management (`GoogleUmpConsentManager`) and Privacy Options form
+- Connected Marketplace banner slot (`MarketplaceAdBanner.kt`) in `ArcadeNavHost.kt`
+- Premium purchase, restore, and privacy options entry points in Settings and Marketplace
 
 ## Policy Alignment
 

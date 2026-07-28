@@ -32,8 +32,8 @@ The app has transitioned from a paid download model to a **free-plus-advertising
   - No ads during active gameplay or on app-open or screen transitions like Retry/Play.
   - Interstitials are allowed only at natural post-run transitions, starting only after the first 5 completed runs.
   - Eligibility begins after every 3 completed runs, with a minimum 2-minute cooldown and a maximum of 4 interstitials per user per day.
-  - No app-open or banner ads initially.
-* **Lifetime Ad Removal**: A single non-consumable purchase named `premium_lifetime` permanently removes forced ads. Entitlements defined: `FREE` and `LIFETIME_AD_FREE`. Optional rewarded ads can remain available to premium users upon deliberate request.
+  - No app-open ads; banners are limited to approved non-gameplay screens.
+* **Lifetime Ad Removal**: A single non-consumable purchase named `premium_lifetime` permanently removes forced ads. Entitlements defined: `FREE` and `LIFETIME_AD_FREE`. Rewarded ads are hidden for premium users in the initial implementation.
 * **No Subscriptions**: Do not implement subscriptions in the initial release. Subscription-first monetization is prohibited.
 * **No Legacy Migration**: The app has no real historical users/purchases. Legacy-user migration, grandfathering, or historical-purchase detection is not required.
 * **AI-Led 3-Stage Plan**: Monetization must be developed in three explicit stages:

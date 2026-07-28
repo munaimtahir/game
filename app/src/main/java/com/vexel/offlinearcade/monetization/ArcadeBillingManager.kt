@@ -23,6 +23,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
+import java.util.concurrent.atomic.AtomicBoolean
 
 interface BillingManager {
     val state: StateFlow<BillingUiState>
@@ -49,6 +50,7 @@ class PlayBillingManager(
 
     @Volatile
     private var productDetails: ProductDetails? = null
+    private val startRequested = AtomicBoolean(false)
 
     init {
         scope.launch {
@@ -71,9 +73,11 @@ class PlayBillingManager(
             refresh()
             return
         }
+        if (!startRequested.compareAndSet(false, true)) return
         billingClient.startConnection(
             object : BillingClientStateListener {
                 override fun onBillingServiceDisconnected() {
+                    startRequested.set(false)
                     updateState(_state.value.copy(message = "Billing service disconnected."))
                 }
 
@@ -81,6 +85,7 @@ class PlayBillingManager(
                     if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
                         refresh()
                     } else {
+                        startRequested.set(false)
                         updateState(
                             _state.value.copy(
                                 entitlementState = if (_state.value.premiumActive) PremiumEntitlementState.PREMIUM else PremiumEntitlementState.FREE,
@@ -114,6 +119,7 @@ class PlayBillingManager(
     }
 
     override fun launchPremiumPurchase(activity: Activity) {
+        if (activity.isFinishing || activity.isDestroyed) return
         val details = productDetails ?: run {
             refresh()
             updateState(_state.value.copy(message = "Premium is not available yet. Try again in a moment."))
@@ -135,6 +141,9 @@ class PlayBillingManager(
             }
             BillingClient.BillingResponseCode.USER_CANCELED -> {
                 updateState(_state.value.copy(pendingPurchase = false, message = "Purchase cancelled."))
+            }
+            BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> {
+                refresh()
             }
             else -> {
                 updateState(
@@ -167,7 +176,7 @@ class PlayBillingManager(
         }
     }
 
-    private suspend fun queryPurchases(): List<Purchase> = suspendCancellableCoroutine { continuation ->
+    private suspend fun queryPurchases(): List<Purchase>? = suspendCancellableCoroutine { continuation ->
         billingClient.queryPurchasesAsync(
             QueryPurchasesParams.newBuilder()
                 .setProductType(BillingClient.ProductType.INAPP)
@@ -176,12 +185,16 @@ class PlayBillingManager(
             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
                 continuation.resume(purchases)
             } else {
-                continuation.resume(emptyList())
+                continuation.resume(null)
             }
         }
     }
 
-    private suspend fun processPurchases(purchases: List<Purchase>) {
+    private suspend fun processPurchases(purchases: List<Purchase>?) {
+        if (purchases == null) {
+            updateState(_state.value.copy(message = "Billing unavailable; cached entitlement retained."))
+            return
+        }
         val premiumPurchase = purchases.firstOrNull { purchase ->
             purchase.products.contains(premiumProductId)
         }

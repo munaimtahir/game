@@ -13,6 +13,7 @@ private const val LastAdShownAtKey = "last_ad_shown_at"
 private const val LastAdSessionCountKey = "last_ad_session_count"
 private const val InterstitialShownDayKey = "interstitial_shown_epoch_day"
 private const val InterstitialShownCountKey = "interstitial_shown_count"
+private const val LastRewardedShownAtKey = "last_rewarded_shown_at"
 
 class MonetizationPreferences(
     private val sharedPreferences: SharedPreferences,
@@ -70,5 +71,14 @@ class MonetizationPreferences(
         } else {
             0
         }
+    }
+
+    fun recordRewardedShown(nowEpochMillis: Long) {
+        sharedPreferences.edit(commit = true) { putLong(LastRewardedShownAtKey, nowEpochMillis) }
+    }
+
+    fun rewardedRecentlyShown(nowEpochMillis: Long, cooldownMillis: Long = 120_000L): Boolean {
+        val lastShown = sharedPreferences.getLong(LastRewardedShownAtKey, 0L)
+        return lastShown > 0L && nowEpochMillis - lastShown < cooldownMillis
     }
 }

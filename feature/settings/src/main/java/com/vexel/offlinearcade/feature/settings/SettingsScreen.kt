@@ -22,6 +22,10 @@ import com.vexel.offlinearcade.core.ui.PremiumButton
 import com.vexel.offlinearcade.core.ui.SectionHeader
 import com.vexel.offlinearcade.core.ui.StatRow
 
+import android.content.Intent
+import android.net.Uri
+import androidx.compose.ui.platform.LocalContext
+
 @Composable
 fun SettingsScreen(
     settings: SettingsState,
@@ -31,6 +35,9 @@ fun SettingsScreen(
     premiumStatusMessage: String?,
     coins: Int,
     streak: Int,
+    isPrivacyOptionsRequired: Boolean = false,
+    onShowPrivacyOptions: (() -> Unit)? = null,
+    privacyPolicyUrl: String = "https://vexel.pk/apps/offline-mini-arcade/privacy/",
     onToggleSound: (Boolean) -> Unit,
     onToggleMusic: (Boolean) -> Unit,
     onToggleVibration: (Boolean) -> Unit,
@@ -40,6 +47,7 @@ fun SettingsScreen(
     onRestorePremium: () -> Unit,
     onBack: () -> Unit,
 ) {
+    val context = LocalContext.current
     EdgeToEdgeAppScaffold(
         title = "Settings",
         onBack = onBack,
@@ -120,6 +128,33 @@ fun SettingsScreen(
                 style = ArcadeButtonStyle.Secondary,
                 modifier = Modifier.fillMaxWidth(),
             )
+        }
+
+        SectionHeader(title = "Privacy & Legal", subtitle = "Consent management and policy disclosures.")
+        ArcadeCard {
+            StatRow("Data Collection", "None (Local Only)")
+            StatRow("Analytics Service", "None")
+            PremiumButton(
+                label = "Privacy Policy",
+                onClick = {
+                    try {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(privacyPolicyUrl))
+                        context.startActivity(intent)
+                    } catch (e: Exception) {
+                        // Safe fallback if browser unavailable
+                    }
+                },
+                style = ArcadeButtonStyle.Secondary,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            if (isPrivacyOptionsRequired && onShowPrivacyOptions != null) {
+                PremiumButton(
+                    label = "Privacy choices",
+                    onClick = onShowPrivacyOptions,
+                    style = ArcadeButtonStyle.Secondary,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
         }
     }
 }

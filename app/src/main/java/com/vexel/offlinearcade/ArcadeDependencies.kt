@@ -11,6 +11,7 @@ import com.vexel.offlinearcade.core.data.SharedPreferencesLocalDayService
 import com.vexel.offlinearcade.monetization.ArcadeAdPolicy
 import com.vexel.offlinearcade.monetization.BillingManager
 import com.vexel.offlinearcade.monetization.ConnectivityMonitor
+import com.vexel.offlinearcade.monetization.FullScreenAdCoordinator
 import com.vexel.offlinearcade.monetization.MonetizationPreferences
 import com.vexel.offlinearcade.monetization.PlayBillingManager
 
@@ -25,6 +26,8 @@ object ArcadeDependencies {
     private var connectivityMonitor: ConnectivityMonitor? = null
     @Volatile
     private var adPolicy: ArcadeAdPolicy? = null
+    @Volatile
+    private var fullScreenAdCoordinator: FullScreenAdCoordinator? = null
 
     fun repository(context: Context): OfflineArcadeRepository {
         return repository ?: synchronized(this) {
@@ -84,6 +87,23 @@ object ArcadeDependencies {
     fun adPolicy(): ArcadeAdPolicy {
         return adPolicy ?: synchronized(this) {
             adPolicy ?: ArcadeAdPolicy().also { adPolicy = it }
+        }
+    }
+
+    fun fullScreenAdCoordinator(): FullScreenAdCoordinator {
+        return fullScreenAdCoordinator ?: synchronized(this) {
+            fullScreenAdCoordinator ?: FullScreenAdCoordinator().also { fullScreenAdCoordinator = it }
+        }
+    }
+
+    @Volatile
+    private var consentManager: com.vexel.offlinearcade.monetization.ConsentManager? = null
+
+    fun consentManager(context: Context): com.vexel.offlinearcade.monetization.ConsentManager {
+        return consentManager ?: synchronized(this) {
+            consentManager ?: com.vexel.offlinearcade.monetization.GoogleUmpConsentManager(context.applicationContext).also {
+                consentManager = it
+            }
         }
     }
 }
