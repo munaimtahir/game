@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 import java.util.Properties
@@ -42,8 +42,8 @@ android {
         applicationId = "com.vexel.arcadetrio"
         minSdk = 24
         targetSdk = 36
-        versionCode = 15
-        versionName = "1.1.5"
+        versionCode = 17
+        versionName = "1.1.6"
         manifestPlaceholders["resolvedAdMobAppId"] = admobAppId
         buildConfigField("String", "ADMOB_APP_ID", "\"$admobAppId\"")
         buildConfigField("String", "ADMOB_BANNER_AD_UNIT_ID", "\"$admobBannerAdUnitId\"")
@@ -61,16 +61,10 @@ android {
         compose = true
         buildConfig = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
         isCoreLibraryDesugaringEnabled = true
-    }
-    kotlinOptions {
-        jvmTarget = "17"
     }
     packaging {
         resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"

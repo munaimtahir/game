@@ -3,7 +3,7 @@ package com.vexel.offlinearcade.monetization
 enum class PremiumEntitlementState {
     UNKNOWN,
     FREE,
-    PREMIUM,
+    LIFETIME_AD_FREE,
 }
 
 enum class EntitlementSource {
@@ -19,7 +19,7 @@ data class BillingUiState(
     val source: EntitlementSource = EntitlementSource.CACHE,
     val message: String? = null,
 ) {
-    val premiumActive: Boolean = entitlementState == PremiumEntitlementState.PREMIUM
+    val premiumActive: Boolean = entitlementState == PremiumEntitlementState.LIFETIME_AD_FREE
 }
 
 enum class AdPlacement {

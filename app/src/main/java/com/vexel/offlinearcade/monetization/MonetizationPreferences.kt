@@ -20,7 +20,9 @@ class MonetizationPreferences(
 ) {
     fun readBillingState(): BillingUiState {
         val entitlementState = when (sharedPreferences.getString(EntitlementStateKey, PremiumEntitlementState.UNKNOWN.name)) {
-            PremiumEntitlementState.PREMIUM.name -> PremiumEntitlementState.PREMIUM
+            PremiumEntitlementState.LIFETIME_AD_FREE.name,
+            // Read the pre-integration cache name so existing local entitlement survives upgrades.
+            "PREMIUM" -> PremiumEntitlementState.LIFETIME_AD_FREE
             PremiumEntitlementState.FREE.name -> PremiumEntitlementState.FREE
             else -> PremiumEntitlementState.UNKNOWN
         }

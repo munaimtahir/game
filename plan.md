@@ -13,9 +13,9 @@ Authoritative product policy and scope now live in:
 ## Release Version Ledger
 
 ### Current ongoing release
-- `versionName`: `1.1.1`
-- `versionCode`: `11`
-- Status: crash-recovery upload candidate
+- `versionName`: `1.1.6`
+- `versionCode`: `17`
+- Status: AdMob monetization and premium unlock production release
 
 ### Rollback note
 - The repository was temporarily rolled back to the `1.0.8` baseline for validation.

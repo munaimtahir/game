@@ -62,7 +62,7 @@ class PlayBillingManager(
         if (premiumProductId.isBlank()) {
             updateState(
                 _state.value.copy(
-                    entitlementState = if (_state.value.premiumActive) PremiumEntitlementState.PREMIUM else PremiumEntitlementState.FREE,
+                    entitlementState = if (_state.value.premiumActive) PremiumEntitlementState.LIFETIME_AD_FREE else PremiumEntitlementState.FREE,
                     productAvailable = false,
                     message = "Premium product is not configured in this build.",
                 ),
@@ -88,7 +88,7 @@ class PlayBillingManager(
                         startRequested.set(false)
                         updateState(
                             _state.value.copy(
-                                entitlementState = if (_state.value.premiumActive) PremiumEntitlementState.PREMIUM else PremiumEntitlementState.FREE,
+                                entitlementState = if (_state.value.premiumActive) PremiumEntitlementState.LIFETIME_AD_FREE else PremiumEntitlementState.FREE,
                                 message = billingResult.debugMessage.ifBlank { "Billing unavailable." },
                             ),
                         )
@@ -206,7 +206,7 @@ class PlayBillingManager(
                 repository.setPremiumUnlocked(true)
                 updateState(
                     _state.value.copy(
-                        entitlementState = PremiumEntitlementState.PREMIUM,
+                        entitlementState = PremiumEntitlementState.LIFETIME_AD_FREE,
                         pendingPurchase = false,
                         source = EntitlementSource.BILLING_SYNC,
                         lastVerifiedAtEpochMillis = System.currentTimeMillis(),

@@ -93,22 +93,24 @@ Primary output:
 app/build/outputs/bundle/release/app-release.aab
 ```
 
-## Release notes for 1.1.5
+## Release notes for 1.1.6
 
-Version 1.1.5 (versionCode 15)
+Version 1.1.6 (versionCode 16)
 
-- Upgraded target SDK and compile SDK to Android 16 (API level 36 - Baklava) across all 12 app modules.
-- Integrated Google User Messaging Platform (UMP 2.2.0) consent manager for full GDPR/EEA privacy & consent compliance.
-- Connected Marketplace ad banner container with `canRequestAds()` consent gating.
-- Added explicit `com.google.android.gms.permission.AD_ID` permission declaration to app manifest for targetSdk 33+ Play Store policy compliance.
-- Added Privacy Policy link (`https://vexel.pk/apps/offline-mini-arcade/privacy/`) and UMP Privacy Options re-entry button in Settings.
-- Maintained 100% offline core gameplay, zero ads during active play, ad-free instant retries, and one-time non-consumable `premium_lifetime` ad removal.
+- Adds centralized AdMob, UMP consent, restrained post-run interstitials, approved-screen banners, and voluntary rewarded coins.
+- Adds Privacy choices re-entry from Settings and safe consent/network failure handling.
+- Completes one-time `premium_lifetime` remove-ads entitlement handling and offline cached entitlement support.
+- Maintains 100% offline core gameplay, zero ads during active play, and ad-free instant retries.
 
 Play Console short notes:
 
 ```text
-Version 1.1.5 targets Android 16 (API 36), adds Google UMP privacy consent management, updates targetSdk manifest permissions, and maintains 100% offline gameplay.
+Version 1.1.6 adds privacy consent, restrained ads, and lifetime remove-ads support while maintaining 100% offline gameplay.
 ```
+
+## Release history
+
+Version 1.1.5 (versionCode 15) was released for Android 16 / SDK 36 compliance, including the target-SDK, compile-SDK, and related Play policy updates.
 
 ## Release notes for 1.1.2
 
